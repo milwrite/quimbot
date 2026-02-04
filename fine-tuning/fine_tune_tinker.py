@@ -77,7 +77,7 @@ def build_jsonl(dataset_name, split, out_path):
 
 
 def tinker_upload_file(api_base, api_key, jsonl_path):
-    url = f"{api_base}/files"
+    url = f"{api_base}/v1/files"
     with open(jsonl_path, "rb") as fh:
         files = {"file": fh}
         data = {"purpose": "fine-tune"}
@@ -88,7 +88,7 @@ def tinker_upload_file(api_base, api_key, jsonl_path):
 
 
 def tinker_fine_tune(api_base, api_key, training_file_id, model_suffix):
-    url = f"{api_base}/fine-tunes"
+    url = f"{api_base}/v1/fine-tunes"
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
     payload = {
         "training_file": training_file_id,

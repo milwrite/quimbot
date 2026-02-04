@@ -24,6 +24,7 @@ Set these in `fine-tuning/.env` (already created):
 
 Optional:
 - `TINKER_API_BASE` (default: `https://tinker.thinkingmachines.dev/services/tinker-prod`)
+  - Script uses OpenAI-style paths: `/v1/files` and `/v1/fine-tunes`
 
 ## Defaults
 
