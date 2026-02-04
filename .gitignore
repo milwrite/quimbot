@@ -1,2 +1,6 @@
 .env
 fine-tuning/.env
+fine-tuning/.venv/
+fine-tuning/data/
+**/__pycache__/
+*.pyc
