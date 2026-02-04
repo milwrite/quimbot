@@ -23,7 +23,7 @@ Set these in `fine-tuning/.env` (already created):
 - `HF_TOKEN`
 
 Optional:
-- `TINKER_API_BASE` (default: `https://api.tinker.ai/v1`)
+- `TINKER_API_BASE` (default: `https://tinker.thinkingmachines.dev/services/tinker-prod`)
 
 ## Defaults
 

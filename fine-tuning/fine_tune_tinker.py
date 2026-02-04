@@ -112,7 +112,7 @@ def main():
     args = parser.parse_args()
 
     api_key = os.getenv("TINKER_API_KEY")
-    api_base = os.getenv("TINKER_API_BASE", "https://api.tinker.ai/v1")
+    api_base = os.getenv("TINKER_API_BASE", "https://tinker.thinkingmachines.dev/services/tinker-prod")
 
     out_path = Path(args.out)
     count = build_jsonl(args.dataset, args.split, out_path)
