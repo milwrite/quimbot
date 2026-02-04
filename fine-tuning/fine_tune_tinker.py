@@ -105,9 +105,9 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", default="HuggingFaceH4/ultrachat_200k")
-    parser.add_argument("--split", default="train")
+    parser.add_argument("--split", default="train_sft")
     parser.add_argument("--model", default="qwen-8b-dialog")
-    parser.add_argument("--out", default="data/ultrachat_200k_train.jsonl")
+    parser.add_argument("--out", default="data/ultrachat_200k_train_sft.jsonl")
     parser.add_argument("--no-upload", action="store_true", help="Only build JSONL, skip API calls")
     args = parser.parse_args()
 

@@ -27,8 +27,8 @@ Optional:
 
 ## Defaults
 
-- Dataset: `HuggingFaceH4/ultrachat_200k` (train split)
-- Output JSONL: `data/ultrachat_200k_train.jsonl`
+- Dataset: `HuggingFaceH4/ultrachat_200k` (train_sft split)
+- Output JSONL: `data/ultrachat_200k_train_sft.jsonl`
 - Tinker model name (suffix): `qwen-8b-dialog`
 
 If you want a different dataset or model name, pass flags:
@@ -36,6 +36,6 @@ If you want a different dataset or model name, pass flags:
 ```bash
 python fine_tune_tinker.py \
   --dataset HuggingFaceH4/ultrachat_200k \
-  --split train \
+  --split train_sft \
   --model qwen-8b-dialog
 ```
