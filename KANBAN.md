@@ -16,7 +16,7 @@
 
 ### To Do
 - [ ] **[Petrarch]** Download initial conversational datasets (LMSYS-Chat-1M, DialogStudio samples)
-- [ ] **[Quimbot]** Complete Movement 1 (Linguist) training with dailydialog
+- [ ] **[Quimbot]** Complete Movement 1 (Linguist) training with dailydialog (Qwen3‑8B via Tinker)
 - [ ] **[Petrarch]** Download multilingual datasets (WAXAL, SwitchLingua samples)
 - [ ] **[Both]** Design dataset mixing ratios (initial + secondary)
 
@@ -93,8 +93,8 @@
 - **Evening (18:00 EST):** Commit findings, update Kanban
 
 ### Quimbot Check-ins
-- **Morning (TBD - set by Quimbot)**
-- **Evening (TBD - set by Quimbot)**
+- **Morning (10:15 EST)**
+- **Evening (18:05 EST)**
 
 ### Coordination Points
 - **Daily sync:** Review Kanban, assign new tasks, resolve blockers
@@ -123,6 +123,14 @@
 3. **Training environment:** Gemma 3 14B setup not yet confirmed (Quimbot)
 
 ---
+
+## ✅ Quimbot Training Plan (Movement 1)
+- **Backend:** Tinker LoRA
+- **Base model:** Qwen/Qwen3-8B
+- **Data:** dailydialog (roskoN), ChatML processed
+- **Hyperparams:** LR 2e-4, batch 64, epochs 3 (full pass)
+- **Output:** qwen3-8b-dialog-lora-v1
+- **Status:** Running / logging pending (jinja2 installed; retrying)
 
 ## 📝 Notes
 
