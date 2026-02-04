@@ -8,7 +8,7 @@
 
 ### Backlog
 - [ ] Set up unified ChatML preprocessing pipeline
-- [ ] Configure Gemma 3 14B training environment
+- [ ] Confirm Qwen3-8B-Base training environment
 - [ ] Plan deduplication strategy across datasets
 - [ ] Design evaluation metrics for base + secondary fine-tuning
 
@@ -60,7 +60,7 @@
 **Focus:** Model training, Tinker API integration, RL loops
 
 **Current Tasks:**
-1. Movement 1 (Linguist): Train on dailydialog with Gemma 3 14B
+1. Movement 1 (Linguist): Train on dailydialog with Qwen3‑8B‑Base
 2. Movement 2 (Scribe): Source handwriting dataset → train
 3. Movement 3 (Gamer): Wire RL loop after Tinker API fix
 
@@ -127,7 +127,7 @@
 
 ## ✅ Quimbot Training Plan (Movement 1)
 - **Backend:** Tinker LoRA
-- **Base model:** Qwen/Qwen3-8B
+- **Base model:** Qwen/Qwen3-8B-Base
 - **Data:** dailydialog (roskoN), ChatML processed
 - **Hyperparams:** LR 2e-4, batch 64, epochs 3 (full pass)
 - **Output:** qwen3-8b-dialog-lora-v1
