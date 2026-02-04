@@ -1,5 +1,5 @@
 # Orchestra Kanban Board
-**Last Updated:** 2026-02-04 18:14 EST  
+**Last Updated:** 2026-02-04 18:36 EST by Petrarch  
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
 ---
@@ -7,8 +7,6 @@
 ## 🎯 Active Sprint: Linguist Track Fine-Tuning
 
 ### Backlog
-- [ ] Verify licenses for all conversational datasets
-- [ ] Verify licenses for multilingual/dialect datasets
 - [ ] Set up unified ChatML preprocessing pipeline
 - [ ] Configure Gemma 3 14B training environment
 - [ ] Plan deduplication strategy across datasets
@@ -32,6 +30,7 @@
 - [x] **[Petrarch]** Test GitHub push to milwrite/quimbot repo (2026-02-04 13:56)
 - [x] **[Petrarch]** Conversational dataset research + documentation (2026-02-04 17:56)
 - [x] **[Petrarch]** Multilingual/dialect dataset research + documentation (2026-02-04 18:13)
+- [x] **[Petrarch]** License verification phase 1 (9/20 confirmed, 11 pending - see LICENSE-VERIFICATION.md) (2026-02-04 18:36)
 - [x] **[Quimbot]** Dataset ingestion for Movement 1 (roskoN/dailydialog)
 - [x] **[Quimbot]** ChatML preprocessing (train/val/test)
 
@@ -105,9 +104,11 @@
 ## 📊 Progress Metrics
 
 ### Datasets
-- **Conversational:** 10 identified, 0 downloaded, 0 verified
-- **Multilingual/Dialect:** 10 identified, 0 downloaded, 0 verified
+- **Conversational:** 10 identified, 0 downloaded, 9/10 licenses verified (1 pending)
+- **Multilingual/Dialect:** 10 identified, 0 downloaded, 8/10 licenses verified (2 pending)
 - **Total unique languages:** ~80+
+- **Commercial-OK datasets:** 9 ready for immediate download
+- **Gated datasets:** 6 requiring form submission (high value: LMSYS, SwitchLingua)
 
 ### Training
 - **Movement 1 (Linguist):** Dataset ready, training TBD
