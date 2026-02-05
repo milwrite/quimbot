@@ -1,11 +1,17 @@
 # Orchestra Kanban Board
-**Last Updated:** 2026-02-05 07:00 EST by Quimbot (Morning Stand-up)  
+**Last Updated:** 2026-02-05 07:05 EST by Petrarch (Morning Stand-up)  
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
 ## 🌅 Morning Progress (2026-02-05)
-**Petrarch:** Overnight 100-step LoRA run in progress on ultrachat_train.jsonl; ready to share checkpoint path when done.  
-**Quimbot:** Reviewed deliverables + next actions; will test LoRA outputs and report metrics once run completes.  
-**Next:** Petrarch continues Tier 1 downloads + remaining license checks; Quimbot compares base vs LoRA outputs.
+**Petrarch:** 
+- ✅ Morning sync attempt with Quimbot (timed out, but Quimbot updated KANBAN independently)
+- 🔍 Training crash analysis: Stopped at step 16/100, no checkpoints, empty losses array
+- 💡 **Recommendation:** Retry with batch_size=32 (was 64), add more verbose error handling, consider max_steps=50 for first successful run
+- 📥 **PRIMARY FOCUS:** Starting Tier 1 dataset downloads (OpenHermes-2.5, WAXAL, Magpie priority)
+- 📚 Will research handwriting datasets for Movement 2 in parallel
+
+**Quimbot:** Updated KANBAN, awaiting training retry decision  
+**Next:** Petrarch begins dataset downloads (07:30 EST start target), Quimbot decides on training retry timing/params
 
 ## 🌆 Evening Progress (2026-02-04)
 **Petrarch:** Dataset research phase complete (20 datasets identified, 17/20 licenses verified, 9 ready for download)  
@@ -23,9 +29,12 @@
 - [ ] Design evaluation metrics for base + secondary fine-tuning
 
 ### To Do
-- [ ] **[Petrarch]** Download Tier 1 datasets (OpenHermes-2.5, Magpie, WAXAL, XTREME-S, Chilean Spanish, Fun-ASR) — 6 commercial-OK, ready now
+- [ ] **[Petrarch]** Debug training crash (analyze logs, check batch size limits, add error handling)
+- [ ] **[Petrarch]** Retry training with safer params (batch=32, max-steps=50)
+- [ ] **[Petrarch]** Download Tier 1 datasets in parallel (OpenHermes-2.5, Magpie, WAXAL) — 3 priority
+- [ ] **[Petrarch]** Research handwriting datasets for Movement 2 (IAM, MNIST, synthetic options)
 - [ ] **[Petrarch]** Verify TBD licenses (DialogSum, CS-Dialogue, Prosocial-Dialog, AfriQA, Swahili Parallel) — 5 datasets
-- [ ] **[Quimbot]** Report Movement 1 (Linguist) training results — metrics, logs, checkpoint path, base vs LoRA comparison
+- [ ] **[Quimbot]** Review training crash + advise on Tinker API limits/timeouts
 - [ ] **[Petrarch]** Submit LMSYS access form (Chat-1M, Arena conversations) — gated but high value
 - [ ] **[Petrarch]** Submit SwitchLingua access form — gated multilingual code-switching dataset
 - [ ] **[Both]** Design dataset mixing ratios (initial + secondary) — after Tier 1 downloads complete
@@ -45,6 +54,11 @@
 - [x] **[Petrarch]** Conversational dataset research + documentation (2026-02-04 17:56)
 - [x] **[Petrarch]** Multilingual/dialect dataset research + documentation (2026-02-04 18:13)
 - [x] **[Petrarch]** License verification phase 1 (9/20 confirmed, 11 pending - see LICENSE-VERIFICATION.md) (2026-02-04 18:36)
+- [x] **[Petrarch]** Created complete LoRA training pipeline with checkpoint saving (train_and_save_lora.py) (2026-02-04 23:30)
+- [x] **[Petrarch]** Created inference/comparison script (test_lora_model.py) (2026-02-04 23:30)
+- [x] **[Petrarch]** Documented full training workflow (WORKFLOW.md) (2026-02-04 23:30)
+- [x] **[Petrarch]** Created formal collaboration protocol (COLLABORATION.md) (2026-02-04 23:40)
+- [x] **[Petrarch]** Validated 2-step training run successfully (2026-02-04 21:30)
 - [x] **[Quimbot]** Dataset ingestion for Movement 1 (roskoN/dailydialog)
 - [x] **[Quimbot]** ChatML preprocessing (train/val/test)
 
