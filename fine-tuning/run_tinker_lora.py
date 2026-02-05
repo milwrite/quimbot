@@ -139,9 +139,10 @@ def main():
             if args.save_every > 0 and step % args.save_every == 0:
                 ckpt_name = f"step_{step:04d}"
                 print(f"Saving checkpoint: {ckpt_name}...")
-                ckpt_path = training_client.save_weights_for_sampler(name=ckpt_name)
-                saved_checkpoints.append(ckpt_path)
-                print(f"✓ Saved: {ckpt_path}")
+                ckpt_future = training_client.save_weights_for_sampler(name=ckpt_name)
+                ckpt_response = ckpt_future.result()
+                saved_checkpoints.append(ckpt_response.path)
+                print(f"✓ Saved: {ckpt_response.path}")
 
             if args.max_steps and step >= args.max_steps:
                 print(f"Reached max_steps={args.max_steps}, stopping")
@@ -157,9 +158,10 @@ def main():
 
     # Always save final checkpoint
     print("Saving final checkpoint...")
-    final_path = training_client.save_weights_for_sampler(name="final")
-    saved_checkpoints.append(final_path)
-    print(f"✓ Saved: {final_path}")
+    final_future = training_client.save_weights_for_sampler(name="final")
+    final_response = final_future.result()
+    saved_checkpoints.append(final_response.path)
+    print(f"✓ Saved: {final_response.path}")
 
     print(f"\n✅ Training complete! Total steps: {step}")
     if saved_checkpoints:
