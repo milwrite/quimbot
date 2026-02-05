@@ -1,135 +1,117 @@
 #!/usr/bin/env python3
 """
-Fine-tune via Tinker API using a Hugging Face dialog dataset.
+Fine-tune via Tinker Python SDK (ServiceClient + TrainingClient).
 Defaults:
-- Dataset: HuggingFaceH4/ultrachat_200k (train)
+- Dataset JSONL: /home/milwrite/molt/ultrachat_200k_train_sft.jsonl
+- Base model: Qwen/Qwen3-8B
 - Model suffix: qwen-8b-dialog
 
-Assumes an OpenAI-compatible Tinker API:
-- POST /files (multipart) with purpose=fine-tune
-- POST /fine-tunes with training_file + model
+This uses the tinker-cookbook utilities to render chat messages into
+Tinker Datums and runs a simple supervised training loop.
 """
 
 import argparse
-import json
 import os
+import time
 from pathlib import Path
 
-import requests
-from datasets import load_dataset
 from dotenv import load_dotenv
-
-
-def extract_messages(example):
-    """Convert common dialog formats to OpenAI-style messages.
-    Returns list[dict] with keys role/content or None if unsupported.
-    """
-    if "messages" in example and isinstance(example["messages"], list):
-        msgs = []
-        for m in example["messages"]:
-            role = m.get("role") or m.get("from") or m.get("speaker")
-            content = m.get("content") or m.get("value") or m.get("text")
-            if role and content:
-                role = role.replace("human", "user").replace("assistant", "assistant")
-                if role in {"user", "assistant", "system"}:
-                    msgs.append({"role": role, "content": content})
-        return msgs if len(msgs) >= 2 else None
-
-    # ShareGPT-style
-    if "conversations" in example and isinstance(example["conversations"], list):
-        msgs = []
-        for m in example["conversations"]:
-            role = m.get("from") or m.get("role")
-            content = m.get("value") or m.get("content")
-            if role and content:
-                role = "assistant" if role.lower() in {"gpt", "assistant"} else "user"
-                msgs.append({"role": role, "content": content})
-        return msgs if len(msgs) >= 2 else None
-
-    # Generic dialog field
-    for key in ("dialog", "dialogue", "conversation", "chat"):
-        if key in example and isinstance(example[key], list):
-            msgs = []
-            for m in example[key]:
-                role = m.get("role") or m.get("speaker") or m.get("from")
-                content = m.get("content") or m.get("text") or m.get("value")
-                if role and content:
-                    role = "assistant" if role.lower() in {"assistant", "bot", "gpt"} else "user"
-                    msgs.append({"role": role, "content": content})
-            return msgs if len(msgs) >= 2 else None
-
-    return None
-
-
-def build_jsonl(dataset_name, split, out_path):
-    ds = load_dataset(dataset_name, split=split)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-
-    count = 0
-    with out_path.open("w", encoding="utf-8") as f:
-        for ex in ds:
-            msgs = extract_messages(ex)
-            if not msgs:
-                continue
-            f.write(json.dumps({"messages": msgs}, ensure_ascii=False) + "\n")
-            count += 1
-    return count
-
-
-def tinker_upload_file(api_base, api_key, jsonl_path):
-    url = f"{api_base}/v1/files"
-    with open(jsonl_path, "rb") as fh:
-        files = {"file": fh}
-        data = {"purpose": "fine-tune"}
-        headers = {"Authorization": f"Bearer {api_key}"}
-        r = requests.post(url, headers=headers, data=data, files=files, timeout=600)
-        r.raise_for_status()
-        return r.json()["id"]
-
-
-def tinker_fine_tune(api_base, api_key, training_file_id, model_suffix):
-    url = f"{api_base}/v1/fine-tunes"
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
-    payload = {
-        "training_file": training_file_id,
-        "model": "qwen-8b",
-        "suffix": model_suffix,
-    }
-    r = requests.post(url, headers=headers, json=payload, timeout=600)
-    r.raise_for_status()
-    return r.json()
+import datasets
+import tinker
+from tinker_cookbook import model_info, renderers
+from tinker_cookbook.supervised.common import compute_mean_nll
+from tinker_cookbook.supervised.data import conversation_to_datum
+from tinker_cookbook.tokenizer_utils import get_tokenizer
 
 
 def main():
     load_dotenv()
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", default="HuggingFaceH4/ultrachat_200k")
-    parser.add_argument("--split", default="train_sft")
-    parser.add_argument("--model", default="qwen-8b-dialog")
-    parser.add_argument("--out", default="data/ultrachat_200k_train_sft.jsonl")
-    parser.add_argument("--no-upload", action="store_true", help="Only build JSONL, skip API calls")
+    parser.add_argument("--data", default="/home/milwrite/molt/ultrachat_200k_train_sft.jsonl")
+    parser.add_argument("--base-model", default="Qwen/Qwen3-8B")
+    parser.add_argument("--suffix", default="qwen-8b-dialog")
+    parser.add_argument("--batch-size", type=int, default=64)
+    parser.add_argument("--learning-rate", type=float, default=1e-4)
+    parser.add_argument("--max-length", type=int, default=8192)
+    parser.add_argument("--lora-rank", type=int, default=32)
+    parser.add_argument("--steps", type=int, default=200)
+    parser.add_argument("--base-url", default=os.getenv("TINKER_API_BASE", "https://tinker.thinkingmachines.dev/services/tinker-prod"))
     args = parser.parse_args()
 
     api_key = os.getenv("TINKER_API_KEY")
-    api_base = os.getenv("TINKER_API_BASE", "https://tinker.thinkingmachines.dev/services/tinker-prod")
-
-    out_path = Path(args.out)
-    count = build_jsonl(args.dataset, args.split, out_path)
-    print(f"Wrote {count} examples to {out_path}")
-
-    if args.no_upload:
-        return
-
     if not api_key:
         raise SystemExit("Missing TINKER_API_KEY in environment")
 
-    file_id = tinker_upload_file(api_base, api_key, out_path)
-    print(f"Uploaded training file: {file_id}")
+    data_path = Path(args.data)
+    if not data_path.exists():
+        raise SystemExit(f"Dataset not found: {data_path}")
 
-    job = tinker_fine_tune(api_base, api_key, file_id, args.model)
-    print("Fine-tune job:")
-    print(json.dumps(job, indent=2))
+    # Load dataset from JSONL
+    ds = datasets.load_dataset("json", data_files=str(data_path), split="train")
+
+    # Renderer + tokenizer for the base model
+    tokenizer = get_tokenizer(args.base_model)
+    renderer_name = model_info.get_recommended_renderer_name(args.base_model)
+    renderer = renderers.get_renderer(renderer_name, tokenizer)
+
+    # Tinker client
+    service_client = tinker.ServiceClient(base_url=args.base_url, api_key=api_key)
+    training_client = service_client.create_lora_training_client(
+        base_model=args.base_model, rank=args.lora_rank, suffix=args.suffix
+    )
+
+    # Shuffle once
+    ds = ds.shuffle(seed=0)
+
+    n_batches = max(1, len(ds) // args.batch_size)
+    steps = min(args.steps, n_batches)
+
+    print(f"Training for {steps} steps (batch_size={args.batch_size})")
+
+    for step in range(steps):
+        start = step * args.batch_size
+        end = min((step + 1) * args.batch_size, len(ds))
+        batch_rows = ds.select(range(start, end))
+
+        batch = [
+            conversation_to_datum(
+                row["messages"],
+                renderer,
+                args.max_length,
+                renderers.TrainOnWhat.ALL_ASSISTANT_MESSAGES,
+            )
+            for row in batch_rows
+        ]
+
+        # Linear LR decay
+        lr_mult = max(0.0, 1.0 - step / steps)
+        current_lr = args.learning_rate * lr_mult
+        adam_params = tinker.AdamParams(
+            learning_rate=current_lr, beta1=0.9, beta2=0.95, eps=1e-8
+        )
+
+        fwd_bwd_future = training_client.forward_backward(batch, loss_fn="cross_entropy")
+        optim_future = training_client.optim_step(adam_params)
+
+        fwd_bwd_result = fwd_bwd_future.result()
+        optim_result = optim_future.result()
+
+        train_logprobs = [x["logprobs"] for x in fwd_bwd_result.loss_fn_outputs]
+        train_weights = [d.loss_fn_inputs["weights"] for d in batch]
+        train_nll = compute_mean_nll(train_logprobs, train_weights)
+
+        metrics = optim_result.metrics or {}
+        metrics.update(
+            step=step,
+            num_sequences=len(batch),
+            num_tokens=sum(d.model_input.length for d in batch),
+            learning_rate=current_lr,
+            train_nll=train_nll,
+        )
+
+        print(metrics)
+        time.sleep(0.1)
 
 
 if __name__ == "__main__":

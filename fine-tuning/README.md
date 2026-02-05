@@ -1,9 +1,9 @@
-# Fine-tuning (Tinker API)
+# Fine-tuning (Tinker SDK)
 
 This folder contains a minimal pipeline to:
 1) Pull a dialog dataset from Hugging Face
 2) Convert it to JSONL chat format
-3) Upload + launch a Tinker fine-tune
+3) Train using the official Tinker Python SDK
 
 ## Quickstart
 
@@ -12,7 +12,7 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# Build dataset + launch fine-tune (defaults target qwen-8b-dialog)
+# Launch fine-tune with the Tinker SDK (defaults target qwen-8b-dialog)
 python fine_tune_tinker.py
 ```
 
@@ -24,19 +24,20 @@ Set these in `fine-tuning/.env` (already created):
 
 Optional:
 - `TINKER_API_BASE` (default: `https://tinker.thinkingmachines.dev/services/tinker-prod`)
-  - Script uses OpenAI-style paths: `/v1/files` and `/v1/fine-tunes`
+  - Used by the Tinker SDK ServiceClient
 
 ## Defaults
 
 - Dataset: `HuggingFaceH4/ultrachat_200k` (train_sft split)
-- Output JSONL: `data/ultrachat_200k_train_sft.jsonl`
-- Tinker model name (suffix): `qwen-8b-dialog`
+- Output JSONL: `/home/milwrite/molt/ultrachat_200k_train_sft.jsonl`
+- Base model: `Qwen/Qwen3-8B`
+- Tinker model suffix: `qwen-8b-dialog`
 
 If you want a different dataset or model name, pass flags:
 
 ```bash
 python fine_tune_tinker.py \
-  --dataset HuggingFaceH4/ultrachat_200k \
-  --split train_sft \
-  --model qwen-8b-dialog
+  --data /home/milwrite/molt/ultrachat_200k_train_sft.jsonl \
+  --base-model Qwen/Qwen3-8B \
+  --suffix qwen-8b-dialog
 ```
