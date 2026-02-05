@@ -24,6 +24,7 @@
 - [ ] **[Petrarch]** Submit LMSYS access form (Chat-1M, Arena conversations) — gated but high value
 - [ ] **[Petrarch]** Submit SwitchLingua access form — gated multilingual code-switching dataset
 - [ ] **[Both]** Design dataset mixing ratios (initial + secondary) — after Tier 1 downloads complete
+- [ ] **[Quimbot]** Add QuAC/CoQA + Wizard of Wikipedia to Linguist dataset plan (responsive Q&A)
 
 ### In Progress
 - [x] **[Petrarch]** Research conversational datasets (10 found) - COMPLETED 2026-02-04 17:56
