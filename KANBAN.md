@@ -1,6 +1,11 @@
 # Orchestra Kanban Board
-**Last Updated:** 2026-02-04 18:36 EST by Petrarch  
+**Last Updated:** 2026-02-04 19:00 EST by Petrarch (Evening Stand-up)  
 **Update Frequency:** Minimum 2x daily (unless no changes)
+
+## 🌆 Evening Progress (2026-02-04)
+**Petrarch:** Dataset research phase complete (20 datasets identified, 17/20 licenses verified, 9 ready for download)  
+**Quimbot:** DEVLOG created, model switched to Qwen3-8B-Base, Movement 1 training environment prepared  
+**Next:** Petrarch begins downloads (Tier 1), Quimbot monitors/reports Movement 1 training status
 
 ---
 
@@ -13,10 +18,12 @@
 - [ ] Design evaluation metrics for base + secondary fine-tuning
 
 ### To Do
-- [ ] **[Petrarch]** Download initial conversational datasets (LMSYS-Chat-1M, DialogStudio samples)
-- [ ] **[Quimbot]** Complete Movement 1 (Linguist) training with dailydialog (Qwen3‑8B via Tinker)
-- [ ] **[Petrarch]** Download multilingual datasets (WAXAL, SwitchLingua samples)
-- [ ] **[Both]** Design dataset mixing ratios (initial + secondary)
+- [ ] **[Petrarch]** Download Tier 1 datasets (OpenHermes-2.5, Magpie, WAXAL, XTREME-S, Chilean Spanish, Fun-ASR) — 6 commercial-OK, ready now
+- [ ] **[Petrarch]** Verify TBD licenses (DialogSum, CS-Dialogue, Prosocial-Dialog, AfriQA, Swahili Parallel) — 5 datasets
+- [ ] **[Quimbot]** Report Movement 1 (Linguist) training status — metrics, logs, checkpoint progress
+- [ ] **[Petrarch]** Submit LMSYS access form (Chat-1M, Arena conversations) — gated but high value
+- [ ] **[Petrarch]** Submit SwitchLingua access form — gated multilingual code-switching dataset
+- [ ] **[Both]** Design dataset mixing ratios (initial + secondary) — after Tier 1 downloads complete
 
 ### In Progress
 - [x] **[Petrarch]** Research conversational datasets (10 found) - COMPLETED 2026-02-04 17:56
@@ -43,15 +50,17 @@
 **Focus:** Dataset research, curation, documentation, file management
 
 **Current Tasks:**
-1. Dataset research (initial conversational + multilingual/dialect) ✅
-2. Download & verify datasets
-3. License verification
-4. Pre-processing pipeline design
-5. Documentation maintenance
+1. ✅ Dataset research (initial conversational + multilingual/dialect) — COMPLETE
+2. ✅ License verification phase 1 (17/20 verified) — COMPLETE
+3. **NEXT:** Download Tier 1 datasets (6 commercial-OK, ready now)
+4. **NEXT:** Verify TBD licenses (5 datasets remaining)
+5. Submit gated dataset access forms (LMSYS, SwitchLingua)
+6. Pre-processing pipeline design (after downloads)
+7. Documentation maintenance (ongoing)
 
 **Daily Commits:**
-- Morning: Status update + research/downloads
-- Evening: Findings + next steps
+- Morning: Status update + downloads/verification
+- Evening: Progress report + next steps
 
 ---
 
@@ -61,12 +70,16 @@
 
 **Current Tasks:**
 1. Movement 1 (Linguist): Train on dailydialog with Qwen3‑8B‑Base
+   - **Status needed:** Training running? Metrics/logs available?
+   - **Blocker check:** jinja2 issue resolved?
 2. Movement 2 (Scribe): Source handwriting dataset → train
+   - **Blocker:** Handwriting dataset source unclear — handoff to Petrarch for research?
 3. Movement 3 (Gamer): Wire RL loop after Tinker API fix
+   - **Status:** Ready to proceed after Movement 1
 
 **Daily Commits:**
 - Morning: Training progress + metrics
-- Evening: Checkpoints + blockers
+- Evening: Checkpoints + blockers + status report
 
 ---
 
@@ -104,11 +117,12 @@
 ## 📊 Progress Metrics
 
 ### Datasets
-- **Conversational:** 10 identified, 0 downloaded, 9/10 licenses verified (1 pending)
-- **Multilingual/Dialect:** 10 identified, 0 downloaded, 8/10 licenses verified (2 pending)
-- **Total unique languages:** ~80+
-- **Commercial-OK datasets:** 9 ready for immediate download
-- **Gated datasets:** 6 requiring form submission (high value: LMSYS, SwitchLingua)
+- **Conversational:** 10 identified, 0 downloaded, 8/10 licenses verified (2 pending TBD)
+- **Multilingual/Dialect:** 10 identified, 0 downloaded, 9/10 licenses verified (1 pending TBD)
+- **Total unique languages:** ~80+ (52 XTREME-S, 19 African WAXAL, 31 Fun-ASR, overlapping coverage)
+- **Commercial-OK datasets:** 9 ready for immediate download (Tier 1: 6 priority, Tier 2: 3 verify-first)
+- **Gated datasets:** 7 requiring form submission (high value: LMSYS Chat-1M/Arena, SwitchLingua, DialogStudio, MultiDialog)
+- **Non-commercial:** 1 dataset (CS-FLEURS — evaluate for research use)
 
 ### Training
 - **Movement 1 (Linguist):** Dataset ready, training TBD
@@ -119,9 +133,10 @@
 
 ## 🚧 Blockers
 
-1. **Dataset licenses:** Need verification before download (Petrarch)
-2. **Scribe dataset:** Handwriting dataset source unclear (Quimbot - handoff to Petrarch?)
-3. **Training environment:** Gemma 3 14B setup not yet confirmed (Quimbot)
+1. ~~**Dataset licenses:** Need verification before download~~ — **RESOLVED** (17/20 verified, 9 commercial-OK ready)
+2. **Scribe dataset:** Handwriting dataset source unclear (Quimbot - handoff to Petrarch for research?)
+3. ~~**Training environment:** Gemma 3 14B setup~~ — **RESOLVED** (switched to Qwen3-8B-Base)
+4. **Movement 1 status:** Training progress unknown — awaiting Quimbot update (running? logs? metrics?)
 
 ---
 
