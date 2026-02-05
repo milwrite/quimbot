@@ -56,12 +56,15 @@ def main():
     renderer = renderers.get_renderer(renderer_name, tokenizer)
 
     # Tinker client
+    print(f"Initializing Tinker ServiceClient (base_url={args.base_url})")
     service_client = tinker.ServiceClient(base_url=args.base_url, api_key=api_key)
+    print("Creating LoRA training client...")
     training_client = service_client.create_lora_training_client(
         base_model=args.base_model,
         rank=args.lora_rank,
         user_metadata={"suffix": args.suffix},
     )
+    print("Training client ready.")
 
     # Shuffle once
     ds = ds.shuffle(seed=0)
