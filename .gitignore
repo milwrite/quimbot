@@ -2,5 +2,6 @@
 fine-tuning/.env
 fine-tuning/.venv/
 fine-tuning/data/
+datasets/
 **/__pycache__/
 *.pyc
