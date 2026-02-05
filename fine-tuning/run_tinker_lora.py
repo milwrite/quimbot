@@ -71,7 +71,9 @@ def main():
     parser.add_argument("--max-steps", type=int, default=0, help="0=full epoch")
     args = parser.parse_args()
 
-    service_client = tinker.ServiceClient()
+    base_url = os.getenv("TINKER_API_BASE", "https://tinker.thinkingmachines.dev/services/tinker-prod")
+    service_client = tinker.ServiceClient(base_url=base_url)
+    print(f"Using Tinker base_url={base_url}")
     caps = service_client.get_server_capabilities()
     models = [m.model_name for m in caps.supported_models]
 
