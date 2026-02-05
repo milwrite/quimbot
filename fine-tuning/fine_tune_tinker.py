@@ -58,7 +58,9 @@ def main():
     # Tinker client
     service_client = tinker.ServiceClient(base_url=args.base_url, api_key=api_key)
     training_client = service_client.create_lora_training_client(
-        base_model=args.base_model, rank=args.lora_rank, suffix=args.suffix
+        base_model=args.base_model,
+        rank=args.lora_rank,
+        user_metadata={"suffix": args.suffix},
     )
 
     # Shuffle once
