@@ -72,10 +72,18 @@ def main():
     args = parser.parse_args()
 
     base_url = os.getenv("TINKER_API_BASE", "https://tinker.thinkingmachines.dev/services/tinker-prod")
-    service_client = tinker.ServiceClient(base_url=base_url)
-    print(f"Using Tinker base_url={base_url}")
+    api_key = os.getenv("TINKER_API_KEY")
+    if not api_key:
+        raise SystemExit("❌ Missing TINKER_API_KEY in environment")
+
+    print(f"Initializing Tinker ServiceClient (base_url={base_url})")
+    service_client = tinker.ServiceClient(base_url=base_url, api_key=api_key)
+    print("✓ ServiceClient initialized")
+    
+    print("Getting server capabilities...")
     caps = service_client.get_server_capabilities()
     models = [m.model_name for m in caps.supported_models]
+    print(f"✓ Available models: {models}")
 
     if args.base_model is None:
         # pick first Qwen 8B-ish model if available
@@ -83,17 +91,24 @@ def main():
         if not qwen_8b:
             raise SystemExit("No Qwen 8B model found. Pass --base-model explicitly.")
         base_model = qwen_8b[0]
+        print(f"✓ Auto-selected base model: {base_model}")
     else:
         base_model = args.base_model
+        print(f"✓ Using base model: {base_model}")
 
+    print(f"Creating LoRA training client (rank={args.rank})...")
     training_client = service_client.create_lora_training_client(
         base_model=base_model,
         rank=args.rank,
     )
+    print("✓ Training client created")
 
+    print("Getting tokenizer...")
     tokenizer = training_client.get_tokenizer()
+    print("✓ Tokenizer ready")
 
     data_path = Path(args.data)
+    print(f"Loading data from {data_path}...")
     batch = []
     step = 0
 
@@ -107,20 +122,26 @@ def main():
         batch.append(datum)
 
         if len(batch) >= args.batch:
+            print(f"Step {step + 1}: Training on batch of {len(batch)} examples...")
             fwdbwd = training_client.forward_backward(batch, "cross_entropy")
             optim = training_client.optim_step(types.AdamParams(learning_rate=args.learning_rate))
-            fwdbwd.result(); optim.result()
+            fwd_result = fwdbwd.result()
+            opt_result = optim.result()
+            print(f"✓ Step {step + 1} complete")
             batch = []
             step += 1
             if args.max_steps and step >= args.max_steps:
+                print(f"Reached max_steps={args.max_steps}, stopping")
                 break
 
     if batch:
+        print(f"Final batch: Training on {len(batch)} examples...")
         fwdbwd = training_client.forward_backward(batch, "cross_entropy")
         optim = training_client.optim_step(types.AdamParams(learning_rate=args.learning_rate))
         fwdbwd.result(); optim.result()
+        print("✓ Final batch complete")
 
-    print("Training complete.")
+    print(f"\n✅ Training complete! Total steps: {step}")
 
 
 if __name__ == "__main__":
