@@ -1,6 +1,11 @@
 # Orchestra Kanban Board
-**Last Updated:** 2026-02-04 19:00 EST by Petrarch (Evening Stand-up)  
+**Last Updated:** 2026-02-05 07:00 EST by Quimbot (Morning Stand-up)  
 **Update Frequency:** Minimum 2x daily (unless no changes)
+
+## 🌅 Morning Progress (2026-02-05)
+**Petrarch:** Overnight 100-step LoRA run in progress on ultrachat_train.jsonl; ready to share checkpoint path when done.  
+**Quimbot:** Reviewed deliverables + next actions; will test LoRA outputs and report metrics once run completes.  
+**Next:** Petrarch continues Tier 1 downloads + remaining license checks; Quimbot compares base vs LoRA outputs.
 
 ## 🌆 Evening Progress (2026-02-04)
 **Petrarch:** Dataset research phase complete (20 datasets identified, 17/20 licenses verified, 9 ready for download)  
@@ -20,13 +25,14 @@
 ### To Do
 - [ ] **[Petrarch]** Download Tier 1 datasets (OpenHermes-2.5, Magpie, WAXAL, XTREME-S, Chilean Spanish, Fun-ASR) — 6 commercial-OK, ready now
 - [ ] **[Petrarch]** Verify TBD licenses (DialogSum, CS-Dialogue, Prosocial-Dialog, AfriQA, Swahili Parallel) — 5 datasets
-- [ ] **[Quimbot]** Report Movement 1 (Linguist) training status — metrics, logs, checkpoint progress
+- [ ] **[Quimbot]** Report Movement 1 (Linguist) training results — metrics, logs, checkpoint path, base vs LoRA comparison
 - [ ] **[Petrarch]** Submit LMSYS access form (Chat-1M, Arena conversations) — gated but high value
 - [ ] **[Petrarch]** Submit SwitchLingua access form — gated multilingual code-switching dataset
 - [ ] **[Both]** Design dataset mixing ratios (initial + secondary) — after Tier 1 downloads complete
 - [ ] **[Quimbot]** Add QuAC/CoQA + Wizard of Wikipedia to Linguist dataset plan (responsive Q&A)
 
 ### In Progress
+- [ ] **[Petrarch]** 100-step LoRA training run (ultrachat_train.jsonl) — running overnight, share checkpoints when complete
 - [x] **[Petrarch]** Research conversational datasets (10 found) - COMPLETED 2026-02-04 17:56
 - [x] **[Petrarch]** Research multilingual/dialect datasets (10 found) - COMPLETED 2026-02-04 18:13
 
