@@ -12,3 +12,5 @@ Log of work on the project (timestamped, local time).
 - **2026-02-04 18:36 EST** — **[Petrarch]** Created `research/LICENSE-VERIFICATION.md` and updated `KANBAN.md`. **Why:** verify licenses for all 20 datasets before download. **Result:** Success (9/20 commercial-OK, 11 pending). **Next:** Download Tier 1 (6 datasets), verify Tier 2 (5 TBD).
 - **2026-02-04 18:46 EST** — **[Quimbot]** Updated `KANBAN.md` to reflect Qwen3‑8B‑Base (replacing Gemma 3 14B). **Why:** model choice changed. **Result:** Success (commit `fc52874`).
 - **2026-02-04 18:46 EST** — **[Quimbot]** Created `DEVLOG.md`. **Why:** requested by Zachary for ongoing traceability. **Result:** Success.
+- **2026-02-04 20:25 EST** — **[Quimbot]** Generated `/home/milwrite/molt/ultrachat_200k_train_sft.jsonl` (10k examples) via `prepare_data.py` using `datasets==4.0.0`. **Why:** training data missing. **Result:** Success.
+- **2026-02-04 20:26 EST** — **[Quimbot]** Updated `run_tinker_lora.py` to honor `TINKER_API_BASE`. **Why:** fix endpoint/TLS mismatch. **Result:** Success (commit `193bedd`).
