@@ -209,12 +209,28 @@ export TINKER_API_KEY="your-key"
 | Script | Purpose |
 |--------|---------|
 | `prepare_data.py` | Convert HuggingFace datasets → JSONL |
-| `train_and_save_lora.py` | Train LoRA model with checkpointing |
+| `train_and_save_lora.py` | Train LoRA model with full checkpointing (local + Tinker) |
 | `test_lora_model.py` | Generate responses and compare models |
-| `run_tinker_lora.py` | Simple training script (no saving) |
+| `run_tinker_lora.py` | Lightweight training with `--save-every` checkpoints to Tinker |
 | `inspect_tinker_api.py` | Debug Tinker SDK methods |
+
+### run_tinker_lora.py Options (Updated 2026-02-05)
+
+```bash
+python3.11 run_tinker_lora.py \
+  --data data/training_data.jsonl \
+  --batch 32 \
+  --max-steps 100 \
+  --save-every 25 \
+  --rank 16
+```
+
+- `--save-every N`: Save checkpoint every N steps (0 = only final)
+- Always saves `final` checkpoint at end
+- Checkpoint names: `step_0025`, `step_0050`, `final` (alphanumeric only)
+- Prints all `tinker://` paths at completion
 
 ---
 
-**Last Updated:** 2026-02-04 23:30 EST  
-**Status:** Ready for production training runs
+**Last Updated:** 2026-02-05 10:25 EST
+**Status:** Ready for production training runs (checkpoint saving fixed)

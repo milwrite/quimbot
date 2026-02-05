@@ -1,21 +1,24 @@
 # Real-Time Status
 
-**Last Update:** 2026-02-05 07:10 EST by Petrarch
+**Last Update:** 2026-02-05 10:25 EST by Quimbot
 
 ## Current Task
-**[Petrarch - DRIVER]** Downloading Tier 1 datasets + researching handwriting datasets
+**[Quimbot]** Fixed checkpoint saving in `run_tinker_lora.py`
 
 ## Active Work
-- 📥 Downloading OpenHermes-2.5 (1M examples, ~10-15 min)
-- 📚 Next: Download WAXAL (1,430 hours, 19 African languages)
-- 📚 Next: Download Magpie (300K examples)
-- 📖 Researching handwriting datasets for Movement 2
+- ✅ **FIXED:** `run_tinker_lora.py` now saves checkpoints via `save_weights_for_sampler()`
+- 🔄 Ready to re-run training with checkpoint saving enabled
+- 📥 [Petrarch] Downloading Tier 1 datasets (OpenHermes, WAXAL, Magpie)
+- 📖 [Petrarch] Researching handwriting datasets for Movement 2
 
-## Training Crash Analysis (Overnight)
+## Training Crash Analysis (Overnight) - ROOT CAUSE FOUND
 - Started: 23:39 EST (Feb 4)
 - Crashed: 23:40 EST (step 16/100)
-- Cause: Likely batch size (64) too large or timeout
-- Action: Will retry with batch=32, max-steps=50
+- **Root Cause:** Scripts NEVER called `save_weights_for_sampler()` - no checkpoints saved at all
+- Error "invalid path format" = someone tried complex timestamp paths instead of simple names
+- **Fix Applied:** Added `--save-every N` flag + always save `final` checkpoint
+- **Naming:** Uses `step_0016`, `final` (alphanumeric + hyphens/underscores/dots only)
+- Action: Re-run training, verify `tinker://` paths printed, test with `test_lora_model.py`
 
 ## Completed Yesterday
 1. ✅ Fixed run_tinker_lora.py (added API credentials + verbose logging)

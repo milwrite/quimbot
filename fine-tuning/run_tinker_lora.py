@@ -69,6 +69,7 @@ def main():
     parser.add_argument("--learning-rate", type=float, default=1e-4)
     parser.add_argument("--batch", type=int, default=64)
     parser.add_argument("--max-steps", type=int, default=0, help="0=full epoch")
+    parser.add_argument("--save-every", type=int, default=0, help="Save checkpoint every N steps (0=only final)")
     args = parser.parse_args()
 
     base_url = os.getenv("TINKER_API_BASE", "https://tinker.thinkingmachines.dev/services/tinker-prod")
@@ -107,6 +108,9 @@ def main():
     tokenizer = training_client.get_tokenizer()
     print("✓ Tokenizer ready")
 
+    # Track saved checkpoint paths (tinker:// URIs)
+    saved_checkpoints = []
+
     data_path = Path(args.data)
     print(f"Loading data from {data_path}...")
     batch = []
@@ -130,6 +134,15 @@ def main():
             print(f"✓ Step {step + 1} complete")
             batch = []
             step += 1
+
+            # Save checkpoint if --save-every is set
+            if args.save_every > 0 and step % args.save_every == 0:
+                ckpt_name = f"step_{step:04d}"
+                print(f"Saving checkpoint: {ckpt_name}...")
+                ckpt_path = training_client.save_weights_for_sampler(name=ckpt_name)
+                saved_checkpoints.append(ckpt_path)
+                print(f"✓ Saved: {ckpt_path}")
+
             if args.max_steps and step >= args.max_steps:
                 print(f"Reached max_steps={args.max_steps}, stopping")
                 break
@@ -139,9 +152,20 @@ def main():
         fwdbwd = training_client.forward_backward(batch, "cross_entropy")
         optim = training_client.optim_step(types.AdamParams(learning_rate=args.learning_rate))
         fwdbwd.result(); optim.result()
+        step += 1
         print("✓ Final batch complete")
 
+    # Always save final checkpoint
+    print("Saving final checkpoint...")
+    final_path = training_client.save_weights_for_sampler(name="final")
+    saved_checkpoints.append(final_path)
+    print(f"✓ Saved: {final_path}")
+
     print(f"\n✅ Training complete! Total steps: {step}")
+    if saved_checkpoints:
+        print("\n📦 Saved checkpoints:")
+        for cp in saved_checkpoints:
+            print(f"   {cp}")
 
 
 if __name__ == "__main__":
