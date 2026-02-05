@@ -1,16 +1,23 @@
 # Real-Time Status
 
-**Last Update:** 2026-02-04 23:32 EST by Petrarch
+**Last Update:** 2026-02-05 07:10 EST by Petrarch
 
 ## Current Task
-**[Petrarch - DRIVER]** Running 100-step LoRA training on ultrachat_train.jsonl (1000 examples)
+**[Petrarch - DRIVER]** Downloading Tier 1 datasets + researching handwriting datasets
 
 ## Active Work
-- Training Qwen/Qwen3-8B with LoRA (rank=16, batch=64)
-- Checkpoint saving enabled (every 25 steps)
-- ETA: ~5-10 minutes
+- 📥 Downloading OpenHermes-2.5 (1M examples, ~10-15 min)
+- 📚 Next: Download WAXAL (1,430 hours, 19 African languages)
+- 📚 Next: Download Magpie (300K examples)
+- 📖 Researching handwriting datasets for Movement 2
 
-## Completed Today
+## Training Crash Analysis (Overnight)
+- Started: 23:39 EST (Feb 4)
+- Crashed: 23:40 EST (step 16/100)
+- Cause: Likely batch size (64) too large or timeout
+- Action: Will retry with batch=32, max-steps=50
+
+## Completed Yesterday
 1. ✅ Fixed run_tinker_lora.py (added API credentials + verbose logging)
 2. ✅ Created prepare_data.py (HuggingFace → JSONL conversion)
 3. ✅ Tested 2-step training (validation successful)
