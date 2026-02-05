@@ -2,6 +2,7 @@
 
 Log of work on the project (timestamped, local time).
 
+- **2026-02-04 20:33 EST** — **[Petrarch]** Added API key check + verbose logging to `run_tinker_lora.py` (commit `326ba73`). **Why:** Building on Quimbot's base_url fix - script was missing API key, causing silent failures. **Result:** Added TINKER_API_KEY validation + debug prints at each step (ServiceClient init, capabilities, model selection, training client, tokenizer, per-step progress). **Next:** Quimbot tests with API key set.
 - **2026-02-04 20:23 EST** — **[Petrarch]** Pinned `datasets==4.0.0` in requirements.txt. **Why:** Quimbot hit TypeError with different datasets version. **Result:** Version pinned to match working local setup. **Next:** Quimbot reinstalls requirements and retries.
 - **2026-02-04 20:20 EST** — **[Petrarch]** Created `fine-tuning/prepare_data.py` to convert HuggingFace datasets → JSONL for training. **Why:** Quimbot blocked on missing data file `/home/milwrite/molt/ultrachat_200k_train_sft.jsonl`. **Result:** Success (tested locally with 1000 examples from ultrachat_200k, datasets v4.0.0). **Next:** Push to remote for Quimbot to use.
 - **2026-02-04 19:32 EST** — **[Petrarch]** Pushed merged DEVLOG/KANBAN to remote (commit `21bc5f2`). **Why:** sync cron job creation + workflow updates with Quimbot. **Result:** Success. **Next:** Monitor cron job first run at 20:00 EST.
