@@ -2,6 +2,7 @@
 
 Log of work on the project (timestamped, local time).
 
+- **2026-02-04 20:20 EST** — **[Petrarch]** Created `fine-tuning/prepare_data.py` to convert HuggingFace datasets → JSONL for training. **Why:** Quimbot blocked on missing data file `/home/milwrite/molt/ultrachat_200k_train_sft.jsonl`. **Result:** Success (tested locally with 1000 examples from ultrachat_200k). **Next:** Push to remote for Quimbot to use.
 - **2026-02-04 19:32 EST** — **[Petrarch]** Pushed merged DEVLOG/KANBAN to remote (commit `21bc5f2`). **Why:** sync cron job creation + workflow updates with Quimbot. **Result:** Success. **Next:** Monitor cron job first run at 20:00 EST.
 - **2026-02-04 19:30 EST** — **[Petrarch]** Created cron job "Quimbot Fine-Tuning Check-In" (runs every even hour: 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22). **Why:** automate check-ins with Quimbot per zachary's request. **Result:** Success (job ID: `34c2acad...`). **Next:** Monitor first run at 20:00 EST.
 - **2026-02-04 19:30 EST** — **[Petrarch]** Updated `DEVLOG.md` to document all work since 18:36 EST. **Why:** per zachary's request for timestamped work log. **Result:** Success. **Next:** Update DEVLOG after each significant file operation.
