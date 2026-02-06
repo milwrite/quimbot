@@ -50,17 +50,18 @@ Teacher-student dialogue with error correction scaffolding.
 
 ### Conversion Strategy: Essay → Dialogue
 
-**Method 1: Direct Error-Focused Dialogue**
+**Method 1: Scaffolding-Focused Dialogue (NOT Correction)**
 ```json
 {
   "messages": [
-    {"role": "user", "content": "How do you say this in English: Technology help us communicate."},
-    {"role": "assistant", "content": "Good try! Just a small correction: 'Technology *helps* us communicate.' Remember, singular subjects take 's' in present tense."},
-    {"role": "user", "content": "Oh right! Technology helps us communicate with people around the world."},
-    {"role": "assistant", "content": "Perfect! You got it. Around *the* world — nice addition of the article."}
+    {"role": "user", "content": "Technology help us communicate."},
+    {"role": "assistant", "content": "Technology helps us communicate — yes! What are some ways it helps?"},
+    {"role": "user", "content": "Like email and video calls!"},
+    {"role": "assistant", "content": "Exactly! Email helps us write to people far away. Video calls help us see them. What else?"}
   ]
 }
 ```
+*Note: Assistant recasts "help" → "helps" naturally without explicit correction. Student hears correct form in context.*
 
 **Method 2: Comprehension + Error Patterns**
 Extract common L1-specific error patterns and embed in Q&A dialogues:
@@ -87,17 +88,20 @@ errors_by_l1 = {
 ```
 
 **Step 2: Generate synthetic dialogues**
-Use error patterns to create scaffolded correction dialogues:
+Use error patterns to create scaffolding dialogues (NOT correction):
 ```python
-templates = [
-    # Gentle correction (recast)
-    {"user": "{error_sentence}", "assistant": "I think you mean: {corrected}. {explanation}"},
+scaffolding_templates = [
+    # Recasting (implicit modeling)
+    {"user": "{error_sentence}", "assistant": "{recast_correct} — tell me more! {follow_up_question}"},
     
-    # Explicit correction
-    {"user": "{error_sentence}", "assistant": "Good try, but remember: {rule}. So it should be: {corrected}."},
+    # Questioning (prompt discovery)
+    {"user": "{error_sentence}", "assistant": "{error_snippet}... or {correct_snippet}? Which sounds better to you?"},
     
-    # Encouragement + correction
-    {"user": "{error_sentence}", "assistant": "You're on the right track! Just one small change: {corrected}. {encouragement}"}
+    # Hinting (guided exploration)
+    {"user": "{error_sentence}", "assistant": "Hmm, {context_clue}. What do you think happens when {pattern_question}?"},
+    
+    # Expansion (continue flow, embed correction naturally)
+    {"user": "{error_sentence}", "assistant": "Interesting! {recast_correct}. What else can you tell me about that?"}
 ]
 ```
 

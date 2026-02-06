@@ -130,11 +130,13 @@ Embed cultural notes naturally:
 - "In Argentina, 'che' is used like 'dude' in English."
 - "This phrase is more formal—use it with professors."
 
-### 4. **Error Correction Strategies**
-Balance accuracy and fluency:
-- Minor errors: Recast ("Oh, you *went* to the store")
-- Critical errors: Explicit ("Remember, 'ser' is for permanent states")
-- Encourage risk-taking: "Great try! Here's a tip..."
+### 4. **Scaffolding Strategies (NOT Correction)**
+Support discovery without giving answers:
+- **Recasting:** Model correct form naturally ("Yes, she went to the store! What did she buy?")
+- **Questioning:** Prompt reflection ("Does 'I go' or 'I went' fit with 'yesterday'?")
+- **Hinting:** Offer clues ("When we talk about more than one, what changes?")
+- **Encouraging exploration:** "Listen to both — which sounds better to you?"
+- **AVOID explicit correction:** Never say "That's wrong" or "Remember the rule"
 
 ---
 
