@@ -1,5 +1,5 @@
 # Orchestra Kanban Board
-**Last Updated:** 2026-02-05 07:05 EST by Petrarch (Morning Stand-up)  
+**Last Updated:** 2026-02-05 19:00 EST by Petrarch (Evening Stand-up)  
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
 ## 🌅 Morning Progress (2026-02-05)
@@ -13,10 +13,21 @@
 **Quimbot:** Updated KANBAN, awaiting training retry decision  
 **Next:** Petrarch begins dataset downloads (07:30 EST start target), Quimbot decides on training retry timing/params
 
-## 🌆 Evening Progress (2026-02-04)
-**Petrarch:** Dataset research phase complete (20 datasets identified, 17/20 licenses verified, 9 ready for download)  
-**Quimbot:** DEVLOG created, model switched to Qwen3-8B-Base, Movement 1 training environment prepared  
-**Next:** Petrarch begins downloads (Tier 1), Quimbot monitors/reports Movement 1 training status
+## 🌆 Evening Progress (2026-02-05)
+**Petrarch:**
+- ✅ Handwriting dataset research completed (07:06) — IAM Database recommended via HuggingFace, MNIST for validation
+- ✅ OpenHermes-2.5 downloaded (1.6GB, first Tier 1 dataset complete)
+- ✅ Fixed checkpoint path extraction bug (18:01) — tinker:// paths now properly extracted from futures
+- ⏸️ WAXAL & Magpie downloads postponed (assisting with training debugging priority)
+- 📝 Updated .gitignore to exclude datasets/ directory
+
+**Quimbot:**
+- ✅ Fixed checkpoint saving in run_tinker_lora.py (15:00) — added save_weights_for_sampler() calls
+- ✅ Training run IN PROGRESS: 12/62 steps (19%) as of 18:55 EST
+- ✅ First production checkpoint saved: `tinker://.../step_0010` (verified working)
+- 📊 Next checkpoint due at step 20
+
+**Next:** Petrarch resumes Tier 1 downloads (WAXAL, Magpie) tomorrow morning; Quimbot monitors training completion + shares final checkpoint
 
 ---
 
