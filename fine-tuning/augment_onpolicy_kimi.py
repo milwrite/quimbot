@@ -9,7 +9,7 @@ import argparse, json, os, time
 import requests
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_MODEL = os.getenv("OPENROUTER_MODEL", "moonshotai/kimi-k2")
+DEFAULT_MODEL = os.getenv("OPENROUTER_MODEL", "moonshotai/kimi-k2.5")
 
 SYSTEM = (
     "You are a supportive language-learning partner. "
