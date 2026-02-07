@@ -8,7 +8,7 @@
 ## Active Work
 - ✅ **FIXED:** `run_tinker_lora.py` now saves checkpoints via `save_weights_for_sampler()`
 - 🔄 Ready to re-run training with checkpoint saving enabled
-- 📥 [Petrarch] Downloading Tier 1 datasets (OpenHermes, WAXAL, Magpie)
+- ✅ [Petrarch] Tier 1 datasets downloaded (OpenHermes, Magpie; WAXAL archived for Stage 2)
 - 📖 [Petrarch] Researching handwriting datasets for Movement 2
 
 ## Training Crash Analysis (Overnight) - ROOT CAUSE FOUND

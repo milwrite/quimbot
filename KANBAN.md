@@ -37,12 +37,12 @@
 - ✅ Training run COMPLETED overnight (63 steps, 18:44 EST Feb 5)
 - ✅ All checkpoints saved: step_0010 through step_0060 + final
 - ✅ Base path: `tinker://1d70c787-fc09-5de9-9922-4fcf062f7c80:train:0/sampler_weights/`
-- ✅ Datasets downloaded overnight (5.8GB total):
+- ✅ Datasets downloaded overnight (4.5GB total for Stage 1):
   - LMSYS Chat-1M (2.4GB, 1M conversations, 154 languages)
   - Magpie (2.0GB, 300K filtered examples)
-  - WAXAL (1.3GB, 22 African languages) — reconsidering for Stage 1
   - Prosocial Dialog (91MB, 120K safety-focused dialogues)
   - TOEFL11 error annotations (6K+ learner errors)
+  - *(WAXAL 1.3GB archived in stage2-variants/ for future use)*
 - ✅ Two-stage architecture designed (CUNY Language Learning approach)
 - ✅ Shifted pedagogy from "error correction" to "adaptive scaffolding"
 - ✅ All documentation committed to GitHub
@@ -106,7 +106,7 @@
 ### To Do
 - [ ] **[Petrarch]** Debug training crash (analyze logs, check batch size limits, add error handling)
 - [ ] **[Petrarch]** Retry training with safer params (batch=32, max-steps=50)
-- [ ] **[Petrarch]** Download Tier 1 datasets in parallel (OpenHermes-2.5, Magpie, WAXAL) — 3 priority
+- [ ] **[Petrarch]** ~~Download Tier 1 datasets~~ — COMPLETE (OpenHermes, Magpie downloaded; WAXAL moved to stage2-variants)
 - [ ] **[Petrarch]** Research handwriting datasets for Movement 2 (IAM, MNIST, synthetic options)
 - [ ] **[Petrarch]** Verify TBD licenses (DialogSum, CS-Dialogue, Prosocial-Dialog, AfriQA, Swahili Parallel) — 5 datasets
 - [ ] **[Quimbot]** Review training crash + advise on Tinker API limits/timeouts
