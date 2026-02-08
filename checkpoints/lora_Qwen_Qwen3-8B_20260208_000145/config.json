@@ -1,0 +1,9 @@
+{
+  "base_model": "Qwen/Qwen3-8B",
+  "rank": 16,
+  "learning_rate": 0.0002,
+  "batch_size": 16,
+  "max_steps": 500,
+  "data_path": "fine-tuning/data/stage1_train.jsonl",
+  "timestamp": "2026-02-08T00:01:45.693124"
+}

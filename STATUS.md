@@ -1,53 +1,43 @@
 # Real-Time Status
 
-**Last Update:** 2026-02-07 23:50 EST by Petrarch
+**Last Update:** 2026-02-08 00:25 EST by Petrarch
 
 ## Current Task
-**[Petrarch]** Blocked on Tinker API credentials
+**[Petrarch]** Stage 1 training completed — weights not persisted
 
-## Active Work
-- ✅ **COMPLETE:** Stage 1 training data prepared (413MB, 169,942 conversations)
-- ✅ **COMPLETE:** `prepare_stage1.py` created (Arrow loader)
-- ✅ **COMPLETE:** Tinker SDK 0.12.0 installed in venv
-- 🚨 **BLOCKED:** Tinker API key invalid — has OpenRouter key, needs `tml-` prefixed key
+## Training Run Summary
+- ✅ **500 steps completed** on 169,942 conversations
+- ✅ Model: Qwen/Qwen3-8B (LoRA rank 16)
+- ✅ Data: Stage 1 (LMSYS + Magpie + Prosocial)
+- ⚠️ **Weights NOT saved** — checkpoint path format was wrong (used slashes)
+- ✅ **Script fixed** — now uses simple labels for Tinker
 
-## Stage 1 Dataset (Ready)
-| Dataset | Examples |
-|---------|----------|
-| LMSYS-Chat-1M | 49,942 |
-| Magpie | 100,000 |
-| Prosocial Dialog | 20,000 |
-| **Total** | **169,942** |
+## What Happened
+1. Training ran successfully for 500 steps
+2. Checkpoint saves at 50, 100, 150... all failed (path format)
+3. Final save also failed (same issue)
+4. Training session closed → weights lost
+5. Script patched to use simple labels (`step_0050`, `final`)
 
-## Blocker Details
-The `.env` file contains:
+## Next Steps
+1. **Re-run training** with fixed script (checkpoints will save)
+2. Test inference on saved checkpoint
+3. Evaluate model quality
+
+## Fixed Code
+```python
+# Before (broken):
+checkpoint_path = run_dir / f"checkpoint_step_{step}"  # Has slashes!
+
+# After (working):
+checkpoint_label = f"step_{step:04d}"  # Simple label
 ```
-TINKER_API_KEY=sk-or-v1-...  # OpenRouter key
-```
-But Tinker SDK requires:
-```
-TINKER_API_KEY=tml-...  # Tinker key
-```
 
-**Action needed:** Provide valid Tinker API key to proceed with training.
-
-## Completed Today
-1. ✅ Stage 1 datasets confirmed (4.5GB)
-2. ✅ Created `prepare_stage1.py` (Arrow loader)
-3. ✅ Generated `stage1_train.jsonl` (ChatML format)
-4. ✅ Installed Tinker SDK
-5. ❌ Training blocked on credentials
-
-## Ownership Update
-**Petrarch now owns full pipeline:** dataset prep → training → evaluation
-(Previously split with Quimbot; updated per zachary's direction)
-
-## Next Steps (once unblocked)
-1. Run 500-step LoRA training on Stage 1 data
-2. Save checkpoints every 50 steps
-3. Evaluate final checkpoint
-4. Report metrics
+## Commits
+- `8fe6f93` — Stage 1 data prepared
+- `555f1ec` — Status blocked on credentials
+- *pending* — Script fix for checkpoint paths
 
 ---
 
-**Waiting On:** Valid Tinker API key (`tml-...` prefix)
+**Ready to re-run training with fixed script**

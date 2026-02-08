@@ -167,12 +167,13 @@ def main():
             
             # Save checkpoint
             if step % args.save_every == 0:
-                checkpoint_path = run_dir / f"checkpoint_step_{step}"
-                print(f"💾 Saving checkpoint to {checkpoint_path}...")
+                # Use simple label (no slashes) for Tinker
+                checkpoint_label = f"step_{step:04d}"
+                print(f"💾 Saving checkpoint: {checkpoint_label}...")
                 try:
-                    save_result = training_client.save_weights_for_sampler(str(checkpoint_path))
-                    save_result.result()  # Wait for completion
-                    print(f"✅ Checkpoint saved to {checkpoint_path}")
+                    save_result = training_client.save_weights_for_sampler(checkpoint_label)
+                    result = save_result.result()  # Wait for completion
+                    print(f"✅ Checkpoint saved: {result.path}")
                 except Exception as e:
                     print(f"⚠️  Checkpoint save failed: {e}")
             
@@ -193,13 +194,13 @@ def main():
     print(f"\n✅ Training complete! Total steps: {step}")
     
     # Save final checkpoint and get sampling client
-    final_checkpoint = run_dir / "final_lora_weights"
-    print(f"💾 Saving final LoRA weights to {final_checkpoint}...")
+    final_label = "final"
+    print(f"💾 Saving final LoRA weights: {final_label}...")
     try:
         # Save weights for later sampling
-        save_result = training_client.save_weights_for_sampler(str(final_checkpoint))
-        save_result.result()  # Wait for async completion
-        print(f"✅ LoRA weights saved to {final_checkpoint}")
+        save_result = training_client.save_weights_for_sampler(final_label)
+        result = save_result.result()  # Wait for async completion
+        print(f"✅ LoRA weights saved: {result.path}")
         
         # Also save full training state for resumption
         state_path = run_dir / "training_state"
