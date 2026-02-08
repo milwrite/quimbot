@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 
 import tinker
+from tinker import types
 
 
 # Sample test prompts for dialogue evaluation
@@ -38,16 +39,20 @@ def generate_text(sampling_client, prompt_messages, max_tokens=150, temperature=
         # Tokenize
         input_ids = tokenizer.encode(prompt_text, add_special_tokens=False)
         
-        # Sample from model
-        # Note: Actual sampling API may differ - check Tinker docs
-        result = sampling_client.sample(
-            input_tokens=input_ids,
+        # Sample from model using Tinker SamplingClient API
+        prompt = types.ModelInput.from_ints(tokens=input_ids)
+        sampling_params = types.SamplingParams(
             max_tokens=max_tokens,
             temperature=temperature
         )
+        result = sampling_client.sample(
+            prompt=prompt,
+            num_samples=1,
+            sampling_params=sampling_params
+        ).result()
         
         # Decode response
-        response_tokens = result.tokens if hasattr(result, 'tokens') else result
+        response_tokens = result.samples[0].tokens
         response_text = tokenizer.decode(response_tokens, skip_special_tokens=True)
         
         return response_text
