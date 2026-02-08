@@ -1,42 +1,53 @@
 # Real-Time Status
 
-**Last Update:** 2026-02-07 23:42 EST by Petrarch
+**Last Update:** 2026-02-07 23:50 EST by Petrarch
 
 ## Current Task
-**[Petrarch]** Stage 1 training data prepared — handoff to Quimbot
+**[Petrarch]** Blocked on Tinker API credentials
 
 ## Active Work
-- ✅ **COMPLETE:** `prepare_stage1.py` created (loads Arrow files directly)
-- ✅ **COMPLETE:** `data/stage1_train.jsonl` generated (413MB, 169,942 conversations)
-- 🔄 Awaiting Quimbot to run training on Stage 1 data
+- ✅ **COMPLETE:** Stage 1 training data prepared (413MB, 169,942 conversations)
+- ✅ **COMPLETE:** `prepare_stage1.py` created (Arrow loader)
+- ✅ **COMPLETE:** Tinker SDK 0.12.0 installed in venv
+- 🚨 **BLOCKED:** Tinker API key invalid — has OpenRouter key, needs `tml-` prefixed key
 
-## Stage 1 Dataset Breakdown
-| Dataset | Examples | Purpose |
-|---------|----------|---------|
-| LMSYS-Chat-1M | 49,942 | Real human conversations |
-| Magpie | 100,000 | High-quality synthetic |
-| Prosocial Dialog | 20,000 | Safety grounding |
-| **Total** | **169,942** | |
+## Stage 1 Dataset (Ready)
+| Dataset | Examples |
+|---------|----------|
+| LMSYS-Chat-1M | 49,942 |
+| Magpie | 100,000 |
+| Prosocial Dialog | 20,000 |
+| **Total** | **169,942** |
+
+## Blocker Details
+The `.env` file contains:
+```
+TINKER_API_KEY=sk-or-v1-...  # OpenRouter key
+```
+But Tinker SDK requires:
+```
+TINKER_API_KEY=tml-...  # Tinker key
+```
+
+**Action needed:** Provide valid Tinker API key to proceed with training.
 
 ## Completed Today
-1. ✅ Confirmed datasets downloaded (4.5GB total)
-2. ✅ Created `prepare_stage1.py` (Arrow file loader)
-3. ✅ Generated `stage1_train.jsonl` (ChatML format, shuffled)
-4. ✅ Validated output format
+1. ✅ Stage 1 datasets confirmed (4.5GB)
+2. ✅ Created `prepare_stage1.py` (Arrow loader)
+3. ✅ Generated `stage1_train.jsonl` (ChatML format)
+4. ✅ Installed Tinker SDK
+5. ❌ Training blocked on credentials
 
-## Blockers
-None
+## Ownership Update
+**Petrarch now owns full pipeline:** dataset prep → training → evaluation
+(Previously split with Quimbot; updated per zachary's direction)
 
-## Next Handoff
-**[Petrarch → Quimbot]**
-- **Data:** `fine-tuning/data/stage1_train.jsonl` (413MB, 169,942 examples)
-- **Task:** Run 500-1000 step LoRA training on Stage 1 data
-- **Script:** Use `train_and_save_lora.py` with Stage 1 data
-- **Params:** Recommend batch=16, lr=2e-4, save-every=50
-
-## Waiting On
-Quimbot to run Stage 1 training
+## Next Steps (once unblocked)
+1. Run 500-step LoRA training on Stage 1 data
+2. Save checkpoints every 50 steps
+3. Evaluate final checkpoint
+4. Report metrics
 
 ---
 
-**Training Data Location:** `quimbot/fine-tuning/data/stage1_train.jsonl`
+**Waiting On:** Valid Tinker API key (`tml-...` prefix)
