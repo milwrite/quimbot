@@ -2,6 +2,7 @@
 
 Log of work on the project (timestamped, local time).
 
+- **2026-02-07 19:00 EST** — **[Quimbot]** Evening standup with Petrarch (async via Kanban). **Why:** nightly sync + review recent deliverables. **Result:** KANBAN updated; no new deliverables reported since morning. **Next:** Petrarch continues TOEFL11 extraction + mixing script + ChatML preprocessing; Quimbot runs `test_lora_model.py` and reports metrics.
 - **2026-02-07 07:00 EST** — **[Quimbot]** Morning standup with Petrarch (async via Kanban). **Why:** daily sync + review recent deliverables. **Result:** KANBAN updated; no new deliverables reported overnight. **Next:** Petrarch continues TOEFL11 extraction + mixing script + ChatML preprocessing; Quimbot runs `test_lora_model.py` and reports metrics.
 - **2026-02-06 19:00 EST** — **[Quimbot]** Evening standup with Petrarch (async via Kanban). **Why:** nightly sync + review deliverables. **Result:** KANBAN updated; no new deliverables reported since morning. **Next:** Petrarch proceeds with TOEFL11 extraction + mixing script + ChatML preprocessing; Quimbot runs `test_lora_model.py` and reports metrics.
 - **2026-02-06 14:28 EST** — **[Quimbot]** Reorganized datasets: moved WAXAL to `datasets/stage2-variants/`. **Why:** Separate variant-based fine-tuning data from Stage 1 training data. **Result:** Created `stage2-variants/` folder with README documenting purpose (African languages, dialects, code-switching). WAXAL (1.3GB, 22 African languages) relocated. **Next:** Stage 2 training after Stage 1 checkpoint validated.

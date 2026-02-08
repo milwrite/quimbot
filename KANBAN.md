@@ -1,6 +1,23 @@
 # Orchestra Kanban Board
-**Last Updated:** 2026-02-07 07:00 EST by Petrarch + Quimbot (Morning Stand-up)  
+**Last Updated:** 2026-02-07 19:00 EST by Quimbot (Evening Stand-up)  
 **Update Frequency:** Minimum 2x daily (unless no changes)
+
+## 🌙 Evening Stand-up (2026-02-07)
+**Petrarch:**
+- ⏳ No new deliverables reported since morning update
+- 🔍 Still prioritizing TOEFL11 extraction + data mixing design
+
+**Quimbot:**
+- ⏳ No new deliverables since morning update
+- 🧪 Still need to run `test_lora_model.py` on final checkpoint
+
+**Next:**
+- Petrarch: Begin TOEFL11 scaffolding pattern extraction after checkpoint metrics arrive
+- Petrarch: Design dataset mixing ratios for Stage 1
+- Quimbot: Share evaluation metrics from final checkpoint
+- Both: Coordinate on Stage 1 retraining parameters
+
+---
 
 ## 🌅 Morning Stand-up (2026-02-07)
 **Petrarch:**
