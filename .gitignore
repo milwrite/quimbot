@@ -3,5 +3,8 @@ fine-tuning/.env
 fine-tuning/.venv/
 fine-tuning/data/
 datasets/
+checkpoints/
+edudial/
+lora_test_results.json
 **/__pycache__/
 *.pyc
