@@ -27,7 +27,7 @@ STUDENT_REACTIONS = ["gets disengaged", "asks for clarification", "tries another
 TEACHER_REACTIONS = ["adapts to student", "offers a new example", "gets briefly frustrated then adjusts"]
 
 
-def call_openrouter(prompt, api_key, model=DEFAULT_MODEL, temp=0.7):
+def call_openrouter(prompt, api_key, model=DEFAULT_MODEL, temp=0.7, max_tokens=300):
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
@@ -36,6 +36,7 @@ def call_openrouter(prompt, api_key, model=DEFAULT_MODEL, temp=0.7):
     payload = {
         "model": model,
         "temperature": temp,
+        "max_tokens": max_tokens,
         "messages": [
             {"role": "system", "content": SYSTEM},
             {"role": "user", "content": prompt},
@@ -69,7 +70,8 @@ def main():
     ap.add_argument("--output", required=True)
     ap.add_argument("--n", type=int, default=1000)
     ap.add_argument("--model", default=DEFAULT_MODEL)
-    ap.add_argument("--sleep", type=float, default=0.5)
+    ap.add_argument("--sleep", type=float, default=0.0)
+    ap.add_argument("--max-tokens", type=int, default=300)
     args = ap.parse_args()
 
     api_key = os.getenv("OPENROUTER_API_KEY")
@@ -79,7 +81,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         for i in range(1, args.n + 1):
             prompt = make_prompt()
-            text = call_openrouter(prompt, api_key, model=args.model)
+            text = call_openrouter(prompt, api_key, model=args.model, max_tokens=args.max_tokens)
             # best-effort JSON parse
             try:
                 obj = json.loads(text)
