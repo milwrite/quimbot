@@ -52,7 +52,7 @@ def generate_text(sampling_client, prompt_messages, max_tokens=150, temperature=
         ).result()
         
         # Decode response
-        response_tokens = result.samples[0].tokens
+        response_tokens = result.sequences[0].tokens
         response_text = tokenizer.decode(response_tokens, skip_special_tokens=True)
         
         return response_text
