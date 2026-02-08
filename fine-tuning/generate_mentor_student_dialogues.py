@@ -42,7 +42,7 @@ def call_openrouter(prompt, api_key, model=DEFAULT_MODEL, temp=0.7, max_tokens=3
             {"role": "user", "content": prompt},
         ],
     }
-    r = requests.post(OPENROUTER_URL, headers=headers, json=payload, timeout=90)
+    r = requests.post(OPENROUTER_URL, headers=headers, json=payload, timeout=30)
     r.raise_for_status()
     return r.json()["choices"][0]["message"]["content"].strip()
 
@@ -81,16 +81,20 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         for i in range(1, args.n + 1):
             prompt = make_prompt()
-            text = call_openrouter(prompt, api_key, model=args.model, max_tokens=args.max_tokens)
-            # best-effort JSON parse
+            print(f"starting {i}/{args.n}", flush=True)
             try:
-                obj = json.loads(text)
-            except json.JSONDecodeError:
-                # fallback: wrap raw text
-                obj = {"raw": text}
-            f.write(json.dumps(obj) + "\n")
-            if i % 50 == 0 or i == 1:
-                print(f"[{i}/{args.n}] ok")
+                text = call_openrouter(prompt, api_key, model=args.model, max_tokens=args.max_tokens)
+                # best-effort JSON parse
+                try:
+                    obj = json.loads(text)
+                except json.JSONDecodeError:
+                    obj = {"raw": text}
+                f.write(json.dumps(obj) + "\n")
+                if i % 50 == 0 or i == 1:
+                    print(f"[{i}/{args.n}] ok", flush=True)
+            except Exception as e:
+                f.write(json.dumps({"error": str(e), "index": i}) + "\n")
+                print(f"error at {i}: {e}", flush=True)
             time.sleep(args.sleep)
 
     print(f"Wrote {args.n} examples to {args.output}")
