@@ -71,6 +71,7 @@ def main():
     parser.add_argument("--max-steps", type=int, default=0, help="0=full epoch")
     parser.add_argument("--output-dir", default="checkpoints", help="Directory to save LoRA weights")
     parser.add_argument("--save-every", type=int, default=50, help="Save checkpoint every N steps")
+    parser.add_argument("--resume", default=None, help="tinker:// checkpoint to resume from")
     args = parser.parse_args()
 
     base_url = os.getenv("TINKER_API_BASE", "https://tinker.thinkingmachines.dev/services/tinker-prod")
@@ -104,6 +105,11 @@ def main():
         rank=args.rank,
     )
     print("✓ Training client created")
+
+    if args.resume:
+        print(f"Loading checkpoint: {args.resume}")
+        training_client.load_state(args.resume).result()
+        print("✓ Checkpoint loaded")
 
     print("Getting tokenizer...")
     tokenizer = training_client.get_tokenizer()
