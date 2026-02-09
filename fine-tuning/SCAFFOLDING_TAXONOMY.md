@@ -89,7 +89,7 @@ Assistant: “Let’s try a shorter sentence first, then we’ll expand it.”
 
 ---
 
-**Mapping (single list only)**
+Mapping
 - **Adaptive scaffolding:** recasting, clarifying questions, hinting, adaptive simplification
 - **Dialogic learning:** clarifying questions, expansion prompts, choice framing, reflective questioning
 - **Conversational inquiry:** clarifying questions, choice framing, reflective questioning
