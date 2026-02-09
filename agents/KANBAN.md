@@ -1,6 +1,27 @@
 # Orchestra Kanban Board
-**Last Updated:** 2026-02-08 07:00 EST by Quimbot (Morning Stand-up)  
+**Last Updated:** 2026-02-09 07:00 EST by Petrarch (Morning Stand-up)  
 **Update Frequency:** Minimum 2x daily (unless no changes)
+
+## 🌅 Morning Stand-up (2026-02-09)
+**Petrarch:**
+- ✅ Repo synced (pulled latest: LoRA-ROADMAP.md, SCAFFOLDING_TAXONOMY.md, DEVLOG updates)
+- ✅ Reviewed Stage 1 eval results (`stage1_eval.json`): LoRA model shows more concise responses vs base
+- ✅ Reviewed new deliverables: scaffolding taxonomy (10 pedagogical patterns), on-policy fine-tuning roadmap
+- 🔍 Quimbot session not active; proceeding with documentation review and next steps planning
+- 📊 Key finding: LoRA model removes verbose thinking patterns, responds more directly
+
+**Quimbot:**
+- ⚠️ Session not active at standup time
+- 📝 Recent deliverables (overnight): LoRA-ROADMAP.md (on-policy training workflow), SCAFFOLDING_TAXONOMY.md (adaptive scaffolding patterns)
+- ✅ Prior work: evaluation framework v2, repo reorganization, model testing complete
+
+**Next:**
+- Petrarch: Review TOEFL11 extraction requirements, plan dataset mixing based on scaffolding taxonomy
+- Petrarch: Assess on-policy training pipeline requirements per LoRA-ROADMAP.md
+- Quimbot (when active): Share status on Stage 1 retraining and next checkpoint plans
+- Both: Coordinate on implementing on-policy sampling/scoring/training scripts
+
+---
 
 ## 🌅 Morning Stand-up (2026-02-08)
 **Petrarch:**
