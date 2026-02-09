@@ -1,0 +1,14 @@
+# Qwen Evaluation Framework Requirements
+# Install with: pip3 install -r requirements-eval.txt
+
+# Core
+pyyaml>=6.0
+
+# Optional: Advanced metrics (uncomment if needed)
+# numpy>=1.24.0
+# scikit-learn>=1.3.0
+# nltk>=3.8.0
+
+# Optional: Visualization (uncomment if needed)
+# matplotlib>=3.7.0
+# seaborn>=0.12.0

@@ -1,0 +1,34 @@
+# Example Qwen Evaluation Configuration
+# Usage: python3 qwen-eval-v2.py --config eval-config-example.yaml
+
+# Models to evaluate (Ollama format)
+models:
+  - qwen2.5:8b              # Base model
+  - qwen-8b-dialog-v1       # Your fine-tuned variant
+
+# Test suite (built-in name or path to YAML file)
+test_suite: pedagogical
+
+# Output settings
+output_dir: ./evals
+output_json: results.json
+output_report: report.md
+
+# Performance settings
+timeout: 60           # Inference timeout (seconds)
+max_workers: 4        # Parallel workers
+cache_results: true   # Enable caching
+
+# Metrics to compute
+include_metrics:
+  - response_length
+  - word_count
+  - question_count
+  - question_ratio
+  - inquiry_markers
+  - collaborative_markers
+  - lexical_diversity
+
+# Logging
+verbose: true
+log_level: INFO

@@ -1,10 +1,10 @@
 # Real-Time Status
 
-**Last Update:** 2026-02-08 03:05 EST by Quimbot
+**Last Update:** 2026-02-08 21:35 EST by Petrarch
 
 ## Current Task
-- **[Petrarch]** Stage 1 training rerun with checkpoint saving fixed
-- **[Quimbot]** Evaluation + reporting (LoRA vs base)
+- **[Petrarch]** Evaluation framework v2 complete + documentation
+- **[Quimbot]** Awaiting next stage training/eval instructions
 
 ## Training Status
 **Stage 0 (production proof run):**
