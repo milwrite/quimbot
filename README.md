@@ -6,6 +6,30 @@ A workspace for the Orchestra fine-tuning project—building pedagogically-aware
 
 ---
 
+## Table of Contents
+
+- [Architecture Overview](#architecture-overview)
+  - [Stage 1: Core Linguist](#stage-1-core-linguist)
+  - [Stage 2: Language-Specific Variants](#stage-2-language-specific-variants)
+- [Fine-Tuning Philosophy](#fine-tuning-philosophy)
+  - [On-Policy Reward Learning](#on-policy-reward-learning)
+  - [Scaffolding Over Correction](#scaffolding-over-correction)
+- [Training Data](#training-data)
+  - [Stage 1 Datasets](#stage-1-datasets-45gb-total)
+  - [Stage 2 Reserved](#stage-2-reserved)
+- [Pipeline Components](#pipeline-components)
+  - [Training Infrastructure](#training-infrastructure)
+  - [Key Scripts](#key-scripts)
+  - [Workflow Files](#workflow-files)
+- [Evaluation Framework](#evaluation-framework)
+- [Evaluation Metrics](#evaluation-metrics)
+- [Data Policy](#data-policy)
+- [Project Structure](#project-structure)
+- [Quick Links](#quick-links)
+- [Current Status](#current-status)
+
+---
+
 ## Architecture Overview
 
 ```
@@ -117,11 +141,34 @@ We avoid explicit correction ("That's wrong") to support learner autonomy and di
 
 | File | Purpose |
 |------|---------|
-| `KANBAN.md` | Task board (updated 2x daily minimum) |
-| `STATUS.md` | Current training/eval state |
-| `DEVLOG.md` | Timestamped work notes |
-| `RUNLOG.md` | Training run excerpts |
-| `CUNY-LANGUAGE-ARCHITECTURE.md` | Full architectural specification |
+| [`agents/KANBAN.md`](agents/KANBAN.md) | Task board (updated 2x daily minimum) |
+| [`agents/STATUS.md`](agents/STATUS.md) | Current training/eval state |
+| [`agents/DEVLOG.md`](agents/DEVLOG.md) | Timestamped work notes |
+| [`agents/RUNLOG.md`](agents/RUNLOG.md) | Training run excerpts |
+| [`research/CUNY-LANGUAGE-ARCHITECTURE.md`](research/CUNY-LANGUAGE-ARCHITECTURE.md) | Full architectural specification |
+
+---
+
+## Evaluation Framework
+
+A sophisticated toolkit for evaluating model variants with parallel execution, caching, and rich metrics.
+
+**Location:** [`evaluation/`](evaluation/)
+
+**Features:**
+- 15+ metrics (pedagogical quality, dialogue, complexity)
+- 4 built-in test suites + custom YAML support
+- Parallel execution with result caching
+- JSON/Markdown/Comparison reporters
+
+**Quick Start:**
+```bash
+cd evaluation
+pip3 install -r requirements-eval.txt
+python3 qwen-eval-v2.py --models base-model fine-tuned-v1 --verbose
+```
+
+**Documentation:** [evaluation/QWEN-EVAL-V2-README.md](evaluation/QWEN-EVAL-V2-README.md)
 
 ---
 
@@ -151,29 +198,47 @@ We avoid explicit correction ("That's wrong") to support learner autonomy and di
 
 ```
 quimbot/
-├── fine-tuning/          # Training scripts + workflows
-├── datasets/             # Local data storage (gitignored)
+├── README.md                  # This file
+├── CLAUDE.md                  # Agent instructions
+├── agents/                    # Agent coordination
+│   ├── COLLABORATION.md       # Multi-agent protocol
+│   ├── KANBAN.md              # Task board + stand-ups
+│   ├── STATUS.md              # Real-time status
+│   ├── DEVLOG.md              # Timestamped work log
+│   ├── RUNLOG.md              # Training run history
+│   └── NEXT-ACTIONS.md        # Action items
+├── evaluation/                # Model evaluation framework
+│   ├── qwen-eval-v2.py        # Main CLI (v2)
+│   ├── qwen_eval/             # Core package
+│   └── QWEN-EVAL-V2-README.md # Full documentation
+├── fine-tuning/               # Training scripts + workflows
+│   ├── run_tinker_lora.py     # LoRA training
+│   ├── prepare_stage1.py      # Data mixing
+│   └── test_lora_model.py     # Evaluation
+├── research/                  # Planning + dataset research
+│   ├── CUNY-LANGUAGE-ARCHITECTURE.md  # Architecture spec
+│   ├── TOEFL11-INTEGRATION-PLAN.md    # Integration plan
+│   └── LICENSE-VERIFICATION.md        # Dataset licenses
+├── datasets/                  # Local data storage (gitignored)
 │   ├── lmsys-chat-1m/
 │   ├── magpie/
 │   ├── prosocial/
 │   ├── toefl11/
-│   └── stage2-variants/  # WAXAL + future variant data
-├── checkpoints/          # Local checkpoint cache
-├── research/             # Dataset research + license verification
-├── KANBAN.md             # Task board
-├── STATUS.md             # Current state
-├── DEVLOG.md             # Work log
-└── CUNY-LANGUAGE-ARCHITECTURE.md  # Full architecture spec
+│   └── stage2-variants/       # WAXAL + future variant data
+└── checkpoints/               # Local checkpoint cache (gitignored)
 ```
 
 ---
 
 ## Quick Links
 
-- [Fine-tuning README](fine-tuning/README.md)
-- [Research README](research/README.md)
-- [Architecture Spec](CUNY-LANGUAGE-ARCHITECTURE.md)
-- [Collaboration Protocol](COLLABORATION.md)
+- [Evaluation Framework](evaluation/) - Model testing & comparison
+- [Fine-tuning README](fine-tuning/README.md) - Training workflows
+- [Research README](research/README.md) - Dataset research
+- [Architecture Spec](research/CUNY-LANGUAGE-ARCHITECTURE.md) - Full design
+- [Collaboration Protocol](agents/COLLABORATION.md) - Multi-agent workflow
+- [Task Board](agents/KANBAN.md) - Current sprint
+- [Status](agents/STATUS.md) - Real-time updates
 
 ---
 
@@ -187,6 +252,7 @@ quimbot/
 **Stage 1 (Core Linguist):** 🔄 In Progress  
 - Datasets downloaded (4.5GB)
 - Mixing script ready
+- Evaluation framework v2 complete
 - Awaiting full training run with fixed checkpoint saving
 
 **Stage 2 (Variants):** ⏸️ Pending Stage 1 completion
