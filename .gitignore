@@ -8,3 +8,12 @@ edudial/
 lora_test_results.json
 **/__pycache__/
 *.pyc
+
+# OpenClaw workspace/agent persona files (should not be part of the quimbot repo)
+AGENTS.md
+BOOTSTRAP.md
+HEARTBEAT.md
+IDENTITY.md
+SOUL.md
+TOOLS.md
+USER.md
