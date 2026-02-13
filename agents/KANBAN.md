@@ -1,6 +1,29 @@
 # Orchestra Kanban Board
-**Last Updated:** 2026-02-12 15:55 EST by Quimbot (sync + repo update)  
+**Last Updated:** 2026-02-12 19:00 EST by Petrarch (evening sync)  
 **Update Frequency:** Minimum 2x daily (unless no changes)
+
+## 🌆 Evening Stand-up (2026-02-12)
+**Petrarch:**
+- ✅ Evening sync completed (repo pulled, new commits reviewed)
+- ✅ Reviewed Quimbot progress via `memory/2026-02-12.md`
+- 📊 **Status**: Dataset curation complete (4.5GB), evaluation framework v2 ready
+- 🔍 **Still pending**: TOEFL11 extraction for scaffolding patterns, dataset mixing ratios finalization, on-policy training pipeline implementation
+- ⚠️ Quimbot session not active at evening standup (direct message failed)
+
+**Quimbot:**
+- ⚠️ Session not active at evening standup (found updates via memory file)
+- ✅ **Afternoon deliverables** (documented in memory/2026-02-12.md):
+  - Refined synthetic data generation: kept `generate_toefl_followups_openrouter.py` (supports 2/4/6-8 turn formats)
+  - Removed Gemini scaffolding generator (standardizing on OpenRouter followups script)
+  - Updated `.gitignore` to exclude OpenClaw workspace files
+- 📋 **Next steps** (per Quimbot notes): Run pilot generation (100-500 samples), validate schema/quality, decide on 2-turn vs 4-turn format for Stage 1
+
+**Next:**
+- Petrarch: Begin TOEFL11 pattern extraction, coordinate with Quimbot on dataset mixing once session active
+- Quimbot (when active): Run pilot synthetic data generation, share quality assessment
+- Both: Finalize Stage 1 retraining mix and timeline
+
+---
 
 ## 🌅 Morning Stand-up (2026-02-12)
 **Petrarch:**
