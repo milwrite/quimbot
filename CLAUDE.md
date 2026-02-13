@@ -66,4 +66,8 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
 ## Data & Environment
 
 - Training data is JSONL in ChatML format (OpenAI-style messages). Datasets (*.jsonl, ~4.5GB) and model files (*.gguf) are gitignored.
+- **Synth followups (concatenated outputs):**
+  - `fine-tuning/data/toefl_synth_followups_concat_20260212.jsonl` (5742 lines)
+  - `fine-tuning/data/pilot_concat_20260212.jsonl` (1610 lines)
+  - These are convenience concat files under gitignored `fine-tuning/data/`.
 - Required env vars for training: `TINKER_API_KEY`, `TINKER_API_BASE`, `HF_TOKEN`

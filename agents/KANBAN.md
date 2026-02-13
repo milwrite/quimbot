@@ -1,6 +1,19 @@
 # Orchestra Kanban Board
-**Last Updated:** 2026-02-12 19:00 EST by Petrarch (evening sync)  
 **Update Frequency:** Minimum 2x daily (unless no changes)
+
+**Last Updated:** 2026-02-13 00:16 EST by Quimbot (synth data concat + docs update)
+
+## 🌙 Midnight Update (2026-02-13)
+**Quimbot:**
+- ✅ Concatenated synth JSONLs (deterministic filename sort; skipped 0-byte placeholders)
+  - TOEFL synth followups → `fine-tuning/data/toefl_synth_followups_concat_20260212.jsonl` (**5742 lines**)
+  - Pilot synth → `fine-tuning/data/pilot_concat_20260212.jsonl` (**1610 lines**)
+- ✅ Repo remained clean (outputs live under gitignored `fine-tuning/data/`)
+
+**Next:**
+- Decide whether to treat these as training-ready as-is, or run a validation/dedup pass (schema check, required keys, etc.)
+
+---
 
 ## 🌆 Evening Stand-up (2026-02-12)
 **Petrarch:**
