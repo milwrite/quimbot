@@ -1,0 +1,980 @@
+[
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/proof_of_concept_10.jsonl",
+    "size_bytes": 5980,
+    "total_records": 10,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "4": 10
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 0,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 20,
+    "duplicate_groups": 0,
+    "total_duplicate_responses": 0
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/scaffolding_1000.jsonl",
+    "size_bytes": 17431,
+    "total_records": 29,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "4": 29
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 0,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 56,
+    "duplicate_groups": 2,
+    "total_duplicate_responses": 2
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/scaffolding_adaptive_500.jsonl",
+    "size_bytes": 246685,
+    "total_records": 421,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "4": 368,
+      "5": 2,
+      "6": 51
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 0,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 619,
+    "duplicate_groups": 81,
+    "total_duplicate_responses": 274
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/scaffolding_adaptive_continue.jsonl",
+    "size_bytes": 23722,
+    "total_records": 41,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "4": 36,
+      "6": 5
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 0,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 73,
+    "duplicate_groups": 6,
+    "total_duplicate_responses": 14
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/scaffolding_combined.jsonl",
+    "size_bytes": 287838,
+    "total_records": 491,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "4": 433,
+      "5": 2,
+      "6": 56
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 0,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 725,
+    "duplicate_groups": 90,
+    "total_duplicate_responses": 313
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/scaffolding_gpt120b_500.jsonl",
+    "size_bytes": 209254,
+    "total_records": 500,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "1": 168,
+      "2": 61,
+      "3": 46,
+      "4": 225
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 146,
+    "short_assistant": 12,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [
+      {
+        "line": 2,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 3,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 16,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 25,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 32,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 36,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 37,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 40,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 41,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 42,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 43,
+        "issue": "empty_assistant",
+        "msg_idx": 3
+      },
+      {
+        "line": 46,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 47,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 48,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 53,
+        "issue": "empty_assistant",
+        "msg_idx": 3
+      },
+      {
+        "line": 55,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 56,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 58,
+        "issue": "empty_assistant",
+        "msg_idx": 3
+      },
+      {
+        "line": 60,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 63,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 66,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 67,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 68,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 76,
+        "issue": "empty_assistant",
+        "msg_idx": 1
+      },
+      {
+        "line": 79,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 81,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 86,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 88,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 89,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 90,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 93,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 94,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 96,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 97,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 99,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 105,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 116,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 118,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 119,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 120,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 123,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 124,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 127,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 130,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 133,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 134,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 138,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 142,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 144,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 145,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 148,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 157,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 161,
+        "issue": "empty_assistant",
+        "msg_idx": 3
+      },
+      {
+        "line": 162,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 166,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 167,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 174,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 178,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 180,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 184,
+        "issue": "empty_assistant",
+        "msg_idx": 1
+      },
+      {
+        "line": 185,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 188,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 189,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 191,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 195,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 198,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 199,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 203,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 207,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 214,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 215,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 216,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 220,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 221,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 235,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 237,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 239,
+        "issue": "empty_assistant",
+        "msg_idx": 3
+      },
+      {
+        "line": 242,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 245,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 246,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 255,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 256,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 257,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 259,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 260,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 261,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 267,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 268,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 269,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 270,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 276,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 277,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 282,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 283,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 286,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 290,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 292,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 295,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 297,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 298,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 301,
+        "issue": "empty_assistant",
+        "msg_idx": 1
+      },
+      {
+        "line": 303,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 305,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 316,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 319,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 329,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 335,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 340,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 344,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 345,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 347,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 349,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 353,
+        "issue": "empty_assistant",
+        "msg_idx": 1
+      },
+      {
+        "line": 357,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 361,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 367,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 368,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 377,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 378,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 381,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 383,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 392,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 402,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 403,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 407,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 409,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 417,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 418,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 420,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 422,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 434,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 441,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 446,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 447,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 456,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 462,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 465,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 466,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 470,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 474,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 475,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 476,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 484,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 485,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 492,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      },
+      {
+        "line": 499,
+        "issue": "empty_assistant",
+        "msg_idx": 0
+      }
+    ],
+    "unique_assistant_responses": 492,
+    "duplicate_groups": 39,
+    "total_duplicate_responses": 222
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/scaffolding_kimi_k2.5_50.jsonl",
+    "size_bytes": 0,
+    "total_records": 0,
+    "parse_errors": 0,
+    "msg_len_distribution": {},
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 0,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 0,
+    "duplicate_groups": 0,
+    "total_duplicate_responses": 0
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/scaffolding_qwen72b_500.jsonl",
+    "size_bytes": 0,
+    "total_records": 0,
+    "parse_errors": 0,
+    "msg_len_distribution": {},
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 0,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 0,
+    "duplicate_groups": 0,
+    "total_duplicate_responses": 0
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/scaffolding_v2_completion.jsonl",
+    "size_bytes": 30763,
+    "total_records": 48,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "4": 39,
+      "5": 1,
+      "6": 6,
+      "8": 2
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 9,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 100,
+    "duplicate_groups": 4,
+    "total_duplicate_responses": 6
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/scaffolding_v2_test.jsonl",
+    "size_bytes": 2972,
+    "total_records": 5,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "4": 5
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 2,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 9,
+    "duplicate_groups": 1,
+    "total_duplicate_responses": 1
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/test_scaffolding.jsonl",
+    "size_bytes": 1101,
+    "total_records": 2,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "4": 2
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 0,
+    "boilerplate_count": 0,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [],
+    "unique_assistant_responses": 4,
+    "duplicate_groups": 0,
+    "total_duplicate_responses": 0
+  },
+  {
+    "file": "/Users/milwright/clawd/quimbot/fine-tuning/data/ultrachat_train.jsonl",
+    "size_bytes": 5881007,
+    "total_records": 1000,
+    "parse_errors": 0,
+    "msg_len_distribution": {
+      "4": 336,
+      "6": 334,
+      "8": 265,
+      "10": 33,
+      "12": 19,
+      "14": 13
+    },
+    "role_alternation_violations": 0,
+    "empty_content": 0,
+    "short_assistant": 0,
+    "boilerplate_count": 1,
+    "placeholder_count": 0,
+    "null_fields": 0,
+    "flagged_samples": [
+      {
+        "line": 833,
+        "issue": "boilerplate",
+        "snippet": "As a AI language model, I don't have personal experience to provide a detailed guide on how to use LinkedIn to generate leads for your business. Howev",
+        "msg_idx": 1
+      }
+    ],
+    "unique_assistant_responses": 3104,
+    "duplicate_groups": 0,
+    "total_duplicate_responses": 0
+  }
+]
