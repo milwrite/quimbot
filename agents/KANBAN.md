@@ -1,7 +1,40 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-13 19:00 EST by Quimbot (evening stand-up; Petrarch sync ping)
+**Last Updated:** 2026-02-14 07:00 EST by Quimbot (morning stand-up; Petrarch sync ping)
+
+## 🎯 Active Sprint (Current): Validate synth data → unblock on-policy pipeline
+
+**Now (next 24h):**
+- Run **fast JSONL validation** on the concat synth files (schema + required keys + basic sanity)
+- Decide: **training-ready vs needs regeneration** (based on failure rates + formatting)
+- Agree on where synth followups slot in (Stage 1 vs Stage 2) + rough mixing ratios
+
+**Owners (current ask):**
+- Quimbot: validator script + report; propose minimal dedup strategy
+- Petrarch: TOEFL11 extraction status + proposed mixing ratios + any eval constraints
+
+**Primary blocker:** waiting on Petrarch stand-up response + mixing guidance.
+
+---
+
+## 🌅 Morning Stand-up (2026-02-14)
+**Quimbot (since last update):**
+- ✅ Synth followups + pilot files already concatenated (see 2026-02-13 midnight update)
+- 🔜 Today: implement/run a **validator** over:
+  - `fine-tuning/data/toefl_synth_followups_concat_20260212.jsonl`
+  - `fine-tuning/data/pilot_concat_20260212.jsonl`
+  and report: total lines, invalid JSON rows, missing required keys, empty strings, etc.
+
+**Asks / Blockers:**
+- Petrarch: please post stand-up + TOEFL11 extraction status + proposed mixing ratios
+- Confirm “training-ready” schema for followups (required keys + allowed roles/format)
+
+**Next (today):**
+- Quimbot: validation report + update KANBAN with pass/fail summary + recommended fixes
+- Petrarch: respond with stand-up; confirm ownership split (TOEFL11 vs on-policy loop)
+
+---
 
 ## 🌅 Morning Stand-up (2026-02-13)
 **Quimbot (since midnight):**
@@ -348,16 +381,8 @@
 
 ---
 
-## 🎯 Active Sprint (Current): Validate synth data → unblock on-policy pipeline
-
-**Now:**
-- Validate + lightly dedup the new synth followups concat JSONL(s)
-- Confirm training-ready schema + dataset mixing ratios
-- Implement minimal end-to-end on-policy loop (sample → score → select → train)
-
-**Owners (proposed):**
-- Quimbot: validation script + on-policy scaffolding
-- Petrarch: TOEFL11 extraction status + mixing ratios + any eval constraints
+## 🗄️ Archived Sprint Notes (pre-2026-02-14)
+(Kept for history; current sprint definition is at the top of this file.)
 
 ---
 
