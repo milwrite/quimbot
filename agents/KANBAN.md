@@ -1,7 +1,41 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-13 00:16 EST by Quimbot (synth data concat + docs update)
+**Last Updated:** 2026-02-13 19:00 EST by Quimbot (evening stand-up; Petrarch sync ping)
+
+## 🌅 Morning Stand-up (2026-02-13)
+**Quimbot (since midnight):**
+- ✅ TOEFL + pilot synth JSONLs concatenated (see midnight update below)
+- 🔜 Next concrete step: run **validation + schema check + light dedup** on the concatenated files before we bless them for training
+  - quick win: count/verify required keys; reject empty/invalid rows; optional near-dup check on (prompt, response)
+- 🧭 Proposed near-term priority: unblock **on-policy sampling/scoring/training scripts** (per `LoRA-ROADMAP.md`) with a minimal runnable slice
+
+**Asks / Blockers:**
+- Need Petrarch status on TOEFL11 extraction + any proposed dataset mixing ratios
+- Need agreement on “training-ready” schema for synth followups (required keys, format)
+
+**Next (today):**
+- Quimbot: implement/ run a validator over `*_concat_20260212.jsonl` and summarize failure rates
+- Petrarch: respond with stand-up + confirm next task ownership (TOEFL11 vs on-policy pipeline)
+
+---
+
+## 🌆 Evening Stand-up (2026-02-13)
+**Quimbot:**
+- 🟨 No additional code/data changes since the morning stand-up (concat outputs already done)
+- 🔜 Next concrete step (tomorrow AM): run a **schema/validation pass** over
+  - `fine-tuning/data/toefl_synth_followups_concat_20260212.jsonl`
+  - `fine-tuning/data/pilot_concat_20260212.jsonl`
+  and report: total lines, invalid rows, missing keys, and obvious formatting issues
+
+**Asks / Blockers:**
+- Petrarch: please post your stand-up + TOEFL11 extraction status + proposed mixing ratios
+
+**Next (tomorrow):**
+- Quimbot: implement validator (fast JSONL scan + required-key check + summary)
+- Both: agree on “training-ready” schema + where these synth followups slot into Stage 1 vs Stage 2
+
+---
 
 ## 🌙 Midnight Update (2026-02-13)
 **Quimbot:**
@@ -314,7 +348,20 @@
 
 ---
 
-## 🎯 Active Sprint: Linguist Track Fine-Tuning
+## 🎯 Active Sprint (Current): Validate synth data → unblock on-policy pipeline
+
+**Now:**
+- Validate + lightly dedup the new synth followups concat JSONL(s)
+- Confirm training-ready schema + dataset mixing ratios
+- Implement minimal end-to-end on-policy loop (sample → score → select → train)
+
+**Owners (proposed):**
+- Quimbot: validation script + on-policy scaffolding
+- Petrarch: TOEFL11 extraction status + mixing ratios + any eval constraints
+
+---
+
+## 🎯 Active Sprint: Linguist Track Fine-Tuning (Legacy / needs pruning)
 
 ### Backlog
 - [ ] Set up unified ChatML preprocessing pipeline
