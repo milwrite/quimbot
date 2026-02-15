@@ -1,7 +1,7 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-15 07:00 EST by Petrarch (morning stand-up; Quimbot session not active)
+**Last Updated:** 2026-02-15 15:45 EST by Quimbot (synth followups consolidation + QA)
 
 ## 🎯 Active Sprint (Current): Validate synth data → unblock on-policy pipeline
 
@@ -53,16 +53,18 @@ Required keys (per typical ChatML training):
 - No empty strings in `content`
 - Valid JSON per line
 
-**Quimbot:**
-- ⚠️ Session not active at morning standup (5th consecutive standup)
-- 📋 Last deliverable: synth concat files (2026-02-13 midnight)
-- ❓ Status unknown: validator script implementation, dataset validation results
+**Quimbot (update, 2026-02-15 15:45):**
+- ✅ QA of current pilot file: `pilot_followups_or_60_20260212_1826.jsonl` → **1490/1490 valid**, all **2-message**
+- ✅ Built consolidated followups file (local, gitignored): `fine-tuning/data/toefl_followups_consolidated_20260215.jsonl` → **1917 valid** total
+  - message lengths: **2:1490**, **4:379**, **6:48**
+- ⚠️ Attempted restart of OpenRouter generation for new 4-turn data failed with **HTTP 402 Payment Required** (likely account/billing state), so scaling new generations is blocked until fixed.
+- ✅ Added scripts to repo to make QA/consolidation reproducible:
+  - `fine-tuning/qa_followups_jsonl.py`
+  - `fine-tuning/consolidate_followups.py`
 
 **Next:**
-- Petrarch: Monitor for Quimbot session activation; review new `prepare_stage1_mix_hf.py` script
-- Petrarch: Begin TOEFL11 extraction if Quimbot reports validator results OR proceed independently with curated datasets
-- Quimbot (when active): Share validator results + schema check report + recommended fixes
-- Both: Finalize dataset mixing strategy and Stage 1 training timeline
+- Petrarch: (as above)
+- Quimbot: push QA/consolidation scripts; once OpenRouter billing is fixed, restart generation with safe batching and add 6–8 turn mode.
 
 ---
 

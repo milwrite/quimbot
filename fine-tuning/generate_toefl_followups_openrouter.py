@@ -26,7 +26,7 @@ from pathlib import Path
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 def system_prompt_for(turns: str) -> str:
-    """turns: '2', '4', or '6-8'"""
+    """turns: number of messages as string ('2','3','4','5','6') or range '6-8'."""
     if turns == "2":
         return """You generate training data for an English-learning assistant.
 Create VERY SHORT micro-dialogues: a learner says one sentence (often with small grammar mistakes), and a tutor responds with ONE short follow-up question.
@@ -42,9 +42,24 @@ Constraints:
 - No markdown, no extra keys.
 """
 
+    if turns == "3":
+        return """You generate training data for an English-learning assistant.
+Create SHORT 3-message dialogues: user → assistant → user.
+The tutor (assistant) asks ONE brief follow-up question that elicits more detail.
+
+Constraints:
+- Output must be a JSON array of objects. Each object: {"messages":[...]}.
+- Exactly 3 messages per example.
+- Assistant turn: ends with a '?' and stays under ~25 tokens (<=160 chars). No long explanations.
+- User turns: under ~18 tokens.
+- Keep everything concrete and everyday; TOEFL speaking practice vibe.
+- No policy / refusals / meta talk.
+- No markdown, no extra keys.
+"""
+
     if turns == "4":
         return """You generate training data for an English-learning assistant.
-Create SHORT 4-turn dialogues (exactly 4 messages): user → assistant → user → assistant.
+Create SHORT 4-message dialogues: user → assistant → user → assistant.
 The tutor (assistant) asks brief follow-up questions that elicit more detail and gently corrects ONLY if needed (max 1 short correction).
 
 Constraints:
@@ -53,6 +68,36 @@ Constraints:
 - Assistant turns: each ends with a '?' and stays under ~25 tokens (<=160 chars). No long explanations.
 - User turns: under ~18 tokens.
 - Keep everything concrete and everyday; TOEFL speaking practice vibe.
+- No policy / refusals / meta talk.
+- No markdown, no extra keys.
+"""
+
+    if turns == "5":
+        return """You generate training data for an English-learning assistant.
+Create SHORT 5-message dialogues: user → assistant → user → assistant → user.
+The tutor asks brief follow-up questions that keep the learner talking; include at most 1 short correction total.
+
+Constraints:
+- Output must be a JSON array of objects. Each object: {"messages":[...]}.
+- Exactly 5 messages per example.
+- Assistant turns: each ends with a '?' and stays under ~25 tokens (<=160 chars).
+- User turns: under ~20 tokens.
+- Concrete, everyday topics; TOEFL speaking practice vibe.
+- No policy / refusals / meta talk.
+- No markdown, no extra keys.
+"""
+
+    if turns == "6":
+        return """You generate training data for an English-learning assistant.
+Create SHORT 6-message dialogues: user → assistant → user → assistant → user → assistant.
+The tutor asks brief follow-up questions that keep the learner talking; include at most 1 short correction total.
+
+Constraints:
+- Output must be a JSON array of objects. Each object: {"messages":[...]}.
+- Exactly 6 messages per example.
+- Assistant turns: each ends with a '?' and stays under ~25 tokens (<=160 chars).
+- User turns: under ~20 tokens.
+- Concrete, everyday topics; TOEFL speaking practice vibe.
 - No policy / refusals / meta talk.
 - No markdown, no extra keys.
 """
@@ -129,11 +174,13 @@ def validate_item(item, turns: str):
     if not isinstance(msgs, list):
         return False
 
-    if turns == "2" and len(msgs) != 2:
-        return False
-    if turns == "4" and len(msgs) != 4:
-        return False
-    if turns == "6-8" and not (6 <= len(msgs) <= 8):
+    if turns in {"2", "3", "4", "5", "6"}:
+        if len(msgs) != int(turns):
+            return False
+    elif turns == "6-8":
+        if not (6 <= len(msgs) <= 8):
+            return False
+    else:
         return False
 
     # alternating roles, starting with user
@@ -157,8 +204,11 @@ def validate_item(item, turns: str):
         if role == "user" and len(content) > 200:
             return False
 
-    # assistant messages should usually be questions; enforce for 2/4, and for 6-8 enforce on last assistant
-    if turns in ("2", "4"):
+    # assistant messages should be questions.
+    # For even-length dialogues (2/4/6) require all assistant turns end with '?'.
+    # For odd-length dialogues (3/5) require the single/each assistant turn ends with '?' (still fine).
+    # For 6-8 require the last assistant ends with '?'.
+    if turns in ("2", "3", "4", "5", "6"):
         if not all(m["content"].strip().endswith("?") for m in msgs if m["role"] == "assistant"):
             return False
     else:
@@ -173,7 +223,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--n", type=int, default=10_000)
     ap.add_argument("--batch", type=int, default=100)
-    ap.add_argument("--turns", choices=["2", "4", "6-8"], default="2")
+    ap.add_argument("--turns", choices=["2", "3", "4", "5", "6", "6-8"], default="2")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--model", default=os.getenv("OPENROUTER_MODEL", "google/gemini-3-flash-preview"))
     ap.add_argument("--sleep", type=float, default=0.5, help="sleep between requests")
