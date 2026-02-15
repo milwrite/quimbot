@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoltComps — Domain Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                        repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(0, 0, 0, 0.03) 19px, rgba(0, 0, 0, 0.03) 20px),
+                        repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(0, 0, 0, 0.03) 19px, rgba(0, 0, 0, 0.03) 20px);
+            background-size: 100% 100%, 20px 20px, 20px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            color: #111;
+        }
+
+        .tagline {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        main {
+            flex: 1;
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .domain-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .domain-card {
+            min-width: 100%;
+            padding: 1rem;
+        }
+
+        .domain-name {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .countdown {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #d32f2f;
+            margin: 1.5rem 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .countdown-label {
+            font-size: 0.875rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .domain-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .meta-value {
+            font-size: 1.125rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-dot.active {
+            background: rgba(0, 0, 0, 0.6);
+            transform: scale(1.2);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .domain-name {
+                font-size: 1.5rem;
+            }
+
+            .countdown {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MoltComps</h1>
+        <p class="tagline">Domain intelligence for the discerning flipper</p>
+    </header>
+
+    <main>
+        <div class="slider-container">
+            <div class="domain-slider" id="slider">
+                <!-- Domain 1 -->
+                <div class="domain-card">
+                    <div class="domain-name">techstart.com</div>
+                    <div class="countdown-label">Expires in</div>
+                    <div class="countdown" data-expiry="2026-03-15">28 days</div>
+                    <div class="domain-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Age</div>
+                            <div class="meta-value">8.3 yrs</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Est. Value</div>
+                            <div class="meta-value">$2,400</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Comps</div>
+                            <div class="meta-value">5</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domain 2 -->
+                <div class="domain-card">
+                    <div class="domain-name">airegulate.io</div>
+                    <div class="countdown-label">Expires in</div>
+                    <div class="countdown" data-expiry="2026-03-22">35 days</div>
+                    <div class="domain-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Age</div>
+                            <div class="meta-value">2.1 yrs</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Est. Value</div>
+                            <div class="meta-value">$3,200</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Comps</div>
+                            <div class="meta-value">8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domain 3 -->
+                <div class="domain-card">
+                    <div class="domain-name">climetech.com</div>
+                    <div class="countdown-label">Expires in</div>
+                    <div class="countdown" data-expiry="2026-03-08">21 days</div>
+                    <div class="domain-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Age</div>
+                            <div class="meta-value">5.7 yrs</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Est. Value</div>
+                            <div class="meta-value">$4,100</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Comps</div>
+                            <div class="meta-value">12</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-nav">
+                <button class="nav-dot active" onclick="goToSlide(0)"></button>
+                <button class="nav-dot" onclick="goToSlide(1)"></button>
+                <button class="nav-dot" onclick="goToSlide(2)"></button>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="font-weight: 400; margin-bottom: 0.5rem;">Ready to start?</h2>
+            <p style="color: #666; margin-bottom: 1rem;">Get comprehensive comp analysis for any domain.</p>
+            <a href="mailto:comps@moltcomps.com" class="cta-button">Request Analysis</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>MoltComps &copy; 2026 &mdash; <a href="mailto:hello@moltcomps.com" style="color: inherit;">hello@moltcomps.com</a></p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const dots = document.querySelectorAll('.nav-dot');
+        const totalSlides = 3;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }
+
+        // Auto-advance every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Update countdowns
+        function updateCountdowns() {
+            const now = new Date();
+            document.querySelectorAll('.countdown').forEach(el => {
+                const expiry = new Date(el.dataset.expiry);
+                const diff = expiry - now;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                
+                if (days > 0) {
+                    el.textContent = `${days} day${days !== 1 ? 's' : ''}`;
+                } else {
+                    el.textContent = 'Expired';
+                    el.style.color = '#999';
+                }
+            });
+        }
+
+        updateCountdowns();
+        setInterval(updateCountdowns, 60000); // Update every minute
+    </script>
+</body>
+</html>
