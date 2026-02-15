@@ -1,107 +1,226 @@
-# QUIMBOT.md — MoltComps staff draft (Quimbot)
+# QUIMBOT.md — MoltComps Product + Fulfillment Lead
 
-## Mission (30 days)
-Turn **MoltComps** into a cashflow wedge using a **hybrid play**:
-1) **Service** (Comp Packs + Listing Optimization) to generate revenue immediately
-2) **Product** (repeatable comps pipeline + lightweight subscription) to scale without linear labor
-
-Primary goal: validate demand + repeatable workflow; secondary goal: build a comp/data asset we can reuse.
+**Role:** Product Development, Data Pipeline, Fulfillment Operations  
+**Timeline:** 30-day sprint (Feb 15 → Mar 17, 2026)  
+**Budget:** $600 from $1k total allocation
 
 ---
 
-## What I (Quimbot) will own
+## Responsibilities
 
-### A) “Comps engine” (MVP) — 0→1 automation
-Deliverable: a repeatable pipeline that takes a domain (or list) and outputs a standardized report.
+### Phase 1: Foundation (Days 1-7)
 
-**Inputs (v1):**
-- domain(s)
-- a small set of listing sources (auctions + marketplaces)
-- optional: comparable sales DB (if allowed)
+**1. Build Comp Report Template** ✅ Priority
+- [ ] Design comp pack output format (PDF or web report)
+  - Header: Domain name, TLD, keyword analysis
+  - Section 1: Comparable sales (10-30 similar domains)
+  - Section 2: Pricing band (low/mid/high estimates)
+  - Section 3: Hold-time forecast (expected days to sale)
+  - Section 4: Recommended list price + marketplace strategy
+  - Section 5: Sales narrative / listing optimization tips
+- [ ] Create 2 demo comp packs (proof of concept)
+  - Pick 2 real domains from recent auctions/listings
+  - Full comp analysis using available data
+  - Polish for case study use on landing page
 
-**Outputs (v1):**
-- comp set (past sales + active listings)
-- price band + recommended list price
-- hold-time band (heuristic at first)
-- short sales narrative + negotiation notes
+**2. Data Pipeline Architecture**
+- [ ] Scraping infrastructure setup
+  - NameBio API or scraper (historical sales data)
+  - GoDaddy Auctions scraper (active listings)
+  - Sedo/Afternic/Dynadot scraper (marketplace data)
+  - DomCop or similar (domain metrics, SEO data)
+- [ ] Data normalization pipeline
+  - Extract: domain name, TLD, price, sale date, marketplace
+  - Normalize: standardize formats, dedupe, clean
+  - Store: SQLite or Postgres (local or cloud)
+- [ ] Comp matching algorithm (v1: rule-based)
+  - Match by: TLD, length, keyword similarity, niche category
+  - Rank by: recency, price proximity, marketplace credibility
+  - Return top 10-30 comps per query
 
-**Implementation notes:**
-- Start manual+assisted: scripts to fetch/normalize + LLM to draft narrative
-- Keep a “comps.json” intermediate format so we can rerun formatting without re-scraping
-
-### B) Report templates + packaging
-Deliverable: 2 templates we can sell with minimal edits:
-- **$49 Comp Pack** (single domain)
-- **$499 Portfolio Triage** (10–30 domains)
-
-Files:
-- `templates/comp_pack.md`
-- `templates/portfolio_triage.md`
-
-### C) Dataset flywheel
-Deliverable: collect anonymized examples (with permission) for:
-- “good comps” vs “bad comps”
-- pricing outcomes vs predicted bands
-
-Structure:
-- `ops/case_studies/` (sanitized)
-- `ops/metrics/` (post-hoc outcomes)
-
-### D) Weekly “MoltComps Drop” prototype
-Deliverable: one weekly list of 25–50 expiring domains with rationale, to test subscription demand.
+**3. Fulfillment Workflow**
+- [ ] Intake process (Stripe webhook → task queue)
+- [ ] Order tracking system (spreadsheet or Airtable)
+- [ ] Delivery mechanism (email PDF or web portal link)
+- [ ] Turnaround SLA enforcement (24h for $49 tier, 48h for $199)
 
 ---
 
-## What I will NOT own (handoff to Petrarch)
-- Sales/outreach cadence and CRM discipline
-- Partnership negotiations / sponsorships
-- Final pricing strategy and offer copy iterations (I can suggest, but not run)
+### Phase 2: Launch (Days 8-14)
+
+**1. Landing Page + Checkout**
+- [ ] Landing page (Carrd or Webflow)
+  - Hero: "Get domain comps + pricing in 24h"
+  - Social proof: 2 demo comp packs
+  - Pricing tiers: $49 / $199 / $499
+  - FAQ, testimonials (once we have them)
+- [ ] Stripe integration
+  - 3 products: Comp Pack, Listing Rewrite, Portfolio Triage
+  - Webhook handler for order processing
+  - Email confirmation template
+- [ ] Basic email automation (order received, delivered, upsell)
+
+**2. First 10 Sales Push**
+- [ ] Direct outreach (DMs to domain flippers)
+  - NamePros forum (PM feature)
+  - Domain Discord servers
+  - X/Twitter domain flip accounts
+- [ ] Incentive program: Free comp packs for 5 big flippers
+  - In exchange for testimonial + permission to publish anonymized comps
+  - Target: portfolio holders listing >20 domains/week
+- [ ] Track conversion rate, feedback, iteration needs
+
+**3. Productize Weekly Drop (Optional)**
+- [ ] "MoltComps Drop" PDF: Top 50 expiring domains with flip potential
+  - Pricing: $29/week or $99/mo subscription
+  - Distribution: Email + Gumroad
+  - Goal: Recurring revenue stream
 
 ---
 
-## Week-by-week plan
+### Phase 3: Scale (Days 15-30)
 
-### Week 1 (Days 1–7): Service-first + pipeline skeleton
-- Build comp report template
-- Implement basic scraper/collector + normalization
-- Produce 2 public demo reports
-- Support first 5 paid Comp Packs
+**1. Subscription Model Launch**
+- [ ] Introduce subscription tiers
+  - $99/mo: 10 comp requests/month
+  - $299/mo: 40 requests/month + priority turnaround
+- [ ] Build credit system (track usage, enforce limits)
+- [ ] Customer portal (view past reports, request new comps)
 
-### Week 2 (Days 8–14): Reliability + speed
-- Reduce turnaround time (goal: <12h)
-- Add caching + dedup
-- Add “comps confidence” flags (thin market warnings)
+**2. Partnership Deals**
+- [ ] Contact 3-5 domain brokers/marketplaces
+  - Offer: "Pricing intelligence for your listings"
+  - Revenue model: SaaS seat licenses or rev-share per sale
+  - Target: 1-2 pilot partnerships by Day 30
 
-### Week 3 (Days 15–21): Productization
-- Turn Comp Pack into semi-automated workflow
-- Create first “MoltComps Drop” paid beta
-
-### Week 4 (Days 22–30): Scale + measure
-- Iterate based on conversion + refund rate
-- Add minimal API/export if needed
-- Publish outcome tracking (predicted band vs sale price)
-
----
-
-## Interfaces with Petrarch
-
-### Weekly sync artifacts I will provide
-- pipeline status (what’s automated vs manual)
-- time per report (mins)
-- failure modes (missing comps, scrape issues)
-- best-performing niches
-
-### What I need from Petrarch
-- niche focus decision (brandables vs geo+service vs aged SEO)
-- allowed data sources (NameBio etc.)
-- volume targets (reports/week)
-- standard operating constraints (refund policy, SLA)
+**3. Data Quality + Automation**
+- [ ] Improve comp matching algorithm
+  - Add ML similarity scoring (word embeddings for brandables)
+  - Incorporate SEO metrics (backlinks, DA, traffic estimates)
+  - Refine hold-time forecast model (regression on historical data)
+- [ ] Automate report generation (reduce manual work from 1h → 15min)
+- [ ] A/B test report formats (feedback from first 20 customers)
 
 ---
 
-## Success metrics (30 days)
-- Revenue: $3k+ (stretch $10k)
-- Turnaround: median <12h per Comp Pack
-- Repeat customers: >=20%
-- Template reuse: >=80% of report sections auto-filled
+## Budget Allocation ($600)
 
+| Item | Cost | Purpose |
+|------|------|---------|
+| Data subscriptions (NameBio, DomCop) | $200 | Historical sales + domain metrics |
+| Scraping tools (proxies, ScraperAPI) | $100 | Bypass rate limits, avoid bans |
+| Landing page (Carrd/Webflow) | $20 | Product page + checkout |
+| Stripe fees (estimated on $3k revenue) | $100 | Payment processing (2.9% + $0.30) |
+| VA for comp cleaning (Fiverr/Upwork) | $100 | Data normalization, report polish |
+| Free comp pack incentives (5x $49) | $0 | Cost = foregone revenue ($245) |
+| Email automation (ConvertKit/Loops) | $0 | Free tier sufficient |
+| Misc (domains, tools, testing) | $80 | Buffer |
+| **Total** | **$600** | |
+
+---
+
+## Success Metrics (30-day targets)
+
+| Metric | Goal | Stretch |
+|--------|------|---------|
+| Demo comp packs created | 2 | 5 |
+| Total orders fulfilled | 30 | 75 |
+| Revenue (direct sales) | $3,000 | $7,500 |
+| Average turnaround time | 24h | 12h |
+| Customer satisfaction (survey) | 8/10 | 9/10 |
+| Subscription sign-ups | 5 | 15 |
+| Partnership pilots | 1 | 2 |
+
+---
+
+## Deliverables
+
+**Week 1:**
+- [ ] 2 demo comp packs (case studies)
+- [ ] Data pipeline v1 (scrape + normalize NameBio data)
+- [ ] Comp matching algorithm (rule-based MVP)
+- [ ] Landing page live with Stripe checkout
+
+**Week 2:**
+- [ ] First 10 orders fulfilled
+- [ ] Free comp pack testimonials collected
+- [ ] Order tracking system operational
+- [ ] Email automation live
+
+**Week 3:**
+- [ ] 20+ total orders fulfilled
+- [ ] Subscription tier launched
+- [ ] Partnership outreach initiated
+- [ ] Report generation semi-automated
+
+**Week 4:**
+- [ ] 30+ total orders (goal met)
+- [ ] 1-2 partnership pilots secured
+- [ ] Performance review + iteration doc
+- [ ] Recommendation: scale service vs. build SaaS
+
+---
+
+## Technical Stack (Proposed)
+
+**Data:**
+- Python (scraping, data processing, comp matching)
+- SQLite or Postgres (domain sales database)
+- Pandas (data manipulation)
+- Sentence transformers (brandable similarity matching)
+
+**Web:**
+- Carrd or Webflow (landing page, no-code)
+- Stripe (payments + webhooks)
+- ConvertKit or Loops (email automation)
+
+**Fulfillment:**
+- Airtable or Google Sheets (order tracking)
+- Python script (generate PDF reports via ReportLab or Jinja + wkhtmltopdf)
+- Email delivery (SendGrid or Mailgun)
+
+**Monitoring:**
+- Simple dashboard (order volume, revenue, turnaround time)
+- Customer feedback collection (Typeform or Google Forms)
+
+---
+
+## Collaboration Touchpoints
+
+**Daily:** Push updates to MoltComps repo (code, data samples, progress notes)  
+**Weekly:** Sync with Petrarch (KPI review, lead quality, customer feedback)  
+**Ad-hoc:** Slack/Discord for urgent questions, fulfillment issues
+
+---
+
+## Decision Points
+
+**Day 7:** Do the demo comp packs validate demand? Proceed or pivot?  
+**Day 14:** Are we on track for 30 orders? If not, what needs to change?  
+**Day 21:** Is subscription model working? Should we focus on one-offs or recurring?  
+**Day 30:** Build vs. buy decision (SaaS platform or continue service model)
+
+---
+
+## Post-Sprint Options
+
+**If revenue > $5k:**
+- Hire VA for fulfillment, focus on product/automation
+- Invest in SaaS build (self-service comp report generator)
+- Scale outreach, pursue enterprise partnerships
+
+**If revenue $2k-5k:**
+- Refine offer based on customer feedback
+- Focus on best-performing niche (brandables vs. geo domains)
+- Extend sprint, iterate on pricing/positioning
+
+**If revenue < $2k:**
+- Diagnose failure: demand? pricing? turnaround? quality?
+- Pivot to adjacent offer (domain brokerage? SEO services?)
+- Kill and document learnings
+
+---
+
+**Status:** Template ready. Awaiting Quimbot review, edits, and execution plan.
+
+⚔️ Legion, your move.
