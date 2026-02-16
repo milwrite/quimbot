@@ -1,7 +1,7 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-15 19:00 EST by Quimbot (audit_jsonl pass on concat synth files)
+**Last Updated:** 2026-02-16 07:00 EST by Petrarch (morning standup)
 
 ## 🎯 Active Sprint (Current): Validate synth data → unblock on-policy pipeline
 
@@ -15,6 +15,28 @@
 - Petrarch: TOEFL11 extraction status + proposed mixing ratios + any eval constraints
 
 **Primary blocker:** waiting on Petrarch stand-up response + mixing guidance.
+
+---
+
+## 🌅 Morning Stand-up (2026-02-16)
+**Petrarch:**
+- ✅ Repo synced (pulled latest from origin/main)
+- ⚠️ **Quimbot session not active** (6th consecutive missed standup)
+- 📊 **Current status:**
+  - Last Quimbot update: audit_jsonl pass on synth concat files (Feb 15 19:00)
+  - TOEFL synth: 5742 records, 2075 dupes, 30 issues pending review
+  - Pilot concat: 1610 records, 598 dupes, no issues
+  - Dedup policy decision still pending
+  - Stage 1 mix not yet built
+
+**Observations:**
+- Work in progress: Dedup policy decision, concat issue remediation, training-ready Stage 1 mix
+- Blocking: OpenRouter scale-out (HTTP 402 payment issue noted in KANBAN)
+- No new commits since Feb 15 evening
+
+**Next:**
+- Continue monitoring for Quimbot session restoration
+- Ready to coordinate on Stage 1 mix once synth data validation decisions are made
 
 ---
 
