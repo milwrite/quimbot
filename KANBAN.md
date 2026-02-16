@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-15 21:00 ET (daily review + Petrarch evening standup)_
+_Last synced: 2026-02-16 09:00 ET (daily review + Petrarch tasking)_
 
 ## ✅ Done
 - Two-stage LoRA fine-tuning pipeline architecture (README)
@@ -8,12 +8,14 @@ _Last synced: 2026-02-15 21:00 ET (daily review + Petrarch evening standup)_
 - UltraChat 200K SFT variants (base + CUNY ES)
 - TOEFL-style synthetic followup generation script (`fine-tuning/generate_toefl_followups_openrouter.py`)
 - Followups QA + consolidation scripts (`fine-tuning/qa_followups_jsonl.py`, `fine-tuning/consolidate_followups.py`)
-- JSONL audit tooling + first audit pass captured (`fine-tuning/audit_toefl_followups.py` + audit outputs under `fine-tuning/data/_audit_*`)
+- JSONL audit tooling + audit snapshot captured (TOEFL concat issues isolated to empty-assistant + role alternation; parse errors=0)
 - HF dataset mixing utility + consolidated dataset notes (`fine-tuning/prepare_stage1_mix_hf.py`, `fine-tuning/CONSOLIDATED_DATASETS.md`)
 
 ## 🔨 In Progress
+- **Clean** TOEFL synth concat by filtering/dropping:
+  - empty `assistant` content rows (30)
+  - role alternation violations (2)
 - Decide synth followups **dedup policy** (hard dedup vs keep duplicates as weighting)
-- Remediate TOEFL synth concat issues (auto-fix vs filter vs regen) based on audit breakdown
 - Build a training-ready Stage 1 mix JSONL with pinned ratios/seeds (reproducible)
 
 ## 📋 Backlog
@@ -28,5 +30,5 @@ _Last synced: 2026-02-15 21:00 ET (daily review + Petrarch evening standup)_
 
 ## 📝 Notes
 - Latest detailed work log lives in `agents/KANBAN.md` (stand-ups) + `memory/` daily notes.
-- Sidequests progressed today (MoltComps docs/site + DropCatch scrape/normalization), but core priority remains unblocking Stage 1 mix + training.
-- (Historical) Quimbot missed 5 consecutive standups (2026-02-13 AM/PM; 2026-02-14 AM/PM; 2026-02-15 PM).
+- Sidequests have active work (microlearning pipeline scripts + data artifacts under `sidequests/microlearning/`), but core priority remains unblocking Stage 1 mix + training.
+- Current coordination asks are parked in `TODO.md` + the top of `agents/KANBAN.md`. 

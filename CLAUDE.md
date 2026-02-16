@@ -76,7 +76,11 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
   - `fine-tuning/audit_toefl_followups.py` (deeper audit; issue + dupe counts)
 - Required env vars for training: `TINKER_API_KEY`, `TINKER_API_BASE`, `HF_TOKEN`
 
-## 2026-02-15 notes (recent decisions / state)
-- Synth followups audit snapshot (see `agents/KANBAN.md`): TOEFL concat shows duplicates + a small number of schema/content issues; pilot concat is clean.
+## 2026-02-16 notes (recent decisions / state)
+- Synth followups audit triage (see `agents/KANBAN.md`): TOEFL concat issues appear **filterable**:
+  - 30 rows with empty assistant content
+  - 2 role alternation violations
+  - JSON parse errors = 0
 - OpenRouter generation scaling currently blocked by HTTP 402; do not assume generation scripts will run until billing/key routing is fixed.
 - Stage 1 mix decision pending: whether to hard-dedup synth followups or keep duplicates as implicit weighting.
+- Repo hygiene: sidequest microlearning scripts exist under `sidequests/microlearning/`; **do not commit** `sidequests/microlearning/data/` artifacts (treat like datasets/output).

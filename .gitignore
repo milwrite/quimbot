@@ -22,3 +22,6 @@ USER.md
 .openclaw/
 memory/
 proposals/
+
+# Sidequest artifacts (keep scripts, ignore generated data)
+sidequests/microlearning/data/
