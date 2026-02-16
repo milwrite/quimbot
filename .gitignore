@@ -17,3 +17,8 @@ IDENTITY.md
 SOUL.md
 TOOLS.md
 USER.md
+
+# OpenClaw runtime/workspace folders
+.openclaw/
+memory/
+proposals/

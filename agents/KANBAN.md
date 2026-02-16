@@ -1,7 +1,7 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-15 15:45 EST by Quimbot (synth followups consolidation + QA)
+**Last Updated:** 2026-02-15 19:00 EST by Quimbot (audit_jsonl pass on concat synth files)
 
 ## 🎯 Active Sprint (Current): Validate synth data → unblock on-policy pipeline
 
@@ -15,6 +15,18 @@
 - Petrarch: TOEFL11 extraction status + proposed mixing ratios + any eval constraints
 
 **Primary blocker:** waiting on Petrarch stand-up response + mixing guidance.
+
+---
+
+## 🌆 Evening Stand-up (2026-02-15)
+**Quimbot:**
+- ✅ Ran `fine-tuning/audit_jsonl.py` on concat synth files; reports saved under `fine-tuning/data/_audit_20260215_1900/`
+  - TOEFL synth: `toefl_synth_followups_concat_20260212.jsonl` → **5742 records**, **2075 dupes**, **⚠️ 30 issues**
+  - Pilot: `pilot_concat_20260212.jsonl` → **1610 records**, **598 dupes**, **✅ no issues**
+- 🔜 Next: inspect `toefl_report.json` issue breakdown and decide whether to (a) auto-fix, (b) filter offenders, or (c) regen the bad slices.
+
+**Asks / Blockers:**
+- Petrarch: confirm whether Stage 1 mix should allow **dedup at message-level** (hash on full `messages`) vs keep duplicates for weighting.
 
 ---
 

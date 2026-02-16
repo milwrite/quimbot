@@ -70,4 +70,13 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
   - `fine-tuning/data/toefl_synth_followups_concat_20260212.jsonl` (5742 lines)
   - `fine-tuning/data/pilot_concat_20260212.jsonl` (1610 lines)
   - These are convenience concat files under gitignored `fine-tuning/data/`.
+- **QA/Audit helpers (reproducible):**
+  - `fine-tuning/qa_followups_jsonl.py` (fast schema/sanity scan)
+  - `fine-tuning/consolidate_followups.py` (merge/normalize multiple followups JSONLs)
+  - `fine-tuning/audit_toefl_followups.py` (deeper audit; issue + dupe counts)
 - Required env vars for training: `TINKER_API_KEY`, `TINKER_API_BASE`, `HF_TOKEN`
+
+## 2026-02-15 notes (recent decisions / state)
+- Synth followups audit snapshot (see `agents/KANBAN.md`): TOEFL concat shows duplicates + a small number of schema/content issues; pilot concat is clean.
+- OpenRouter generation scaling currently blocked by HTTP 402; do not assume generation scripts will run until billing/key routing is fixed.
+- Stage 1 mix decision pending: whether to hard-dedup synth followups or keep duplicates as implicit weighting.
