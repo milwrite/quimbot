@@ -1,0 +1,23 @@
+{
+  "subreddits": [
+    "Futurology",
+    "Artificial",
+    "technology",
+    "science",
+    "investing",
+    "cscareerquestions",
+    "productivity",
+    "nutrition",
+    "MachineLearning",
+    "datascience",
+    "personalfinance",
+    "explainlikeimfive",
+    "todayilearned",
+    "space",
+    "Entrepreneur"
+  ],
+  "sort_modes": ["hot", "rising", "top"],
+  "time_filter": "day",
+  "posts_per_sub": 10,
+  "candidates_per_batch": 3
+}

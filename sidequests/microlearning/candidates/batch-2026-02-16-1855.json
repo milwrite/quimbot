@@ -1,0 +1,97 @@
+[
+  {
+    "topic_id": "b3ee2fff2827",
+    "subreddit": "todayilearned",
+    "post_title": "TIL after spending 3 days with his arm trapped in a furnace, a man attempted to amputate it with a saw blade because he began to smell rotting flesh. Although he passed out from pain before he could completely sever it. He was rescued after a friend called for help when he hadn't shown up for work.",
+    "post_url": "https://reddit.com/r/todayilearned/comments/1r5wmyf/til_after_spending_3_days_with_his_arm_trapped_in/",
+    "score": 23485,
+    "num_comments": 511,
+    "velocity": 24507,
+    "trendiness_score": 36978.0,
+    "keywords": [
+      "til",
+      "spending",
+      "days",
+      "arm",
+      "trapped",
+      "furnace",
+      "man",
+      "attempted"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? TIL after spending 3 days with his arm trapped in a furnace,...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: TIL after spending 3 days with his arm trapped in ",
+      "context": "[5-15s] Why this matters: trending topic with 511 comments",
+      "key_insight": "[15-25s] The main takeaway involving: til, spending, days",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T18:55:22.593551+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "24c5f502e1d1",
+    "subreddit": "todayilearned",
+    "post_title": "TIL when South Korean students take their college eligibility test every November, day-to-day operations are halted or delayed on test day. Shops are shut, banks close, even the stock market opens late. Most construction work halts, planes are grounded and military training ceases.",
+    "post_url": "https://reddit.com/r/todayilearned/comments/1r5nyup/til_when_south_korean_students_take_their_college/",
+    "score": 16526,
+    "num_comments": 575,
+    "velocity": 17676,
+    "trendiness_score": 26735.9,
+    "keywords": [
+      "til",
+      "south",
+      "korean",
+      "students",
+      "take",
+      "college",
+      "eligibility",
+      "test"
+    ],
+    "risk_flags": [
+      "finance"
+    ],
+    "hook": "Did you know? TIL when South Korean students take their college eligibilit...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: TIL when South Korean students take their college ",
+      "context": "[5-15s] Why this matters: trending topic with 575 comments",
+      "key_insight": "[15-25s] The main takeaway involving: til, south, korean",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T18:55:22.593717+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "353787261078",
+    "subreddit": "todayilearned",
+    "post_title": "TIL the Australian Olympic breakdancer Rachael Gunn (Raygun) threatened legal action against an Aussie musical about her because the musical planned to use her stage name and \"kangaroo hop\" dance move. The musical continued after changing the characters' name to Sprachel Gunn, AKA Spraygun",
+    "post_url": "https://reddit.com/r/todayilearned/comments/1r5x7pv/til_the_australian_olympic_breakdancer_rachael/",
+    "score": 14031,
+    "num_comments": 554,
+    "velocity": 15139,
+    "trendiness_score": 22939.1,
+    "keywords": [
+      "til",
+      "australian",
+      "olympic",
+      "breakdancer",
+      "rachael",
+      "gunn",
+      "raygun",
+      "threatened"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? TIL the Australian Olympic breakdancer Rachael Gunn (Raygun)...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: TIL the Australian Olympic breakdancer Rachael Gun",
+      "context": "[5-15s] Why this matters: trending topic with 554 comments",
+      "key_insight": "[15-25s] The main takeaway involving: til, australian, olympic",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T18:55:22.593723+00:00",
+    "status": "proposed"
+  }
+]
