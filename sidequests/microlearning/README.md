@@ -6,11 +6,15 @@ This folder is a proof-of-concept scaffold for a fully automated microlearning c
 
 The goal is to standardize the *handoff contracts* between components so Petrarch (scraper) and Quimbot (ranker/generator) can interoperate cleanly.
 
-## Directory layout (proposed)
+## Directory layout
 
 - `schemas/` — canonical JSON Schemas for pipeline artifacts
 - `examples/` — example JSON/JSONL records
 - `notes/` — implementation notes / scoring heuristics
+- `docs/` — comprehensive pipeline design documentation
+  - `AUTOMATION_BEST_PRACTICES.md` — Complete architecture, quality gates, success metrics
+  - `REDDIT_TO_VEO_PIPELINE.md` — Trend discovery → visual storytelling methodology
+  - `CANDIDATE_TOPICS.md` — 10 validated topics with Veo prompts and scripts
 
 ## Artifacts
 
