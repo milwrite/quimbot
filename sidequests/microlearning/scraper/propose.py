@@ -48,6 +48,25 @@ def load_existing_candidates():
     return existing
 
 
+SUBREDDIT_WEIGHTS = {
+    "todayilearned": 0.7,
+    "explainlikeimfive": 1.0,
+    "science": 1.1,
+    "Futurology": 1.1,
+    "technology": 1.0,
+    "Artificial": 1.1,
+    "MachineLearning": 1.1,
+    "datascience": 1.0,
+    "investing": 0.9,
+    "personalfinance": 0.9,
+    "cscareerquestions": 0.9,
+    "productivity": 1.0,
+    "nutrition": 1.0,
+    "space": 1.1,
+    "Entrepreneur": 0.9,
+}
+
+
 def score_topic(record):
     """Compute a trendiness score for ranking."""
     score = 0
@@ -74,6 +93,11 @@ def score_topic(record):
         score += 10
     elif title_len > 150:
         score -= 5
+
+    # Subreddit weight (reduce TIL bias, boost niche subs)
+    sub = record.get("subreddit", "")
+    weight = SUBREDDIT_WEIGHTS.get(sub, 1.0)
+    score *= weight
 
     return round(score, 2)
 
