@@ -1,0 +1,95 @@
+[
+  {
+    "topic_id": "a63d1daf1b6f",
+    "subreddit": "technology",
+    "post_title": "Meta patents AI that takes over a dead person\u2019s account to keep posting and chatting",
+    "post_url": "https://reddit.com/r/technology/comments/1r6n7es/meta_patents_ai_that_takes_over_a_dead_persons/",
+    "score": 2158,
+    "num_comments": 285,
+    "velocity": 2728,
+    "trendiness_score": 4246.9,
+    "keywords": [
+      "meta",
+      "patents",
+      "takes",
+      "dead",
+      "person\u2019s",
+      "account",
+      "keep",
+      "posting"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? Meta patents AI that takes over a dead person\u2019s account to k...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: Meta patents AI that takes over a dead person\u2019s ac",
+      "context": "[5-15s] Why this matters: trending topic with 285 comments",
+      "key_insight": "[15-25s] The main takeaway involving: meta, patents, takes",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T23:01:24.332089+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "a26f3f2707f5",
+    "subreddit": "todayilearned",
+    "post_title": "TIL that Michael Jackson bought the Gone With the Wind\u2019s 1939 Best Picture Oscar for about $1.5 million. The statuette is now considered lost, with his estate admitting they have no idea where it is.",
+    "post_url": "https://reddit.com/r/todayilearned/comments/1r6mp85/til_that_michael_jackson_bought_the_gone_with_the/",
+    "score": 1706,
+    "num_comments": 111,
+    "velocity": 1508,
+    "trendiness_score": 2359.3,
+    "keywords": [
+      "til",
+      "michael",
+      "jackson",
+      "bought",
+      "gone",
+      "wind\u2019s",
+      "1939",
+      "best"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? TIL that Michael Jackson bought the Gone With the Wind\u2019s 193...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: TIL that Michael Jackson bought the Gone With the ",
+      "context": "[5-15s] Why this matters: trending topic with 111 comments",
+      "key_insight": "[15-25s] The main takeaway involving: til, michael, jackson",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T23:01:24.332287+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "8bdc56508cc7",
+    "subreddit": "technology",
+    "post_title": "Parents opt kids out of school computers, insisting on pen-and-paper instead",
+    "post_url": "https://reddit.com/r/technology/comments/1r6angt/parents_opt_kids_out_of_school_computers/",
+    "score": 11275,
+    "num_comments": 1185,
+    "velocity": 879,
+    "trendiness_score": 1753.2,
+    "keywords": [
+      "parents",
+      "opt",
+      "kids",
+      "school",
+      "computers",
+      "insisting",
+      "pen-and-paper",
+      "instead"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? Parents opt kids out of school computers, insisting on pen-a...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: Parents opt kids out of school computers, insistin",
+      "context": "[5-15s] Why this matters: trending topic with 1185 comments",
+      "key_insight": "[15-25s] The main takeaway involving: parents, opt, kids",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T23:01:24.332293+00:00",
+    "status": "proposed"
+  }
+]
