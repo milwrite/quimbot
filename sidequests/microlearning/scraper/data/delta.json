@@ -1,26 +1,22 @@
 {
-  "04fc25c3aba2": {
-    "score": 10492,
-    "num_comments": 240
-  },
   "61fc3cde8e1b": {
-    "score": 321,
-    "num_comments": 5
+    "score": 385,
+    "num_comments": 7
+  },
+  "04fc25c3aba2": {
+    "score": 10664,
+    "num_comments": 245
   },
   "54b847b10e81": {
-    "score": 195,
-    "num_comments": 218
-  },
-  "6e654a71ecfe": {
-    "score": 95,
-    "num_comments": 90
+    "score": 238,
+    "num_comments": 253
   },
   "474fc4c5d512": {
-    "score": 1615,
+    "score": 1641,
     "num_comments": 138
   },
   "4ca255cb2550": {
-    "score": 1411,
+    "score": 1412,
     "num_comments": 95
   },
   "786761b61067": {
@@ -28,43 +24,51 @@
     "num_comments": 11
   },
   "5f2b3b78b2ae": {
-    "score": 221,
-    "num_comments": 69
+    "score": 227,
+    "num_comments": 71
   },
   "f10cb6d59926": {
-    "score": 12,
-    "num_comments": 13
+    "score": 14,
+    "num_comments": 14
   },
   "75cdc1ac19a2": {
-    "score": 57,
+    "score": 66,
     "num_comments": 20
   },
-  "8bc700778545": {
-    "score": 65,
-    "num_comments": 45
-  },
   "db6a60baf005": {
-    "score": 6,
+    "score": 8,
     "num_comments": 3
   },
+  "8bc700778545": {
+    "score": 67,
+    "num_comments": 47
+  },
+  "6091a2189a48": {
+    "score": 0,
+    "num_comments": 17
+  },
+  "1047374a587b": {
+    "score": 46,
+    "num_comments": 18
+  },
   "7032bb10ec57": {
-    "score": 439,
-    "num_comments": 51
+    "score": 456,
+    "num_comments": 53
   },
   "6520926e4578": {
-    "score": 5,
+    "score": 13,
     "num_comments": 1
   },
   "fa79c6df58a8": {
     "score": 10,
-    "num_comments": 16
+    "num_comments": 17
   },
   "95efbdfb2449": {
-    "score": 2,
+    "score": 0,
     "num_comments": 1
   },
   "2be18488bffd": {
-    "score": 1,
+    "score": 0,
     "num_comments": 0
   },
   "29dff795f593": {
@@ -79,157 +83,153 @@
     "score": 2,
     "num_comments": 0
   },
-  "cac6d98b74c8": {
-    "score": 3,
-    "num_comments": 16
-  },
   "8ea643dabb70": {
     "score": 1,
     "num_comments": 5
   },
   "7a89d3caaee1": {
-    "score": 200,
+    "score": 202,
     "num_comments": 122
   },
   "8bdc56508cc7": {
-    "score": 9475,
-    "num_comments": 1039
+    "score": 10554,
+    "num_comments": 1106
+  },
+  "60b566313084": {
+    "score": 1518,
+    "num_comments": 153
   },
   "a672956f2eb0": {
-    "score": 12950,
-    "num_comments": 1199
+    "score": 13520,
+    "num_comments": 1225
   },
   "cec1efdcb314": {
-    "score": 1884,
-    "num_comments": 182
+    "score": 2241,
+    "num_comments": 208
   },
   "3ed02f7900e2": {
-    "score": 1425,
-    "num_comments": 125
+    "score": 1514,
+    "num_comments": 132
   },
   "6b1123a3195f": {
-    "score": 1675,
-    "num_comments": 260
+    "score": 1752,
+    "num_comments": 267
+  },
+  "036172c296ce": {
+    "score": 335,
+    "num_comments": 50
   },
   "4f874a5437df": {
-    "score": 364,
-    "num_comments": 133
+    "score": 432,
+    "num_comments": 154
   },
   "5c672cc133d2": {
-    "score": 1497,
+    "score": 1545,
     "num_comments": 157
   },
-  "a434f2fce0ca": {
-    "score": 652,
-    "num_comments": 252
-  },
-  "a17b148ef935": {
-    "score": 3715,
-    "num_comments": 371
+  "d3b22b1b6284": {
+    "score": 244,
+    "num_comments": 38
   },
   "26b6966ae653": {
-    "score": 431,
-    "num_comments": 17
+    "score": 483,
+    "num_comments": 18
   },
-  "8229ec7a9690": {
-    "score": 786,
-    "num_comments": 200
-  },
-  "103dcc6ad4c6": {
-    "score": 641,
-    "num_comments": 84
-  },
-  "8bb5f627cf8f": {
-    "score": 7009,
-    "num_comments": 338
-  },
-  "b34ffe471325": {
-    "score": 4164,
-    "num_comments": 248
-  },
-  "0d6e9e152f4f": {
-    "score": 2836,
-    "num_comments": 70
-  },
-  "56cf874dabf6": {
-    "score": 6381,
-    "num_comments": 806
-  },
-  "a06c86119f6d": {
-    "score": 470,
+  "12b55e9863d3": {
+    "score": 184,
     "num_comments": 34
   },
+  "b34ffe471325": {
+    "score": 4188,
+    "num_comments": 250
+  },
+  "a17b148ef935": {
+    "score": 3793,
+    "num_comments": 378
+  },
+  "7daed77e500c": {
+    "score": 1240,
+    "num_comments": 179
+  },
+  "56cf874dabf6": {
+    "score": 6703,
+    "num_comments": 828
+  },
+  "a06c86119f6d": {
+    "score": 700,
+    "num_comments": 43
+  },
   "b520e0ef8129": {
-    "score": 1788,
-    "num_comments": 293
-  },
-  "ffcbe64767df": {
-    "score": 409,
-    "num_comments": 17
-  },
-  "8aa13bb5334a": {
-    "score": 605,
-    "num_comments": 33
-  },
-  "bedc00cf8fd8": {
-    "score": 336,
-    "num_comments": 7
+    "score": 1898,
+    "num_comments": 321
   },
   "58286be6c759": {
-    "score": 152,
-    "num_comments": 8
+    "score": 323,
+    "num_comments": 16
+  },
+  "ffcbe64767df": {
+    "score": 556,
+    "num_comments": 29
+  },
+  "8aa13bb5334a": {
+    "score": 628,
+    "num_comments": 34
+  },
+  "bedc00cf8fd8": {
+    "score": 401,
+    "num_comments": 7
   },
   "bb84ff044f9d": {
-    "score": 225,
-    "num_comments": 40
+    "score": 243,
+    "num_comments": 43
   },
   "9e4d23e90946": {
-    "score": 302,
-    "num_comments": 30
+    "score": 322,
+    "num_comments": 33
   },
-  "e6717f3ca263": {
-    "score": 98,
-    "num_comments": 8
+  "d5a0a0250f63": {
+    "score": 55,
+    "num_comments": 3
   },
   "0bffcf6f3356": {
-    "score": 823,
+    "score": 819,
     "num_comments": 9
   },
-  "2f3366d5f0aa": {
-    "score": 110,
-    "num_comments": 14
-  },
   "a78f763bffb9": {
-    "score": 12,
+    "score": 8,
     "num_comments": 6
   },
   "bb7c9c2b3227": {
-    "score": 40,
+    "score": 41,
     "num_comments": 7
   },
   "ead3651cc912": {
-    "score": 23,
-    "num_comments": 156
+    "score": 28,
+    "num_comments": 191
   },
   "b88beeb2b94b": {
-    "score": 120,
+    "score": 124,
     "num_comments": 20
+  },
+  "f829bddeffb1": {
+    "score": 660,
+    "num_comments": 104
   },
   "1115de7ee15c": {
     "score": 11,
-    "num_comments": 37
-  },
-  "f829bddeffb1": {
-    "score": 649,
-    "num_comments": 102
-  },
-  "c56a82cbdb87": {
-    "score": 36,
-    "num_comments": 25
+    "num_comments": 38
   },
   "820596e0896f": {
-    "score": 2,
-    "num_comments": 1
+    "score": 4,
+    "num_comments": 5
+  },
+  "c56a82cbdb87": {
+    "score": 37,
+    "num_comments": 27
+  },
+  "1c747768f94d": {
+    "score": 0,
+    "num_comments": 5
   },
   "dfb838858255": {
     "score": 0,
@@ -240,148 +240,156 @@
     "num_comments": 5
   },
   "b4fd287b2021": {
-    "score": 5,
+    "score": 6,
     "num_comments": 6
   },
   "7dea720e52b5": {
-    "score": 2,
+    "score": 0,
     "num_comments": 9
   },
   "1e8c011734b9": {
-    "score": 1,
+    "score": 0,
     "num_comments": 1
+  },
+  "e5e9650475af": {
+    "score": 0,
+    "num_comments": 17
   },
   "bcd420b65eed": {
     "score": 1,
     "num_comments": 1
   },
   "feda6c09d474": {
-    "score": 213,
+    "score": 209,
     "num_comments": 111
   },
   "31152f3f4bf0": {
-    "score": 65,
-    "num_comments": 57
+    "score": 72,
+    "num_comments": 64
   },
   "7c5e97619aa0": {
-    "score": 2494,
-    "num_comments": 464
-  },
-  "7c5072c6f13a": {
-    "score": 1302,
-    "num_comments": 296
-  },
-  "9910a96adcc4": {
-    "score": 160,
-    "num_comments": 212
-  },
-  "922113397063": {
-    "score": 24,
-    "num_comments": 33
-  },
-  "7c06371d2220": {
-    "score": 26,
-    "num_comments": 29
+    "score": 2519,
+    "num_comments": 471
   },
   "55e542d99b40": {
-    "score": 14,
-    "num_comments": 15
+    "score": 20,
+    "num_comments": 28
+  },
+  "7c5072c6f13a": {
+    "score": 1313,
+    "num_comments": 299
+  },
+  "7c06371d2220": {
+    "score": 33,
+    "num_comments": 31
+  },
+  "922113397063": {
+    "score": 28,
+    "num_comments": 36
+  },
+  "9910a96adcc4": {
+    "score": 172,
+    "num_comments": 224
   },
   "20e3001771fa": {
-    "score": 39,
-    "num_comments": 48
+    "score": 48,
+    "num_comments": 50
   },
   "e0cce188d381": {
-    "score": 248,
-    "num_comments": 101
+    "score": 253,
+    "num_comments": 102
   },
   "43e3b8c59fdd": {
-    "score": 5,
+    "score": 6,
     "num_comments": 4
   },
   "23a9b03929ff": {
-    "score": 70,
-    "num_comments": 40
+    "score": 72,
+    "num_comments": 41
   },
   "8e586865ce8b": {
-    "score": 10,
+    "score": 11,
     "num_comments": 7
+  },
+  "54248df24f9a": {
+    "score": 8,
+    "num_comments": 24
   },
   "8326f7418174": {
     "score": 117,
     "num_comments": 12
   },
   "426f3de23325": {
-    "score": 34,
-    "num_comments": 46
+    "score": 37,
+    "num_comments": 49
   },
   "e0b20f99aa2a": {
-    "score": 1176,
-    "num_comments": 63
+    "score": 1197,
+    "num_comments": 64
   },
   "51b1016a39fe": {
-    "score": 120,
+    "score": 126,
     "num_comments": 33
   },
   "2214e6512c34": {
-    "score": 7,
-    "num_comments": 10
+    "score": 9,
+    "num_comments": 15
+  },
+  "b8072f179568": {
+    "score": 6,
+    "num_comments": 13
   },
   "9620962507b5": {
     "score": 9,
     "num_comments": 11
   },
-  "b8072f179568": {
-    "score": 5,
-    "num_comments": 9
-  },
   "8654c0443d4f": {
-    "score": 5,
-    "num_comments": 6
+    "score": 7,
+    "num_comments": 7
   },
   "6bcaa236ddf4": {
-    "score": 6,
+    "score": 5,
     "num_comments": 18
   },
   "957861a20999": {
-    "score": 20,
+    "score": 19,
     "num_comments": 20
   },
   "25bb00d2ed5a": {
     "score": 3,
-    "num_comments": 3
+    "num_comments": 5
   },
   "149cef170920": {
-    "score": 10,
+    "score": 11,
     "num_comments": 19
   },
-  "65de70d6d8db": {
-    "score": 8,
-    "num_comments": 9
-  },
   "76405713d502": {
-    "score": 8,
-    "num_comments": 3
-  },
-  "ee9d88c10266": {
-    "score": 6,
+    "score": 10,
     "num_comments": 4
   },
+  "65de70d6d8db": {
+    "score": 10,
+    "num_comments": 10
+  },
   "d973aed6d0b6": {
-    "score": 27,
+    "score": 28,
     "num_comments": 2
   },
   "172e102621f0": {
-    "score": 7,
-    "num_comments": 17
+    "score": 8,
+    "num_comments": 25
   },
   "10bc8106a27c": {
-    "score": 62,
-    "num_comments": 60
+    "score": 66,
+    "num_comments": 62
   },
   "87a8e846615c": {
-    "score": 73,
-    "num_comments": 63
+    "score": 77,
+    "num_comments": 69
+  },
+  "33c4a24450e0": {
+    "score": 1,
+    "num_comments": 9
   },
   "bbfaf68ec234": {
     "score": 2,
@@ -392,59 +400,63 @@
     "num_comments": 8
   },
   "2931036d07c4": {
-    "score": 15,
-    "num_comments": 30
+    "score": 19,
+    "num_comments": 34
   },
   "1feae91055ce": {
     "score": 1,
     "num_comments": 3
   },
   "7cee4140c8b6": {
-    "score": 9,
+    "score": 8,
     "num_comments": 4
   },
   "c1fc135bc7bb": {
     "score": 0,
-    "num_comments": 14
+    "num_comments": 15
   },
   "934c3fbd7c85": {
-    "score": 9,
-    "num_comments": 25
+    "score": 7,
+    "num_comments": 27
   },
   "8f861c442bab": {
     "score": 3,
-    "num_comments": 8
+    "num_comments": 9
   },
   "4961c4b8be69": {
-    "score": 7,
+    "score": 8,
     "num_comments": 31
   },
   "10c01fa6b3c5": {
-    "score": 13,
+    "score": 11,
     "num_comments": 7
   },
   "683ce2face13": {
-    "score": 46,
-    "num_comments": 13
+    "score": 48,
+    "num_comments": 16
   },
   "a41417a548bd": {
     "score": 27,
-    "num_comments": 17
-  },
-  "520d8002831f": {
-    "score": 3,
-    "num_comments": 4
+    "num_comments": 18
   },
   "c695d05a324b": {
-    "score": 2,
+    "score": 6,
+    "num_comments": 2
+  },
+  "ce039f692c70": {
+    "score": 3,
     "num_comments": 0
   },
+  "520d8002831f": {
+    "score": 2,
+    "num_comments": 4
+  },
   "e26e9ac999a1": {
-    "score": 13,
+    "score": 12,
     "num_comments": 1
   },
   "dc44812f8a12": {
-    "score": 214,
+    "score": 210,
     "num_comments": 35
   },
   "81e5795a6ec1": {
@@ -452,51 +464,51 @@
     "num_comments": 0
   },
   "d62e4bef5e7b": {
-    "score": 7,
-    "num_comments": 19
+    "score": 9,
+    "num_comments": 20
   },
   "899138455cd6": {
-    "score": 11,
+    "score": 12,
     "num_comments": 9
   },
   "973b6ce63413": {
-    "score": 14,
+    "score": 12,
     "num_comments": 5
   },
   "18500beb37b4": {
-    "score": 10,
+    "score": 9,
     "num_comments": 3
   },
   "0255b3a44a4e": {
-    "score": 8,
+    "score": 9,
     "num_comments": 8
   },
   "9f5d74bf5d98": {
-    "score": 6,
-    "num_comments": 8
+    "score": 18,
+    "num_comments": 11
   },
   "7449b655dd25": {
-    "score": 6,
-    "num_comments": 12
+    "score": 9,
+    "num_comments": 13
   },
   "56591e978471": {
     "score": 0,
     "num_comments": 0
   },
   "8148fd276403": {
-    "score": 35,
+    "score": 33,
     "num_comments": 23
   },
   "963acc776ce3": {
-    "score": 56,
+    "score": 57,
     "num_comments": 26
   },
   "7eea953f1251": {
-    "score": 0,
+    "score": 1,
     "num_comments": 7
   },
   "3b1c5c7ea5dd": {
-    "score": 21,
+    "score": 22,
     "num_comments": 11
   },
   "c121f81664f8": {
@@ -504,236 +516,240 @@
     "num_comments": 19
   },
   "d137fccdc845": {
-    "score": 8,
+    "score": 9,
     "num_comments": 8
   },
   "8f833d3ee4dc": {
-    "score": 5,
+    "score": 4,
     "num_comments": 0
   },
   "dd2d40fa4711": {
     "score": 0,
-    "num_comments": 4
+    "num_comments": 8
   },
   "c027d66b572f": {
-    "score": 91,
-    "num_comments": 45
+    "score": 116,
+    "num_comments": 52
   },
   "4544ddfeeca5": {
-    "score": 555,
-    "num_comments": 247
-  },
-  "0ebddc9eaab3": {
-    "score": 246,
-    "num_comments": 143
+    "score": 586,
+    "num_comments": 254
   },
   "ec1d09bfd05e": {
-    "score": 20,
-    "num_comments": 46
+    "score": 33,
+    "num_comments": 55
+  },
+  "0ebddc9eaab3": {
+    "score": 260,
+    "num_comments": 148
+  },
+  "b15a9d153c95": {
+    "score": 5,
+    "num_comments": 27
   },
   "09fab96886d0": {
     "score": 28,
-    "num_comments": 20
+    "num_comments": 22
   },
   "d269b5815857": {
-    "score": 528,
-    "num_comments": 355
+    "score": 537,
+    "num_comments": 358
   },
-  "a3457fb62b37": {
-    "score": 6,
-    "num_comments": 7
-  },
-  "b15a9d153c95": {
+  "64ab220ac0f8": {
     "score": 3,
-    "num_comments": 7
+    "num_comments": 13
+  },
+  "3be42cbac8de": {
+    "score": 4,
+    "num_comments": 16
   },
   "cf620c7061f8": {
     "score": 5,
     "num_comments": 4
   },
-  "3be42cbac8de": {
-    "score": 3,
-    "num_comments": 12
-  },
   "85133c88233b": {
-    "score": 26,
+    "score": 27,
     "num_comments": 32
   },
   "969eecd3d9cd": {
-    "score": 10,
+    "score": 8,
     "num_comments": 33
   },
   "88c292b10eed": {
-    "score": 8,
+    "score": 9,
     "num_comments": 13
+  },
+  "b147a3a5bcee": {
+    "score": 8,
+    "num_comments": 24
   },
   "93e77b11ff04": {
     "score": 8,
-    "num_comments": 16
+    "num_comments": 17
   },
   "5ebe821c5528": {
     "score": 17,
     "num_comments": 41
   },
   "ddae438783de": {
-    "score": 131,
-    "num_comments": 74
+    "score": 200,
+    "num_comments": 97
   },
   "c8fee447bd66": {
-    "score": 544,
-    "num_comments": 218
+    "score": 590,
+    "num_comments": 228
   },
-  "1ea6c7d5fd5c": {
-    "score": 43,
-    "num_comments": 18
-  },
-  "f655354ecefa": {
-    "score": 40,
-    "num_comments": 42
+  "6ce9688f1548": {
+    "score": 28,
+    "num_comments": 56
   },
   "7d5a56f9a972": {
-    "score": 868,
-    "num_comments": 271
+    "score": 901,
+    "num_comments": 275
   },
   "f2e5bf97de9c": {
-    "score": 39,
-    "num_comments": 35
+    "score": 53,
+    "num_comments": 36
   },
   "3c7f69567fb0": {
-    "score": 112,
+    "score": 120,
     "num_comments": 13
   },
   "ee9d2269685e": {
-    "score": 226,
-    "num_comments": 88
+    "score": 239,
+    "num_comments": 89
   },
   "b3cb43457832": {
-    "score": 94,
-    "num_comments": 105
+    "score": 93,
+    "num_comments": 108
   },
   "8f32f40d16d0": {
-    "score": 128,
+    "score": 131,
     "num_comments": 37
   },
-  "ddbd9897704c": {
-    "score": 55,
-    "num_comments": 54
+  "09de2a4c0785": {
+    "score": 1606,
+    "num_comments": 260
   },
   "255b4746fd5e": {
     "score": 56,
-    "num_comments": 27
+    "num_comments": 31
   },
   "30dbde523fa7": {
-    "score": 52,
+    "score": 53,
     "num_comments": 17
   },
   "b66f890f5724": {
-    "score": 15039,
-    "num_comments": 1254
-  },
-  "88c7e742d6be": {
-    "score": 11793,
-    "num_comments": 478
-  },
-  "5f96eba14018": {
-    "score": 2760,
-    "num_comments": 430
+    "score": 16371,
+    "num_comments": 1355
   },
   "29ea7093a045": {
-    "score": 1970,
-    "num_comments": 167
+    "score": 3221,
+    "num_comments": 224
+  },
+  "5f96eba14018": {
+    "score": 3424,
+    "num_comments": 484
+  },
+  "88c7e742d6be": {
+    "score": 12194,
+    "num_comments": 478
   },
   "949389d1dfb9": {
-    "score": 5216,
-    "num_comments": 144
+    "score": 5595,
+    "num_comments": 148
   },
   "30343d5a9b0f": {
-    "score": 5864,
-    "num_comments": 171
-  },
-  "f39a754b19b6": {
-    "score": 1044,
-    "num_comments": 67
+    "score": 6208,
+    "num_comments": 176
   },
   "5b2b70634ab4": {
-    "score": 604,
-    "num_comments": 28
+    "score": 1248,
+    "num_comments": 51
+  },
+  "f39a754b19b6": {
+    "score": 1144,
+    "num_comments": 69
+  },
+  "a26f3f2707f5": {
+    "score": 352,
+    "num_comments": 34
   },
   "b3ee2fff2827": {
-    "score": 24279,
-    "num_comments": 522
+    "score": 24567,
+    "num_comments": 527
   },
-  "353787261078": {
-    "score": 14714,
-    "num_comments": 573
+  "c0247b4aea00": {
+    "score": 264,
+    "num_comments": 3
   },
   "fd33b712320b": {
-    "score": 372,
-    "num_comments": 59
+    "score": 467,
+    "num_comments": 74
+  },
+  "48c77c91ba29": {
+    "score": 449,
+    "num_comments": 49
+  },
+  "353787261078": {
+    "score": 15003,
+    "num_comments": 580
   },
   "b958dcec81fd": {
-    "score": 5400,
-    "num_comments": 490
+    "score": 5464,
+    "num_comments": 494
   },
   "fc6ad24122c5": {
-    "score": 4901,
-    "num_comments": 166
+    "score": 5005,
+    "num_comments": 167
   },
   "a1d047a1285d": {
-    "score": 3415,
-    "num_comments": 322
-  },
-  "b2c10df7832c": {
-    "score": 2772,
-    "num_comments": 328
+    "score": 3506,
+    "num_comments": 332
   },
   "4f47c16ce395": {
-    "score": 5,
+    "score": 6,
     "num_comments": 0
   },
   "5e8b1c426b99": {
-    "score": 321,
-    "num_comments": 26
+    "score": 524,
+    "num_comments": 46
   },
   "68f026a6b1f7": {
-    "score": 1617,
-    "num_comments": 41
+    "score": 1691,
+    "num_comments": 42
   },
   "984b9e6afa6b": {
-    "score": 12371,
-    "num_comments": 100
+    "score": 12558,
+    "num_comments": 101
   },
-  "3d9fc09df5f4": {
-    "score": 954,
-    "num_comments": 15
+  "5b221820b34a": {
+    "score": 72,
+    "num_comments": 1
   },
   "622a1db6d8d2": {
-    "score": 59,
-    "num_comments": 10
+    "score": 73,
+    "num_comments": 12
+  },
+  "3d9fc09df5f4": {
+    "score": 981,
+    "num_comments": 15
   },
   "4cb964496cf5": {
-    "score": 75,
-    "num_comments": 5
+    "score": 81,
+    "num_comments": 7
   },
   "e031dde59f6d": {
-    "score": 2048,
+    "score": 2070,
     "num_comments": 33
   },
   "2cdbe6b50060": {
-    "score": 32,
+    "score": 36,
     "num_comments": 7
   },
   "d2cc485f101c": {
-    "score": 39,
+    "score": 45,
     "num_comments": 0
-  },
-  "f6c5c1f32c45": {
-    "score": 1445,
-    "num_comments": 27
-  },
-  "dc3fae623676": {
-    "score": 74,
-    "num_comments": 7
   },
   "47fec0a6b739": {
     "score": 10,
@@ -748,63 +764,63 @@
     "num_comments": 3
   },
   "ece50266177b": {
-    "score": 7,
+    "score": 6,
     "num_comments": 2
   },
   "a4765e21bf47": {
-    "score": 105,
-    "num_comments": 46
+    "score": 107,
+    "num_comments": 49
   },
   "56c242f8d7df": {
-    "score": 28,
-    "num_comments": 68
+    "score": 30,
+    "num_comments": 70
   },
   "623438f1a6fa": {
-    "score": 97,
-    "num_comments": 108
+    "score": 99,
+    "num_comments": 110
   },
   "f12a9b9cffd1": {
-    "score": 14,
-    "num_comments": 22
+    "score": 16,
+    "num_comments": 23
   },
-  "4d7afa6e73ec": {
-    "score": 4,
-    "num_comments": 14
-  },
-  "47d03ef65ff8": {
-    "score": 43,
-    "num_comments": 61
-  },
-  "bf60a4ee27b4": {
-    "score": 3,
-    "num_comments": 4
+  "fcb84249ed0b": {
+    "score": 6,
+    "num_comments": 5
   },
   "832c9aa62efc": {
-    "score": 5,
-    "num_comments": 7
+    "score": 6,
+    "num_comments": 8
   },
   "a9075be9f629": {
-    "score": 9,
-    "num_comments": 32
+    "score": 10,
+    "num_comments": 33
+  },
+  "47d03ef65ff8": {
+    "score": 46,
+    "num_comments": 61
+  },
+  "4d7afa6e73ec": {
+    "score": 5,
+    "num_comments": 18
   },
   "4d81db2c4950": {
     "score": 5,
-    "num_comments": 17
+    "num_comments": 18
   },
   "a1d662e02a0c": {
-    "score": 13,
-    "num_comments": 33
+    "score": 16,
+    "num_comments": 34
   },
   "d4d608386b55": {
-    "score": 11,
+    "score": 13,
     "num_comments": 34
   },
   "f5d34a3bf4e4": {
-    "score": 11,
-    "num_comments": 16
+    "score": 10,
+    "num_comments": 15
   },
-  "ce3afe2de773": {
-    "score": 8,
-    "num_comments": 11
+  "9bb19ff52218": {
+    "score": 7,
+    "num_comments": 23
   }
 }

@@ -1,0 +1,95 @@
+[
+  {
+    "topic_id": "09de2a4c0785",
+    "subreddit": "explainlikeimfive",
+    "post_title": "ELI5 How do they guarantee so much snow at the Winter Olympics?",
+    "post_url": "https://reddit.com/r/explainlikeimfive/comments/1r5flj7/eli5_how_do_they_guarantee_so_much_snow_at_the/",
+    "score": 1606,
+    "num_comments": 260,
+    "velocity": 2126,
+    "trendiness_score": 3345.0,
+    "keywords": [
+      "eli5",
+      "they",
+      "guarantee",
+      "much",
+      "snow",
+      "winter",
+      "olympics"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? ELI5 How do they guarantee so much snow at the Winter Olympi...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: ELI5 How do they guarantee so much snow at the Win",
+      "context": "[5-15s] Why this matters: trending topic with 260 comments",
+      "key_insight": "[15-25s] The main takeaway involving: eli5, they, guarantee",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T22:01:29.531372+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "60b566313084",
+    "subreddit": "technology",
+    "post_title": "Trillion-dollar AI market wipeout happened because investors banked that \u2018almost every tech company would come out a winner\u2019",
+    "post_url": "https://reddit.com/r/technology/comments/1r6lc2h/trilliondollar_ai_market_wipeout_happened_because/",
+    "score": 1520,
+    "num_comments": 153,
+    "velocity": 1826,
+    "trendiness_score": 2839.3,
+    "keywords": [
+      "trillion-dollar",
+      "market",
+      "wipeout",
+      "happened",
+      "because",
+      "investors",
+      "banked",
+      "\u2018almost"
+    ],
+    "risk_flags": [
+      "finance"
+    ],
+    "hook": "Did you know? Trillion-dollar AI market wipeout happened because investors...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: Trillion-dollar AI market wipeout happened because",
+      "context": "[5-15s] Why this matters: trending topic with 153 comments",
+      "key_insight": "[15-25s] The main takeaway involving: trillion-dollar, market, wipeout",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T22:01:29.531580+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "7daed77e500c",
+    "subreddit": "technology",
+    "post_title": "UK Government announces sweeping 'crackdown' on social media firms",
+    "post_url": "https://reddit.com/r/technology/comments/1r5uqqy/uk_government_announces_sweeping_crackdown_on/",
+    "score": 1240,
+    "num_comments": 179,
+    "velocity": 1598,
+    "trendiness_score": 2529.9,
+    "keywords": [
+      "government",
+      "announces",
+      "sweeping",
+      "crackdown",
+      "social",
+      "media",
+      "firms"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? UK Government announces sweeping 'crackdown' on social media...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: UK Government announces sweeping 'crackdown' on so",
+      "context": "[5-15s] Why this matters: trending topic with 179 comments",
+      "key_insight": "[15-25s] The main takeaway involving: government, announces, sweeping",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T22:01:29.531587+00:00",
+    "status": "proposed"
+  }
+]
