@@ -1,0 +1,23 @@
+{
+  "date": "2026-02-15",
+  "generated_at": "2026-02-15T18:10:00Z",
+  "scoring_version": "v0-rulebased",
+  "topics": [
+    {
+      "topic_id": "sha1:deadbeef...",
+      "score": 0.83,
+      "hook": "This battery tweak could change the price of everything that stores energy.",
+      "what_you_learn": "You’ll learn the 2 levers that actually drive battery cost (materials vs manufacturing).",
+      "risk_flags": [],
+      "source_refs": ["https://www.reddit.com/r/Futurology/comments/1abcxyz/"]
+    },
+    {
+      "topic_id": "sha1:cafebabe...",
+      "score": 0.61,
+      "hook": "Intermittent fasting isn’t one thing — and that’s why the advice is so messy.",
+      "what_you_learn": "You’ll learn who fasting studies apply to, and who they usually exclude.",
+      "risk_flags": ["medical_claim"],
+      "source_refs": ["https://www.reddit.com/r/nutrition/comments/9qwerty/"]
+    }
+  ]
+}

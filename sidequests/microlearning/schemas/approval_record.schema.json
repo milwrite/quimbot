@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.local/microlearning/approval_record.schema.json",
+  "title": "approval_record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["topic_id", "approved", "approved_at", "approved_by"],
+  "properties": {
+    "topic_id": { "type": "string" },
+    "approved": { "type": "boolean" },
+    "approved_at": { "type": "string", "description": "ISO-8601 timestamp." },
+    "approved_by": { "type": "string", "description": "Discord user id or handle." },
+    "method": {
+      "type": "string",
+      "enum": ["reaction", "slash_command", "manual"],
+      "default": "reaction"
+    },
+    "notes": { "type": "string" }
+  }
+}

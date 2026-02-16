@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.local/microlearning/shortlist_record.schema.json",
+  "title": "shortlist_record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["date", "generated_at", "topics"],
+  "properties": {
+    "date": { "type": "string", "description": "YYYY-MM-DD (local/user timezone)." },
+    "generated_at": { "type": "string", "description": "ISO-8601 timestamp." },
+    "scoring_version": { "type": "string" },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["topic_id", "score", "hook", "what_you_learn"],
+        "properties": {
+          "topic_id": { "type": "string" },
+          "score": { "type": "number" },
+          "hook": { "type": "string", "description": "1-sentence hook." },
+          "what_you_learn": { "type": "string", "description": "1-sentence learning promise." },
+          "rationale": { "type": "string", "description": "Optional: short scoring justification." },
+          "risk_flags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "source_refs": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Optional URLs/permalinks to source posts." 
+          }
+        }
+      }
+    }
+  }
+}

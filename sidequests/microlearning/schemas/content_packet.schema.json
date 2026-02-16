@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.local/microlearning/content_packet.schema.json",
+  "title": "content_packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "topic_id",
+    "generated_at",
+    "format",
+    "script",
+    "caption",
+    "hashtags"
+  ],
+  "properties": {
+    "topic_id": { "type": "string" },
+    "generated_at": { "type": "string", "description": "ISO-8601 timestamp." },
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["duration_seconds", "aspect_ratio"],
+      "properties": {
+        "duration_seconds": { "type": "integer", "minimum": 5, "maximum": 90 },
+        "aspect_ratio": { "type": "string", "enum": ["9:16", "1:1", "16:9"] },
+        "platform": { "type": "string", "enum": ["instagram_reel", "tiktok", "youtube_short", "x"] }
+      }
+    },
+    "hook": { "type": "string" },
+    "script": {
+      "type": "array",
+      "description": "Beat-by-beat script; each beat is ~1–2 sentences.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["beat", "voiceover"],
+        "properties": {
+          "beat": { "type": "integer", "minimum": 1 },
+          "voiceover": { "type": "string" },
+          "on_screen_text": { "type": "string" },
+          "visual_notes": { "type": "string" }
+        }
+      }
+    },
+    "caption": { "type": "string" },
+    "hashtags": { "type": "array", "items": { "type": "string" } },
+    "disclaimers": { "type": "array", "items": { "type": "string" } },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "risk_flags": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "video_path": { "type": "string" },
+        "cover_path": { "type": "string" }
+      }
+    }
+  }
+}
