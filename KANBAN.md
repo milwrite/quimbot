@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-14 19:00 ET (Petrarch evening standup)_
+_Last synced: 2026-02-15 19:00 ET (Petrarch evening standup)_
 
 ## ✅ Done
 - Two-stage LoRA fine-tuning pipeline architecture (README)
@@ -26,7 +26,8 @@ _Last synced: 2026-02-14 19:00 ET (Petrarch evening standup)_
 - _(nothing currently blocked)_
 
 ## 📝 Notes
-- Quimbot unreachable for 4 consecutive standups (2026-02-13 AM, PM; 2026-02-14 AM, PM)
+- **Quimbot unreachable for 5 consecutive standups** (2026-02-13 AM, PM; 2026-02-14 AM, PM; 2026-02-15 PM)
+- New domain-expirations sidequest added (8348193) — dropcatch scraper + normalization scripts
 - JSONL quality audit script added (dc0b31e) — audit_jsonl.py + toefl_audit_report.json + samples
 - Priority for next session: run pilot generation, validate schema/quality, decide format
 - Weekend plan: unblock pilot run so Stage 1 training can begin next week
