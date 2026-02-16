@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """Score and rank topic records using the POC formula from scoring.md.
 
-score = 0.45*v_comments + 0.15*v_upvotes + 0.15*echo + 0.15*feasible + 0.10*novelty - 0.25*risk
+Base score:
+  score_raw = 0.45*v_comments + 0.15*v_upvotes + 0.15*echo + 0.15*feasible + 0.10*novelty - 0.25*risk
+
+Then apply an explicit subreddit prior/weight to reduce over-selection from
+high-volume subs like r/todayilearned:
+  score_final = score_raw * w_subreddit
 
 Outputs a shortlist JSON file.
 """
@@ -9,6 +14,22 @@ import json
 import sys
 from pathlib import Path
 from collections import Counter
+
+
+# Subreddit prior weights (default 1.0). Adjust to steer diversity.
+SUBREDDIT_WEIGHTS = {
+    "todayilearned": 0.7,
+    "explainlikeimfive": 1.0,
+    "science": 1.1,
+    "Futurology": 1.0,
+    "technology": 1.0,
+    "YouShouldKnow": 1.0,
+    "LifeProTips": 1.0,
+    "nutrition": 1.0,
+    "psychology": 1.0,
+    "interestingasfuck": 0.9,
+    "Showerthoughts": 0.85,
+}
 
 
 def normalize(value, max_val):
@@ -69,8 +90,8 @@ def score_topics(input_file, top_n=20):
             if flag in soft_flags:
                 risk = max(risk, 0.5)
 
-        # Final score
-        score = (
+        # Base score (before subreddit prior)
+        score_raw = (
             0.45 * v_comments
             + 0.15 * v_upvotes
             + 0.15 * echo
@@ -79,12 +100,17 @@ def score_topics(input_file, top_n=20):
             - 0.25 * risk
         )
 
+        subreddit = r["source"]["subreddit"]
+        w_sub = SUBREDDIT_WEIGHTS.get(subreddit, 1.0)
+        score = score_raw * w_sub
+
         scored.append({
             "topic_id": r["topic_id"],
             "title": r["title"],
-            "subreddit": r["source"]["subreddit"],
+            "subreddit": subreddit,
             "url": r["url"],
             "score": round(score, 4),
+            "score_raw": round(score_raw, 4),
             "components": {
                 "v_comments": round(v_comments, 3),
                 "v_upvotes": round(v_upvotes, 3),
@@ -92,6 +118,7 @@ def score_topics(input_file, top_n=20):
                 "feasible": round(feasible, 3),
                 "novelty": round(novelty, 3),
                 "risk": round(risk, 3),
+                "w_subreddit": w_sub,
             },
             "metrics": m,
             "risk_flags": r.get("risk_flags", []),
