@@ -1,0 +1,95 @@
+[
+  {
+    "topic_id": "b66f890f5724",
+    "subreddit": "todayilearned",
+    "post_title": "TIL that Detroit, once America's 5th largest city at 1.85 million residents in 1957, saw 66 straight years of population loss to a low of 630,000 residents in 2022. This makes it the only US city to drop below 1 million after reaching it. It would see its first reversal of this trend in 2023.",
+    "post_url": "https://reddit.com/r/todayilearned/comments/1r6c3k4/til_that_detroit_once_americas_5th_largest_city/",
+    "score": 15050,
+    "num_comments": 1254,
+    "velocity": 17558,
+    "trendiness_score": 26777.6,
+    "keywords": [
+      "til",
+      "detroit",
+      "once",
+      "america's",
+      "5th",
+      "largest",
+      "city",
+      "1.85"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? TIL that Detroit, once America's 5th largest city at 1.85 mi...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: TIL that Detroit, once America's 5th largest city ",
+      "context": "[5-15s] Why this matters: trending topic with 1254 comments",
+      "key_insight": "[15-25s] The main takeaway involving: til, detroit, once",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T21:01:21.587499+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "a672956f2eb0",
+    "subreddit": "technology",
+    "post_title": "AI: Hard drives are already sold out for the entire year, says Western Digital",
+    "post_url": "https://reddit.com/r/technology/comments/1r657he/ai_hard_drives_are_already_sold_out_for_the/",
+    "score": 12946,
+    "num_comments": 1199,
+    "velocity": 15344,
+    "trendiness_score": 23455.1,
+    "keywords": [
+      "ai:",
+      "hard",
+      "drives",
+      "already",
+      "sold",
+      "entire",
+      "year",
+      "says"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? AI: Hard drives are already sold out for the entire year, sa...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: AI: Hard drives are already sold out for the entir",
+      "context": "[5-15s] Why this matters: trending topic with 1199 comments",
+      "key_insight": "[15-25s] The main takeaway involving: ai:, hard, drives",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T21:01:21.587736+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "88c7e742d6be",
+    "subreddit": "todayilearned",
+    "post_title": "TIL about the Flynn Effect, the increase in average human IQ scores, averaging roughly 3 points per decade, throughout the 20th century. But recent data indicates that the Flynn effect has stalled or even reversed in some developed nations.",
+    "post_url": "https://reddit.com/r/todayilearned/comments/1r671w6/til_about_the_flynn_effect_the_increase_in/",
+    "score": 11788,
+    "num_comments": 478,
+    "velocity": 12744,
+    "trendiness_score": 19323.6,
+    "keywords": [
+      "til",
+      "flynn",
+      "effect",
+      "increase",
+      "average",
+      "human",
+      "scores",
+      "averaging"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? TIL about the Flynn Effect, the increase in average human IQ...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: TIL about the Flynn Effect, the increase in averag",
+      "context": "[5-15s] Why this matters: trending topic with 478 comments",
+      "key_insight": "[15-25s] The main takeaway involving: til, flynn, effect",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-16T21:01:21.587743+00:00",
+    "status": "proposed"
+  }
+]
