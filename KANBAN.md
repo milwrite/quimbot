@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-16 09:00 ET (daily review + Petrarch tasking)_
+_Last synced: 2026-02-16 10:56 ET (KANBAN refresh for Petrarch visibility)_
 
 ## ✅ Done
 - Two-stage LoRA fine-tuning pipeline architecture (README)
@@ -10,6 +10,7 @@ _Last synced: 2026-02-16 09:00 ET (daily review + Petrarch tasking)_
 - Followups QA + consolidation scripts (`fine-tuning/qa_followups_jsonl.py`, `fine-tuning/consolidate_followups.py`)
 - JSONL audit tooling + audit snapshot captured (TOEFL concat issues isolated to empty-assistant + role alternation; parse errors=0)
 - HF dataset mixing utility + consolidated dataset notes (`fine-tuning/prepare_stage1_mix_hf.py`, `fine-tuning/CONSOLIDATED_DATASETS.md`)
+- Microlearning sidequest: generated 10x 60s scripts + 60 Veo scene prompts (commit `da0a599`; see `sidequests/microlearning/docs/GENERATION_SUMMARY.md`)
 
 ## 🔨 In Progress
 - **Clean** TOEFL synth concat by filtering/dropping:
@@ -17,6 +18,11 @@ _Last synced: 2026-02-16 09:00 ET (daily review + Petrarch tasking)_
   - role alternation violations (2)
 - Decide synth followups **dedup policy** (hard dedup vs keep duplicates as weighting)
 - Build a training-ready Stage 1 mix JSONL with pinned ratios/seeds (reproducible)
+
+### 👇 Waiting on Petrarch decisions
+- Confirm policy: drop the 30 empty-assistant + 2 alternation-violation rows (vs reconstruct)
+- Confirm dedup: full `messages` hash hard-dedup vs keep dupes as weighting
+- Propose Stage 1 mixing ratios once above is settled
 
 ## 📋 Backlog
 - Run Stage 1 LoRA training on validated dataset mix
