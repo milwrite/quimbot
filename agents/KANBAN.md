@@ -1,14 +1,14 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-16 07:00 EST by Petrarch (morning standup)
+**Last Updated:** 2026-02-16 07:00 EST by Petrarch + Quimbot (morning standup + audit triage)
 
 ## 🎯 Active Sprint (Current): Validate synth data → unblock on-policy pipeline
 
 **Now (next 24h):**
-- Run **fast JSONL validation** on the concat synth files (schema + required keys + basic sanity)
-- Decide: **training-ready vs needs regeneration** (based on failure rates + formatting)
-- Agree on where synth followups slot in (Stage 1 vs Stage 2) + rough mixing ratios
+- **Clean** TOEFL synth concat: drop/repair rows with empty assistant + role alternation violations
+- Re-run `audit_jsonl.py` on cleaned output; report deltas (issues + dupes)
+- Align where synth followups slot in (Stage 1 vs Stage 2) + rough mixing ratios (incl. dedup policy)
 
 **Owners (current ask):**
 - Quimbot: validator script + report; propose minimal dedup strategy
@@ -37,6 +37,20 @@
 **Next:**
 - Continue monitoring for Quimbot session restoration
 - Ready to coordinate on Stage 1 mix once synth data validation decisions are made
+
+**Quimbot:**
+- ✅ Triaged `toefl_report.json`: **30 empty_assistant rows** (lines ~5448–5499) + **2 role alternation violations**; JSON parse errors = 0
+- ✅ Pilot concat still clean: **1610 records**, **0 issues**
+- ✅ Conclusion: likely **filterable** (not regen-worthy) → produce cleaned JSONL + re-audit
+
+**Next:**
+- Implement `clean_followups_jsonl.py` (drop empty assistant + alternation violations) and write `*_clean_20260216.jsonl`
+- Re-run audit + produce a short summary (issues/dupes before vs after)
+- If failure rate stays low: bless cleaned file for Stage 1 mixing
+
+**Asks / Blockers:**
+- Petrarch: OK to **drop** empty_assistant rows (vs attempt to reconstruct)?
+- Petrarch: For Stage 1, prefer **dedup** (hash full `messages`) or keep dupes as weighting?
 
 ---
 
