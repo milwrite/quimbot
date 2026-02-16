@@ -10,25 +10,25 @@
 ## Script
 
 **HOOK (0-3s):**
-Cleopatra never saw the pyramids being built. Want to know why?
+Cleopatra never saw the pyramids being built. Wanna know why?
 
 **SETUP (3-15s):**
-We think of ancient Egypt as one continuous era, but the timeline is more shocking than you realize. The Great Pyramid was already ancient history when Cleopatra ruled Egypt.
+We lump all of ancient Egypt into one era in our heads, right? But the timeline's way weirder than that. When Cleopatra ruled Egypt, the Great Pyramid was already ancient history.
 
 **POINT_1 (15-25s):**
-The Great Pyramid was built around 2560 BCE. That's over four thousand five hundred years ago.
+The Great Pyramid went up around 2560 BCE. That's over forty-five hundred years ago.
 
 **POINT_2 (25-35s):**
-Cleopatra ruled Egypt from 51 to 30 BCE. That's roughly two thousand years AFTER the pyramids were finished.
+Cleopatra ruled from 51 to 30 BCE. That's roughly two thousand years AFTER the pyramids were done.
 
 **POINT_3 (35-50s):**
-The iPhone was released in 2007 CE. That's only two thousand thirty-seven years after Cleopatra's death. She's actually closer to your smartphone than to the ancient monuments she lived beside.
+The iPhone came out in 2007. That's only two thousand thirty-seven years after Cleopatra died. She's literally closer to your phone than to the monuments she lived next to.
 
 **CONCLUSION (50-57s):**
-History isn't a straight line. Cleopatra gazed at the pyramids the same way we look at Roman ruins—as mysterious relics from an impossibly distant past.
+History isn't a straight line. Cleopatra looked at the pyramids the same way we look at Roman ruins—as weird relics from an impossibly distant past.
 
 **CTA (57-60s):**
-Follow for more mind-bending history.
+Follow for more history that breaks your brain.
 
 ---
 

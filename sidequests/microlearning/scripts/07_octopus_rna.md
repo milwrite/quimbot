@@ -13,16 +13,16 @@
 Octopuses can rewrite their own genetic code in real time. Humans can't do this.
 
 **SETUP (3-15s):**
-Most animals, including us, are locked into the DNA we're born with. But octopuses have a superpower: they can edit their RNA, the messenger molecule that translates DNA into proteins.
+Most animals—including us—are locked into the DNA we're born with. But octopuses have a superpower: they can edit their RNA, the messenger molecule that translates DNA into proteins.
 
 **POINT_1 (15-27s):**
-This means they can adapt to changing environments almost instantly. Moving from warm water to cold? An octopus can edit its nerve cell proteins on the fly to maintain function.
+This means they can adapt to changing environments almost instantly. Moving from warm water to cold? An octopus can edit its nerve cell proteins on the fly to keep functioning.
 
 **POINT_2 (27-42s):**
-Scientists discovered that octopuses edit their RNA at rates tens of thousands of times higher than humans. They're constantly rewriting their biology to suit their needs.
+Scientists found octopuses edit their RNA at rates tens of thousands of times higher than humans. They're constantly rewriting their biology to suit their needs.
 
 **POINT_3 (42-52s):**
-The tradeoff? This ability comes at a cost. Octopuses have sacrificed traditional DNA evolution, which is why they haven't changed much in millions of years.
+The tradeoff? This ability comes at a cost. Octopuses have sacrificed traditional DNA evolution. That's why they haven't changed much in millions of years.
 
 **CONCLUSION (52-57s):**
 They chose adaptation over evolution—a fundamentally alien approach to survival.

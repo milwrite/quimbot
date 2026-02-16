@@ -10,19 +10,19 @@
 ## Script
 
 **HOOK (0-3s):**
-In 1932, Australia went to war. The enemy? Twenty thousand emus. The result? Total defeat.
+1932. Australia went to war. The enemy? Twenty thousand emus. The result? Total defeat.
 
 **SETUP (3-15s):**
-After World War One, Australian veterans were given farmland in Western Australia. But there was a problem: emus. Tens of thousands of them were destroying crops, and farmers were desperate.
+After World War One, Aussie veterans got farmland in Western Australia. But there was a problem: emus. Tens of thousands of them destroying crops. Farmers were desperate.
 
 **POINT_1 (15-25s):**
-The government sent in the military. Soldiers armed with machine guns faced off against the flightless birds in what became known as the Great Emu War.
+So the government sent in the military. Soldiers with machine guns faced off against flightless birds in what became known as the Great Emu War.
 
 **POINT_2 (25-40s):**
-The emus were faster, smarter, and more tactical than anyone expected. They scattered into small groups, making them impossible to target. After weeks of failed attempts and wasted ammunition, the military withdrew in humiliation.
+The emus were faster, smarter, and way more tactical than anyone expected. They scattered into small groups, made themselves impossible to target. After weeks of failed attempts and wasted ammo, the military withdrew in complete humiliation.
 
 **POINT_3 (40-52s):**
-Official casualty count? Fewer than a thousand emus killed despite thousands of rounds fired. The emus kept destroying crops for years afterward.
+Official count? Fewer than a thousand emus killed despite thousands of rounds fired. The emus kept destroying crops for years.
 
 **CONCLUSION (52-57s):**
 Australia's military lost a war to birds. The emus remain undefeated.

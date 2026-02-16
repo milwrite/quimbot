@@ -13,16 +13,16 @@
 This shrimp can see colors you can't even imagine. But it's terrible at telling them apart.
 
 **SETUP (3-15s):**
-The mantis shrimp has sixteen color receptors in its eyes. Humans have only three. You'd think that means they see way more colors than we do, right? Wrong.
+The mantis shrimp has sixteen color receptors in its eyes. Humans have three. You'd think that means they see way more colors than we do, right? Nope.
 
 **POINT_1 (15-27s):**
-Scientists tested them and discovered mantis shrimp are actually worse at distinguishing between similar colors than we are. They can detect more wavelengths but can't process the subtle differences.
+Scientists tested them and found out mantis shrimp are actually worse at telling similar colors apart than we are. They can detect more wavelengths but can't process the subtle differences.
 
 **POINT_2 (27-42s):**
 So why have sixteen receptors? Speed. Instead of blending colors like our brains do, mantis shrimp recognize colors instantly without processing. They sacrifice precision for reaction time.
 
 **POINT_3 (42-52s):**
-This makes sense when you realize they're ambush predators with the fastest punch in the animal kingdom. They need to identify prey and strike in milliseconds.
+This makes sense when you realize they're ambush predators with the fastest punch in the animal kingdom. They need to ID prey and strike in milliseconds.
 
 **CONCLUSION (52-57s):**
 More sensors doesn't always mean better vision—it means different priorities.

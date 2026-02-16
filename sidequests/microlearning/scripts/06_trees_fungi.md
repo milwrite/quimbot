@@ -13,13 +13,13 @@
 Trees are texting each other right now. Underground. Through mushrooms.
 
 **SETUP (3-15s):**
-Forests aren't just collections of individual trees—they're interconnected superorganisms. Beneath your feet, an invisible network of fungal threads connects tree roots in what scientists call the mycorrhizal network.
+Forests aren't just collections of individual trees—they're interconnected superorganisms. Beneath your feet there's an invisible network of fungal threads connecting tree roots. Scientists call it the mycorrhizal network.
 
 **POINT_1 (15-27s):**
 Trees use this network to share resources. A large mother tree can send nutrients to struggling saplings through the fungal highway, keeping them alive even in deep shade.
 
 **POINT_2 (27-42s):**
-But they also send warnings. When a tree is attacked by insects, it releases chemical signals through the network, alerting neighboring trees to boost their defenses before the pests arrive.
+But they also send warnings. When a tree gets attacked by insects it releases chemical signals through the network, alerting neighboring trees to boost their defenses before the pests arrive.
 
 **POINT_3 (42-52s):**
 Some scientists call it the "wood wide web." The fungi act as biological internet cables, transferring information and resources across the entire forest.

@@ -10,19 +10,19 @@
 ## Script
 
 **HOOK (0-3s):**
-This food is three thousand years old, and you could still eat it for breakfast.
+This food is three thousand years old and you could still eat it for breakfast.
 
 **SETUP (3-15s):**
-Archaeologists excavating ancient Egyptian tombs discovered jars of honey sealed thousands of years ago. When they opened them, the honey was still perfectly preserved—golden, sweet, and edible.
+Archaeologists digging through ancient Egyptian tombs found jars of honey sealed thousands of years ago. When they opened them? The honey was still perfectly preserved—golden, sweet, and edible.
 
 **POINT_1 (15-27s):**
-Honey never spoils because of its unique chemistry. It's extremely low in moisture and highly acidic, creating an environment where bacteria and microorganisms simply can't survive.
+Honey never spoils because of its weird chemistry. It's extremely low in moisture and highly acidic. That creates an environment where bacteria and microorganisms just can't survive.
 
 **POINT_2 (27-42s):**
-When bees make honey, they add an enzyme that produces hydrogen peroxide, a natural antimicrobial agent. The thick consistency also prevents oxygen from penetrating, stopping decomposition.
+When bees make honey they add an enzyme that produces hydrogen peroxide—a natural antimicrobial agent. The thick consistency also stops oxygen from getting in, which prevents decomposition.
 
 **POINT_3 (42-52s):**
-As long as it's sealed properly, honey can last indefinitely. The oldest known honey sample is over five thousand years old from the country of Georgia, still intact.
+As long as it's sealed properly honey can last indefinitely. The oldest known sample is over five thousand years old from Georgia. Still intact.
 
 **CONCLUSION (52-57s):**
 Honey is one of the few foods that's genuinely immortal.

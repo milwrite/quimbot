@@ -13,13 +13,13 @@
 This war lasted thirty-eight minutes. One side had a wooden boat. The other had the British Empire.
 
 **SETUP (3-15s):**
-In 1896, the Sultan of Zanzibar died. His nephew seized power without British approval. Big mistake. Britain had other plans and issued an ultimatum: step down or face consequences.
+1896. The Sultan of Zanzibar died. His nephew seized power without British approval. Big mistake. Britain had other plans and issued an ultimatum: step down or face consequences.
 
 **POINT_1 (15-27s):**
 The new Sultan refused and barricaded himself in the palace with about three thousand defenders and one ceremonial wooden boat he called his navy.
 
 **POINT_2 (27-42s):**
-Britain responded by parking five warships in the harbor. At nine-oh-two AM on August 27th, they opened fire. The palace was obliterated. By nine-forty, it was over.
+Britain responded by parking five warships in the harbor. At 9:02 AM on August 27th they opened fire. The palace was obliterated. By 9:40 it was over.
 
 **POINT_3 (42-52s):**
 Casualty count: roughly five hundred on Zanzibar's side, one British sailor injured. The wooden boat sank immediately.

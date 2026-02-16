@@ -13,13 +13,13 @@
 The Library of Alexandria didn't burn down in one dramatic fire. It was defunded to death.
 
 **SETUP (3-15s):**
-We imagine the ancient world's greatest library consumed in flames, all that knowledge lost in a single catastrophic night. The reality is far more tragic and familiar.
+We imagine the ancient world's greatest library consumed in flames, all that knowledge lost in a single catastrophic night. The reality is way more tragic. And familiar.
 
 **POINT_1 (15-27s):**
-The library declined over centuries due to budget cuts, political instability, and neglect. Fewer scholars meant fewer acquisitions. Maintenance stopped. Scrolls crumbled from moisture and pests.
+The library declined over centuries because of budget cuts, political instability, and neglect. Fewer scholars meant fewer acquisitions. Maintenance stopped. Scrolls crumbled from moisture and pests.
 
 **POINT_2 (27-42s):**
-There were fires—several small ones over hundreds of years. But the real killer was indifference. Each generation cared a little less until one day, there was nothing left worth protecting.
+There were fires—several small ones over hundreds of years. But the real killer was indifference. Each generation cared a little less until one day there was nothing left worth protecting.
 
 **POINT_3 (42-52s):**
 The last recorded mention of scholars working there was in the third century CE. After that, silence. The library didn't explode—it faded.
