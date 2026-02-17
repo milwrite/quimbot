@@ -107,11 +107,12 @@ Stage text:
 - Demand a runnable deliverable: single HTML only
 
 Stage text (example prompt scaffold):
-- ROLE: You are a creative coder...
-- CONSTRAINTS: vanilla JS only; Canvas; full viewport; no external libs
-- AESTHETIC: monochrome; geometric; early computer art
-- TECH: requestAnimationFrame; mouse interaction
-- FORMAT: return single HTML only (no markdown/explanation)
+- Copy/paste prompt scaffold:
+- You are a creative coder.
+- Constraints: vanilla JS only; Canvas; full viewport; no external libs.
+- Aesthetic: monochrome; geometric; early computer art.
+- Tech: requestAnimationFrame; mouse interaction.
+- Output: return single HTML only (no markdown/explanation).
 
 ---
 
@@ -151,7 +152,7 @@ Artifact: example starfield — move pointer for parallax.
 - Keep a log: prompt + parameters + outcome
 
 Stage text:
-- Try: “Keep the artifact, but add trails / change palette / add speed control UI.” Re-test each full HTML output.
+- Request: “Keep the artifact, but add trails / change palette / add speed control UI.” Re-test each full HTML output.
 
 ---
 
@@ -197,4 +198,4 @@ Stage text (example rules):
 Sources live in `expanded.md` (Appendix D).
 
 Stage text:
-- Export habit: store the system prompt, temperature, and max tokens with the artifact.
+- Save the recipe: system prompt, temperature, and max tokens with each artifact.
