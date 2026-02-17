@@ -19,9 +19,9 @@ Artifact: 10 PRINT (Commodore 64, 1982) — a one-rule maze generator.
 Note: Keep it fast — read 2–3 examples aloud.
 
 Stage text:
-- Prompt (chat):
+- In chat, post:
 - “Describe something you do by following steps… in three instructions or fewer.”
-- Listen for: “If X then Y” (conditional), “Repeat until done” (loop), “First A then B” (sequence).
+- Look for: “If X then Y” (conditional), “Repeat until done” (loop), “First A then B” (sequence).
 
 ---
 
@@ -118,10 +118,11 @@ Stage text (example prompt scaffold):
 # Slide 10
 ## Live Demo
 ### CUNY AI Lab Sandbox (Open WebUI)
+- Register: https://chat.ailab.gc.cuny.edu
+- Put a 👍 in the chat when you’re in
 - Set model + parameters before you generate
 - Lower temperature for stability; raise for variety
 - Allocate enough tokens to finish the HTML
-- Treat parameters as part of the recipe
 
 Stage text:
 - Run the same prompt 3× at low temp, then 3× at high temp; then force truncation with low max tokens.
