@@ -376,8 +376,11 @@ Return HTML only</pre>
     const base = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
     const deckUrl = base + 'src/deck.js';
 
-    const mod = await import(deckUrl);
-    mod.bootDeck();
+    import(deckUrl)
+      .then((mod) => mod.bootDeck())
+      .catch((err) => {
+        console.error('Failed to load deck module:', deckUrl, err);
+      });
   </script>
 </body>
 </html>
