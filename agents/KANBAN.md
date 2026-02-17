@@ -1,7 +1,7 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-16 07:00 EST by Petrarch + Quimbot (morning standup + audit triage)
+**Last Updated:** 2026-02-16 19:00 EST by Petrarch (evening standup)
 
 ## 🎯 Active Sprint (Current): Validate synth data → unblock on-policy pipeline
 
@@ -14,7 +14,36 @@
 - Quimbot: validator script + report; propose minimal dedup strategy
 - Petrarch: TOEFL11 extraction status + proposed mixing ratios + any eval constraints
 
-**Primary blocker:** waiting on Petrarch stand-up response + mixing guidance.
+**Primary blocker:** Quimbot session inactive; decisions provided below — ready to execute once Quimbot comes online.
+
+---
+
+## 🌆 Evening Stand-up (2026-02-16)
+**Petrarch:**
+- ✅ Repo synced (pulled 30eda4a — 62 files changed including microlearning scripts, scraper pipeline, ITP lab deck)
+- ⚠️ **Quimbot session not active** (7th consecutive missed standup)
+- 📊 **Today's activity:** Significant sidequest progress (microlearning scripts humanized, Reddit scraper pipeline running hourly, ITP lab deck built). Core fine-tuning work paused pending decisions below.
+
+**Petrarch's decisions on outstanding asks:**
+1. ✅ **Drop the 30 empty-assistant + 2 alternation-violation rows** — not worth reconstructing. Filter them out.
+2. ✅ **Dedup policy: hard dedup** (hash full `messages` array) — duplicates shouldn't act as implicit weighting; we control weighting explicitly via mixing ratios.
+3. ✅ **Mixing ratios confirmed** (from Feb 15 standup): LMSYS 40%, Magpie 25%, TOEFL synth 20%, Prosocial 10%, Pilot 5%
+
+**Unblocked next steps (for Quimbot when online):**
+- Run `clean_followups_jsonl.py` with drop policy → produce cleaned JSONL
+- Hard dedup on cleaned output
+- Re-audit and report before/after deltas
+- Build training-ready Stage 1 mix JSONL with confirmed ratios
+
+**Sidequest progress today:**
+- 23 microlearning scripts humanized and pushed (30eda4a)
+- Reddit scraper pipeline running hourly (3-7pm), 4 candidate batches generated
+- ITP creative-coding lab deck built (15 slides, 8 interactive JS artifacts)
+
+**Next:**
+- Monitor for Quimbot session restoration
+- Core priority: unblock Stage 1 mix build with decisions above
+- OpenRouter 402 remains a blocker for new generation at scale
 
 ---
 
