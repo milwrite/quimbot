@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Creative Coding with Generative AI — Deck</title>
+  <title>Creative Coding with Generative AI - Deck</title>
   <link rel="modulepreload" href="./src/deck.js">
   <link rel="modulepreload" href="./src/registry.js">
   <style>
@@ -86,14 +86,17 @@
     .stage * { box-sizing: border-box; }
 
     .stage pre {
-      max-height: 60vh;
+      max-height: 70vh;
       overflow: auto;
-      max-width: 860px;
-      padding: 18px 18px;
+      width: 100%;
+      max-width: 90%;
+      padding: clamp(18px, 2.5vw, 32px);
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.03);
-      font: clamp(13px, 1.3vw, 15px)/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      font: clamp(14px, 1.5vw, 18px)/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: pre-wrap;
+      color: rgba(255,255,255,0.88);
     }
 
     .stage img {
@@ -108,14 +111,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: clamp(20px, 3vw, 36px);
       background: #070a10;
     }
     .stageInner {
       width: 100%;
-      max-width: 820px;
+      max-width: 90%;
       color: rgba(255,255,255,0.86);
-      line-height: 1.4;
+      line-height: 1.5;
     }
     .stageTitle { font-size: clamp(16px, 1.6vw, 20px); margin-bottom: 12px; opacity: 0.9; }
     .stageBig { font-size: clamp(22px, 2.6vw, 30px); font-weight: 650; line-height: 1.3; }
@@ -198,11 +201,11 @@
     <section class="slide" data-artifact="tenPrint">
       <div class="content">
         <h1>Creative Coding with Generative AI</h1>
-        <h2>Welcome: “What does code look like?”</h2>
+        <h2>Welcome: "What does code look like?"</h2>
         <ul>
           <li>Watch a one-line program build a maze</li>
           <li>Treat code as a visual pattern generator</li>
-          <li>Choose “/” or “\” at random; repeat</li>
+          <li>Choose "/" or "\" at random; repeat</li>
           <li>Notice how randomness creates structure over time</li>
         </ul>
       </div>
@@ -217,15 +220,15 @@
         <ul>
           <li>Write a routine in three steps or fewer</li>
           <li>Name the shape: sequence, conditional, loop</li>
-          <li>See “rules executed by hand” as code</li>
+          <li>See "rules executed by hand" as code</li>
           <li>Share one example; spot the hidden logic</li>
         </ul>
       </div>
       <div class="stage stageCenter" aria-label="Icebreaker prompt">
         <div class="stageInner">
           <div class="stageTitle">In chat, post:</div>
-          <div class="stageBig">“Describe something you do by following steps… in three instructions or fewer.”</div>
-          <div class="stageHint">Look for: “If X then Y” (conditional), “Repeat until done” (loop), “First A then B” (sequence).</div>
+          <div class="stageBig">"Describe something you do by following steps… in three instructions or fewer."</div>
+          <div class="stageHint">Look for: "If X then Y" (conditional), "Repeat until done" (loop), "First A then B" (sequence).</div>
         </div>
       </div>
     </section>
@@ -233,7 +236,7 @@
     <!-- Slide 3 -->
     <section class="slide" data-artifact="schotter">
       <div class="content">
-        <h1>Origins (1962–1965)</h1>
+        <h1>Origins (1962-1965)</h1>
         <h2>Bell Labs + first computer art</h2>
         <ul>
           <li>Place early computer art in Bell Labs era</li>
@@ -250,12 +253,12 @@
     <section class="slide" data-artifact="molnarInterruptions">
       <div class="content">
         <h1>Vera Molnar</h1>
-        <h2>The “machine imaginaire”</h2>
+        <h2>The "machine imaginaire"</h2>
         <ul>
-          <li>Define art as rules plus “a hint of disorder”</li>
+          <li>Define art as rules plus "a hint of disorder"</li>
           <li>Constrain a system; let chance disturb it</li>
-          <li>Treat constraints as the artwork’s engine</li>
-          <li>Connect constraint prompts to Molnar’s method</li>
+          <li>Treat constraints as the artwork's engine</li>
+          <li>Connect constraint prompts to Molnar's method</li>
           <li>Drag the interruption zone to disrupt the grid</li>
         </ul>
       </div>
@@ -293,9 +296,9 @@
         <h2>The creative coding triangle</h2>
         <ul>
           <li>Map a piece across: Rules / Randomness / Interpretation</li>
-          <li>Shift the balance to change the work’s feel</li>
+          <li>Shift the balance to change the work's feel</li>
           <li>Translate to LLMs: system prompt / temperature / curation</li>
-          <li>Use the triangle to diagnose “why this output”</li>
+          <li>Use the triangle to diagnose "why this output"</li>
           <li>Drag the point to shift emphasis</li>
         </ul>
       </div>
@@ -310,9 +313,9 @@
         <ul>
           <li>Prototype with prompts; test in the browser</li>
           <li>Generate fast; evaluate with your own eyes</li>
-          <li>Contrast: “no-review” vs reviewed iteration</li>
+          <li>Contrast: "no-review" vs reviewed iteration</li>
           <li>Adopt the mode that matches your goal</li>
-          <li>Attribute “vibe coding” to Karpathy (Feb 2025)</li>
+          <li>Attribute "vibe coding" to Karpathy (Feb 2025)</li>
         </ul>
       </div>
       <div class="stage" aria-label="Spectrum stage"></div>
@@ -346,8 +349,8 @@
           <li>Demand a runnable deliverable: single HTML only</li>
         </ul>
       </div>
-      <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:22px; background:#070a10;">
-        <pre style="margin:0; width:100%; max-width:820px; white-space:pre-wrap; color:rgba(255,255,255,0.85); font: 14px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;">Copy/paste prompt scaffold:
+      <div class="stage stageCenter" aria-label="Prompt scaffold">
+        <pre>Copy/paste prompt scaffold:
 
 You are a creative coder.
 Constraints: vanilla JS only; Canvas; full viewport; no external libs.
@@ -365,7 +368,7 @@ Output: return single HTML only (no markdown/explanation).</pre>
         <ul>
           <li>Open: <a href="https://chat.ailab.gc.cuny.edu" target="_blank" rel="noreferrer">chat.ailab.gc.cuny.edu</a></li>
           <li>Create an account; await pending approval; then sign in</li>
-          <li>Confirm you’re in by posting a 👍 in the chat</li>
+          <li>Confirm you're in by posting a 👍 in the chat</li>
           <li>Choose a model: GLM 5 or Kimi K2.5 (MoE)</li>
           <li>Open the Configuration panel (right side)</li>
           <li>Paste the system prompt; set temperature + max tokens</li>
@@ -406,9 +409,10 @@ Output: return single HTML only (no markdown/explanation).</pre>
           <li>Keep a log: prompt + parameters + outcome</li>
         </ul>
       </div>
-      <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:24px; background:#070a10;">
-        <div style="max-width:760px; opacity:0.82; line-height:1.45">
-          Request: “Keep the artifact, but add trails / change palette / add speed control UI.” Re-test each full HTML output.
+      <div class="stage stageCenter" aria-label="Activity 2 prompt">
+        <div class="stageInner">
+          <div class="stageBig">Request: "Keep the artifact, but add trails / change palette / add speed control UI."</div>
+          <div class="stageHint">Re-test each full HTML output.</div>
         </div>
       </div>
     </section>
@@ -426,8 +430,9 @@ Output: return single HTML only (no markdown/explanation).</pre>
           <li>Notice how constraints shape the aesthetic</li>
         </ul>
       </div>
-      <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:22px; background:#070a10;">
-        <pre style="margin:0; width:100%; max-width:820px; white-space:pre-wrap; color:rgba(255,255,255,0.85); font: 14px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;">Copy/paste rules:
+      <div class="stage stageCenter" aria-label="Activity 3 rules">
+        <pre>Copy/paste rules:
+
 1) Single HTML with inline CSS+JS
 2) Canvas only; no libraries
 3) Grid ≥ 100 elements
@@ -436,6 +441,7 @@ Output: return single HTML only (no markdown/explanation).</pre>
 6) Only 3 colors
 7) Fill viewport
 8) Animate with requestAnimationFrame
+
 Return HTML only</pre>
       </div>
     </section>
@@ -449,7 +455,7 @@ Return HTML only</pre>
           <li>Locate Activity 1 near Interpretation</li>
           <li>Locate Activity 2 between Rules and Interpretation</li>
           <li>Locate Activity 3 near Rules (then curate)</li>
-          <li>Ask: what changed—rules, randomness, or judgment?</li>
+          <li>Ask: what changed-rules, randomness, or judgment?</li>
         </ul>
       </div>
       <div class="stage" aria-label="Triangle reflection stage"></div>
@@ -459,7 +465,7 @@ Return HTML only</pre>
     <section class="slide">
       <div class="content">
         <h1>Takeaways</h1>
-        <h2>Keep what’s portable</h2>
+        <h2>Keep what's portable</h2>
         <ul>
           <li>Teach a progression: one-shot → iterate → constraints</li>
           <li>Save prompts + parameters to reproduce results</li>
@@ -468,7 +474,7 @@ Return HTML only</pre>
         </ul>
       </div>
       <div class="stage stageCenter" aria-label="Save the recipe">
-        <div class="stageInner" style="max-width:760px; opacity:0.88;">
+        <div class="stageInner">
           <div class="stageListTitle">Save the recipe</div>
           <ul class="stageList">
             <li>System prompt</li>
@@ -492,18 +498,18 @@ Return HTML only</pre>
         </ul>
       </div>
       <div class="stage stageCenter" aria-label="Resources">
-        <div class="stageInner" style="max-width:760px; opacity:0.9;">
+        <div class="stageInner">
           <div class="stageListTitle">Citations (quick)</div>
           <ul class="stageList">
             <li>10 PRINT (MIT Press, 2012): 10print.org</li>
             <li>Noll on early generative art: ethw.org</li>
             <li>Vera Molnar (V&A): vam.ac.uk</li>
             <li>Xu et al. (2024): arXiv 2402.09750</li>
-            <li>Willison (2025): “vibe coding” and “HTML tools”</li>
+            <li>Willison (2025): "vibe coding" and "HTML tools"</li>
             <li>Processing / p5.js: processing.org, p5js.org</li>
             <li>CUNY AI Lab: ailab.gc.cuny.edu</li>
           </ul>
-          <div style="margin-top:14px; opacity:0.78; font-size:13px">
+          <div class="stageHint">
             GitHub markdown link (temporary; update during migration):
             <a href="https://github.com/milwrite/quimbot/tree/main/docs/itp-lab" target="_blank" rel="noreferrer">github.com/milwrite/quimbot/docs/itp-lab</a>
           </div>
