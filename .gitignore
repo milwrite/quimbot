@@ -2,7 +2,10 @@
 fine-tuning/.env
 fine-tuning/.venv/
 fine-tuning/data/
-datasets/
+datasets/*.jsonl
+datasets/*.gguf
+models/
+tools/llama.cpp/
 checkpoints/
 edudial/
 lora_test_results.json
