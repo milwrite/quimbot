@@ -167,7 +167,8 @@ Stage text:
 - Explain your rules like a score or recipe
 - Notice how constraints shape the aesthetic
 
-Stage text (example rules):
+Stage text:
+- Copy/paste rules:
 - 1) Single HTML with inline CSS+JS
 - 2) Canvas only; no libraries
 - 3) Grid ≥ 100 elements
@@ -200,4 +201,7 @@ Stage text (example rules):
 Sources live in `expanded.md` (Appendix D).
 
 Stage text:
-- Save the recipe: system prompt, temperature, and max tokens with each artifact.
+- Save the recipe:
+  - System prompt
+  - Model + temperature + max tokens
+  - The HTML file (with a date)
