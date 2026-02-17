@@ -119,13 +119,13 @@ Stage text (example prompt scaffold):
 # Slide 10
 ## Live Demo
 ### CUNY AI Lab Sandbox (Open WebUI)
-- Register: https://chat.ailab.gc.cuny.edu
-- Put a 👍 in the chat when you’re in
+- Open: https://chat.ailab.gc.cuny.edu
+- Create an account or sign in
+- Confirm you’re in by posting a 👍 in the chat
 - Choose a model: GLM 5 or Kimi K2.5 (MoE)
-- Use the Configuration panel (right side) for system prompt + parameters
-- Set temperature for stability vs variety
-- Set max tokens high enough to finish the HTML
-- Optional: read more about models: https://ailab.gc.cuny.edu/models/
+- Open the Configuration panel (right side)
+- Paste the system prompt; set temperature + max tokens
+- Optional: model notes: https://ailab.gc.cuny.edu/models/
 
 Stage text:
 - Run the same prompt 3× at low temp, then 3× at high temp; then force truncation with low max tokens.
