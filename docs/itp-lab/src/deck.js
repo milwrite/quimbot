@@ -55,10 +55,61 @@ function onHash() {
   if (m) show(parseInt(m[1], 10) - 1);
 }
 
+function isInteractiveTarget(t) {
+  if (!(t instanceof Element)) return false;
+  return !!t.closest('a, button, input, textarea, select, summary, details, [contenteditable="true"]');
+}
+
 export function bootDeck() {
   slides = Array.from(document.querySelectorAll('section.slide'));
   document.addEventListener('keydown', onKey);
   window.addEventListener('hashchange', onHash);
+
+  // Mobile support: tap left/right half to navigate.
+  function onTap(e) {
+    if (isInteractiveTarget(e.target)) return;
+
+    // Ignore taps that start inside the stage; artifacts often need pointer input.
+    const slide = slides[idx];
+    const stage = slide && slide.querySelector('.stage');
+    if (stage && e.target instanceof Node && stage.contains(e.target)) return;
+
+    const x = (e.clientX ?? (e.touches && e.touches[0] && e.touches[0].clientX) ?? 0);
+    if (x < window.innerWidth * 0.35) prev();
+    else next();
+  }
+
+  // Mobile support: swipe left/right.
+  let touchStartX = 0;
+  let touchStartY = 0;
+  function onTouchStart(e) {
+    if (!e.touches || e.touches.length !== 1) return;
+    if (isInteractiveTarget(e.target)) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }
+  function onTouchEnd(e) {
+    if (!touchStartX && !touchStartY) return;
+    const t = (e.changedTouches && e.changedTouches[0]);
+    if (!t) return;
+    const dx = t.clientX - touchStartX;
+    const dy = t.clientY - touchStartY;
+
+    touchStartX = 0;
+    touchStartY = 0;
+
+    // Horizontal swipe only.
+    if (Math.abs(dx) < 45) return;
+    if (Math.abs(dx) < Math.abs(dy) * 1.2) return;
+
+    if (dx < 0) next();
+    else prev();
+  }
+
+  // Use pointerup so it works for touch + mouse.
+  document.addEventListener('pointerup', onTap);
+  document.addEventListener('touchstart', onTouchStart, { passive: true });
+  document.addEventListener('touchend', onTouchEnd, { passive: true });
 
   const start = (() => {
     const m = location.hash.match(/^#(\d+)$/);
@@ -70,6 +121,9 @@ export function bootDeck() {
   return () => {
     document.removeEventListener('keydown', onKey);
     window.removeEventListener('hashchange', onHash);
+    document.removeEventListener('pointerup', onTap);
+    document.removeEventListener('touchstart', onTouchStart);
+    document.removeEventListener('touchend', onTouchEnd);
     for (const unmount of mounted.values()) { try { unmount(); } catch {} }
     mounted.clear();
   };
