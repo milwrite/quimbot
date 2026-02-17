@@ -371,8 +371,13 @@ Return HTML only</pre>
   </main>
 
   <script type="module">
-    import { bootDeck } from './src/deck.js';
-    bootDeck();
+    // Next.js-friendly: this deck may be served at a route like `/itp-lab` (no trailing slash)
+    // or `/itp-lab/`. Compute the directory base so ES module paths resolve correctly.
+    const base = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+    const deckUrl = base + 'src/deck.js';
+
+    const mod = await import(deckUrl);
+    mod.bootDeck();
   </script>
 </body>
 </html>
