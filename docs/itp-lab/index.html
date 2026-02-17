@@ -527,22 +527,18 @@ Return HTML only</pre>
   </main>
 
   <script type="module">
-    // Next.js-friendly: this deck may be served at a route like `/itp-lab` (no trailing slash)
-    // or `/itp-lab/`. Compute the directory base so ES module paths resolve correctly.
-    const base = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
-    const deckUrl = base + 'src/deck.js';
+    import { bootDeck } from './src/deck.js';
 
-    const loadError = document.getElementById('loadError');
-
-    import(deckUrl)
-      .then((mod) => mod.bootDeck())
-      .catch((err) => {
-        console.error('Failed to load deck module:', deckUrl, err);
-        if (loadError) {
-          loadError.style.display = 'block';
-          loadError.innerHTML = `Deck failed to load.<br><br>Module URL: <code>${deckUrl}</code><br><br>Try a hard refresh. If it still fails, open your browser console for details.`;
-        }
-      });
+    try {
+      bootDeck();
+    } catch (err) {
+      console.error('Failed to boot deck:', err);
+      const loadError = document.getElementById('loadError');
+      if (loadError) {
+        loadError.style.display = 'block';
+        loadError.innerHTML = `Deck failed to load.<br><br>${err.message}<br><br>Try a hard refresh. If it still fails, open your browser console for details.`;
+      }
+    }
   </script>
 </body>
 </html>
