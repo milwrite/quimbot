@@ -1,0 +1,96 @@
+[
+  {
+    "topic_id": "b2c10df7832c",
+    "subreddit": "todayilearned",
+    "post_title": "TIL that there is a pornographic Batman parody of unknown origin that was discovered in the storage room of an adult movie theater in Tennessee",
+    "post_url": "https://reddit.com/r/todayilearned/comments/1r5xd2s/til_that_there_is_a_pornographic_batman_parody_of/",
+    "score": 2952,
+    "num_comments": 341,
+    "velocity": 3634,
+    "trendiness_score": 3924.69,
+    "keywords": [
+      "til",
+      "there",
+      "pornographic",
+      "batman",
+      "parody",
+      "unknown",
+      "origin",
+      "discovered"
+    ],
+    "risk_flags": [
+      "adult"
+    ],
+    "hook": "Did you know? TIL that there is a pornographic Batman parody of unknown or...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: TIL that there is a pornographic Batman parody of ",
+      "context": "[5-15s] Why this matters: trending topic with 341 comments",
+      "key_insight": "[15-25s] The main takeaway involving: til, there, pornographic",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-17T00:02:59.202509+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "f2ee27018946",
+    "subreddit": "todayilearned",
+    "post_title": "Til that when  the Japanese daimyo Uesugi Kenshin learned that his great rival Takeda Shingen had his supply of salt cut off, Kenshin sent Shingen salt from his own lands saying \u201cI do not fight with salt, but with the sword\u201d.",
+    "post_url": "https://reddit.com/r/todayilearned/comments/1r6n24e/til_that_when_the_japanese_daimyo_uesugi_kenshin/",
+    "score": 2955,
+    "num_comments": 96,
+    "velocity": 2452,
+    "trendiness_score": 2640.12,
+    "keywords": [
+      "til",
+      "japanese",
+      "daimyo",
+      "uesugi",
+      "kenshin",
+      "learned",
+      "great",
+      "rival"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? Til that when  the Japanese daimyo Uesugi Kenshin learned th...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: Til that when  the Japanese daimyo Uesugi Kenshin ",
+      "context": "[5-15s] Why this matters: trending topic with 96 comments",
+      "key_insight": "[15-25s] The main takeaway involving: til, japanese, daimyo",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-17T00:02:59.202694+00:00",
+    "status": "proposed"
+  },
+  {
+    "topic_id": "d2852e813d49",
+    "subreddit": "Artificial",
+    "post_title": "Microsoft AI chief gives it 18 months for all white-collar work to be automated by AI",
+    "post_url": "https://reddit.com/r/artificial/comments/1r4oc2i/microsoft_ai_chief_gives_it_18_months_for_all/",
+    "score": 269,
+    "num_comments": 315,
+    "velocity": 899,
+    "trendiness_score": 1633.61,
+    "keywords": [
+      "microsoft",
+      "chief",
+      "gives",
+      "months",
+      "white-collar",
+      "work",
+      "automated"
+    ],
+    "risk_flags": [],
+    "hook": "Did you know? Microsoft AI chief gives it 18 months for all white-collar w...",
+    "script_outline": {
+      "duration_target": "30s",
+      "hook": "[0-5s] Attention grabber about: Microsoft AI chief gives it 18 months for all whit",
+      "context": "[5-15s] Why this matters: trending topic with 315 comments",
+      "key_insight": "[15-25s] The main takeaway involving: microsoft, chief, gives",
+      "cta": "[25-30s] What you can do with this knowledge"
+    },
+    "proposed_at": "2026-02-17T00:02:59.202702+00:00",
+    "status": "proposed"
+  }
+]
