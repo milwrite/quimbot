@@ -158,8 +158,10 @@
       #kbdSpace { display: none; }
 
       section.slide.active { grid-template-columns: 1fr; }
-      .content h1 { font-size: 28px; }
-      .content h2 { font-size: 18px; }
+      .content { min-height: auto; padding: 24px 20px 20px; }
+      .content h1 { font-size: 32px; }
+      .content h2 { font-size: 22px; }
+      .content p, .content ul { font-size: 16px; }
 
       /* Fit content into small screens; allow vertical scroll inside the slide. */
       section.slide { padding: 56px 14px 24px; }
@@ -168,7 +170,10 @@
 
     @media (max-width: 420px) {
       .stage { min-height: 220px; }
-      .content { padding: 14px 14px 12px; }
+      .content { padding: 16px 14px 14px; }
+      .content h1 { font-size: 26px; }
+      .content h2 { font-size: 19px; }
+      .content p, .content ul { font-size: 15px; }
       .content li { margin: 5px 0; }
       .stage pre { max-height: 42vh; }
     }
