@@ -120,7 +120,7 @@ Stage text (example prompt scaffold):
 ## Live Demo
 ### CUNY AI Lab Sandbox (Open WebUI)
 - Open: https://chat.ailab.gc.cuny.edu
-- Create an account or sign in
+- Create an account; await pending approval; then sign in
 - Confirm you’re in by posting a 👍 in the chat
 - Choose a model: GLM 5 or Kimi K2.5 (MoE)
 - Open the Configuration panel (right side)
