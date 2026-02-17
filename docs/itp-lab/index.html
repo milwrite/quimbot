@@ -42,12 +42,12 @@
     section.slide {
       position: absolute; inset: 0;
       display: none;
-      padding: 64px 60px 54px;
+      padding: 64px 44px 40px;
       box-sizing: border-box;
       overflow: auto;
       -webkit-overflow-scrolling: touch;
     }
-    section.slide.active { display: grid; grid-template-columns: 1.05fr 1fr; gap: 28px; }
+    section.slide.active { display: grid; grid-template-columns: 1.25fr 1fr; gap: 20px; }
     .content {
       align-self: start;
       padding: 18px 18px 14px;
@@ -121,11 +121,11 @@
         <h1>Creative Coding with Generative AI</h1>
         <h2>Welcome: “What does code look like?”</h2>
         <ul>
-          <li>Display 10 PRINT maze animation full-screen</li>
-          <li>Frame code as watchable pattern-building, not intimidation</li>
-          <li>Explain one-line rule: pick 1 of 2 diagonals at random; loop</li>
+          <li>Watch a one-line program build a maze</li>
+          <li>Treat code as a visual pattern generator</li>
+          <li>Choose “/” or “\” at random; repeat</li>
+          <li>Notice how randomness creates structure over time</li>
         </ul>
-        <p class="note">Artifact: Canvas 10 PRINT generator (Commodore 64, 1982). Reloads itself when it fills the screen.</p>
       </div>
       <div class="stage" aria-label="10 PRINT stage"></div>
     </section>
@@ -136,11 +136,11 @@
         <h1>Icebreaker</h1>
         <h2>Describe an algorithm you already know</h2>
         <ul>
-          <li>Prompt: post a routine in ≤3 instructions</li>
-          <li>Connect to Molnar’s “machine imaginaire” (rules executed by hand)</li>
-          <li>Name structures without jargon: sequence, conditional, loop</li>
+          <li>Write a routine in three steps or fewer</li>
+          <li>Name the shape: sequence, conditional, loop</li>
+          <li>See “rules executed by hand” as code</li>
+          <li>Share one example; spot the hidden logic</li>
         </ul>
-        <p class="note">No artifact required; keep pace and read 2–3 chat examples aloud.</p>
       </div>
       <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:20px; background:#070a10;">
         <div style="max-width:700px; color:rgba(255,255,255,0.86); line-height:1.35">
@@ -157,11 +157,11 @@
         <h1>Origins (1962–1965)</h1>
         <h2>Bell Labs + first computer art</h2>
         <ul>
-          <li>Situate Noll: FORTRAN on IBM 7090 at Bell Labs</li>
-          <li>Explain order + disorder: equations + pseudo-randomness</li>
-          <li>Track shift: plotter output → “computer art” → public exhibitions</li>
+          <li>Place early computer art in Bell Labs era</li>
+          <li>Combine equations with pseudo-random variation</li>
+          <li>Generate order first; introduce disorder gradually</li>
+          <li>Move from plotter output to public exhibitions</li>
         </ul>
-        <p class="note">Artifact: Nees-style “Schotter” recreation. Click to re-roll disorder.</p>
       </div>
       <div class="stage" aria-label="Schotter stage"></div>
     </section>
@@ -172,11 +172,11 @@
         <h1>Vera Molnar</h1>
         <h2>The “machine imaginaire”</h2>
         <ul>
-          <li>Define method: rules/constraints + “hint of disorder”</li>
-          <li>Link to LLM constraint prompts as modern machine imaginaire</li>
-          <li>Emphasize productive chance (“interferences”) inside structure</li>
+          <li>Define art as rules plus “a hint of disorder”</li>
+          <li>Constrain a system; let chance disturb it</li>
+          <li>Treat constraints as the artwork’s engine</li>
+          <li>Connect constraint prompts to Molnar’s method</li>
         </ul>
-        <p class="note">Artifact: grid order disrupted by a draggable interruption zone.</p>
       </div>
       <div class="stage" aria-label="Molnar stage"></div>
     </section>
@@ -187,10 +187,10 @@
         <h1>Creative Coding Today</h1>
         <h2>p5.js + browser as canvas</h2>
         <ul>
-          <li>Credit Processing (Reas/Fry) for access + pedagogy</li>
-          <li>Note p5.js as browser descendant</li>
-          <li>Justify workshop choice: plain HTML/CSS/JS → single-file artifacts</li>
-          <li>Reference Willison: “HTML tools” as evergreen single-file apps</li>
+          <li>Use the browser as a portable art canvas</li>
+          <li>Learn with p5.js; ship with plain HTML/JS</li>
+          <li>Prefer single-file artifacts you can share</li>
+          <li>Keep tools lightweight: no build step</li>
         </ul>
       </div>
       <div class="stage" style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
@@ -211,11 +211,11 @@
         <h1>Key Concept</h1>
         <h2>The creative coding triangle</h2>
         <ul>
-          <li>Place works inside: Rules / Randomness / Interpretation</li>
-          <li>Map to LLM practice: system prompt / temperature / curation</li>
-          <li>Use as scaffold for activities</li>
+          <li>Map a piece across: Rules / Randomness / Interpretation</li>
+          <li>Shift the balance to change the work’s feel</li>
+          <li>Translate to LLMs: system prompt / temperature / curation</li>
+          <li>Use the triangle to diagnose “why this output”</li>
         </ul>
-        <p class="note">Artifact: drag the point to change emphasis and watch the background shift.</p>
       </div>
       <div class="stage" aria-label="Triangle stage"></div>
     </section>
@@ -226,8 +226,11 @@
         <h1>Vibe Coding</h1>
         <h2>Prompts as prototypes</h2>
         <ul>
-          <li>Attribute term “vibe coding” to Karpathy (Feb 2025)</li>
-          <li>Distinguish vibecoding (no review) vs assisted programming (review/iterate)</li>
+          <li>Prototype with prompts; test in the browser</li>
+          <li>Generate fast; evaluate with your own eyes</li>
+          <li>Contrast: “no-review” vs reviewed iteration</li>
+          <li>Adopt the mode that matches your goal</li>
+          <li>Attribute “vibe coding” to Karpathy (Feb 2025)</li>
         </ul>
       </div>
       <div class="stage" aria-label="Spectrum stage"></div>
@@ -239,9 +242,10 @@
         <h1>Spectrum</h1>
         <h2>Vibe → deliberate collaboration</h2>
         <ul>
-          <li>Show continuum: one-shot no-review → traditional programming</li>
-          <li>Place middle modes: iterate, constrain, pair-program</li>
-          <li>Cite Xu et al. (2024): decomposed subtasks increase reflection</li>
+          <li>Place AI coding on a continuum of control</li>
+          <li>Move from one-shot → iterate → constrain</li>
+          <li>Decompose tasks to increase reflection (Xu et al., 2024)</li>
+          <li>Design workflow to push toward deliberate choices</li>
         </ul>
       </div>
       <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:26px; background:#070a10;">
@@ -263,11 +267,11 @@
         <h1>Prompt Anatomy</h1>
         <h2>Structure prompts for creative code</h2>
         <ul>
-          <li>Set role (creative coding generator/collaborator)</li>
-          <li>Enforce constraints (vanilla JS; no libraries; Canvas; viewport)</li>
-          <li>Specify aesthetics (monochrome; early computer art; geometric)</li>
-          <li>Define technical frame (requestAnimationFrame; interaction)</li>
-          <li>Demand output format (single HTML; no explanation)</li>
+          <li>Assign a role: creative coder + collaborator</li>
+          <li>Constrain the stack: Canvas + vanilla JS</li>
+          <li>Declare the look: monochrome, geometric, early-computer</li>
+          <li>Require motion + interaction: rAF + input</li>
+          <li>Demand a runnable deliverable: single HTML only</li>
         </ul>
       </div>
       <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:22px; background:#070a10;">
@@ -285,9 +289,10 @@ FORMAT: return single HTML only (no markdown/explanation)</pre>
         <h1>Live Demo</h1>
         <h2>CUNY AI Lab Sandbox (Open WebUI)</h2>
         <ul>
-          <li>Select model; open config panel; paste system prompt</li>
-          <li>Demonstrate temperature: 0.3 (stable) vs 1.2 (varied)</li>
-          <li>Demonstrate max tokens: too low truncates HTML mid-tag</li>
+          <li>Set model + parameters before you generate</li>
+          <li>Lower temperature for stability; raise for variety</li>
+          <li>Allocate enough tokens to finish the HTML</li>
+          <li>Treat parameters as part of the recipe</li>
         </ul>
       </div>
       <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:26px; background:#070a10;">
@@ -303,12 +308,12 @@ FORMAT: return single HTML only (no markdown/explanation)</pre>
         <h1>Activity 1 (10m)</h1>
         <h2>One prompt, one artifact</h2>
         <ul>
-          <li>Paste Activity 1 system prompt in Sandbox</li>
+          <li>Paste the Activity 1 system prompt</li>
           <li>Set temperature 0.9; max tokens 4096</li>
-          <li>Write one natural-language prompt; do not iterate</li>
-          <li>Copy HTML → save → open in browser</li>
+          <li>Write one prompt; generate once; no edits</li>
+          <li>Save the HTML; run it locally</li>
+          <li>Observe: what did the model assume?</li>
         </ul>
-        <p class="note">Artifact: example “starfield” output; move pointer to shift parallax.</p>
       </div>
       <div class="stage" aria-label="Starfield stage"></div>
     </section>
@@ -319,9 +324,11 @@ FORMAT: return single HTML only (no markdown/explanation)</pre>
         <h1>Activity 2 (15m)</h1>
         <h2>Iterate and refine</h2>
         <ul>
-          <li>Switch to Activity 2 system prompt (adds explanation + suggestions)</li>
-          <li>Iterate ≥3 rounds: generate → test → request changes → regenerate</li>
-          <li>Connect workflow: generate/test/describe/regenerate</li>
+          <li>Switch to the Activity 2 system prompt</li>
+          <li>Test the artifact; describe what changed</li>
+          <li>Request one change at a time; regenerate</li>
+          <li>Complete ≥3 rounds: generate → test → revise</li>
+          <li>Keep a log: prompt + parameters + outcome</li>
         </ul>
       </div>
       <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:24px; background:#070a10;">
@@ -337,9 +344,11 @@ FORMAT: return single HTML only (no markdown/explanation)</pre>
         <h1>Activity 3 (15m)</h1>
         <h2>Write the rules, not the request</h2>
         <ul>
-          <li>Author your own constraint-based system prompt</li>
-          <li>Set temperature 0.5–1.5; max tokens 1k–3k</li>
-          <li>Run “Generate” 3×; select favorite output (curation)</li>
+          <li>Write a constraint-based system prompt</li>
+          <li>Choose a temperature range; explore variation</li>
+          <li>Generate 3 versions; curate your favorite</li>
+          <li>Explain your rules like a score or recipe</li>
+          <li>Notice how constraints shape the aesthetic</li>
         </ul>
       </div>
       <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:22px; background:#070a10;">
@@ -362,9 +371,10 @@ Return HTML only</pre>
         <h1>Reflection</h1>
         <h2>Map activities to triangle</h2>
         <ul>
-          <li>Activity 1: high Interpretation; moderate Randomness; low Rules</li>
-          <li>Activity 2: high Interpretation; moderate Rules; moderate Randomness</li>
-          <li>Activity 3: high Rules; variable Randomness; curation at end</li>
+          <li>Locate Activity 1 near Interpretation</li>
+          <li>Locate Activity 2 between Rules and Interpretation</li>
+          <li>Locate Activity 3 near Rules (then curate)</li>
+          <li>Ask: what changed—rules, randomness, or judgment?</li>
         </ul>
       </div>
       <div class="stage" aria-label="Triangle reflection stage"></div>
@@ -376,11 +386,11 @@ Return HTML only</pre>
         <h1>Takeaways</h1>
         <h2>Keep what’s portable</h2>
         <ul>
-          <li>Teaching: scaffold one-shot → iterate → constraints</li>
-          <li>Research: save prompts + parameters for reproducibility</li>
-          <li>Practice: share single-page HTML artifacts (easy to host + send)</li>
+          <li>Teach a progression: one-shot → iterate → constraints</li>
+          <li>Save prompts + parameters to reproduce results</li>
+          <li>Share artifacts as single-page HTML sketches</li>
+          <li>Treat curation as part of the creative act</li>
         </ul>
-        <p class="note">Sources live in <code>expanded.md</code> (Appendix D).</p>
       </div>
       <div class="stage" style="display:flex; align-items:center; justify-content:center; padding:24px; background:#070a10;">
         <div style="max-width:760px; opacity:0.82; line-height:1.45">
