@@ -52,12 +52,16 @@
     }
     section.slide.active { display: grid; grid-template-columns: 1.25fr 1fr; gap: 20px; }
     .content {
-      align-self: start;
-      padding: 18px 18px 14px;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 32px 28px 28px;
       border-radius: 16px;
       border: 1px solid var(--stroke);
       background: var(--card);
       backdrop-filter: blur(6px);
+      min-height: 50%;
     }
     .content h1 { font-size: 42px; margin: 0 0 12px; letter-spacing: -0.02em; }
     .content h2 { font-size: 28px; margin: 0 0 14px; color: var(--accent); letter-spacing: -0.01em; }
