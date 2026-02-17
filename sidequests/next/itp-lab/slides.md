@@ -125,7 +125,7 @@ Stage text (example prompt scaffold):
 - Choose a model: GLM 5 or Kimi K2.5 (MoE)
 - Open the Configuration panel (right side)
 - Paste the system prompt; set temperature + max tokens
-- Optional: model notes: https://ailab.gc.cuny.edu/models/
+- Optional: model notes: https://ailab.gc.cuny.edu/models
 
 Stage text:
 - Run the same prompt 3× at low temp, then 3× at high temp; then force truncation with low max tokens.
