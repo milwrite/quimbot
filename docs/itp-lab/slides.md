@@ -29,8 +29,7 @@ Stage text:
 - Place early computer art in Bell Labs era
 - Combine equations with pseudo-random variation
 - Generate order first; introduce disorder gradually
-- Move from plotter output to public exhibitions
-- Click to re-roll the disorder  
+- Move from plotter output to public exhibitions  
 
 ---
 
