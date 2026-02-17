@@ -197,11 +197,28 @@ Stage text:
 - Teach a progression: one-shot → iterate → constraints
 - Save prompts + parameters to reproduce results
 - Share artifacts as single-page HTML sketches
-- Treat curation as part of the creative act  
-Sources live in `expanded.md` (Appendix D).
+- Treat curation as part of the creative act
 
 Stage text:
 - Save the recipe:
   - System prompt
   - Model + temperature + max tokens
   - The HTML file (with a date)
+
+---
+
+# Slide 16
+## Resources
+### Links, citations, and prompts
+- System prompts + points of departure: prompts.md
+- Slide outline (markdown): slides.md
+- Citations + appendices: expanded.md
+- Models (GLM 5 / Kimi K2.5): https://ailab.gc.cuny.edu/models/
+- GitHub markdown link (temporary; update during migration): https://github.com/milwrite/quimbot/tree/main/docs/itp-lab
+
+Citations (quick):
+- 10 PRINT (Commodore 64, 1982)
+- Processing / p5.js (Reas, Fry)
+- Vera Molnar and early generative art
+- “Vibe coding” (Karpathy, 2025)
+- Xu et al. (2024) on decomposed subtasks and reflection
