@@ -5,7 +5,6 @@
 - Treat code as a visual pattern generator
 - Choose “/” or “\” at random; repeat
 - Notice how randomness creates structure over time  
-Artifact: 10 PRINT (Commodore 64, 1982) — a one-rule maze generator.
 
 ---
 
@@ -16,7 +15,6 @@ Artifact: 10 PRINT (Commodore 64, 1982) — a one-rule maze generator.
 - Name the shape: sequence, conditional, loop
 - See “rules executed by hand” as code
 - Share one example; spot the hidden logic  
-Note: Keep it fast — read 2–3 examples aloud.
 
 Stage text:
 - In chat, post:
@@ -32,7 +30,6 @@ Stage text:
 - Combine equations with pseudo-random variation
 - Generate order first; introduce disorder gradually
 - Move from plotter output to public exhibitions  
-Artifact: “Schotter”-style plotter disorder — click to re-roll.
 
 ---
 
@@ -42,8 +39,8 @@ Artifact: “Schotter”-style plotter disorder — click to re-roll.
 - Define art as rules plus “a hint of disorder”
 - Constrain a system; let chance disturb it
 - Treat constraints as the artwork’s engine
-- Connect constraint prompts to Molnar’s method  
-Artifact: a grid disrupted by an interruption zone.
+- Connect constraint prompts to Molnar’s method
+- Drag the interruption zone to disrupt the grid  
 
 ---
 
@@ -67,8 +64,8 @@ Stage text:
 - Map a piece across: Rules / Randomness / Interpretation
 - Shift the balance to change the work’s feel
 - Translate to LLMs: system prompt / temperature / curation
-- Use the triangle to diagnose “why this output”  
-Artifact: drag the point; watch emphasis change.
+- Use the triangle to diagnose “why this output”
+- Drag the point to shift emphasis  
 
 ---
 
@@ -140,7 +137,6 @@ Stage text:
 - Write one prompt; generate once; no edits
 - Save the HTML; run it locally
 - Observe: what did the model assume?  
-Artifact: example starfield — move pointer for parallax.
 
 ---
 

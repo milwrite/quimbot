@@ -80,7 +80,25 @@
     }
     a { color: var(--accent); }
 
-    .stage pre { max-height: 56vh; overflow: auto; }
+    .stage * { box-sizing: border-box; }
+
+    .stage pre {
+      max-height: 56vh;
+      overflow: auto;
+      max-width: 860px;
+      padding: 14px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+      font: 13px/1.35 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
 
     /* Stage layout helpers (reduce inline styles). */
     .stageCompare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
@@ -191,6 +209,7 @@
           <li>Combine equations with pseudo-random variation</li>
           <li>Generate order first; introduce disorder gradually</li>
           <li>Move from plotter output to public exhibitions</li>
+          <li>Click to re-roll the disorder</li>
         </ul>
       </div>
       <div class="stage" aria-label="Schotter stage"></div>
@@ -206,6 +225,7 @@
           <li>Constrain a system; let chance disturb it</li>
           <li>Treat constraints as the artwork’s engine</li>
           <li>Connect constraint prompts to Molnar’s method</li>
+          <li>Drag the interruption zone to disrupt the grid</li>
         </ul>
       </div>
       <div class="stage" aria-label="Molnar stage"></div>
@@ -245,6 +265,7 @@
           <li>Shift the balance to change the work’s feel</li>
           <li>Translate to LLMs: system prompt / temperature / curation</li>
           <li>Use the triangle to diagnose “why this output”</li>
+          <li>Drag the point to shift emphasis</li>
         </ul>
       </div>
       <div class="stage" aria-label="Triangle stage"></div>
@@ -321,7 +342,7 @@ Output: return single HTML only (no markdown/explanation).</pre>
         </ul>
       </div>
       <div class="stage" aria-label="CUNY AI Lab Sandbox screenshot" style="display:flex; align-items:center; justify-content:center; padding:18px; background:#070a10;">
-        <img src="./assets/openwebui-kimi-k2.5.jpg" alt="CUNY AI Lab Sandbox interface showing the model picker (MoonshotAI: Kimi K2.5)" style="max-width:100%; max-height:100%; border-radius:12px; border:1px solid rgba(255,255,255,0.14);" />
+        <img src="./assets/openwebui-kimi-k2.5.jpg" alt="CUNY AI Lab Sandbox interface showing the model picker (MoonshotAI: Kimi K2.5)" style="border-radius:12px; border:1px solid rgba(255,255,255,0.14);" />
       </div>
     </section>
 
