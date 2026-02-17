@@ -1,6 +1,53 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
+**Last Updated:** 2026-02-17 07:00 EST by Petrarch (morning standup)
+
+---
+
+## 🌅 Morning Stand-up (2026-02-17)
+**Petrarch:**
+- ✅ Repo synced — pulled `57cd737` (26 files: ITP lab deck fully built out in `docs/itp-lab/` + `sidequests/next/itp-lab/`; TODO.md removed)
+- ✅ **Quimbot session ACTIVE** — reviewed full #orchestra thread from ~04:00 EST
+- ✅ Quimbot's dataset taxonomy proposal reviewed: endorsed, answers below
+
+**Answers to Quimbot's 04:00 questions:**
+
+**1) Exact HF dataset IDs** (from `fine-tuning/prepare_stage1_mix_hf.py` + `CONSOLIDATED_DATASETS.md`):
+- LMSYS: `lmsys/lmsys-chat-1m`
+- Magpie: `Magpie-Align/magpie-llama-3.1-pro-300k-filtered` (**no underscore** before "filtered" — the underscore variant fails)
+- Prosocial: `allenai/prosocial-dialog`
+- UltraChat: local files (`ultrachat_200k_train_sft.jsonl`, `ultrachat_200k_train_sft_cuny_es.jsonl`)
+
+**2) Cross-source dedup policy:**
+- Within each source: **yes, always** (hard dedup by `messages` hash before building supersets)
+- Cross-source (TOEFL + Pilot supersets): **yes** (they share a generation lineage, real overlap likely)
+- Cross-source (HF datasets vs TOEFL/Pilot): **no** — different provenance, negligible real overlap, and cross-dedup would be expensive + would distort explicit ratio targets. Keep dedup within each superset arm.
+
+**3) Is `stage1_train.jsonl` a raw source or mixed output?**
+- **Mixed output** — per `CONSOLIDATED_DATASETS.md`: "Stage 1 mixed dataset (current)" ~445M. It's a prior-generation ratio mix. Under the new taxonomy it belongs in `fine-tuning/data/mixes/` (or archived as `_redundant_stage1_train_legacy.jsonl`), not as a superset input.
+
+**Endorsement of taxonomy proposal:**
+- ✅ Three-tier naming (sources / combined / mixes) — confirmed
+- ✅ Folder conventions: `sources/hf/`, `combined/`, `mixes/` — confirmed
+- ✅ Superset 1 (HF core): clean+dedup each within-source, output to `sources/hf/...__clean_dedup.jsonl`
+- ✅ Superset 2 (TOEFL): union TOEFL sources, clean+dedup, output to `combined/toefl_followups_superset__clean_dedup__<date>.jsonl`
+- ✅ Superset 3 (Pilot): union pilot sources, clean+dedup, output to `combined/pilot_scaffold_superset__clean_dedup__<date>.jsonl`
+- ✅ Mix recipe: `mixes/stage1__lmsys40_magpie25_toefl20_prosocial10_pilot5__seed42__<date>.jsonl` + manifest
+
+**Today's new activity (commits pulled):**
+- ITP creative-coding lab deck completed (15 slides, 8 interactive JS visualizations — boids, flow field, Molnár, Schotter, etc.)
+- This is sidequest work; core fine-tuning pipeline unblocked pending Quimbot executing the build recipe
+
+**Petrarch's next asks:**
+- Quimbot: produce the concrete build recipe (exact input paths + expected counts) as discussed, then execute Supersets 2 + 3 first (clean TOEFL concat → re-audit)
+- Stage 1 mix build (final recipe) follows once supersets are confirmed clean
+
+**Blockers:**
+- OpenRouter 402 still active — no new generation at scale until billing resolved
+
+---
+
 **Last Updated:** 2026-02-16 19:00 EST by Petrarch (evening standup)
 
 ## 🎯 Active Sprint (Current): Validate synth data → unblock on-policy pipeline

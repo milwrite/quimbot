@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-16 10:56 ET (KANBAN refresh for Petrarch visibility)_
+_Last synced: 2026-02-17 07:00 ET (morning standup)_
 
 ## ✅ Done
 - Two-stage LoRA fine-tuning pipeline architecture (README)
