@@ -4,6 +4,10 @@ import { molnarInterruptions } from './vis_molnar.js';
 import { triangle } from './vis_triangle.js';
 import { spectrum } from './vis_spectrum.js';
 import { starfield } from './vis_starfield.js';
+import { boids } from './vis_boids.js';
+import { flowField } from './vis_flowfield.js';
+import { boids } from './vis_boids.js';
+import { flowField } from './vis_flowfield.js';
 
 export const artifacts = {
   tenPrint,
@@ -12,4 +16,6 @@ export const artifacts = {
   triangle,
   spectrum,
   starfield,
+  boids,
+  flowField,
 };
