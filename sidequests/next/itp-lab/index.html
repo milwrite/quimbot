@@ -105,6 +105,15 @@
       object-fit: contain;
       display: block;
     }
+    .stageImg {
+      max-width: 90%;
+      max-height: 90%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
 
     /* Stage layout helpers (reduce inline styles). */
     .stageCenter {
@@ -375,8 +384,8 @@ Output: return single HTML only (no markdown/explanation).</pre>
           <li>Optional: model notes: <a href="https://ailab.gc.cuny.edu/models/" target="_blank" rel="noreferrer">ailab.gc.cuny.edu/models</a></li>
         </ul>
       </div>
-      <div class="stage stageCenter" aria-label="CUNY AI Lab Sandbox screenshot" style="padding:18px;">
-        <img src="./assets/openwebui-kimi-k2.5.jpg" alt="CUNY AI Lab Sandbox interface showing the model picker (MoonshotAI: Kimi K2.5)" style="border-radius:12px; border:1px solid rgba(255,255,255,0.14);" />
+      <div class="stage stageCenter" aria-label="CUNY AI Lab Sandbox screenshot">
+        <img src="./assets/openwebui-kimi-k2.5.jpg" alt="CUNY AI Lab Sandbox interface showing the model picker (MoonshotAI: Kimi K2.5)" class="stageImg" />
       </div>
     </section>
 
