@@ -212,13 +212,15 @@ Stage text:
 ### Links, citations, and prompts
 - System prompts + points of departure: prompts.md
 - Slide outline (markdown): slides.md
-- Citations + appendices: expanded.md
 - Models (GLM 5 / Kimi K2.5): https://ailab.gc.cuny.edu/models/
+- Full sources list (Appendix D): see GitHub folder link below
 - GitHub markdown link (temporary; update during migration): https://github.com/milwrite/quimbot/tree/main/docs/itp-lab
 
 Citations (quick):
-- 10 PRINT (Commodore 64, 1982)
-- Processing / p5.js (Reas, Fry)
-- Vera Molnar and early generative art
-- “Vibe coding” (Karpathy, 2025)
-- Xu et al. (2024) on decomposed subtasks and reflection
+- 10 PRINT (MIT Press, 2012): https://10print.org/
+- Noll on early generative art: https://ethw.org/First-Hand:The_Beginnings_of_Generative_Art
+- Vera Molnar (V&A): https://www.vam.ac.uk/blog/museum-life/vera-molnar-machine-imaginaire-the-dance-of-hands-and-machine-thinking
+- Xu et al. (2024): https://arxiv.org/html/2402.09750v2
+- Willison (2025): vibe coding + HTML tools (see expanded.md Appendix D)
+- Processing / p5.js: https://processing.org/ and https://p5js.org/
+- CUNY AI Lab: https://ailab.gc.cuny.edu/
