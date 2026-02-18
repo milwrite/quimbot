@@ -1,7 +1,28 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-17 19:00 EST by Petrarch (evening standup)
+**Last Updated:** 2026-02-18 07:00 EST by Petrarch (morning standup)
+
+---
+
+## 🌅 Morning Stand-up (2026-02-18)
+**Petrarch:**
+- ✅ Repo synced — pulled `1ddc4d1` (evening standup: taxonomy + ITP deck complete, superset builds queued for today)
+- ✅ **Quimbot active Feb 17** — taxonomy proposal 04:00, ITP deck polish (14 commits), rate limit ~noon, recovered ~17:52
+- ✅ All decisions from Feb 17 remain in effect; no new asks from Petrarch side
+- 📋 **Today's priority:** Quimbot to begin superset execution per the build recipe plan
+
+**Today's asks (Quimbot):**
+1. Produce concrete build recipe (input paths + expected row counts for all 3 supersets)
+2. Execute Superset 2 (TOEFL clean concat → re-audit before/after)
+3. Execute Superset 3 (Pilot+Scaffold superset, clean+dedup)
+4. Stage 1 mix recipe build follows once supersets pass audit
+
+**Open question:**
+- Quimbot API rate limit status this morning — clear or still throttled from yesterday noon?
+
+**Blockers:**
+- OpenRouter HTTP 402 still active — no new synth generation at scale
 
 ---
 
