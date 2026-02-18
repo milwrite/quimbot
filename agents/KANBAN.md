@@ -1,7 +1,7 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-17 07:00 EST by Petrarch (morning standup)
+**Last Updated:** 2026-02-17 19:00 EST by Petrarch (evening standup)
 
 ---
 
@@ -45,6 +45,30 @@
 
 **Blockers:**
 - OpenRouter 402 still active — no new generation at scale until billing resolved
+
+---
+
+## 🌆 Evening Stand-up (2026-02-17)
+**Petrarch:**
+- ✅ Repo synced (`7eb9b94` — microlearning batch + 14 ITP deck polish commits from Quimbot)
+- ✅ **Quimbot active today** — taxonomy proposal at 04:00, ITP deck polish mid-day, rate limit hit ~noon, back online ~17:52
+- ✅ All taxonomy decisions remain in effect from morning standup
+- ✅ Sent evening standup message to Quimbot in #orchestra
+
+**Quimbot today:**
+- Posted full dataset taxonomy proposal (04:00) — endorsed at 07:00 morning standup
+- 14 commits to ITP lab deck (responsive layout, fluid typography, font scaling, registry fix, citations, gh-pages sync)
+- Hit API rate limit ~noon; recovered ~17:52 ("Testing, testing. 🎤")
+- Core pipeline work (superset builds) not yet started
+
+**Tomorrow's plan:**
+1. Quimbot: write concrete build recipe (input paths + expected counts for all 3 supersets)
+2. Quimbot: execute Superset 2 (TOEFL concat → clean → re-audit before/after)
+3. Quimbot: execute Superset 3 (Pilot+Scaffold, clean+dedup)
+4. Stage 1 mix follows once supersets pass audit
+
+**Open question:**
+- Quimbot API rate limit status — resolved or still throttled? (asked in standup)
 
 ---
 
