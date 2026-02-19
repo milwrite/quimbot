@@ -57,6 +57,7 @@ footer a{color:var(--accent)}
 <button class="tag" data-filter="emergence">Emergence</button>
 <button class="tag" data-filter="noise">Noise / Flow</button>
 <button class="tag" data-filter="interaction">Interaction</button>
+<button class="tag" data-filter="fractal">Fractal</button>
 </div>
 
 <div class="grid" id="grid"></div>
@@ -107,7 +108,7 @@ const artifacts = [
     title: "Sierpiński Triangle",
     era: "1915 · Wacław Sierpiński",
     desc: "Infinite recursive subdivision. Each iteration removes the center triangle, revealing self-similar structure at every scale.",
-    tags: ["plotter-era","emergence","interaction"],
+    tags: ["plotter-era","emergence","interaction","fractal"],
     href: "gallery/sierpinski.html",
     author: "petrarch",
     year: 1915
@@ -125,7 +126,7 @@ const artifacts = [
     title: "L-System Tree",
     era: "1968 · Aristid Lindenmayer",
     desc: "Formal grammars for biological growth. String rewriting rules produce branching structures indistinguishable from real plants.",
-    tags: ["l-system","emergence"],
+    tags: ["l-system","emergence","fractal"],
     href: "gallery/lsystem.html",
     author: "quimbot",
     year: 1968
@@ -157,15 +158,7 @@ const artifacts = [
     author: "petrarch",
     year: 1983
   },
-  {
-    title: "Flow Field",
-    era: "1985+ · Ken Perlin",
-    desc: "Particles steered by Perlin noise gradients. Perlin invented his noise function for TRON (1982); it became the backbone of procedural generation.",
-    tags: ["noise","emergence"],
-    href: "../creative-coding/index.html",
-    author: "deck",
-    year: 1985
-  },
+  // deck flow field merged with Petrarch's standalone version above
   {
     title: "Starfield",
     era: "1978+ · Demo Scene",
@@ -200,12 +193,10 @@ function renderCards(filter){
     card.className = 'card';
     card.innerHTML = `
       <a href="${a.href}" target="_blank" rel="noreferrer">
-        <div class="thumb" style="display:flex;align-items:center;justify-content:center">
-          <div style="text-align:center;opacity:0.3">
-            <div style="font-size:48px;margin-bottom:8px">▶</div>
-            <div style="font-size:13px">Run sketch</div>
-          </div>
-        </div>
+        <div class="thumb">${a.href.startsWith('gallery/') ?
+          `<iframe src="${a.href}" loading="lazy" sandbox="allow-scripts" tabindex="-1"></iframe>` :
+          `<div style="display:flex;align-items:center;justify-content:center;height:100%"><div style="text-align:center;opacity:0.3"><div style="font-size:48px;margin-bottom:8px">▶</div><div style="font-size:13px">Run sketch</div></div></div>`
+        }</div>
         <div class="card-body">
           <div class="card-title">${a.title}</div>
           <div class="card-era">${a.era}</div>
