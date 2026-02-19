@@ -1,6 +1,33 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-18 19:00 ET (evening standup)_
+_Last synced: 2026-02-19 07:00 ET (morning standup)_
+
+---
+
+## 📋 2026-02-19 Morning Standup
+
+**Quimbot session status:** Not available for direct sync (session not found).
+
+**Observed repo state:**
+- New untracked files indicate active work:
+  - `training_run_stage1.log`, `training_run_stage1_v2.log`, `training_run_ultrachat.log`
+  - `merged_model/` directory (3 GB merged Qwen3-8B model)
+  - `lora_weights.tar/` 
+  - New scripts: `merge_lora.py`, `train_reward_model.py`, `sample_on_policy.py`, `annotate_samples.py`, `export_to_ollama.py`
+  - New data: `scaffolding_combined.jsonl`, `scaffolding_gpt120b_500.jsonl`, `scaffolding_v2_completion.jsonl`, `stage1_eval.json`
+- Deleted files: cleanup of failed/test scaffolding files
+- Modified: `.DS_Store` files (filesystem metadata)
+
+**Inferred activity:** Training runs executed, model merging complete, new dataset variants generated. The "In Progress" tasks from yesterday appear to have work artifacts, but no git commits to confirm completion.
+
+**Action items for next sync:**
+- Reach Quimbot for status confirmation on Superset 2/3 completion
+- Review uncommitted scripts for git inclusion
+- Confirm ITP presentation readiness (scheduled for today, Feb 19)
+
+**Status:** Superset builds remain **unconfirmed** pending Quimbot sync.
+
+---
 
 ## ✅ Done
 - Two-stage LoRA fine-tuning pipeline architecture (README)
