@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sierpiński Triangle</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; overflow: hidden; }
+canvas { display: block; width: 100vw; height: 100vh; }
+.controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  background: rgba(0,0,0,0.7);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #fff;
+  font-size: 13px;
+  align-items: center;
+}
+button {
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 13px;
+}
+button:hover { background: #333; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="controls">
+  <button onclick="changeDepth(-1)">↓ Depth</button>
+  <span id="depth">Depth: 6</span>
+  <button onclick="changeDepth(1)">↑ Depth</button>
+  <button onclick="toggleMode()">Toggle Mode</button>
+</div>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let width, height, depth = 6, mode = 'fill';
+
+function resize() {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+  draw();
+}
+
+function drawTriangle(x1, y1, x2, y2, x3, y3, d, hue) {
+  if (d === 0) {
+    ctx.fillStyle = `hsl(${hue}, 70%, 50%)`;
+    ctx.strokeStyle = `hsl(${hue}, 70%, 60%)`;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.lineTo(x3, y3);
+    ctx.closePath();
+    if (mode === 'fill') ctx.fill();
+    ctx.stroke();
+    return;
+  }
+  
+  // Calculate midpoints
+  const mx1 = (x1 + x2) / 2;
+  const my1 = (y1 + y2) / 2;
+  const mx2 = (x2 + x3) / 2;
+  const my2 = (y2 + y3) / 2;
+  const mx3 = (x3 + x1) / 2;
+  const my3 = (y3 + y1) / 2;
+  
+  const hueShift = 360 / (depth + 1);
+  
+  // Recurse on three corner triangles
+  drawTriangle(x1, y1, mx1, my1, mx3, my3, d - 1, hue);
+  drawTriangle(mx1, my1, x2, y2, mx2, my2, d - 1, hue + hueShift);
+  drawTriangle(mx3, my3, mx2, my2, x3, y3, d - 1, hue + hueShift * 2);
+}
+
+function draw() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, width, height);
+  
+  const size = Math.min(width, height) * 0.8;
+  const cx = width / 2;
+  const cy = height / 2;
+  
+  // Equilateral triangle
+  const h = size * Math.sqrt(3) / 2;
+  const x1 = cx;
+  const y1 = cy - h / 1.5;
+  const x2 = cx - size / 2;
+  const y2 = cy + h / 3;
+  const x3 = cx + size / 2;
+  const y3 = cy + h / 3;
+  
+  ctx.lineWidth = 0.5;
+  drawTriangle(x1, y1, x2, y2, x3, y3, depth, 200);
+}
+
+function changeDepth(delta) {
+  depth = Math.max(0, Math.min(8, depth + delta));
+  document.getElementById('depth').textContent = `Depth: ${depth}`;
+  draw();
+}
+
+function toggleMode() {
+  mode = mode === 'fill' ? 'stroke' : 'fill';
+  draw();
+}
+
+resize();
+window.addEventListener('resize', resize);
+</script>
+</body>
+</html>

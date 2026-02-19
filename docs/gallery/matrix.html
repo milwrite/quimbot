@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Rain</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; overflow: hidden; }
+canvas { display: block; width: 100vw; height: 100vh; }
+.controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  background: rgba(0,0,0,0.8);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #0f0;
+  font-size: 13px;
+  border: 1px solid #0a0;
+}
+button {
+  background: #001100;
+  color: #0f0;
+  border: 1px solid #0a0;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 13px;
+}
+button:hover { background: #002200; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="controls">
+  <button onclick="reset()">Reset</button>
+  <button onclick="toggleSpeed()">Speed</button>
+  <span id="mode">Normal</span>
+</div>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let width, height, cols, drops = [], fontSize = 16, speed = 1;
+
+// Katakana + numbers + symbols
+const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789@#$%^&*()';
+
+function resize() {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+  cols = Math.floor(width / fontSize);
+  drops = Array(cols).fill(1);
+}
+
+function draw() {
+  // Semi-transparent black for trail effect
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+  ctx.fillRect(0, 0, width, height);
+  
+  ctx.fillStyle = '#0f0';
+  ctx.font = `${fontSize}px monospace`;
+  
+  for (let i = 0; i < drops.length; i++) {
+    const char = chars[Math.floor(Math.random() * chars.length)];
+    const x = i * fontSize;
+    const y = drops[i] * fontSize;
+    
+    // Brighter head
+    if (Math.random() > 0.975) {
+      ctx.fillStyle = '#fff';
+    } else {
+      ctx.fillStyle = '#0f0';
+    }
+    
+    ctx.fillText(char, x, y);
+    
+    // Reset drop to top randomly
+    if (y > height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    
+    drops[i] += speed;
+  }
+}
+
+function reset() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, width, height);
+  drops = Array(cols).fill(1);
+}
+
+function toggleSpeed() {
+  if (speed === 1) {
+    speed = 0.5;
+    document.getElementById('mode').textContent = 'Slow';
+  } else if (speed === 0.5) {
+    speed = 2;
+    document.getElementById('mode').textContent = 'Fast';
+  } else {
+    speed = 1;
+    document.getElementById('mode').textContent = 'Normal';
+  }
+}
+
+resize();
+window.addEventListener('resize', resize);
+setInterval(draw, 33);
+</script>
+</body>
+</html>
