@@ -1,338 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Coding Archive — milwrite</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Courier New', monospace;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        header {
-            padding: 2rem;
-            border-bottom: 1px solid #333;
-            background: #111;
-        }
-        
-        h1 {
-            font-size: 1.5rem;
-            font-weight: normal;
-            letter-spacing: 0.05em;
-        }
-        
-        .subtitle {
-            color: #888;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-        
-        .archive {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .artifact {
-            margin-bottom: 4rem;
-            border: 1px solid #222;
-            background: #111;
-        }
-        
-        .artifact-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid #222;
-        }
-        
-        .artifact-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .artifact-meta {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.85rem;
-            color: #666;
-            flex-wrap: wrap;
-        }
-        
-        .tag {
-            background: #1a1a1a;
-            padding: 0.25rem 0.75rem;
-            border-radius: 3px;
-            color: #888;
-        }
-        
-        .canvas-container {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            background: #000;
-            overflow: hidden;
-        }
-        
-        canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .artifact-description {
-            padding: 1.5rem;
-            border-top: 1px solid #222;
-            color: #999;
-            font-size: 0.9rem;
-        }
-        
-        .historical-note {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #1a1a1a;
-            font-style: italic;
-            color: #666;
-            font-size: 0.85rem;
-        }
-        
-        .controls {
-            padding: 1rem 1.5rem;
-            background: #0a0a0a;
-            border-top: 1px solid #222;
-            display: flex;
-            gap: 1rem;
-        }
-        
-        button {
-            background: #1a1a1a;
-            color: #e0e0e0;
-            border: 1px solid #333;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-        }
-        
-        button:hover {
-            background: #222;
-            border-color: #444;
-        }
-        
-        .source-link {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.85rem;
-        }
-        
-        .source-link:hover {
-            color: #999;
-        }
-    </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Creative Coding Gallery</title>
+<style>
+:root{--bg:#0b0e14;--fg:rgba(255,255,255,0.92);--muted:rgba(255,255,255,0.55);--card:rgba(255,255,255,0.04);--stroke:rgba(255,255,255,0.10);--accent:#c8c8c8}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+body{min-height:100vh;padding:clamp(24px,4vw,64px)}
+
+header{max-width:960px;margin:0 auto 48px}
+h1{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.03em;line-height:1.1}
+.sub{color:var(--muted);margin-top:10px;font-size:clamp(14px,1.6vw,18px);line-height:1.5;max-width:640px}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:32px auto 24px;max-width:960px}
+.tag{padding:5px 14px;border-radius:20px;border:1px solid var(--stroke);background:transparent;color:var(--muted);font-size:13px;cursor:pointer;transition:all .2s}
+.tag:hover,.tag.active{background:rgba(255,255,255,0.08);color:var(--fg);border-color:rgba(255,255,255,0.25)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;max-width:960px;margin:0 auto}
+.card{border:1px solid var(--stroke);border-radius:12px;overflow:hidden;background:var(--card);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,0.2)}
+.card a{text-decoration:none;color:inherit;display:block}
+.thumb{width:100%;aspect-ratio:16/10;background:#05070b;position:relative;overflow:hidden}
+.thumb iframe{width:100%;height:100%;border:none;pointer-events:none}
+.card-body{padding:16px 18px 18px}
+.card-title{font-size:18px;font-weight:600;margin-bottom:6px}
+.card-era{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
+.card-desc{font-size:14px;color:var(--muted);line-height:1.45}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.card-tag{font-size:11px;padding:2px 8px;border-radius:10px;border:1px solid var(--stroke);color:var(--muted)}
+.card-author{font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px}
+
+footer{max-width:960px;margin:64px auto 0;padding-top:24px;border-top:1px solid var(--stroke);color:var(--muted);font-size:13px;text-align:center}
+footer a{color:var(--accent)}
+
+@media(max-width:420px){
+  .grid{grid-template-columns:1fr}
+  .thumb{aspect-ratio:16/9}
+}
+</style>
 </head>
 <body>
-    <header>
-        <h1>CREATIVE CODING ARCHIVE</h1>
-        <div class="subtitle">Generative experiments · Algorithmic art · Historical homages</div>
-    </header>
-    
-    <div class="archive">
-        <!-- Artifact 01: Perlin Flow Field -->
-        <article class="artifact" id="flow-field">
-            <div class="artifact-header">
-                <h2 class="artifact-title">01 · Perlin Flow Field</h2>
-                <div class="artifact-meta">
-                    <span class="tag">generative</span>
-                    <span class="tag">noise</span>
-                    <span class="tag">particles</span>
-                    <span>2026-02-19</span>
-                    <span>Petrarch</span>
-                </div>
-            </div>
-            
-            <div class="canvas-container">
-                <canvas id="flowCanvas"></canvas>
-            </div>
-            
-            <div class="controls">
-                <button onclick="resetFlow()">Reset</button>
-                <button onclick="togglePause()">Pause/Resume</button>
-                <a href="#" class="source-link" onclick="viewSource('flow'); return false;">view source</a>
-            </div>
-            
-            <div class="artifact-description">
-                Particles drift through a Perlin noise field, their paths determined by invisible forces. 
-                Each agent follows the gradient of the noise function, creating organic flow patterns that 
-                never repeat but always feel coherent.
-                
-                <div class="historical-note">
-                    Ken Perlin developed Perlin noise in 1983 for the film <em>Tron</em>, winning an Academy Award 
-                    for the technique. It became foundational to procedural generation, appearing in everything from 
-                    terrain synthesis to the Processing creative coding movement of the 2000s.
-                </div>
-            </div>
-        </article>
-        
-        <!-- More artifacts will be added here -->
-    </div>
-    
-    <script>
-        // Perlin Flow Field
-        const canvas = document.getElementById('flowCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        let width, height;
-        let particles = [];
-        let noiseScale = 0.003;
-        let time = 0;
-        let isPaused = false;
-        
-        function resizeCanvas() {
-            const container = canvas.parentElement;
-            width = canvas.width = container.clientWidth;
-            height = canvas.height = container.clientHeight;
-        }
-        
-        // Simple Perlin noise implementation
-        class PerlinNoise {
-            constructor() {
-                this.p = [];
-                for (let i = 0; i < 512; i++) {
-                    this.p[i] = Math.floor(Math.random() * 256);
-                }
-            }
-            
-            fade(t) {
-                return t * t * t * (t * (t * 6 - 15) + 10);
-            }
-            
-            lerp(t, a, b) {
-                return a + t * (b - a);
-            }
-            
-            grad(hash, x, y) {
-                const h = hash & 15;
-                const u = h < 8 ? x : y;
-                const v = h < 4 ? y : x;
-                return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
-            }
-            
-            noise(x, y) {
-                const X = Math.floor(x) & 255;
-                const Y = Math.floor(y) & 255;
-                
-                x -= Math.floor(x);
-                y -= Math.floor(y);
-                
-                const u = this.fade(x);
-                const v = this.fade(y);
-                
-                const a = this.p[X] + Y;
-                const b = this.p[X + 1] + Y;
-                
-                return this.lerp(v,
-                    this.lerp(u, this.grad(this.p[a], x, y), this.grad(this.p[b], x - 1, y)),
-                    this.lerp(u, this.grad(this.p[a + 1], x, y - 1), this.grad(this.p[b + 1], x - 1, y - 1))
-                );
-            }
-        }
-        
-        const perlin = new PerlinNoise();
-        
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = 0;
-                this.vy = 0;
-                this.alpha = Math.random() * 0.5 + 0.3;
-                this.maxSpeed = 2;
-                this.hue = Math.random() * 60 + 180; // Blue-cyan range
-            }
-            
-            update() {
-                const angle = perlin.noise(this.x * noiseScale, this.y * noiseScale + time * 0.0001) * Math.PI * 4;
-                
-                this.vx += Math.cos(angle) * 0.1;
-                this.vy += Math.sin(angle) * 0.1;
-                
-                const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-                if (speed > this.maxSpeed) {
-                    this.vx = (this.vx / speed) * this.maxSpeed;
-                    this.vy = (this.vy / speed) * this.maxSpeed;
-                }
-                
-                this.x += this.vx;
-                this.y += this.vy;
-                
-                this.vx *= 0.95;
-                this.vy *= 0.95;
-                
-                // Wrap around edges
-                if (this.x < 0) this.x = width;
-                if (this.x > width) this.x = 0;
-                if (this.y < 0) this.y = height;
-                if (this.y > height) this.y = 0;
-            }
-            
-            draw() {
-                ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.alpha})`;
-                ctx.fillRect(this.x, this.y, 2, 2);
-            }
-        }
-        
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < 3000; i++) {
-                particles.push(new Particle());
-            }
-        }
-        
-        function animate() {
-            if (!isPaused) {
-                // Fade trail effect
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, width, height);
-                
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-                
-                time++;
-            }
-            requestAnimationFrame(animate);
-        }
-        
-        function resetFlow() {
-            ctx.fillStyle = '#000';
-            ctx.fillRect(0, 0, width, height);
-            initParticles();
-            time = 0;
-        }
-        
-        function togglePause() {
-            isPaused = !isPaused;
-        }
-        
-        function viewSource(artifact) {
-            alert('Source code embedded in page. View page source or inspect element to see implementation.');
-        }
-        
-        // Initialize
-        resizeCanvas();
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            resetFlow();
-        });
-        
-        ctx.fillStyle = '#000';
-        ctx.fillRect(0, 0, width, height);
-        initParticles();
-        animate();
-    </script>
+
+<header>
+<h1>Creative Coding Gallery</h1>
+<p class="sub">A running collection of generative artifacts. Each piece tags a historical moment in the subdiscipline: from Bell Labs plotters to cellular automata to browser-native sketches. Click any card to run it full-screen.</p>
+</header>
+
+<div class="tags" id="filters">
+<button class="tag active" data-filter="all">All</button>
+<button class="tag" data-filter="parametric">Parametric</button>
+<button class="tag" data-filter="cellular-automata">Cellular Automata</button>
+<button class="tag" data-filter="l-system">L-Systems</button>
+<button class="tag" data-filter="plotter-era">Plotter Era</button>
+<button class="tag" data-filter="emergence">Emergence</button>
+<button class="tag" data-filter="noise">Noise / Flow</button>
+<button class="tag" data-filter="interaction">Interaction</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<footer>
+<p>Source: <a href="https://github.com/milwrite/quimbot">milwrite/quimbot</a> · <a href="./itp-lab/">ITP Lab Deck</a></p>
+</footer>
+
+<script>
+const artifacts = [
+  {
+    title: "10 PRINT",
+    era: "1982 · Commodore 64",
+    desc: "The one-liner that launched a thousand generative art courses. Random maze pattern from a single line of BASIC.",
+    tags: ["plotter-era","interaction"],
+    href: "../creative-coding/index.html",
+    author: "deck",
+    year: 1982
+  },
+  {
+    title: "Schotter (Gravel)",
+    era: "1968 · Georg Nees",
+    desc: "One of the first computer artworks. Squares on a grid gain rotation and displacement as they descend: order dissolving into noise.",
+    tags: ["plotter-era"],
+    href: "../creative-coding/index.html#3",
+    author: "deck",
+    year: 1968
+  },
+  {
+    title: "Interruptions",
+    era: "1968+ · Vera Molnar",
+    desc: "Systematic disruption of a regular grid. Molnar called the computer her 'machine imaginaire': a tool for exploring disorder within rules.",
+    tags: ["plotter-era","interaction"],
+    href: "../creative-coding/index.html#4",
+    author: "deck",
+    year: 1968
+  },
+  {
+    title: "Lissajous Curves",
+    era: "1857 · Jules Antoine Lissajous",
+    desc: "Parametric curves from two perpendicular oscillations. First studied mechanically; now a staple of oscilloscope art and sound visualization.",
+    tags: ["parametric","interaction"],
+    href: "gallery/lissajous.html",
+    author: "quimbot",
+    year: 1857
+  },
+  {
+    title: "Game of Life",
+    era: "1970 · John Conway",
+    desc: "Four rules, infinite complexity. Conway's cellular automaton proved that simple local rules produce unbounded emergent behavior.",
+    tags: ["cellular-automata","emergence","interaction"],
+    href: "gallery/life.html",
+    author: "quimbot",
+    year: 1970
+  },
+  {
+    title: "L-System Tree",
+    era: "1968 · Aristid Lindenmayer",
+    desc: "Formal grammars for biological growth. String rewriting rules produce branching structures indistinguishable from real plants.",
+    tags: ["l-system","emergence"],
+    href: "gallery/lsystem.html",
+    author: "quimbot",
+    year: 1968
+  },
+  {
+    title: "Boids",
+    era: "1986 · Craig Reynolds",
+    desc: "Three rules (separation, alignment, cohesion) produce flocking behavior. A landmark in artificial life and emergence research.",
+    tags: ["emergence","interaction"],
+    href: "../creative-coding/index.html",
+    author: "deck",
+    year: 1986
+  },
+  {
+    title: "Flow Field",
+    era: "1985+ · Ken Perlin",
+    desc: "Particles steered by Perlin noise gradients. Perlin invented his noise function for TRON (1982); it became the backbone of procedural generation.",
+    tags: ["noise","emergence"],
+    href: "../creative-coding/index.html",
+    author: "deck",
+    year: 1985
+  },
+  {
+    title: "Starfield",
+    era: "1978+ · Demo Scene",
+    desc: "Perspective-projected star sprites. A demo scene classic from the late 1970s, testing z-buffer tricks on limited hardware.",
+    tags: ["parametric"],
+    href: "../creative-coding/index.html",
+    author: "deck",
+    year: 1978
+  },
+  {
+    title: "Constraint Grid",
+    era: "2000s+ · Generative Design",
+    desc: "Parametric tiling with constraint satisfaction. Explores the tension between global order and local variation.",
+    tags: ["plotter-era","interaction"],
+    href: "../creative-coding/index.html",
+    author: "deck",
+    year: 2000
+  }
+];
+
+// sort by year
+artifacts.sort((a,b) => a.year - b.year);
+
+const grid = document.getElementById('grid');
+const filters = document.getElementById('filters');
+
+function renderCards(filter){
+  grid.innerHTML = '';
+  const items = filter === 'all' ? artifacts : artifacts.filter(a => a.tags.includes(filter));
+  items.forEach(a => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <a href="${a.href}" target="_blank" rel="noreferrer">
+        <div class="thumb" style="display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;opacity:0.3">
+            <div style="font-size:48px;margin-bottom:8px">▶</div>
+            <div style="font-size:13px">Run sketch</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">${a.title}</div>
+          <div class="card-era">${a.era}</div>
+          <div class="card-desc">${a.desc}</div>
+          <div class="card-tags">${a.tags.map(t=>`<span class="card-tag">${t}</span>`).join('')}</div>
+          <div class="card-author">by ${a.author}</div>
+        </div>
+      </a>`;
+    grid.appendChild(card);
+  });
+}
+
+filters.addEventListener('click', e => {
+  if(!e.target.classList.contains('tag')) return;
+  filters.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+  e.target.classList.add('active');
+  renderCards(e.target.dataset.filter);
+});
+
+renderCards('all');
+</script>
 </body>
 </html>
