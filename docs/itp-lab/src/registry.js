@@ -6,6 +6,11 @@ import { spectrum } from './vis_spectrum.js';
 import { starfield } from './vis_starfield.js';
 import { boids } from './vis_boids.js';
 import { flowField } from './vis_flowfield.js';
+import { constraintGrid } from './vis_constraint_grid.js';
+import { vibeCoding } from './vis_vibecoding.js';
+import { dataFlow } from './vis_dataflow.js';
+import { solar } from './vis_solar.js';
+import { reactionDiffusion } from './vis_reaction.js';
 
 export const artifacts = {
   tenPrint,
@@ -16,4 +21,9 @@ export const artifacts = {
   starfield,
   boids,
   flowField,
+  constraintGrid,
+  vibeCoding,
+  dataFlow,
+  solar,
+  reactionDiffusion,
 };
