@@ -1,6 +1,31 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-19 07:00 ET (morning standup)_
+_Last synced: 2026-02-19 19:00 ET (evening standup)_
+
+---
+
+## 📋 2026-02-19 Evening Standup
+
+**Quimbot session status:** Still unavailable for direct sync (session not found).
+
+**Observed repo state since morning:**
+- Latest commit `ed657b4`: Gallery work (merge duplicate flow fields, add fractal tag, live iframe previews)
+- Training artifacts **remain uncommitted**: logs, merged_model/, lora_weights.tar/, new scripts
+- **Superset builds NOT completed**: `fine-tuning/data/supersets/` directory does not exist
+- Only one dataset file in data/: `final_combined_train.jsonl`
+- Untracked work files: `scaffolding_combined.jsonl`, `scaffolding_gpt120b_500.jsonl`, `scaffolding_v2_completion.jsonl`, `stage1_eval.json`
+
+**Status assessment:**
+- ❌ Superset 2 (TOEFL) — **NOT built**
+- ❌ Superset 3 (Pilot+Scaffold) — **NOT built**
+- ❓ ITP presentation status — **unknown** (no confirmation available)
+- ⚠️ Training work in progress but not committed to git
+
+**Action items for next standup:**
+- Sync with Quimbot to understand blockers on superset builds
+- Decide whether to commit training artifacts or wait for Quimbot's direction
+- Clarify ITP presentation outcome
+- Re-confirm priorities for Feb 20
 
 ---
 
