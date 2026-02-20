@@ -68,6 +68,6 @@ function loop(){
 }
 loop();
 </script>
-<script>try{if(window.self!==window.top){var el=document.getElementById("info");if(el)el.style.display="none"}}catch(e){}</script>
+<script>try{if(window.self!==window.top)document.querySelectorAll("#info,.info,#ctrl,#buttons,#depth,.controls,#mode").forEach(function(e){e.style.display="none"})}catch(e){}</script>
 </body>
 </html>
