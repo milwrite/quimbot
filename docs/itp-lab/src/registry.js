@@ -14,6 +14,7 @@ import { reactionDiffusion } from './vis_reaction.js';
 import { lissajous } from './vis_lissajous.js';
 import { gameOfLife } from './vis_gameoflife.js';
 import { lorenz } from './vis_lorenz.js';
+import { sospiri } from './vis_sospiri.js';
 
 export const artifacts = {
   tenPrint,
@@ -32,4 +33,5 @@ export const artifacts = {
   lissajous,
   gameOfLife,
   lorenz,
+  sospiri,
 };
