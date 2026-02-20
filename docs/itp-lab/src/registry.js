@@ -11,6 +11,8 @@ import { vibeCoding } from './vis_vibecoding.js';
 import { dataFlow } from './vis_dataflow.js';
 import { solar } from './vis_solar.js';
 import { reactionDiffusion } from './vis_reaction.js';
+import { lissajous } from './vis_lissajous.js';
+import { gameOfLife } from './vis_gameoflife.js';
 
 export const artifacts = {
   tenPrint,
@@ -26,4 +28,6 @@ export const artifacts = {
   dataFlow,
   solar,
   reactionDiffusion,
+  lissajous,
+  gameOfLife,
 };
