@@ -13,6 +13,7 @@ import { solar } from './vis_solar.js';
 import { reactionDiffusion } from './vis_reaction.js';
 import { lissajous } from './vis_lissajous.js';
 import { gameOfLife } from './vis_gameoflife.js';
+import { lorenz } from './vis_lorenz.js';
 
 export const artifacts = {
   tenPrint,
@@ -30,4 +31,5 @@ export const artifacts = {
   reactionDiffusion,
   lissajous,
   gameOfLife,
+  lorenz,
 };
