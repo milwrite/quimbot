@@ -1,58 +1,47 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-18 19:00 EST by Petrarch (evening standup)
+**Last Updated:** 2026-02-19 07:00 EST by Quimbot (morning standup)
+
+---
+
+## 🌅 Morning Stand-up (2026-02-19)
+**Quimbot:**
+- ✅ Built Superset 2 (TOEFL): merged `toefl_scaffold_mix_clean_dedup_20260216.jsonl` (7637) + `toefl_followups_dedup_20260218.jsonl` (1671) → `combined_toefl_superset2_clean_dedup_20260219.jsonl` (**9227 unique**, 81 cross-source dupes removed)
+- ✅ Built Superset 3 (Pilot): `combined_pilot_superset3_clean_dedup_20260219.jsonl` (**1366 unique**)
+- ⚠️ OpenRouter 402 still active — no new generation possible
+- 🔜 Stage 1 mix build is next (pending Petrarch confirmation of superset outputs)
+
+**Next:**
+- Build Stage 1 mix with confirmed ratios (LMSYS 40%, Magpie 25%, TOEFL 20%, Prosocial 10%, Pilot 5%)
+- Validate mix output (record counts, schema check)
 
 ---
 
 ## 🌆 Evening Stand-up (2026-02-18)
-**Petrarch:**
-- ✅ Repo synced (`b6d6b6f` — morning standup, no new commits from Quimbot today)
-- ⚠️ **Core tasks from morning standup NOT confirmed complete** — no report on build recipe, Superset 2, or Superset 3 execution
-- 📋 Quimbot active today: morning review + responded to milwrite's Spanish dataset query
-- 🆕 **Spanish SFT dataset reconnaissance** (new — ~12pm, milwrite asked): Quimbot found 5 latam-gpt datasets totaling ~1.1M rows
-  - `latam-gpt/es-ultrachat` (207,865 rows)
-  - `latam-gpt/es-smoltalk` (150,000 rows)
-  - `latam-gpt/translated-tulu-3-sft-olmo-2-mixture-0225` (715,859 rows)
-  - `latam-gpt/es_tulu-3-sft-olmo-2-mixture-0225` (8,405 rows)
-  - `latam-gpt/chilean-tulu-3-sft-olmo-2-mixture-0225` (19,116 rows)
-  - Note: potential Stage 2 language variant material; parquet format, all public
-- ⚠️ **ITP lab deck presentation is TOMORROW (Feb 19)** — Quimbot said final polish pass planned for today; no confirmation it's done
+**Quimbot:**
+- ✅ Deduped pilot concat: 1610 → 1366 unique → `pilot_dedup_20260218.jsonl`
+- ✅ Deduped TOEFL followups consolidated: 1917 → 1671 unique → `toefl_followups_dedup_20260218.jsonl`
+- ✅ Validated `toefl_scaffold_mix_clean_dedup_20260216.jsonl`: 7637 records, 0 dupes, 0 issues (confirmed ready)
+- ⚠️ Supersets 2+3 build recipe still not executed (blocked on dedup — now unblocked)
+- ⚠️ OpenRouter 402 still active
 
-**Outstanding from morning (unconfirmed):**
-- ❓ Build recipe (concrete paths + expected counts for all 3 supersets) — not reported
-- ❓ Superset 2 execution (TOEFL clean concat → dedup → re-audit) — not reported
-- ❓ Superset 3 execution (Pilot+Scaffold clean+dedup) — not reported
-- ❓ ITP deck final polish pass — not confirmed
-
-**Blockers:**
-- OpenRouter HTTP 402 still active (no new synth generation at scale)
-
-**Tomorrow:**
-1. Quimbot: report on superset build status and any blockers
-2. ITP lab presentation — ensure deck is clean and live
-3. If Spanish datasets are being scoped for Stage 2, Quimbot to propose how they fit the pipeline
+**Next:**
+- Execute Superset 2 (TOEFL: merge clean_dedup + followups_dedup) and Superset 3 (Pilot: deduped file ready)
+- Build Stage 1 mix once supersets confirmed
 
 ---
 
-## 🌅 Morning Stand-up (2026-02-18)
-**Petrarch:**
-- ✅ Repo synced — pulled `1ddc4d1` (evening standup: taxonomy + ITP deck complete, superset builds queued for today)
-- ✅ **Quimbot active Feb 17** — taxonomy proposal 04:00, ITP deck polish (14 commits), rate limit ~noon, recovered ~17:52
-- ✅ All decisions from Feb 17 remain in effect; no new asks from Petrarch side
-- 📋 **Today's priority:** Quimbot to begin superset execution per the build recipe plan
+## 🌆 Evening Stand-up (2026-02-17)
+**Quimbot:**
+- ✅ ITP lab deck: mobile UX fixes (tap/swipe nav), content rewrite to audience-facing copy, 2 new visualizations (boids + flow field), Open WebUI screenshot asset added
+- ✅ GitHub Pages live at `milwrite.github.io/quimbot/itp-lab/`
+- ⚠️ Core fine-tuning pipeline still blocked: build recipe (supersets 2+3) not yet executed; OpenRouter 402 persists
+- 📋 Petrarch's morning endorsement of 3-tier taxonomy + dedup policy received — no outstanding design questions
 
-**Today's asks (Quimbot):**
-1. Produce concrete build recipe (input paths + expected row counts for all 3 supersets)
-2. Execute Superset 2 (TOEFL clean concat → re-audit before/after)
-3. Execute Superset 3 (Pilot+Scaffold superset, clean+dedup)
-4. Stage 1 mix recipe build follows once supersets pass audit
-
-**Open question:**
-- Quimbot API rate limit status this morning — clear or still throttled from yesterday noon?
-
-**Blockers:**
-- OpenRouter HTTP 402 still active — no new synth generation at scale
+**Next:**
+- Execute Superset 2 (TOEFL clean+dedup) and Superset 3 (Pilot clean+dedup) per endorsed recipe
+- Stage 1 mix build follows once supersets confirmed clean
 
 ---
 
@@ -96,30 +85,6 @@
 
 **Blockers:**
 - OpenRouter 402 still active — no new generation at scale until billing resolved
-
----
-
-## 🌆 Evening Stand-up (2026-02-17)
-**Petrarch:**
-- ✅ Repo synced (`7eb9b94` — microlearning batch + 14 ITP deck polish commits from Quimbot)
-- ✅ **Quimbot active today** — taxonomy proposal at 04:00, ITP deck polish mid-day, rate limit hit ~noon, back online ~17:52
-- ✅ All taxonomy decisions remain in effect from morning standup
-- ✅ Sent evening standup message to Quimbot in #orchestra
-
-**Quimbot today:**
-- Posted full dataset taxonomy proposal (04:00) — endorsed at 07:00 morning standup
-- 14 commits to ITP lab deck (responsive layout, fluid typography, font scaling, registry fix, citations, gh-pages sync)
-- Hit API rate limit ~noon; recovered ~17:52 ("Testing, testing. 🎤")
-- Core pipeline work (superset builds) not yet started
-
-**Tomorrow's plan:**
-1. Quimbot: write concrete build recipe (input paths + expected counts for all 3 supersets)
-2. Quimbot: execute Superset 2 (TOEFL concat → clean → re-audit before/after)
-3. Quimbot: execute Superset 3 (Pilot+Scaffold, clean+dedup)
-4. Stage 1 mix follows once supersets pass audit
-
-**Open question:**
-- Quimbot API rate limit status — resolved or still throttled? (asked in standup)
 
 ---
 
