@@ -86,5 +86,6 @@ c.addEventListener('touchstart',e=>{painting=true;paint(e.touches[0])},{passive:
 c.addEventListener('touchmove',e=>{if(painting)paint(e.touches[0])},{passive:true});
 addEventListener('touchend',()=>painting=false);
 </script>
+<script>try{if(window.self!==window.top){var el=document.getElementById("info");if(el)el.style.display="none"}}catch(e){}</script>
 </body>
 </html>
