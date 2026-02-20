@@ -8,19 +8,28 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;background:#0a0a0f;overflow:hidden}
 canvas{display:block;width:100%;height:100%}
-#info{position:fixed;bottom:16px;left:16px;color:rgba(255,255,255,0.5);font:13px/1.4 ui-monospace,monospace;pointer-events:none}
+#info{position:fixed;bottom:16px;left:16px;color:rgba(255,255,255,0.5);font:13px/1.4 ui-monospace,monospace;pointer-events:none;max-width:90vw}
 #ctrl{position:fixed;top:16px;left:16px;color:rgba(255,255,255,0.3);font:13px ui-monospace,monospace;pointer-events:none}
+#buttons{position:fixed;bottom:16px;right:16px;display:flex;gap:8px}
+#buttons button{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);font:14px ui-monospace,monospace;padding:8px 14px;border-radius:8px;cursor:pointer}
+#buttons button:hover{background:rgba(255,255,255,0.14);color:rgba(255,255,255,0.9)}
 </style>
 </head>
 <body>
 <canvas id="c"></canvas>
-<div id="ctrl">depth 5 · angle 25°</div>
-<div id="info">L-System · ↑↓ change depth · ←→ change angle · click to regrow</div>
+<div id="ctrl">depth 4 · angle 25°</div>
+<div id="info">L-System tree (Lindenmayer, 1968) · click/tap to regrow</div>
+<div id="buttons">
+<button onclick="changeDepth(-1)">depth −</button>
+<button onclick="changeDepth(1)">depth +</button>
+<button onclick="changeAngle(-5)">angle −</button>
+<button onclick="changeAngle(5)">angle +</button>
+</div>
 <script>
 const c=document.getElementById('c'),ctx=c.getContext('2d');
-let W,H,depth=5,angle=25,seed=Date.now(),growing=true,progress=0;
+let W,H,depth=4,angle=25,seed=Date.now(),growing=true,progress=0;
+let cachedStr='',cachedDepth=-1;
 
-// L-system: axiom F, rule F -> FF+[+F-F-F]-[-F+F+F]
 function produce(axiom,iterations){
   let s=axiom;
   for(let i=0;i<iterations;i++){
@@ -34,12 +43,19 @@ function produce(axiom,iterations){
   return s;
 }
 
+function getStr(){
+  if(cachedDepth!==depth){cachedStr=produce('F',depth);cachedDepth=depth}
+  return cachedStr;
+}
+
 function pseudoRandom(s){let h=s|0;return()=>{h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return((h^=h>>>16)>>>0)/4294967296}}
+
+function countF(str){let n=0;for(const ch of str)if(ch==='F')n++;return n}
 
 function render(pct){
   ctx.fillStyle='#0a0a0f';ctx.fillRect(0,0,W,H);
-  const str=produce('F',depth);
-  const total=str.split('').filter(c=>c==='F').length;
+  const str=getStr();
+  const total=countF(str);
   const drawCount=Math.floor(total*pct);
   const len=Math.min(W,H)/(Math.pow(2,depth)*1.2);
   const rad=angle*Math.PI/180;
@@ -49,15 +65,14 @@ function render(pct){
   ctx.translate(W/2,H*0.92);
   ctx.rotate(-Math.PI/2);
 
-  const stack=[];
   let fCount=0;
   for(const ch of str){
     if(ch==='F'){
       if(fCount>=drawCount)break;
-      const depthRatio=stack.length/(depth*3+1);
-      const hue=100+depthRatio*60;
-      const lum=30+depthRatio*25;
-      const w=Math.max(0.5,(1-depthRatio)*3.5);
+      const depthRatio=ctx.getTransform?0.5:0.5;
+      const hue=100+(fCount/total)*60;
+      const lum=30+(fCount/total)*25;
+      const w=Math.max(0.5,(1-fCount/total)*3.5);
       ctx.strokeStyle=`hsl(${hue},50%,${lum}%)`;
       ctx.lineWidth=w;
       ctx.beginPath();ctx.moveTo(0,0);
@@ -70,35 +85,35 @@ function render(pct){
     }else if(ch==='-'){
       ctx.rotate(-rad*(0.8+rng()*0.4));
     }else if(ch==='['){
-      stack.push(null);ctx.save();
+      ctx.save();
     }else if(ch===']'){
-      stack.pop();ctx.restore();
+      ctx.restore();
     }
   }
   ctx.restore();
-
   document.getElementById('ctrl').textContent=`depth ${depth} · angle ${angle}°`;
 }
 
-function resize(){W=c.width=innerWidth;H=c.height=innerHeight;progress=0;growing=true}
+function regrow(){seed=Date.now();cachedDepth=-1;progress=0;growing=true}
+function changeDepth(d){depth=Math.max(1,Math.min(6,depth+d));regrow()}
+function changeAngle(d){angle=Math.max(5,Math.min(45,angle+d));regrow()}
+
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight;regrow()}
 resize();addEventListener('resize',resize);
 
 function loop(){
-  if(growing){
-    progress=Math.min(1,progress+0.008);
-    if(progress>=1)growing=false;
-  }
+  if(growing){progress=Math.min(1,progress+0.012);if(progress>=1)growing=false}
   render(progress);
   requestAnimationFrame(loop);
 }
 loop();
 
-addEventListener('click',()=>{seed=Date.now();progress=0;growing=true});
+addEventListener('click',e=>{if(e.target.tagName==='BUTTON')return;regrow()});
 addEventListener('keydown',e=>{
-  if(e.key==='ArrowUp'){depth=Math.min(7,depth+1);progress=0;growing=true}
-  if(e.key==='ArrowDown'){depth=Math.max(1,depth-1);progress=0;growing=true}
-  if(e.key==='ArrowRight'){angle=Math.min(45,angle+5);progress=0;growing=true}
-  if(e.key==='ArrowLeft'){angle=Math.max(5,angle-5);progress=0;growing=true}
+  if(e.key==='ArrowUp')changeDepth(1);
+  if(e.key==='ArrowDown')changeDepth(-1);
+  if(e.key==='ArrowRight')changeAngle(5);
+  if(e.key==='ArrowLeft')changeAngle(-5);
 });
 </script>
 </body>
