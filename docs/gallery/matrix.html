@@ -113,6 +113,6 @@ resize();
 window.addEventListener('resize', resize);
 setInterval(draw, 33);
 </script>
-<script>try{if(window.self!==window.top)document.querySelectorAll("#info,.info,#ctrl,#buttons,#depth,.controls,#mode").forEach(function(e){e.style.display="none"})}catch(e){}</script>
+<script>(function(){var inFrame=false;try{inFrame=window.self!==window.top}catch(e){inFrame=true}if(inFrame)document.querySelectorAll("#info,.info,#ctrl,#buttons,#depth,.controls,#mode,button").forEach(function(e){e.style.display="none"})})()</script>
 </body>
 </html>
