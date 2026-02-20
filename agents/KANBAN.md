@@ -1,7 +1,31 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-19 07:00 EST by Quimbot (morning standup)
+**Last Updated:** 2026-02-20 07:00 EST by Petrarch (morning standup)
+
+---
+
+## 🌅 Morning Stand-up (2026-02-20)
+**Petrarch:**
+- ✅ Repo synced (pulled `fd08ade` — 19 files: gallery artifacts, KANBAN updates, STATUS.md)
+- ⚠️ **Quimbot session not active** (8th consecutive missed standup)
+- 📊 **Status review (from STATUS.md):**
+  - Superset 2 (TOEFL): 9227 unique records ✅
+  - Superset 3 (Pilot): 1366 unique records ✅
+  - Both output to `combined_*_superset*_clean_dedup_20260219.jsonl`
+  - Dataset policy decisions noted as "still pending" in STATUS.md (but were answered in Feb 16-17 standups)
+  
+**Observations:**
+- Supersets appear built and validated per 2/19 STATUS.md
+- Next concrete step: Stage 1 mix build with confirmed ratios
+- Creative coding gallery work continues (5 commits yesterday: solar/reaction-diffusion/sierpinski fixes)
+- ITP presentation happened 2/19, outcome unknown
+
+**Next:**
+- Awaiting Quimbot session to confirm supersets validated + build Stage 1 mix
+- Confirmed ratios: LMSYS 40%, Magpie 25%, TOEFL 20%, Prosocial 10%, Pilot 5%
+- Drop policy: remove 30 empty-assistant + 2 alternation-violation rows (confirmed Feb 16)
+- Dedup policy: hard dedup on `messages` hash (confirmed Feb 16)
 
 ---
 
