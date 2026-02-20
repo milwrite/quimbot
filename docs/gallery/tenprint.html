@@ -24,8 +24,10 @@ resize();
 addEventListener('resize',resize);
 addEventListener('click',resize);
 
+var _inIframe=false;try{_inIframe=window.self!==window.top}catch(e){_inIframe=true}
+var _linesPerFrame=_inIframe?1:6;
 function loop(){
-  for(let i=0;i<6;i++){
+  for(let i=0;i<_linesPerFrame;i++){
     if(y>=H){x=0;y=0;ctx.fillStyle='#050b07';ctx.fillRect(0,0,W,H);ctx.strokeStyle='#c0c0c0';ctx.lineWidth=2;ctx.lineCap='square';return requestAnimationFrame(loop)}
     ctx.beginPath();
     if(Math.random()>0.5){ctx.moveTo(x,y);ctx.lineTo(x+SIZE,y+SIZE)}
