@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harmonograph — 19th Century Drawing Machine</title>
+<style>
+  *{margin:0;padding:0}
+  body{background:#0a0a12;overflow:hidden}
+  canvas{display:block;width:100vw;height:100vh}
+  #info{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.9);background:rgba(0,0,0,0.6);padding:6px 14px;border-radius:6px;font:13px/1.4 ui-monospace,monospace;pointer-events:none;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,0.9)}
+  #params{position:fixed;top:16px;left:16px;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:4px 10px;border-radius:5px;font:12px ui-monospace,monospace;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,0.8)}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="info">click to reset pendulums · harmonograph, c. 1844</div>
+<div id="params"></div>
+<script>
+const c = document.getElementById('c');
+const ctx = c.getContext('2d');
+const paramsEl = document.getElementById('params');
+let W, H, dpr;
+
+function resize() {
+  dpr = Math.min(window.devicePixelRatio || 1, 2);
+  W = window.innerWidth; H = window.innerHeight;
+  c.width = W * dpr; c.height = H * dpr;
+  c.style.width = W + 'px'; c.style.height = H + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+// Harmonograph parameters: two pendulums for X, two for Y
+let pens;
+let t, drawing, raf;
+
+function randomFreq() {
+  // Near-integer ratios produce the prettiest figures
+  const base = 1 + Math.floor(Math.random() * 4);
+  return base + (Math.random() - 0.5) * 0.02; // slight detuning
+}
+
+function initPendulums() {
+  pens = {
+    x1: { f: randomFreq(), p: Math.random() * Math.PI * 2, a: 0.4 + Math.random() * 0.15, d: 0.001 + Math.random() * 0.003 },
+    x2: { f: randomFreq(), p: Math.random() * Math.PI * 2, a: 0.2 + Math.random() * 0.15, d: 0.0005 + Math.random() * 0.002 },
+    y1: { f: randomFreq(), p: Math.random() * Math.PI * 2, a: 0.4 + Math.random() * 0.15, d: 0.001 + Math.random() * 0.003 },
+    y2: { f: randomFreq(), p: Math.random() * Math.PI * 2, a: 0.2 + Math.random() * 0.15, d: 0.0005 + Math.random() * 0.002 },
+  };
+
+  paramsEl.textContent = `f: ${pens.x1.f.toFixed(2)}/${pens.y1.f.toFixed(2)} · ratio ≈ ${(pens.x1.f / pens.y1.f).toFixed(3)}`;
+}
+
+function getPoint(t) {
+  const scale = Math.min(W, H) * 0.42;
+  const cx = W / 2, cy = H / 2;
+
+  const x = pens.x1.a * Math.sin(pens.x1.f * t + pens.x1.p) * Math.exp(-pens.x1.d * t)
+          + pens.x2.a * Math.sin(pens.x2.f * t + pens.x2.p) * Math.exp(-pens.x2.d * t);
+  const y = pens.y1.a * Math.sin(pens.y1.f * t + pens.y1.p) * Math.exp(-pens.y1.d * t)
+          + pens.y2.a * Math.sin(pens.y2.f * t + pens.y2.p) * Math.exp(-pens.y2.d * t);
+
+  return { x: cx + x * scale, y: cy + y * scale };
+}
+
+function start() {
+  if (raf) cancelAnimationFrame(raf);
+  resize();
+  ctx.fillStyle = '#0a0a12';
+  ctx.fillRect(0, 0, W, H);
+  initPendulums();
+  t = 0;
+  drawing = true;
+
+  // Ink color: warm sepia/gold tones like old pen drawings
+  const hue = 25 + Math.random() * 25;
+
+  let prev = getPoint(0);
+  const dt = 0.04;
+  const stepsPerFrame = 40;
+
+  function draw() {
+    for (let i = 0; i < stepsPerFrame; i++) {
+      t += dt;
+      const cur = getPoint(t);
+
+      // Amplitude check: stop when motion is negligible
+      const amp = Math.exp(-Math.min(pens.x1.d, pens.y1.d) * t);
+      if (amp < 0.005) {
+        drawing = false;
+        return;
+      }
+
+      const alpha = Math.min(0.8, 0.15 + amp * 0.6);
+      ctx.beginPath();
+      ctx.moveTo(prev.x, prev.y);
+      ctx.lineTo(cur.x, cur.y);
+      ctx.strokeStyle = `hsla(${hue}, 50%, 65%, ${alpha})`;
+      ctx.lineWidth = 0.5 + amp * 1.2;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      prev = cur;
+    }
+
+    if (drawing) raf = requestAnimationFrame(draw);
+  }
+
+  raf = requestAnimationFrame(draw);
+}
+
+start();
+
+c.addEventListener('click', start);
+c.addEventListener('touchstart', e => { e.preventDefault(); start(); }, { passive: false });
+window.addEventListener('resize', () => { if (!drawing) { resize(); } });
+</script>
+</body>
+</html>
