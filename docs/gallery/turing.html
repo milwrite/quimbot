@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turing Patterns</title>
+<style>
+  * { margin: 0; padding: 0; }
+  body { background: #000; overflow: hidden; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+// Gray-Scott reaction-diffusion
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+
+const S = 256; // simulation grid size
+canvas.width = canvas.height = S;
+
+let u = new Float32Array(S * S);
+let v = new Float32Array(S * S);
+let u2 = new Float32Array(S * S);
+let v2 = new Float32Array(S * S);
+
+// Init: u=1 everywhere, v=0 except seed regions
+u.fill(1);
+v.fill(0);
+
+function seed(cx, cy, r) {
+  for (let y = cy - r; y <= cy + r; y++) {
+    for (let x = cx - r; x <= cx + r; x++) {
+      if (x >= 0 && x < S && y >= 0 && y < S) {
+        if ((x - cx) ** 2 + (y - cy) ** 2 < r * r) {
+          const i = y * S + x;
+          u[i] = 0.5 + Math.random() * 0.1;
+          v[i] = 0.25 + Math.random() * 0.1;
+        }
+      }
+    }
+  }
+}
+// Multiple seed points
+for (let i = 0; i < 8; i++) {
+  seed(30 + Math.random() * (S - 60), 30 + Math.random() * (S - 60), 4 + Math.random() * 6);
+}
+
+canvas.addEventListener('pointerdown', e => {
+  const rect = canvas.getBoundingClientRect();
+  const x = Math.floor((e.clientX - rect.left) / rect.width * S);
+  const y = Math.floor((e.clientY - rect.top) / rect.height * S);
+  seed(x, y, 8);
+});
+
+// Parameters (coral growth preset)
+const Du = 0.21, Dv = 0.105;
+const f = 0.037, k = 0.06;
+const dt = 1.0;
+
+function laplacian(arr, x, y) {
+  const i = y * S + x;
+  const l = x > 0 ? i - 1 : i + S - 1;
+  const r = x < S - 1 ? i + 1 : i - S + 1;
+  const t = y > 0 ? i - S : i + S * (S - 1);
+  const b = y < S - 1 ? i + S : i - S * (S - 1);
+  return arr[l] + arr[r] + arr[t] + arr[b] - 4 * arr[i];
+}
+
+function step() {
+  for (let y = 0; y < S; y++) {
+    for (let x = 0; x < S; x++) {
+      const i = y * S + x;
+      const uv2 = u[i] * v[i] * v[i];
+      const lu = laplacian(u, x, y);
+      const lv = laplacian(v, x, y);
+      u2[i] = u[i] + (Du * lu - uv2 + f * (1 - u[i])) * dt;
+      v2[i] = v[i] + (Dv * lv + uv2 - (f + k) * v[i]) * dt;
+      u2[i] = Math.max(0, Math.min(1, u2[i]));
+      v2[i] = Math.max(0, Math.min(1, v2[i]));
+    }
+  }
+  [u, u2] = [u2, u];
+  [v, v2] = [v2, v];
+}
+
+const imgData = ctx.createImageData(S, S);
+
+function colorMap(uVal, vVal) {
+  // Ocean-coral palette based on v concentration
+  const t = vVal;
+  let r, g, b;
+  if (t < 0.1) {
+    r = 10; g = 15 + t * 400; b = 40 + t * 600;
+  } else if (t < 0.25) {
+    const s = (t - 0.1) / 0.15;
+    r = 10 + s * 180; g = 55 + s * 50; b = 100 - s * 30;
+  } else {
+    const s = Math.min(1, (t - 0.25) / 0.25);
+    r = 190 + s * 65; g = 105 - s * 50; b = 70 - s * 40;
+  }
+  return [r, g, b];
+}
+
+let frame = 0;
+function draw() {
+  // Run multiple simulation steps per frame for speed
+  for (let i = 0; i < 8; i++) step();
+
+  for (let i = 0; i < S * S; i++) {
+    const [r, g, b] = colorMap(u[i], v[i]);
+    const j = i * 4;
+    imgData.data[j] = r;
+    imgData.data[j + 1] = g;
+    imgData.data[j + 2] = b;
+    imgData.data[j + 3] = 255;
+  }
+  ctx.putImageData(imgData, 0, 0);
+
+  // Scale canvas to fill viewport via CSS
+  canvas.style.width = '100vw';
+  canvas.style.height = '100vh';
+  canvas.style.objectFit = 'contain';
+
+  frame++;
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
