@@ -13,9 +13,11 @@
   #seed{position:fixed;top:16px;left:16px;color:rgba(0,0,0,0.55);background:rgba(240,236,228,0.8);padding:4px 10px;border-radius:5px;font:12px ui-monospace,monospace;pointer-events:none}
 .back-btn{position:fixed;top:16px;right:16px;background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
 .back-btn:hover{border-color:#888}
+.in-iframe .back-btn,.in-iframe #info,.in-iframe #params,.in-iframe #seed,.in-iframe #epoch{display:none}
 </style>
 </head>
 <body>
+<script>if(window.self!==window.top)document.body.classList.add("in-iframe");</script>
 <a href="./" class="back-btn">← Gallery</a>
 <canvas id="c"></canvas>
 <div id="info">click to regenerate · after Frieder Nake, 1965</div>
