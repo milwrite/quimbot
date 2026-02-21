@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-20 09:00 ET (morning review)_
+_Last synced: 2026-02-20 21:00 ET (evening review)_
 
 ## ✅ Done
 - Two-stage LoRA fine-tuning pipeline architecture (README)
@@ -14,6 +14,7 @@ _Last synced: 2026-02-20 09:00 ET (morning review)_
 - Superset 3 (Pilot): 1366 records, clean
 - Microlearning sidequest: generated 10x 60s scripts + 60 Veo scene prompts (commit `da0a599`; see `sidequests/microlearning/docs/GENERATION_SUMMARY.md`)
 - ITP Lab deck: 19 commits — full layout overhaul, GitHub Pages deployment, mobile UX, creative-coding visualizations, content polish
+- Creative coding gallery expansion: 27 commits on 2/20 — 5 new artifacts (Lorenz, Sospiri, Nake, Noll, Harmonograph), full UX overhaul, iframe embed support
 
 ## 🔨 In Progress
 - **Clean** TOEFL synth concat — ✅ verified clean in both supersets (0 empty-asst, 0 alt-violations)
