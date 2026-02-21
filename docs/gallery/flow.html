@@ -34,9 +34,12 @@ button {
   font-size: 13px;
 }
 button:hover { background: #333; }
+.back-btn{position:fixed;top:16px;right:16px;background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
+.back-btn:hover{border-color:#888}
 </style>
 </head>
 <body>
+<a href="./" class="back-btn">← Gallery</a>
 <canvas id="c"></canvas>
 <div class="controls">
   <button onclick="reset()">Reset</button>

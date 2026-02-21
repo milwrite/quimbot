@@ -11,9 +11,12 @@
   canvas{display:block;width:100vw;height:100vh}
   #info{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.9);background:rgba(0,0,0,0.6);padding:6px 14px;border-radius:6px;font:13px/1.4 ui-monospace,monospace;pointer-events:none;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,0.9)}
   #params{position:fixed;top:16px;left:16px;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:4px 10px;border-radius:5px;font:12px ui-monospace,monospace;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,0.8)}
+.back-btn{position:fixed;top:16px;right:16px;background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
+.back-btn:hover{border-color:#888}
 </style>
 </head>
 <body>
+<a href="./" class="back-btn">← Gallery</a>
 <canvas id="c"></canvas>
 <div id="info">click to reset pendulums · harmonograph, c. 1844</div>
 <div id="params"></div>

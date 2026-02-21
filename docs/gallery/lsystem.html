@@ -14,9 +14,12 @@ canvas{display:block;width:100%;height:100%}
 #buttons{position:fixed;bottom:16px;right:16px;display:flex;gap:8px}
 #buttons button{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);font:14px ui-monospace,monospace;padding:8px 14px;border-radius:8px;cursor:pointer}
 #buttons button:hover{background:rgba(255,255,255,0.14);color:rgba(255,255,255,0.9)}
+.back-btn{position:fixed;top:16px;right:16px;background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
+.back-btn:hover{border-color:#888}
 </style>
 </head>
 <body>
+<a href="./" class="back-btn">← Gallery</a>
 <canvas id="c"></canvas>
 <div id="ctrl">depth 4 · angle 25°</div>
 <div id="info">L-System tree (Lindenmayer, 1968) · click/tap to regrow</div>
