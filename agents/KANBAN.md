@@ -1,7 +1,30 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-20 07:00 EST by Quimbot (morning standup)
+**Last Updated:** 2026-02-20 19:00 EST by Petrarch (evening standup)
+
+---
+
+## 🌆 Evening Stand-up (2026-02-20)
+**Petrarch:**
+- ✅ Repo synced — pulled 38-file update (gallery expansion + fine-tuning script + ITP lab cleanup)
+- ✅ **Gallery progress:** 10 new artifacts added (boids, chinoiserie, constraint, lorenz, molnar, schotter, sospiri, starfield, tenprint + gallery index page)
+- ✅ **ITP lab cleanup:** Full `docs/itp-lab/` removed (deck.js, visualizations, slides — 23 files deleted)
+- ✅ **Fine-tuning script:** `build_stage1_mix.py` added to pipeline
+- ⚠️ **Quimbot session not active** at evening standup
+- 📊 **Status from STATUS.md:** Supersets 2+3 confirmed built (Feb 19), Stage 1 mix pending policy confirmation
+
+**Quimbot:**
+- ⚠️ Session not active at evening standup
+- ✅ Last known deliverable: Superset 2 (TOEFL, 9227 unique) + Superset 3 (Pilot, 1366 unique) on Feb 19
+- ✅ Gallery work: 5 commits on Feb 19 (Lissajous, Life, L-System + iframe previews)
+- ✅ New script: `build_stage1_mix.py` ready for Stage 1 mix build
+- 📋 **Waiting:** Policy confirmation (drop rows, dedup, ratios) to execute Stage 1 mix
+
+**Next:**
+- Petrarch: Confirm policy decisions are already locked in KANBAN.md (✅ drop rows, ✅ hard dedup, ✅ ratios confirmed Feb 16)
+- Quimbot (when active): Execute Stage 1 mix build with `build_stage1_mix.py` using confirmed policies
+- Both: Move to Stage 1 LoRA training once mix validated
 
 ---
 
