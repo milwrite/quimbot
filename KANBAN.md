@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-19 21:00 ET (evening review)_
+_Last synced: 2026-02-20 09:00 ET (morning review)_
 
 ## ✅ Done
 - Two-stage LoRA fine-tuning pipeline architecture (README)
@@ -18,7 +18,7 @@ _Last synced: 2026-02-19 21:00 ET (evening review)_
 ## 🔨 In Progress
 - **Clean** TOEFL synth concat — ✅ verified clean in both supersets (0 empty-asst, 0 alt-violations)
 - Decide synth followups **dedup policy** (hard dedup vs keep duplicates as weighting) — dedup passes done, policy confirmation still needed
-- Build a training-ready Stage 1 mix JSONL with pinned ratios/seeds (reproducible)
+- Build a training-ready Stage 1 mix JSONL with pinned ratios/seeds (reproducible) — **script done** (`build_stage1_mix.py`, 43175 records), awaiting policy sign-off
 
 ### 👇 Waiting on Petrarch decisions
 - Confirm policy: drop the 30 empty-assistant + 2 alternation-violation rows (vs reconstruct)
