@@ -64,5 +64,6 @@ function changeDepth(d){depth=Math.max(0,Math.min(8,depth+d));draw()}
 function toggleMode(){mode=mode==='fill'?'stroke':'fill';draw()}
 </script>
 <script>(function(){var inFrame=false;try{inFrame=window.self!==window.top}catch(e){inFrame=true}if(inFrame)document.querySelectorAll("#info,.info,#ctrl,#buttons,#depth,.controls,#mode,button").forEach(function(e){e.style.display="none"})})()</script>
+<script>if(window!==window.top){document.querySelectorAll("#info,#epoch,#seed,#params,#gen,#ctrl,#depth,.info,#buttons").forEach(function(e){e.style.display="none"})}</script>
 </body>
 </html>

@@ -180,5 +180,6 @@ c.addEventListener('click', generate);
 c.addEventListener('touchstart', e => { e.preventDefault(); generate(); }, { passive: false });
 window.addEventListener('resize', generate);
 </script>
+<script>if(window!==window.top){document.querySelectorAll("#info,#epoch,#seed,#params,#gen,#ctrl,#depth,.info,#buttons").forEach(function(e){e.style.display="none"})}</script>
 </body>
 </html>

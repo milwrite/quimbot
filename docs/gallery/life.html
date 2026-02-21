@@ -87,5 +87,6 @@ c.addEventListener('touchmove',e=>{if(painting)paint(e.touches[0])},{passive:tru
 addEventListener('touchend',()=>painting=false);
 </script>
 <script>(function(){var inFrame=false;try{inFrame=window.self!==window.top}catch(e){inFrame=true}if(inFrame)document.querySelectorAll("#info,.info,#ctrl,#buttons,#depth,.controls,#mode,button").forEach(function(e){e.style.display="none"})})()</script>
+<script>if(window!==window.top){document.querySelectorAll("#info,#epoch,#seed,#params,#gen,#ctrl,#depth,.info,#buttons").forEach(function(e){e.style.display="none"})}</script>
 </body>
 </html>

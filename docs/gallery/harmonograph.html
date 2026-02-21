@@ -115,5 +115,6 @@ c.addEventListener('click', start);
 c.addEventListener('touchstart', e => { e.preventDefault(); start(); }, { passive: false });
 window.addEventListener('resize', () => { if (!drawing) { resize(); } });
 </script>
+<script>if(window!==window.top){document.querySelectorAll("#info,#epoch,#seed,#params,#gen,#ctrl,#depth,.info,#buttons").forEach(function(e){e.style.display="none"})}</script>
 </body>
 </html>
