@@ -244,4 +244,4 @@ The CUNY AI Lab maintains the Sandbox and provides support through [workshops an
 
 ---
 
-[← Return to Basic Concepts](basic-concepts.md) | [Continue to Getting Started →](getting-started.md)
+[← Return to Basic Concepts](basic-concepts.md) | [Continue to Design & Test →](models.md)

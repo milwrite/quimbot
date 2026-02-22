@@ -125,4 +125,4 @@ The CUNY AI Lab Sandbox is hosted and maintained by the [CUNY AI Lab](https://ai
 
 ---
 
-[← Return to Home](index.md) | [Continue to Quick Tour →](quick-tour.md)
+[← Return to Getting Started](getting-started.md) | [Continue to Quick Tour →](quick-tour.md)
