@@ -340,7 +340,7 @@ These use cases share common principles:
 
 ## Additional Resources
 
-- **[Pedagogical Patterns](teaching-tips.md)** — conceptual frameworks for AI integration
+- **[Teaching Tips](teaching-tips.md)** — conceptual frameworks for AI integration
 - **[Sample Activities](sample-activities.md)** — shorter, modular exercises you can drop into courses
 - **[Student Onboarding](student-onboarding.md)** — guidance for introducing students to AI tools responsibly
 - **[Teach@CUNY AI Toolkit](https://aitoolkit.commons.gc.cuny.edu/)** — assignment redesign strategies and policy templates

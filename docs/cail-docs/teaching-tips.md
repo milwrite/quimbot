@@ -12,7 +12,7 @@ CUNY students navigate complex lives. Many balance work, family, and study. Many
 
 ---
 
-## Pattern 1: Learning Objectives First
+## Tip #1: Learning Objectives First
 
 **Principle:** Start with what students should learn, not what AI can do.
 
@@ -37,7 +37,7 @@ When designing an AI-integrated activity:
 
 ---
 
-## Pattern 2: Progressive Disclosure
+## Tip #2: Progressive Disclosure
 
 **Principle:** Scaffold student AI use from guided to independent, simple to complex.
 
@@ -59,7 +59,7 @@ Many CUNY students are first-generation college students. They may not have taci
 
 ---
 
-## Pattern 3: Assignment Expectations and Learning
+## Tip #3: Assignment Expectations and Learning
 
 **Principle:** Help students understand what counts as their work, not just what counts as cheating.
 
@@ -86,7 +86,7 @@ Ask students to reflect on three questions:
 
 ---
 
-## Pattern 4: Visible Learning
+## Tip #4: Visible Learning
 
 **Principle:** Make learning processes visible to students and yourself.
 
@@ -113,7 +113,7 @@ Each stage surfaces student thinking. You can intervene when students struggle. 
 
 ---
 
-## Pattern 5: Metacognitive Prompting
+## Tip #5: Metacognitive Prompting
 
 **Principle:** Design prompts that require students to think about their thinking.
 
@@ -137,7 +137,7 @@ These questions are not performative. They build students' capacity to monitor a
 
 ---
 
-## Pattern 6: Formative Over Summative
+## Tip #6: Formative Over Summative
 
 **Principle:** Use AI tools primarily for formative assessment and learning support, not high-stakes summative evaluation.
 
@@ -162,7 +162,7 @@ If you need summative assessment that resists AI shortcuts:
 
 ---
 
-## Pattern 7: Critical AI Literacy
+## Tip #7: Critical AI Literacy
 
 **Principle:** Teach students to question AI systems, not just use them.
 
@@ -187,7 +187,7 @@ CUNY students bring diverse linguistic, cultural, and epistemological perspectiv
 
 ---
 
-## Pattern 8: Inclusive Design
+## Tip #8: Inclusive Design
 
 **Principle:** Design AI-integrated activities with CUNY's diverse student population in mind.
 
@@ -210,7 +210,7 @@ AI tools can support or marginalize these students depending on how you deploy t
 
 ---
 
-## Pattern 9: Transparency
+## Tip #9: Transparency
 
 **Principle:** Be explicit about when and how you use AI in your teaching.
 

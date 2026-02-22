@@ -19,7 +19,7 @@ A weak prompt answers only the first two. A strong prompt answers all four.
 
 ---
 
-## Pattern 1: The Socratic Questioner
+## Example #1: The Socratic Questioner
 
 **Purpose:** Push students to develop their own arguments through structured questioning.
 
@@ -51,7 +51,7 @@ Rules:
 
 ---
 
-## Pattern 2: The Scaffolded Writing Coach
+## Example #2: The Scaffolded Writing Coach
 
 **Purpose:** Guide students through revision without writing for them.
 
@@ -93,7 +93,7 @@ Rules:
 
 ---
 
-## Pattern 3: Adaptive Explanations
+## Example #3: Adaptive Explanations
 
 **Purpose:** Adapt explanations based on what the student already knows and where they struggle.
 
@@ -132,7 +132,7 @@ Rules:
 
 ---
 
-## Pattern 4: Guardrails and Boundaries
+## Example #4: Guardrails and Boundaries
 
 **Purpose:** Provide help within strict boundaries you define.
 
@@ -169,7 +169,7 @@ side of not helping and explain why.
 
 ---
 
-## Pattern 5: The Student-Input Learner
+## Example #5: The Student-Input Learner
 
 **Purpose:** Build a model that learns from student contributions during a conversation, using their input as a knowledge source for personalized guidance.
 
@@ -213,7 +213,7 @@ Rules:
 
 ---
 
-## Pattern 6: The Differentiated Instructor
+## Example #6: The Differentiated Instructor
 
 **Purpose:** Serve students with different preparation levels in the same course.
 

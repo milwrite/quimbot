@@ -135,7 +135,7 @@ It will. AI models generate plausible text, and sometimes that text is inaccurat
 
 - [Teach@CUNY AI Toolkit](https://aitoolkit.commons.gc.cuny.edu/) — CUNY-specific guidance on teaching with AI
 - [Getting Started](getting-started.md) — the student-facing login guide
-- [Pedagogical Patterns](teaching-tips.md) — strategies for integrating AI throughout your course
+- [Teaching Tips](teaching-tips.md) — strategies for integrating AI throughout your course
 
 ---
 
