@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <style>
 :root {
   --vibrant-50: rgb(232, 244, 252);
@@ -27,11 +28,7 @@
   --header-h: 72px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
   font: 400 16px/1.7 "Inter", system-ui, sans-serif;
@@ -39,15 +36,8 @@ html {
   background: var(--neutral-cream);
 }
 
-a {
-  color: var(--vibrant-600);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--vibrant-700);
-}
+a { color: var(--vibrant-600); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--vibrant-700); }
 
 code {
   font-family: "IBM Plex Mono", Menlo, monospace;
@@ -68,140 +58,95 @@ pre {
   border-left: 3px solid var(--vibrant-600);
 }
 
-pre code {
-  background: none;
-  padding: 0;
-}
+pre code { background: none; padding: 0; }
 
 /* Header */
 .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: fixed; top: 0; left: 0; right: 0;
   height: var(--header-h);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(229, 231, 235, 0.8);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  padding: 0 24px;
-  z-index: 100;
+  display: flex; align-items: center; padding: 0 24px; z-index: 100;
 }
 
 .site-header .logo {
   font-family: "Outfit", system-ui, sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: -0.01em;
-  color: var(--neutral-stone);
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: -0.01em; color: var(--neutral-stone);
 }
 
 .site-header .logo span {
-  opacity: 0.6;
-  font-weight: 400;
-  margin-left: 6px;
-  font-size: 0.85rem;
+  opacity: 0.6; font-weight: 400; margin-left: 6px; font-size: 0.85rem;
 }
 
 .site-header nav {
-  margin-left: auto;
-  display: flex;
-  gap: 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  margin-left: auto; display: flex; gap: 16px;
+  font-size: 0.875rem; font-weight: 500;
 }
 
 .site-header nav a {
-  padding: 8px 18px;
-  border-radius: 9999px;
-  transition: all 0.2s;
-  color: var(--neutral-stone);
+  padding: 8px 18px; border-radius: 9999px;
+  transition: all 0.2s; color: var(--neutral-stone);
 }
 
 .site-header nav a:hover {
-  background: var(--vibrant-50);
-  color: var(--vibrant-600);
+  background: var(--vibrant-50); color: var(--vibrant-600);
 }
 
 .site-header nav .cta {
-  background: var(--vibrant-600);
-  color: white;
-  padding: 10px 22px;
-  font-weight: 600;
+  background: var(--vibrant-600); color: white;
+  padding: 10px 22px; font-weight: 600;
   box-shadow: 0 2px 6px rgba(59, 115, 230, 0.2);
 }
 
 .site-header nav .cta:hover {
-  background: var(--vibrant-700);
-  color: white;
+  background: var(--vibrant-700); color: white;
   box-shadow: 0 4px 10px rgba(59, 115, 230, 0.3);
   transform: translateY(-1px);
 }
 
 .hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--neutral-stone);
-  font-size: 1.4rem;
-  cursor: pointer;
-  margin-left: auto;
-  padding: 8px;
-  border-radius: 6px;
-  transition: all 0.2s;
+  display: none; background: none; border: none;
+  color: var(--neutral-stone); font-size: 1.4rem;
+  cursor: pointer; margin-left: auto; padding: 8px;
+  border-radius: 6px; transition: all 0.2s;
 }
 
-.hamburger:hover {
-  background: var(--vibrant-50);
-  color: var(--vibrant-600);
-}
+.hamburger:hover { background: var(--vibrant-50); color: var(--vibrant-600); }
 
 /* Sidebar */
 .sidebar {
-  position: fixed;
-  top: var(--header-h);
-  left: 0;
-  bottom: 0;
+  position: fixed; top: var(--header-h); left: 0; bottom: 0;
   width: var(--sidebar-w);
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-right: 1px solid var(--border);
-  overflow-y: auto;
-  padding: 24px 0;
-  z-index: 90;
+  overflow-y: auto; padding: 24px 0; z-index: 90;
 }
 
 .sidebar .section-label {
-  padding: 8px 24px 4px;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  font-weight: 600;
+  padding: 8px 24px 4px; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-muted); font-weight: 600;
   font-family: "Outfit", system-ui, sans-serif;
 }
 
 .sidebar a {
-  display: block;
-  padding: 8px 24px;
-  color: var(--neutral-stone);
-  transition: all 0.15s;
-  font-size: 0.875rem;
-  font-weight: 500;
+  display: block; padding: 8px 24px;
+  color: var(--neutral-stone); transition: all 0.15s;
+  font-size: 0.875rem; font-weight: 500; cursor: pointer;
 }
 
 .sidebar a:hover {
-  background: var(--vibrant-50);
-  color: var(--vibrant-600);
+  background: var(--vibrant-50); color: var(--vibrant-600);
 }
 
 .sidebar a.active {
-  color: var(--vibrant-600);
-  font-weight: 600;
+  color: var(--vibrant-600); font-weight: 600;
   border-right: 3px solid var(--vibrant-600);
   background: rgba(209, 233, 249, 0.4);
 }
@@ -216,218 +161,112 @@ pre code {
 
 .main h1 {
   font-family: "Outfit", system-ui, sans-serif;
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-size: 2.25rem; font-weight: 700;
+  margin-bottom: 12px; letter-spacing: -0.02em; line-height: 1.2;
 }
 
 .main h2 {
   font-family: "Outfit", system-ui, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 2.5em 0 0.8em;
-  padding-bottom: 8px;
+  font-size: 1.5rem; font-weight: 600;
+  margin: 2.5em 0 0.8em; padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
 
 .main h3 {
   font-family: "Outfit", system-ui, sans-serif;
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin: 1.8em 0 0.6em;
+  font-size: 1.125rem; font-weight: 600; margin: 1.8em 0 0.6em;
 }
 
 .main h4 {
   font-family: "Outfit", system-ui, sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 1.4em 0 0.5em;
-  color: var(--neutral-stone);
+  font-size: 1rem; font-weight: 600; margin: 1.4em 0 0.5em;
 }
 
-.main p {
-  margin: 0.9em 0;
-  line-height: 1.7;
-}
+.main p { margin: 0.9em 0; line-height: 1.7; }
 
-.main ul,
-.main ol {
-  margin: 1em 0 1em 1.8em;
-  line-height: 1.7;
-}
+.main ul, .main ol { margin: 1em 0 1em 1.8em; line-height: 1.7; }
+.main li { margin: 0.4em 0; }
 
-.main li {
-  margin: 0.4em 0;
-}
-
-.breadcrumb {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 28px;
-  font-weight: 500;
-}
-
-.breadcrumb a {
-  color: var(--text-muted);
-}
-
-.breadcrumb a:hover {
-  color: var(--vibrant-600);
-}
-
-.callout {
-  border-left: 4px solid var(--vibrant-600);
-  background: var(--vibrant-50);
-  padding: 16px 20px;
-  margin: 1.4em 0;
+.main blockquote {
+  border-left: 4px solid var(--vibrant-200);
+  padding: 12px 20px; margin: 1.2em 0;
+  background: rgba(232, 244, 252, 0.5);
   border-radius: 0 6px 6px 0;
   font-size: 0.95rem;
 }
 
-.callout strong {
-  color: var(--vibrant-700);
-  font-weight: 600;
+.main table {
+  width: 100%; border-collapse: collapse;
+  margin: 1.2em 0; font-size: 0.92rem;
 }
 
-.badge {
-  display: inline-block;
-  padding: 3px 12px;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: var(--vibrant-100);
-  color: var(--vibrant-700);
-  margin-left: 8px;
-  vertical-align: middle;
+.main th, .main td {
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
 }
 
-/* Icons */
-.icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 1.25rem;
-  margin-right: 12px;
+.main th {
+  font-weight: 600; background: rgb(243, 244, 246);
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
-.icon-box.vibrant {
-  background: var(--vibrant-100);
-  color: var(--vibrant-600);
+.main hr {
+  border: none; border-top: 1px solid var(--border);
+  margin: 2.5em 0;
 }
 
-.icon-box.blue {
-  background: rgba(30, 64, 175, 0.1);
-  color: var(--cuny-blue);
+.breadcrumb {
+  font-size: 0.8rem; color: var(--text-muted);
+  margin-bottom: 28px; font-weight: 500;
 }
 
-.icon-box.green {
-  background: rgba(34, 197, 94, 0.1);
-  color: rgb(22, 163, 74);
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--vibrant-600); }
+
+.callout {
+  border-left: 4px solid var(--vibrant-600);
+  background: var(--vibrant-50);
+  padding: 16px 20px; margin: 1.4em 0;
+  border-radius: 0 6px 6px 0; font-size: 0.95rem;
 }
 
-.icon-box.amber {
-  background: rgba(245, 158, 11, 0.1);
-  color: rgb(217, 119, 6);
-}
-
-/* Feature grid */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin: 2em 0;
-}
-
-.feature-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  transition: all 0.2s;
-}
-
-.feature-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
-  border-color: var(--vibrant-200);
-}
-
-.feature-card h4 {
-  margin-top: 0;
-  font-size: 1rem;
-}
-
-/* Page sections (SPA) */
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
+.callout strong { color: var(--vibrant-700); font-weight: 600; }
 
 /* Footer */
 .site-footer {
   margin-left: var(--sidebar-w);
   padding: 24px 64px;
   border-top: 1px solid var(--border);
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 0.8rem; color: var(--text-muted);
 }
 
-.site-footer a {
-  color: var(--text-muted);
-}
+.site-footer a { color: var(--text-muted); }
+.site-footer a:hover { color: var(--vibrant-600); }
 
-.site-footer a:hover {
-  color: var(--vibrant-600);
+/* Loading */
+.loading {
+  text-align: center; padding: 80px 0;
+  color: var(--text-muted); font-size: 0.95rem;
 }
 
 @media (max-width: 768px) {
-  .sidebar {
-    display: none;
-    width: 100%;
-    z-index: 95;
-  }
-
-  .sidebar.open {
-    display: block;
-  }
-
-  .main,
-  .site-footer {
-    margin-left: 0;
-  }
-
-  .main {
-    padding: 28px 24px 80px;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .site-header nav.desk {
-    display: none;
-  }
-
-  .site-header {
-    padding: 0 16px;
-  }
+  .sidebar { display: none; width: 100%; z-index: 95; }
+  .sidebar.open { display: block; }
+  .main, .site-footer { margin-left: 0; }
+  .main { padding: 28px 24px 80px; }
+  .hamburger { display: block; }
+  .site-header nav.desk { display: none; }
+  .site-header { padding: 0 16px; }
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="site-header">
-  <a href="https://ailab.gc.cuny.edu" target="_blank" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><img src="cail-logo.png" alt="CUNY AI Lab" style="height:32px"><span class="logo">docs</span></a>
+  <a href="https://ailab.gc.cuny.edu" target="_blank" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px">
+    <img src="cail-logo.png" alt="CUNY AI Lab" style="height:32px">
+    <span class="logo">docs</span>
+  </a>
   <nav class="desk">
     <a href="https://chat.ailab.gc.cuny.edu" target="_blank">Sandbox</a>
     <a href="https://ailab.gc.cuny.edu/models/" target="_blank">Registry</a>
@@ -436,591 +275,159 @@ pre code {
   <button class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
 </header>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
-  <div class="section-label">Getting Started</div>
-  <a href="#overview" class="nav-link active" data-page="overview">Overview</a>
-  <a href="#first-steps" class="nav-link" data-page="first-steps">First Steps</a>
+<aside class="sidebar" id="sidebar">
+  <div class="section-label">Home</div>
+  <a data-page="index" class="nav-link active">Overview</a>
 
-  <div class="section-label">Workspace</div>
-  <a href="#models" class="nav-link" data-page="models">Models</a>
-  <a href="#knowledge" class="nav-link" data-page="knowledge">Knowledge Bases</a>
-  <a href="#prompts" class="nav-link" data-page="prompts">Prompts</a>
-  <a href="#tools" class="nav-link" data-page="tools">Tools &amp; Skills</a>
+  <div class="section-label">Starter Kit</div>
+  <a data-page="starter-kit/getting-started" class="nav-link">Getting Started</a>
 
-  <div class="section-label">Usage</div>
-  <a href="#chat" class="nav-link" data-page="chat">Chat Interface</a>
-  <a href="#rag" class="nav-link" data-page="rag">RAG &amp; Documents</a>
-  <a href="#workflows" class="nav-link" data-page="workflows">Practical Workflows</a>
-  <a href="#collaboration" class="nav-link" data-page="collaboration">Collaboration</a>
+  <div class="section-label">Design Kit</div>
+  <a data-page="design-kit/models" class="nav-link">Models</a>
+  <a data-page="design-kit/system-prompts" class="nav-link">System Prompts</a>
+  <a data-page="design-kit/knowledge-bases" class="nav-link">Knowledge Bases</a>
+  <a data-page="design-kit/tools-skills" class="nav-link">Tools &amp; Skills</a>
+  <a data-page="design-kit/roles-permissions" class="nav-link">Roles &amp; Permissions</a>
 
-  <div class="section-label">Reference</div>
-  <a href="#security" class="nav-link" data-page="security">Security &amp; Governance</a>
-  <a href="#admin" class="nav-link" data-page="admin">Admin Settings</a>
-  <a href="#best-practices" class="nav-link" data-page="best-practices">Best Practices</a>
-  <a href="#faq" class="nav-link" data-page="faq">FAQ</a>
+  <div class="section-label">Instructional Kit</div>
+  <a data-page="instructional-kit/pedagogical-patterns" class="nav-link">Pedagogical Patterns</a>
+  <a data-page="instructional-kit/sample-activities" class="nav-link">Sample Activities</a>
+  <a data-page="instructional-kit/student-onboarding" class="nav-link">Student Onboarding</a>
+  <a data-page="instructional-kit/use-cases" class="nav-link">Use Cases</a>
 </aside>
 
-<!-- MAIN -->
-<div class="main">
-
-  <!-- OVERVIEW -->
-  <div class="page active" id="overview">
-    <div class="breadcrumb"><a href="#">Docs</a> / Overview</div>
-    <h1>CUNY AI Lab Sandbox</h1>
-    <p class="callout"><strong>Note:</strong> This documentation covers the Open WebUI instance hosted at <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> for CUNY faculty, students, and researchers. It is a working guide maintained by the CAIL team.</p>
-
-    <p>The CUNY AI Lab (CAIL) is a faculty- and staff-led initiative for experimentation with large language models and other approaches to machine learning by CUNY researchers across disciplines. Based at the CUNY Graduate Center, the Lab supports work with AI that prioritizes ethical practice and aligns with CUNY's public mission.</p>
-
-    <p>The CAIL Sandbox runs on <a href="https://github.com/open-webui/open-webui" target="_blank">Open WebUI</a>, a self-hosted platform that gives CUNY users access to open-weight AI models through a single interface. The Sandbox currently hosts seven models selected for their capabilities, licensing terms, and suitability for academic use (see the <a href="https://ailab.gc.cuny.edu/models/" target="_blank">Model Registry</a> for the full list). All models support multilingual input/output and tool calling.</p>
-
-    <p>The platform goes beyond simple chat. Its workspace architecture lets users create custom AI agents, organize institutional knowledge into searchable repositories, build prompt libraries, and extend model capabilities through tools and pipelines. These features support use cases across disciplines: a literature review assistant grounded in departmental research, a writing tutor calibrated to course-specific rubrics, a multilingual support tool for heritage language learners.</p>
-
-    <h2>What You Can Do</h2>
-
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div style="display:flex;align-items:center;margin-bottom:8px"><div class="icon-box vibrant">💬</div><h4 style="margin:0">Chat</h4></div>
-        <p style="margin:0;font-size:0.9rem;color:var(--text-muted)">Talk to hosted models through a unified interface. Compare responses side by side. Switch models mid-conversation.</p>
-      </div>
-      <div class="feature-card">
-        <div style="display:flex;align-items:center;margin-bottom:8px"><div class="icon-box blue">🔧</div><h4 style="margin:0">Build</h4></div>
-        <p style="margin:0;font-size:0.9rem;color:var(--text-muted)">Create custom model configurations with system prompts, parameter tuning, knowledge bases, and tool bindings.</p>
-      </div>
-      <div class="feature-card">
-        <div style="display:flex;align-items:center;margin-bottom:8px"><div class="icon-box green">📚</div><h4 style="margin:0">Ground</h4></div>
-        <p style="margin:0;font-size:0.9rem;color:var(--text-muted)">Upload documents and query them with Retrieval-Augmented Generation. Responses draw from your data, not just training corpora.</p>
-      </div>
-      <div class="feature-card">
-        <div style="display:flex;align-items:center;margin-bottom:8px"><div class="icon-box amber">🤝</div><h4 style="margin:0">Share</h4></div>
-        <p style="margin:0;font-size:0.9rem;color:var(--text-muted)">Share prompts, models, and knowledge bases across courses, departments, and research groups with granular access controls.</p>
-      </div>
-    </div>
-
-    <h2>How It Works</h2>
-    <p>Open WebUI acts as a middleware layer between users and AI providers. It wraps base models with configurable behavior: system prompts define how the model responds, knowledge bases inject relevant documents, parameter overrides control generation characteristics, and access controls determine who can use what. Each "model" in the workspace is a configuration wrapper around a base provider. You are not training a new model; you are shaping how an existing one behaves in a specific context.</p>
-
-    <h2>Guiding Principles</h2>
-    <p>CAIL's goal is to deconstruct the discourse around generative AI as a single, abstract technology, in favor of building a form of literacy that emphasizes user agency and treats AI as a set of techniques that can be prototyped, evaluated, and revised. The Sandbox is configured around four commitments:</p>
-    <ul>
-      <li><strong>Privacy.</strong> The Sandbox makes data retention policies, model selection, and evaluation practices explicit. User conversations are not retained by upstream providers for training.</li>
-      <li><strong>Transparency.</strong> The Sandbox runs open-weight models whose architectures and training processes can be examined. The <a href="https://ailab.gc.cuny.edu/models/" target="_blank">Model Registry</a> documents each model's license, parameters, and capabilities.</li>
-      <li><strong>Sustainability.</strong> AI computation has material costs. The platform surfaces usage metrics so that instructors and researchers can make informed decisions about resource consumption.</li>
-      <li><strong>Critical thinking.</strong> The goal is not dependency on AI tools but fluency with them. CAIL supports pedagogies that teach students to evaluate, question, and contextualize AI outputs. For foundational resources on AI literacy at CUNY, see the <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit</a>.</li>
-    </ul>
-
-    <h2>Who Runs CAIL</h2>
-    <p>CAIL is jointly administered by <a href="https://gcdi.commons.gc.cuny.edu/" target="_blank">Graduate Center Digital Initiatives (GCDI)</a>, the <a href="https://tlc.commons.gc.cuny.edu/" target="_blank">Teaching and Learning Center (TLC)</a>, the <a href="https://library.gc.cuny.edu/" target="_blank">Mina Rees Library</a>, and the <a href="https://ashp.cuny.edu/" target="_blank">American Social History Project / Center for Media and Learning (ASHP/CML)</a>. It draws on recent work including the Google.org-sponsored <a href="https://criticalai.commons.gc.cuny.edu/" target="_blank">Critical AI Literacy Institute (CALI)</a>. CAIL is supported by the CUNY Office of Academic Affairs, AWS, Google.org, and the CUNY Graduate Center. <a href="https://ailab.gc.cuny.edu/about/" target="_blank">Learn more</a>.</p>
-  </div>
-
-  <!-- FIRST STEPS -->
-  <div class="page" id="first-steps">
-    <div class="breadcrumb"><a href="#">Docs</a> / First Steps</div>
-    <h1>First Steps</h1>
-
-    <p>This page walks you through your first session on the Sandbox. If you have used ChatGPT or similar tools, the chat interface will feel familiar. The workspace features are where things get interesting.</p>
-
-    <h2>1. Sign In</h2>
-    <p>Navigate to <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> and authenticate with your CUNY credentials. Your account is created on first login.</p>
-
-    <h2>2. Adjust Your Settings</h2>
-    <p>Click your profile avatar (top-right) to access <strong>Settings</strong>. Here you can set a default model, choose an interface theme, and configure notification preferences. These are personal settings; they affect only your account.</p>
-    <p>Administrators have a separate <strong>Admin Panel</strong> for instance-wide configuration (see <a href="#admin">Admin Settings</a>).</p>
-
-    <h2>3. Pick a Model</h2>
-    <p>The model selector at the top of the chat shows every model available to you. The Sandbox hosts open-weight models including DeepSeek V3.2, Kimi K2.5, GLM 5, gpt-oss-120b, Qwen3 235B, Gemma 3 27B, and Llama 3.1 70B (see the full <a href="https://ailab.gc.cuny.edu/models/" target="_blank">Model Registry</a>). Some entries are base models; others are custom configurations built by CAIL, your department, or your own colleagues, with system prompts, knowledge bases, and tool bindings that shape their behavior for specific tasks.</p>
-
-    <h2>4. Start a Conversation</h2>
-    <p>Type a message or click one of the prompt suggestion chips. Your conversation is saved automatically and accessible from the sidebar. You can return to any conversation later, export it, or branch it to explore alternative directions.</p>
-
-    <h2>5. Explore the Workspace</h2>
-    <p>Click <strong>Workspace</strong> in the left sidebar to access the four building blocks of custom AI workflows:</p>
-    <ul>
-      <li><strong>Models</strong> &mdash; create and configure custom agents</li>
-      <li><strong>Knowledge</strong> &mdash; upload documents for retrieval-augmented generation</li>
-      <li><strong>Prompts</strong> &mdash; save and share reusable instruction templates</li>
-      <li><strong>Tools</strong> &mdash; extend model capabilities with external integrations</li>
-    </ul>
-    <p>Each of these is covered in detail in the sections that follow.</p>
-  </div>
-
-  <!-- MODELS -->
-  <div class="page" id="models">
-    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Models</div>
-    <h1>Models</h1>
-
-    <p>A "model" in Open WebUI is a configuration wrapper around a base AI model. You select one of the Sandbox's open-weight models (DeepSeek V3.2, Kimi K2.5, GLM 5, Qwen3, Gemma 3, Llama 3.1, or gpt-oss-120b), then layer on behavior: a system prompt that defines how the model responds, knowledge bases that ground it in specific documents, tools that extend its capabilities, and parameters that control its generation characteristics. The result is a custom agent tuned to a particular task, course, or research context.</p>
-
-    <p>This is composition, not training. You are not fine-tuning weights or creating a new model from scratch. You are assembling existing components into a coherent workflow.</p>
-
-    <h2>Create a Model</h2>
-    <ol>
-      <li>Go to <strong>Workspace → Models → + New Model</strong></li>
-      <li>Select a base model from the dropdown (the Sandbox hosts seven open-weight models; see the <a href="https://ailab.gc.cuny.edu/models/" target="_blank">Model Registry</a>)</li>
-      <li>Write a <strong>system prompt</strong> that defines the model's persona, constraints, and goals</li>
-      <li>Attach <strong>knowledge bases</strong> to ground responses in your documents</li>
-      <li>Bind <strong>tools</strong> for external capabilities (web search, code execution, etc.)</li>
-      <li>Set <strong>advanced parameters</strong> if needed (temperature, top-p, stop sequences)</li>
-      <li>Add <strong>prompt suggestions</strong>: clickable starter chips that appear above the input bar in new chats</li>
-      <li>Save and set visibility</li>
-    </ol>
-
-    <h2>System Prompts</h2>
-    <p>The system prompt is where you encode the model's behavior. A good system prompt for a CUNY context does several things: it establishes the model's role, sets boundaries around academic integrity, and provides enough specificity that the model knows what kind of help to offer. Consider this example:</p>
-
-    <pre><code>You are an academic writing tutor for {{ USER_NAME }} at CUNY.
-The current date is {{ CURRENT_DATE }}. You help students
-improve their writing through questions and suggestions,
-not by writing for them. When a student submits a draft,
-identify two strengths before addressing areas for revision.
-Encourage critical thinking. Never produce complete essays
-or assignment submissions.</code></pre>
-
-    <p>This prompt uses <strong>dynamic variables</strong>, Jinja2-style placeholders that inject real-time context:</p>
-    <ul>
-      <li><code>{{ CURRENT_DATE }}</code> &mdash; today's date in YYYY-MM-DD format</li>
-      <li><code>{{ CURRENT_TIME }}</code> &mdash; current time in 24-hour format</li>
-      <li><code>{{ USER_NAME }}</code> &mdash; the logged-in user's display name</li>
-    </ul>
-    <p>Dynamic variables let a single model configuration serve many users with personalized interactions. An advisor model can greet students by name; a deadline-aware tutor can reference the current date without manual updates.</p>
-
-    <h2>Prompt Suggestions</h2>
-    <p>Prompt suggestions appear as clickable chips above the input bar when a user opens a fresh chat. They serve as onboarding: a quick way to show new users what the model can do and how to talk to it. For a "Python Tutor" model, you might add:</p>
-    <ul>
-      <li>"Explain this code step-by-step"</li>
-      <li>"Find bugs in the following script"</li>
-      <li>"Write a unit test for this function"</li>
-    </ul>
-    <p>For a literature review assistant: "Summarize the theoretical evolution across these three papers" or "Compare methodological approaches in the attached studies."</p>
-
-    <h2>Advanced Parameters</h2>
-    <ul>
-      <li><strong>Temperature</strong> &mdash; controls randomness. Lower values (0.1&ndash;0.3) produce more deterministic, focused responses. Higher values (0.7&ndash;1.0) allow more creative variation. For factual research tasks, keep it low. For brainstorming, raise it.</li>
-      <li><strong>Top P</strong> &mdash; nucleus sampling threshold. Controls the diversity of token selection. A value of 0.9 means the model considers tokens covering 90% of the probability mass.</li>
-      <li><strong>Stop Sequences</strong> &mdash; strings that force the model to stop generating. Enter sequences like <code>&lt;|end_of_text|&gt;</code> or <code>User:</code> and press Enter. Useful for roleplay or coding models that might otherwise generate both sides of a conversation.</li>
-    </ul>
-
-    <h2>Visibility and Sharing</h2>
-    <p>Every model has a visibility setting:</p>
-    <ul>
-      <li><strong>Private</strong> &mdash; visible only to you</li>
-      <li><strong>Limited</strong> &mdash; shared with specific users or groups (e.g., a course section, a research team)</li>
-      <li><strong>Public</strong> &mdash; available to all Sandbox users</li>
-    </ul>
-
-    <div class="callout">
-      <strong>For instructors:</strong> When building models for your courses, craft system prompts that reflect CUNY's commitment to access, equity, and critical thinking. Make your expectations for AI use explicit. If the model should encourage process over product, say so in the prompt. If it should refuse to generate complete assignments, encode that boundary. Students benefit from clarity, not ambiguity, about what the tool will and will not do.
-    </div>
-  </div>
-
-  <!-- KNOWLEDGE -->
-  <div class="page" id="knowledge">
-    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Knowledge Bases</div>
-    <h1>Knowledge Bases</h1>
-
-    <p>Knowledge bases let you ground AI responses in your own documents. When a model has a knowledge base attached, it searches your uploaded files for relevant passages before generating a response. This technique is called Retrieval-Augmented Generation (RAG): the model retrieves context from your data and uses it to inform its output, rather than relying solely on its training corpus.</p>
-
-    <p>The difference matters. A base model answering questions about CUNY's graduate handbook will draw on whatever it absorbed during training, which may be outdated, incomplete, or wrong. A model with the handbook in its knowledge base will cite the actual document.</p>
-
-    <h2>Create a Knowledge Base</h2>
-    <ol>
-      <li>Go to <strong>Workspace → Knowledge → + Create a Knowledge Base</strong></li>
-      <li>Name it and describe what you are working on (e.g., "Fall 2026 Composition Syllabi" or "IRB Protocol Archive")</li>
-      <li>Specify what you are trying to achieve (providing research support, grounding course assistance, etc.)</li>
-      <li>Set visibility:
-        <ul>
-          <li><strong>Private</strong> &mdash; only you can access it</li>
-          <li><strong>Limited</strong> &mdash; shared with specific users or groups</li>
-          <li><strong>Public</strong> &mdash; available to all Sandbox users</li>
-        </ul>
-      </li>
-      <li>Upload files by dragging and dropping them into the knowledge base. Supported formats include PDF, Markdown, and plain text.</li>
-    </ol>
-
-    <h2>Attach to a Model</h2>
-    <p>In the model editor, link one or more knowledge bases under the Knowledge section. When users chat with that model, relevant document chunks are retrieved and injected as context before the model responds. You can attach multiple knowledge bases to a single model; the retrieval system searches across all of them.</p>
-
-    <h2>What to Upload</h2>
-    <p>Start by identifying high-value documents that would benefit from searchable, conversational access:</p>
-    <ul>
-      <li>Graduate program handbooks and policy documents</li>
-      <li>Course syllabi and assignment descriptions</li>
-      <li>Research methodology guides and IRB templates</li>
-      <li>Departmental research outputs and working papers</li>
-      <li>Technical documentation for shared infrastructure</li>
-      <li>Curated reading lists and annotated bibliographies</li>
-    </ul>
-
-    <h2>File Management</h2>
-    <p>Access all uploaded files through <strong>Settings → Data Controls → Manage Files</strong>. This centralized file manager supports universal search by filename, sorting by name or creation date, and metadata inspection (file size, upload date). When you delete a file here, Open WebUI performs deep cleanup: it removes the file from all associated knowledge bases and deletes the corresponding vector embeddings from the database.</p>
-
-    <h2>How Embedding Works</h2>
-    <p>When you upload a document, Open WebUI converts it into numerical representations called embeddings. These embeddings capture the semantic meaning of the text, allowing the system to find relevant passages even when exact keywords do not match. A question about "thesis committee requirements" can surface a passage about "dissertation advisory boards" because the concepts are semantically related.</p>
-    <p>The default embedding model (Sentence Transformers MiniLM-L6) works well for most use cases. Administrators can change the embedding model in <strong>Admin Panel → Settings → Documents</strong>. Alternative models are available through the Hugging Face repository.</p>
-
-    <div class="callout">
-      <strong>For researchers:</strong> Consider building knowledge bases around the methodological frameworks and foundational literature in your field. A model grounded in your curated sources can help with literature review, source comparison, and gap identification, while citing the documents you trust rather than hallucinating references.
-    </div>
-  </div>
-
-  <!-- PROMPTS -->
-  <div class="page" id="prompts">
-    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Prompts</div>
-    <h1>Prompts</h1>
-
-    <p>The prompt library stores reusable system prompts and instruction templates that can be shared across models, courses, and research groups. Think of it as a departmental toolkit: rather than writing the same instructions from scratch each time you create a model, you save them once and apply them wherever they are needed.</p>
-
-    <h2>Categories</h2>
-    <p>Prompts tend to fall into a few recurring patterns:</p>
-    <ul>
-      <li><strong>Conversation steering</strong> &mdash; redirect discussions that have gone off track. Useful when a model starts generating tangential content or when you need to refocus a tutoring session.</li>
-      <li><strong>Output formatting</strong> &mdash; specify the structure of responses. Request JSON output for data processing, tables for comparison, bullet points for quick reference, or narrative prose for student-facing explanations.</li>
-      <li><strong>Context handovers</strong> &mdash; generate summaries that can be transferred to subsequent agents or conversations. Useful when a research task spans multiple sessions or involves different models for different stages.</li>
-      <li><strong>Research templates</strong> &mdash; systematic literature review, source evaluation, methodology critique. These encode disciplinary best practices into the model's response patterns.</li>
-      <li><strong>Pedagogical framing</strong> &mdash; encourage critical thinking over direct answers. Prompts in this category ask the model to pose follow-up questions, suggest counterarguments, or scaffold learning rather than provide finished products.</li>
-    </ul>
-
-    <h2>Building a Departmental Prompt Library</h2>
-    <p>Instructors across a department can contribute to a shared collection. A Digital Humanities program might maintain prompts for text analysis, visualization interpretation, and archival research. A Writing Program might store prompts for peer review facilitation, citation practice, and genre analysis. Shared prompts create consistency: students working with different instructors encounter similar pedagogical expectations from the AI tools in their courses.</p>
-
-    <div class="callout">
-      <strong>Tip:</strong> When writing prompts for student-facing models, be specific about what the model should <em>not</em> do. "Do not write complete essays" is clearer than "encourage independent work." Constraints help both the model and the student understand the boundaries of appropriate use.
-    </div>
-  </div>
-
-  <!-- TOOLS -->
-  <div class="page" id="tools">
-    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Tools &amp; Skills</div>
-    <h1>Tools &amp; Skills</h1>
-
-    <p>Tools and skills extend what models can do beyond text generation. Tools connect models to external services, databases, and computational functions. Skills provide specialized knowledge domains that the model can draw on without modifying system prompts.</p>
-
-    <h2>Tools</h2>
-
-    <h3>Types</h3>
-    <ul>
-      <li><strong>Native features</strong> &mdash; built into Open WebUI: Web Search, Image Generation, URL Fetch, Memory. These require no setup.</li>
-      <li><strong>Workspace tools</strong> &mdash; Python scripts registered in the platform. When a user's query matches a tool's purpose, the model calls the function, processes the result, and incorporates it into its response.</li>
-      <li><strong>MCP (Model Context Protocol)</strong> &mdash; Anthropic's open standard for connecting AI models to external data sources and tools. MCP servers expose structured capabilities that models can discover and invoke.</li>
-      <li><strong>OpenAPI servers</strong> &mdash; any web service with an OpenAPI specification can be connected as a tool provider.</li>
-    </ul>
-
-    <h3>Enabling Tools</h3>
-    <p><strong>Per-chat:</strong> Click the <strong>➕</strong> icon in the input area and select tools for that session. This is useful for one-off tasks.</p>
-    <p><strong>Per-model:</strong> In the model editor, scroll to the <strong>Tools</strong> section and check the tools you want always available. Every chat with that model will have access to the selected tools.</p>
-
-    <h3>Community Tool Library</h3>
-    <p>Open WebUI maintains a community library of pre-built tools. Some that are relevant to academic work:</p>
-    <ul>
-      <li><strong>arXiv Search</strong> &mdash; query academic papers directly from chat. No API key required.</li>
-      <li><strong>Perplexica Search</strong> &mdash; web search with inline citations.</li>
-      <li><strong>Pexels Media Search</strong> &mdash; find stock photos and videos for presentations.</li>
-      <li><strong>YouTube Search &amp; Embed</strong> &mdash; locate and embed instructional videos.</li>
-    </ul>
-
-    <h3>Function Calling</h3>
-    <p>Models with native function calling support (indicated by the <strong>TOOLS</strong> tag in Ollama) can invoke tools with improved reliability. The model determines when to call a tool, what arguments to pass, and how to incorporate results. No prompt engineering required.</p>
-
-    <h2>Skills</h2>
-
-    <p>Skills are specialized knowledge domains that can be bound to models. Unlike system prompts (which define general behavior), skills provide on-demand access to detailed instructions for specific topics.</p>
-
-    <p>To bind skills: go to <strong>Workspace → Models → Edit</strong>, find the <strong>Skills</strong> section, and select the skills you want. When a user's query falls within a skill's domain, the model loads the relevant instructions automatically.</p>
-
-    <p><strong>Example skills for CUNY:</strong></p>
-    <ul>
-      <li>Quantitative Methods (statistical analysis, research design, SPSS/R guidance)</li>
-      <li>Academic Writing (scholarly conventions, citation practices, genre awareness)</li>
-      <li>Research Ethics (IRB compliance, data privacy, informed consent)</li>
-      <li>Digital Humanities (text analysis, corpus methods, visualization)</li>
-    </ul>
-
-    <div class="callout">
-      <strong>Security:</strong> Only import tools from trusted sources. Tools are Python scripts that execute on the server. Review code before installing community tools, and consult with the CAIL team if you are unsure about a tool's safety.
-    </div>
-  </div>
-
-  <!-- CHAT -->
-  <div class="page" id="chat">
-    <div class="breadcrumb"><a href="#">Docs</a> / Usage / Chat Interface</div>
-    <h1>Chat Interface</h1>
-
-    <p>The chat interface is the primary way to interact with models. Select a model from the dropdown, type a message, and the model responds. But the interface supports several features beyond basic chat that are worth knowing about.</p>
-
-    <h2>Core Features</h2>
-    <ul>
-      <li><strong>Multi-model chats</strong> &mdash; select multiple models and compare their responses side by side. This is useful for evaluating how different models handle the same prompt, or for cross-checking factual claims.</li>
-      <li><strong>File uploads</strong> &mdash; drag a document into the chat input for one-off RAG. The model will use the file as context for that conversation only. For persistent access, use a Knowledge Base instead.</li>
-      <li><strong>Chat history</strong> &mdash; every conversation is saved automatically and searchable from the sidebar.</li>
-      <li><strong>Export</strong> &mdash; download any conversation as Markdown or JSON for archiving, sharing, or further analysis.</li>
-      <li><strong>Branching</strong> &mdash; fork a conversation at any point to explore alternative directions without losing the original thread.</li>
-    </ul>
-
-    <h2>Model Switching</h2>
-    <p>Click the model name in the chat interface to switch between models mid-conversation. This lets you use different models for different stages of a task. For example: start with a general-purpose model for brainstorming, switch to a code-focused model for implementation, then move to a writing model for documentation. The conversation context carries across switches.</p>
-
-    <h2>Memory</h2>
-    <p>Models can remember facts and preferences across conversations. Memories are stored locally in your Open WebUI account, never shared across users, and clearable at any time via <strong>Settings</strong>. This is useful for ongoing research or advising relationships where the model benefits from knowing your background, project status, or preferences.</p>
-  </div>
-
-  <!-- RAG -->
-  <div class="page" id="rag">
-    <div class="breadcrumb"><a href="#">Docs</a> / Usage / RAG &amp; Documents</div>
-    <h1>RAG &amp; Documents</h1>
-
-    <p>Retrieval-Augmented Generation (RAG) is the process by which a model searches your uploaded documents for relevant passages and uses them as context before responding. It bridges the gap between a model's general training data and your specific institutional knowledge.</p>
-
-    <h2>Two Modes of RAG</h2>
-
-    <h3>Quick RAG (In-Chat)</h3>
-    <p>Drag a file directly into the chat input. The model uses it as context for that conversation only. Good for one-off questions about a specific document: "Summarize the key findings in this report" or "What does this contract say about termination clauses?"</p>
-
-    <h3>Persistent RAG (Knowledge Bases)</h3>
-    <p>For ongoing use, create a knowledge base and attach it to a model (see <a href="#knowledge">Knowledge Bases</a>). Every conversation with that model draws from the full document collection. This is how you build a literature review assistant grounded in 50 papers, or a policy advisor trained on the complete CUNY governance archive.</p>
-
-    <h2>RAG Template Configuration</h2>
-    <p>The RAG template controls how retrieved passages are presented to the model. Administrators configure it in <strong>Admin Panel → Settings → Documents → RAG Template</strong>. A well-crafted template tells the model how to use retrieved context, when to cite sources, and what to do when the context falls short.</p>
-
-    <p><strong>Example for CUNY:</strong></p>
-    <pre><code>You are assisting a CUNY researcher. Respond to the query
-based primarily on the provided context. When using information
-from documents, indicate the source document. If the provided
-context does not adequately address the query, acknowledge this
-limitation and suggest how the user might find additional
-information. Prioritize accuracy and institutional context
-over creative elaboration.</code></pre>
-
-    <h2>Chunking and Retrieval</h2>
-    <p>When a document is uploaded, Open WebUI splits it into chunks and creates vector embeddings for each chunk. When a user asks a question, the system finds the chunks most semantically relevant to the query and injects them into the model's context window. Administrators can adjust chunk size and overlap in the Documents settings. Smaller chunks yield more precise retrieval; larger chunks preserve more surrounding context.</p>
-
-    <div class="callout">
-      <strong>Practical tip:</strong> For best results, upload clean, well-structured documents. Markdown and plain text tend to chunk more reliably than complex PDFs with multi-column layouts or embedded images. If a PDF produces poor results, try converting it to Markdown first.
-    </div>
-  </div>
-
-  <!-- WORKFLOWS -->
-  <div class="page" id="workflows">
-    <div class="breadcrumb"><a href="#">Docs</a> / Usage / Practical Workflows</div>
-    <h1>Practical Workflows</h1>
-
-    <p>The workspace features described in this guide are most powerful when combined. Below are concrete workflows that illustrate how models, knowledge bases, tools, and prompts work together in academic contexts.</p>
-
-    <h2>Literature Review Assistant</h2>
-    <p><strong>Components:</strong> A system prompt encoding systematic review methodology. A knowledge base loaded with foundational papers in the field. arXiv Search and web tools for discovering new sources. A prompt library with templates for source evaluation and gap analysis.</p>
-    <p><strong>In practice:</strong> Upload 30 papers from your Zotero library into a knowledge base. Create a model with a system prompt that instructs it to identify themes, compare methodological approaches, and flag contradictions across sources. Ask it: "How has the theoretical framework for X evolved across these papers?" The model retrieves relevant passages from your uploads, synthesizes them, and cites the source documents.</p>
-
-    <h2>Capstone Project Mentor</h2>
-    <p><strong>Components:</strong> A system prompt establishing course learning outcomes and advising norms. A knowledge base with the capstone handbook, past project abstracts, and disciplinary literature. Prompt suggestions guiding students through each project phase.</p>
-    <p><strong>In practice:</strong> Students interact with the mentor throughout the semester. It knows the program's expectations because they are in the knowledge base. It guides students through topic selection, literature review, methodology design, and drafting, providing consistent feedback grounded in institutional standards rather than generic advice.</p>
-
-    <h2>Multilingual Research Support</h2>
-    <p><strong>Components:</strong> Knowledge bases with sources in multiple languages. Translation tools. Language-specific analysis skills.</p>
-    <p><strong>In practice:</strong> A student working with Spanish-language primary sources poses queries in English. The model retrieves relevant passages from Spanish-language documents in the knowledge base, translates and synthesizes them, and provides citations to the original texts. This supports CUNY's multilingual student body in engaging with sources across language barriers.</p>
-
-    <h2>Assignment Design Workshop</h2>
-    <p><strong>Components:</strong> A system prompt encoding the <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit</a>'s assignment makeover framework. Knowledge base with sample assignments, rubrics, and scaffolding strategies.</p>
-    <p><strong>In practice:</strong> An instructor uploads an existing assignment. The model conducts an "activity inventory": listing every cognitive task the assignment requires, identifying which tasks AI could automate, and suggesting revisions that preserve learning objectives while accounting for AI use. This mirrors the stress-testing approach recommended by Laquintano and Vee in their work on AI and writing instruction.</p>
-
-    <h2>Pipelines</h2>
-    <p>For advanced users: pipelines intercept and transform interactions at multiple stages. <strong>Filter pipelines</strong> modify requests or responses in transit (safety filtering, custom RAG injection, prompt injection detection). <strong>Pipe pipelines</strong> take over the interaction workflow entirely (custom agent logic, multi-step reasoning chains). Pipelines require Python development but enable sophisticated workflows beyond what model configuration alone can achieve.</p>
-  </div>
-
-  <!-- COLLABORATION -->
-  <div class="page" id="collaboration">
-    <div class="breadcrumb"><a href="#">Docs</a> / Usage / Collaboration</div>
-    <h1>Collaboration</h1>
-
-    <p>The Sandbox is a shared resource. Open WebUI's collaboration features let teams work together on models, knowledge bases, and prompt libraries without stepping on each other's work.</p>
-
-    <h2>Sharing Resources</h2>
-    <p>Every resource you create (model, knowledge base, prompt) has a visibility setting:</p>
-    <ul>
-      <li><strong>Private</strong> &mdash; only you can see and use it</li>
-      <li><strong>Limited</strong> &mdash; shared with specific users or groups you designate</li>
-      <li><strong>Public</strong> &mdash; available to everyone on the Sandbox</li>
-    </ul>
-    <p>Start private. Share when ready. This lets you iterate on a model or knowledge base without exposing unfinished work to your students or colleagues.</p>
-
-    <h2>Groups</h2>
-    <p>Administrators create user groups organized by course, department, research team, or any other logical unit. When you share a resource with a group, everyone in that group gains access. Groups simplify permission management: add a student to the "Fall 2026 Comp 101" group and they automatically see the course's model, knowledge bases, and prompt library.</p>
-
-    <h2>Role-Based Access Control</h2>
-    <p>The Sandbox supports three role tiers:</p>
-    <ul>
-      <li><strong>Administrators</strong> &mdash; full platform access. Configure providers, manage users, install tools, set instance-wide defaults.</li>
-      <li><strong>Faculty / Staff</strong> &mdash; create and share models, knowledge bases, and prompts. Manage their own groups.</li>
-      <li><strong>Students</strong> &mdash; use shared resources. Create private configurations. Cannot modify shared resources unless explicitly granted access.</li>
-    </ul>
-    <p>These roles map to CUNY's existing institutional hierarchy. Administrators can customize role definitions and permission boundaries through the Admin Panel.</p>
-  </div>
-
-  <!-- SECURITY -->
-  <div class="page" id="security">
-    <div class="breadcrumb"><a href="#">Docs</a> / Reference / Security &amp; Governance</div>
-    <h1>Security &amp; Governance</h1>
-
-    <p>The Sandbox handles institutional data and serves a diverse user base. Security and governance practices protect both the platform and the people who use it.</p>
-
-    <h2>Data Privacy</h2>
-    <p>The Sandbox runs open-weight models on infrastructure managed by CAIL. Data retention policies, model selection, and evaluation practices are made explicit. User conversations are stored locally and are not sent to external providers for training. CAIL is committed to providing CUNY users with reliable access to AI tools where these policies are transparent and controllable.</p>
-
-    <h2>SCIM 2.0 Provisioning</h2>
-    <p>Open WebUI supports integration with identity providers (Okta, Azure AD, Google Workspace) through the SCIM 2.0 protocol. This enables automated user lifecycle management: when a student is added to a course roster in the identity provider, their Sandbox account and group memberships update automatically. When they leave, access is revoked.</p>
-
-    <h2>Memory and File Security</h2>
-    <p>Model memories are stored per-user and never shared across accounts. Users can view and delete their memories at any time through Settings. File uploads are scoped to knowledge bases with explicit visibility controls. Deleting a file triggers deep cleanup: removal from all associated knowledge bases and deletion of vector embeddings.</p>
-
-    <h2>Tool Security</h2>
-    <p>Tools are Python scripts that execute on the server. Malicious or poorly written tools can access system resources, exfiltrate data, or disrupt service. Only install tools from trusted sources. The AI Lab maintains an approved tool list; contact the team before adding community tools to the instance.</p>
-
-    <h2>Governance Recommendations</h2>
-    <ul>
-      <li>Establish clear data handling policies for each knowledge base. Sensitive or regulated data (FERPA, HIPAA) requires additional safeguards.</li>
-      <li>Define retention policies for uploaded documents and conversation histories.</li>
-      <li>Maintain audit logs tracking who accesses shared resources and when.</li>
-      <li>Review model configurations periodically to ensure system prompts reflect current institutional policies.</li>
-      <li>Designate a governance point person for each department or program using the Sandbox.</li>
-    </ul>
-  </div>
-
-  <!-- ADMIN -->
-  <div class="page" id="admin">
-    <div class="breadcrumb"><a href="#">Docs</a> / Reference / Admin Settings</div>
-    <h1>Admin Settings</h1>
-
-    <p>The Admin Panel provides instance-wide configuration for the Sandbox. Access it through the gear icon or <strong>Admin Panel</strong> in the sidebar. Only users with administrator privileges can access these settings.</p>
-
-    <h2>Key Settings</h2>
-    <ul>
-      <li><strong>Connections</strong> &mdash; configure Ollama URLs, OpenAI API keys, and other model providers. This is where you add new backends or update API credentials.</li>
-      <li><strong>Models</strong> &mdash; manage which base models are visible to users. You can hide models that are still in testing or restrict access to resource-intensive models.</li>
-      <li><strong>Documents</strong> &mdash; configure the embedding model, RAG template, chunk size, and overlap. These settings affect how knowledge bases process and retrieve documents.</li>
-      <li><strong>Users</strong> &mdash; manage accounts, assign roles (admin, user), create groups, and set permissions. Groups can be organized by course, department, or project.</li>
-      <li><strong>Interface</strong> &mdash; customize branding, set the default model, configure the landing page, and adjust the system message.</li>
-    </ul>
-
-    <h2>Observability</h2>
-    <p>Open WebUI includes built-in instrumentation via OpenTelemetry. Export traces, metrics, and logs to monitoring platforms (Prometheus, Grafana, Jaeger) to track:</p>
-    <ul>
-      <li>Which models are used most frequently</li>
-      <li>Knowledge base query volume and retrieval quality</li>
-      <li>Computational resource consumption per user or group</li>
-      <li>Error rates and response latencies</li>
-    </ul>
-
-    <h2>Langfuse Integration</h2>
-    <p>For deeper analysis of conversation patterns, Open WebUI supports Langfuse integration. This lets administrators monitor which models support productive learning interactions, which knowledge bases see the highest engagement, and where users encounter confusion. These insights inform decisions about model configuration, knowledge base curation, and resource allocation.</p>
-  </div>
-
-  <!-- BEST PRACTICES -->
-  <div class="page" id="best-practices">
-    <div class="breadcrumb"><a href="#">Docs</a> / Reference / Best Practices</div>
-    <h1>Best Practices</h1>
-
-    <h2>For Instructors</h2>
-    <ul>
-      <li><strong>Experiment first.</strong> Before deploying AI tools in your courses, spend time with them yourself. Run your own assignments through the models. Take note of what works, what fails, and where the outputs fall short. This firsthand experience will inform better pedagogy and more honest conversations with students about what these tools can and cannot do.</li>
-      <li><strong>Craft system prompts that encode your values.</strong> If academic integrity matters (and it does), write it into the prompt. If you want the model to encourage process over product, say so explicitly. Vague instructions produce vague behavior.</li>
-      <li><strong>Use prompt suggestions to set expectations.</strong> The chips that appear above the input bar are your chance to show students how to talk to the model. Good suggestions teach students what the model is for; bad ones (or none at all) leave them guessing.</li>
-      <li><strong>Build knowledge bases from your course materials.</strong> A model grounded in your syllabus, rubrics, and readings gives more relevant guidance than one drawing on generic training data.</li>
-      <li><strong>Set clear course policies on AI use.</strong> The <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit</a> provides a range of policy statements from "require GenAI use" to "do not allow GenAI." Pick what fits your course and communicate it on your syllabus.</li>
-      <li><strong>Review configurations each semester.</strong> Models, knowledge bases, and prompts should evolve with your teaching. What worked in Fall may need revision for Spring.</li>
-    </ul>
-
-    <h2>For Students</h2>
-    <ul>
-      <li><strong>Understand the model's limits.</strong> AI assistants are tools, not authorities. They can summarize, compare, and draft, but they can also hallucinate citations, flatten nuance, and produce plausible-sounding nonsense. Verify claims. Check sources.</li>
-      <li><strong>Cite AI contributions.</strong> When you use AI-generated content in academic work, disclose and cite it. Follow your course's AI policy and the citation guidelines for your discipline (MLA, APA, Chicago all have AI citation formats now).</li>
-      <li><strong>Use the Sandbox's knowledge bases.</strong> If your instructor has loaded course materials into a knowledge base, the model's responses will be grounded in those documents. This is more reliable than asking a base model to guess what your professor wants.</li>
-      <li><strong>Try different models for different tasks.</strong> A model optimized for coding will give different results than one designed for close reading. Switch models mid-chat to take advantage of their different strengths.</li>
-    </ul>
-
-    <h2>For Researchers</h2>
-    <ul>
-      <li><strong>Build specialized models for your methodology.</strong> A qualitative researcher needs different AI support than a computational linguist. Create models with system prompts, tools, and knowledge bases tuned to your methods.</li>
-      <li><strong>Ground your models in curated sources.</strong> Upload your annotated bibliography, methodological frameworks, and prior publications. A model that retrieves from your own vetted sources is less likely to hallucinate or introduce irrelevant material.</li>
-      <li><strong>Document your AI use.</strong> Maintain transparency about how AI systems supported your research process. This is increasingly expected by journals, IRBs, and funding agencies.</li>
-      <li><strong>Develop custom tools for domain-specific workflows.</strong> If your research involves database queries, computational methods, or API access, consider building tools that your models can call. This turns the Sandbox from a chat interface into a research workbench.</li>
-    </ul>
-
-    <h2>Implementation Phases</h2>
-    <p>For departments or programs adopting the Sandbox, consider a phased approach:</p>
-    <ol>
-      <li><strong>Phase One:</strong> General-purpose models bound to institutional knowledge bases. All users can access AI grounded in CUNY's context.</li>
-      <li><strong>Phase Two:</strong> Discipline-specific models and knowledge bases as academic units develop their own configurations.</li>
-      <li><strong>Phase Three:</strong> Fully integrated workflows for specific projects, combining models, knowledge, tools, and skills into coherent research and teaching pipelines.</li>
-    </ol>
-  </div>
-
-  <!-- FAQ -->
-  <div class="page" id="faq">
-    <div class="breadcrumb"><a href="#">Docs</a> / Reference / FAQ</div>
-    <h1>FAQ</h1>
-
-    <h3>What models are available?</h3>
-    <p>The Sandbox currently hosts seven open-weight models: DeepSeek V3.2 (685B MoE), Kimi K2.5 (1T MoE, vision + reasoning), GLM 5 (744B MoE, reasoning), gpt-oss-120b (116.8B, reasoning), Qwen3 235B A22B (reasoning), Gemma 3 27B (vision), and Llama 3.1 70B Instruct. All support multilingual input/output and tool calling. See the <a href="https://ailab.gc.cuny.edu/models/" target="_blank">Model Registry</a> for full details on parameters, context lengths, and license families. If you need a specific model for your research or teaching, contact the CAIL team.</p>
-
-    <h3>Can I upload sensitive data?</h3>
-    <p>The Sandbox runs open-weight models on infrastructure managed by CAIL. Data handling policies are made explicit for each model configuration. For FERPA-protected student data or HIPAA-regulated health information, consult with the CAIL team before uploading. When in doubt, ask first.</p>
-
-    <h3>How do I get admin access?</h3>
-    <p>Contact the CAIL team. Admin access is granted based on role and demonstrated need. Faculty who want to manage models and knowledge bases for their courses can request elevated permissions without full admin access.</p>
-
-    <h3>Can students see my system prompts?</h3>
-    <p>By default, system prompts are not visible to end users in the chat interface. However, users with access to the model editor can view the configuration. If you want to keep your prompts confidential, set the model to <strong>Public</strong> for use but restrict edit access.</p>
-
-    <h3>Does the AI remember my conversations?</h3>
-    <p>Chat history is saved per-user and accessible from the sidebar. The optional Memory feature lets models remember facts across conversations, but memories are stored locally, never shared with other users, and deletable at any time. Memories do not persist across different models.</p>
-
-    <h3>What if a model produces harmful or inaccurate output?</h3>
-    <p>AI models can and do produce errors, hallucinations, and biased outputs. This is expected behavior, not a bug. The Sandbox provides tools to mitigate these risks (system prompts with constraints, RAG grounding in verified documents, safety-filtering pipelines), but no configuration eliminates the possibility entirely. Always verify AI-generated content against primary sources.</p>
-
-    <h3>Where can I learn more?</h3>
-    <ul>
-      <li><a href="https://docs.openwebui.com" target="_blank">Open WebUI official documentation</a></li>
-      <li><a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit</a> (pedagogical resources for AI in education)</li>
-      <li><a href="https://ailab.gc.cuny.edu" target="_blank">CUNY AI Lab</a> (lab homepage, model registry, and team info)</li>
-    </ul>
-  </div>
-
+<div class="main" id="content">
+  <div class="loading">Loading documentation...</div>
 </div>
 
-<!-- FOOTER -->
-<div class="site-footer">
-  <p><a href="https://milwrite.github.io/quimbot/">← Quimbot</a> · <a href="https://ailab.gc.cuny.edu">CUNY AI Lab</a> · <a href="https://github.com/milwrite/quimbot/tree/main/docs/cail-docs">Source on GitHub</a></p>
-</div>
+<footer class="site-footer">
+  <a href="https://ailab.gc.cuny.edu" target="_blank">CUNY AI Lab</a> · <a href="https://www.gc.cuny.edu" target="_blank">CUNY Graduate Center</a>
+</footer>
 
 <script>
-// SPA navigation
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const page = link.dataset.page;
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    document.getElementById(page).classList.add('active');
-    link.classList.add('active');
-    document.querySelector('.main').scrollTop = 0;
-    window.scrollTo(0, 0);
+const pages = {
+  'index': 'index.md',
+  'starter-kit/getting-started': 'starter-kit/getting-started.md',
+  'design-kit/models': 'design-kit/models.md',
+  'design-kit/system-prompts': 'design-kit/system-prompts.md',
+  'design-kit/knowledge-bases': 'design-kit/knowledge-bases.md',
+  'design-kit/tools-skills': 'design-kit/tools-skills.md',
+  'design-kit/roles-permissions': 'design-kit/roles-permissions.md',
+  'instructional-kit/pedagogical-patterns': 'instructional-kit/pedagogical-patterns.md',
+  'instructional-kit/sample-activities': 'instructional-kit/sample-activities.md',
+  'instructional-kit/student-onboarding': 'instructional-kit/student-onboarding.md',
+  'instructional-kit/use-cases': 'instructional-kit/use-cases.md'
+};
+
+const kitLabels = {
+  'index': 'Home',
+  'starter-kit': 'Starter Kit',
+  'design-kit': 'Design Kit',
+  'instructional-kit': 'Instructional Kit'
+};
+
+const contentEl = document.getElementById('content');
+let currentPage = 'index';
+
+function getBreadcrumb(pageId) {
+  const parts = pageId.split('/');
+  if (pageId === 'index') return '<a href="#" onclick="navigateTo(\'index\');return false">Docs</a>';
+  const kit = parts[0];
+  const kitLabel = kitLabels[kit] || kit;
+  const link = document.querySelector(`[data-page="${pageId}"]`);
+  const label = link ? link.textContent : parts[parts.length - 1];
+  return `<a href="#" onclick="navigateTo('index');return false">Docs</a> / ${kitLabel} / ${label}`;
+}
+
+async function loadPage(pageId) {
+  const file = pages[pageId];
+  if (!file) return;
+
+  contentEl.innerHTML = '<div class="loading">Loading...</div>';
+
+  try {
+    const resp = await fetch(file);
+    if (!resp.ok) throw new Error(`${resp.status}`);
+    let md = await resp.text();
+
+    // Strip nav footer lines (← ... | ... →)
+    md = md.replace(/\n---\n\n\[←[^\]]*\]\([^)]*\)\s*\|\s*\[.*→\]\([^)]*\)\s*$/, '');
+
+    // Convert markdown links to SPA navigation
+    const html = marked.parse(md);
+
+    const breadcrumb = getBreadcrumb(pageId);
+    contentEl.innerHTML = `<div class="breadcrumb">${breadcrumb}</div>${html}`;
+
+    // Rewrite internal .md links to SPA navigation
+    contentEl.querySelectorAll('a').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) return;
+
+      // Resolve relative .md links to page IDs
+      if (href.endsWith('.md')) {
+        let resolved = href;
+        // Handle relative paths
+        if (href.startsWith('../')) {
+          resolved = href.replace(/^\.\.\//, '');
+        } else if (!href.includes('/')) {
+          // Same directory
+          const dir = pageId.includes('/') ? pageId.split('/')[0] : '';
+          resolved = dir ? `${dir}/${href}` : href;
+        }
+        resolved = resolved.replace(/\.md$/, '').replace(/\/index$/, '');
+        if (resolved === '') resolved = 'index';
+
+        if (pages[resolved]) {
+          a.href = '#';
+          a.onclick = (e) => { e.preventDefault(); navigateTo(resolved); };
+        }
+      }
+    });
+
+    // Update sidebar
+    document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+    const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+    if (activeLink) activeLink.classList.add('active');
+
+    // Close mobile sidebar
     document.querySelector('.sidebar').classList.remove('open');
-    history.replaceState(null, '', '#' + page);
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+
+    currentPage = pageId;
+  } catch (err) {
+    contentEl.innerHTML = `<div class="loading">Failed to load page: ${err.message}</div>`;
+  }
+}
+
+function navigateTo(pageId) {
+  history.pushState({ page: pageId }, '', `#${pageId}`);
+  loadPage(pageId);
+}
+
+// Sidebar click handlers
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo(link.dataset.page);
   });
 });
 
-// Handle direct hash links
-function activateFromHash() {
-  const hash = location.hash.replace('#', '') || 'overview';
-  const page = document.getElementById(hash);
-  if (page && page.classList.contains('page')) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    page.classList.add('active');
-    const link = document.querySelector(`.nav-link[data-page="${hash}"]`);
-    if (link) link.classList.add('active');
-  }
+// Handle back/forward
+window.addEventListener('popstate', (e) => {
+  const pageId = (e.state && e.state.page) || getPageFromHash();
+  loadPage(pageId);
+});
+
+function getPageFromHash() {
+  const hash = location.hash.replace('#', '');
+  return (hash && pages[hash]) ? hash : 'index';
 }
-activateFromHash();
-window.addEventListener('hashchange', activateFromHash);
+
+// Initial load
+loadPage(getPageFromHash());
 </script>
 </body>
 </html>
