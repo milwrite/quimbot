@@ -12,16 +12,7 @@ At CUNY, where a single platform may serve multiple departments, programs, and u
 
 ---
 
-## Model Uses
-
-- **Course Sections**: Create a group for each section you teach. Share your course model and knowledge bases with that group. Students see only their section's resources.
-- **Research Teams**: Set up a group for your lab or project team. Share specialized models, curated knowledge bases, and custom tools. When a team member leaves, remove them from the group and their access revokes.
-- **Department Coordination**: Faculty across a department share a common prompt library and model templates. New instructors inherit the department's configurations and customize from there.
-- **Student Projects**: Give student groups limited access to build their own models within boundaries you define. They can create private configurations but cannot modify shared departmental resources.
-
----
-
-## Understanding Roles
+## How Roles Work
 
 The Sandbox supports three role tiers:
 

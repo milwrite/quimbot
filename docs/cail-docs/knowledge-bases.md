@@ -16,17 +16,7 @@ This matters especially at CUNY, where students navigate multiple courses, depar
 
 ---
 
-## Model Uses
-
-- **Course Q&A**: Upload your syllabus, assignment sheets, and grading rubric. Students can ask questions about deadlines, policies, and expectations and get answers grounded in your actual documents.
-- **Literature Review Support**: Load 30 papers from your Zotero library. Ask the model to compare methodological approaches, identify themes, or flag contradictions across sources. It retrieves relevant passages and cites the papers you uploaded.
-- **Program Advising**: Upload the graduate handbook, degree requirements, and course catalog. Build an advisor model that answers procedural questions about program milestones without you fielding the same email for the tenth time.
-- **Writing Feedback Grounded in Rubrics**: Combine your rubric with sample strong papers in a knowledge base. The model can reference both when providing feedback on student drafts, aligning its suggestions with your actual criteria.
-- **Multilingual Source Work**: Upload primary sources in multiple languages. Students can pose questions in English and get responses that retrieve and synthesize passages from Spanish, Mandarin, or French language documents in your collection.
-
----
-
-## Getting Started
+## Creating a Knowledge Base
 
 ### Creating a Knowledge Base
 

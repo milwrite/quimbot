@@ -10,17 +10,7 @@ Skills work differently. Where tools connect to external services, skills provid
 
 A writing tutor model that can only generate text is useful. A writing tutor that can also search your university's style guide, pull citation examples from a knowledge base, and look up a source on arXiv is considerably more useful. Tools and skills turn a conversational AI into something closer to a research workbench.
 
-For CUNY instructors, this means building models that do more than talk. A public health methods model can query PubMed. A digital humanities model can run Python code for text analysis. A course advisor can check the academic calendar.
-
----
-
-## Model Uses
-
-- **Research Assistant with Database Access**: Enable arXiv Search and web tools on a literature review model. Students can ask the model to find recent papers on a topic, and it retrieves real results with actual links.
-- **Coding Tutor with Live Execution**: Bind the Code Interpreter tool to a programming model. Students submit code, the model runs it, identifies errors, and explains the output.
-- **Media-Rich Presentations**: Enable Pexels Media Search and Image Generation. Students or instructors can find stock images and generate visuals during lesson planning conversations.
-- **Current Events Analysis**: Enable web search on a political science or journalism model. Conversations can reference today's news.
-- **Domain Expert**: Bind quantitative methods or academic writing skills to a model. The model gains access to detailed procedural knowledge for statistical analysis or citation practices without you writing it all into the system prompt.
+For CUNY instructors, this means building models that do more than talk.
 
 ---
 
