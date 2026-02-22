@@ -209,10 +209,11 @@ function doScramble() {
 }
 
 function doSolve() {
-  if (!scrambled || moveHistory.length === 0) return;
+  if (!scrambled) return;
+  if (moveHistory.length === 0) { doReset(); return; }
   solving = true;
-  // Build reverse queue
-  solveQueue = moveHistory.slice().reverse().map(m => INVERSE[m]);
+  // Build reverse queue: undo each move in reverse order
+  solveQueue = moveHistory.slice().reverse().map(m => m);
   moveHistory = [];
   solveTimer = 0;
   updateInfo();
@@ -335,26 +336,27 @@ function draw() {
 let autoTimer = 0;
 
 function animate() {
-  // Solve animation: apply one inverse move per interval
+  // Solve animation: apply inverse moves at a visible pace
   if (solving && solveQueue.length > 0) {
     solveTimer++;
-    const speed = Math.max(1, Math.min(4, Math.floor(solveQueue.length / 20)));
-    if (solveTimer % 3 === 0) {
-      for (let i = 0; i < speed && solveQueue.length > 0; i++) {
-        solveQueue.shift()();
+    if (solveTimer % 2 === 0) {
+      // Apply 1-3 inverse moves per tick depending on queue size
+      const batch = solveQueue.length > 100 ? 3 : solveQueue.length > 30 ? 2 : 1;
+      for (let i = 0; i < batch && solveQueue.length > 0; i++) {
+        INVERSE[solveQueue.shift()]();
       }
-      if (solveQueue.length === 0) {
-        solving = false;
-        scrambled = false;
-        updateInfo();
-      }
+    }
+    if (solveQueue.length === 0) {
+      solving = false;
+      scrambled = false;
+      updateInfo();
     }
   }
 
-  // Auto-scramble: apply random moves when idle and scrambled
-  if (!solving && scrambled) {
+  // Auto-scramble: gentle idle animation (doesn't break solve)
+  if (!solving && scrambled && moveHistory.length > 0) {
     autoTimer++;
-    if (autoTimer % 60 === 0) {
+    if (autoTimer % 90 === 0) {
       const m = Math.floor(Math.random() * 6);
       MOVES[m]();
       moveHistory.push(m);
