@@ -4,66 +4,421 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>CUNY AI Lab Sandbox — Documentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#fff;--fg:#1a1a1a;--muted:#6b6b6b;--accent:#3d348b;--link:#3d348b;--border:#e0e0e0;--code-bg:#f5f5f5;--sidebar-bg:#fafafa;--sidebar-w:260px;--header-h:56px}
-*{margin:0;padding:0;box-sizing:border-box}
-html{font:400 16px/1.7 "Merriweather",Georgia,serif;color:var(--fg);background:var(--bg)}
-a{color:var(--link);text-decoration:none}
-a:hover{text-decoration:underline}
-code{font-family:"IBM Plex Mono",Menlo,monospace;font-size:0.9em;background:var(--code-bg);padding:2px 6px;border-radius:3px}
-pre{background:var(--code-bg);padding:16px 20px;border-radius:6px;overflow-x:auto;margin:1.2em 0;font-size:0.88em;line-height:1.6}
-pre code{background:none;padding:0}
+:root {
+  --vibrant-50: #fef2f3;
+  --vibrant-100: #fde3e5;
+  --vibrant-200: #fbccd0;
+  --vibrant-600: #dc2626;
+  --vibrant-700: #b91c1c;
+  --vibrant-900: #7f1d1d;
+  --cuny-blue: #1e40af;
+  --neutral-cream: #fafaf9;
+  --neutral-stone: #1c1917;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --sidebar-w: 260px;
+  --header-h: 72px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font: 400 16px/1.7 "Inter", system-ui, sans-serif;
+  color: var(--neutral-stone);
+  background: var(--neutral-cream);
+}
+
+a {
+  color: var(--vibrant-600);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--vibrant-700);
+}
+
+code {
+  font-family: "IBM Plex Mono", Menlo, monospace;
+  font-size: 0.9em;
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+pre {
+  background: #f5f5f5;
+  padding: 16px 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.2em 0;
+  font-size: 0.88em;
+  line-height: 1.6;
+  border-left: 3px solid var(--vibrant-600);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
 
 /* Header */
-.site-header{position:fixed;top:0;left:0;right:0;height:var(--header-h);background:var(--accent);color:#fff;display:flex;align-items:center;padding:0 24px;z-index:100;font-family:"Poppins",system-ui,sans-serif}
-.site-header a{color:#fff}
-.site-header .logo{font-weight:700;font-size:1.05rem;letter-spacing:-0.01em}
-.site-header .logo span{opacity:0.7;font-weight:400;margin-left:6px;font-size:0.85rem}
-.site-header nav{margin-left:auto;display:flex;gap:20px;font-size:0.85rem}
-.site-header nav a{opacity:0.85}
-.site-header nav a:hover{opacity:1;text-decoration:none}
-.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;margin-left:auto}
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+}
+
+.site-header .logo {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  color: var(--neutral-stone);
+}
+
+.site-header .logo span {
+  opacity: 0.6;
+  font-weight: 400;
+  margin-left: 6px;
+  font-size: 0.85rem;
+}
+
+.site-header nav {
+  margin-left: auto;
+  display: flex;
+  gap: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.site-header nav a {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  transition: all 0.2s;
+  color: var(--neutral-stone);
+}
+
+.site-header nav a:hover {
+  background: rgba(220, 38, 38, 0.06);
+  color: var(--vibrant-600);
+}
+
+.site-header nav .cta {
+  background: var(--vibrant-600);
+  color: white;
+  padding: 10px 22px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.2);
+}
+
+.site-header nav .cta:hover {
+  background: var(--vibrant-700);
+  color: white;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+  transform: translateY(-1px);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--neutral-stone);
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.hamburger:hover {
+  background: var(--vibrant-50);
+  color: var(--vibrant-600);
+}
 
 /* Sidebar */
-.sidebar{position:fixed;top:var(--header-h);left:0;bottom:0;width:var(--sidebar-w);background:var(--sidebar-bg);border-right:1px solid var(--border);overflow-y:auto;padding:24px 0;font-family:"Poppins",system-ui,sans-serif;font-size:0.85rem;z-index:90}
-.sidebar .section-label{padding:8px 24px 4px;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);font-weight:600}
-.sidebar a{display:block;padding:6px 24px;color:var(--fg);transition:background 0.15s}
-.sidebar a:hover{background:rgba(61,52,139,0.06);text-decoration:none}
-.sidebar a.active{color:var(--accent);font-weight:600;border-right:3px solid var(--accent)}
+.sidebar {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-w);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 24px 0;
+  z-index: 90;
+}
+
+.sidebar .section-label {
+  padding: 8px 24px 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-family: "Outfit", system-ui, sans-serif;
+}
+
+.sidebar a {
+  display: block;
+  padding: 8px 24px;
+  color: var(--neutral-stone);
+  transition: all 0.15s;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.sidebar a:hover {
+  background: rgba(220, 38, 38, 0.06);
+  color: var(--vibrant-600);
+}
+
+.sidebar a.active {
+  color: var(--vibrant-600);
+  font-weight: 600;
+  border-right: 3px solid var(--vibrant-600);
+  background: rgba(220, 38, 38, 0.04);
+}
 
 /* Main content */
-.main{margin-left:var(--sidebar-w);margin-top:var(--header-h);padding:40px 48px 80px;max-width:780px}
-.main h1{font-family:"Poppins",system-ui,sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:8px;letter-spacing:-0.02em}
-.main h2{font-family:"Poppins",system-ui,sans-serif;font-size:1.25rem;font-weight:600;margin:2em 0 0.6em;padding-bottom:6px;border-bottom:1px solid var(--border)}
-.main h3{font-family:"Poppins",system-ui,sans-serif;font-size:1.05rem;font-weight:600;margin:1.5em 0 0.4em}
-.main p{margin:0.8em 0}
-.main ul,.main ol{margin:0.8em 0 0.8em 1.6em}
-.main li{margin:0.3em 0}
-.breadcrumb{font-family:"Poppins",system-ui,sans-serif;font-size:0.8rem;color:var(--muted);margin-bottom:24px}
-.breadcrumb a{color:var(--muted)}
-.callout{border-left:4px solid var(--accent);background:rgba(61,52,139,0.04);padding:12px 16px;margin:1.2em 0;border-radius:0 4px 4px 0;font-size:0.95rem}
-.callout strong{color:var(--accent)}
-.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:0.75rem;font-family:"Poppins",system-ui,sans-serif;font-weight:600;background:rgba(61,52,139,0.1);color:var(--accent);margin-left:8px;vertical-align:middle}
+.main {
+  margin-left: var(--sidebar-w);
+  margin-top: var(--header-h);
+  padding: 48px 64px 100px;
+  max-width: 880px;
+}
+
+.main h1 {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.main h2 {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2.5em 0 0.8em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.main h3 {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 1.8em 0 0.6em;
+}
+
+.main h4 {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.4em 0 0.5em;
+  color: var(--neutral-stone);
+}
+
+.main p {
+  margin: 0.9em 0;
+  line-height: 1.7;
+}
+
+.main ul,
+.main ol {
+  margin: 1em 0 1em 1.8em;
+  line-height: 1.7;
+}
+
+.main li {
+  margin: 0.4em 0;
+}
+
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--vibrant-600);
+}
+
+.callout {
+  border-left: 4px solid var(--vibrant-600);
+  background: rgba(220, 38, 38, 0.04);
+  padding: 16px 20px;
+  margin: 1.4em 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+}
+
+.callout strong {
+  color: var(--vibrant-600);
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--vibrant-600);
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Icons */
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  margin-right: 12px;
+}
+
+.icon-box.vibrant {
+  background: var(--vibrant-100);
+  color: var(--vibrant-600);
+}
+
+.icon-box.blue {
+  background: rgba(30, 64, 175, 0.1);
+  color: var(--cuny-blue);
+}
+
+.icon-box.green {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+}
+
+.icon-box.amber {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+/* Feature grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 2em 0;
+}
+
+.feature-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+.feature-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.feature-card h4 {
+  margin-top: 0;
+  font-size: 1rem;
+}
 
 /* Page sections (SPA) */
-.page{display:none}
-.page.active{display:block}
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
 
 /* Footer */
-.site-footer{margin-left:var(--sidebar-w);padding:24px 48px;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);font-family:"Poppins",system-ui,sans-serif}
-.site-footer a{color:var(--muted)}
+.site-footer {
+  margin-left: var(--sidebar-w);
+  padding: 24px 64px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
 
-@media(max-width:768px){
-  .sidebar{display:none}
-  .sidebar.open{display:block;width:100%;z-index:95}
-  .main,.site-footer{margin-left:0}
-  .main{padding:24px 20px 60px}
-  .hamburger{display:block}
-  .site-header nav.desk{display:none}
+.site-footer a {
+  color: var(--text-muted);
+}
+
+.site-footer a:hover {
+  color: var(--vibrant-600);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+    width: 100%;
+    z-index: 95;
+  }
+
+  .sidebar.open {
+    display: block;
+  }
+
+  .main,
+  .site-footer {
+    margin-left: 0;
+  }
+
+  .main {
+    padding: 28px 24px 80px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .site-header nav.desk {
+    display: none;
+  }
+
+  .site-header {
+    padding: 0 16px;
+  }
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
@@ -71,15 +426,15 @@ pre code{background:none;padding:0}
 <header class="site-header">
   <div class="logo">CUNY AI Lab Sandbox <span>docs</span></div>
   <nav class="desk">
-    <a href="https://chat.ailab.gc.cuny.edu" target="_blank">Sandbox ↗</a>
-    <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">AI Toolkit ↗</a>
-    <a href="https://milwrite.github.io/quimbot/" target="_blank">Quimbot ↗</a>
+    <a href="https://chat.ailab.gc.cuny.edu" target="_blank">Sandbox</a>
+    <a href="https://ailab.gc.cuny.edu" target="_blank">AI Lab</a>
+    <a href="https://aitoolkit.commons.gc.cuny.edu" target="_blank">AI Toolkit</a>
   </nav>
   <button class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
 </header>
 
 <!-- SIDEBAR -->
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar">
   <div class="section-label">Getting Started</div>
   <a href="#overview" class="nav-link active" data-page="overview">Overview</a>
   <a href="#first-steps" class="nav-link" data-page="first-steps">First Steps</a>
@@ -107,7 +462,7 @@ pre code{background:none;padding:0}
   <div class="page active" id="overview">
     <div class="breadcrumb"><a href="#">Docs</a> / Overview</div>
     <h1>CUNY AI Lab Sandbox</h1>
-    <p class="callout"><strong>Note:</strong> This documentation covers the Open WebUI instance hosted at <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> for CUNY faculty, students, and researchers. Content here is a working draft.</p>
+    <p class="callout"><strong>Note:</strong> This documentation covers the Open WebUI instance hosted at <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> for CUNY faculty, students, and researchers.</p>
 
     <p>The Sandbox runs <a href="https://github.com/open-webui/open-webui" target="_blank">Open WebUI</a>, a self-hosted AI platform that connects to multiple model providers (Ollama, OpenAI-compatible APIs) through a single interface. It supports custom model configuration, document-grounded generation (RAG), prompt libraries, and extensible tool integrations.</p>
 
@@ -122,6 +477,9 @@ pre code{background:none;padding:0}
 
     <h2>Architecture</h2>
     <p>Open WebUI acts as a middleware layer. It wraps base models (local or remote) with configurable behavior: system prompts, knowledge injection, parameter overrides, and access controls. Each "model" in the workspace is a configuration wrapper around a base provider, not a separate trained model.</p>
+
+    <h2>Guiding Principles</h2>
+    <p>The CUNY AI Lab prioritizes privacy, transparency, environmental accountability, and critical AI literacy. These principles guide how we configure and maintain the Sandbox.</p>
 
     <h2>Access</h2>
     <p>Sandbox access is managed through CUNY institutional accounts. Contact the AI Lab team for onboarding.</p>
@@ -168,6 +526,8 @@ pre code{background:none;padding:0}
 {{ CURRENT_TIME }}   → 14:30
 {{ USER_NAME }}      → Jane Doe</code></pre>
 
+    <p>Use these to personalize interactions and provide temporal context.</p>
+
     <h2>Advanced Parameters</h2>
     <ul>
       <li><strong>Temperature</strong> — controls randomness. Lower = more deterministic.</li>
@@ -177,6 +537,10 @@ pre code{background:none;padding:0}
 
     <h2>Visibility</h2>
     <p>Models can be <strong>Private</strong> (you only), <strong>Limited</strong> (specific users/groups), or <strong>Public</strong> (all instance users).</p>
+
+    <div class="callout">
+      <strong>Best Practice:</strong> Craft system prompts that reflect institutional values and academic integrity standards. Make expectations explicit.
+    </div>
   </div>
 
   <!-- KNOWLEDGE -->
@@ -202,6 +566,10 @@ pre code{background:none;padding:0}
 
     <h2>Embedding Configuration</h2>
     <p>Admins can change the embedding model in <strong>Admin Panel → Settings → Documents</strong>. The default (Sentence Transformers MiniLM-L6) works well for most cases. Alternatives are available through Hugging Face.</p>
+
+    <div class="callout">
+      <strong>Use Cases:</strong> Graduate program handbooks, research methodology guides, institutional policies, course syllabi, technical documentation, departmental research outputs.
+    </div>
   </div>
 
   <!-- PROMPTS -->
@@ -221,6 +589,13 @@ pre code{background:none;padding:0}
 
     <h2>Prompt Suggestions</h2>
     <p>When creating a model, add prompt suggestions that appear as clickable chips above the input bar. These guide new users toward the model's intended capabilities.</p>
+
+    <p><strong>Example for a Python Tutor model:</strong></p>
+    <ul>
+      <li>"Explain this code step-by-step"</li>
+      <li>"Find bugs in the following script"</li>
+      <li>"Write a unit test for this function"</li>
+    </ul>
   </div>
 
   <!-- TOOLS -->
@@ -230,18 +605,30 @@ pre code{background:none;padding:0}
 
     <p>Tools extend what models can do beyond text generation. They connect models to external services, databases, APIs, and computational functions.</p>
 
-    <h2>How Tools Work</h2>
-    <p>Tools are Python functions that the model can call during a conversation. When a user's query matches a tool's purpose, the model invokes it, processes the result, and incorporates it into its response.</p>
-
-    <h2>Built-in Tools</h2>
+    <h2>Types of Tools</h2>
     <ul>
-      <li><strong>Web Search</strong> — query the web for current information</li>
-      <li><strong>Code Interpreter</strong> — execute Python code in a sandboxed environment</li>
-      <li><strong>Image Generation</strong> — create images from text descriptions</li>
+      <li><strong>Native Features:</strong> Built-in (Web Search, Image Generation, URL Fetch, Memory)</li>
+      <li><strong>Workspace Tools:</strong> Python scripts running in Open WebUI</li>
+      <li><strong>MCP (Model Context Protocol):</strong> Anthropic's standard for connecting external data/tools</li>
+      <li><strong>OpenAPI Servers:</strong> Generic web services via OpenAPI specs</li>
     </ul>
 
-    <h2>Custom Tools</h2>
-    <p>Admins can write and register custom tools through <strong>Workspace → Tools → + New Tool</strong>. Each tool needs a name, description, and a Python function body.</p>
+    <h2>Enabling Tools</h2>
+    <p><strong>Per-chat:</strong> Click the <strong>➕</strong> icon in the input area and select tools for that session.</p>
+    <p><strong>Per-model:</strong> Go to <strong>Workspace → Models</strong>, edit a model, scroll to <strong>Tools</strong>, and check the tools you want always available.</p>
+
+    <h2>Community Tools</h2>
+    <p>Browse the <strong>Community Tool Library</strong> for pre-built tools:</p>
+    <ul>
+      <li><strong>arXiv Search:</strong> Academic papers, no API key needed</li>
+      <li><strong>Perplexica Search:</strong> Web search with citations</li>
+      <li><strong>Pexels Media Search:</strong> Stock photos/videos</li>
+      <li><strong>YouTube Search &amp; Embed:</strong> Find and display videos</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Security Warning:</strong> Only import tools from trusted sources. Tools are Python scripts that execute on the server and can access system resources.
+    </div>
   </div>
 
   <!-- CHAT -->
@@ -259,6 +646,9 @@ pre code{background:none;padding:0}
       <li><strong>Export</strong> — download conversations as Markdown or JSON</li>
       <li><strong>Branching</strong> — fork a conversation at any point to explore alternatives</li>
     </ul>
+
+    <h2>Model Switching</h2>
+    <p>Click the model name in the chat interface to switch between models mid-conversation. Use different models for different tasks (e.g., general reasoning → visual analysis → synthesis).</p>
   </div>
 
   <!-- RAG -->
@@ -275,7 +665,10 @@ pre code{background:none;padding:0}
     <p>For ongoing use, create a knowledge base and attach it to a model. Every chat with that model can draw from the full document collection.</p>
 
     <h2>RAG Template</h2>
-    <p>Admins can customize the RAG template in <strong>Admin Panel → Settings → Documents</strong>. This controls how retrieved passages are presented to the model. A good template tells the model to cite sources, acknowledge gaps, and prioritize retrieved content over general knowledge.</p>
+    <p>Admins can customize the RAG template in <strong>Admin Panel → Settings → Documents</strong>. This controls how retrieved passages are presented to the model.</p>
+
+    <p><strong>Example RAG template:</strong></p>
+    <pre><code>You are assisting a CUNY researcher. Respond based primarily on the provided context. When using information from documents, cite the source. If the context does not adequately address the query, acknowledge this limitation and suggest how the user might find additional information.</code></pre>
   </div>
 
   <!-- COLLABORATION -->
@@ -294,6 +687,14 @@ pre code{background:none;padding:0}
 
     <h2>Groups</h2>
     <p>Admins can create user groups (by course, department, research team) and assign resource access at the group level.</p>
+
+    <h2>Role-Based Access Control (RBAC)</h2>
+    <p>Administrators define user roles and permissions:</p>
+    <ul>
+      <li><strong>Faculty:</strong> Create/modify models used across courses</li>
+      <li><strong>Graduate Students:</strong> Create knowledge bases for research groups</li>
+      <li><strong>Undergraduates:</strong> Access institutional resources (view-only)</li>
+    </ul>
   </div>
 
   <!-- ADMIN -->
@@ -311,6 +712,12 @@ pre code{background:none;padding:0}
       <li><strong>Users</strong> — manage accounts, roles (admin, user), and groups</li>
       <li><strong>Interface</strong> — customize branding, default model, landing page</li>
     </ul>
+
+    <h2>SCIM 2.0 Provisioning</h2>
+    <p>Integration with identity providers (Okta, Azure AD, Google Workspace) for automated user lifecycle management. User roles sync across systems.</p>
+
+    <h2>Observability</h2>
+    <p>Open WebUI supports OpenTelemetry for production monitoring. Export traces, metrics, and logs to Prometheus, Grafana, or Jaeger to track system performance and usage patterns.</p>
   </div>
 
   <!-- FAQ -->
@@ -329,13 +736,16 @@ pre code{background:none;padding:0}
 
     <h3>Where can I learn more about Open WebUI?</h3>
     <p>See the <a href="https://docs.openwebui.com" target="_blank">official Open WebUI documentation</a>.</p>
+
+    <h3>What are the guiding principles behind the Sandbox?</h3>
+    <p>The CUNY AI Lab prioritizes <strong>Privacy by Design</strong> (providers don't retain or train on user data), <strong>Transparency</strong> (open-weight models), <strong>Environmental Accountability</strong> (computational cost visibility), and <strong>Criticality</strong> (AI literacy over dependency).</p>
   </div>
 
 </div>
 
 <!-- FOOTER -->
 <div class="site-footer">
-  <p><a href="https://milwrite.github.io/quimbot/">← Quimbot</a> · CUNY AI Lab · <a href="https://github.com/milwrite/quimbot/tree/main/docs/cail-docs">Source on GitHub</a></p>
+  <p><a href="https://milwrite.github.io/quimbot/">← Quimbot</a> · <a href="https://ailab.gc.cuny.edu">CUNY AI Lab</a> · <a href="https://github.com/milwrite/quimbot/tree/main/docs/cail-docs">Source on GitHub</a></p>
 </div>
 
 <script>
@@ -350,7 +760,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.add('active');
     document.querySelector('.main').scrollTop = 0;
     window.scrollTo(0, 0);
-    // close mobile sidebar
     document.querySelector('.sidebar').classList.remove('open');
     history.replaceState(null, '', '#' + page);
   });
