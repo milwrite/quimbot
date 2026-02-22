@@ -1,46 +1,36 @@
 # CUNY AI Lab Sandbox Documentation
 
-The Sandbox is an AI platform built for teaching and research at CUNY. It runs on CUNY infrastructure, keeps student data private, and gives you full control over how AI tools work in your courses.
+The CUNY AI Lab Sandbox is an AI platform for teaching and research at CUNY. It runs on CUNY infrastructure, keeps student data private, and gives you full control over how AI tools work in your courses and projects.
 
-This documentation is organized into three kits. Start with whichever matches where you are right now.
-
----
+This toolkit guides you through three module sequences: getting oriented, building custom AI configurations, and designing instruction around them.
 
 ## Starter Kit
 
-**For:** First-time users who need to log in and get oriented.
+Your first session with the Sandbox. Log in, explore the interface, and get comfortable.
 
-- [Getting Started](starter-kit/getting-started.md) — Log in, have your first conversation, explore the interface.
-
----
+- [Getting Started](getting-started.md)
 
 ## Design Kit
 
-**For:** Instructors and researchers ready to build custom AI configurations.
+Build custom AI configurations for your courses and research. Create models, upload documents, add tools, and manage access.
 
-- [Models](design-kit/models.md) — Create AI agents with specific behaviors and knowledge.
-- [System Prompts](design-kit/system-prompts.md) — Six prompt patterns for teaching: Socratic questioning, writing coaching, responsive tutoring, guardrails, and more.
-- [Knowledge Bases](design-kit/knowledge-bases.md) — Upload your documents. Ground AI responses in your materials.
-- [Tools & Skills](design-kit/tools-skills.md) — Add web search, code execution, database access, and domain expertise.
-- [Roles & Permissions](design-kit/roles-permissions.md) — Control who can access what.
-
----
+- [Models](models.md)
+- [System Prompts](system-prompts.md)
+- [Knowledge Bases](knowledge-bases.md)
+- [Tools & Skills](tools-skills.md)
+- [Roles & Permissions](roles-permissions.md)
 
 ## Instructional Kit
 
-**For:** Instructors designing assignments, activities, and onboarding plans.
+Design teaching activities, onboard students, and integrate AI tools across a semester.
 
-- [Pedagogical Patterns](instructional-kit/pedagogical-patterns.md) — Strategies for integrating AI into your teaching.
-- [Sample Activities](instructional-kit/sample-activities.md) — Ready-to-use exercises with model configurations.
-- [Student Onboarding](instructional-kit/student-onboarding.md) — A first-week plan for introducing AI tools to your students.
-- [Use Cases](instructional-kit/use-cases.md) — Semester-long workflows across disciplines.
+- [Pedagogical Patterns](pedagogical-patterns.md)
+- [Sample Activities](sample-activities.md)
+- [Student Onboarding](student-onboarding.md)
+- [Use Cases](use-cases.md)
 
----
+## About
 
-## About the Sandbox
+The Sandbox runs [Open WebUI](https://openwebui.com), an open-source AI platform connecting commercial and open-source models through a unified interface. Maintained by the [CUNY AI Lab](https://ailab.gc.cuny.edu) at the Graduate Center.
 
-The CUNY AI Lab Sandbox runs [Open WebUI](https://openwebui.com), an open-source AI platform. It connects to commercial models (GPT-4o, Claude, Gemini) and locally hosted open-source models through a unified interface. All data stays on CUNY-managed infrastructure.
-
-The platform is maintained by the [CUNY AI Lab](https://ailab.gc.cuny.edu) at the Graduate Center.
-
-**Questions?** Contact the AI Lab team or visit the [Teach@CUNY AI Toolkit](https://aitoolkit.commons.gc.cuny.edu/) for additional pedagogical resources.
+Questions? Contact the AI Lab team or visit the [Teach@CUNY AI Toolkit](https://aitoolkit.commons.gc.cuny.edu/).

@@ -300,7 +300,7 @@ Use these to personalize interactions. A prompt that opens with "Hello {{USER_NA
 
 - [Teach@CUNY AI Toolkit](https://aitoolkit.commons.gc.cuny.edu/) — pedagogical frameworks for AI integration at CUNY
 - [Open WebUI System Prompt Documentation](https://docs.openwebui.com) — technical reference for prompt configuration and variables
-- [Sample Activities](../instructional-kit/sample-activities.md) — exercises that use system prompts from this page
+- [Sample Activities](sample-activities.md) — exercises that use system prompts from this page
 
 ---
 

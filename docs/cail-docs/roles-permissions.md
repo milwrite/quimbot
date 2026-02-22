@@ -95,7 +95,7 @@ Contact the AI Lab team to configure SCIM integration for your department.
 
 ### Permission Inheritance
 
-Custom roles inherit from the default `@everyone` baseline, similar to how Discord handles role permissions (see the Discord Educational Toolkit's [Role Management](../discord-toolkit-md/design-kit/role-management.md) guide for a parallel example). When you create a new group, its members start with standard user permissions. You then layer on additional access through resource sharing.
+Custom roles inherit from the default `@everyone` baseline, similar to how Discord handles role permissions (see the Discord Educational Toolkit's [Role Management](../discord-toolkit-md/role-management.md) guide for a parallel example). When you create a new group, its members start with standard user permissions. You then layer on additional access through resource sharing.
 
 ---
 
@@ -110,9 +110,9 @@ Custom roles inherit from the default `@everyone` baseline, similar to how Disco
 ## Additional Resources
 
 - [Open WebUI User Management](https://docs.openwebui.com) — official documentation for roles, groups, and SCIM provisioning
-- [Discord Educational Toolkit: Role Management](../discord-toolkit-md/design-kit/role-management.md) — a parallel approach to roles and permissions in another educational platform
+- [Discord Educational Toolkit: Role Management](../discord-toolkit-md/role-management.md) — a parallel approach to roles and permissions in another educational platform
 - [CUNY IT Policies](https://www.cuny.edu/about/administration/offices/cis/it-policies/) — institutional guidelines for data access and user management
 
 ---
 
-[← Return to Tools & Skills](tools-skills.md) | [Continue to Instructional Kit →](../instructional-kit/index.md)
+[← Return to Tools & Skills](tools-skills.md) | [Continue to Instructional Kit →](index.md)

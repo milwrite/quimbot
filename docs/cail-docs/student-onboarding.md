@@ -8,7 +8,7 @@ The first time students use the Sandbox, they need more than a login link. They 
 
 ### Prepare Your Environment
 
-1. Create the models and knowledge bases students will use (see the [Design Kit](../design-kit/index.md))
+1. Create the models and knowledge bases students will use (see the [Design Kit](index.md))
 2. Set visibility to **Limited** and share with your course group
 3. Test each model with the kinds of questions your students will ask
 4. Write a brief AI use policy for your syllabus (see the template below)
@@ -52,7 +52,7 @@ Frame the Sandbox in your course context. Students need to understand why you ch
 
 ### Day 1: First Login (10 minutes)
 
-Walk students through the login process. Project your screen or share a link to the [Getting Started](../starter-kit/getting-started.md) page.
+Walk students through the login process. Project your screen or share a link to the [Getting Started](getting-started.md) page.
 
 1. Navigate to [chat.ailab.gc.cuny.edu](https://chat.ailab.gc.cuny.edu)
 2. Click **Sign in with CUNY Login**
@@ -134,7 +134,7 @@ It will. AI models generate plausible text, and sometimes that text is inaccurat
 ## Additional Resources
 
 - [Teach@CUNY AI Toolkit: Academic Integrity](https://aitoolkit.commons.gc.cuny.edu/) — CUNY-specific guidance on AI and academic honesty
-- [Getting Started](../starter-kit/getting-started.md) — the student-facing login guide
+- [Getting Started](getting-started.md) — the student-facing login guide
 - [Pedagogical Patterns](pedagogical-patterns.md) — strategies for integrating AI throughout your course
 
 ---
