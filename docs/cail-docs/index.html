@@ -446,15 +446,18 @@ pre code {
   <a href="#models" class="nav-link" data-page="models">Models</a>
   <a href="#knowledge" class="nav-link" data-page="knowledge">Knowledge Bases</a>
   <a href="#prompts" class="nav-link" data-page="prompts">Prompts</a>
-  <a href="#tools" class="nav-link" data-page="tools">Tools</a>
+  <a href="#tools" class="nav-link" data-page="tools">Tools &amp; Skills</a>
 
   <div class="section-label">Usage</div>
   <a href="#chat" class="nav-link" data-page="chat">Chat Interface</a>
   <a href="#rag" class="nav-link" data-page="rag">RAG &amp; Documents</a>
+  <a href="#workflows" class="nav-link" data-page="workflows">Practical Workflows</a>
   <a href="#collaboration" class="nav-link" data-page="collaboration">Collaboration</a>
 
   <div class="section-label">Reference</div>
+  <a href="#security" class="nav-link" data-page="security">Security &amp; Governance</a>
   <a href="#admin" class="nav-link" data-page="admin">Admin Settings</a>
+  <a href="#best-practices" class="nav-link" data-page="best-practices">Best Practices</a>
   <a href="#faq" class="nav-link" data-page="faq">FAQ</a>
 </aside>
 
@@ -465,27 +468,47 @@ pre code {
   <div class="page active" id="overview">
     <div class="breadcrumb"><a href="#">Docs</a> / Overview</div>
     <h1>CUNY AI Lab Sandbox</h1>
-    <p class="callout"><strong>Note:</strong> This documentation covers the Open WebUI instance hosted at <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> for CUNY faculty, students, and researchers.</p>
+    <p class="callout"><strong>Note:</strong> This documentation covers the Open WebUI instance hosted at <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> for CUNY faculty, students, and researchers. It is a working guide maintained by the AI Lab team.</p>
 
-    <p>The Sandbox runs <a href="https://github.com/open-webui/open-webui" target="_blank">Open WebUI</a>, a self-hosted AI platform that connects to multiple model providers (Ollama, OpenAI-compatible APIs) through a single interface. It supports custom model configuration, document-grounded generation (RAG), prompt libraries, and extensible tool integrations.</p>
+    <p>The CUNY AI Lab Sandbox is a shared AI infrastructure built on <a href="https://github.com/open-webui/open-webui" target="_blank">Open WebUI</a>, a self-hosted platform that operates independently of commercial providers. It connects to multiple model backends (Ollama for local inference, OpenAI-compatible APIs for remote access) through a single interface, giving CUNY users a provider-agnostic environment for teaching, research, and administrative work.</p>
+
+    <p>The platform goes beyond simple chat. Its workspace architecture lets users create custom AI agents, organize institutional knowledge into searchable repositories, build prompt libraries, and extend model capabilities through tools and pipelines. These features support use cases across disciplines: a literature review assistant grounded in departmental research, a writing tutor calibrated to course-specific rubrics, a multilingual support tool for heritage language learners.</p>
 
     <h2>What You Can Do</h2>
-    <ul>
-      <li><strong>Chat</strong> with hosted models (Ollama local, OpenAI, others) through a unified interface</li>
-      <li><strong>Build custom models</strong> with system prompts, parameter tuning, and starter suggestions</li>
-      <li><strong>Upload documents</strong> to knowledge bases and query them with RAG</li>
-      <li><strong>Share prompts</strong> and model configurations across teams</li>
-      <li><strong>Extend capabilities</strong> with tools and function pipelines</li>
-    </ul>
 
-    <h2>Architecture</h2>
-    <p>Open WebUI acts as a middleware layer. It wraps base models (local or remote) with configurable behavior: system prompts, knowledge injection, parameter overrides, and access controls. Each "model" in the workspace is a configuration wrapper around a base provider, not a separate trained model.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div style="display:flex;align-items:center;margin-bottom:8px"><div class="icon-box vibrant">💬</div><h4 style="margin:0">Chat</h4></div>
+        <p style="margin:0;font-size:0.9rem;color:var(--text-muted)">Talk to hosted models through a unified interface. Compare responses side by side. Switch models mid-conversation.</p>
+      </div>
+      <div class="feature-card">
+        <div style="display:flex;align-items:center;margin-bottom:8px"><div class="icon-box blue">🔧</div><h4 style="margin:0">Build</h4></div>
+        <p style="margin:0;font-size:0.9rem;color:var(--text-muted)">Create custom model configurations with system prompts, parameter tuning, knowledge bases, and tool bindings.</p>
+      </div>
+      <div class="feature-card">
+        <div style="display:flex;align-items:center;margin-bottom:8px"><div class="icon-box green">📚</div><h4 style="margin:0">Ground</h4></div>
+        <p style="margin:0;font-size:0.9rem;color:var(--text-muted)">Upload documents and query them with Retrieval-Augmented Generation. Responses draw from your data, not just training corpora.</p>
+      </div>
+      <div class="feature-card">
+        <div style="display:flex;align-items:center;margin-bottom:8px"><div class="icon-box amber">🤝</div><h4 style="margin:0">Share</h4></div>
+        <p style="margin:0;font-size:0.9rem;color:var(--text-muted)">Share prompts, models, and knowledge bases across courses, departments, and research groups with granular access controls.</p>
+      </div>
+    </div>
+
+    <h2>How It Works</h2>
+    <p>Open WebUI acts as a middleware layer between users and AI providers. It wraps base models with configurable behavior: system prompts define how the model responds, knowledge bases inject relevant documents, parameter overrides control generation characteristics, and access controls determine who can use what. Each "model" in the workspace is a configuration wrapper around a base provider. You are not training a new model; you are shaping how an existing one behaves in a specific context.</p>
 
     <h2>Guiding Principles</h2>
-    <p>The CUNY AI Lab prioritizes privacy, transparency, environmental accountability, and critical AI literacy. These principles guide how we configure and maintain the Sandbox.</p>
+    <p>The Sandbox is configured around four commitments:</p>
+    <ul>
+      <li><strong>Privacy by design.</strong> User conversations are not retained by upstream providers for training purposes. Data stays within CUNY infrastructure.</li>
+      <li><strong>Transparency.</strong> Where possible, the Sandbox favors open-weight models whose architectures and training processes can be examined. Users should understand what they are working with.</li>
+      <li><strong>Environmental accountability.</strong> AI computation has material costs. The platform surfaces usage metrics so that instructors and researchers can make informed decisions about resource consumption.</li>
+      <li><strong>Critical AI literacy.</strong> The goal is not dependency on AI tools but fluency with them. The Sandbox supports pedagogies that teach students to evaluate, question, and contextualize AI outputs. For foundational resources on AI literacy at CUNY, see the <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit</a>.</li>
+    </ul>
 
     <h2>Access</h2>
-    <p>Sandbox access is managed through CUNY institutional accounts. Contact the AI Lab team for onboarding.</p>
+    <p>Sandbox access is managed through CUNY institutional accounts. Contact the AI Lab team at the Graduate Center for onboarding and role assignment.</p>
   </div>
 
   <!-- FIRST STEPS -->
@@ -493,17 +516,30 @@ pre code {
     <div class="breadcrumb"><a href="#">Docs</a> / First Steps</div>
     <h1>First Steps</h1>
 
+    <p>This page walks you through your first session on the Sandbox. If you have used ChatGPT or similar tools, the chat interface will feel familiar. The workspace features are where things get interesting.</p>
+
     <h2>1. Sign In</h2>
-    <p>Go to <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> and authenticate with your CUNY credentials.</p>
+    <p>Navigate to <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> and authenticate with your CUNY credentials. Your account is created on first login.</p>
 
-    <h2>2. Pick a Model</h2>
-    <p>The model selector at the top of the chat shows available models. Some are base models (direct provider access); others are custom configurations built by your team or the AI Lab.</p>
+    <h2>2. Adjust Your Settings</h2>
+    <p>Click your profile avatar (top-right) to access <strong>Settings</strong>. Here you can set a default model, choose an interface theme, and configure notification preferences. These are personal settings; they affect only your account.</p>
+    <p>Administrators have a separate <strong>Admin Panel</strong> for instance-wide configuration (see <a href="#admin">Admin Settings</a>).</p>
 
-    <h2>3. Start a Conversation</h2>
-    <p>Type a message or click a prompt suggestion. Your chat history is saved and accessible from the sidebar.</p>
+    <h2>3. Pick a Model</h2>
+    <p>The model selector at the top of the chat shows every model available to you. Some are base models with direct provider access (GPT-4, Claude, Llama, Mistral). Others are custom configurations built by the AI Lab, your department, or your own colleagues. Custom models carry system prompts, knowledge bases, and tool bindings that shape their behavior for specific tasks.</p>
 
-    <h2>4. Explore the Workspace</h2>
-    <p>Click <strong>Workspace</strong> in the sidebar to access Models, Knowledge, Prompts, and Tools. This is where you build and configure your own AI workflows.</p>
+    <h2>4. Start a Conversation</h2>
+    <p>Type a message or click one of the prompt suggestion chips. Your conversation is saved automatically and accessible from the sidebar. You can return to any conversation later, export it, or branch it to explore alternative directions.</p>
+
+    <h2>5. Explore the Workspace</h2>
+    <p>Click <strong>Workspace</strong> in the left sidebar to access the four building blocks of custom AI workflows:</p>
+    <ul>
+      <li><strong>Models</strong> &mdash; create and configure custom agents</li>
+      <li><strong>Knowledge</strong> &mdash; upload documents for retrieval-augmented generation</li>
+      <li><strong>Prompts</strong> &mdash; save and share reusable instruction templates</li>
+      <li><strong>Tools</strong> &mdash; extend model capabilities with external integrations</li>
+    </ul>
+    <p>Each of these is covered in detail in the sections that follow.</p>
   </div>
 
   <!-- MODELS -->
@@ -511,38 +547,67 @@ pre code {
     <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Models</div>
     <h1>Models</h1>
 
-    <p>Models in Open WebUI are configuration wrappers. You pick a base model, add a system prompt, adjust parameters, attach knowledge bases, and save. The result behaves like a custom AI agent tuned to your use case.</p>
+    <p>A "model" in Open WebUI is a configuration wrapper around a base AI model. You select a provider (GPT-4, Claude, Llama, Mistral, etc.), then layer on behavior: a system prompt that defines how the model responds, knowledge bases that ground it in specific documents, tools that extend its capabilities, and parameters that control its generation characteristics. The result is a custom agent tuned to a particular task, course, or research context.</p>
+
+    <p>This is composition, not training. You are not fine-tuning weights or creating a new model from scratch. You are assembling existing components into a coherent workflow.</p>
 
     <h2>Create a Model</h2>
     <ol>
       <li>Go to <strong>Workspace → Models → + New Model</strong></li>
-      <li>Select a base model from the dropdown</li>
-      <li>Write a system prompt that defines the model's behavior</li>
-      <li>Set advanced parameters (temperature, top-p, stop sequences) if needed</li>
-      <li>Add prompt suggestions: clickable starter chips that appear in new chats</li>
-      <li>Save</li>
+      <li>Select a base model from the dropdown (these depend on which providers the Sandbox is connected to)</li>
+      <li>Write a <strong>system prompt</strong> that defines the model's persona, constraints, and goals</li>
+      <li>Attach <strong>knowledge bases</strong> to ground responses in your documents</li>
+      <li>Bind <strong>tools</strong> for external capabilities (web search, code execution, etc.)</li>
+      <li>Set <strong>advanced parameters</strong> if needed (temperature, top-p, stop sequences)</li>
+      <li>Add <strong>prompt suggestions</strong>: clickable starter chips that appear above the input bar in new chats</li>
+      <li>Save and set visibility</li>
     </ol>
 
-    <h2>Dynamic Variables</h2>
-    <p>System prompts support Jinja2-style placeholders:</p>
-    <pre><code>{{ CURRENT_DATE }}   → 2026-02-22
-{{ CURRENT_TIME }}   → 14:30
-{{ USER_NAME }}      → Jane Doe</code></pre>
+    <h2>System Prompts</h2>
+    <p>The system prompt is where you encode the model's behavior. A good system prompt for a CUNY context does several things: it establishes the model's role, sets boundaries around academic integrity, and provides enough specificity that the model knows what kind of help to offer. Consider this example:</p>
 
-    <p>Use these to personalize interactions and provide temporal context.</p>
+    <pre><code>You are an academic writing tutor for {{ USER_NAME }} at CUNY.
+The current date is {{ CURRENT_DATE }}. You help students
+improve their writing through questions and suggestions,
+not by writing for them. When a student submits a draft,
+identify two strengths before addressing areas for revision.
+Encourage critical thinking. Never produce complete essays
+or assignment submissions.</code></pre>
+
+    <p>This prompt uses <strong>dynamic variables</strong>, Jinja2-style placeholders that inject real-time context:</p>
+    <ul>
+      <li><code>{{ CURRENT_DATE }}</code> &mdash; today's date in YYYY-MM-DD format</li>
+      <li><code>{{ CURRENT_TIME }}</code> &mdash; current time in 24-hour format</li>
+      <li><code>{{ USER_NAME }}</code> &mdash; the logged-in user's display name</li>
+    </ul>
+    <p>Dynamic variables let a single model configuration serve many users with personalized interactions. An advisor model can greet students by name; a deadline-aware tutor can reference the current date without manual updates.</p>
+
+    <h2>Prompt Suggestions</h2>
+    <p>Prompt suggestions appear as clickable chips above the input bar when a user opens a fresh chat. They serve as onboarding: a quick way to show new users what the model can do and how to talk to it. For a "Python Tutor" model, you might add:</p>
+    <ul>
+      <li>"Explain this code step-by-step"</li>
+      <li>"Find bugs in the following script"</li>
+      <li>"Write a unit test for this function"</li>
+    </ul>
+    <p>For a literature review assistant: "Summarize the theoretical evolution across these three papers" or "Compare methodological approaches in the attached studies."</p>
 
     <h2>Advanced Parameters</h2>
     <ul>
-      <li><strong>Temperature</strong> — controls randomness. Lower = more deterministic.</li>
-      <li><strong>Top P</strong> — nucleus sampling threshold.</li>
-      <li><strong>Stop Sequences</strong> — force-stop generation at specific strings (e.g. <code>&lt;|end_of_text|&gt;</code>).</li>
+      <li><strong>Temperature</strong> &mdash; controls randomness. Lower values (0.1&ndash;0.3) produce more deterministic, focused responses. Higher values (0.7&ndash;1.0) allow more creative variation. For factual research tasks, keep it low. For brainstorming, raise it.</li>
+      <li><strong>Top P</strong> &mdash; nucleus sampling threshold. Controls the diversity of token selection. A value of 0.9 means the model considers tokens covering 90% of the probability mass.</li>
+      <li><strong>Stop Sequences</strong> &mdash; strings that force the model to stop generating. Enter sequences like <code>&lt;|end_of_text|&gt;</code> or <code>User:</code> and press Enter. Useful for roleplay or coding models that might otherwise generate both sides of a conversation.</li>
     </ul>
 
-    <h2>Visibility</h2>
-    <p>Models can be <strong>Private</strong> (you only), <strong>Limited</strong> (specific users/groups), or <strong>Public</strong> (all instance users).</p>
+    <h2>Visibility and Sharing</h2>
+    <p>Every model has a visibility setting:</p>
+    <ul>
+      <li><strong>Private</strong> &mdash; visible only to you</li>
+      <li><strong>Limited</strong> &mdash; shared with specific users or groups (e.g., a course section, a research team)</li>
+      <li><strong>Public</strong> &mdash; available to all Sandbox users</li>
+    </ul>
 
     <div class="callout">
-      <strong>Best Practice:</strong> Craft system prompts that reflect institutional values and academic integrity standards. Make expectations explicit.
+      <strong>For instructors:</strong> When building models for your courses, craft system prompts that reflect CUNY's commitment to access, equity, and critical thinking. Make your expectations for AI use explicit. If the model should encourage process over product, say so in the prompt. If it should refuse to generate complete assignments, encode that boundary. Students benefit from clarity, not ambiguity, about what the tool will and will not do.
     </div>
   </div>
 
@@ -551,27 +616,48 @@ pre code {
     <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Knowledge Bases</div>
     <h1>Knowledge Bases</h1>
 
-    <p>Knowledge bases store documents that models can search during generation. This is Retrieval-Augmented Generation (RAG): the model pulls relevant passages from your uploads before responding, grounding its answers in your data.</p>
+    <p>Knowledge bases let you ground AI responses in your own documents. When a model has a knowledge base attached, it searches your uploaded files for relevant passages before generating a response. This technique is called Retrieval-Augmented Generation (RAG): the model retrieves context from your data and uses it to inform its output, rather than relying solely on its training corpus.</p>
+
+    <p>The difference matters. A base model answering questions about CUNY's graduate handbook will draw on whatever it absorbed during training, which may be outdated, incomplete, or wrong. A model with the handbook in its knowledge base will cite the actual document.</p>
 
     <h2>Create a Knowledge Base</h2>
     <ol>
       <li>Go to <strong>Workspace → Knowledge → + Create a Knowledge Base</strong></li>
-      <li>Name it and describe its purpose</li>
-      <li>Set visibility (Private, Limited, or Public)</li>
-      <li>Drag and drop files (PDF, Markdown, plain text, etc.)</li>
+      <li>Name it and describe what you are working on (e.g., "Fall 2026 Composition Syllabi" or "IRB Protocol Archive")</li>
+      <li>Specify what you are trying to achieve (providing research support, grounding course assistance, etc.)</li>
+      <li>Set visibility:
+        <ul>
+          <li><strong>Private</strong> &mdash; only you can access it</li>
+          <li><strong>Limited</strong> &mdash; shared with specific users or groups</li>
+          <li><strong>Public</strong> &mdash; available to all Sandbox users</li>
+        </ul>
+      </li>
+      <li>Upload files by dragging and dropping them into the knowledge base. Supported formats include PDF, Markdown, and plain text.</li>
     </ol>
 
     <h2>Attach to a Model</h2>
-    <p>In the model editor, link one or more knowledge bases. When users chat with that model, relevant document chunks are retrieved and injected as context.</p>
+    <p>In the model editor, link one or more knowledge bases under the Knowledge section. When users chat with that model, relevant document chunks are retrieved and injected as context before the model responds. You can attach multiple knowledge bases to a single model; the retrieval system searches across all of them.</p>
+
+    <h2>What to Upload</h2>
+    <p>Start by identifying high-value documents that would benefit from searchable, conversational access:</p>
+    <ul>
+      <li>Graduate program handbooks and policy documents</li>
+      <li>Course syllabi and assignment descriptions</li>
+      <li>Research methodology guides and IRB templates</li>
+      <li>Departmental research outputs and working papers</li>
+      <li>Technical documentation for shared infrastructure</li>
+      <li>Curated reading lists and annotated bibliographies</li>
+    </ul>
 
     <h2>File Management</h2>
-    <p>Access all uploaded files through <strong>Settings → Data Controls → Manage Files</strong>. Deleting a file here removes it from all associated knowledge bases and cleans up vector embeddings.</p>
+    <p>Access all uploaded files through <strong>Settings → Data Controls → Manage Files</strong>. This centralized file manager supports universal search by filename, sorting by name or creation date, and metadata inspection (file size, upload date). When you delete a file here, Open WebUI performs deep cleanup: it removes the file from all associated knowledge bases and deletes the corresponding vector embeddings from the database.</p>
 
-    <h2>Embedding Configuration</h2>
-    <p>Admins can change the embedding model in <strong>Admin Panel → Settings → Documents</strong>. The default (Sentence Transformers MiniLM-L6) works well for most cases. Alternatives are available through Hugging Face.</p>
+    <h2>How Embedding Works</h2>
+    <p>When you upload a document, Open WebUI converts it into numerical representations called embeddings. These embeddings capture the semantic meaning of the text, allowing the system to find relevant passages even when exact keywords do not match. A question about "thesis committee requirements" can surface a passage about "dissertation advisory boards" because the concepts are semantically related.</p>
+    <p>The default embedding model (Sentence Transformers MiniLM-L6) works well for most use cases. Administrators can change the embedding model in <strong>Admin Panel → Settings → Documents</strong>. Alternative models are available through the Hugging Face repository.</p>
 
     <div class="callout">
-      <strong>Use Cases:</strong> Graduate program handbooks, research methodology guides, institutional policies, course syllabi, technical documentation, departmental research outputs.
+      <strong>For researchers:</strong> Consider building knowledge bases around the methodological frameworks and foundational literature in your field. A model grounded in your curated sources can help with literature review, source comparison, and gap identification, while citing the documents you trust rather than hallucinating references.
     </div>
   </div>
 
@@ -580,57 +666,75 @@ pre code {
     <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Prompts</div>
     <h1>Prompts</h1>
 
-    <p>The prompt library stores reusable system prompts and instruction templates. Share them across models, courses, or research groups.</p>
+    <p>The prompt library stores reusable system prompts and instruction templates that can be shared across models, courses, and research groups. Think of it as a departmental toolkit: rather than writing the same instructions from scratch each time you create a model, you save them once and apply them wherever they are needed.</p>
 
-    <h2>Use Cases</h2>
+    <h2>Categories</h2>
+    <p>Prompts tend to fall into a few recurring patterns:</p>
     <ul>
-      <li><strong>Conversation steering</strong> — redirect off-topic discussions</li>
-      <li><strong>Output formatting</strong> — specify structure (JSON, tables, bullet points)</li>
-      <li><strong>Research templates</strong> — systematic literature review, source evaluation</li>
-      <li><strong>Pedagogical framing</strong> — encourage critical thinking over direct answers</li>
+      <li><strong>Conversation steering</strong> &mdash; redirect discussions that have gone off track. Useful when a model starts generating tangential content or when you need to refocus a tutoring session.</li>
+      <li><strong>Output formatting</strong> &mdash; specify the structure of responses. Request JSON output for data processing, tables for comparison, bullet points for quick reference, or narrative prose for student-facing explanations.</li>
+      <li><strong>Context handovers</strong> &mdash; generate summaries that can be transferred to subsequent agents or conversations. Useful when a research task spans multiple sessions or involves different models for different stages.</li>
+      <li><strong>Research templates</strong> &mdash; systematic literature review, source evaluation, methodology critique. These encode disciplinary best practices into the model's response patterns.</li>
+      <li><strong>Pedagogical framing</strong> &mdash; encourage critical thinking over direct answers. Prompts in this category ask the model to pose follow-up questions, suggest counterarguments, or scaffold learning rather than provide finished products.</li>
     </ul>
 
-    <h2>Prompt Suggestions</h2>
-    <p>When creating a model, add prompt suggestions that appear as clickable chips above the input bar. These guide new users toward the model's intended capabilities.</p>
+    <h2>Building a Departmental Prompt Library</h2>
+    <p>Instructors across a department can contribute to a shared collection. A Digital Humanities program might maintain prompts for text analysis, visualization interpretation, and archival research. A Writing Program might store prompts for peer review facilitation, citation practice, and genre analysis. Shared prompts create consistency: students working with different instructors encounter similar pedagogical expectations from the AI tools in their courses.</p>
 
-    <p><strong>Example for a Python Tutor model:</strong></p>
-    <ul>
-      <li>"Explain this code step-by-step"</li>
-      <li>"Find bugs in the following script"</li>
-      <li>"Write a unit test for this function"</li>
-    </ul>
+    <div class="callout">
+      <strong>Tip:</strong> When writing prompts for student-facing models, be specific about what the model should <em>not</em> do. "Do not write complete essays" is clearer than "encourage independent work." Constraints help both the model and the student understand the boundaries of appropriate use.
+    </div>
   </div>
 
   <!-- TOOLS -->
   <div class="page" id="tools">
-    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Tools</div>
-    <h1>Tools</h1>
+    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Tools &amp; Skills</div>
+    <h1>Tools &amp; Skills</h1>
 
-    <p>Tools extend what models can do beyond text generation. They connect models to external services, databases, APIs, and computational functions.</p>
+    <p>Tools and skills extend what models can do beyond text generation. Tools connect models to external services, databases, and computational functions. Skills provide specialized knowledge domains that the model can draw on without modifying system prompts.</p>
 
-    <h2>Types of Tools</h2>
+    <h2>Tools</h2>
+
+    <h3>Types</h3>
     <ul>
-      <li><strong>Native Features:</strong> Built-in (Web Search, Image Generation, URL Fetch, Memory)</li>
-      <li><strong>Workspace Tools:</strong> Python scripts running in Open WebUI</li>
-      <li><strong>MCP (Model Context Protocol):</strong> Anthropic's standard for connecting external data/tools</li>
-      <li><strong>OpenAPI Servers:</strong> Generic web services via OpenAPI specs</li>
+      <li><strong>Native features</strong> &mdash; built into Open WebUI: Web Search, Image Generation, URL Fetch, Memory. These require no setup.</li>
+      <li><strong>Workspace tools</strong> &mdash; Python scripts registered in the platform. When a user's query matches a tool's purpose, the model calls the function, processes the result, and incorporates it into its response.</li>
+      <li><strong>MCP (Model Context Protocol)</strong> &mdash; Anthropic's open standard for connecting AI models to external data sources and tools. MCP servers expose structured capabilities that models can discover and invoke.</li>
+      <li><strong>OpenAPI servers</strong> &mdash; any web service with an OpenAPI specification can be connected as a tool provider.</li>
     </ul>
 
-    <h2>Enabling Tools</h2>
-    <p><strong>Per-chat:</strong> Click the <strong>➕</strong> icon in the input area and select tools for that session.</p>
-    <p><strong>Per-model:</strong> Go to <strong>Workspace → Models</strong>, edit a model, scroll to <strong>Tools</strong>, and check the tools you want always available.</p>
+    <h3>Enabling Tools</h3>
+    <p><strong>Per-chat:</strong> Click the <strong>➕</strong> icon in the input area and select tools for that session. This is useful for one-off tasks.</p>
+    <p><strong>Per-model:</strong> In the model editor, scroll to the <strong>Tools</strong> section and check the tools you want always available. Every chat with that model will have access to the selected tools.</p>
 
-    <h2>Community Tools</h2>
-    <p>Browse the <strong>Community Tool Library</strong> for pre-built tools:</p>
+    <h3>Community Tool Library</h3>
+    <p>Open WebUI maintains a community library of pre-built tools. Some that are relevant to academic work:</p>
     <ul>
-      <li><strong>arXiv Search:</strong> Academic papers, no API key needed</li>
-      <li><strong>Perplexica Search:</strong> Web search with citations</li>
-      <li><strong>Pexels Media Search:</strong> Stock photos/videos</li>
-      <li><strong>YouTube Search &amp; Embed:</strong> Find and display videos</li>
+      <li><strong>arXiv Search</strong> &mdash; query academic papers directly from chat. No API key required.</li>
+      <li><strong>Perplexica Search</strong> &mdash; web search with inline citations.</li>
+      <li><strong>Pexels Media Search</strong> &mdash; find stock photos and videos for presentations.</li>
+      <li><strong>YouTube Search &amp; Embed</strong> &mdash; locate and embed instructional videos.</li>
+    </ul>
+
+    <h3>Function Calling</h3>
+    <p>Models with native function calling support (indicated by the <strong>TOOLS</strong> tag in Ollama) can invoke tools with improved reliability. The model determines when to call a tool, what arguments to pass, and how to incorporate results. No prompt engineering required.</p>
+
+    <h2>Skills</h2>
+
+    <p>Skills are specialized knowledge domains that can be bound to models. Unlike system prompts (which define general behavior), skills provide on-demand access to detailed instructions for specific topics.</p>
+
+    <p>To bind skills: go to <strong>Workspace → Models → Edit</strong>, find the <strong>Skills</strong> section, and select the skills you want. When a user's query falls within a skill's domain, the model loads the relevant instructions automatically.</p>
+
+    <p><strong>Example skills for CUNY:</strong></p>
+    <ul>
+      <li>Quantitative Methods (statistical analysis, research design, SPSS/R guidance)</li>
+      <li>Academic Writing (scholarly conventions, citation practices, genre awareness)</li>
+      <li>Research Ethics (IRB compliance, data privacy, informed consent)</li>
+      <li>Digital Humanities (text analysis, corpus methods, visualization)</li>
     </ul>
 
     <div class="callout">
-      <strong>Security Warning:</strong> Only import tools from trusted sources. Tools are Python scripts that execute on the server and can access system resources.
+      <strong>Security:</strong> Only import tools from trusted sources. Tools are Python scripts that execute on the server. Review code before installing community tools, and consult with the AI Lab team if you are unsure about a tool's safety.
     </div>
   </div>
 
@@ -639,19 +743,22 @@ pre code {
     <div class="breadcrumb"><a href="#">Docs</a> / Usage / Chat Interface</div>
     <h1>Chat Interface</h1>
 
-    <p>The chat interface is the primary way to interact with models. Select a model from the dropdown, type a message, and go.</p>
+    <p>The chat interface is the primary way to interact with models. Select a model from the dropdown, type a message, and the model responds. But the interface supports several features beyond basic chat that are worth knowing about.</p>
 
-    <h2>Features</h2>
+    <h2>Core Features</h2>
     <ul>
-      <li><strong>Multi-model chats</strong> — compare responses from different models side by side</li>
-      <li><strong>File uploads</strong> — attach documents directly in chat for one-off RAG</li>
-      <li><strong>Chat history</strong> — all conversations are saved and searchable</li>
-      <li><strong>Export</strong> — download conversations as Markdown or JSON</li>
-      <li><strong>Branching</strong> — fork a conversation at any point to explore alternatives</li>
+      <li><strong>Multi-model chats</strong> &mdash; select multiple models and compare their responses side by side. This is useful for evaluating how different models handle the same prompt, or for cross-checking factual claims.</li>
+      <li><strong>File uploads</strong> &mdash; drag a document into the chat input for one-off RAG. The model will use the file as context for that conversation only. For persistent access, use a Knowledge Base instead.</li>
+      <li><strong>Chat history</strong> &mdash; every conversation is saved automatically and searchable from the sidebar.</li>
+      <li><strong>Export</strong> &mdash; download any conversation as Markdown or JSON for archiving, sharing, or further analysis.</li>
+      <li><strong>Branching</strong> &mdash; fork a conversation at any point to explore alternative directions without losing the original thread.</li>
     </ul>
 
     <h2>Model Switching</h2>
-    <p>Click the model name in the chat interface to switch between models mid-conversation. Use different models for different tasks (e.g., general reasoning → visual analysis → synthesis).</p>
+    <p>Click the model name in the chat interface to switch between models mid-conversation. This lets you use different models for different stages of a task. For example: start with a general-purpose model for brainstorming, switch to a code-focused model for implementation, then move to a writing model for documentation. The conversation context carries across switches.</p>
+
+    <h2>Memory</h2>
+    <p>Models can remember facts and preferences across conversations. Memories are stored locally in your Open WebUI account, never shared across users, and clearable at any time via <strong>Settings</strong>. This is useful for ongoing research or advising relationships where the model benefits from knowing your background, project status, or preferences.</p>
   </div>
 
   <!-- RAG -->
@@ -659,19 +766,61 @@ pre code {
     <div class="breadcrumb"><a href="#">Docs</a> / Usage / RAG &amp; Documents</div>
     <h1>RAG &amp; Documents</h1>
 
-    <p>Retrieval-Augmented Generation grounds model responses in your uploaded documents. Instead of relying only on training data, the model searches your files for relevant passages and uses them as context.</p>
+    <p>Retrieval-Augmented Generation (RAG) is the process by which a model searches your uploaded documents for relevant passages and uses them as context before responding. It bridges the gap between a model's general training data and your specific institutional knowledge.</p>
 
-    <h2>Quick RAG (In-Chat)</h2>
-    <p>Drag a file into the chat input. The model will use it for that conversation only.</p>
+    <h2>Two Modes of RAG</h2>
 
-    <h2>Persistent RAG (Knowledge Bases)</h2>
-    <p>For ongoing use, create a knowledge base and attach it to a model. Every chat with that model can draw from the full document collection.</p>
+    <h3>Quick RAG (In-Chat)</h3>
+    <p>Drag a file directly into the chat input. The model uses it as context for that conversation only. Good for one-off questions about a specific document: "Summarize the key findings in this report" or "What does this contract say about termination clauses?"</p>
 
-    <h2>RAG Template</h2>
-    <p>Admins can customize the RAG template in <strong>Admin Panel → Settings → Documents</strong>. This controls how retrieved passages are presented to the model.</p>
+    <h3>Persistent RAG (Knowledge Bases)</h3>
+    <p>For ongoing use, create a knowledge base and attach it to a model (see <a href="#knowledge">Knowledge Bases</a>). Every conversation with that model draws from the full document collection. This is how you build a literature review assistant grounded in 50 papers, or a policy advisor trained on the complete CUNY governance archive.</p>
 
-    <p><strong>Example RAG template:</strong></p>
-    <pre><code>You are assisting a CUNY researcher. Respond based primarily on the provided context. When using information from documents, cite the source. If the context does not adequately address the query, acknowledge this limitation and suggest how the user might find additional information.</code></pre>
+    <h2>RAG Template Configuration</h2>
+    <p>The RAG template controls how retrieved passages are presented to the model. Administrators configure it in <strong>Admin Panel → Settings → Documents → RAG Template</strong>. A well-crafted template tells the model how to use retrieved context, when to cite sources, and what to do when the context falls short.</p>
+
+    <p><strong>Example for CUNY:</strong></p>
+    <pre><code>You are assisting a CUNY researcher. Respond to the query
+based primarily on the provided context. When using information
+from documents, indicate the source document. If the provided
+context does not adequately address the query, acknowledge this
+limitation and suggest how the user might find additional
+information. Prioritize accuracy and institutional context
+over creative elaboration.</code></pre>
+
+    <h2>Chunking and Retrieval</h2>
+    <p>When a document is uploaded, Open WebUI splits it into chunks and creates vector embeddings for each chunk. When a user asks a question, the system finds the chunks most semantically relevant to the query and injects them into the model's context window. Administrators can adjust chunk size and overlap in the Documents settings. Smaller chunks yield more precise retrieval; larger chunks preserve more surrounding context.</p>
+
+    <div class="callout">
+      <strong>Practical tip:</strong> For best results, upload clean, well-structured documents. Markdown and plain text tend to chunk more reliably than complex PDFs with multi-column layouts or embedded images. If a PDF produces poor results, try converting it to Markdown first.
+    </div>
+  </div>
+
+  <!-- WORKFLOWS -->
+  <div class="page" id="workflows">
+    <div class="breadcrumb"><a href="#">Docs</a> / Usage / Practical Workflows</div>
+    <h1>Practical Workflows</h1>
+
+    <p>The workspace features described in this guide are most powerful when combined. Below are concrete workflows that illustrate how models, knowledge bases, tools, and prompts work together in academic contexts.</p>
+
+    <h2>Literature Review Assistant</h2>
+    <p><strong>Components:</strong> A system prompt encoding systematic review methodology. A knowledge base loaded with foundational papers in the field. arXiv Search and web tools for discovering new sources. A prompt library with templates for source evaluation and gap analysis.</p>
+    <p><strong>In practice:</strong> Upload 30 papers from your Zotero library into a knowledge base. Create a model with a system prompt that instructs it to identify themes, compare methodological approaches, and flag contradictions across sources. Ask it: "How has the theoretical framework for X evolved across these papers?" The model retrieves relevant passages from your uploads, synthesizes them, and cites the source documents.</p>
+
+    <h2>Capstone Project Mentor</h2>
+    <p><strong>Components:</strong> A system prompt establishing course learning outcomes and advising norms. A knowledge base with the capstone handbook, past project abstracts, and disciplinary literature. Prompt suggestions guiding students through each project phase.</p>
+    <p><strong>In practice:</strong> Students interact with the mentor throughout the semester. It knows the program's expectations because they are in the knowledge base. It guides students through topic selection, literature review, methodology design, and drafting, providing consistent feedback grounded in institutional standards rather than generic advice.</p>
+
+    <h2>Multilingual Research Support</h2>
+    <p><strong>Components:</strong> Knowledge bases with sources in multiple languages. Translation tools. Language-specific analysis skills.</p>
+    <p><strong>In practice:</strong> A student working with Spanish-language primary sources poses queries in English. The model retrieves relevant passages from Spanish-language documents in the knowledge base, translates and synthesizes them, and provides citations to the original texts. This supports CUNY's multilingual student body in engaging with sources across language barriers.</p>
+
+    <h2>Assignment Design Workshop</h2>
+    <p><strong>Components:</strong> A system prompt encoding the <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit</a>'s assignment makeover framework. Knowledge base with sample assignments, rubrics, and scaffolding strategies.</p>
+    <p><strong>In practice:</strong> An instructor uploads an existing assignment. The model conducts an "activity inventory": listing every cognitive task the assignment requires, identifying which tasks AI could automate, and suggesting revisions that preserve learning objectives while accounting for AI use. This mirrors the stress-testing approach recommended by Laquintano and Vee in their work on AI and writing instruction.</p>
+
+    <h2>Pipelines</h2>
+    <p>For advanced users: pipelines intercept and transform interactions at multiple stages. <strong>Filter pipelines</strong> modify requests or responses in transit (safety filtering, custom RAG injection, prompt injection detection). <strong>Pipe pipelines</strong> take over the interaction workflow entirely (custom agent logic, multi-step reasoning chains). Pipelines require Python development but enable sophisticated workflows beyond what model configuration alone can achieve.</p>
   </div>
 
   <!-- COLLABORATION -->
@@ -679,24 +828,56 @@ pre code {
     <div class="breadcrumb"><a href="#">Docs</a> / Usage / Collaboration</div>
     <h1>Collaboration</h1>
 
-    <p>Open WebUI supports shared workspaces. Teams can collaborate on models, knowledge bases, and prompt libraries.</p>
+    <p>The Sandbox is a shared resource. Open WebUI's collaboration features let teams work together on models, knowledge bases, and prompt libraries without stepping on each other's work.</p>
 
-    <h2>Sharing</h2>
+    <h2>Sharing Resources</h2>
+    <p>Every resource you create (model, knowledge base, prompt) has a visibility setting:</p>
     <ul>
-      <li>Set visibility on any resource (model, knowledge base, prompt) to <strong>Limited</strong> or <strong>Public</strong></li>
-      <li>Limited resources are shared with specific users or groups</li>
-      <li>Public resources are visible to everyone on the instance</li>
+      <li><strong>Private</strong> &mdash; only you can see and use it</li>
+      <li><strong>Limited</strong> &mdash; shared with specific users or groups you designate</li>
+      <li><strong>Public</strong> &mdash; available to everyone on the Sandbox</li>
     </ul>
+    <p>Start private. Share when ready. This lets you iterate on a model or knowledge base without exposing unfinished work to your students or colleagues.</p>
 
     <h2>Groups</h2>
-    <p>Admins can create user groups (by course, department, research team) and assign resource access at the group level.</p>
+    <p>Administrators create user groups organized by course, department, research team, or any other logical unit. When you share a resource with a group, everyone in that group gains access. Groups simplify permission management: add a student to the "Fall 2026 Comp 101" group and they automatically see the course's model, knowledge bases, and prompt library.</p>
 
-    <h2>Role-Based Access Control (RBAC)</h2>
-    <p>Administrators define user roles and permissions:</p>
+    <h2>Role-Based Access Control</h2>
+    <p>The Sandbox supports three role tiers:</p>
     <ul>
-      <li><strong>Faculty:</strong> Create/modify models used across courses</li>
-      <li><strong>Graduate Students:</strong> Create knowledge bases for research groups</li>
-      <li><strong>Undergraduates:</strong> Access institutional resources (view-only)</li>
+      <li><strong>Administrators</strong> &mdash; full platform access. Configure providers, manage users, install tools, set instance-wide defaults.</li>
+      <li><strong>Faculty / Staff</strong> &mdash; create and share models, knowledge bases, and prompts. Manage their own groups.</li>
+      <li><strong>Students</strong> &mdash; use shared resources. Create private configurations. Cannot modify shared resources unless explicitly granted access.</li>
+    </ul>
+    <p>These roles map to CUNY's existing institutional hierarchy. Administrators can customize role definitions and permission boundaries through the Admin Panel.</p>
+  </div>
+
+  <!-- SECURITY -->
+  <div class="page" id="security">
+    <div class="breadcrumb"><a href="#">Docs</a> / Reference / Security &amp; Governance</div>
+    <h1>Security &amp; Governance</h1>
+
+    <p>The Sandbox handles institutional data and serves a diverse user base. Security and governance practices protect both the platform and the people who use it.</p>
+
+    <h2>Data Privacy</h2>
+    <p>The Sandbox is self-hosted on CUNY infrastructure. User conversations are stored locally and are not sent to upstream providers for training purposes. When the platform connects to external APIs (OpenAI, Anthropic, etc.), it sends only the current conversation context. Providers' data retention policies vary; the AI Lab selects providers and configurations that minimize data exposure.</p>
+
+    <h2>SCIM 2.0 Provisioning</h2>
+    <p>Open WebUI supports integration with identity providers (Okta, Azure AD, Google Workspace) through the SCIM 2.0 protocol. This enables automated user lifecycle management: when a student is added to a course roster in the identity provider, their Sandbox account and group memberships update automatically. When they leave, access is revoked.</p>
+
+    <h2>Memory and File Security</h2>
+    <p>Model memories are stored per-user and never shared across accounts. Users can view and delete their memories at any time through Settings. File uploads are scoped to knowledge bases with explicit visibility controls. Deleting a file triggers deep cleanup: removal from all associated knowledge bases and deletion of vector embeddings.</p>
+
+    <h2>Tool Security</h2>
+    <p>Tools are Python scripts that execute on the server. Malicious or poorly written tools can access system resources, exfiltrate data, or disrupt service. Only install tools from trusted sources. The AI Lab maintains an approved tool list; contact the team before adding community tools to the instance.</p>
+
+    <h2>Governance Recommendations</h2>
+    <ul>
+      <li>Establish clear data handling policies for each knowledge base. Sensitive or regulated data (FERPA, HIPAA) requires additional safeguards.</li>
+      <li>Define retention policies for uploaded documents and conversation histories.</li>
+      <li>Maintain audit logs tracking who accesses shared resources and when.</li>
+      <li>Review model configurations periodically to ensure system prompts reflect current institutional policies.</li>
+      <li>Designate a governance point person for each department or program using the Sandbox.</li>
     </ul>
   </div>
 
@@ -705,22 +886,68 @@ pre code {
     <div class="breadcrumb"><a href="#">Docs</a> / Reference / Admin Settings</div>
     <h1>Admin Settings</h1>
 
-    <p>Admins access the admin panel through the gear icon or <strong>Admin Panel</strong> in the sidebar.</p>
+    <p>The Admin Panel provides instance-wide configuration for the Sandbox. Access it through the gear icon or <strong>Admin Panel</strong> in the sidebar. Only users with administrator privileges can access these settings.</p>
 
     <h2>Key Settings</h2>
     <ul>
-      <li><strong>Connections</strong> — configure Ollama URLs, OpenAI API keys, and other providers</li>
-      <li><strong>Models</strong> — manage which base models are available to users</li>
-      <li><strong>Documents</strong> — configure embedding model, RAG template, chunk size</li>
-      <li><strong>Users</strong> — manage accounts, roles (admin, user), and groups</li>
-      <li><strong>Interface</strong> — customize branding, default model, landing page</li>
+      <li><strong>Connections</strong> &mdash; configure Ollama URLs, OpenAI API keys, and other model providers. This is where you add new backends or update API credentials.</li>
+      <li><strong>Models</strong> &mdash; manage which base models are visible to users. You can hide models that are still in testing or restrict access to resource-intensive models.</li>
+      <li><strong>Documents</strong> &mdash; configure the embedding model, RAG template, chunk size, and overlap. These settings affect how knowledge bases process and retrieve documents.</li>
+      <li><strong>Users</strong> &mdash; manage accounts, assign roles (admin, user), create groups, and set permissions. Groups can be organized by course, department, or project.</li>
+      <li><strong>Interface</strong> &mdash; customize branding, set the default model, configure the landing page, and adjust the system message.</li>
     </ul>
 
-    <h2>SCIM 2.0 Provisioning</h2>
-    <p>Integration with identity providers (Okta, Azure AD, Google Workspace) for automated user lifecycle management. User roles sync across systems.</p>
-
     <h2>Observability</h2>
-    <p>Open WebUI supports OpenTelemetry for production monitoring. Export traces, metrics, and logs to Prometheus, Grafana, or Jaeger to track system performance and usage patterns.</p>
+    <p>Open WebUI includes built-in instrumentation via OpenTelemetry. Export traces, metrics, and logs to monitoring platforms (Prometheus, Grafana, Jaeger) to track:</p>
+    <ul>
+      <li>Which models are used most frequently</li>
+      <li>Knowledge base query volume and retrieval quality</li>
+      <li>Computational resource consumption per user or group</li>
+      <li>Error rates and response latencies</li>
+    </ul>
+
+    <h2>Langfuse Integration</h2>
+    <p>For deeper analysis of conversation patterns, Open WebUI supports Langfuse integration. This lets administrators monitor which models support productive learning interactions, which knowledge bases see the highest engagement, and where users encounter confusion. These insights inform decisions about model configuration, knowledge base curation, and resource allocation.</p>
+  </div>
+
+  <!-- BEST PRACTICES -->
+  <div class="page" id="best-practices">
+    <div class="breadcrumb"><a href="#">Docs</a> / Reference / Best Practices</div>
+    <h1>Best Practices</h1>
+
+    <h2>For Instructors</h2>
+    <ul>
+      <li><strong>Experiment first.</strong> Before deploying AI tools in your courses, spend time with them yourself. Run your own assignments through the models. Take note of what works, what fails, and where the outputs fall short. This firsthand experience will inform better pedagogy and more honest conversations with students about what these tools can and cannot do.</li>
+      <li><strong>Craft system prompts that encode your values.</strong> If academic integrity matters (and it does), write it into the prompt. If you want the model to encourage process over product, say so explicitly. Vague instructions produce vague behavior.</li>
+      <li><strong>Use prompt suggestions to set expectations.</strong> The chips that appear above the input bar are your chance to show students how to talk to the model. Good suggestions teach students what the model is for; bad ones (or none at all) leave them guessing.</li>
+      <li><strong>Build knowledge bases from your course materials.</strong> A model grounded in your syllabus, rubrics, and readings gives more relevant guidance than one drawing on generic training data.</li>
+      <li><strong>Set clear course policies on AI use.</strong> The <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit</a> provides a range of policy statements from "require GenAI use" to "do not allow GenAI." Pick what fits your course and communicate it on your syllabus.</li>
+      <li><strong>Review configurations each semester.</strong> Models, knowledge bases, and prompts should evolve with your teaching. What worked in Fall may need revision for Spring.</li>
+    </ul>
+
+    <h2>For Students</h2>
+    <ul>
+      <li><strong>Understand the model's limits.</strong> AI assistants are tools, not authorities. They can summarize, compare, and draft, but they can also hallucinate citations, flatten nuance, and produce plausible-sounding nonsense. Verify claims. Check sources.</li>
+      <li><strong>Cite AI contributions.</strong> When you use AI-generated content in academic work, disclose and cite it. Follow your course's AI policy and the citation guidelines for your discipline (MLA, APA, Chicago all have AI citation formats now).</li>
+      <li><strong>Use the Sandbox's knowledge bases.</strong> If your instructor has loaded course materials into a knowledge base, the model's responses will be grounded in those documents. This is more reliable than asking a base model to guess what your professor wants.</li>
+      <li><strong>Try different models for different tasks.</strong> A model optimized for coding will give different results than one designed for close reading. Switch models mid-chat to take advantage of their different strengths.</li>
+    </ul>
+
+    <h2>For Researchers</h2>
+    <ul>
+      <li><strong>Build specialized models for your methodology.</strong> A qualitative researcher needs different AI support than a computational linguist. Create models with system prompts, tools, and knowledge bases tuned to your methods.</li>
+      <li><strong>Ground your models in curated sources.</strong> Upload your annotated bibliography, methodological frameworks, and prior publications. A model that retrieves from your own vetted sources is less likely to hallucinate or introduce irrelevant material.</li>
+      <li><strong>Document your AI use.</strong> Maintain transparency about how AI systems supported your research process. This is increasingly expected by journals, IRBs, and funding agencies.</li>
+      <li><strong>Develop custom tools for domain-specific workflows.</strong> If your research involves database queries, computational methods, or API access, consider building tools that your models can call. This turns the Sandbox from a chat interface into a research workbench.</li>
+    </ul>
+
+    <h2>Implementation Phases</h2>
+    <p>For departments or programs adopting the Sandbox, consider a phased approach:</p>
+    <ol>
+      <li><strong>Phase One:</strong> General-purpose models bound to institutional knowledge bases. All users can access AI grounded in CUNY's context.</li>
+      <li><strong>Phase Two:</strong> Discipline-specific models and knowledge bases as academic units develop their own configurations.</li>
+      <li><strong>Phase Three:</strong> Fully integrated workflows for specific projects, combining models, knowledge, tools, and skills into coherent research and teaching pipelines.</li>
+    </ol>
   </div>
 
   <!-- FAQ -->
@@ -729,19 +956,29 @@ pre code {
     <h1>FAQ</h1>
 
     <h3>What models are available?</h3>
-    <p>The Sandbox connects to both local (Ollama) and remote (OpenAI-compatible) providers. Available models depend on current infrastructure. Check the model dropdown for the latest list.</p>
+    <p>The Sandbox connects to both local (Ollama) and remote (OpenAI-compatible) providers. Available models depend on current infrastructure and change as the AI Lab adds new capabilities. Check the model dropdown for the latest list. If you need a specific model for your research or teaching, contact the AI Lab team to discuss adding it.</p>
 
     <h3>Can I upload sensitive data?</h3>
-    <p>The Sandbox is hosted on CUNY infrastructure. Follow your department's data handling policies. When in doubt, check with the AI Lab team before uploading sensitive or regulated data.</p>
+    <p>The Sandbox is hosted on CUNY infrastructure, and data stays within that infrastructure. However, some configurations route queries through external APIs (OpenAI, Anthropic), which means conversation content may pass through those providers' servers. Follow your department's data handling policies. For FERPA-protected student data or HIPAA-regulated health information, consult with the AI Lab team before uploading. When in doubt, ask first.</p>
 
     <h3>How do I get admin access?</h3>
-    <p>Contact the AI Lab team. Admin access is granted based on role and need.</p>
+    <p>Contact the AI Lab team at the Graduate Center. Admin access is granted based on role and demonstrated need. Faculty who want to manage models and knowledge bases for their courses can request elevated permissions without full admin access.</p>
 
-    <h3>Where can I learn more about Open WebUI?</h3>
-    <p>See the <a href="https://docs.openwebui.com" target="_blank">official Open WebUI documentation</a>.</p>
+    <h3>Can students see my system prompts?</h3>
+    <p>By default, system prompts are not visible to end users in the chat interface. However, users with access to the model editor can view the configuration. If you want to keep your prompts confidential, set the model to <strong>Public</strong> for use but restrict edit access.</p>
 
-    <h3>What are the guiding principles behind the Sandbox?</h3>
-    <p>The CUNY AI Lab prioritizes <strong>Privacy by Design</strong> (providers don't retain or train on user data), <strong>Transparency</strong> (open-weight models), <strong>Environmental Accountability</strong> (computational cost visibility), and <strong>Criticality</strong> (AI literacy over dependency).</p>
+    <h3>Does the AI remember my conversations?</h3>
+    <p>Chat history is saved per-user and accessible from the sidebar. The optional Memory feature lets models remember facts across conversations, but memories are stored locally, never shared with other users, and deletable at any time. Memories do not persist across different models.</p>
+
+    <h3>What if a model produces harmful or inaccurate output?</h3>
+    <p>AI models can and do produce errors, hallucinations, and biased outputs. This is expected behavior, not a bug. The Sandbox provides tools to mitigate these risks (system prompts with constraints, RAG grounding in verified documents, safety-filtering pipelines), but no configuration eliminates the possibility entirely. Always verify AI-generated content against primary sources.</p>
+
+    <h3>Where can I learn more?</h3>
+    <ul>
+      <li><a href="https://docs.openwebui.com" target="_blank">Open WebUI official documentation</a></li>
+      <li><a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit</a> (pedagogical resources for AI in education)</li>
+      <li><a href="https://ailab.gc.cuny.edu" target="_blank">CUNY AI Lab</a> (lab homepage and contact information)</li>
+    </ul>
   </div>
 
 </div>
