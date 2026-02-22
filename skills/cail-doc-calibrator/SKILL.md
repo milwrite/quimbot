@@ -28,7 +28,13 @@ Write as a colleague, not a manual. Address the reader as "you." Anticipate thei
 - **Direct address:** "you," "your students," "your server"
 - **No em dashes.** Use periods, commas, colons, semicolons, or parentheses.
 - **No AI slop.** Ban: delve, tapestry, robust, seamless, comprehensive, meticulous, transformative, cornerstone, reimagine, empower.
-- **No contrastive constructions.** Kill "not this but that." State the point directly.
+- **No contrastive constructions.** Ban all semantic pivots: "not X but Y," "rather than," "instead of," "goes beyond," "more than just." State what something IS, not what it ISN'T.
+  - ❌ "a workspace rather than a chat app"
+  - ✅ "a workspace"
+  - ❌ "asks questions instead of producing essays"
+  - ✅ "asks questions. It won't write the essay."
+  - ❌ "drawn from your documents rather than generic data"
+  - ✅ "drawn from your documents"
 
 ## Structure: Three-Kit Model
 
