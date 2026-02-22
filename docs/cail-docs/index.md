@@ -4,6 +4,8 @@ The CUNY AI Lab Sandbox is an AI platform for teaching and research at CUNY. It 
 
 ## Getting Started
 
+- [Basic Concepts](basic-concepts.md) — Learn the terminology and structure of the Sandbox.
+- [Quick Tour](quick-tour.md) — A visual walkthrough of the interface.
 - [Getting Started](getting-started.md) — Log in, explore the interface, have your first conversation.
 
 ## Design & Test
