@@ -76,7 +76,7 @@ When you share a resource with a group:
 
 ---
 
-## Going Deeper
+## Advanced Settings
 
 ### SCIM 2.0 Provisioning
 

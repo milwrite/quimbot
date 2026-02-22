@@ -61,7 +61,7 @@ Now every conversation with that model draws from your uploaded documents.
 
 ---
 
-## Going Deeper
+## Advanced Settings
 
 ### What Happens Under the Hood
 

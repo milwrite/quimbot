@@ -71,7 +71,7 @@ For a methods guidance model:
 - "What sampling strategy fits my research design?"
 - "How do I address potential confounding variables?"
 
-## Going Deeper
+## Advanced Settings
 
 ### Advanced Parameters
 
