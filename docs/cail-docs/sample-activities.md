@@ -198,4 +198,4 @@ You can adapt any of these by changing the system prompt, swapping the knowledge
 
 ---
 
-[← Return to Pedagogical Patterns](teaching-with-ai.md) | [Continue to Student Onboarding →](student-onboarding.md)
+[← Return to Pedagogical Patterns](teaching-tips.md) | [Continue to Student Onboarding →](student-onboarding.md)
