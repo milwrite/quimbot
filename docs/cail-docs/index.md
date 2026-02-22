@@ -2,32 +2,24 @@
 
 The CUNY AI Lab Sandbox is an AI platform for teaching and research at CUNY. It runs on CUNY infrastructure, keeps student data private, and gives you full control over how AI tools work in your courses and projects.
 
-This toolkit guides you through three module sequences: getting oriented, building custom AI configurations, and designing instruction around them.
+## Get Started
 
-## Starter Kit
+- [Getting Started](getting-started.md) — Log in, explore the interface, have your first conversation.
 
-Your first session with the Sandbox. Log in, explore the interface, and get comfortable.
+## Build
 
-- [Getting Started](getting-started.md)
+- [Models](models.md) — Create custom AI agents for your courses and research.
+- [System Prompts](system-prompts.md) — Write prompts that shape how models interact with students.
+- [Knowledge Bases](knowledge-bases.md) — Upload your documents so models can reference them.
+- [Tools & Skills](tools-skills.md) — Add web search, code execution, and domain expertise.
+- [Roles & Permissions](roles-permissions.md) — Control who can access what.
 
-## Design Kit
+## Teach
 
-Build custom AI configurations for your courses and research. Create models, upload documents, add tools, and manage access.
-
-- [Models](models.md)
-- [System Prompts](system-prompts.md)
-- [Knowledge Bases](knowledge-bases.md)
-- [Tools & Skills](tools-skills.md)
-- [Roles & Permissions](roles-permissions.md)
-
-## Instructional Kit
-
-Design teaching activities, onboard students, and integrate AI tools across a semester.
-
-- [Teaching Tips](teaching-tips.md)
-- [Sample Activities](sample-activities.md)
-- [Student Onboarding](student-onboarding.md)
-- [Use Cases](use-cases.md)
+- [Teaching Tips](teaching-tips.md) — Strategies for integrating AI into your courses.
+- [Sample Activities](sample-activities.md) — Ready-to-use exercises with model configurations.
+- [Student Onboarding](student-onboarding.md) — A first-week plan for introducing AI tools.
+- [Use Cases](use-cases.md) — Semester-long workflows across disciplines.
 
 ## About
 
