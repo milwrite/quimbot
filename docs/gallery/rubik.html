@@ -97,73 +97,90 @@ function rev(a) { return a.slice().reverse(); }
 //   R from right (R[0][0] = top-front). L from left (L[0][0] = top-back).
 //   U from above (U[0][0] = back-left). D from below (D[0][0] = front-left).
 
-function moveU() {
-  // U CW: top rows cycle F←L←B←R←F (all direct, no reversals)
-  rotateCW(0);
-  const t = getRow(2, 0);
-  setRow(2, 0, getRow(5, 0));   // F ← L
-  setRow(5, 0, getRow(3, 0));   // L ← B
-  setRow(3, 0, getRow(4, 0));   // B ← R
-  setRow(4, 0, t);              // R ← F
+// ── Layer Moves ──
+// Each move takes an optional depth d (0 = outermost, default).
+// Only d=0 rotates the face itself; inner layers just cycle strips.
+
+function moveU(d) {
+  d = d || 0;
+  if (d === 0) rotateCW(0);
+  const t = getRow(2, d);
+  setRow(2, d, getRow(5, d));
+  setRow(5, d, getRow(3, d));
+  setRow(3, d, getRow(4, d));
+  setRow(4, d, t);
 }
 
-function moveD() {
-  // D CW (from below): bottom rows cycle F←L←B←R←F (all direct)
-  rotateCW(1);
-  const t = getRow(2, n-1);
-  setRow(2, n-1, getRow(5, n-1));   // F ← L
-  setRow(5, n-1, getRow(3, n-1));   // L ← B
-  setRow(3, n-1, getRow(4, n-1));   // B ← R
-  setRow(4, n-1, t);                // R ← F
+function moveD(d) {
+  d = d || 0;
+  if (d === 0) rotateCW(1);
+  const row = n - 1 - d;
+  const t = getRow(2, row);
+  setRow(2, row, getRow(5, row));
+  setRow(5, row, getRow(3, row));
+  setRow(3, row, getRow(4, row));
+  setRow(4, row, t);
 }
 
-function moveF() {
-  // F CW: U[n-1]←L_col[n-1], L_col[n-1]←rev(D[0]), D[0]←rev(R_col[0]), R_col[0]←U[n-1]
-  rotateCW(2);
-  const t = getRow(0, n-1);
-  setRow(0, n-1, getCol(5, n-1));          // U ← L col (direct)
-  setCol(5, n-1, rev(getRow(1, 0)));       // L ← rev(D row)
-  setRow(1, 0, rev(getCol(4, 0)));         // D ← rev(R col)
-  setCol(4, 0, t);                         // R ← U (direct)
+function moveF(d) {
+  d = d || 0;
+  if (d === 0) rotateCW(2);
+  const uRow = n - 1 - d;
+  const dRow = d;
+  const rCol = d;
+  const lCol = n - 1 - d;
+  const t = getRow(0, uRow);
+  setRow(0, uRow, getCol(5, lCol));
+  setCol(5, lCol, rev(getRow(1, dRow)));
+  setRow(1, dRow, rev(getCol(4, rCol)));
+  setCol(4, rCol, t);
 }
 
-function moveB() {
-  // B CW (from behind): U[0]←R_col[n-1], R_col[n-1]←rev(D[n-1]), D[n-1]←L_col[0], L_col[0]←rev(U[0])
-  rotateCW(3);
-  const t = getRow(0, 0);
-  setRow(0, 0, getCol(4, n-1));            // U ← R col (direct)
-  setCol(4, n-1, rev(getRow(1, n-1)));     // R ← rev(D row)
-  setRow(1, n-1, getCol(5, 0));            // D ← L col (direct)
-  setCol(5, 0, rev(t));                    // L ← rev(U)
+function moveB(d) {
+  d = d || 0;
+  if (d === 0) rotateCW(3);
+  const uRow = d;
+  const dRow = n - 1 - d;
+  const rCol = n - 1 - d;
+  const lCol = d;
+  const t = getRow(0, uRow);
+  setRow(0, uRow, getCol(4, rCol));
+  setCol(4, rCol, rev(getRow(1, dRow)));
+  setRow(1, dRow, getCol(5, lCol));
+  setCol(5, lCol, rev(t));
 }
 
-function moveR() {
-  // R CW: U_col[n-1]←F_col[n-1], F_col[n-1]←D_col[n-1], D_col[n-1]←rev(B_col[0]), B_col[0]←rev(U_col[n-1])
-  rotateCW(4);
-  const t = getCol(0, n-1);
-  setCol(0, n-1, getCol(2, n-1));          // U ← F (direct)
-  setCol(2, n-1, getCol(1, n-1));          // F ← D (direct)
-  setCol(1, n-1, rev(getCol(3, 0)));       // D ← rev(B col 0)
-  setCol(3, 0, rev(t));                    // B ← rev(U)
+function moveR(d) {
+  d = d || 0;
+  if (d === 0) rotateCW(4);
+  const col = n - 1 - d;
+  const bCol = d;
+  const t = getCol(0, col);
+  setCol(0, col, getCol(2, col));
+  setCol(2, col, getCol(1, col));
+  setCol(1, col, rev(getCol(3, bCol)));
+  setCol(3, bCol, rev(t));
 }
 
-function moveL() {
-  // L CW: U_col[0]←rev(B_col[n-1]), B_col[n-1]←rev(D_col[0]), D_col[0]←F_col[0], F_col[0]←U_col[0]
-  rotateCW(5);
-  const t = getCol(0, 0);
-  setCol(0, 0, rev(getCol(3, n-1)));       // U ← rev(B col n-1)
-  setCol(3, n-1, rev(getCol(1, 0)));       // B ← rev(D col 0)
-  setCol(1, 0, getCol(2, 0));              // D ← F (direct)
-  setCol(2, 0, t);                         // F ← U (direct)
+function moveL(d) {
+  d = d || 0;
+  if (d === 0) rotateCW(5);
+  const col = d;
+  const bCol = n - 1 - d;
+  const t = getCol(0, col);
+  setCol(0, col, rev(getCol(3, bCol)));
+  setCol(3, bCol, rev(getCol(1, col)));
+  setCol(1, col, getCol(2, col));
+  setCol(2, col, t);
 }
 
 // Inverse moves (3x CW = 1x CCW)
-function moveUi() { moveU(); moveU(); moveU(); }
-function moveDi() { moveD(); moveD(); moveD(); }
-function moveFi() { moveF(); moveF(); moveF(); }
-function moveBi() { moveB(); moveB(); moveB(); }
-function moveRi() { moveR(); moveR(); moveR(); }
-function moveLi() { moveL(); moveL(); moveL(); }
+function moveUi(d) { moveU(d); moveU(d); moveU(d); }
+function moveDi(d) { moveD(d); moveD(d); moveD(d); }
+function moveFi(d) { moveF(d); moveF(d); moveF(d); }
+function moveBi(d) { moveB(d); moveB(d); moveB(d); }
+function moveRi(d) { moveR(d); moveR(d); moveR(d); }
+function moveLi(d) { moveL(d); moveL(d); moveL(d); }
 
 const MOVES = [moveU, moveD, moveF, moveB, moveR, moveL];
 const INVERSE = [moveUi, moveDi, moveFi, moveBi, moveRi, moveLi];
@@ -174,18 +191,21 @@ const MOVE_NAMES = ['U','D','F','B','R','L'];
 function selfTest() {
   const saved = cloneCube();
   let ok = true;
+  const maxD = Math.floor(n / 2);
   for (let m = 0; m < 6; m++) {
-    initCube();
-    for (let i = 0; i < 4; i++) MOVES[m]();
-    for (let f = 0; f < 6; f++)
-      for (let r = 0; r < n; r++)
-        for (let c = 0; c < n; c++)
-          if (cube[f][r][c] !== COLORS[f]) { ok = false; break; }
-    if (!ok) { console.error('Move ' + MOVE_NAMES[m] + ' failed 4x identity test!'); break; }
+    for (let d = 0; d < maxD; d++) {
+      initCube();
+      for (let i = 0; i < 4; i++) MOVES[m](d);
+      for (let f = 0; f < 6; f++)
+        for (let r = 0; r < n; r++)
+          for (let c = 0; c < n; c++)
+            if (cube[f][r][c] !== COLORS[f]) { ok = false; break; }
+      if (!ok) { console.error('Move ' + MOVE_NAMES[m] + ' depth ' + d + ' failed 4x identity test!'); break; }
+    }
+    if (!ok) break;
   }
-  // Restore
   cube = saved;
-  if (ok) console.log('All moves passed 4x identity test ✓');
+  if (ok) console.log('All moves (all layers) passed 4x identity test ✓');
   return ok;
 }
 
@@ -195,13 +215,15 @@ function doScramble() {
   solving = false;
   solveQueue = [];
   moveHistory = [];
-  const count = n * 20;
+  const maxDepth = Math.floor(n / 2); // inner layers to scramble
+  const count = n * 25;
   for (let i = 0; i < count; i++) {
     const m = Math.floor(Math.random() * 6);
+    const d = Math.floor(Math.random() * maxDepth);
     const turns = 1 + Math.floor(Math.random() * 3);
     for (let t = 0; t < turns; t++) {
-      MOVES[m]();
-      moveHistory.push(m);
+      MOVES[m](d);
+      moveHistory.push({m, d});
     }
   }
   scrambled = true;
@@ -212,8 +234,7 @@ function doSolve() {
   if (!scrambled) return;
   if (moveHistory.length === 0) { doReset(); return; }
   solving = true;
-  // Build reverse queue: undo each move in reverse order
-  solveQueue = moveHistory.slice().reverse().map(m => m);
+  solveQueue = moveHistory.slice().reverse();
   moveHistory = [];
   solveTimer = 0;
   updateInfo();
@@ -343,7 +364,8 @@ function animate() {
       // Apply 1-3 inverse moves per tick depending on queue size
       const batch = solveQueue.length > 100 ? 3 : solveQueue.length > 30 ? 2 : 1;
       for (let i = 0; i < batch && solveQueue.length > 0; i++) {
-        INVERSE[solveQueue.shift()]();
+        const move = solveQueue.shift();
+        INVERSE[move.m](move.d);
       }
     }
     if (solveQueue.length === 0) {
@@ -358,8 +380,9 @@ function animate() {
     autoTimer++;
     if (autoTimer % 90 === 0) {
       const m = Math.floor(Math.random() * 6);
-      MOVES[m]();
-      moveHistory.push(m);
+      const d = Math.floor(Math.random() * Math.floor(n / 2));
+      MOVES[m](d);
+      moveHistory.push({m, d});
     }
   }
 
