@@ -9,7 +9,7 @@ Each activity below includes a learning objective, the model configuration neede
 **Learning Objective:** Students assess the reliability of AI-generated claims by comparing them against verified sources.
 
 **Model Configuration:**
-- Base model: any general-purpose model (GPT-4o, Claude, Llama)
+- Base model: any Sandbox model (DeepSeek V3.2, Kimi K2.5, GLM 5)
 - Tools: Web Search enabled
 - Knowledge Base: none (intentional; students evaluate ungrounded responses)
 - System prompt:
@@ -45,7 +45,7 @@ your responses. Be confident.
 **Learning Objective:** Students practice giving constructive feedback by critiquing AI-generated writing before reviewing each other's work.
 
 **Model Configuration:**
-- Base model: any general-purpose model
+- Base model: any Sandbox model (DeepSeek V3.2, Kimi K2.5, GLM 5)
 - Tools: none
 - Knowledge Base: upload your assignment rubric and 2-3 sample papers (anonymized)
 - System prompt:
@@ -81,7 +81,7 @@ Assignment: {{ASSIGNMENT_DESCRIPTION}}
 **Learning Objective:** Students deepen their understanding of a concept by explaining it to audiences with different levels of expertise.
 
 **Model Configuration:**
-- Base model: any general-purpose model
+- Base model: any Sandbox model (DeepSeek V3.2, Kimi K2.5, GLM 5)
 - Tools: none
 - Knowledge Base: upload course readings covering the target concept
 - System prompt:
@@ -112,7 +112,7 @@ own understanding through questioning.
 **Learning Objective:** Students analyze data and evaluate whether AI-generated interpretations align with statistical evidence.
 
 **Model Configuration:**
-- Base model: any model with strong quantitative reasoning
+- Base model: a model with strong quantitative reasoning (DeepSeek V3.2, Qwen3 235B)
 - Tools: Code Interpreter enabled
 - Knowledge Base: upload a clean dataset (CSV) relevant to your course
 - System prompt:
@@ -142,7 +142,7 @@ in plain language. Always show your code.
 **Learning Objective:** Students engage with primary sources in languages they are still acquiring, using AI as a bridge to deeper analysis.
 
 **Model Configuration:**
-- Base model: a multilingual model (GPT-4o, Claude)
+- Base model: a multilingual model (Kimi K2.5, GLM 5, DeepSeek V3.2)
 - Tools: none
 - Knowledge Base: upload primary source texts in the target language
 - System prompt:

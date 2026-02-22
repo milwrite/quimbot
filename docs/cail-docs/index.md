@@ -23,6 +23,6 @@ The CUNY AI Lab Sandbox is an AI platform for teaching and research at CUNY. It 
 
 ## About
 
-The Sandbox runs [Open WebUI](https://openwebui.com), an open-source AI platform connecting commercial and open-source models through a unified interface. Maintained by the [CUNY AI Lab](https://ailab.gc.cuny.edu) at the Graduate Center.
+The Sandbox runs [Open WebUI](https://openwebui.com), an open-source AI platform hosting open-weight models selected for academic use. See the [Model Registry](https://ailab.gc.cuny.edu/models/) for the full list. Maintained by the [CUNY AI Lab](https://ailab.gc.cuny.edu) at the Graduate Center.
 
 Questions? Contact the AI Lab team or visit the [Teach@CUNY AI Toolkit](https://aitoolkit.commons.gc.cuny.edu/).

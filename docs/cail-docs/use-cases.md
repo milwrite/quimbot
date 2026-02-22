@@ -15,7 +15,7 @@ A graduate seminar in Public Health requires students to conduct a systematic li
 **Components:**
 
 **Model:** Research Assistant  
-- **Base model:** GPT-4 or Claude Sonnet (for reasoning and synthesis)
+- **Base model:** DeepSeek V3.2 or Kimi K2.5 (strong reasoning and synthesis)
 - **System prompt:** Guides students through literature review stages (topic refinement, search strategy development, source evaluation)
 - **Knowledge base:** Uploaded documents include:
   - Methodological readings on systematic reviews
@@ -84,7 +84,7 @@ An undergraduate composition course (ENG 110) focuses on developing academic wri
 **Components:**
 
 **Model:** Writing Tutor  
-- **Base model:** GPT-4 or Claude Sonnet
+- **Base model:** DeepSeek V3.2 or Kimi K2.5
 - **System prompt:** Configured to ask questions instead of rewriting. Responds to drafts with feedback aligned with the course rubric.
 - **Knowledge base:** Uploaded documents include:
   - Course rubric
@@ -144,7 +144,7 @@ A graduate methods seminar in Education requires students to design a small-scal
 **Components:**
 
 **Model:** Methods Consultant  
-- **Base model:** GPT-4 or Claude Sonnet
+- **Base model:** DeepSeek V3.2 or Kimi K2.5
 - **System prompt:** Provides methodological guidance. Asks probing questions about research design choices.
 - **Knowledge base:** Uploaded documents include:
   - Course readings on qualitative and quantitative methods
@@ -208,7 +208,7 @@ An advanced academic writing course for multilingual graduate students. Students
 **Components:**
 
 **Model:** Language Learning Partner  
-- **Base model:** GPT-4 or Claude Sonnet (multilingual support)
+- **Base model:** Kimi K2.5 or GLM 5 (strong multilingual support)
 - **System prompt:** Configured to support multilingual writers. Responds to writing in English, translates when requested, explains academic conventions.
 - **Knowledge base:** Uploaded documents include:
   - Disciplinary writing samples (e.g., STEM lab reports, humanities literature reviews)
@@ -267,7 +267,7 @@ A senior capstone seminar requires students to complete a major independent proj
 **Components:**
 
 **Model:** Capstone Advisor  
-- **Base model:** GPT-4 or Claude Sonnet
+- **Base model:** DeepSeek V3.2 or Kimi K2.5
 - **System prompt:** Configured to ask guiding questions, provide accountability, and surface issues early.
 - **Knowledge base:** Uploaded documents include:
   - Capstone guidelines and rubric

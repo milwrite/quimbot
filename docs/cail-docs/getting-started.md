@@ -6,7 +6,7 @@ Your first steps into the CUNY AI Lab Sandbox — from logging in to having your
 
 ## What You'll Find Here
 
-The AI Lab Sandbox gives you access to a shared AI platform that works differently from consumer chatbots like ChatGPT. Instead of one-size-fits-all conversations, you can create custom AI agents, ground them in your course materials, and share configurations with students or colleagues. This guide walks you through your first login and initial exploration.
+The AI Lab Sandbox gives you access to a shared AI platform that works differently from consumer chatbots. Instead of one-size-fits-all conversations, you can create custom AI agents, ground them in your course materials, and share configurations with students or colleagues. This guide walks you through your first login and initial exploration.
 
 Think of the Sandbox as a workspace. The conversations matter, but the real value comes from building tools that support your teaching and research over time.
 
@@ -103,7 +103,7 @@ Before you start building, take a moment to understand the layout.
 
 **General Tab:**
 - **Default Model** — Choose which model loads when you start a new chat
-  - Recommendation: Start with a general-purpose model like GPT-4 or Claude Sonnet
+  - Recommendation: Start with a general-purpose model like DeepSeek V3.2 or Kimi K2.5
 - **Interface Theme** — Light, dark, or auto (matches your system settings)
   - Dark mode reduces eye strain during long writing sessions
 - **Chat Input Mode** — Desktop defaults to Enter to send, Shift+Enter for new line
