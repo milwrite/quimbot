@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CUNY AI Lab Sandbox — Documentation</title>
+<style>
+:root{--bg:#fff;--fg:#1a1a1a;--muted:#6b6b6b;--accent:#3d348b;--link:#3d348b;--border:#e0e0e0;--code-bg:#f5f5f5;--sidebar-bg:#fafafa;--sidebar-w:260px;--header-h:56px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font:400 16px/1.7 "Merriweather",Georgia,serif;color:var(--fg);background:var(--bg)}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"IBM Plex Mono",Menlo,monospace;font-size:0.9em;background:var(--code-bg);padding:2px 6px;border-radius:3px}
+pre{background:var(--code-bg);padding:16px 20px;border-radius:6px;overflow-x:auto;margin:1.2em 0;font-size:0.88em;line-height:1.6}
+pre code{background:none;padding:0}
+
+/* Header */
+.site-header{position:fixed;top:0;left:0;right:0;height:var(--header-h);background:var(--accent);color:#fff;display:flex;align-items:center;padding:0 24px;z-index:100;font-family:"Poppins",system-ui,sans-serif}
+.site-header a{color:#fff}
+.site-header .logo{font-weight:700;font-size:1.05rem;letter-spacing:-0.01em}
+.site-header .logo span{opacity:0.7;font-weight:400;margin-left:6px;font-size:0.85rem}
+.site-header nav{margin-left:auto;display:flex;gap:20px;font-size:0.85rem}
+.site-header nav a{opacity:0.85}
+.site-header nav a:hover{opacity:1;text-decoration:none}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;margin-left:auto}
+
+/* Sidebar */
+.sidebar{position:fixed;top:var(--header-h);left:0;bottom:0;width:var(--sidebar-w);background:var(--sidebar-bg);border-right:1px solid var(--border);overflow-y:auto;padding:24px 0;font-family:"Poppins",system-ui,sans-serif;font-size:0.85rem;z-index:90}
+.sidebar .section-label{padding:8px 24px 4px;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);font-weight:600}
+.sidebar a{display:block;padding:6px 24px;color:var(--fg);transition:background 0.15s}
+.sidebar a:hover{background:rgba(61,52,139,0.06);text-decoration:none}
+.sidebar a.active{color:var(--accent);font-weight:600;border-right:3px solid var(--accent)}
+
+/* Main content */
+.main{margin-left:var(--sidebar-w);margin-top:var(--header-h);padding:40px 48px 80px;max-width:780px}
+.main h1{font-family:"Poppins",system-ui,sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:8px;letter-spacing:-0.02em}
+.main h2{font-family:"Poppins",system-ui,sans-serif;font-size:1.25rem;font-weight:600;margin:2em 0 0.6em;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.main h3{font-family:"Poppins",system-ui,sans-serif;font-size:1.05rem;font-weight:600;margin:1.5em 0 0.4em}
+.main p{margin:0.8em 0}
+.main ul,.main ol{margin:0.8em 0 0.8em 1.6em}
+.main li{margin:0.3em 0}
+.breadcrumb{font-family:"Poppins",system-ui,sans-serif;font-size:0.8rem;color:var(--muted);margin-bottom:24px}
+.breadcrumb a{color:var(--muted)}
+.callout{border-left:4px solid var(--accent);background:rgba(61,52,139,0.04);padding:12px 16px;margin:1.2em 0;border-radius:0 4px 4px 0;font-size:0.95rem}
+.callout strong{color:var(--accent)}
+.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:0.75rem;font-family:"Poppins",system-ui,sans-serif;font-weight:600;background:rgba(61,52,139,0.1);color:var(--accent);margin-left:8px;vertical-align:middle}
+
+/* Page sections (SPA) */
+.page{display:none}
+.page.active{display:block}
+
+/* Footer */
+.site-footer{margin-left:var(--sidebar-w);padding:24px 48px;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);font-family:"Poppins",system-ui,sans-serif}
+.site-footer a{color:var(--muted)}
+
+@media(max-width:768px){
+  .sidebar{display:none}
+  .sidebar.open{display:block;width:100%;z-index:95}
+  .main,.site-footer{margin-left:0}
+  .main{padding:24px 20px 60px}
+  .hamburger{display:block}
+  .site-header nav.desk{display:none}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">CUNY AI Lab Sandbox <span>docs</span></div>
+  <nav class="desk">
+    <a href="https://chat.ailab.gc.cuny.edu" target="_blank">Sandbox ↗</a>
+    <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">AI Toolkit ↗</a>
+    <a href="https://milwrite.github.io/quimbot/" target="_blank">Quimbot ↗</a>
+  </nav>
+  <button class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+</header>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="section-label">Getting Started</div>
+  <a href="#overview" class="nav-link active" data-page="overview">Overview</a>
+  <a href="#first-steps" class="nav-link" data-page="first-steps">First Steps</a>
+
+  <div class="section-label">Workspace</div>
+  <a href="#models" class="nav-link" data-page="models">Models</a>
+  <a href="#knowledge" class="nav-link" data-page="knowledge">Knowledge Bases</a>
+  <a href="#prompts" class="nav-link" data-page="prompts">Prompts</a>
+  <a href="#tools" class="nav-link" data-page="tools">Tools</a>
+
+  <div class="section-label">Usage</div>
+  <a href="#chat" class="nav-link" data-page="chat">Chat Interface</a>
+  <a href="#rag" class="nav-link" data-page="rag">RAG &amp; Documents</a>
+  <a href="#collaboration" class="nav-link" data-page="collaboration">Collaboration</a>
+
+  <div class="section-label">Reference</div>
+  <a href="#admin" class="nav-link" data-page="admin">Admin Settings</a>
+  <a href="#faq" class="nav-link" data-page="faq">FAQ</a>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- OVERVIEW -->
+  <div class="page active" id="overview">
+    <div class="breadcrumb"><a href="#">Docs</a> / Overview</div>
+    <h1>CUNY AI Lab Sandbox</h1>
+    <p class="callout"><strong>Note:</strong> This documentation covers the Open WebUI instance hosted at <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> for CUNY faculty, students, and researchers. Content here is a working draft.</p>
+
+    <p>The Sandbox runs <a href="https://github.com/open-webui/open-webui" target="_blank">Open WebUI</a>, a self-hosted AI platform that connects to multiple model providers (Ollama, OpenAI-compatible APIs) through a single interface. It supports custom model configuration, document-grounded generation (RAG), prompt libraries, and extensible tool integrations.</p>
+
+    <h2>What You Can Do</h2>
+    <ul>
+      <li><strong>Chat</strong> with hosted models (Ollama local, OpenAI, others) through a unified interface</li>
+      <li><strong>Build custom models</strong> with system prompts, parameter tuning, and starter suggestions</li>
+      <li><strong>Upload documents</strong> to knowledge bases and query them with RAG</li>
+      <li><strong>Share prompts</strong> and model configurations across teams</li>
+      <li><strong>Extend capabilities</strong> with tools and function pipelines</li>
+    </ul>
+
+    <h2>Architecture</h2>
+    <p>Open WebUI acts as a middleware layer. It wraps base models (local or remote) with configurable behavior: system prompts, knowledge injection, parameter overrides, and access controls. Each "model" in the workspace is a configuration wrapper around a base provider, not a separate trained model.</p>
+
+    <h2>Access</h2>
+    <p>Sandbox access is managed through CUNY institutional accounts. Contact the AI Lab team for onboarding.</p>
+  </div>
+
+  <!-- FIRST STEPS -->
+  <div class="page" id="first-steps">
+    <div class="breadcrumb"><a href="#">Docs</a> / First Steps</div>
+    <h1>First Steps</h1>
+
+    <h2>1. Sign In</h2>
+    <p>Go to <a href="https://chat.ailab.gc.cuny.edu">chat.ailab.gc.cuny.edu</a> and authenticate with your CUNY credentials.</p>
+
+    <h2>2. Pick a Model</h2>
+    <p>The model selector at the top of the chat shows available models. Some are base models (direct provider access); others are custom configurations built by your team or the AI Lab.</p>
+
+    <h2>3. Start a Conversation</h2>
+    <p>Type a message or click a prompt suggestion. Your chat history is saved and accessible from the sidebar.</p>
+
+    <h2>4. Explore the Workspace</h2>
+    <p>Click <strong>Workspace</strong> in the sidebar to access Models, Knowledge, Prompts, and Tools. This is where you build and configure your own AI workflows.</p>
+  </div>
+
+  <!-- MODELS -->
+  <div class="page" id="models">
+    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Models</div>
+    <h1>Models</h1>
+
+    <p>Models in Open WebUI are configuration wrappers. You pick a base model, add a system prompt, adjust parameters, attach knowledge bases, and save. The result behaves like a custom AI agent tuned to your use case.</p>
+
+    <h2>Create a Model</h2>
+    <ol>
+      <li>Go to <strong>Workspace → Models → + New Model</strong></li>
+      <li>Select a base model from the dropdown</li>
+      <li>Write a system prompt that defines the model's behavior</li>
+      <li>Set advanced parameters (temperature, top-p, stop sequences) if needed</li>
+      <li>Add prompt suggestions: clickable starter chips that appear in new chats</li>
+      <li>Save</li>
+    </ol>
+
+    <h2>Dynamic Variables</h2>
+    <p>System prompts support Jinja2-style placeholders:</p>
+    <pre><code>{{ CURRENT_DATE }}   → 2026-02-22
+{{ CURRENT_TIME }}   → 14:30
+{{ USER_NAME }}      → Jane Doe</code></pre>
+
+    <h2>Advanced Parameters</h2>
+    <ul>
+      <li><strong>Temperature</strong> — controls randomness. Lower = more deterministic.</li>
+      <li><strong>Top P</strong> — nucleus sampling threshold.</li>
+      <li><strong>Stop Sequences</strong> — force-stop generation at specific strings (e.g. <code>&lt;|end_of_text|&gt;</code>).</li>
+    </ul>
+
+    <h2>Visibility</h2>
+    <p>Models can be <strong>Private</strong> (you only), <strong>Limited</strong> (specific users/groups), or <strong>Public</strong> (all instance users).</p>
+  </div>
+
+  <!-- KNOWLEDGE -->
+  <div class="page" id="knowledge">
+    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Knowledge Bases</div>
+    <h1>Knowledge Bases</h1>
+
+    <p>Knowledge bases store documents that models can search during generation. This is Retrieval-Augmented Generation (RAG): the model pulls relevant passages from your uploads before responding, grounding its answers in your data.</p>
+
+    <h2>Create a Knowledge Base</h2>
+    <ol>
+      <li>Go to <strong>Workspace → Knowledge → + Create a Knowledge Base</strong></li>
+      <li>Name it and describe its purpose</li>
+      <li>Set visibility (Private, Limited, or Public)</li>
+      <li>Drag and drop files (PDF, Markdown, plain text, etc.)</li>
+    </ol>
+
+    <h2>Attach to a Model</h2>
+    <p>In the model editor, link one or more knowledge bases. When users chat with that model, relevant document chunks are retrieved and injected as context.</p>
+
+    <h2>File Management</h2>
+    <p>Access all uploaded files through <strong>Settings → Data Controls → Manage Files</strong>. Deleting a file here removes it from all associated knowledge bases and cleans up vector embeddings.</p>
+
+    <h2>Embedding Configuration</h2>
+    <p>Admins can change the embedding model in <strong>Admin Panel → Settings → Documents</strong>. The default (Sentence Transformers MiniLM-L6) works well for most cases. Alternatives are available through Hugging Face.</p>
+  </div>
+
+  <!-- PROMPTS -->
+  <div class="page" id="prompts">
+    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Prompts</div>
+    <h1>Prompts</h1>
+
+    <p>The prompt library stores reusable system prompts and instruction templates. Share them across models, courses, or research groups.</p>
+
+    <h2>Use Cases</h2>
+    <ul>
+      <li><strong>Conversation steering</strong> — redirect off-topic discussions</li>
+      <li><strong>Output formatting</strong> — specify structure (JSON, tables, bullet points)</li>
+      <li><strong>Research templates</strong> — systematic literature review, source evaluation</li>
+      <li><strong>Pedagogical framing</strong> — encourage critical thinking over direct answers</li>
+    </ul>
+
+    <h2>Prompt Suggestions</h2>
+    <p>When creating a model, add prompt suggestions that appear as clickable chips above the input bar. These guide new users toward the model's intended capabilities.</p>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="page" id="tools">
+    <div class="breadcrumb"><a href="#">Docs</a> / Workspace / Tools</div>
+    <h1>Tools</h1>
+
+    <p>Tools extend what models can do beyond text generation. They connect models to external services, databases, APIs, and computational functions.</p>
+
+    <h2>How Tools Work</h2>
+    <p>Tools are Python functions that the model can call during a conversation. When a user's query matches a tool's purpose, the model invokes it, processes the result, and incorporates it into its response.</p>
+
+    <h2>Built-in Tools</h2>
+    <ul>
+      <li><strong>Web Search</strong> — query the web for current information</li>
+      <li><strong>Code Interpreter</strong> — execute Python code in a sandboxed environment</li>
+      <li><strong>Image Generation</strong> — create images from text descriptions</li>
+    </ul>
+
+    <h2>Custom Tools</h2>
+    <p>Admins can write and register custom tools through <strong>Workspace → Tools → + New Tool</strong>. Each tool needs a name, description, and a Python function body.</p>
+  </div>
+
+  <!-- CHAT -->
+  <div class="page" id="chat">
+    <div class="breadcrumb"><a href="#">Docs</a> / Usage / Chat Interface</div>
+    <h1>Chat Interface</h1>
+
+    <p>The chat interface is the primary way to interact with models. Select a model from the dropdown, type a message, and go.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li><strong>Multi-model chats</strong> — compare responses from different models side by side</li>
+      <li><strong>File uploads</strong> — attach documents directly in chat for one-off RAG</li>
+      <li><strong>Chat history</strong> — all conversations are saved and searchable</li>
+      <li><strong>Export</strong> — download conversations as Markdown or JSON</li>
+      <li><strong>Branching</strong> — fork a conversation at any point to explore alternatives</li>
+    </ul>
+  </div>
+
+  <!-- RAG -->
+  <div class="page" id="rag">
+    <div class="breadcrumb"><a href="#">Docs</a> / Usage / RAG &amp; Documents</div>
+    <h1>RAG &amp; Documents</h1>
+
+    <p>Retrieval-Augmented Generation grounds model responses in your uploaded documents. Instead of relying only on training data, the model searches your files for relevant passages and uses them as context.</p>
+
+    <h2>Quick RAG (In-Chat)</h2>
+    <p>Drag a file into the chat input. The model will use it for that conversation only.</p>
+
+    <h2>Persistent RAG (Knowledge Bases)</h2>
+    <p>For ongoing use, create a knowledge base and attach it to a model. Every chat with that model can draw from the full document collection.</p>
+
+    <h2>RAG Template</h2>
+    <p>Admins can customize the RAG template in <strong>Admin Panel → Settings → Documents</strong>. This controls how retrieved passages are presented to the model. A good template tells the model to cite sources, acknowledge gaps, and prioritize retrieved content over general knowledge.</p>
+  </div>
+
+  <!-- COLLABORATION -->
+  <div class="page" id="collaboration">
+    <div class="breadcrumb"><a href="#">Docs</a> / Usage / Collaboration</div>
+    <h1>Collaboration</h1>
+
+    <p>Open WebUI supports shared workspaces. Teams can collaborate on models, knowledge bases, and prompt libraries.</p>
+
+    <h2>Sharing</h2>
+    <ul>
+      <li>Set visibility on any resource (model, knowledge base, prompt) to <strong>Limited</strong> or <strong>Public</strong></li>
+      <li>Limited resources are shared with specific users or groups</li>
+      <li>Public resources are visible to everyone on the instance</li>
+    </ul>
+
+    <h2>Groups</h2>
+    <p>Admins can create user groups (by course, department, research team) and assign resource access at the group level.</p>
+  </div>
+
+  <!-- ADMIN -->
+  <div class="page" id="admin">
+    <div class="breadcrumb"><a href="#">Docs</a> / Reference / Admin Settings</div>
+    <h1>Admin Settings</h1>
+
+    <p>Admins access the admin panel through the gear icon or <strong>Admin Panel</strong> in the sidebar.</p>
+
+    <h2>Key Settings</h2>
+    <ul>
+      <li><strong>Connections</strong> — configure Ollama URLs, OpenAI API keys, and other providers</li>
+      <li><strong>Models</strong> — manage which base models are available to users</li>
+      <li><strong>Documents</strong> — configure embedding model, RAG template, chunk size</li>
+      <li><strong>Users</strong> — manage accounts, roles (admin, user), and groups</li>
+      <li><strong>Interface</strong> — customize branding, default model, landing page</li>
+    </ul>
+  </div>
+
+  <!-- FAQ -->
+  <div class="page" id="faq">
+    <div class="breadcrumb"><a href="#">Docs</a> / Reference / FAQ</div>
+    <h1>FAQ</h1>
+
+    <h3>What models are available?</h3>
+    <p>The Sandbox connects to both local (Ollama) and remote (OpenAI-compatible) providers. Available models depend on current infrastructure. Check the model dropdown for the latest list.</p>
+
+    <h3>Can I upload sensitive data?</h3>
+    <p>The Sandbox is hosted on CUNY infrastructure. Follow your department's data handling policies. When in doubt, check with the AI Lab team before uploading sensitive or regulated data.</p>
+
+    <h3>How do I get admin access?</h3>
+    <p>Contact the AI Lab team. Admin access is granted based on role and need.</p>
+
+    <h3>Where can I learn more about Open WebUI?</h3>
+    <p>See the <a href="https://docs.openwebui.com" target="_blank">official Open WebUI documentation</a>.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+  <p><a href="https://milwrite.github.io/quimbot/">← Quimbot</a> · CUNY AI Lab · <a href="https://github.com/milwrite/quimbot/tree/main/docs/cail-docs">Source on GitHub</a></p>
+</div>
+
+<script>
+// SPA navigation
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const page = link.dataset.page;
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+    link.classList.add('active');
+    document.querySelector('.main').scrollTop = 0;
+    window.scrollTo(0, 0);
+    // close mobile sidebar
+    document.querySelector('.sidebar').classList.remove('open');
+    history.replaceState(null, '', '#' + page);
+  });
+});
+
+// Handle direct hash links
+function activateFromHash() {
+  const hash = location.hash.replace('#', '') || 'overview';
+  const page = document.getElementById(hash);
+  if (page && page.classList.contains('page')) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    page.classList.add('active');
+    const link = document.querySelector(`.nav-link[data-page="${hash}"]`);
+    if (link) link.classList.add('active');
+  }
+}
+activateFromHash();
+window.addEventListener('hashchange', activateFromHash);
+</script>
+</body>
+</html>
