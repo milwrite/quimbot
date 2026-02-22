@@ -232,7 +232,7 @@ This disclosure does two things:
 
 These patterns are not prescriptive. They are starting points. Your discipline, your students, and your teaching context will shape how you apply them.
 
-The core principle: **AI should support learning, not replace it.** When in doubt, ask:
+When in doubt, ask:
 - Does this use develop students' capacities?
 - Does it make learning visible?
 - Does it encourage critical thinking?
