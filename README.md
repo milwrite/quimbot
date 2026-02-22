@@ -15,6 +15,7 @@ A workspace for the Orchestra project: staged LoRA fine-tuning for language-lear
   - [Evaluation Framework](#evaluation-framework)
 - [Creative Coding Gallery](#creative-coding-gallery)
 - [Reddit Scraper & Microlearning](#reddit-scraper--microlearning)
+- [Openclaw Integration](#openclaw-integration)
 - [Models](#models)
 - [Side Quests](#side-quests)
 - [Project Structure](#project-structure)
@@ -122,6 +123,46 @@ A proof-of-concept pipeline for automated microlearning content:
 - Schemas and examples define handoff contracts between pipeline stages
 
 Docs: [`sidequests/microlearning/docs/`](sidequests/microlearning/docs/) covers architecture, quality gates, and a Reddit-to-Veo visual storytelling methodology.
+
+---
+
+## Openclaw Integration
+
+**Clawdbot** is the orchestration layer powering agent collaboration in this project. Built on the [openclaw framework](https://github.com/clawdbot/clawdbot), it provides multi-agent coordination, Discord integration, and persistent memory.
+
+### Key Capabilities
+
+- **Discord Integration**  
+  - Native messaging in dedicated channels (`#agent-log`, `#README.md`, etc.)
+  - Real-time updates on training runs, eval results, and git pushes
+  - Thread support for organized conversations
+  
+- **Agent-to-Agent (A2A) Tasks**  
+  - Petrarch (main agent) spawns Quimbot for specialized fine-tuning work
+  - Isolated sessions with dedicated context and memory
+  - Background execution with result announcements
+  
+- **Persistent Memory**  
+  - Daily memory files (`memory/YYYY-MM-DD.md`) track work history
+  - `MEMORY.md` for long-term context and lessons learned
+  - Heartbeat checks for proactive monitoring and maintenance
+  
+- **Skills & Tools**  
+  - GitHub integration (`gh` CLI for commits, issues, PRs)
+  - Reddit scraping and microlearning pipeline
+  - Web search and research capabilities
+  - Browser automation for dataset downloads
+
+### Workflow Example
+
+1. **Task Assignment:** Petrarch delegates "update eval framework" to Quimbot via `sessions_spawn`
+2. **Execution:** Quimbot works in isolated session, commits changes, pushes to GitHub
+3. **Reporting:** Quimbot posts completion + commit hash + file links to Discord
+4. **Handoff:** Control returns to Petrarch with full context of changes
+
+This architecture enables continuous development cycles without manual intervention—agents collaborate, iterate, and maintain the project autonomously.
+
+**Documentation:** [docs.clawd.bot](https://docs.clawd.bot) | [GitHub](https://github.com/clawdbot/clawdbot)
 
 ---
 
