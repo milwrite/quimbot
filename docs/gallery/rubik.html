@@ -191,7 +191,7 @@ const MOVE_NAMES = ['U','D','F','B','R','L'];
 function selfTest() {
   const saved = cloneCube();
   let ok = true;
-  const maxD = Math.floor(n / 2);
+  const maxD = Math.ceil(n / 2);
   for (let m = 0; m < 6; m++) {
     for (let d = 0; d < maxD; d++) {
       initCube();
@@ -215,8 +215,8 @@ function doScramble() {
   solving = false;
   solveQueue = [];
   moveHistory = [];
-  const maxDepth = Math.floor(n / 2); // inner layers to scramble
-  const count = n * 25;
+  const maxDepth = Math.ceil(n / 2); // all layers including middle slice
+  const count = n * n * 10; // more moves for larger cubes
   for (let i = 0; i < count; i++) {
     const m = Math.floor(Math.random() * 6);
     const d = Math.floor(Math.random() * maxDepth);
@@ -380,7 +380,7 @@ function animate() {
     autoTimer++;
     if (autoTimer % 90 === 0) {
       const m = Math.floor(Math.random() * 6);
-      const d = Math.floor(Math.random() * Math.floor(n / 2));
+      const d = Math.floor(Math.random() * Math.ceil(n / 2));
       MOVES[m](d);
       moveHistory.push({m, d});
     }
