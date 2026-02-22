@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Creative Coding Gallery</title>
+<title>Quimbot — Orchestra Project Showcase</title>
 <style>
 :root{--bg:#0b0e14;--fg:rgba(255,255,255,0.92);--muted:rgba(255,255,255,0.55);--card:rgba(255,255,255,0.04);--stroke:rgba(255,255,255,0.10);--accent:#c8c8c8}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -13,12 +13,24 @@ body{min-height:100vh;padding:clamp(24px,4vw,64px)}
 header{max-width:960px;margin:0 auto 48px}
 h1{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.03em;line-height:1.1}
 .sub{color:var(--muted);margin-top:10px;font-size:clamp(14px,1.6vw,18px);line-height:1.5;max-width:640px}
+.collab{margin-top:16px;font-size:14px;color:var(--muted);font-style:italic}
+.collab a{color:var(--accent);text-decoration:none}
+.collab a:hover{text-decoration:underline}
 
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:32px auto 24px;max-width:960px}
+nav{max-width:960px;margin:0 auto 32px;border-bottom:1px solid var(--stroke)}
+.nav-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.nav-tab{padding:12px 20px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:15px;font-weight:500;border-bottom:2px solid transparent;transition:all .2s}
+.nav-tab:hover{color:var(--fg)}
+.nav-tab.active{color:var(--fg);border-bottom-color:var(--accent)}
+
+.section{display:none;max-width:960px;margin:0 auto}
+.section.active{display:block}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
 .tag{padding:5px 14px;border-radius:20px;border:1px solid var(--stroke);background:transparent;color:var(--muted);font-size:13px;cursor:pointer;transition:all .2s}
 .tag:hover,.tag.active{background:rgba(255,255,255,0.08);color:var(--fg);border-color:rgba(255,255,255,0.25)}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;max-width:960px;margin:0 auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .card{border:1px solid var(--stroke);border-radius:12px;overflow:hidden;background:var(--card);transition:transform .2s,border-color .2s}
 .card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,0.2)}
 .card a{text-decoration:none;color:inherit;display:block}
@@ -32,6 +44,24 @@ h1{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.03em;line-he
 .card-tag{font-size:11px;padding:2px 8px;border-radius:10px;border:1px solid var(--stroke);color:var(--muted)}
 .card-author{font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px}
 
+.workflow-card{border:1px solid var(--stroke);border-radius:12px;padding:24px;background:var(--card);margin-bottom:20px;transition:border-color .2s}
+.workflow-card:hover{border-color:rgba(255,255,255,0.2)}
+.workflow-title{font-size:20px;font-weight:600;margin-bottom:8px}
+.workflow-status{display:inline-block;padding:4px 12px;border-radius:12px;font-size:12px;margin-bottom:12px;background:rgba(255,255,255,0.08);color:var(--muted)}
+.workflow-desc{color:var(--muted);line-height:1.6;margin-bottom:16px}
+.workflow-meta{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.workflow-meta a{color:var(--accent);text-decoration:none}
+.workflow-meta a:hover{text-decoration:underline}
+
+.doc-list{list-style:none}
+.doc-item{border:1px solid var(--stroke);border-radius:8px;padding:16px 20px;margin-bottom:12px;background:var(--card);transition:border-color .2s}
+.doc-item:hover{border-color:rgba(255,255,255,0.2)}
+.doc-item a{color:var(--fg);text-decoration:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.doc-item a:hover .doc-title{color:var(--accent)}
+.doc-title{font-weight:500;font-size:16px}
+.doc-desc{color:var(--muted);font-size:13px;margin-top:4px}
+.doc-arrow{color:var(--muted);font-size:18px}
+
 footer{max-width:960px;margin:64px auto 0;padding-top:24px;border-top:1px solid var(--stroke);color:var(--muted);font-size:13px;text-align:center}
 footer a{color:var(--accent)}
 
@@ -44,9 +74,22 @@ footer a{color:var(--accent)}
 <body>
 
 <header>
-<h1>Creative Coding Gallery</h1>
-<p class="sub">A running collection of generative artifacts. Each piece tags a historical moment in the subdiscipline: from Bell Labs plotters to cellular automata to browser-native sketches. Click any card to run it full-screen.</p>
+<h1>Quimbot</h1>
+<p class="sub">Orchestra project showcase: staged LoRA fine-tuning for language-learning assistants, creative coding experiments, and agent-driven workflows.</p>
+<p class="collab">A collaboration between <a href="https://github.com/milwrite" target="_blank">@milwrite</a> (Petrarch) and Quimbot, powered by <a href="https://docs.clawd.bot" target="_blank">Clawdbot</a>.</p>
 </header>
+
+<nav>
+<div class="nav-tabs">
+<button class="nav-tab active" data-section="gallery">Creative Coding</button>
+<button class="nav-tab" data-section="workflows">Workflows</button>
+<button class="nav-tab" data-section="docs">Dev Docs</button>
+</div>
+</nav>
+
+<!-- CREATIVE CODING GALLERY -->
+<section class="section active" id="gallery">
+<p style="color:var(--muted);margin-bottom:24px">A running collection of generative artifacts. Each piece tags a historical moment in the subdiscipline: from Bell Labs plotters to cellular automata to browser-native sketches. Click any card to run it full-screen.</p>
 
 <div class="tags" id="filters">
 <button class="tag active" data-filter="all">All</button>
@@ -61,12 +104,149 @@ footer a{color:var(--accent)}
 </div>
 
 <div class="grid" id="grid"></div>
+</section>
+
+<!-- WORKFLOWS -->
+<section class="section" id="workflows">
+<p style="color:var(--muted);margin-bottom:24px">Situated workflows developed through agent collaboration—from fine-tuning pipelines to Reddit scraping to autonomous git workflows.</p>
+
+<div class="workflow-card">
+<div class="workflow-title">Two-Stage Fine-Tuning Pipeline</div>
+<div class="workflow-status">🔄 Stage 1 In Progress</div>
+<div class="workflow-desc">
+Staged LoRA fine-tuning on Qwen-8B to build pedagogically-aware conversational models. Stage 1 establishes core linguistic competence; Stage 2 produces language-specific variants (Spanish heritage, Mandarin L2, etc.). Training mix: 43,175 records from LMSYS Chat-1M, Magpie, TOEFL, and prosocial dialogue corpora.
+</div>
+<div class="workflow-meta">
+<span>📂 <a href="https://github.com/milwrite/quimbot/tree/main/fine-tuning" target="_blank">fine-tuning/</a></span>
+<span>📊 <a href="https://github.com/milwrite/quimbot/tree/main/evaluation" target="_blank">Evaluation Framework</a></span>
+<span>📄 <a href="https://github.com/milwrite/quimbot/blob/main/research/CUNY-LANGUAGE-ARCHITECTURE.md" target="_blank">Architecture Spec</a></span>
+</div>
+</div>
+
+<div class="workflow-card">
+<div class="workflow-title">Reddit Scraper & Microlearning Pipeline</div>
+<div class="workflow-status">🧪 POC Stage</div>
+<div class="workflow-desc">
+Automated pipeline from trending Reddit posts to microlearning content packets. Workflow: scrape trending posts → rank by educational potential → human approval → generate structured learning packets → publish. Includes schemas, quality gates, and a Reddit-to-Veo visual storytelling methodology.
+</div>
+<div class="workflow-meta">
+<span>📂 <a href="https://github.com/milwrite/quimbot/tree/main/sidequests/microlearning" target="_blank">sidequests/microlearning/</a></span>
+<span>📄 <a href="https://github.com/milwrite/quimbot/tree/main/sidequests/microlearning/docs" target="_blank">Pipeline Docs</a></span>
+</div>
+</div>
+
+<div class="workflow-card">
+<div class="workflow-title">Agent Collaboration via Clawdbot</div>
+<div class="workflow-status">✅ Production</div>
+<div class="workflow-desc">
+Multi-agent coordination through Clawdbot (openclaw framework). Petrarch delegates specialized tasks to Quimbot via isolated sessions; Quimbot executes, commits changes, posts updates to Discord, and hands control back. Features: persistent memory (daily logs + MEMORY.md), heartbeat checks, GitHub integration, and Discord-native messaging.
+</div>
+<div class="workflow-meta">
+<span>📂 <a href="https://github.com/milwrite/quimbot/tree/main/agents" target="_blank">agents/</a></span>
+<span>📄 <a href="https://docs.clawd.bot" target="_blank">Clawdbot Docs</a></span>
+<span>🔗 <a href="https://github.com/clawdbot/clawdbot" target="_blank">openclaw GitHub</a></span>
+</div>
+</div>
+
+<div class="workflow-card">
+<div class="workflow-title">ITP Lab Presentation Deck</div>
+<div class="workflow-status">✅ Complete</div>
+<div class="workflow-desc">
+Interactive slide deck for ITP lab presentation. Built with Next.js, deployed to GitHub Pages. Showcases project architecture, training pipeline, and evaluation methodology.
+</div>
+<div class="workflow-meta">
+<span>🌐 <a href="https://milwrite.github.io/quimbot/itp-lab/" target="_blank">Live Deck</a></span>
+<span>📂 <a href="https://github.com/milwrite/quimbot/tree/main/sidequests/next/itp-lab" target="_blank">Source</a></span>
+</div>
+</div>
+</section>
+
+<!-- DEV DOCS -->
+<section class="section" id="docs">
+<p style="color:var(--muted);margin-bottom:24px">Project documentation, research notes, and agent coordination artifacts.</p>
+
+<ul class="doc-list">
+<li class="doc-item">
+<a href="https://github.com/milwrite/quimbot/blob/main/README.md" target="_blank">
+<div>
+<div class="doc-title">README.md</div>
+<div class="doc-desc">Project overview, architecture, training data, pipeline components</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="https://github.com/milwrite/quimbot/blob/main/agents/KANBAN.md" target="_blank">
+<div>
+<div class="doc-title">KANBAN.md</div>
+<div class="doc-desc">Task board, sprint planning, stand-ups</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="https://github.com/milwrite/quimbot/blob/main/agents/STATUS.md" target="_blank">
+<div>
+<div class="doc-title">STATUS.md</div>
+<div class="doc-desc">Real-time project status, current training runs, blockers</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="https://github.com/milwrite/quimbot/blob/main/agents/DEVLOG.md" target="_blank">
+<div>
+<div class="doc-title">DEVLOG.md</div>
+<div class="doc-desc">Timestamped work notes, decisions, observations</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="https://github.com/milwrite/quimbot/blob/main/research/CUNY-LANGUAGE-ARCHITECTURE.md" target="_blank">
+<div>
+<div class="doc-title">CUNY Language Architecture</div>
+<div class="doc-desc">Full architectural specification for language-learning assistant</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="https://github.com/milwrite/quimbot/blob/main/evaluation/QWEN-EVAL-V2-README.md" target="_blank">
+<div>
+<div class="doc-title">Evaluation Framework (v2)</div>
+<div class="doc-desc">15+ metrics, parallel execution, caching, comparison reporters</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="https://github.com/milwrite/quimbot/tree/main/sidequests/microlearning/docs" target="_blank">
+<div>
+<div class="doc-title">Microlearning Pipeline Docs</div>
+<div class="doc-desc">Architecture, quality gates, Reddit-to-Veo methodology</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="https://github.com/milwrite/quimbot/blob/main/agents/COLLABORATION.md" target="_blank">
+<div>
+<div class="doc-title">Multi-Agent Collaboration Protocol</div>
+<div class="doc-desc">Coordination patterns, handoff procedures, memory management</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+</ul>
+</section>
 
 <footer>
-<p>Source: <a href="https://github.com/milwrite/quimbot">milwrite/quimbot</a></p>
+<p>Source: <a href="https://github.com/milwrite/quimbot" target="_blank">milwrite/quimbot</a></p>
 </footer>
 
 <script>
+// Creative Coding Gallery Data
 const artifacts = [
   {
     title: "10 PRINT",
@@ -158,7 +338,6 @@ const artifacts = [
     author: "petrarch",
     year: 1983
   },
-  // deck flow field merged with Petrarch's standalone version above
   {
     title: "Starfield",
     era: "1978+ · Demo Scene",
@@ -179,7 +358,6 @@ const artifacts = [
   }
 ];
 
-// sort by year
 artifacts.sort((a,b) => a.year - b.year);
 
 const grid = document.getElementById('grid');
@@ -214,6 +392,16 @@ filters.addEventListener('click', e => {
   filters.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
   e.target.classList.add('active');
   renderCards(e.target.dataset.filter);
+});
+
+// Tab Navigation
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.section).classList.add('active');
+  });
 });
 
 renderCards('all');
