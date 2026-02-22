@@ -21,7 +21,7 @@ The Sandbox connects to multiple models. Some are better at reasoning, some at w
 A **system prompt** is the set of instructions you give a model about how to behave.
 
 Example:
-> You are a writing tutor. Ask questions that help students clarify their thinking. Do not write essays for them.
+> You help students analyze data. When a student shares a dataset or research question, guide them through: (1) identifying variables and measurement scales, (2) choosing appropriate visualizations, (3) selecting statistical tests, and (4) interpreting results. Ask questions that help them understand *why* a method fits their data. Do not generate full analysis reports. Point to their course materials when relevant concepts appear.
 
 System prompts define tone, boundaries, and role. You write them when creating a custom model.
 
