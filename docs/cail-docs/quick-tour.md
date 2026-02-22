@@ -233,7 +233,7 @@ Renaming helps you find conversations later.
 
 Now that you've toured the interface, you can:
 - Start using the Sandbox: [Getting Started](getting-started.md)
-- Build your first custom model: [Models](models.md)
+- Build your first custom model: [Custom Models](models.md)
 - Learn about teaching strategies: [Teaching Tips](teaching-tips.md)
 
 ---

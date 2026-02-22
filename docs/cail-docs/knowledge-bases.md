@@ -126,4 +126,4 @@ The default embedding model (Sentence Transformers MiniLM-L6) works well for mos
 
 ---
 
-[← Return to Models](models.md) | [Continue to Tools & Skills →](tools-skills.md)
+[← Return to Custom Models](models.md) | [Continue to Tools & Skills →](tools-skills.md)

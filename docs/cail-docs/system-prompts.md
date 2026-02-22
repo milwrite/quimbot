@@ -304,4 +304,4 @@ Use these to personalize interactions. A prompt that opens with "Hello {{USER_NA
 
 ---
 
-[← Return to Models](models.md) | [Continue to Knowledge Bases →](knowledge-bases.md)
+[← Return to Custom Models](models.md) | [Continue to Knowledge Bases →](knowledge-bases.md)
