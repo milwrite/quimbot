@@ -24,7 +24,7 @@ Build custom AI configurations for your courses and research. Create models, upl
 
 Design teaching activities, onboard students, and integrate AI tools across a semester.
 
-- [Pedagogical Patterns](pedagogical-patterns.md)
+- [Teaching with AI](teaching-with-ai.md)
 - [Sample Activities](sample-activities.md)
 - [Student Onboarding](student-onboarding.md)
 - [Use Cases](use-cases.md)

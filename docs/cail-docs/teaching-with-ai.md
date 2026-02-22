@@ -1,4 +1,4 @@
-# Pedagogical Patterns for AI Integration
+# Teaching with AI
 
 Integrating AI into teaching requires more than technical setup. It demands intentional pedagogical design that preserves learning objectives, supports academic integrity, and develops students' critical capacities. This page offers patterns drawn from research on AI in education and adapted for CUNY contexts.
 
