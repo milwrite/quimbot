@@ -238,4 +238,10 @@ Now that you've toured the interface, you can:
 
 ---
 
+## Need Help?
+
+The CUNY AI Lab maintains the Sandbox and provides support through [workshops and office hours](https://ailab.gc.cuny.edu). Check the [AI Lab website](https://ailab.gc.cuny.edu) for schedules and contact information.
+
+---
+
 [← Return to Basic Concepts](basic-concepts.md) | [Continue to Getting Started →](getting-started.md)
