@@ -26,7 +26,7 @@ canvas{display:block;flex:1;width:100%;cursor:pointer}
 <div class="panel">
 <div>
 <span class="info" id="info">3×3 · solved</span>
-<span class="hint"> · click scramble · R reset · S size · V solve</span>
+<span class="hint"> · tap/click scramble · swipe ↔ size · swipe ↑ solve · swipe ↓ reset</span>
 </div>
 <div class="right">
 <button onclick="doScramble()">scramble</button>
@@ -367,14 +367,51 @@ function animate() {
 
 // ── Events ──
 
-canvas.addEventListener('click', () => doScramble());
+// Click for desktop (touch handled separately above)
+canvas.addEventListener('click', e => {
+  if (e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) return;
+  doScramble();
+});
 
 document.addEventListener('keydown', e => {
-  if (e.key === 's' || e.key === 'S') cycleSize();
-  else if (e.key === 'r' || e.key === 'R') doReset();
-  else if (e.key === 'v' || e.key === 'V') doSolve();
+  // Only handle if not typing in an input
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === 's' || e.key === 'S') { e.preventDefault(); cycleSize(); }
+  else if (e.key === 'r' || e.key === 'R') { e.preventDefault(); doReset(); }
+  else if (e.key === 'v' || e.key === 'V') { e.preventDefault(); doSolve(); }
   else if (e.key === ' ') { e.preventDefault(); doScramble(); }
 });
+
+// ── Touch Gestures ──
+let touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+canvas.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+  touchStartTime = Date.now();
+}, {passive: true});
+canvas.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  const dt = Date.now() - touchStartTime;
+  const dist = Math.sqrt(dx*dx + dy*dy);
+
+  if (dist < 20 && dt < 300) {
+    // Tap = scramble
+    doScramble();
+  } else if (dist > 50 && dt < 500) {
+    if (Math.abs(dx) > Math.abs(dy)) {
+      // Horizontal swipe = cycle size
+      cycleSize();
+    } else if (dy < 0) {
+      // Swipe up = solve
+      doSolve();
+    } else {
+      // Swipe down = reset
+      doReset();
+    }
+  }
+  e.preventDefault();
+}, {passive: false});
 
 // ── Resize ──
 
