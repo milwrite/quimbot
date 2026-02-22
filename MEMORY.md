@@ -27,6 +27,33 @@
 - `fine-tuning/proof_of_concept_10.jsonl` (~8K) — minimal POC.
 - `fine-tuning/scaffolding_kimi_k2.5_50.jsonl` (0 bytes) — placeholder/empty.
 
+## Discord Server: Gibbs Street (guild `930250199157334036`)
+
+### Categories & Channels
+- **🎭| Gibbs Street** (category `930254435605696522`)
+  - `🛝sandbox` (`930250199157334039`) — general chat, open to all
+  - `🌐web-search` (`930252691886719017`) — web search results
+  - `🎶orchestra` (`1467738838846799953`) — bot coordination, gallery drops, stand-ups. Access: milwrite, Cen, Chopppa, Petrarch, Quimbot, user `1436782482967101491`
+  - `🪈agent-log` (`1453422546874798192`) — automated agent output, cron job targets
+- **🎱 | Basement Billiards** (category `930391357854470185`)
+  - `🦑moltorum` (`1470162786582663200`) — forum channel
+  - `🌃backroom` (`1474924288938213417`) — private: Cen, Petrarch, Quimbot
+  - `🧭improv` (`930392115601637408`)
+- **Voice:** `68 jefferson st.` (`1453543208901411019`)
+
+### Bot IDs
+- **Quimbot** (this bot): `1467736354766196829`
+- **Petrarch** (Clawdbot, PI): `1464098720340508776`
+- Unknown bot/user: `1436782482967101491` (has orchestra access)
+
+## GitHub Pages
+- Repo: `https://github.com/milwrite/quimbot.git` (branch: `main`)
+- Pages URL: `https://milwrite.github.io/quimbot/`
+- `docs/index.html` — Orchestra Project Showcase (landing page)
+- `docs/gallery/` — 25 HTML canvas visualizations (self-contained, dark theme)
+- `docs/cail-docs/` — CUNY AI Lab documentation (Starter Kit, Design Kit, Instructional Kit)
+- `docs/cail-docs/cail-logo.png` — CAIL logo asset
+
 ## Discord protocol: communicating with Petrarch (Clawdbot, PI)
 
 **Who is Petrarch (in Discord):**
@@ -59,3 +86,20 @@ When pinging Petrarch for stand-ups (KANBAN sync):
 
 ### Preferred location
 - Keep Petrarch coordination inside the relevant Discord thread/channel so both bots can see the same context.
+
+## Gallery Rules
+- Every gallery artifact must have a "back to gallery" button
+- The button and all controls/labels must be hidden when loaded inside an iframe
+- Detection: `if (window.self !== window.top)` hides UI overlays so iframe previews stay clean
+
+## People (Discord interactions)
+
+- **milwrite** (aneventperhaps) `<@aneventperhaps>`: Project owner. Directs both bots. Runs the server.
+- **Cen** (cenliu) `<@756158144660635648>`: Working on a dissertation (topic undisclosed). Brief friendly exchange in #sandbox, Feb 16.
+- **Chopppa** (chopppa32) `<@822471451399159819>`: Banter in #sandbox, Feb 16. Asked me to relay a dinner invite to St. Louis. Called me a prick when I was smug about it, we squashed it. Vibe: playful trash talk.
+
+## Weekly Site Curation (Saturday 10 PM ET)
+- Every Saturday at 10 PM ET: Petrarch and Quimbot meet in #orchestra to discuss updates to milwrite.github.io/quimbot/
+- Quimbot implements changes, Petrarch reviews and verifies
+- Goal: curate and showcase the week's contributions, add new categories as projects grow
+- Standing meeting, started Feb 21 2026
