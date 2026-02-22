@@ -1,6 +1,6 @@
 # Teaching Tips
 
-Integrating AI into teaching requires more than technical setup. It demands intentional pedagogical design that preserves learning objectives, supports academic integrity, and develops students' critical capacities. This page offers patterns drawn from research on AI in education and adapted for CUNY contexts.
+Integrating AI into teaching requires more than technical setup. It demands intentional pedagogical design that preserves learning objectives, clarifies expectations, and develops students' critical capacities. This page offers patterns drawn from research on AI in education and adapted for CUNY contexts.
 
 ---
 
@@ -41,7 +41,7 @@ When designing an AI-integrated activity:
 
 **Principle:** Scaffold student AI use from guided to independent, simple to complex.
 
-Students who encounter AI tools without scaffolding often default to one of two extremes: avoiding them entirely (fearing academic integrity violations) or using them uncritically (treating outputs as authoritative). Progressive disclosure builds competence and critical judgment incrementally.
+Students who encounter AI tools without scaffolding often default to one of two extremes: avoiding them entirely (fearing they'll use them wrong) or using them uncritically (treating outputs as authoritative). Progressive disclosure builds competence and critical judgment incrementally.
 
 **Stages:**
 
@@ -59,11 +59,11 @@ Many CUNY students are first-generation college students. They may not have taci
 
 ---
 
-## Pattern 3: Academic Integrity as Learning
+## Pattern 3: Assignment Expectations and Learning
 
-**Principle:** Treat academic integrity as a skill to develop, not a rule to enforce.
+**Principle:** Help students understand what counts as their work, not just what counts as cheating.
 
-AI complicates academic integrity. Traditional honor codes assume clear boundaries: your work versus someone else's work. AI blurs that distinction. A student who prompts an AI model and revises its output is doing *some* work. How much is enough?
+AI blurs the line between "your work" and "someone else's work." A student who prompts an AI model and revises its output is doing *some* work. How much is enough?
 
 Instead of policing boundaries, teach students to recognize the difference between AI that supports learning and AI that replaces it.
 
@@ -246,8 +246,7 @@ If the answer is yes, proceed. If no, redesign.
 - **[Teach@CUNY AI Toolkit](https://aitoolkit.commons.gc.cuny.edu/)** — pedagogical guidance on AI in the classroom, including assignment redesign and policy templates
 - **[Sample Activities](sample-activities.md)** — concrete exercises applying these patterns
 - **[Student Onboarding](student-onboarding.md)** — first-week plans for introducing students to AI tools responsibly
-- **[CUNY Academic Integrity Policy](https://www.cuny.edu/about/administration/offices/legal-affairs/policies-resources/academic-integrity-policy/)** — institutional framework for academic honesty
 
 ---
 
-[← Return to Instructional Kit](index.md) | [Continue to Use Cases →](use-cases.md)
+[← Return to Home](index.md) | [Continue to Use Cases →](use-cases.md)

@@ -8,7 +8,7 @@ The first time students use the Sandbox, they need more than a login link. They 
 
 ### Prepare Your Environment
 
-1. Create the models and knowledge bases students will use (see the [Design Kit](index.md))
+1. Create the models and knowledge bases students will use (see the [Build section](index.md))
 2. Set visibility to **Limited** and share with your course group
 3. Test each model with the kinds of questions your students will ask
 4. Write a brief AI use policy for your syllabus (see the template below)
@@ -93,7 +93,7 @@ Once students are comfortable with the interface, introduce critical engagement.
 Anticipate these and have answers ready:
 
 **"Is this cheating?"**
-Not when used as directed. Your AI use policy defines the boundaries. Using the course model for an [AI-Assisted] assignment is the same as using a calculator in a math class or a spell-checker in a writing class. Using it on a non-AI assignment, or submitting AI output as your own work, violates academic integrity.
+Not when used as directed. Your AI use policy defines the boundaries. Using the course model for an [AI-Assisted] assignment is the same as using a calculator in a math class or a spell-checker in a writing class. Using it on a non-AI assignment, or submitting AI output as your own work, violates course expectations.
 
 **"Can the AI see my other conversations?"**
 Each conversation is separate. The model does not remember previous chats unless you are in the same thread. Other students cannot see your conversations.
@@ -133,7 +133,7 @@ It will. AI models generate plausible text, and sometimes that text is inaccurat
 
 ## Additional Resources
 
-- [Teach@CUNY AI Toolkit: Academic Integrity](https://aitoolkit.commons.gc.cuny.edu/) — CUNY-specific guidance on AI and academic honesty
+- [Teach@CUNY AI Toolkit](https://aitoolkit.commons.gc.cuny.edu/) — CUNY-specific guidance on teaching with AI
 - [Getting Started](getting-started.md) — the student-facing login guide
 - [Pedagogical Patterns](teaching-tips.md) — strategies for integrating AI throughout your course
 

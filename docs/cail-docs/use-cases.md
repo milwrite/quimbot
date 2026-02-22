@@ -347,4 +347,4 @@ These use cases share common principles:
 
 ---
 
-[← Return to Pedagogical Patterns](teaching-tips.md) | [Return to Instructional Kit](index.md)
+[← Return to Teaching Tips](teaching-tips.md) | [Return to Home](index.md)

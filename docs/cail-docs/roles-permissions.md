@@ -106,4 +106,4 @@ Custom roles inherit from the default `@everyone` baseline, similar to how Disco
 
 ---
 
-[← Return to Tools & Skills](tools-skills.md) | [Continue to Instructional Kit →](index.md)
+[← Return to Tools & Skills](tools-skills.md) | [Teaching Tips →](teaching-tips.md)

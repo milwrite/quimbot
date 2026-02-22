@@ -34,7 +34,7 @@ Here's how to build a custom model:
 
 ## Writing System Prompts
 
-The system prompt is where you tell the model who it is and how to behave. A good prompt for a CUNY context does three things: it establishes the model's role, sets boundaries around academic integrity, and provides enough specificity that the model knows what kind of help to offer.
+The system prompt is where you tell the model who it is and how to behave. A good prompt for a CUNY context does three things: it establishes the model's role, sets boundaries around what the model will and won't do, and provides enough specificity that the model knows what kind of help to offer.
 
 Here is an example for a writing tutor:
 
