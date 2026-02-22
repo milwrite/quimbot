@@ -81,7 +81,7 @@ When you share a resource with a group:
 - Every member of that group gains access immediately
 - New members added to the group automatically see the shared resources
 - Members removed from the group lose access
-- You manage one group instead of dozens of individual permissions
+- You manage one group. Thirty students, one permission change.
 
 ---
 

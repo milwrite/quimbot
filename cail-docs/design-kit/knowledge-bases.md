@@ -2,7 +2,7 @@
 
 When you chat with a base model, it draws on whatever it absorbed during training. That training data may be months or years old. It may not include your syllabus, your department's policies, or the articles you assigned last week. A Knowledge Base changes that. You upload your documents, and the model searches them before responding.
 
-This process is called Retrieval-Augmented Generation (RAG). It means the model checks your documents before answering, rather than relying on its general training data alone.
+This process is called Retrieval-Augmented Generation (RAG). It means the model checks your documents before answering.
 
 ---
 
@@ -75,7 +75,7 @@ Now every conversation with that model draws from your uploaded documents.
 
 ### What Happens Under the Hood
 
-When you upload a document, the Sandbox splits it into chunks and converts each chunk into a numerical representation called an embedding. Embeddings capture the meaning of the text, not just the keywords. This means a question about "thesis committee requirements" can surface a passage about "dissertation advisory boards" because the concepts are semantically related.
+When you upload a document, the Sandbox splits it into chunks and converts each chunk into a numerical representation called an embedding. Embeddings capture the meaning of the text, including synonyms and related concepts. This means a question about "thesis committee requirements" can surface a passage about "dissertation advisory boards" because the concepts are semantically related.
 
 When a user asks a question, the system finds the chunks most relevant to the query and injects them into the model's context window. The model then generates its response with your documents as context.
 
@@ -123,7 +123,7 @@ The default embedding model (Sentence Transformers MiniLM-L6) works well for mos
 ## Callout
 
 <div class="callout">
-  <strong>For researchers:</strong> Consider building knowledge bases around your methodological frameworks and foundational literature. A model grounded in your curated sources can help with literature review, source comparison, and gap identification while citing the documents you actually trust, rather than hallucinating references that look plausible but do not exist.
+  <strong>For researchers:</strong> Consider building knowledge bases around your methodological frameworks and foundational literature. A model grounded in your curated sources can help with literature review, source comparison, and gap identification while citing the documents you actually trust.
 </div>
 
 ---

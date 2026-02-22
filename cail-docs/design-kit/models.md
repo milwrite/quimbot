@@ -6,12 +6,12 @@ You already know how to chat with an AI model. This page covers the next step: c
 
 A base model answers questions from its general training data. That data may be outdated, incomplete, or irrelevant to your discipline. A custom model lets you define the boundaries: what the AI should do, what it should refuse to do, and what materials it should draw from when responding.
 
-For a composition instructor, that might mean a writing tutor that asks follow-up questions instead of producing finished essays. For a public health researcher, a literature review assistant grounded in your curated bibliography. For a digital humanities seminar, an analysis tool that knows your corpus and your methods.
+For a composition instructor, that might mean a writing tutor that asks follow-up questions to help students revise their own drafts. For a public health researcher, a literature review assistant grounded in your curated bibliography. For a digital humanities seminar, an analysis tool that knows your corpus and your methods.
 
 ## Model Uses
 
-- **Writing Tutor**: Create a model that responds to student drafts with questions and suggestions rather than rewrites. Encode your rubric and assignment expectations directly in the system prompt.
-- **Course Advisor**: Build a model grounded in your syllabus, program handbook, and departmental policies. Students get answers drawn from institutional documents rather than generic training data.
+- **Writing Tutor**: Create a model that responds to student drafts with questions and suggestions. It guides revision; students do the rewriting. Encode your rubric and assignment expectations directly in the system prompt.
+- **Course Advisor**: Build a model grounded in your syllabus, program handbook, and departmental policies. Students get answers drawn from institutional documents.
 - **Research Assistant**: Configure a model with your annotated bibliography in its knowledge base and academic search tools enabled. Ask it to compare methodological approaches across your sources.
 - **Language Practice Partner**: Set up a model with a system prompt that maintains conversation in a target language, corrects errors gently, and adjusts complexity to the learner's level.
 - **Exam Review Guide**: Attach lecture notes and past study guides as a knowledge base. Students can quiz themselves and get explanations grounded in your course materials.
