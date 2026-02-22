@@ -72,7 +72,7 @@ Before you start building, take a moment to understand the layout.
 ### The Sidebar (Left)
 
 - **Chats** — Your conversation history. Each chat is saved automatically.
-- **Workspace** — Where you'll create models, build knowledge bases, and configure tools (covered in the Build section)
+- **Workspace** — Where you'll create models, build knowledge bases, and configure tools (covered in the Design & Test section)
 - **Admin Panel** — Instance-wide settings (if you have admin access)
 
 ### The Top Bar
@@ -136,7 +136,7 @@ Once you've adjusted your preferences:
 
 ## What's Next?
 
-You've logged in, had a conversation, and customized your workspace. That's the foundation. From here, you can either keep chatting to explore what the default models can do, or you can move into the Build section to start creating custom configurations.
+You've logged in, had a conversation, and customized your workspace. That's the foundation. From here, you can either keep chatting to explore what the default models can do, or you can move into the Design & Test section to start creating custom configurations.
 
 ### If You Want to Keep Exploring
 
@@ -146,7 +146,7 @@ You've logged in, had a conversation, and customized your workspace. That's the 
 
 ### If You're Ready to Build
 
-Head to the **Build** section of this documentation. There you'll learn to:
+Head to the **Design & Test** section of this documentation. There you'll learn to:
 - Create custom models with specific behaviors
 - Build knowledge bases from your course materials
 - Bind tools that extend what the AI can do

@@ -2,11 +2,11 @@
 
 The CUNY AI Lab Sandbox is an AI platform for teaching and research at CUNY. It runs on CUNY infrastructure, keeps student data private, and gives you full control over how AI tools work in your courses and projects.
 
-## Get Started
+## Getting Started
 
 - [Getting Started](getting-started.md) — Log in, explore the interface, have your first conversation.
 
-## Build
+## Design & Test
 
 - [Models](models.md) — Create custom AI agents for your courses and research.
 - [System Prompts](system-prompts.md) — Write prompts that shape how models interact with students.
@@ -14,7 +14,7 @@ The CUNY AI Lab Sandbox is an AI platform for teaching and research at CUNY. It 
 - [Tools & Skills](tools-skills.md) — Add web search, code execution, and domain expertise.
 - [Roles & Permissions](roles-permissions.md) — Control who can access what.
 
-## Teach
+## Teach & Refine
 
 - [Teaching Tips](teaching-tips.md) — Strategies for integrating AI into your courses.
 - [Sample Activities](sample-activities.md) — Ready-to-use exercises with model configurations.

@@ -8,7 +8,7 @@ The first time students use the Sandbox, they need more than a login link. They 
 
 ### Prepare Your Environment
 
-1. Create the models and knowledge bases students will use (see the [Build section](index.md))
+1. Create the models and knowledge bases students will use (see the [Design & Test section](index.md))
 2. Set visibility to **Limited** and share with your course group
 3. Test each model with the kinds of questions your students will ask
 4. Write a brief AI use policy for your syllabus (see the template below)
