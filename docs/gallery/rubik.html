@@ -167,15 +167,15 @@ function drawCube() {
     }
   }
 
-  // Right face (faces[2]) — y = n, x and z vary
+  // Right face (faces[2]) — y = 0, x and z vary
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
       const x0 = c + g, x1 = c + 1 - g;
       const z0 = (n - 1 - r) + g, z1 = (n - r) - g;
-      const p1 = isoProject(x0, n, z1, cellSize, cx, cy);
-      const p2 = isoProject(x1, n, z1, cellSize, cx, cy);
-      const p3 = isoProject(x1, n, z0, cellSize, cx, cy);
-      const p4 = isoProject(x0, n, z0, cellSize, cx, cy);
+      const p1 = isoProject(x0, 0, z1, cellSize, cx, cy);
+      const p2 = isoProject(x1, 0, z1, cellSize, cx, cy);
+      const p3 = isoProject(x1, 0, z0, cellSize, cx, cy);
+      const p4 = isoProject(x0, 0, z0, cellSize, cx, cy);
       drawQuad(p1, p2, p3, p4, darken(faces[2][r][c], 0.45));
     }
   }
