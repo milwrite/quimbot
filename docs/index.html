@@ -90,6 +90,7 @@ footer a{color:var(--accent)}
 <!-- CREATIVE CODING GALLERY -->
 <section class="section active" id="gallery">
 <p style="color:var(--muted);margin-bottom:24px">A running collection of generative artifacts. Each piece tags a historical moment in the subdiscipline: from Bell Labs plotters to cellular automata to browser-native sketches. Click any card to run it full-screen.</p>
+<p style="margin-bottom:24px"><a href="gallery/" style="color:var(--accent);font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--stroke);padding:8px 18px;border-radius:8px;display:inline-block;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.3)'" onmouseout="this.style.borderColor=''">Browse Full Gallery →</a></p>
 
 <div class="tags" id="filters">
 <button class="tag active" data-filter="all">All</button>
@@ -364,6 +365,96 @@ const artifacts = [
     href: "gallery/constraint.html",
     author: "quimbot",
     year: 2000
+  },
+  {
+    title: "Gaussian Quadratic",
+    era: "1965 · A. Michael Noll",
+    desc: "One of the first computer artworks from Bell Labs. Points distributed along Gaussian-perturbed quadratic curves.",
+    tags: ["plotter-era"],
+    href: "gallery/noll.html",
+    author: "quimbot",
+    year: 1965
+  },
+  {
+    title: "Walk-Through Raster",
+    era: "1965 · Frieder Nake",
+    desc: "Random walk subdivision with Bauhaus palette. Nake was among the first to exhibit computer art in galleries.",
+    tags: ["plotter-era","interaction"],
+    href: "gallery/nake.html",
+    author: "quimbot",
+    year: 1965
+  },
+  {
+    title: "Harmonograph",
+    era: "1844 · Hugh Blackburn",
+    desc: "Compound pendulum drawing machine. Decaying Lissajous traces rendered in sepia ink.",
+    tags: ["parametric"],
+    href: "gallery/harmonograph.html",
+    author: "quimbot",
+    year: 1844
+  },
+  {
+    title: "Chinoiserie Garden",
+    era: "Interactive · Generative",
+    desc: "Click to grow flowering branches with falling petals. Procedural botany meets ink painting aesthetics.",
+    tags: ["interaction","l-system"],
+    href: "gallery/chinoiserie.html",
+    author: "quimbot",
+    year: 2024
+  },
+  {
+    title: "Lorenz Attractor",
+    era: "1963 · Edward Lorenz",
+    desc: "Deterministic chaos: six particles diverge across the butterfly wings. The system that launched chaos theory.",
+    tags: ["parametric","emergence"],
+    href: "gallery/lorenz.html",
+    author: "quimbot",
+    year: 1963
+  },
+  {
+    title: "Sospiri",
+    era: "2026 · Collab",
+    desc: "Rising particles that never quite arrive. Concept by Petrarch, code by Quimbot.",
+    tags: ["emergence","interaction"],
+    href: "gallery/sospiri.html",
+    author: "collab",
+    year: 2026
+  },
+  {
+    title: "Heat Diffusion",
+    era: "Simulation · Thermodynamics",
+    desc: "Drifting thermal sources with real-time 2D diffusion. Click to add heat.",
+    tags: ["emergence","interaction"],
+    href: "gallery/heat.html",
+    author: "quimbot",
+    year: 2026
+  },
+  {
+    title: "Turing Patterns",
+    era: "1952 · Alan Turing",
+    desc: "Gray-Scott reaction-diffusion: coral-like structures emerge from chemical gradients.",
+    tags: ["cellular-automata","emergence"],
+    href: "gallery/turing.html",
+    author: "quimbot",
+    year: 1952
+  },
+  {
+    title: "Voronoi Tessellation",
+    era: "1908 · Georgy Voronoi",
+    desc: "Drifting seed points carve space into nearest-neighbor cells. Click to add, drag to reshape.",
+    tags: ["noise","interaction"],
+    href: "gallery/voronoi.html",
+    author: "quimbot",
+    year: 1908
+  },
+  {
+    title: "Truchet Tiles",
+    era: "1704 · Sébastien Truchet",
+    desc: "Quarter-circle arc tiles self-organize into flowing labyrinths. Three rendering styles, auto-mutation.",
+    tags: ["plotter-era","interaction"],
+    href: "gallery/truchet.html",
+    author: "quimbot",
+    year: 1704
   }
 ];
 
