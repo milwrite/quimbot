@@ -19,6 +19,7 @@ This documentation is organized into three kits. Start with whichever matches wh
 **For:** Instructors and researchers ready to build custom AI configurations.
 
 - [Models](design-kit/models.md) — Create AI agents with specific behaviors and knowledge.
+- [System Prompts](design-kit/system-prompts.md) — Six prompt patterns for teaching: Socratic questioning, writing coaching, responsive tutoring, guardrails, and more.
 - [Knowledge Bases](design-kit/knowledge-bases.md) — Upload your documents. Ground AI responses in your materials.
 - [Tools & Skills](design-kit/tools-skills.md) — Add web search, code execution, database access, and domain expertise.
 - [Roles & Permissions](design-kit/roles-permissions.md) — Control who can access what.

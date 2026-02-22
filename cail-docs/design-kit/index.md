@@ -7,6 +7,7 @@ Each page in this kit follows the same structure: why the feature matters, how i
 ## What's in the Design Kit
 
 - **[Models](models.md)** — Create custom AI agents with specific behaviors, knowledge, and tools. Define system prompts, attach documents, set parameters.
+- **[System Prompts](system-prompts.md)** — Six prompt patterns for instructional design: Socratic questioning, scaffolded writing coaching, responsive tutoring, guardrails, student-input learning, and differentiated instruction.
 - **[Knowledge Bases](knowledge-bases.md)** — Upload your course materials and institutional documents. Ground AI responses in your data.
 - **[Tools & Skills](tools-skills.md)** — Extend what models can do: web search, code execution, academic database access, and domain-specific knowledge.
 - **[Roles & Permissions](roles-permissions.md)** — Control who can access what. Set up groups for courses, departments, or research teams.
