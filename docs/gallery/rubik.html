@@ -26,10 +26,11 @@ canvas{display:block;flex:1;width:100%;cursor:pointer}
 <div class="panel">
 <div>
 <span class="info" id="info">3×3 · solved</span>
-<span class="hint"> · click scramble · R reset · S size</span>
+<span class="hint"> · click scramble · R reset · S size · V solve</span>
 </div>
 <div class="right">
 <button onclick="doScramble()">scramble</button>
+<button onclick="doSolve()">solve</button>
 <button onclick="doReset()">reset</button>
 <button onclick="cycleSize()">size</button>
 </div>
@@ -39,113 +40,181 @@ const canvas = document.getElementById('c');
 const ctx = canvas.getContext('2d');
 let W, H;
 
-// Rubik's standard colors: U=white, D=yellow, F=green, B=blue, R=red, L=orange
-const FACE_COLORS = ['#ffffff','#ffd500','#009e60','#0051ba','#c41e3a','#ff5800'];
-const FACE_NAMES = ['U','D','F','B','R','L'];
-// U=0, D=1, F=2, B=3, R=4, L=5
+// Standard Rubik's colors: U=white, D=yellow, F=green, B=blue, R=red, L=orange
+const COLORS = ['#ffffff','#ffd500','#009e60','#0051ba','#c41e3a','#ff5800'];
+// Face indices: U=0, D=1, F=2, B=3, R=4, L=5
 
-let gridSize = 3;
+let n = 3; // grid size
 const sizes = [2, 3, 4, 5, 7];
 let sizeIdx = 1;
-let cube = []; // cube[face][row][col] = color string
+let cube = [];
 let scrambled = false;
+let moveHistory = []; // for solve playback
+let solving = false;
+let solveQueue = [];
+let solveTimer = 0;
+
+// ── Cube Data ──
 
 function initCube() {
   cube = [];
-  for (let f = 0; f < 6; f++) {
-    cube[f] = Array.from({length: gridSize}, () => Array(gridSize).fill(FACE_COLORS[f]));
-  }
+  for (let f = 0; f < 6; f++)
+    cube[f] = Array.from({length: n}, () => Array(n).fill(COLORS[f]));
   scrambled = false;
+  moveHistory = [];
+  solveQueue = [];
+  solving = false;
   updateInfo();
 }
 
-// Rotate a face 90° clockwise (looking at that face head-on)
-function rotateFaceCW(f) {
-  const n = gridSize;
+function cloneCube() {
+  return cube.map(f => f.map(r => [...r]));
+}
+
+// ── Face Rotation ──
+
+function rotateCW(f) {
   const old = cube[f].map(r => [...r]);
   for (let r = 0; r < n; r++)
     for (let c = 0; c < n; c++)
       cube[f][c][n - 1 - r] = old[r][c];
 }
 
-// Helper: get/set strips
-function getRow(f, r) { return cube[f][r].slice(); }
-function setRow(f, r, v) { for (let i = 0; i < gridSize; i++) cube[f][r][i] = v[i]; }
-function getCol(f, c) { return cube[f].map(row => row[c]); }
-function setCol(f, c, v) { for (let i = 0; i < gridSize; i++) cube[f][i][c] = v[i]; }
+// ── Strip Helpers ──
 
-// The 6 face moves, each clockwise when looking at that face.
-// Each cycles 4 strips of adjacent stickers.
+function getRow(f, r) { return cube[f][r].slice(); }
+function setRow(f, r, v) { for (let i = 0; i < n; i++) cube[f][r][i] = v[i]; }
+function getCol(f, c) { return cube[f].map(row => row[c]); }
+function setCol(f, c, v) { for (let i = 0; i < n; i++) cube[f][i][c] = v[i]; }
+function rev(a) { return a.slice().reverse(); }
+
+// ── The 6 Moves ──
+// Each move: rotate face CW, then cycle 4 adjacent strips.
+// Derived by tracing physical corner/edge sticker movements.
+//
+// Convention:
+//   All faces viewed head-on. B from behind (B[0][0] = cube's top-right-back).
+//   R from right (R[0][0] = top-front). L from left (L[0][0] = top-back).
+//   U from above (U[0][0] = back-left). D from below (D[0][0] = front-left).
+
 function moveU() {
-  rotateFaceCW(0);
-  const n = gridSize;
-  const t = getRow(2, 0);           // F top row
-  setRow(2, 0, getRow(4, 0));       // F ← R
-  setRow(4, 0, getRow(3, n-1).reverse()); // R ← B bottom row reversed
-  setRow(3, n-1, getRow(5, 0).reverse()); // B bottom ← L top reversed
-  setRow(5, 0, t);                  // L ← F
+  // U CW: top rows cycle F←L←B←R←F (all direct, no reversals)
+  rotateCW(0);
+  const t = getRow(2, 0);
+  setRow(2, 0, getRow(5, 0));   // F ← L
+  setRow(5, 0, getRow(3, 0));   // L ← B
+  setRow(3, 0, getRow(4, 0));   // B ← R
+  setRow(4, 0, t);              // R ← F
 }
 
 function moveD() {
-  rotateFaceCW(1);
-  const n = gridSize;
-  const t = getRow(2, n-1);         // F bottom
+  // D CW (from below): bottom rows cycle F←L←B←R←F (all direct)
+  rotateCW(1);
+  const t = getRow(2, n-1);
   setRow(2, n-1, getRow(5, n-1));   // F ← L
-  setRow(5, n-1, getRow(3, 0).reverse()); // L ← B top reversed
-  setRow(3, 0, getRow(4, n-1).reverse()); // B top ← R bottom reversed
+  setRow(5, n-1, getRow(3, n-1));   // L ← B
+  setRow(3, n-1, getRow(4, n-1));   // B ← R
   setRow(4, n-1, t);                // R ← F
 }
 
 function moveF() {
-  rotateFaceCW(2);
-  const n = gridSize;
-  const t = getRow(0, n-1);         // U bottom row
-  setRow(0, n-1, getCol(5, n-1).reverse()); // U ← L right col reversed
-  setCol(5, n-1, getRow(1, 0));     // L right col ← D top row
-  setRow(1, 0, getCol(4, 0).reverse()); // D top ← R left col reversed
-  setCol(4, 0, t);                  // R left col ← U
+  // F CW: U[n-1]←L_col[n-1], L_col[n-1]←rev(D[0]), D[0]←rev(R_col[0]), R_col[0]←U[n-1]
+  rotateCW(2);
+  const t = getRow(0, n-1);
+  setRow(0, n-1, getCol(5, n-1));          // U ← L col (direct)
+  setCol(5, n-1, rev(getRow(1, 0)));       // L ← rev(D row)
+  setRow(1, 0, rev(getCol(4, 0)));         // D ← rev(R col)
+  setCol(4, 0, t);                         // R ← U (direct)
 }
 
 function moveB() {
-  rotateFaceCW(3);
-  const n = gridSize;
-  const t = getRow(0, 0);           // U top row
-  setRow(0, 0, getCol(4, n-1));     // U ← R right col
-  setCol(4, n-1, getRow(1, n-1).reverse()); // R right ← D bottom reversed
-  setRow(1, n-1, getCol(5, 0));     // D bottom ← L left col
-  setCol(5, 0, t.reverse());        // L left ← U top reversed
+  // B CW (from behind): U[0]←R_col[n-1], R_col[n-1]←rev(D[n-1]), D[n-1]←L_col[0], L_col[0]←rev(U[0])
+  rotateCW(3);
+  const t = getRow(0, 0);
+  setRow(0, 0, getCol(4, n-1));            // U ← R col (direct)
+  setCol(4, n-1, rev(getRow(1, n-1)));     // R ← rev(D row)
+  setRow(1, n-1, getCol(5, 0));            // D ← L col (direct)
+  setCol(5, 0, rev(t));                    // L ← rev(U)
 }
 
 function moveR() {
-  rotateFaceCW(4);
-  const n = gridSize;
-  const t = getCol(0, n-1);         // U right col
-  setCol(0, n-1, getCol(2, n-1));   // U ← F right col
-  setCol(2, n-1, getCol(1, n-1));   // F ← D right col
-  setCol(1, n-1, getCol(3, 0).reverse()); // D ← B left col reversed
-  setCol(3, 0, t.reverse());        // B left ← U reversed
+  // R CW: U_col[n-1]←F_col[n-1], F_col[n-1]←D_col[n-1], D_col[n-1]←rev(B_col[0]), B_col[0]←rev(U_col[n-1])
+  rotateCW(4);
+  const t = getCol(0, n-1);
+  setCol(0, n-1, getCol(2, n-1));          // U ← F (direct)
+  setCol(2, n-1, getCol(1, n-1));          // F ← D (direct)
+  setCol(1, n-1, rev(getCol(3, 0)));       // D ← rev(B col 0)
+  setCol(3, 0, rev(t));                    // B ← rev(U)
 }
 
 function moveL() {
-  rotateFaceCW(5);
-  const n = gridSize;
-  const t = getCol(0, 0);           // U left col
-  setCol(0, 0, getCol(3, n-1).reverse()); // U ← B right col reversed
-  setCol(3, n-1, getCol(1, 0).reverse()); // B right ← D left reversed
-  setCol(1, 0, getCol(2, 0));       // D ← F left col
-  setCol(2, 0, t);                  // F ← U
+  // L CW: U_col[0]←rev(B_col[n-1]), B_col[n-1]←rev(D_col[0]), D_col[0]←F_col[0], F_col[0]←U_col[0]
+  rotateCW(5);
+  const t = getCol(0, 0);
+  setCol(0, 0, rev(getCol(3, n-1)));       // U ← rev(B col n-1)
+  setCol(3, n-1, rev(getCol(1, 0)));       // B ← rev(D col 0)
+  setCol(1, 0, getCol(2, 0));              // D ← F (direct)
+  setCol(2, 0, t);                         // F ← U (direct)
 }
 
+// Inverse moves (3x CW = 1x CCW)
+function moveUi() { moveU(); moveU(); moveU(); }
+function moveDi() { moveD(); moveD(); moveD(); }
+function moveFi() { moveF(); moveF(); moveF(); }
+function moveBi() { moveB(); moveB(); moveB(); }
+function moveRi() { moveR(); moveR(); moveR(); }
+function moveLi() { moveL(); moveL(); moveL(); }
+
 const MOVES = [moveU, moveD, moveF, moveB, moveR, moveL];
+const INVERSE = [moveUi, moveDi, moveFi, moveBi, moveRi, moveLi];
+const MOVE_NAMES = ['U','D','F','B','R','L'];
+
+// ── Self-Test: each move applied 4 times must return to identity ──
+
+function selfTest() {
+  const saved = cloneCube();
+  let ok = true;
+  for (let m = 0; m < 6; m++) {
+    initCube();
+    for (let i = 0; i < 4; i++) MOVES[m]();
+    for (let f = 0; f < 6; f++)
+      for (let r = 0; r < n; r++)
+        for (let c = 0; c < n; c++)
+          if (cube[f][r][c] !== COLORS[f]) { ok = false; break; }
+    if (!ok) { console.error('Move ' + MOVE_NAMES[m] + ' failed 4x identity test!'); break; }
+  }
+  // Restore
+  cube = saved;
+  if (ok) console.log('All moves passed 4x identity test ✓');
+  return ok;
+}
+
+// ── Scramble & Solve ──
 
 function doScramble() {
-  const count = gridSize * 20;
+  solving = false;
+  solveQueue = [];
+  moveHistory = [];
+  const count = n * 20;
   for (let i = 0; i < count; i++) {
-    const m = MOVES[Math.floor(Math.random() * 6)];
-    const turns = 1 + Math.floor(Math.random() * 3); // 1-3 quarter turns
-    for (let t = 0; t < turns; t++) m();
+    const m = Math.floor(Math.random() * 6);
+    const turns = 1 + Math.floor(Math.random() * 3);
+    for (let t = 0; t < turns; t++) {
+      MOVES[m]();
+      moveHistory.push(m);
+    }
   }
   scrambled = true;
+  updateInfo();
+}
+
+function doSolve() {
+  if (!scrambled || moveHistory.length === 0) return;
+  solving = true;
+  // Build reverse queue
+  solveQueue = moveHistory.slice().reverse().map(m => INVERSE[m]);
+  moveHistory = [];
+  solveTimer = 0;
   updateInfo();
 }
 
@@ -155,16 +224,20 @@ function doReset() {
 
 function cycleSize() {
   sizeIdx = (sizeIdx + 1) % sizes.length;
-  gridSize = sizes[sizeIdx];
+  n = sizes[sizeIdx];
   initCube();
 }
 
 function updateInfo() {
-  document.getElementById('info').textContent = `${gridSize}×${gridSize} · ${scrambled ? 'scrambled' : 'solved'}`;
+  const state = solving ? 'solving...' : (scrambled ? 'scrambled' : 'solved');
+  document.getElementById('info').textContent = `${n}×${n} · ${state}`;
 }
 
-// --- Drawing ---
-// Isometric projection: x=right, y=back-left, z=up
+// ── Drawing ──
+// Isometric: x=right-down, y=left-down, z=up.
+// Cube occupies [0,n]³. Visible faces: top(z=n), left(y=n), right(x=n).
+// These three faces share edges at the center vertex (n,n,n).
+
 const COS30 = Math.cos(Math.PI / 6);
 const SIN30 = 0.5;
 
@@ -185,7 +258,7 @@ function quad(p1, p2, p3, p4, fill) {
   ctx.fillStyle = fill;
   ctx.fill();
   ctx.strokeStyle = '#0a0a0a';
-  ctx.lineWidth = 2;
+  ctx.lineWidth = Math.max(1, Math.min(2.5, 120 / (n * 20)));
   ctx.stroke();
 }
 
@@ -200,30 +273,18 @@ function draw() {
   ctx.fillStyle = '#0a0a0a';
   ctx.fillRect(0, 0, W, H);
 
-  const n = gridSize;
-  const s = Math.min(W, H) * 0.52 / n;
+  const s = Math.min(W, H) * 0.45 / n;
   const ox = W / 2;
-  const oy = H / 2 + n * s * 0.2;
-  const g = 0.06; // gap fraction
+  const oy = H / 2;
+  const g = 0.06; // gap fraction of cell
 
-  // In our isometric view (looking from front-right-above):
-  // Visible faces: U (top, z=n), F (front-left, y=0), R (front-right, x=n)
-  //
-  // Isometric viewing direction is roughly (-1,-1,1),
-  // so faces with outward normals pointing toward viewer are:
-  //   U: normal (0,0,1)  → visible  (z=n, the top)
-  //   F: normal (0,-1,0) → visible  (y=0, front-left)
-  //   R: normal (1,0,0)  → visible  (x=n, front-right)
-
-  // Draw order: top first, then left (F), then right (R)
-
-  // TOP face = U (cube[0])
-  // U[0][0] = back-left corner, U[n-1][n-1] = front-right corner
-  // In iso: U row maps to y (back→front), U col maps to x (left→right)
+  // Top face = U (cube[0]) at z=n
+  // U[0][0] = back-left → iso position (x=0, y=n, z=n) = top-left of diamond
+  // U[r][c]: r increases front (y decreases), c increases right (x increases)
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
-      const x0 = r + g, x1 = r + 1 - g;
-      const y0 = (n - 1 - c) + g, y1 = (n - c) - g; // c=0 is back (high y)
+      const x0 = c + g, x1 = c + 1 - g;
+      const y0 = (n - 1 - r) + g, y1 = (n - r) - g;
       quad(
         iso(x0, y0, n, s, ox, oy),
         iso(x1, y0, n, s, ox, oy),
@@ -234,24 +295,26 @@ function draw() {
     }
   }
 
-  // LEFT face = F (cube[2]), at y=0
-  // F[0][0] = top-left, F[row][col]: row goes down (z decreasing), col goes right (x increasing)
+  // Left face = F (cube[2]) at y=n
+  // F[0][0] = top-left of front face = top of left parallelogram
+  // F[r][c]: r increases downward (z decreases), c increases right (x increases)
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
       const x0 = c + g, x1 = c + 1 - g;
       const z0 = (n - 1 - r) + g, z1 = (n - r) - g;
       quad(
-        iso(x0, 0, z1, s, ox, oy),
-        iso(x1, 0, z1, s, ox, oy),
-        iso(x1, 0, z0, s, ox, oy),
-        iso(x0, 0, z0, s, ox, oy),
+        iso(x0, n, z1, s, ox, oy),
+        iso(x1, n, z1, s, ox, oy),
+        iso(x1, n, z0, s, ox, oy),
+        iso(x0, n, z0, s, ox, oy),
         darken(cube[2][r][c], 0.7)
       );
     }
   }
 
-  // RIGHT face = R (cube[4]), at x=n
-  // R[0][0] = top-front, R[row][col]: row goes down (z decreasing), col goes back (y increasing)
+  // Right face = R (cube[4]) at x=n
+  // R[0][0] = top-front of right face = top of right parallelogram
+  // R[r][c]: r increases downward (z decreases), c increases back (y increases)
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
       const y0 = c + g, y1 = c + 1 - g;
@@ -267,38 +330,65 @@ function draw() {
   }
 }
 
-// --- Resize ---
+// ── Animation Loop ──
+
+let autoTimer = 0;
+
+function animate() {
+  // Solve animation: apply one inverse move per interval
+  if (solving && solveQueue.length > 0) {
+    solveTimer++;
+    const speed = Math.max(1, Math.min(4, Math.floor(solveQueue.length / 20)));
+    if (solveTimer % 3 === 0) {
+      for (let i = 0; i < speed && solveQueue.length > 0; i++) {
+        solveQueue.shift()();
+      }
+      if (solveQueue.length === 0) {
+        solving = false;
+        scrambled = false;
+        updateInfo();
+      }
+    }
+  }
+
+  // Auto-scramble: apply random moves when idle and scrambled
+  if (!solving && scrambled) {
+    autoTimer++;
+    if (autoTimer % 60 === 0) {
+      const m = Math.floor(Math.random() * 6);
+      MOVES[m]();
+      moveHistory.push(m);
+    }
+  }
+
+  draw();
+  requestAnimationFrame(animate);
+}
+
+// ── Events ──
+
+canvas.addEventListener('click', () => doScramble());
+
+document.addEventListener('keydown', e => {
+  if (e.key === 's' || e.key === 'S') cycleSize();
+  else if (e.key === 'r' || e.key === 'R') doReset();
+  else if (e.key === 'v' || e.key === 'V') doSolve();
+  else if (e.key === ' ') { e.preventDefault(); doScramble(); }
+});
+
+// ── Resize ──
+
 function resize() {
   W = canvas.width = canvas.clientWidth;
   H = canvas.height = canvas.clientHeight;
 }
 window.addEventListener('resize', resize);
 
-// --- Animation ---
-let autoTimer = 0;
-function animate() {
-  autoTimer++;
-  // Auto-scramble: apply one random move every ~60 frames
-  if (autoTimer % 60 === 0 && scrambled) {
-    const m = MOVES[Math.floor(Math.random() * 6)];
-    m();
-  }
-  draw();
-  requestAnimationFrame(animate);
-}
+// ── Init ──
 
-// --- Events ---
-canvas.addEventListener('click', () => doScramble());
-
-document.addEventListener('keydown', e => {
-  if (e.key === 's' || e.key === 'S') cycleSize();
-  else if (e.key === 'r' || e.key === 'R') doReset();
-  else if (e.key === ' ') { e.preventDefault(); doScramble(); }
-});
-
-// --- Init ---
 resize();
 initCube();
+selfTest();
 doScramble();
 animate();
 </script>
