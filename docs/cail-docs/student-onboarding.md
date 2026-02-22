@@ -126,7 +126,7 @@ It will. AI models generate plausible text, and sometimes that text is inaccurat
 ## Callout
 
 <div class="callout">
-  <strong>For TAs and course assistants:</strong> Familiarize yourself with the course model before the semester starts. Students will ask you questions about AI that go beyond the onboarding materials. Spend 30 minutes exploring the model so you can answer from experience.
+  <strong>For TAs and teaching staff:</strong> Familiarize yourself with the course model before the semester starts. Students will ask you questions about AI that go beyond the onboarding materials. Spend 30 minutes exploring the model so you can answer from experience.
 </div>
 
 ---

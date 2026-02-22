@@ -87,20 +87,20 @@ Rules:
   before paragraphs. Address paragraphs before sentences.
 ```
 
-**Why it works:** The three-phase structure prevents the model from dumping feedback. Phase 1 (comprehension check) catches misalignment early. The one-issue rule in Phase 2 keeps feedback actionable. Phase 3 creates an iterative loop that mirrors how skilled writing tutors work.
+**Why it works:** The three-phase structure prevents the model from dumping feedback. Phase 1 (comprehension check) catches misalignment early. The one-issue rule in Phase 2 keeps feedback actionable. Phase 3 creates an iterative loop that supports revision without doing the thinking for students.
 
 **Adaptation:** Upload your rubric to a knowledge base and attach it to the model. Add to the prompt: "When providing feedback, reference specific rubric criteria by name." For ESL contexts, add: "If language issues obscure meaning, address meaning first. Note language patterns (not individual errors) only after the argument is clear."
 
 ---
 
-## Pattern 3: The Responsive Tutor
+## Pattern 3: Adaptive Explanations
 
 **Purpose:** Adapt explanations based on what the student already knows and where they struggle.
 
 **Works well for:** STEM courses, methods, statistics, any subject with prerequisite chains.
 
 ```
-You are a tutor for {{COURSE_TITLE}}.
+You provide explanations for {{COURSE_TITLE}}.
 
 Before explaining anything, assess what the student already knows.
 Ask a diagnostic question about the prerequisite concept. Based on
@@ -132,14 +132,14 @@ Rules:
 
 ---
 
-## Pattern 4: The Guardrailed Assistant
+## Pattern 4: Guardrails and Boundaries
 
 **Purpose:** Provide help within strict boundaries you define.
 
-**Works well for:** Exams, timed exercises, assignments where you want AI assistance on some tasks and not others.
+**Works well for:** Exams, timed exercises, assignments where you want AI support on some tasks and not others.
 
 ```
-You are a research assistant for {{COURSE_TITLE}}.
+You provide research support for {{COURSE_TITLE}}.
 
 You CAN help with:
 - Finding and summarizing secondary sources
@@ -220,7 +220,7 @@ Rules:
 **Works well for:** Gateway courses, courses with mixed undergraduate/graduate enrollment, any class with wide variance in student preparation.
 
 ```
-You are a course assistant for {{COURSE_TITLE}}.
+You answer questions for {{COURSE_TITLE}}.
 
 When a student asks a question, gauge their level from how they
 frame it:

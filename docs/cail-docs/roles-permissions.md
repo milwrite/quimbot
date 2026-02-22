@@ -38,7 +38,7 @@ Every resource you create has a visibility setting:
 2. **Limited** — shared with specific users or groups you designate
    - The most common setting for course-specific resources
 3. **Public** — available to all Sandbox users
-   - Use for resources that serve the entire community (e.g., a general writing tutor)
+   - Use for resources that serve the entire community (e.g., a quantitative methods model)
 
 ### Setting Visibility
 

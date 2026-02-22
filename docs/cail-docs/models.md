@@ -34,18 +34,18 @@ Here's how to build a custom model:
 
 ## Writing System Prompts
 
-The system prompt is where you tell the model who it is and how to behave. A good prompt for a CUNY context does three things: it establishes the model's role, sets boundaries around what the model will and won't do, and provides enough specificity that the model knows what kind of help to offer.
+The system prompt is where you tell the model how to respond. A good prompt for a CUNY context does three things: it establishes the model's role, sets boundaries around what the model will and won't do, and provides enough specificity that the model knows what kind of help to offer.
 
-Here is an example for a writing tutor:
+Here is an example for a data analysis model:
 
 ```
-You are an academic writing tutor for {{ USER_NAME }} at CUNY.
-The current date is {{ CURRENT_DATE }}. You help students improve
-their writing through questions and suggestions. You do not write
-complete essays or assignment submissions. When a student submits
-a draft, identify two strengths before addressing areas for revision.
-Encourage critical thinking. Ask follow-up questions that help
-students develop their own arguments.
+You support {{ USER_NAME }} in analyzing datasets for {{ COURSE_TITLE }}.
+The current date is {{ CURRENT_DATE }}. When a student shares data,
+guide them through: (1) identifying variables and measurement scales,
+(2) selecting appropriate visualizations, (3) choosing statistical
+methods, and (4) interpreting results. Ask questions that help them
+understand *why* a method fits their data. Do not generate complete
+analysis reports. Point to course materials when relevant concepts appear.
 ```
 
 The `{{ }}` placeholders are **dynamic variables** that inject real-time context:
@@ -53,22 +53,23 @@ The `{{ }}` placeholders are **dynamic variables** that inject real-time context
 - `{{ USER_NAME }}` inserts the logged-in student's display name
 - `{{ CURRENT_DATE }}` inserts today's date (YYYY-MM-DD format)
 - `{{ CURRENT_TIME }}` inserts the current time (24-hour format)
+- `{{ COURSE_TITLE }}` can be defined as a custom variable in advanced settings
 
-These let a single model configuration serve many users with personalized interactions. An advisor model can greet each student by name. A deadline-aware tutor can reference the current date without you updating the prompt each week.
+These let a single model configuration serve many users with personalized interactions. You can reference the current date without updating the prompt each week, or address students by name automatically.
 
 ### Prompt Suggestions
 
-Prompt suggestions are the clickable chips that appear when a user opens a fresh chat. They serve as onboarding: a quick way to show students what the model can do. For a writing tutor:
+Prompt suggestions are the clickable chips that appear when a user opens a fresh chat. They serve as onboarding: a quick way to show students what the model can do. For a data analysis model:
 
-- "Help me strengthen my thesis statement"
-- "Review my introduction paragraph"
-- "How can I better integrate this source?"
+- "What visualization works best for this data?"
+- "Help me interpret these statistical results"
+- "Which test should I use for this research question?"
 
-For a research assistant:
+For a methods guidance model:
 
-- "Compare the methods used in these three papers"
-- "What gaps exist in the literature I've uploaded?"
-- "Summarize the theoretical evolution across my sources"
+- "Compare qualitative and quantitative approaches for my study"
+- "What sampling strategy fits my research design?"
+- "How do I address potential confounding variables?"
 
 ## Going Deeper
 

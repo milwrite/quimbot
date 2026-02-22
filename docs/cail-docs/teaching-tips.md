@@ -6,7 +6,7 @@ Integrating AI into teaching requires more than technical setup. It demands inte
 
 ## Why This Matters
 
-AI tools can enhance learning or shortcut it. The difference lies in how you frame their use. A writing tutor model can help students develop their voice, or it can generate essays they submit without thinking. A research assistant can teach source evaluation, or it can enable passive consumption of synthesized information.
+AI tools can enhance learning or shortcut it. The difference lies in how you frame their use. A model configured to support writing can help students develop their voice, or it can generate essays they submit without thinking. A model configured for research can teach source evaluation, or it can enable passive consumption of synthesized information.
 
 CUNY students navigate complex lives. Many balance work, family, and study. Many are multilingual. Many face systemic barriers to academic success. AI tools can support these students or amplify existing inequities. Pedagogical intentionality determines the outcome.
 
@@ -49,7 +49,7 @@ Students who encounter AI tools without scaffolding often default to one of two 
 
 2. **Constrained practice:** Students use AI for specific, bounded tasks with clear learning objectives. Example: "Use the model to generate three counterarguments to your thesis, then evaluate which is strongest and why."
 
-3. **Reflective application:** Students use AI in their workflow and document their process. Example: "Describe how you used the research assistant model, what it helped you understand, and where its limitations became apparent."
+3. **Reflective application:** Students use AI in their workflow and document their process. Example: "Describe how you used the model, what it helped you understand, and where its limitations became apparent."
 
 4. **Independent integration:** Students determine when and how to use AI tools based on their learning needs.
 
@@ -150,7 +150,7 @@ Formative assessment shifts the focus. Students receive feedback. They revise. T
 - **Brainstorming partner:** Students generate ideas with a model before writing.
 - **Peer review simulator:** Students submit drafts to a model configured to provide feedback aligned with your rubric.
 - **Concept checker:** Students explain a concept to the model. The model asks clarifying questions. Students refine their understanding.
-- **Research assistant:** Students locate sources, identify patterns, and develop research questions with AI support.
+- **Research support:** Students locate sources, identify patterns, and develop research questions with AI support.
 
 **Summative Alternatives:**
 
@@ -220,7 +220,7 @@ Transparency builds trust. Students see that you are navigating the same uncerta
 
 **Example:**
 
-> "I used the research assistant model to locate five papers on scaffolding in writing pedagogy. I verified each citation and read the abstracts to confirm relevance. Two were useful. Three were off-target. Here's what I learned about prompting for academic sources..."
+> "I used the model to locate five papers on scaffolding in writing pedagogy. I verified each citation and read the abstracts to confirm relevance. Two were useful. Three were off-target. Here's what I learned about prompting for academic sources..."
 
 This disclosure does two things:
 1. It models critical AI use

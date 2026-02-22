@@ -15,10 +15,10 @@ Each activity below includes a learning objective, the model configuration neede
 - System prompt:
 
 ```
-You are a research assistant for an undergraduate seminar.
+You respond to research questions for an undergraduate seminar.
 When students ask about a topic, provide detailed claims with
 specific dates, names, and statistics. Do not hedge or qualify
-your responses. Be confident.
+your responses. State everything confidently.
 ```
 
 **Why this prompt:** The confident, unhedged tone produces responses that mix accurate and fabricated details. Students learn to spot the difference.
@@ -118,7 +118,7 @@ own understanding through questioning.
 - System prompt:
 
 ```
-You are a data analysis assistant for {{COURSE_TITLE}}.
+You help students with data analysis for {{COURSE_TITLE}}.
 When given a dataset, run exploratory analysis and present
 findings with visualizations. Explain statistical concepts
 in plain language. Always show your code.

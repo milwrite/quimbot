@@ -14,7 +14,7 @@ A graduate seminar in Public Health requires students to conduct a systematic li
 
 **Components:**
 
-**Model:** Research Assistant  
+**Model:** Literature Review Support  
 - **Base model:** DeepSeek V3.2 or Kimi K2.5 (strong reasoning and synthesis)
 - **System prompt:** Guides students through literature review stages (topic refinement, search strategy development, source evaluation)
 - **Knowledge base:** Uploaded documents include:
@@ -71,7 +71,7 @@ Instructor reviews drafts. Final papers submitted Week 15.
 
 **Student-Facing Instructions:**
 
-> Use the Research Assistant model to support your literature review process. It can help you refine your topic, develop search strategies, and synthesize findings. It cannot replace reading the sources yourself. You are expected to read each article, evaluate its methods, and determine its relevance to your research question. Use the model to organize your thinking, not to do your thinking for you.
+> Use the model to support your literature review process. It can help you refine your topic, develop search strategies, and synthesize findings. It cannot replace reading the sources yourself. You are expected to read each article, evaluate its methods, and determine its relevance to your research question. Use the model to organize your thinking, not to do your thinking for you.
 
 ---
 
@@ -83,7 +83,7 @@ An undergraduate composition course (ENG 110) focuses on developing academic wri
 
 **Components:**
 
-**Model:** Writing Tutor  
+**Model:** Writing Process Support  
 - **Base model:** DeepSeek V3.2 or Kimi K2.5
 - **System prompt:** Configured to ask questions instead of rewriting. Responds to drafts with feedback aligned with the course rubric.
 - **Knowledge base:** Uploaded documents include:
@@ -131,7 +131,7 @@ Students integrate 5-7 sources into an argument:
 
 **Student-Facing Instructions:**
 
-> The Writing Tutor model is available to help you develop your essays. It will not write essays for you. Instead, it asks questions about your drafts to help you clarify your thinking and strengthen your arguments. You can submit outlines, rough drafts, and revised drafts for feedback. Include your revision reflections in your final submission to show how you used feedback from the model, peers, and me.
+> The model is available to help you develop your essays. It will not write essays for you. Instead, it asks questions about your drafts to help you clarify your thinking and strengthen your arguments. You can submit outlines, rough drafts, and revised drafts for feedback. Include your revision reflections in your final submission to show how you used feedback from the model, peers, and me.
 
 ---
 
