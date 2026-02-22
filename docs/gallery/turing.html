@@ -54,12 +54,17 @@ for (let i = 0; i < 8; i++) {
   seed(30 + Math.random() * (S - 60), 30 + Math.random() * (S - 60), 4 + Math.random() * 6);
 }
 
-canvas.addEventListener('pointerdown', e => {
+function seedFromEvent(e) {
   const rect = canvas.getBoundingClientRect();
-  const x = Math.floor((e.clientX - rect.left) / rect.width * S);
-  const y = Math.floor((e.clientY - rect.top) / rect.height * S);
+  const cx = e.clientX || (e.touches && e.touches[0].clientX);
+  const cy = e.clientY || (e.touches && e.touches[0].clientY);
+  if (cx == null) return;
+  const x = Math.floor((cx - rect.left) / rect.width * S);
+  const y = Math.floor((cy - rect.top) / rect.height * S);
   seed(x, y, 8);
-});
+}
+canvas.addEventListener('pointerdown', seedFromEvent);
+canvas.addEventListener('touchstart', e => { e.preventDefault(); seedFromEvent(e); }, { passive: false });
 
 // Parameters (coral growth preset)
 const Du = 0.21, Dv = 0.105;

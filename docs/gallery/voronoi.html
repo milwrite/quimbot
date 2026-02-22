@@ -77,7 +77,12 @@ function renderVoronoi() {
   bW = Math.ceil(W / SCALE);
   bH = Math.ceil(H / SCALE);
   if (!buf || buf.width !== bW || buf.height !== bH) {
-    buf = new OffscreenCanvas(bW, bH);
+    if (typeof OffscreenCanvas !== 'undefined') {
+      buf = new OffscreenCanvas(bW, bH);
+    } else {
+      buf = document.createElement('canvas');
+      buf.width = bW; buf.height = bH;
+    }
   }
   const bctx = buf.getContext('2d');
   const imgData = bctx.createImageData(bW, bH);
