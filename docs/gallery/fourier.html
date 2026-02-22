@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fourier Circles</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a0a0a;overflow:hidden}
+  canvas{display:block}
+  .back{position:fixed;top:1rem;left:1rem;font:0.8rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;text-decoration:none;border:1px solid #333;z-index:10;transition:border-color 0.2s}
+  .back:hover{border-color:#666;color:#fff}
+  .label{position:fixed;bottom:1rem;left:1rem;font:0.75rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#888;background:rgba(10,10,10,0.85);padding:0.4rem 0.7rem;border-radius:4px;pointer-events:none}
+  .ctrl{position:fixed;top:1rem;right:1rem;font:0.75rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;border:1px solid #333;cursor:pointer;z-index:10;transition:border-color 0.2s}
+  .ctrl:hover{border-color:#666;color:#fff}
+  .in-iframe .back,.in-iframe .label,.in-iframe .ctrl{display:none}
+</style>
+</head>
+<body>
+<script>if(window.self!==window.top)document.body.classList.add('in-iframe');</script>
+<a class="back" href="index.html">← Gallery</a>
+<button class="ctrl" id="shapeBtn">shape: square</button>
+<canvas id="c"></canvas>
+<div class="label">click to change shape · ↑↓ add/remove harmonics</div>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const shapeBtn = document.getElementById('shapeBtn');
+
+let W, H;
+let time = 0;
+let numHarmonics = 8;
+let shapeIdx = 0;
+const shapes = ['square', 'sawtooth', 'triangle', 'custom'];
+const trail = [];
+const maxTrail = 600;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  trail.length = 0;
+}
+window.addEventListener('resize', resize);
+resize();
+
+function getCoeffs(shape, n) {
+  // Returns {amp, freq, phase} for harmonic n (1-indexed)
+  switch(shape) {
+    case 'square':
+      if (n % 2 === 0) return null;
+      return { amp: 1/n, freq: n, phase: 0 };
+    case 'sawtooth':
+      return { amp: (n % 2 === 0 ? -1 : 1) / n, freq: n, phase: 0 };
+    case 'triangle':
+      if (n % 2 === 0) return null;
+      return { amp: (((n-1)/2) % 2 === 0 ? 1 : -1) / (n*n), freq: n, phase: 0 };
+    case 'custom':
+      return { amp: 1/(n * (1 + 0.3 * Math.sin(n*0.7))), freq: n, phase: n * 0.5 };
+    default:
+      return { amp: 1/n, freq: n, phase: 0 };
+  }
+}
+
+function hsl(h, s, l) { return `hsl(${h},${s}%,${l}%)`; }
+
+function draw() {
+  ctx.fillStyle = 'rgba(10,10,10,0.15)';
+  ctx.fillRect(0, 0, W, H);
+
+  const cx = W * 0.3;
+  const cy = H * 0.5;
+  const baseR = Math.min(W, H) * 0.18;
+  const shape = shapes[shapeIdx];
+
+  let x = cx;
+  let y = cy;
+
+  // Draw epicycles
+  let drawn = 0;
+  for (let n = 1; drawn < numHarmonics; n++) {
+    const c = getCoeffs(shape, n);
+    if (!c) continue;
+    drawn++;
+
+    const r = Math.abs(c.amp) * baseR;
+    const angle = c.freq * time * 0.02 + c.phase;
+    const hue = (drawn / numHarmonics) * 300;
+
+    // Circle
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.strokeStyle = hsl(hue, 60, 30);
+    ctx.lineWidth = 0.8;
+    ctx.stroke();
+
+    // Radius line
+    const nx = x + r * Math.cos(angle);
+    const ny = y + r * Math.sin(angle);
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(nx, ny);
+    ctx.strokeStyle = hsl(hue, 80, 50);
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    // Dot
+    ctx.beginPath();
+    ctx.arc(nx, ny, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = hsl(hue, 90, 70);
+    ctx.fill();
+
+    x = nx;
+    y = ny;
+  }
+
+  // Horizontal connecting line to wave
+  const waveStart = W * 0.5;
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(waveStart, y);
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+  ctx.lineWidth = 0.8;
+  ctx.setLineDash([4, 4]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Add to trail
+  trail.unshift(y);
+  if (trail.length > maxTrail) trail.pop();
+
+  // Draw wave trace
+  ctx.beginPath();
+  for (let i = 0; i < trail.length; i++) {
+    const wx = waveStart + i * (W * 0.48 / maxTrail);
+    const wy = trail[i];
+    if (i === 0) ctx.moveTo(wx, wy);
+    else ctx.lineTo(wx, wy);
+  }
+  const grad = ctx.createLinearGradient(waveStart, 0, W * 0.98, 0);
+  grad.addColorStop(0, 'rgba(100,200,255,0.9)');
+  grad.addColorStop(1, 'rgba(100,200,255,0.05)');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Info
+  ctx.fillStyle = '#555';
+  ctx.font = '12px ui-monospace, monospace';
+  ctx.fillText(`harmonics: ${numHarmonics}  shape: ${shape}`, waveStart, H - 20);
+
+  time++;
+  requestAnimationFrame(draw);
+}
+
+// Controls
+canvas.addEventListener('click', () => {
+  shapeIdx = (shapeIdx + 1) % shapes.length;
+  shapeBtn.textContent = 'shape: ' + shapes[shapeIdx];
+  trail.length = 0;
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowUp') { numHarmonics = Math.min(numHarmonics + 1, 30); trail.length = 0; }
+  if (e.key === 'ArrowDown') { numHarmonics = Math.max(numHarmonics - 1, 1); trail.length = 0; }
+});
+
+shapeBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  shapeIdx = (shapeIdx + 1) % shapes.length;
+  shapeBtn.textContent = 'shape: ' + shapes[shapeIdx];
+  trail.length = 0;
+});
+
+draw();
+</script>
+</body>
+</html>

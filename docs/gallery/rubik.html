@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rubik Patterns</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a0a0a;overflow:hidden;cursor:pointer}
+  canvas{display:block}
+  .back{position:fixed;top:1rem;left:1rem;font:0.8rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;text-decoration:none;border:1px solid #333;z-index:10;transition:border-color 0.2s}
+  .back:hover{border-color:#666;color:#fff}
+  .label{position:fixed;bottom:1rem;left:1rem;font:0.75rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#888;background:rgba(10,10,10,0.85);padding:0.4rem 0.7rem;border-radius:4px;pointer-events:none}
+  .ctrl{position:fixed;top:1rem;right:1rem;font:0.75rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;border:1px solid #333;cursor:pointer;z-index:10;transition:border-color 0.2s}
+  .ctrl:hover{border-color:#666;color:#fff}
+  .in-iframe .back,.in-iframe .label,.in-iframe .ctrl{display:none}
+</style>
+</head>
+<body>
+<script>if(window.self!==window.top)document.body.classList.add('in-iframe');</script>
+<a class="back" href="index.html">← Gallery</a>
+<button class="ctrl" id="sizeBtn">size: 3×3</button>
+<canvas id="c"></canvas>
+<div class="label">click to scramble · S to change size</div>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const sizeBtn = document.getElementById('sizeBtn');
+
+let W, H;
+let gridSize = 3;
+const sizes = [2, 3, 4, 5, 7];
+let sizeIdx = 1;
+
+// Rubik's colors
+const faceColors = ['#c41e3a', '#ff5800', '#ffd500', '#009e60', '#0051ba', '#ffffff'];
+// Faces: front, right, top (isometric view)
+let faces = [];
+
+let animating = false;
+let animQueue = [];
+let animProgress = 0;
+let animFace = -1;
+let animRow = -1;
+let animDir = 1;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+function initFaces() {
+  faces = [];
+  for (let f = 0; f < 3; f++) {
+    const face = [];
+    for (let r = 0; r < gridSize; r++) {
+      const row = [];
+      for (let c = 0; c < gridSize; c++) {
+        // Start with a pattern based on face index
+        row.push(faceColors[f * 2 + ((r + c) % 2)]);
+      }
+      face.push(row);
+    }
+    faces.push(face);
+  }
+}
+
+function scramble() {
+  for (let i = 0; i < gridSize * 10; i++) {
+    const f = Math.floor(Math.random() * 3);
+    const row = Math.floor(Math.random() * gridSize);
+    rotateFaceRow(f, row, Math.random() > 0.5 ? 1 : -1);
+  }
+}
+
+function rotateFaceRow(f, row, dir) {
+  const face = faces[f];
+  if (dir > 0) {
+    const tmp = face[row][gridSize - 1];
+    for (let c = gridSize - 1; c > 0; c--) face[row][c] = face[row][c-1];
+    face[row][0] = tmp;
+  } else {
+    const tmp = face[row][0];
+    for (let c = 0; c < gridSize - 1; c++) face[row][c] = face[row][c+1];
+    face[row][gridSize - 1] = tmp;
+  }
+}
+
+function drawCube() {
+  ctx.fillStyle = '#0a0a0a';
+  ctx.fillRect(0, 0, W, H);
+
+  const cellSize = Math.min(W, H) * 0.6 / gridSize;
+  const cx = W / 2;
+  const cy = H / 2;
+
+  // Isometric angles
+  const ax = cellSize * 0.87; // cos(30)
+  const ay = cellSize * 0.5;  // sin(30)
+  const gap = 2;
+
+  // Draw three faces of the cube
+  // Top face
+  for (let r = 0; r < gridSize; r++) {
+    for (let c = 0; c < gridSize; c++) {
+      const x = cx + (c - r) * (ax + gap);
+      const y = cy - gridSize * (ay + gap) + (c + r) * (ay + gap/2) - gridSize * ay;
+      drawDiamond(x, y, ax, ay, faces[2][r][c], gap);
+    }
+  }
+
+  // Left face
+  for (let r = 0; r < gridSize; r++) {
+    for (let c = 0; c < gridSize; c++) {
+      const x = cx - gridSize * (ax + gap)/2 + (c - gridSize) * 0 - r * (ax + gap) + r * ax/gridSize;
+      const baseX = cx - (gridSize - r) * (ax + gap);
+      const baseY = cy + r * (ay + gap) + c * (ay + gap) * 0.95;
+      drawParallelogramLeft(baseX, baseY, ax, ay * 0.95, darken(faces[0][c][r], 0.7), gap);
+    }
+  }
+
+  // Right face
+  for (let r = 0; r < gridSize; r++) {
+    for (let c = 0; c < gridSize; c++) {
+      const baseX = cx + r * (ax + gap);
+      const baseY = cy + r * (ay + gap) + c * (ay + gap) * 0.95;
+      drawParallelogramRight(baseX, baseY, ax, ay * 0.95, darken(faces[1][c][r], 0.5), gap);
+    }
+  }
+}
+
+function drawDiamond(cx, cy, hw, hh, color, gap) {
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - hh + gap/2);
+  ctx.lineTo(cx + hw - gap/2, cy);
+  ctx.lineTo(cx, cy + hh - gap/2);
+  ctx.lineTo(cx - hw + gap/2, cy);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.strokeStyle = '#1a1a1a';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+}
+
+function drawParallelogramLeft(x, y, w, h, color, gap) {
+  const hw = w - gap/2;
+  const hh = h - gap/2;
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x - hw, y + hh * 0.5);
+  ctx.lineTo(x - hw, y + hh * 1.5);
+  ctx.lineTo(x, y + hh);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.strokeStyle = '#1a1a1a';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+}
+
+function drawParallelogramRight(x, y, w, h, color, gap) {
+  const hw = w - gap/2;
+  const hh = h - gap/2;
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x + hw, y + hh * 0.5);
+  ctx.lineTo(x + hw, y + hh * 1.5);
+  ctx.lineTo(x, y + hh);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.strokeStyle = '#1a1a1a';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+}
+
+function darken(hex, factor) {
+  const r = parseInt(hex.slice(1,3), 16);
+  const g = parseInt(hex.slice(3,5), 16);
+  const b = parseInt(hex.slice(5,7), 16);
+  return `rgb(${Math.floor(r*factor)},${Math.floor(g*factor)},${Math.floor(b*factor)})`;
+}
+
+// Animate: periodically scramble one row
+let autoTimer = 0;
+function animate() {
+  autoTimer++;
+  if (autoTimer % 40 === 0) {
+    const f = Math.floor(Math.random() * 3);
+    const row = Math.floor(Math.random() * gridSize);
+    rotateFaceRow(f, row, Math.random() > 0.5 ? 1 : -1);
+  }
+  drawCube();
+  requestAnimationFrame(animate);
+}
+
+canvas.addEventListener('click', () => {
+  scramble();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 's' || e.key === 'S') {
+    sizeIdx = (sizeIdx + 1) % sizes.length;
+    gridSize = sizes[sizeIdx];
+    sizeBtn.textContent = `size: ${gridSize}×${gridSize}`;
+    initFaces();
+    scramble();
+  }
+});
+
+sizeBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  sizeIdx = (sizeIdx + 1) % sizes.length;
+  gridSize = sizes[sizeIdx];
+  sizeBtn.textContent = `size: ${gridSize}×${gridSize}`;
+  initFaces();
+  scramble();
+});
+
+initFaces();
+scramble();
+animate();
+</script>
+</body>
+</html>
