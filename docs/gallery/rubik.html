@@ -5,97 +5,188 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rubik Patterns</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#0a0a0a;overflow:hidden;cursor:pointer}
-  canvas{display:block}
-  .back{position:fixed;top:1rem;left:1rem;font:0.8rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;text-decoration:none;border:1px solid #333;z-index:10;transition:border-color 0.2s}
-  .back:hover{border-color:#666;color:#fff}
-  .label{position:fixed;bottom:1rem;left:1rem;font:0.75rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#888;background:rgba(10,10,10,0.85);padding:0.4rem 0.7rem;border-radius:4px;pointer-events:none}
-  .ctrl{position:fixed;top:1rem;right:1rem;font:0.75rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;border:1px solid #333;cursor:pointer;z-index:10;transition:border-color 0.2s}
-  .ctrl:hover{border-color:#666;color:#fff}
-  .in-iframe .back,.in-iframe .label,.in-iframe .ctrl{display:none}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#0a0a0a;overflow:hidden;display:flex;flex-direction:column}
+canvas{display:block;flex:1;width:100%;cursor:pointer}
+.back{position:fixed;top:1rem;left:1rem;font:0.8rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;text-decoration:none;border:1px solid #333;z-index:10;transition:border-color 0.2s}
+.back:hover{border-color:#666;color:#fff}
+.panel{background:#111;border-top:1px solid #222;padding:0.6rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:0.8rem;font:0.75rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;flex-shrink:0}
+.panel .info{color:#ccc;white-space:nowrap}
+.panel .hint{color:#555}
+.panel .right{display:flex;gap:6px}
+.panel button{background:rgba(255,255,255,0.06);border:1px solid #333;color:#999;font:0.75rem ui-monospace,SFMono-Regular,Menlo,monospace;padding:5px 10px;border-radius:4px;cursor:pointer;transition:all 0.2s}
+.panel button:hover{background:rgba(255,255,255,0.12);color:#fff;border-color:#555}
+.in-iframe .back,.in-iframe .panel{display:none}
 </style>
 </head>
 <body>
 <script>if(window.self!==window.top)document.body.classList.add('in-iframe');</script>
 <a class="back" href="index.html">← Gallery</a>
-<button class="ctrl" id="sizeBtn">size: 3×3</button>
 <canvas id="c"></canvas>
-<div class="label">click to scramble · S to change size</div>
+<div class="panel">
+<div>
+<span class="info" id="info">3×3 · solved</span>
+<span class="hint"> · click scramble · R reset · S size</span>
+</div>
+<div class="right">
+<button onclick="doScramble()">scramble</button>
+<button onclick="doReset()">reset</button>
+<button onclick="cycleSize()">size</button>
+</div>
+</div>
 <script>
 const canvas = document.getElementById('c');
 const ctx = canvas.getContext('2d');
-const sizeBtn = document.getElementById('sizeBtn');
-
 let W, H;
+
+// Rubik's standard colors: U=white, D=yellow, F=green, B=blue, R=red, L=orange
+const FACE_COLORS = ['#ffffff','#ffd500','#009e60','#0051ba','#c41e3a','#ff5800'];
+const FACE_NAMES = ['U','D','F','B','R','L'];
+// U=0, D=1, F=2, B=3, R=4, L=5
+
 let gridSize = 3;
 const sizes = [2, 3, 4, 5, 7];
 let sizeIdx = 1;
+let cube = []; // cube[face][row][col] = color string
+let scrambled = false;
 
-const faceColors = ['#c41e3a','#ff5800','#ffd500','#009e60','#0051ba','#ffffff'];
-
-// faces[0] = top, faces[1] = left, faces[2] = right
-let faces = [];
-
-function resize() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resize);
-resize();
-
-function initFaces() {
-  faces = [];
-  for (let f = 0; f < 3; f++) {
-    const face = [];
-    for (let r = 0; r < gridSize; r++) {
-      const row = [];
-      for (let c = 0; c < gridSize; c++) {
-        row.push(faceColors[f * 2 + ((r + c) % 2)]);
-      }
-      face.push(row);
-    }
-    faces.push(face);
+function initCube() {
+  cube = [];
+  for (let f = 0; f < 6; f++) {
+    cube[f] = Array.from({length: gridSize}, () => Array(gridSize).fill(FACE_COLORS[f]));
   }
+  scrambled = false;
+  updateInfo();
 }
 
-function scramble() {
-  for (let i = 0; i < gridSize * 12; i++) {
-    const f = Math.floor(Math.random() * 3);
-    const idx = Math.floor(Math.random() * gridSize);
-    const dir = Math.random() > 0.5 ? 1 : -1;
-    if (Math.random() > 0.5) {
-      rotateRow(f, idx, dir);
-    } else {
-      rotateCol(f, idx, dir);
-    }
-  }
+// Rotate a face 90° clockwise (looking at that face head-on)
+function rotateFaceCW(f) {
+  const n = gridSize;
+  const old = cube[f].map(r => [...r]);
+  for (let r = 0; r < n; r++)
+    for (let c = 0; c < n; c++)
+      cube[f][c][n - 1 - r] = old[r][c];
 }
 
-function rotateRow(f, row, dir) {
-  const face = faces[f];
-  if (dir > 0) {
-    const tmp = face[row][gridSize - 1];
-    for (let c = gridSize - 1; c > 0; c--) face[row][c] = face[row][c-1];
-    face[row][0] = tmp;
-  } else {
-    const tmp = face[row][0];
-    for (let c = 0; c < gridSize - 1; c++) face[row][c] = face[row][c+1];
-    face[row][gridSize - 1] = tmp;
-  }
+// Helper: get/set strips
+function getRow(f, r) { return cube[f][r].slice(); }
+function setRow(f, r, v) { for (let i = 0; i < gridSize; i++) cube[f][r][i] = v[i]; }
+function getCol(f, c) { return cube[f].map(row => row[c]); }
+function setCol(f, c, v) { for (let i = 0; i < gridSize; i++) cube[f][i][c] = v[i]; }
+
+// The 6 face moves, each clockwise when looking at that face.
+// Each cycles 4 strips of adjacent stickers.
+function moveU() {
+  rotateFaceCW(0);
+  const n = gridSize;
+  const t = getRow(2, 0);           // F top row
+  setRow(2, 0, getRow(4, 0));       // F ← R
+  setRow(4, 0, getRow(3, n-1).reverse()); // R ← B bottom row reversed
+  setRow(3, n-1, getRow(5, 0).reverse()); // B bottom ← L top reversed
+  setRow(5, 0, t);                  // L ← F
 }
 
-function rotateCol(f, col, dir) {
-  const face = faces[f];
-  if (dir > 0) {
-    const tmp = face[gridSize - 1][col];
-    for (let r = gridSize - 1; r > 0; r--) face[r][col] = face[r-1][col];
-    face[0][col] = tmp;
-  } else {
-    const tmp = face[0][col];
-    for (let r = 0; r < gridSize - 1; r++) face[r][col] = face[r+1][col];
-    face[gridSize - 1][col] = tmp;
+function moveD() {
+  rotateFaceCW(1);
+  const n = gridSize;
+  const t = getRow(2, n-1);         // F bottom
+  setRow(2, n-1, getRow(5, n-1));   // F ← L
+  setRow(5, n-1, getRow(3, 0).reverse()); // L ← B top reversed
+  setRow(3, 0, getRow(4, n-1).reverse()); // B top ← R bottom reversed
+  setRow(4, n-1, t);                // R ← F
+}
+
+function moveF() {
+  rotateFaceCW(2);
+  const n = gridSize;
+  const t = getRow(0, n-1);         // U bottom row
+  setRow(0, n-1, getCol(5, n-1).reverse()); // U ← L right col reversed
+  setCol(5, n-1, getRow(1, 0));     // L right col ← D top row
+  setRow(1, 0, getCol(4, 0).reverse()); // D top ← R left col reversed
+  setCol(4, 0, t);                  // R left col ← U
+}
+
+function moveB() {
+  rotateFaceCW(3);
+  const n = gridSize;
+  const t = getRow(0, 0);           // U top row
+  setRow(0, 0, getCol(4, n-1));     // U ← R right col
+  setCol(4, n-1, getRow(1, n-1).reverse()); // R right ← D bottom reversed
+  setRow(1, n-1, getCol(5, 0));     // D bottom ← L left col
+  setCol(5, 0, t.reverse());        // L left ← U top reversed
+}
+
+function moveR() {
+  rotateFaceCW(4);
+  const n = gridSize;
+  const t = getCol(0, n-1);         // U right col
+  setCol(0, n-1, getCol(2, n-1));   // U ← F right col
+  setCol(2, n-1, getCol(1, n-1));   // F ← D right col
+  setCol(1, n-1, getCol(3, 0).reverse()); // D ← B left col reversed
+  setCol(3, 0, t.reverse());        // B left ← U reversed
+}
+
+function moveL() {
+  rotateFaceCW(5);
+  const n = gridSize;
+  const t = getCol(0, 0);           // U left col
+  setCol(0, 0, getCol(3, n-1).reverse()); // U ← B right col reversed
+  setCol(3, n-1, getCol(1, 0).reverse()); // B right ← D left reversed
+  setCol(1, 0, getCol(2, 0));       // D ← F left col
+  setCol(2, 0, t);                  // F ← U
+}
+
+const MOVES = [moveU, moveD, moveF, moveB, moveR, moveL];
+
+function doScramble() {
+  const count = gridSize * 20;
+  for (let i = 0; i < count; i++) {
+    const m = MOVES[Math.floor(Math.random() * 6)];
+    const turns = 1 + Math.floor(Math.random() * 3); // 1-3 quarter turns
+    for (let t = 0; t < turns; t++) m();
   }
+  scrambled = true;
+  updateInfo();
+}
+
+function doReset() {
+  initCube();
+}
+
+function cycleSize() {
+  sizeIdx = (sizeIdx + 1) % sizes.length;
+  gridSize = sizes[sizeIdx];
+  initCube();
+}
+
+function updateInfo() {
+  document.getElementById('info').textContent = `${gridSize}×${gridSize} · ${scrambled ? 'scrambled' : 'solved'}`;
+}
+
+// --- Drawing ---
+// Isometric projection: x=right, y=back-left, z=up
+const COS30 = Math.cos(Math.PI / 6);
+const SIN30 = 0.5;
+
+function iso(x, y, z, s, ox, oy) {
+  return [
+    ox + (x - y) * COS30 * s,
+    oy + (x + y) * SIN30 * s - z * s
+  ];
+}
+
+function quad(p1, p2, p3, p4, fill) {
+  ctx.beginPath();
+  ctx.moveTo(p1[0], p1[1]);
+  ctx.lineTo(p2[0], p2[1]);
+  ctx.lineTo(p3[0], p3[1]);
+  ctx.lineTo(p4[0], p4[1]);
+  ctx.closePath();
+  ctx.fillStyle = fill;
+  ctx.fill();
+  ctx.strokeStyle = '#0a0a0a';
+  ctx.lineWidth = 2;
+  ctx.stroke();
 }
 
 function darken(hex, factor) {
@@ -105,119 +196,110 @@ function darken(hex, factor) {
   return `rgb(${Math.floor(r*factor)},${Math.floor(g*factor)},${Math.floor(b*factor)})`;
 }
 
-// Isometric projection helpers
-// Unit vectors for isometric: right = (cos30, sin30), left = (-cos30, sin30), down = (0, 1)
-const COS30 = Math.cos(Math.PI / 6);
-const SIN30 = 0.5;
-
-function isoProject(x, y, z, cellSize, cx, cy) {
-  // x = right axis, y = depth (left-back), z = up
-  const px = cx + (x - y) * COS30 * cellSize;
-  const py = cy + (x + y) * SIN30 * cellSize - z * cellSize;
-  return [px, py];
-}
-
-function drawQuad(p1, p2, p3, p4, color) {
-  ctx.beginPath();
-  ctx.moveTo(p1[0], p1[1]);
-  ctx.lineTo(p2[0], p2[1]);
-  ctx.lineTo(p3[0], p3[1]);
-  ctx.lineTo(p4[0], p4[1]);
-  ctx.closePath();
-  ctx.fillStyle = color;
-  ctx.fill();
-  ctx.strokeStyle = '#1a1a1a';
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
-}
-
-function drawCube() {
+function draw() {
   ctx.fillStyle = '#0a0a0a';
   ctx.fillRect(0, 0, W, H);
 
-  const cellSize = Math.min(W, H) * 0.55 / gridSize;
-  const cx = W / 2;
-  const cy = H / 2 + gridSize * cellSize * 0.15;
   const n = gridSize;
-  const g = 0.08; // gap as fraction of cell
+  const s = Math.min(W, H) * 0.52 / n;
+  const ox = W / 2;
+  const oy = H / 2 + n * s * 0.2;
+  const g = 0.06; // gap fraction
 
-  // Top face (faces[0]) — z = n, x and y vary
+  // In our isometric view (looking from front-right-above):
+  // Visible faces: U (top, z=n), F (front-left, y=0), R (front-right, x=n)
+  //
+  // Isometric viewing direction is roughly (-1,-1,1),
+  // so faces with outward normals pointing toward viewer are:
+  //   U: normal (0,0,1)  → visible  (z=n, the top)
+  //   F: normal (0,-1,0) → visible  (y=0, front-left)
+  //   R: normal (1,0,0)  → visible  (x=n, front-right)
+
+  // Draw order: top first, then left (F), then right (R)
+
+  // TOP face = U (cube[0])
+  // U[0][0] = back-left corner, U[n-1][n-1] = front-right corner
+  // In iso: U row maps to y (back→front), U col maps to x (left→right)
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
       const x0 = c + g, x1 = c + 1 - g;
-      const y0 = r + g, y1 = r + 1 - g;
-      const p1 = isoProject(x0, y0, n, cellSize, cx, cy);
-      const p2 = isoProject(x1, y0, n, cellSize, cx, cy);
-      const p3 = isoProject(x1, y1, n, cellSize, cx, cy);
-      const p4 = isoProject(x0, y1, n, cellSize, cx, cy);
-      drawQuad(p1, p2, p3, p4, faces[0][r][c]);
+      const y0 = (n - 1 - r) + g, y1 = (n - r) - g; // r=0 is back (high y)
+      quad(
+        iso(x0, y0, n, s, ox, oy),
+        iso(x1, y0, n, s, ox, oy),
+        iso(x1, y1, n, s, ox, oy),
+        iso(x0, y1, n, s, ox, oy),
+        cube[0][r][c]
+      );
     }
   }
 
-  // Left face (faces[1]) — x = 0, y and z vary
+  // LEFT face = F (cube[2]), at y=0
+  // F[0][0] = top-left, F[row][col]: row goes down (z decreasing), col goes right (x increasing)
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      const x0 = c + g, x1 = c + 1 - g;
+      const z0 = (n - 1 - r) + g, z1 = (n - r) - g;
+      quad(
+        iso(x0, 0, z1, s, ox, oy),
+        iso(x1, 0, z1, s, ox, oy),
+        iso(x1, 0, z0, s, ox, oy),
+        iso(x0, 0, z0, s, ox, oy),
+        darken(cube[2][r][c], 0.7)
+      );
+    }
+  }
+
+  // RIGHT face = R (cube[4]), at x=n
+  // R[0][0] = top-front, R[row][col]: row goes down (z decreasing), col goes back (y increasing)
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
       const y0 = c + g, y1 = c + 1 - g;
       const z0 = (n - 1 - r) + g, z1 = (n - r) - g;
-      const p1 = isoProject(0, y0, z1, cellSize, cx, cy);
-      const p2 = isoProject(0, y1, z1, cellSize, cx, cy);
-      const p3 = isoProject(0, y1, z0, cellSize, cx, cy);
-      const p4 = isoProject(0, y0, z0, cellSize, cx, cy);
-      drawQuad(p1, p2, p3, p4, darken(faces[1][r][c], 0.65));
-    }
-  }
-
-  // Right face (faces[2]) — y = 0, x and z vary
-  for (let r = 0; r < n; r++) {
-    for (let c = 0; c < n; c++) {
-      const x0 = c + g, x1 = c + 1 - g;
-      const z0 = (n - 1 - r) + g, z1 = (n - r) - g;
-      const p1 = isoProject(x0, 0, z1, cellSize, cx, cy);
-      const p2 = isoProject(x1, 0, z1, cellSize, cx, cy);
-      const p3 = isoProject(x1, 0, z0, cellSize, cx, cy);
-      const p4 = isoProject(x0, 0, z0, cellSize, cx, cy);
-      drawQuad(p1, p2, p3, p4, darken(faces[2][r][c], 0.45));
+      quad(
+        iso(n, y0, z1, s, ox, oy),
+        iso(n, y1, z1, s, ox, oy),
+        iso(n, y1, z0, s, ox, oy),
+        iso(n, y0, z0, s, ox, oy),
+        darken(cube[4][r][c], 0.5)
+      );
     }
   }
 }
 
+// --- Resize ---
+function resize() {
+  W = canvas.width = canvas.clientWidth;
+  H = canvas.height = canvas.clientHeight;
+}
+window.addEventListener('resize', resize);
+
+// --- Animation ---
 let autoTimer = 0;
 function animate() {
   autoTimer++;
-  if (autoTimer % 45 === 0) {
-    const f = Math.floor(Math.random() * 3);
-    const idx = Math.floor(Math.random() * gridSize);
-    if (Math.random() > 0.5) {
-      rotateRow(f, idx, Math.random() > 0.5 ? 1 : -1);
-    } else {
-      rotateCol(f, idx, Math.random() > 0.5 ? 1 : -1);
-    }
+  // Auto-scramble: apply one random move every ~60 frames
+  if (autoTimer % 60 === 0 && scrambled) {
+    const m = MOVES[Math.floor(Math.random() * 6)];
+    m();
   }
-  drawCube();
+  draw();
   requestAnimationFrame(animate);
 }
 
-canvas.addEventListener('click', () => scramble());
-
-function cycleSize() {
-  sizeIdx = (sizeIdx + 1) % sizes.length;
-  gridSize = sizes[sizeIdx];
-  sizeBtn.textContent = `size: ${gridSize}×${gridSize}`;
-  initFaces();
-  scramble();
-}
+// --- Events ---
+canvas.addEventListener('click', () => doScramble());
 
 document.addEventListener('keydown', e => {
   if (e.key === 's' || e.key === 'S') cycleSize();
+  else if (e.key === 'r' || e.key === 'R') doReset();
+  else if (e.key === ' ') { e.preventDefault(); doScramble(); }
 });
 
-sizeBtn.addEventListener('click', e => {
-  e.stopPropagation();
-  cycleSize();
-});
-
-initFaces();
-scramble();
+// --- Init ---
+resize();
+initCube();
+doScramble();
 animate();
 </script>
 </body>
