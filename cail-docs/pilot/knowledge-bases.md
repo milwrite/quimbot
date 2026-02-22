@@ -2,7 +2,7 @@
 
 When you chat with a base model, it draws on whatever it absorbed during training. That training data may be months or years old. It may not include your syllabus, your department's policies, or the articles you assigned last week. A Knowledge Base changes that. You upload your documents, and the model searches them before responding.
 
-The technical name for this is Retrieval-Augmented Generation, or RAG. The practical name is: the AI reads your stuff first.
+This process is called Retrieval-Augmented Generation (RAG). It means the model checks your documents before answering, rather than relying on its general training data alone.
 
 ---
 
