@@ -81,7 +81,8 @@ When a user's question falls within a skill's domain, the model loads the releva
 
 ---
 
-## Advanced Settings
+<details>
+<summary>Advanced Settings</summary>
 
 ### Building Custom Tools
 
@@ -92,6 +93,8 @@ Go to **Workspace > Tools > + New Tool** to get started. Consult with the AI Lab
 ### Tool Security
 
 Tools are Python scripts that execute on the server. A poorly written or malicious tool can access system resources, exfiltrate data, or disrupt service. Only install tools from trusted sources. The AI Lab maintains an approved tool list. Contact the team before adding community tools to the instance.
+
+</details>
 
 ---
 

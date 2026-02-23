@@ -57,7 +57,8 @@ Now every conversation with that model draws from your uploaded documents.
 
 ---
 
-## Advanced Settings
+<details>
+<summary>Advanced Settings</summary>
 
 ### What Happens Under the Hood
 
@@ -103,6 +104,8 @@ information. Prioritize accuracy over elaboration.
 ### Embedding Model Configuration
 
 The default embedding model (Sentence Transformers MiniLM-L6) works well for most use cases. Administrators can change it in **Admin Panel > Settings > Documents**. Alternative models are available through Hugging Face. Changing the embedding model re-indexes all uploaded documents, so plan accordingly.
+
+</details>
 
 ---
 

@@ -76,7 +76,8 @@ When you share a resource with a group:
 
 ---
 
-## Advanced Settings
+<details>
+<summary>Advanced Settings</summary>
 
 ### SCIM 2.0 Provisioning
 
@@ -87,6 +88,8 @@ Contact the AI Lab team to configure SCIM integration for your department.
 ### Permission Inheritance
 
 Custom roles inherit from the default `@everyone` baseline, similar to how Discord handles role permissions (see the Discord Educational Toolkit's [Role Management](../discord-toolkit-md/role-management.md) guide for a parallel example). When you create a new group, its members start with standard user permissions. You then layer on additional access through resource sharing.
+
+</details>
 
 ---
 
