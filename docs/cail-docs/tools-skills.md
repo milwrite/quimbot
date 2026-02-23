@@ -80,11 +80,11 @@ When a user's question falls within a skill's domain, the model loads the releva
 
 If the community library does not have what you need, administrators can write custom tools. Each tool requires a name, description, and Python function body. The function runs on the server when the model invokes it.
 
-Go to **Workspace > Tools > + New Tool** to get started. Consult with the CAIL team if you are unsure about security implications.
+Go to **Workspace > Tools > + New Tool** to get started. Consult with the AI Lab team if you are unsure about security implications.
 
 ### Tool Security
 
-Tools are Python scripts that execute on the server. A poorly written or malicious tool can access system resources, exfiltrate data, or disrupt service. Only install tools from trusted sources. The CAIL maintains an approved tool list. Contact the team before adding community tools to the instance.
+Tools are Python scripts that execute on the server. A poorly written or malicious tool can access system resources, exfiltrate data, or disrupt service. Only install tools from trusted sources. The AI Lab maintains an approved tool list. Contact the team before adding community tools to the instance.
 
 </details>
 
@@ -93,7 +93,7 @@ Tools are Python scripts that execute on the server. A poorly written or malicio
 ## Callout
 
 <div class="callout">
-  <strong>Security reminder:</strong> Review any community tool's code before installing it. Tools run with server-level access. If you are not comfortable evaluating Python code, ask the CAIL team to review it for you.
+  <strong>Security reminder:</strong> Review any community tool's code before installing it. Tools run with server-level access. If you are not comfortable evaluating Python code, ask the AI Lab team to review it for you.
 </div>
 
 ---

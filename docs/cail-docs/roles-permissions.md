@@ -9,7 +9,7 @@ When you share a model, knowledge base, or prompt with students, you need to con
 The Sandbox supports three role tiers:
 
 ### Administrators
-Full platform access. Configure providers, manage users, install tools, set instance-wide defaults. Typically the CAIL team and designated departmental contacts.
+Full platform access. Configure providers, manage users, install tools, set instance-wide defaults. Typically the AI Lab team and designated departmental contacts.
 
 ### Faculty / Staff
 Create and share models, knowledge bases, and prompts. Manage their own groups. Cannot modify instance-wide settings or install tools.
@@ -75,7 +75,7 @@ When you share a resource with a group:
 
 For institutions with identity providers (Okta, Azure AD, Google Workspace), Open WebUI supports SCIM 2.0. This automates user lifecycle management: when a student is added to a course roster in your identity provider, their Sandbox account and group memberships update automatically. When they drop the course, access revokes.
 
-Contact the CAIL team to configure SCIM integration for your department.
+Contact the AI Lab team to configure SCIM integration for your department.
 
 ### Permission Inheritance
 

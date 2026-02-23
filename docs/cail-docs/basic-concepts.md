@@ -123,7 +123,7 @@ Now that you know the basic concepts, you can:
 
 ## Learn More
 
-The CUNY CAIL Sandbox is hosted and maintained by the [CAIL](https://ailab.gc.cuny.edu) at the Graduate Center. For workshops, office hours, and additional resources, visit the [CAIL website](https://ailab.gc.cuny.edu).
+The CUNY CAIL Sandbox is hosted and maintained by the [CUNY AI Lab](https://ailab.gc.cuny.edu) at the Graduate Center. For workshops, office hours, and additional resources, visit the [AI Lab website](https://ailab.gc.cuny.edu).
 
 ---
 

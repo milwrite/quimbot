@@ -185,7 +185,7 @@ You can adapt any of these by changing the system prompt, swapping the knowledge
 ## Callout
 
 <div class="callout">
-  <strong>Share what works:</strong> If you adapt one of these activities and it goes well, tell the CAIL team. Your variation might become the next example on this page.
+  <strong>Share what works:</strong> If you adapt one of these activities and it goes well, tell the AI Lab team. Your variation might become the next example on this page.
 </div>
 
 ---

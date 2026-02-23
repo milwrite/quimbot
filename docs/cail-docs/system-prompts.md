@@ -235,7 +235,7 @@ For implementation details: see [Custom Models](models.md).
 ## Callout
 
 <div class="callout">
-  <strong>Share your prompts:</strong> If you develop a system prompt that works well for your course, share it with the CAIL team. Effective prompts benefit the entire CUNY teaching community. Your pattern might become a template other instructors build on.
+  <strong>Share your prompts:</strong> If you develop a system prompt that works well for your course, share it with the AI Lab team. Effective prompts benefit the entire CUNY teaching community. Your pattern might become a template other instructors build on.
 </div>
 
 ---

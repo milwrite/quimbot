@@ -115,14 +115,14 @@ In the meantime, explore: try different models (click the model name at the top)
 
 **Don't worry about breaking things.** The Sandbox is a shared tool, but your personal workspace is yours. Create models. Delete them. Experiment. You can't break the instance for others.
 
-**Ask for help.** If you get stuck, reach out to the CAIL team or check the community channels. CUNY faculty and researchers are building with this platform every day, and the community is generous with support.
+**Ask for help.** If you get stuck, reach out to the AI Lab team or check the community channels. CUNY faculty and researchers are building with this platform every day, and the community is generous with support.
 
 ---
 
 ## Additional Resources
 
 - **Open WebUI Documentation** — [Official technical docs](https://docs.openwebui.com/) for deeper technical details
-- **CAIL** — [CAIL homepage](https://ailab.gc.cuny.edu/) for workshops, office hours, and community events
+- **CUNY AI Lab** — [AI Lab homepage](https://ailab.gc.cuny.edu/) for workshops, office hours, and community events
 - **Teach@CUNY Resources** — [Teaching with AI toolkit](https://aitoolkit.commons.gc.cuny.edu/) for pedagogical guidance on AI in the classroom
 
 ---
