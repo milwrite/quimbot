@@ -1,14 +1,6 @@
 # Roles & Permissions
 
-When you share a model, knowledge base, or prompt with your students, you need to control who can use it, who can edit it, and who can see it at all. Roles and permissions give you that control without requiring admin access for every decision.
-
----
-
-## Why This Matters
-
-The Sandbox serves a diverse community: administrators, faculty, graduate students, undergraduates, and staff. Not everyone needs the same level of access. A faculty member building course models needs different permissions than a first-year student using those models. A research team sharing a knowledge base needs to restrict it to their group without making it visible to the entire instance.
-
-At CUNY, where a single platform may serve multiple departments, programs, and user populations, clear permissions prevent confusion and protect sensitive institutional data.
+When you share a model, knowledge base, or prompt with students, you need to control who can use it, who can edit it, and who can see it. Roles and permissions give you that control. The Sandbox serves faculty, graduate students, undergraduates, and staff across multiple departments. Clear permissions prevent confusion and protect sensitive institutional data.
 
 ---
 

@@ -1,14 +1,6 @@
 # Extending Models with Tools & Skills
 
-Out of the box, a model can only generate text. It cannot search the web, run code, query a database, or look up a paper on arXiv. Tools change that. When you enable a tool, the model can call it during a conversation, process the result, and weave it into its response.
-
-Skills work differently. Where tools connect to external services, skills provide specialized knowledge domains that the model can draw on without you modifying the system prompt. Think of tools as hands and skills as expertise.
-
----
-
-## Why This Matters
-
-A model that supports writing can be more useful when it has tools. Without tools, it can only generate text. With tools, it can search your university's style guide, pull citation examples from a knowledge base, and look up sources on arXiv. Tools and skills extend what models can do beyond text generation. For CUNY instructors, this means building models that do more than talk.
+Out of the box, a model can only generate text. Tools change that: enable a tool and the model can search the web, run code, query a database, or look up papers on arXiv during a conversation. Skills work differently. Where tools connect to external services, skills provide specialized knowledge domains the model draws on without you modifying the system prompt. Think of tools as hands and skills as expertise.
 
 ---
 

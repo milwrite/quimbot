@@ -1,14 +1,6 @@
 # Teaching Tips
 
-Integrating AI into teaching requires more than technical setup. It demands intentional pedagogical design that preserves learning objectives, clarifies expectations, and develops students' critical capacities. This page offers patterns drawn from research on AI in education and adapted for CUNY contexts.
-
----
-
-## Why This Matters
-
-AI tools can enhance learning or shortcut it. The difference lies in how you frame their use. A model configured to support writing can help students develop their voice, or it can generate essays they submit without thinking. A model configured for research can teach source evaluation, or it can enable passive consumption of synthesized information.
-
-CUNY students navigate complex lives. Many balance work, family, and study. Many are multilingual. Many face systemic barriers to academic success. AI tools can support these students or amplify existing inequities. Pedagogical intentionality determines the outcome.
+Integrating AI into teaching requires intentional pedagogical design. A model configured to support writing can help students develop their voice or generate essays they submit without thinking. The difference lies in how you frame its use. CUNY students navigate complex lives, balancing work, family, and study. Many are multilingual. AI tools can support these students or amplify existing inequities. Pedagogical intentionality determines the outcome.
 
 ---
 
