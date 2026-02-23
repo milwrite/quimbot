@@ -23,24 +23,15 @@ _Last synced: 2026-02-23 07:00 ET (morning stand-up)_
 - CAIL docs: scaffold + AI Toolkit integration attempted, reverted to original Sandbox docs
 
 ## 🔨 In Progress
-- **Evaluate Stage 1 checkpoints** — step 350 looks optimal per early perplexity; need full eval
-- Execute `build_stage1_mix.py` with blessed policies to generate v4 mix
-- Launch Run 5 with v4 mix once checkpoint eval confirms approach
+- **Evaluate Stage 1 Run 4 checkpoints** — step 350 looks optimal per early perplexity; need full eval pass (TOP PRIORITY)
+- Mobile optimization pass on gallery artifacts (completed 2/23)
+- Rubik's cube interactive (built from scratch, multi-face rotation working)
 
-## ✅ Policy Decisions (Morning Stand-up 2026-02-23)
-- **Empty-assistant + alternation violations:** DROP (32 rows <0.1% of dataset; clean > patched)
-- **Dedup policy:** HARD DEDUP (full messages hash; avoid implicit weighting)
-- **Stage 1 mixing ratios:** APPROVED
-  - LMSYS 40% — dialogue flow
-  - Magpie 25% — instruction alignment
-  - TOEFL 20% — scaffolding (9,227 records)
-  - Prosocial 10% — supportive tone
-  - Pilot 5% — domain-specific (1,366 records)
-  - Target: ~43K records
+### 👇 Waiting on Petrarch
+- Stage 1 Run 4 eval: coordinate on eval methodology and checkpoint selection
 
 ## 📋 Backlog
-- Run Stage 1 LoRA training on validated dataset mix
-- Stage 2 language/learner variant fine-tuning
+- Stage 2 language/learner variant fine-tuning (Spanish SFT datasets scouted: ~1.1M rows from latam-gpt)
 - Evaluation framework build-out (`evaluation/` dir exists, needs populating)
 - A2A cross-machine delegation (Petrarch ↔ Quimbot task passing)
 - Dataset quality metrics / automated filtering (length histograms, role-order checks, near-dup)
