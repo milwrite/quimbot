@@ -143,9 +143,9 @@ def analyze_file(filepath):
 
 def main():
     files = sys.argv[1:] if len(sys.argv) > 1 else [
-        "scaffolding_combined.jsonl",
-        "scaffolding_adaptive_500.jsonl",
-        "scaffolding_1000.jsonl"
+        "data/scaffolding_combined.jsonl",
+        "data/scaffolding_adaptive_500.jsonl",
+        "data/scaffolding_1000.jsonl"
     ]
     
     for filepath in files:

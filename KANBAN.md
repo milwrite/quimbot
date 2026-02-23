@@ -1,42 +1,55 @@
-# KANBAN.md — Quimbot Project Board
+# Orchestra Kanban Board
+**Last Updated:** 2026-02-22 19:00 EST by Quimbot (Evening Stand-up)
 
-_Last synced: 2026-02-20 21:00 ET (evening review)_
+## Current State
 
-## ✅ Done
-- Two-stage LoRA fine-tuning pipeline architecture (README)
-- Stage 1 "Core Linguist" dataset assembly (`stage1_train.jsonl` ~445M)
-- UltraChat 200K SFT variants (base + CUNY ES)
-- TOEFL-style synthetic followup generation script (`fine-tuning/generate_toefl_followups_openrouter.py`)
-- Followups QA + consolidation scripts (`fine-tuning/qa_followups_jsonl.py`, `fine-tuning/consolidate_followups.py`)
-- JSONL audit tooling + audit snapshot captured (TOEFL concat issues isolated to empty-assistant + role alternation; parse errors=0)
-- HF dataset mixing utility + consolidated dataset notes (`fine-tuning/prepare_stage1_mix_hf.py`, `fine-tuning/CONSOLIDATED_DATASETS.md`)
-- Superset 2 (TOEFL): 9227 records, cross-source deduped
-- Superset 3 (Pilot): 1366 records, clean
-- Microlearning sidequest: generated 10x 60s scripts + 60 Veo scene prompts (commit `da0a599`; see `sidequests/microlearning/docs/GENERATION_SUMMARY.md`)
-- ITP Lab deck: 19 commits — full layout overhaul, GitHub Pages deployment, mobile UX, creative-coding visualizations, content polish
-- Creative coding gallery expansion: 27 commits on 2/20 — 5 new artifacts (Lorenz, Sospiri, Nake, Noll, Harmonograph), full UX overhaul, iframe embed support
+### Stage 1 LoRA Training — COMPLETE ✅
+- **Run 4** (Feb 21): 671 steps, 14 checkpoints, Qwen3-8B, rank 16, batch 64, lr 1e-4
+- Dataset: `stage1_mix_v3` — 43,170 records (LMSYS 40.8% / Magpie 25.5% / TOEFL 20.4% / Prosocial 10.2% / Pilot 3.2%)
+- Final checkpoint: `tinker://1409ede0-689d-53a9-af07-a2426cf4f218:train:0/sampler_weights/final`
+- Log: `fine-tuning/data/stage1_run4_v3.log`
 
-## 🔨 In Progress
-- **Clean** TOEFL synth concat — ✅ verified clean in both supersets (0 empty-asst, 0 alt-violations)
-- Decide synth followups **dedup policy** (hard dedup vs keep duplicates as weighting) — dedup passes done, policy confirmation still needed
-- Build a training-ready Stage 1 mix JSONL with pinned ratios/seeds (reproducible) — **script done** (`build_stage1_mix.py`, 43175 records), awaiting policy sign-off
+### Repo Reorganized (Feb 22)
+- Commit `9fed895`: flattened `agents/` → root, moved scripts into `fine-tuning/scripts/` and `tools/`
+- Workspace migrated from `~/.openclaw/workspace` to `~/Quimbot`
 
-### 👇 Waiting on Petrarch decisions
-- Confirm policy: drop the 30 empty-assistant + 2 alternation-violation rows (vs reconstruct)
-- Confirm dedup: full `messages` hash hard-dedup vs keep dupes as weighting
-- Propose Stage 1 mixing ratios once above is settled
+### Gallery / Site
+- 25 gallery visualizations built (HTML pages)
+- Site redesigned as 3-tab hub: Creative Coding / Workflows / Dev Docs
+- README updated with gallery, models, side quests
 
-## 📋 Backlog
-- Run Stage 1 LoRA training on validated dataset mix
-- Stage 2 language/learner variant fine-tuning
-- Evaluation framework build-out (`evaluation/` dir exists, needs populating)
-- A2A cross-machine delegation (Petrarch ↔ Quimbot task passing)
-- Dataset quality metrics / automated filtering (length histograms, role-order checks, near-dup)
+---
 
-## 🚫 Blocked
-- OpenRouter scale-out generation: **HTTP 402 Payment Required** (billing/account state)
+## 🎯 Active Sprint
 
-## 📝 Notes
-- Latest detailed work log lives in `agents/KANBAN.md` (stand-ups) + `memory/` daily notes.
-- Sidequests have active work (microlearning pipeline scripts + data artifacts under `sidequests/microlearning/`), but core priority remains unblocking Stage 1 mix + training.
-- Current coordination asks are parked in `TODO.md` + the top of `agents/KANBAN.md`. 
+### To Do
+- [ ] **[Quimbot]** Evaluate Run 4 checkpoints — compare step 350 vs final perplexity, run inference samples
+- [ ] **[Quimbot]** Reorganize `fine-tuning/prospects/` — integrate useful parts, archive rest
+- [ ] **[Both]** Design Stage 2 dataset (Spanish SFT candidates: 5 from latam-gpt, ~1.1M rows)
+- [ ] **[Both]** Register Saturday 10PM cron for weekly site curation meeting (blocked on gateway restart)
+
+### In Progress
+- [ ] **[Quimbot]** Run 4 eval — perplexity analysis started, cloud eval stalled on final step
+
+### Done (Recent)
+- [x] Stage 1 Run 4 complete — 671 steps, 14 checkpoints (Feb 21)
+- [x] Repo reorganization by file type (Feb 22)
+- [x] Workspace migration to ~/Quimbot (Feb 22)
+- [x] Discord ecosystem audit (Feb 22)
+- [x] README + site hub redesign (Feb 21)
+- [x] Gallery: 25 visualizations (heat diffusion, Turing patterns, harmonograph, etc.)
+- [x] Stage 1 mix v3: filtered 5 overlong samples from v2 (Feb 20)
+
+---
+
+## 🚧 Blockers
+1. **Gateway token mismatch** — cron, browser tools unavailable until `openclaw gateway restart`
+2. **OpenRouter 402** — milwrite account, status unknown
+3. **Run 4 eval** — cloud eval stalled at final checkpoint, need retry or local alternative
+
+---
+
+## 📋 Next Milestones
+1. Evaluate Run 4 → pick best checkpoint
+2. Stage 2 dataset design (multilingual + domain expansion)
+3. Stage 2 training run

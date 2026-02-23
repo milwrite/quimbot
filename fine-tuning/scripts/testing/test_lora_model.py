@@ -66,7 +66,7 @@ def main():
     parser.add_argument("--base-model", default="Qwen/Qwen3-8B", help="Base model name")
     parser.add_argument("--lora-weights", required=True, help="Path to saved LoRA weights")
     parser.add_argument("--test-prompts", default=None, help="Path to custom test prompts JSON")
-    parser.add_argument("--output", default="lora_test_results.json", help="Output file")
+    parser.add_argument("--output", default="data/lora_test_results.json", help="Output file")
     parser.add_argument("--max-tokens", type=int, default=150, help="Max tokens per response")
     parser.add_argument("--temperature", type=float, default=0.7, help="Sampling temperature")
     parser.add_argument("--compare-base", action="store_true", help="Also test base model for comparison")

@@ -60,7 +60,7 @@ def main():
     parser.add_argument("--base-model", default="Qwen/Qwen3-8B", help="Base model name")
     parser.add_argument("--lora-checkpoint", default=None, help="Path to LoRA checkpoint (optional)")
     parser.add_argument("--test-prompts", default=None, help="Path to custom test prompts JSONL")
-    parser.add_argument("--output", default="comparison_results.json", help="Output file for results")
+    parser.add_argument("--output", default="data/comparison_results.json", help="Output file for results")
     parser.add_argument("--max-tokens", type=int, default=150, help="Max tokens per response")
     args = parser.parse_args()
 

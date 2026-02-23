@@ -106,7 +106,7 @@ def generate_dialogue(pattern, l1, level, client, model="moonshotai/kimi-k2.5", 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", default="scaffolding_dialogues.jsonl", help="Output JSONL file")
+    parser.add_argument("--output", default="data/scaffolding_dialogues.jsonl", help="Output JSONL file")
     parser.add_argument("--count", type=int, default=100, help="Number of dialogues to generate")
     parser.add_argument("--model", default="moonshotai/kimi-k2.5", help="OpenRouter model to use")
     parser.add_argument("--debug", action="store_true", help="Print raw responses")

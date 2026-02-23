@@ -4,32 +4,40 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Core Protocol
 
-- Follow **agents/COLLABORATION.md** protocol for multi-agent coordination
-- Update **agents/KANBAN.md**, **agents/STATUS.md**, **agents/DEVLOG.md**, **agents/RUNLOG.md** after each significant action
+- Follow **COLLABORATION.md** protocol for multi-agent coordination
+- Update **KANBAN.md**, **STATUS.md**, **DEVLOG.md**, **RUNLOG.md** after each significant action
+- **Update `dataset_review.md` after every training or evaluation run** — document dataset composition changes, new/removed datasets, and data quality observations
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
 ## Agent Documentation
 
-All agent coordination files are in the `agents/` subdirectory:
+Agent coordination files are in the project root:
 
-- **agents/COLLABORATION.md** - Multi-agent workflow protocol
-- **agents/KANBAN.md** - Project board and stand-up notes
-- **agents/STATUS.md** - Real-time status updates
-- **agents/DEVLOG.md** - Timestamped work log
-- **agents/RUNLOG.md** - Training run history
-- **agents/NEXT-ACTIONS.md** - Prioritized action items
+- **COLLABORATION.md** - Multi-agent workflow protocol
+- **KANBAN.md** - Project board and stand-up notes
+- **STATUS.md** - Real-time status updates
+- **DEVLOG.md** - Timestamped work log
+- **RUNLOG.md** - Training run history
+- **NEXT-ACTIONS.md** - Prioritized action items
 
 ## Project Structure
 
 ```
-quimbot/
+molt/
 ├── README.md              # Project overview
 ├── CLAUDE.md              # This file (agent instructions)
-├── agents/                # Agent coordination docs
+├── dataset_review.md      # Dataset review notes (UPDATE AFTER EVERY RUN)
+├── COLLABORATION.md       # Multi-agent workflow protocol
+├── KANBAN.md              # Project board
+├── STATUS.md              # Real-time status
+├── DEVLOG.md              # Timestamped work log
+├── RUNLOG.md              # Training run history
+├── NEXT-ACTIONS.md        # Prioritized action items
+├── LoRA-ROADMAP.md        # LoRA training roadmap
 ├── evaluation/            # Model evaluation framework
-├── fine-tuning/           # Training scripts and workflows
-├── datasets/              # Training data (not committed)
+├── fine-tuning/           # Training scripts, workflows, and working JSONL data
+├── datasets/              # Training data JSONL files (not committed)
 ├── checkpoints/           # Model checkpoints (not committed)
 └── research/              # Research notes and plans
 ```
@@ -47,7 +55,7 @@ python3 evaluation/qwen-eval-v2.py --config evaluation/eval-config-example.yaml 
 ```bash
 python3.11 -m pip install -r fine-tuning/requirements.txt --user
 python3.11 fine-tuning/prepare_stage1.py
-python3.11 fine-tuning/run_tinker_lora.py --data stage1_mix_200k.jsonl --batch 64 --rank 16 --save-every 50
+python3.11 fine-tuning/run_tinker_lora.py --data datasets/stage1_mix_200k.jsonl --batch 64 --rank 16 --save-every 50
 python3.11 fine-tuning/test_lora_model.py --lora-weights checkpoints/lora_*/final_lora_weights --compare-base
 ```
 

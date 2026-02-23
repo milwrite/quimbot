@@ -218,7 +218,7 @@ def generate_with_retry(pattern, l1, level, client, models, max_retries=3, debug
 
 def main():
     parser = argparse.ArgumentParser(description="Generate scaffolding dialogues (optimized)")
-    parser.add_argument("--output", default="scaffolding_v2.jsonl")
+    parser.add_argument("--output", default="data/scaffolding_v2.jsonl")
     parser.add_argument("--count", type=int, default=1000)
     parser.add_argument("--resume", action="store_true", help="Skip existing dialogues")
     parser.add_argument("--debug", action="store_true")

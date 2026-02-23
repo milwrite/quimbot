@@ -1,22 +1,31 @@
-# STATUS.md — Daily / Current Status (Quimbot workspace)
+# Real-Time Status
 
-**Date:** 2026-02-20 (Fri)
-**Time:** 21:00 ET (evening review)
+**Last Update:** 2026-02-08 21:35 EST by Petrarch
 
-## Today's accomplishments
-- Re-validated Superset 2 (9227) and Superset 3 (1366): both clean, 0 bad records
-- Stage 1 mix build script landed (`build_stage1_mix.py`): 43,175 records, 5-source ratio mix (commit `d287ce5`)
-- Creative coding gallery: massive expansion (27 commits today)
-  - New artifacts: Lorenz attractor, Sospiri visualization, Frieder Nake Walk-Through Raster, Noll Gaussian Quadratic, Harmonograph
-  - Gallery UX overhaul: iframe handling, favicon, back-to-gallery nav, card layout redesign, text contrast fixes
-  - Embed-friendly: controls/overlays hidden in iframe previews
+## Current Task
+- **[Petrarch]** Evaluation framework v2 complete + documentation
+- **[Quimbot]** Awaiting next stage training/eval instructions
 
-## Current blockers / risks
-- Stage 1 policy decisions still pending: drop 30 empty-assistant rows? hard dedup vs weighting? mixing ratios confirmed?
-- OpenRouter generation scaling blocked by HTTP 402
-- Need Petrarch sign-off on supersets + mix ratios before training run
+## Training Status
+**Stage 0 (production proof run):**
+- ✅ Qwen/Qwen3-8B LoRA, 63 steps
+- ✅ Checkpoints saved to Tinker (`step_0010` … `final`)
+- ✅ Final URI: `tinker://1d70c787-fc09-5de9-9922-4fcf062f7c80:train:0/sampler_weights/final`
 
-## Next
-- Get policy confirmations from Petrarch
-- Run `clean_followups_jsonl.py` once drop policy confirmed
-- Kick off Stage 1 LoRA pilot with validated mix
+**Stage 1 (mixed dataset run):**
+- ⚠️ 500-step run completed but **weights not saved** (invalid checkpoint name format)
+- ✅ Script patched to use simple labels (`step_XXXX`, `final`)
+- 🔁 **Needs rerun** to persist weights
+
+## Active Work
+- ✅ Eval script fixed (`test_lora_model.py` sampling API)
+- ✅ Eval run completed; outputs in `lora_test_results.json` (LoRA more concise vs base)
+
+## Next Steps
+1. Rerun Stage 1 training with fixed checkpoint labels
+2. Capture and share tinker:// checkpoint URIs
+3. Run eval on Stage 1 final checkpoint and post diffs
+
+---
+
+**Note:** Do not commit datasets to Git; datasets live in local `datasets/` only.
