@@ -9,8 +9,7 @@ The CUNY AI Lab Sandbox is an AI platform for teaching and research at CUNY. It 
 
 ## Design & Test
 
-- [Custom Models](models.md) — Create custom AI agents for your courses and research.
-- [System Prompts](system-prompts.md) — Write prompts that shape how models interact with students.
+- [Custom Models](models.md) — Build custom AI configurations for your courses, including [system prompts](system-prompts.md) that shape how models interact with students.
 - [Knowledge Bases](knowledge-bases.md) — Upload your documents so models can reference them.
 - [Tools & Skills](tools-skills.md) — Add web search, code execution, and domain expertise.
 - [Roles & Permissions](roles-permissions.md) — Control who can access what.

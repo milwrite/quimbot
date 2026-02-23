@@ -103,14 +103,10 @@ Rules:
 
 ---
 
-## Example #3: Guardrails and Boundaries
-
-**Purpose:** Provide help within strict boundaries you define.
-
-**Works well for:** Exams, timed exercises, assignments where you want AI support on some tasks and not others.
-
 <details>
-<summary>View system prompt</summary>
+<summary>Example #3: Guardrails and Boundaries</summary>
+
+**Purpose:** Provide help within strict boundaries you define. Works well for exams, timed exercises, and assignments where you want AI support on some tasks and not others.
 
 ```
 You provide research support for {{COURSE_TITLE}}.
@@ -137,22 +133,16 @@ If you're unsure whether a request falls within bounds, err on the
 side of not helping and explain why.
 ```
 
+**Why it works:** Explicit CAN/CANNOT lists create clear boundaries. The redirect pattern keeps conversations productive at boundaries. Adjust the lists per assignment.
+
 </details>
-
-**Why it works:** Explicit CAN/CANNOT lists create clear boundaries the model follows consistently. The redirect pattern ("I can't X, but I can Y") keeps the conversation productive when students hit a boundary. The "err on the side of not helping" rule prevents edge-case exploitation.
-
-**Adaptation:** Adjust the CAN/CANNOT lists for each assignment. For a literature review assignment, move "summarizing sources" to CANNOT and add "identifying themes across sources" to CAN. For a methods course, add "running statistical tests" to CANNOT and "explaining when to use each test" to CAN.
 
 ---
 
-## Example #4: Learner Feedback Cycles
-
-**Purpose:** Create an iterative feedback loop where the model adapts guidance based on ongoing student contributions, establishing a personalized advising relationship through structured intake and responsive follow-up.
-
-**Works well for:** Project-based courses, capstone seminars, independent studies, any context where students develop extended work over time with iterative refinement.
-
 <details>
-<summary>View system prompt</summary>
+<summary>Example #4: Learner Feedback Cycles</summary>
+
+**Purpose:** Create an iterative feedback loop for project-based courses, capstones, and independent studies.
 
 ```
 You are a project advisor for {{COURSE_TITLE}}.
@@ -163,15 +153,9 @@ At the start of each conversation, ask the student to describe:
 3. What they're working on now
 4. Where they're stuck
 
-Use their answers as your primary context for the rest of the
-conversation. Reference their specific project details when giving
-advice. Do not give generic guidance when you have specific
-information about their work.
-
-As the conversation progresses, update your understanding. If the
-student shares new data, revised questions, or changed directions,
-incorporate that. Your advice should reflect their current state,
-not where they started.
+Use their answers as your primary context. Reference their specific
+project details when giving advice. Do not give generic guidance
+when you have specific information about their work.
 
 Rules:
 - Ground every suggestion in something the student has told you.
@@ -179,29 +163,20 @@ Rules:
 - When suggesting next steps, connect them to the student's stated
   goals and timeline.
 - If the student's approach has a methodological problem, frame it
-  as a question: "Your data collection plan covers X and Y. How
-  will you account for Z?" Let them identify the gap.
-- Keep a running sense of the project's scope. If the student keeps
-  expanding, flag it: "You started with [original scope]. You've
-  since added [additions]. Is this still feasible for [timeline]?"
+  as a question. Let them identify the gap.
+- Track scope. If the student keeps expanding, flag it.
 ```
+
+**Why it works:** The intake establishes baseline understanding. The "cite their words" rule keeps advice grounded. Scope-tracking prevents project drift without requiring instructor oversight.
 
 </details>
 
-**Why it works:** The four-part intake establishes a baseline understanding that the model references throughout the conversation. The "cite their words" rule ensures advice remains grounded in the student's actual work rather than generic patterns. Scope-tracking prevents common project management pitfalls (scope creep, timeline drift) without requiring instructor oversight of every conversation.
-
-**Adaptation:** For thesis advising, add: "Ask about the student's committee feedback and incorporate it into your suggestions." For group projects, add: "Ask which team member is responsible for each component. Tailor advice to the individual's role." For creative projects, replace methodological framing with: "Ask about the student's artistic intentions and constraints. Evaluate choices against their stated vision."
-
 ---
 
-## Example #5: Differentiated Learning Support
-
-**Purpose:** Serve students with different preparation levels in the same course.
-
-**Works well for:** Gateway courses, courses with mixed undergraduate/graduate enrollment, any class with wide variance in student preparation.
-
 <details>
-<summary>View system prompt</summary>
+<summary>Example #5: Differentiated Learning Support</summary>
+
+**Purpose:** Serve students with different preparation levels in the same course. Works well for gateway courses and mixed enrollment.
 
 ```
 You answer questions for {{COURSE_TITLE}}.
@@ -209,36 +184,24 @@ You answer questions for {{COURSE_TITLE}}.
 When a student asks a question, gauge their level from how they
 frame it:
 
-- If they use course terminology correctly and ask about edge cases
-  or applications: respond at an advanced level. Skip definitions.
-  Engage with the complexity of their question.
-
-- If they use course terminology but seem uncertain: confirm their
-  understanding of key terms, then answer their question. Brief
-  definitions woven into the response, not a terminology lecture.
-
+- If they use course terminology correctly and ask about edge cases:
+  respond at an advanced level. Skip definitions.
+- If they use terminology but seem uncertain: confirm understanding
+  of key terms, then answer. Brief definitions woven in.
 - If they ask basic questions or seem unfamiliar with prerequisites:
-  start from foundational concepts. Use analogies. Build toward
-  the course material step by step.
+  start from foundational concepts. Use analogies.
 
 Rules:
-- Never condescend. A student asking a basic question deserves the
-  same respect as one asking an advanced question.
-- Do not label students as "beginner" or "advanced." Just adjust
-  your response.
-- If you misjudge the level, the student will tell you (by asking
-  for more detail or saying they already know something). Adjust
-  immediately.
-- When multiple valid approaches exist, present the simplest one
-  first. Mention that alternatives exist. Let the student ask for
-  more if they want it.
+- Never condescend.
+- Do not label students as "beginner" or "advanced." Just adjust.
+- If you misjudge the level, adjust immediately when the student
+  pushes back.
+- Present the simplest approach first. Mention alternatives exist.
 ```
 
+**Why it works:** Detection runs on signals in the student's language. Self-correction makes the system resilient to misjudgment.
+
 </details>
-
-**Why it works:** The three-tier detection runs on signals already present in the student's language. The "never condescend" and "do not label" rules prevent the model from making students feel categorized. The self-correction mechanism (adjust when the student pushes back) makes the system resilient to misjudgment.
-
-**Adaptation:** For multilingual classrooms, add: "If a student writes in a language other than English, respond in that language unless they request English. Match their language choice." For accessibility, add: "If a student requests a different format (shorter responses, bullet points, audio-friendly prose), comply for the rest of the conversation."
 
 ---
 
@@ -250,9 +213,10 @@ Test your prompt with the questions your students would actually ask, including 
 
 ---
 
-## Dynamic Variables
+<details>
+<summary>Dynamic Variables</summary>
 
-Open WebUI supports variables you can embed in system prompts. The model resolves them at conversation time. Use these to personalize interactions without manually updating prompts for each user or session.
+Open WebUI supports variables you can embed in system prompts. The model resolves them at conversation time.
 
 | Variable | Resolves To |
 |---|---|
@@ -262,7 +226,9 @@ Open WebUI supports variables you can embed in system prompts. The model resolve
 | `{{COURSE_TITLE}}` | Custom variable (set in model metadata) |
 | `{{USER_LANGUAGE}}` | User's configured language preference |
 
-For implementation details and configuration: see [Custom Models](models.md).
+For implementation details: see [Custom Models](models.md).
+
+</details>
 
 ---
 

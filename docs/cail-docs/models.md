@@ -32,59 +32,37 @@ Here's how to build a custom model:
 ![Creating a custom model](images/create-model.gif)
 <!-- TODO: Record GIF of the model creation flow from Workspace → Models → + New Model → Save -->
 
-## Writing System Prompts
+## System Prompt
 
-The system prompt defines how the model behaves: its role, boundaries, and instructional approach. A good prompt establishes what the model will and won't do, with enough specificity that students know what kind of help to expect.
-
-<details>
-<summary>View example prompt</summary>
-
-Here is an example for a data analysis model:
-
-```
-You support {{ USER_NAME }} in analyzing datasets for {{ COURSE_TITLE }}.
-The current date is {{ CURRENT_DATE }}. When a student shares data,
-guide them through: (1) identifying variables and measurement scales,
-(2) selecting appropriate visualizations, (3) choosing statistical
-methods, and (4) interpreting results. Ask questions that help them
-understand *why* a method fits their data. Do not generate complete
-analysis reports. Point to course materials when relevant concepts appear.
-```
-
-</details>
-
-Learn more about drafting system prompts [at this link](system-prompts.md).
+The system prompt defines how the model behaves: its role, boundaries, and instructional approach. Write it in step 5 above. For patterns, examples, and advanced prompt techniques, see [System Prompts as Instructional Design](system-prompts.md).
 
 ### Prompt Suggestions
 
-Prompt suggestions are the clickable chips that appear when a user opens a fresh chat. They serve as onboarding: a quick way to show students what the model can do. For a data analysis model:
+Prompt suggestions are clickable chips that appear when a user opens a fresh chat. They show students what the model can do. Examples for a data analysis model:
 
 - "What visualization works best for this data?"
 - "Help me interpret these statistical results"
 - "Which test should I use for this research question?"
 
-For a methods guidance model:
-
-- "Compare qualitative and quantitative approaches for my study"
-- "What sampling strategy fits my research design?"
-- "How do I address potential confounding variables?"
-
-## Advanced Settings
+<details>
+<summary>Advanced Settings</summary>
 
 ### Advanced Parameters
 
-Most instructors will not need to adjust these. They are here for users who want finer control over how the model generates responses.
+Most instructors will not need to adjust these. They control how the model generates responses.
 
-- **Max Tokens** sets the maximum length of the model's response. One token is roughly three-quarters of a word. Lower values (100-500) produce concise answers: useful for quick definitions or focused feedback. Higher values (1000-4000) allow detailed explanations: appropriate for essay analysis or research summaries. If responses cut off mid-sentence, increase this value.
-- **Temperature** controls randomness. Lower values (0.1 to 0.3) produce focused, deterministic responses: good for factual research tasks. Higher values (0.7 to 1.0) allow more creative variation: useful for brainstorming or creative writing activities.
-- **Top P** (nucleus sampling) controls the diversity of word selection. A value of 0.9 means the model considers words covering 90% of the probability mass. Leave this at default unless you have a specific reason to change it.
-- **Stop Sequences** force the model to stop generating when it encounters specific text strings. Enter sequences like `<|end_of_text|>` or `User:` and press Enter. Useful for models that might otherwise generate both sides of a conversation.
+- **Max Tokens** sets response length. One token is roughly three-quarters of a word. Lower values (100-500) produce concise answers. Higher values (1000-4000) allow detailed explanations. Increase if responses cut off mid-sentence.
+- **Temperature** controls randomness. Lower values (0.1 to 0.3) produce focused, deterministic responses. Higher values (0.7 to 1.0) allow more creative variation.
+- **Top P** (nucleus sampling) controls diversity of word selection. Leave at default unless you have a specific reason to change it.
+- **Stop Sequences** force the model to stop generating when it encounters specific text strings. Enter sequences like `<|end_of_text|>` or `User:` and press Enter.
 
 ### Switching Models Mid-Chat
 
-You can change models during a conversation by clicking the model name at the top of the chat. The conversation context carries across the switch. This lets you use different models for different stages of a task: start with a general-purpose model for brainstorming, switch to a code-focused model for implementation, then move to a writing model for documentation.
+You can change models during a conversation by clicking the model name at the top of the chat. The conversation context carries across the switch. This lets you use different models for different stages of a task.
 
-> **Tip:** Encourage students to experiment with model switching. Different models have different strengths. A model optimized for close reading will give different results than one designed for quantitative analysis. Learning when to switch is part of developing AI literacy.
+> **Tip:** Encourage students to experiment with model switching. Different models have different strengths.
+
+</details>
 
 ## Callout
 
