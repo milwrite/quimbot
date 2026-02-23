@@ -11,7 +11,7 @@ Here's how to build a custom model:
 3. Click **+ New Model**
    - This opens the model editor. You will define the model's behavior, connect it to your documents, and choose which tools it can access.
 4. Choose a **base model** from the dropdown
-   - The available models depend on which providers your Sandbox is connected to. If you need a specific model and do not see it listed, contact the AI Lab team.
+   - The available models depend on which providers your Sandbox is connected to. If you need a specific model and do not see it listed, contact the CAIL team.
 5. Write a **system prompt** (see below for guidance)
 6. Attach **knowledge bases** if you want the model to draw from your documents
    - See [Knowledge Bases](knowledge-bases.md) for how to create one
