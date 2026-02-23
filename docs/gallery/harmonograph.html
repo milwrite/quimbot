@@ -6,22 +6,27 @@
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3QgZmlsbD0iIzBhMGEwYSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIi8+CiAgPHBhdGggZD0iTTggOCBMMjQgOCBMMjQgMjQgTDggMjQgWiBNMTIgMTIgTDIwIDEyIEwyMCAyMCBMMTIgMjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8L3N2Zz4K"/>
 <title>Harmonograph — 19th Century Drawing Machine</title>
 <style>
-  *{margin:0;padding:0}
-  body{background:#0a0a12;overflow:hidden}
-  canvas{display:block;width:100vw;height:100vh}
-  #info{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.9);background:rgba(0,0,0,0.6);padding:6px 14px;border-radius:6px;font:13px/1.4 ui-monospace,monospace;pointer-events:none;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,0.9)}
-  #params{position:fixed;top:16px;left:16px;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:4px 10px;border-radius:5px;font:12px ui-monospace,monospace;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,0.8)}
-.back-btn{position:fixed;top:16px;right:16px;background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
-.back-btn:hover{border-color:#888}
-.in-iframe .back-btn,.in-iframe #info,.in-iframe #params,.in-iframe #seed,.in-iframe #epoch{display:none}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;background:#0a0a12;overflow:hidden;display:flex;flex-direction:column}
+  canvas{display:block;flex:1;width:100%}
+  .back{position:fixed;top:1rem;left:1rem;font:0.8rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;text-decoration:none;border:1px solid #333;z-index:10;transition:border-color 0.2s}
+  .back:hover{border-color:#666;color:#fff}
+  .panel{background:#111;border-top:1px solid #222;padding:0.6rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:0.8rem;font:0.75rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;flex-shrink:0}
+  .panel .info{color:#ccc;white-space:nowrap}
+  .panel .hint{color:#555}
+  .in-iframe .back,.in-iframe .panel{display:none}
 </style>
 </head>
 <body>
 <script>if(window.self!==window.top)document.body.classList.add("in-iframe");</script>
-<a href="./" class="back-btn">← Gallery</a>
+<a class="back" href="index.html">← Gallery</a>
 <canvas id="c"></canvas>
-<div id="info">click to reset pendulums · harmonograph, c. 1844</div>
-<div id="params"></div>
+<div class="panel">
+<div>
+<span class="info" id="params">harmonograph, c. 1844</span>
+<span class="hint"> · tap to reset pendulums</span>
+</div>
+</div>
 <script>
 const c = document.getElementById('c');
 const ctx = c.getContext('2d');
@@ -30,9 +35,8 @@ let W, H, dpr;
 
 function resize() {
   dpr = Math.min(window.devicePixelRatio || 1, 2);
-  W = window.innerWidth; H = window.innerHeight;
+  W = c.clientWidth; H = c.clientHeight;
   c.width = W * dpr; c.height = H * dpr;
-  c.style.width = W + 'px'; c.style.height = H + 'px';
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 
@@ -121,6 +125,6 @@ c.addEventListener('click', start);
 c.addEventListener('touchstart', e => { e.preventDefault(); start(); }, { passive: false });
 window.addEventListener('resize', () => { if (!drawing) { resize(); } });
 </script>
-<script>if(window!==window.top){document.querySelectorAll("#info,#epoch,#seed,#params,#gen,#ctrl,#depth,.info,#buttons,.back-btn").forEach(function(e){e.style.display="none"})}</script>
+<!-- iframe handled by .in-iframe class -->
 </body>
 </html>
