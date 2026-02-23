@@ -1,6 +1,6 @@
-# CUNY AI Lab Sandbox Documentation
+# CUNY CAIL Sandbox Documentation
 
-The CUNY AI Lab Sandbox is an AI platform for teaching and research at CUNY. It runs on CUNY infrastructure, keeps student data private, and gives you full control over how AI tools work in your courses and projects.
+The CUNY CAIL Sandbox is an AI platform for teaching and research at CUNY. It runs on CUNY infrastructure, keeps student data private, and gives you full control over how AI tools work in your courses and projects.
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ The CUNY AI Lab Sandbox is an AI platform for teaching and research at CUNY. It 
 
 ## About the Sandbox
 
-The CUNY AI Lab Sandbox is hosted and maintained by the [CUNY AI Lab](https://ailab.gc.cuny.edu) at the Graduate Center. It runs [Open WebUI](https://openwebui.com), an open-source platform configured for academic use at CUNY.
+The CUNY CAIL Sandbox is hosted and maintained by the [CUNY AI Lab](https://ailab.gc.cuny.edu) at the Graduate Center. It runs [Open WebUI](https://openwebui.com), an open-source platform configured for academic use at CUNY.
 
 **Models:** The Sandbox hosts open-weight models selected for teaching and research. See the [Model Registry](https://ailab.gc.cuny.edu/models/) for the current list.
 

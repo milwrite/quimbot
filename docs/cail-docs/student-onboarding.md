@@ -26,7 +26,7 @@ Your policy should address:
 
 **Template:**
 
-> This course uses the CUNY AI Lab Sandbox for specific assignments marked [AI-Assisted]. For these assignments, you may use the course model to brainstorm, get feedback, or explore ideas. You must disclose AI use in your submission and describe how you used it. All final writing, analysis, and argumentation must be your own. Do not paste other students' work or personal information into any AI tool. For assignments not marked [AI-Assisted], AI use is not permitted.
+> This course uses the CUNY CAIL Sandbox for specific assignments marked [AI-Assisted]. For these assignments, you may use the course model to brainstorm, get feedback, or explore ideas. You must disclose AI use in your submission and describe how you used it. All final writing, analysis, and argumentation must be your own. Do not paste other students' work or personal information into any AI tool. For assignments not marked [AI-Assisted], AI use is not permitted.
 
 Adapt the template to your context. Some courses will be more permissive. Some will restrict AI to specific tasks. The key is clarity.
 

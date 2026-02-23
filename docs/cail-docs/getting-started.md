@@ -1,6 +1,6 @@
-# Getting Started with the AI Lab Sandbox
+# Getting Started with the CAIL Sandbox
 
-Your first steps into the CUNY AI Lab Sandbox — from logging in to having your first conversation with an AI model.
+Your first steps into the CUNY CAIL Sandbox — from logging in to having your first conversation with an AI model.
 
 ---
 
