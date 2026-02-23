@@ -10,7 +10,7 @@ This page collects prompt patterns organized by instructional purpose. Each patt
 
 Every effective instructional prompt addresses four questions:
 
-1. **Who is the model?** (role, expertise, relationship to the student)
+1. **What role is assigned?** (expertise, relationship to the student, instructional stance)
 2. **What does it do?** (actions it takes, responses it gives)
 3. **What does it avoid?** (guardrails, boundaries, things it should not do)
 4. **How does it adapt?** (how it responds to different student inputs)
