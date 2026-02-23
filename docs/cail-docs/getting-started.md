@@ -87,14 +87,8 @@ For a visual walkthrough of the sidebar, model selector, chat area, and workspac
 - **Profile Picture** — Optional, but helps when collaborating with colleagues
 - **Display Name** — How your name appears to others when you share models or knowledge bases
 
-**Advanced Tab:**
-- **Temperature** — Controls how creative or focused the model's responses are
-  - Lower (0.3-0.5): More focused, consistent, deterministic
-  - Higher (0.7-1.0): More creative, varied, exploratory
-  - Default (0.7) works well for most teaching and research tasks
-
 ![Settings panel with key options highlighted](images/settings-overview.png)
-<!-- TODO: Screenshot of settings panel with annotations on default model and temperature -->
+<!-- TODO: Screenshot of settings panel with annotations on default model -->
 
 ### Save and Return to Chat
 
@@ -110,20 +104,14 @@ Once you've adjusted your preferences:
 
 ## What's Next?
 
-You've logged in, had a conversation, and customized your workspace. That's the foundation. From here, you can either keep chatting to explore what the default models can do, or you can move into the Design & Test section to start creating custom configurations.
+To create custom AI models, knowledge bases, and tool configurations, request Workspace access by emailing **ailab@cuny.edu**.
 
-### If You Want to Keep Exploring
-
-- Try different AI models by clicking the model name at the top
-- Upload a document (PDF, Markdown, plain text) and ask questions about it
-- Experiment with different prompts and see how responses change
-
-### If You're Ready to Build
-
-Head to the **Design & Test** section of this documentation. There you'll learn to:
+Once you have access, head to the **Design & Test** section to:
 - Create custom models with specific behaviors
 - Build knowledge bases from your course materials
 - Bind tools that extend what the AI can do
+
+In the meantime, explore: try different models (click the model name at the top), upload a document and ask questions about it, or experiment with different prompts.
 
 ---
 
