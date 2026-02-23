@@ -1,14 +1,8 @@
 # Grounding AI with Knowledge Collections
 
-When you chat with a base model, it draws on whatever it absorbed during training. That training data may be months or years old. It may not include your syllabus, your department's policies, or the articles you assigned last week. A Knowledge Base changes that. You upload your documents, and the model searches them before responding.
+A Knowledge Base lets you upload your own documents so the model searches them before responding. This process is called Retrieval-Augmented Generation (RAG): the model checks your files, retrieves relevant passages, and uses them to answer.
 
-This process is called Retrieval-Augmented Generation (RAG). It means the model checks your documents before answering.
-
----
-
-## Why This Matters
-
-Consider the difference. A student asks your course model: "What does the syllabus say about late submissions?" Without a knowledge base, AI models have a tendency to guess when faced with uncertainty and forced to consult only their training data for support, and the response might sound confident while being completely wrong. With your syllabus in a knowledge base, the model retrieves the actual passage from your document and uses it to answer, citing what you wrote rather than what it imagines you might have written. This matters especially at CUNY, where students navigate multiple courses, departments, and institutional policies: a model grounded in your actual materials gives students reliable answers drawn from the documents you trust.
+Consider the difference. A student asks your course model: "What does the syllabus say about late submissions?" Without a knowledge base, the model guesses, and the response might sound confident while being completely wrong. With your syllabus uploaded, the model retrieves the actual passage and cites what you wrote. At CUNY, where students navigate multiple courses, departments, and institutional policies, grounding a model in your actual materials gives students reliable answers from documents you trust.
 
 ---
 
