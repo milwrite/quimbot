@@ -63,7 +63,7 @@ The model name at the top of the screen shows which one you're talking to. Click
 
 ## Exploring the Interface
 
-For a visual walkthrough of the sidebar, model selector, chat area, and workspace features, see the [Quick Tour](quick-tour.md).
+For terminology and interface layout, see [Sandbox Basics](sandbox-basics.md).
 
 ---
 
@@ -135,4 +135,4 @@ In the meantime, explore: try different models (click the model name at the top)
 
 ---
 
-**[Continue to Basic Concepts →](basic-concepts.md)**
+**[Continue to Sandbox Basics →](sandbox-basics.md)**
