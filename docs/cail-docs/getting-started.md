@@ -90,7 +90,7 @@ For a visual walkthrough of the sidebar, model selector, chat area, and workspac
 - **Display Name** — How your name appears to others when you share models or knowledge bases
 
 **Advanced Tab:**
-- **Temperature** — Controls how creative or focused the AI model's responses are
+- **Temperature** — Controls how creative or focused the model's responses are
   - Lower (0.3-0.5): More focused, consistent, deterministic
   - Higher (0.7-1.0): More creative, varied, exploratory
   - Default (0.7) works well for most teaching and research tasks
@@ -123,7 +123,7 @@ You've logged in, had a conversation, and customized your workspace. That's the 
 ### If You're Ready to Build
 
 Head to the **Design & Test** section of this documentation. There you'll learn to:
-- Create custom AI models with specific behaviors
+- Create custom models with specific behaviors
 - Build knowledge bases from your course materials
 - Bind tools that extend what the AI can do
 
@@ -131,11 +131,11 @@ Head to the **Design & Test** section of this documentation. There you'll learn 
 
 ## Tips for Getting Started
 
-**Start small.** You don't need to build complex configurations on day one. Chat with the default AI models. See what works. See what doesn't. Let that guide what you build later.
+**Start small.** You don't need to build complex configurations on day one. Chat with the default models. See what works. See what doesn't. Let that guide what you build later.
 
 **Save interesting conversations.** Click the chat title in the sidebar to rename it. This makes it easier to find later when you want to revisit a useful interaction.
 
-**Don't worry about breaking things.** The Sandbox is a shared tool, but your personal workspace is yours. Create AI models. Delete them. Experiment. You can't break the instance for others.
+**Don't worry about breaking things.** The Sandbox is a shared tool, but your personal workspace is yours. Create models. Delete them. Experiment. You can't break the instance for others.
 
 **Ask for help.** If you get stuck, reach out to the AI Lab team or check the community channels. CUNY faculty and researchers are building with this platform every day, and the community is generous with support.
 
