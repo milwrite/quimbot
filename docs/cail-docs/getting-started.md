@@ -12,7 +12,7 @@ The AI Lab Sandbox gives you access to a shared AI platform that works different
 
 ## Why This Matters
 
-As a CUNY instructor or researcher, you face constraints that consumer AI tools don't address. Your students come from diverse linguistic and cultural backgrounds. Your courses have specific learning outcomes. Your research draws on specialized literature. The Sandbox lets you adapt AI to these realities. Your pedagogy drives the configuration, not the other way around.
+As a CUNY instructor or researcher, you likely face constraints that consumer AI tools don't address. Your students may come from diverse linguistic and cultural backgrounds. Your courses have specific learning outcomes. Your research may draw on specialized literature. The Sandbox lets you adapt AI to these realities. Your pedagogy drives the configuration, not the other way around.
 
 The platform also keeps your work and your students' data within CUNY infrastructure. No third-party tracking. No training on student submissions. AI model providers operate under zero-retention agreements: prompts and responses are not stored or used for model training. Your chat conversations are stored within Open WebUI for persistence purposes only and are accessible only to you and system administrators. Just a shared tool that you control.
 
