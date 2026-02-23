@@ -65,29 +65,7 @@ Press Enter (or click the send button). The AI responds. That's it. You just had
 
 ## Exploring the Interface
 
-Before you start building, take a moment to understand the layout.
-
-### The Sidebar (Left)
-
-- **Chats** — Your conversation history. Each chat is saved automatically.
-- **Workspace** — Where you'll create AI models, build knowledge bases, and configure tools (covered in the Design & Test section)
-- **Admin Panel** — Instance-wide settings (if you have admin access)
-
-### The Top Bar
-
-- **Model selector** — Switch between available models
-- **Settings icon** (gear) — Your personal preferences
-- **Profile avatar** — Account settings and logout
-
-### The Chat Area
-
-- **Conversation thread** — Messages appear here
-- **Input box** — Where you type
-- **Upload button** (paperclip) — Attach files, images, or documents to your message
-- **Tools button** (plus sign) — Add capabilities like web search to the current chat
-
-![Interface overview with labeled sections](images/interface-overview.png)
-<!-- TODO: Screenshot of main interface with annotations pointing to sidebar, model selector, input area -->
+For a visual walkthrough of the sidebar, model selector, chat area, and workspace features, see the [Quick Tour](quick-tour.md).
 
 ---
 

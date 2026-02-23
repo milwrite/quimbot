@@ -8,14 +8,7 @@ This page collects prompt patterns organized by instructional purpose. Each patt
 
 ## The Anatomy of an Instructional Prompt
 
-Every effective instructional prompt addresses four questions:
-
-1. **What role is assigned?** (expertise, relationship to the student, instructional stance)
-2. **What does it do?** (actions it takes, responses it gives)
-3. **What does it avoid?** (guardrails, boundaries, things it should not do)
-4. **How does it adapt?** (how it responds to different student inputs)
-
-A weak prompt answers only the first two. A strong prompt answers all four.
+Every effective instructional prompt addresses four concerns. First, it assigns a role: the expertise the model draws on, its relationship to the student, and the instructional stance it takes (tutor, critic, collaborator). Second, it defines actions: what the model does when a student submits a draft, asks a question, or shares data. Third, it sets guardrails: the boundaries that keep the model from doing the student's thinking for them, generating complete assignments, or straying outside the course scope. Fourth, it specifies how the model adapts to different inputs, so a struggling student and an advanced one receive appropriately calibrated responses from the same configuration. A prompt that covers only the first two produces a model that sounds helpful but lacks the constraints and responsiveness that make it pedagogically useful.
 
 ---
 
