@@ -1,6 +1,6 @@
 # Building Custom Models
 
-building custom AI models using preset configurations in Open WebUI A custom model lets you shape how the AI behaves in your course, what documents it draws from, and which tools it can use. You are not training a new AI from scratch. You are assembling existing components into something tuned to your teaching context.
+Building custom AI models using preset configurations in Open WebUI. A custom model lets you shape how the AI behaves in your course, what documents it draws from, and which tools it can use. You are not training a new AI from scratch. You are assembling existing components into something tuned to your teaching context.
 
 ## Why This Matters
 
