@@ -8,8 +8,6 @@ Your first steps into the CUNY AI Lab Sandbox — from logging in to having your
 
 The AI Lab Sandbox gives you access to a shared AI platform that works differently from consumer chatbots like ChatGPT. Instead of one-size-fits-all conversations, you can create custom AI agents, ground them in your course materials, and share configurations with students or colleagues. This guide walks you through your first login and initial exploration.
 
-Think of the Sandbox as a workspace. The conversations matter, but the real value comes from building tools that support your teaching and research over time.
-
 ---
 
 ## Why This Matters
