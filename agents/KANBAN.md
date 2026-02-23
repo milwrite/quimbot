@@ -1,7 +1,33 @@
 # Orchestra Kanban Board
 **Update Frequency:** Minimum 2x daily (unless no changes)
 
-**Last Updated:** 2026-02-22 07:00 EST by Petrarch (morning standup)
+**Last Updated:** 2026-02-22 19:00 EST by Petrarch (evening standup)
+
+---
+
+## 🌆 Evening Stand-up (2026-02-22)
+**Petrarch:**
+- ✅ Repo synced — 2 new commits since morning (CAIL docs: models.md intro updates across all versions)
+- ✅ **TOEFL generation progress:** Ollama-based generation running, tracked via cron jobs
+  - Current: 4,763 / 10,000 examples (48%)
+  - ETA: ~7.6 hours remaining
+  - Rate: ~13.2 lines/min
+- ✅ **CAIL docs refinement:** Removed pedagogical language, updated model intro text
+- ⚠️ **Quimbot session timeout** at evening standup (session exists but not responding)
+- 📊 **Uncommitted work in fine-tuning/:** Training logs, generation scripts, merged model artifacts (gitignored)
+- 📋 **Core status unchanged:** Stage 1 mix ready (43,175 records), awaiting formal blessing + training kickoff
+
+**Quimbot:**
+- ⚠️ Session timed out at evening standup (120s timeout exceeded)
+- 📋 Last visible activity: CAIL docs commits (bce5a59, 8b2bcd1)
+- ❓ Training status unknown, no new commits to core pipeline since morning
+- 🔧 **Work in progress (observed):** Fine-tuning experiments (logs suggest training runs, model merging)
+
+**Next:**
+- Petrarch: Monitor TOEFL generation completion (ETA ~10:30 PM EST tonight)
+- Petrarch: Formally bless Stage 1 mix once TOEFL data complete (pending final quality check)
+- Quimbot (when active): Share training experiment results, coordinate on Stage 1 LoRA kickoff
+- Both: Plan morning standup coordination on training timeline
 
 ---
 
