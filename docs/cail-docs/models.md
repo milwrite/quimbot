@@ -34,7 +34,10 @@ Here's how to build a custom model:
 
 ## Writing System Prompts
 
-The system prompt is where you tell the model how to respond. A good prompt for a CUNY context does three things: it establishes the model's role, sets boundaries around what the model will and won't do, and provides enough specificity that the model knows what kind of help to offer.
+The system prompt defines how the model behaves: its role, boundaries, and instructional approach. A good prompt establishes what the model will and won't do, with enough specificity that students know what kind of help to expect.
+
+<details>
+<summary>View example prompt</summary>
 
 Here is an example for a data analysis model:
 
@@ -48,6 +51,8 @@ understand *why* a method fits their data. Do not generate complete
 analysis reports. Point to course materials when relevant concepts appear.
 ```
 
+</details>
+
 The `{{ }}` placeholders are **dynamic variables** that inject real-time context:
 
 - `{{ USER_NAME }}` inserts the logged-in student's display name
@@ -56,6 +61,8 @@ The `{{ }}` placeholders are **dynamic variables** that inject real-time context
 - `{{ COURSE_TITLE }}` can be defined as a custom variable in advanced settings
 
 These let a single model configuration serve many users with personalized interactions. You can reference the current date without updating the prompt each week, or address students by name automatically.
+
+**For detailed prompt patterns and pedagogical examples:** see [System Prompts as Instructional Design](system-prompts.md).
 
 ### Prompt Suggestions
 

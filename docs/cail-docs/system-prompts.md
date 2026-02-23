@@ -25,6 +25,9 @@ A weak prompt answers only the first two. A strong prompt answers all four.
 
 **Works well for:** Philosophy, rhetoric, critical theory, any seminar where argumentation matters.
 
+<details>
+<summary>View system prompt</summary>
+
 ```
 You are a Socratic discussion partner for {{COURSE_TITLE}}.
 
@@ -45,17 +48,22 @@ Rules:
   experiment to restart the conversation. Do not answer for them.
 ```
 
+</details>
+
 **Why it works:** The explicit prohibition on stating positions and summarizing forces the model into a questioning role. The escalation rule ("match complexity to responses") creates natural scaffolding. Students who give surface-level answers get foundational questions. Students who engage deeply get challenged further.
 
 **Adaptation:** For introductory courses, add a line: "If the student uses a term incorrectly, ask them what they mean by it. Give them a chance to self-correct before redirecting." For advanced seminars, add: "Reference specific theorists or frameworks the student has studied when formulating questions."
 
 ---
 
-## Example #2: The Scaffolded Writing Coach
+## Example #2: Scaffolded Writing Guide
 
 **Purpose:** Guide students through revision without writing for them.
 
 **Works well for:** Composition, academic writing, thesis development, any course with substantial writing assignments.
+
+<details>
+<summary>View system prompt</summary>
 
 ```
 You are a writing coach for {{COURSE_TITLE}}.
@@ -87,6 +95,8 @@ Rules:
   before paragraphs. Address paragraphs before sentences.
 ```
 
+</details>
+
 **Why it works:** The three-phase structure prevents the model from dumping feedback. Phase 1 (comprehension check) catches misalignment early. The one-issue rule in Phase 2 keeps feedback actionable. Phase 3 creates an iterative loop that supports revision without doing the thinking for students.
 
 **Adaptation:** Upload your rubric to a knowledge base and attach it to the model. Add to the prompt: "When providing feedback, reference specific rubric criteria by name." For ESL contexts, add: "If language issues obscure meaning, address meaning first. Note language patterns (not individual errors) only after the argument is clear."
@@ -98,6 +108,9 @@ Rules:
 **Purpose:** Adapt explanations based on what the student already knows and where they struggle.
 
 **Works well for:** STEM courses, methods, statistics, any subject with prerequisite chains.
+
+<details>
+<summary>View system prompt</summary>
 
 ```
 You provide explanations for {{COURSE_TITLE}}.
@@ -126,6 +139,8 @@ Rules:
   explain their reasoning before confirming or correcting.
 ```
 
+</details>
+
 **Why it works:** The diagnostic question at the start prevents the model from defaulting to a one-size-fits-all explanation. The branching logic (understand / partial / misconception) creates three different instructional pathways from the same prompt. The rule against re-teaching resolved concepts keeps conversations moving forward.
 
 **Adaptation:** For quantitative courses, add: "When students make calculation errors, ask them to walk through each step. Identify where the error entered. Do not show the correct calculation until they've attempted to find it." For lab courses, add: "Connect conceptual explanations to the current lab procedure. Use data from the lab when possible."
@@ -137,6 +152,9 @@ Rules:
 **Purpose:** Provide help within strict boundaries you define.
 
 **Works well for:** Exams, timed exercises, assignments where you want AI support on some tasks and not others.
+
+<details>
+<summary>View system prompt</summary>
 
 ```
 You provide research support for {{COURSE_TITLE}}.
@@ -163,17 +181,22 @@ If you're unsure whether a request falls within bounds, err on the
 side of not helping and explain why.
 ```
 
+</details>
+
 **Why it works:** Explicit CAN/CANNOT lists create clear boundaries the model follows consistently. The redirect pattern ("I can't X, but I can Y") keeps the conversation productive when students hit a boundary. The "err on the side of not helping" rule prevents edge-case exploitation.
 
 **Adaptation:** Adjust the CAN/CANNOT lists for each assignment. For a literature review assignment, move "summarizing sources" to CANNOT and add "identifying themes across sources" to CAN. For a methods course, add "running statistical tests" to CANNOT and "explaining when to use each test" to CAN.
 
 ---
 
-## Example #5: The Student-Input Learner
+## Example #5: Learner Feedback Cycles
 
-**Purpose:** Build a model that learns from student contributions during a conversation, using their input as a knowledge source for personalized guidance.
+**Purpose:** Create an iterative feedback loop where the model adapts guidance based on ongoing student contributions, establishing a personalized advising relationship through structured intake and responsive follow-up.
 
-**Works well for:** Project-based courses, capstone seminars, independent studies, any context where each student's work defines their learning trajectory.
+**Works well for:** Project-based courses, capstone seminars, independent studies, any context where students develop extended work over time with iterative refinement.
+
+<details>
+<summary>View system prompt</summary>
 
 ```
 You are a project advisor for {{COURSE_TITLE}}.
@@ -207,7 +230,9 @@ Rules:
   since added [additions]. Is this still feasible for [timeline]?"
 ```
 
-**Why it works:** The four-part intake creates a structured knowledge base from the student's own input. Every subsequent response is grounded in that input. The "cite their words" rule forces the model to demonstrate that it heard the student, which builds trust and makes advice feel relevant. The scope-tracking rule catches a common student problem (project creep) without the instructor needing to monitor every conversation.
+</details>
+
+**Why it works:** The four-part intake establishes a baseline understanding that the model references throughout the conversation. The "cite their words" rule ensures advice remains grounded in the student's actual work rather than generic patterns. Scope-tracking prevents common project management pitfalls (scope creep, timeline drift) without requiring instructor oversight of every conversation.
 
 **Adaptation:** For thesis advising, add: "Ask about the student's committee feedback and incorporate it into your suggestions." For group projects, add: "Ask which team member is responsible for each component. Tailor advice to the individual's role." For creative projects, replace methodological framing with: "Ask about the student's artistic intentions and constraints. Evaluate choices against their stated vision."
 
@@ -218,6 +243,9 @@ Rules:
 **Purpose:** Serve students with different preparation levels in the same course.
 
 **Works well for:** Gateway courses, courses with mixed undergraduate/graduate enrollment, any class with wide variance in student preparation.
+
+<details>
+<summary>View system prompt</summary>
 
 ```
 You answer questions for {{COURSE_TITLE}}.
@@ -250,6 +278,8 @@ Rules:
   more if they want it.
 ```
 
+</details>
+
 **Why it works:** The three-tier detection runs on signals already present in the student's language. The "never condescend" and "do not label" rules prevent the model from making students feel categorized. The self-correction mechanism (adjust when the student pushes back) makes the system resilient to misjudgment.
 
 **Adaptation:** For multilingual classrooms, add: "If a student writes in a language other than English, respond in that language unless they request English. Match their language choice." For accessibility, add: "If a student requests a different format (shorter responses, bullet points, audio-friendly prose), comply for the rest of the conversation."
@@ -274,7 +304,7 @@ These patterns are starting points. When writing your own:
 
 ## Dynamic Variables
 
-Open WebUI supports variables you can embed in system prompts. The model resolves them at conversation time:
+Open WebUI supports variables you can embed in system prompts. The model resolves them at conversation time. Use these to personalize interactions without manually updating prompts for each user or session.
 
 | Variable | Resolves To |
 |---|---|
@@ -284,7 +314,7 @@ Open WebUI supports variables you can embed in system prompts. The model resolve
 | `{{COURSE_TITLE}}` | Custom variable (set in model metadata) |
 | `{{USER_LANGUAGE}}` | User's configured language preference |
 
-Use these to personalize interactions. A prompt that opens with "Hello {{USER_NAME}}" feels different from one that opens with "Hello."
+For implementation details and configuration: see [Custom Models](models.md).
 
 ---
 
