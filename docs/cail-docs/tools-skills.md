@@ -8,9 +8,7 @@ Skills work differently. Where tools connect to external services, skills provid
 
 ## Why This Matters
 
-A model that supports writing can be more useful when it has tools. Without tools, it can only generate text. With tools, it can search your university's style guide, pull citation examples from a knowledge base, and look up sources on arXiv. Tools and skills extend what models can do beyond text generation.
-
-For CUNY instructors, this means building models that do more than talk.
+A model that supports writing can be more useful when it has tools. Without tools, it can only generate text. With tools, it can search your university's style guide, pull citation examples from a knowledge base, and look up sources on arXiv. Tools and skills extend what models can do beyond text generation. For CUNY instructors, this means building models that do more than talk.
 
 ---
 
