@@ -201,7 +201,7 @@ Rules:
 
 ---
 
-## Example #5: The Differentiated Instructor
+## Example #5: Differentiated Learning Support
 
 **Purpose:** Serve students with different preparation levels in the same course.
 
