@@ -55,11 +55,9 @@ In the chat input at the bottom of the screen, type something simple:
 
 > "Explain the concept of scaffolding in education, suitable for graduate students in a teaching methods course."
 
-Press Enter (or click the send button). The AI responds. That's it. You just had your first Sandbox conversation.
+Press Enter (or click the send button). The AI model responds.
 
-**What just happened?** You sent a message to whichever AI model is currently selected (look at the top of the screen to see which one). The model generated a response based on your prompt. Simple enough.
-
-**But here's where it gets interesting:** Notice the model name at the top? Click it. A dropdown appears showing other available models. Each one has different strengths. Some are better at writing. Some excel at reasoning. Some understand images. Some run faster. You can switch models mid-conversation to leverage different capabilities for different parts of your work.
+The model name at the top of the screen shows which one you're talking to. Click it to switch. Different models have different strengths: writing, reasoning, image understanding, speed. You can switch mid-conversation.
 
 ---
 
