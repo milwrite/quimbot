@@ -53,15 +53,6 @@ analysis reports. Point to course materials when relevant concepts appear.
 
 </details>
 
-The `{{ }}` placeholders are **dynamic variables** that inject real-time context:
-
-- `{{ USER_NAME }}` inserts the logged-in student's display name
-- `{{ CURRENT_DATE }}` inserts today's date (YYYY-MM-DD format)
-- `{{ CURRENT_TIME }}` inserts the current time (24-hour format)
-- `{{ COURSE_TITLE }}` can be defined as a custom variable in advanced settings
-
-These let a single model configuration serve many users with personalized interactions. You can reference the current date without updating the prompt each week, or address students by name automatically.
-
 **For detailed prompt patterns and pedagogical examples:** see [System Prompts as Instructional Design](system-prompts.md).
 
 ### Prompt Suggestions
