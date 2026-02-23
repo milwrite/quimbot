@@ -1,4 +1,4 @@
-# Grounding AI in Your Course Materials
+# Grounding AI with Knowledge Collections
 
 When you chat with a base model, it draws on whatever it absorbed during training. That training data may be months or years old. It may not include your syllabus, your department's policies, or the articles you assigned last week. A Knowledge Base changes that. You upload your documents, and the model searches them before responding.
 
