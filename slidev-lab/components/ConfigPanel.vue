@@ -107,8 +107,7 @@
         <!-- Slide Navigation -->
         <div class="slide-nav">
           <button @click="prevSlide" :disabled="currentSlideIndex === 0">← Prev</button>
-          <button @click="addSlide">+ Add</button>
-          <button @click="deleteSlide" :disabled="config.slides.length <= 1" class="delete-btn">✕ Del</button>
+          <button @click="addSlide">+ Add Slide</button>
           <button @click="nextSlide" :disabled="currentSlideIndex === config.slides.length - 1">Next →</button>
         </div>
       </div>
@@ -150,23 +149,96 @@
           📋 Copy Markdown to Clipboard
         </button>
       </div>
+
+      <!-- Settings Tab -->
+      <div v-if="activeTab === 'Settings'" class="tab-content">
+        <h3>Sync Settings</h3>
+        
+        <div class="form-group checkbox">
+          <label>
+            <input 
+              v-model="autoSyncEnabled"
+              type="checkbox"
+            />
+            Auto-sync to config.json
+          </label>
+        </div>
+
+        <div v-if="autoSyncEnabled" class="info-box warning">
+          <p><strong>⚠️ Auto-sync enabled</strong></p>
+          <p>Changes are automatically saved to <code>config.json</code> (500ms debounce).</p>
+          <p>To update <code>slides.md</code>, run the sync script:</p>
+          <pre>node config-sync.mjs --watch</pre>
+        </div>
+
+        <div v-else class="info-box">
+          <p><strong>ℹ️ Manual mode</strong></p>
+          <p>Export config.json manually, then run:</p>
+          <pre>node config-sync.mjs</pre>
+        </div>
+
+        <hr style="margin: 20px 0; border-color: #333;" />
+
+        <h3>Presentation Settings</h3>
+
+        <div class="form-group">
+          <label>Title</label>
+          <input 
+            v-model="config.title"
+            type="text"
+            placeholder="My Presentation"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Theme</label>
+          <select v-model="config.theme">
+            <option value="default">Default</option>
+            <option value="seriph">Seriph</option>
+            <option value="apple-basic">Apple Basic</option>
+            <option value="shibainu">Shibainu</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Default Model</label>
+          <select v-model="config.defaults.model">
+            <option value="openai/gpt-4.1-mini">GPT-4.1 Mini</option>
+            <option value="anthropic/claude-sonnet-4">Claude Sonnet 4</option>
+            <option value="google/gemini-2.5-pro">Gemini 2.5 Pro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Default Position</label>
+          <select v-model="config.defaults.position">
+            <option value="top-left">Top Left</option>
+            <option value="top-right">Top Right</option>
+            <option value="bottom-left">Bottom Left</option>
+            <option value="bottom-right">Bottom Right</option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 
 // State
-const isCollapsed = ref(true)
+const isCollapsed = ref(true) // Start collapsed
 const activeTab = ref('Builder')
 const currentSlideIndex = ref(0)
+const autoSyncEnabled = ref(false)
 
-const tabs = ['Builder', 'Templates', 'Export']
+const tabs = ['Builder', 'Templates', 'Export', 'Settings']
 const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right']
 
 // Slide Configuration
 const config = ref({
+  title: 'My Presentation',
+  theme: 'default',
   slides: [
     {
       id: 'slide-1',
@@ -210,24 +282,18 @@ const templates = [
   {
     id: 'multi-model',
     name: 'Multi-Model Compare',
-    description: 'Compare responses from 4 models side-by-side',
-    multiModel: true,
+    description: 'Compare responses from 4 models',
     template: {
       type: 'multi-model',
       title: 'Model Comparison',
-      content: '## Compare AI Perspectives\n\nAsk the same question to different models!',
+      content: 'Ask the same question to different models!',
       llmQuery: {
         model: 'openai/gpt-4.1-mini',
         position: 'top-left',
         systemPrompt: 'Focus on practical implementation',
         autoPrompt: '',
         autoExecute: false
-      },
-      extraModels: [
-        { model: 'anthropic/claude-sonnet-4', position: 'top-right', systemPrompt: 'Focus on theoretical concepts' },
-        { model: 'google/gemini-2.5-pro', position: 'bottom-left', systemPrompt: 'Focus on creative approaches' },
-        { model: 'x-ai/grok-4', position: 'bottom-right', systemPrompt: 'Focus on real-world applications' }
-      ]
+      }
     }
   },
   {
@@ -281,14 +347,6 @@ const prevSlide = () => {
   }
 }
 
-const deleteSlide = () => {
-  if (config.value.slides.length <= 1) return
-  config.value.slides.splice(currentSlideIndex.value, 1)
-  if (currentSlideIndex.value >= config.value.slides.length) {
-    currentSlideIndex.value = config.value.slides.length - 1
-  }
-}
-
 const nextSlide = () => {
   if (currentSlideIndex.value < config.value.slides.length - 1) {
     currentSlideIndex.value++
@@ -296,53 +354,73 @@ const nextSlide = () => {
 }
 
 const insertTemplate = (template) => {
-  const t = template.template
   const newSlide = {
     id: `slide-${Date.now()}`,
-    type: t.type,
-    title: t.title,
-    content: t.content,
-    llmQuery: { ...t.llmQuery },
-  }
-  if (t.extraModels) {
-    newSlide.extraModels = t.extraModels.map(m => ({ ...m }))
+    ...template.template
   }
   config.value.slides.splice(currentSlideIndex.value + 1, 0, newSlide)
   currentSlideIndex.value++
 }
 
-const buildLLMTag = (q, selfClosing = false) => {
-  let tag = `<LLMQuery\n`
-  tag += `  model="${q.model}"\n`
-  tag += `  position="${q.position}"\n`
-  if (q.systemPrompt) tag += `  system-prompt="${q.systemPrompt}"\n`
-  if (q.autoPrompt) tag += `  prompt="${q.autoPrompt}"\n`
-  if (q.autoExecute) tag += `  :auto-execute="true"\n`
-  tag += selfClosing ? `/>\n` : `>\n`
-  return tag
-}
-
 const generateMarkdown = () => {
-  let output = `---\ntheme: default\ntitle: LLMQuery Presentation\n---\n\n`
+  let md = `---
+theme: ${config.value.theme || 'default'}
+title: ${config.value.title || 'Presentation'}
+---
 
-  output += config.value.slides.map(slide => {
-    let md = `---\nlayout: default\n---\n\n# ${slide.title}\n\n`
+`
 
-    // Multi-model: extra self-closing tags first
-    if (slide.extraModels && slide.extraModels.length) {
-      for (const extra of slide.extraModels) {
-        md += buildLLMTag(extra, true) + '\n'
+  config.value.slides.forEach(slide => {
+    md += `---
+layout: default
+---
+
+# ${slide.title}
+
+`
+    
+    // Handle multi-model slides
+    if (slide.extraModels && slide.extraModels.length > 0) {
+      // Multi-model layout
+      const allModels = [slide.llmQuery, ...slide.extraModels]
+      
+      allModels.forEach(llm => {
+        md += `<LLMQuery\n`
+        md += `  model="${llm.model}"\n`
+        md += `  position="${llm.position}"\n`
+        if (llm.systemPrompt) {
+          md += `  system-prompt="${llm.systemPrompt}"\n`
+        }
+        if (llm.autoPrompt) {
+          md += `  prompt="${llm.autoPrompt}"\n`
+        }
+        md += `  :auto-execute="${llm.autoExecute}"\n`
+        md += `/>\n\n`
+      })
+      
+      md += slide.content
+      md += '\n\n'
+    } else {
+      // Single-model layout
+      md += `<LLMQuery\n`
+      md += `  model="${slide.llmQuery.model}"\n`
+      md += `  position="${slide.llmQuery.position}"\n`
+      if (slide.llmQuery.systemPrompt) {
+        md += `  system-prompt="${slide.llmQuery.systemPrompt}"\n`
       }
+      if (slide.llmQuery.autoPrompt) {
+        md += `  prompt="${slide.llmQuery.autoPrompt}"\n`
+      }
+      md += `  :auto-execute="${slide.llmQuery.autoExecute}"\n`
+      md += `>\n\n`
+      md += slide.content
+      md += `\n\n</LLMQuery>\n`
     }
-
-    md += buildLLMTag(slide.llmQuery)
-    md += '\n' + slide.content + '\n\n'
-    md += `</LLMQuery>\n`
-
-    return md
-  }).join('\n')
-
-  return output
+    
+    md += '\n'
+  })
+  
+  return md
 }
 
 const exportMarkdown = () => {
@@ -391,6 +469,33 @@ const copyToClipboard = () => {
   })
 }
 
+// Auto-sync watcher
+let syncTimeout
+watch(
+  () => config.value,
+  () => {
+    if (autoSyncEnabled.value) {
+      // Debounce: wait 500ms after last change
+      clearTimeout(syncTimeout)
+      syncTimeout = setTimeout(() => {
+        const json = JSON.stringify(config.value, null, 2)
+        const blob = new Blob([json], { type: 'application/json' })
+        const url = URL.createObjectURL(blob)
+        
+        // Download config.json automatically
+        const a = document.createElement('a')
+        a.href = url
+        a.download = 'config.json'
+        a.click()
+        URL.revokeObjectURL(url)
+        
+        console.log('✅ Auto-synced config.json')
+      }, 500)
+    }
+  },
+  { deep: true }
+)
+
 // Keyboard shortcut
 const handleKeydown = (e) => {
   if (e.ctrlKey && e.key === 'k') {
@@ -405,6 +510,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown)
+  clearTimeout(syncTimeout)
 })
 </script>
 
@@ -568,15 +674,6 @@ onUnmounted(() => {
   cursor: not-allowed;
 }
 
-.slide-nav .delete-btn {
-  background: #3a1a1a;
-  border-color: #552222;
-}
-
-.slide-nav .delete-btn:hover:not(:disabled) {
-  background: #552222;
-}
-
 .template-gallery {
   display: grid;
   gap: 15px;
@@ -627,5 +724,46 @@ h3 {
   margin-top: 0;
   color: #fff;
   font-size: 16px;
+}
+
+.info-box {
+  padding: 15px;
+  background: #2a2a2a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.info-box.warning {
+  background: #332a1a;
+  border-color: #665522;
+}
+
+.info-box p {
+  margin: 0 0 10px 0;
+  color: #ccc;
+  font-size: 13px;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.info-box code {
+  background: #1a1a1a;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+}
+
+.info-box pre {
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+  margin: 10px 0 0 0;
 }
 </style>

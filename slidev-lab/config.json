@@ -1,0 +1,69 @@
+{
+  "title": "LLMQuery Test Deck",
+  "theme": "default",
+  "slides": [
+    {
+      "id": "slide-1",
+      "type": "code-review",
+      "title": "Code Review Demo (Live Sync Test)",
+      "content": "```python\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)\n\nfor i in range(40):\n    print(f\"fib({i}) = {fibonacci(i)}\")\n```",
+      "llmQuery": {
+        "model": "anthropic/claude-sonnet-4",
+        "position": "top-right",
+        "systemPrompt": "You are a senior code reviewer. Keep responses under 10 lines.",
+        "autoPrompt": "Review this code for bugs and improvements",
+        "autoExecute": true
+      }
+    },
+    {
+      "id": "slide-2",
+      "type": "multi-model",
+      "title": "What is a Transformer?",
+      "content": "## The architecture behind modern LLMs\n\nCompare how different models explain the same concept!",
+      "llmQuery": {
+        "model": "openai/gpt-4.1-mini",
+        "position": "top-left",
+        "systemPrompt": "Explain concisely in 3 sentences",
+        "autoPrompt": "",
+        "autoExecute": false
+      },
+      "extraModels": [
+        {
+          "model": "anthropic/claude-sonnet-4",
+          "position": "top-right",
+          "systemPrompt": "Explain with a metaphor",
+          "autoExecute": false
+        },
+        {
+          "model": "google/gemini-2.5-pro",
+          "position": "bottom-left",
+          "systemPrompt": "Focus on the math",
+          "autoExecute": false
+        },
+        {
+          "model": "x-ai/grok-4",
+          "position": "bottom-right",
+          "systemPrompt": "Explain like I'm 5",
+          "autoExecute": false
+        }
+      ]
+    },
+    {
+      "id": "slide-3",
+      "type": "educational",
+      "title": "Creative Coding Fundamentals",
+      "content": "- **Noise functions** \u2014 Perlin, Simplex, Worley\n- **L-Systems** \u2014 recursive string rewriting for organic forms\n- **Particle systems** \u2014 emergent behavior from simple rules\n- **Flow fields** \u2014 vector fields that guide movement\n\n*Ask the AI to explain any of these with a p5.js example!*",
+      "llmQuery": {
+        "model": "google/gemini-2.5-flash",
+        "position": "top-right",
+        "systemPrompt": "You are a creative coding instructor. Keep answers short and practical with code examples.",
+        "autoPrompt": "",
+        "autoExecute": false
+      }
+    }
+  ],
+  "defaults": {
+    "model": "openai/gpt-4.1-mini",
+    "position": "top-right"
+  }
+}
