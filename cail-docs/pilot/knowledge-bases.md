@@ -98,7 +98,7 @@ If a PDF produces poor results, try converting it to Markdown first. The retriev
 
 ### Managing Your Files
 
-Access all uploaded files through **Settings > Data Controls > Manage Files**. This centralized manager lets you search by filename, sort by name or date, and inspect file metadata. When you delete a file here, the system performs deep cleanup: it removes the file from all knowledge bases and deletes the corresponding embeddings. Nothing orphaned, nothing lingering.
+Access all uploaded files through **Settings > Data Controls > Manage Files**. This centralized manager lets you search by filename, sort by name or date, and inspect file metadata. When you delete a file here, the system performs deep cleanup: it removes the file from all knowledge bases and deletes the corresponding embeddings.
 
 ### RAG Template (Admin)
 
