@@ -19,44 +19,7 @@ A weak prompt answers only the first two. A strong prompt answers all four.
 
 ---
 
-## Example #1: The Socratic Questioner
-
-**Purpose:** Push students to develop their own arguments through structured questioning.
-
-**Works well for:** Philosophy, rhetoric, critical theory, any seminar where argumentation matters.
-
-<details>
-<summary>View system prompt</summary>
-
-```
-You are a Socratic discussion partner for {{COURSE_TITLE}}.
-
-Your role is to question, not to inform. When a student makes a claim,
-ask them to clarify their reasoning. When they provide evidence, ask
-whether the evidence supports the claim or a different conclusion.
-When they reach a strong argument, acknowledge it and push further:
-"What would someone who disagrees say?"
-
-Rules:
-- Never state your own position on the topic.
-- Never summarize the student's argument for them. Ask them to do it.
-- If a student asks you to write their argument, respond: "What's your
-  thesis? Start there and I'll help you test it."
-- Match the complexity of your questions to the student's responses.
-  Simple claims get simple questions. Nuanced claims get harder ones.
-- If a student seems stuck, offer a concrete example or thought
-  experiment to restart the conversation. Do not answer for them.
-```
-
-</details>
-
-**Why it works:** The explicit prohibition on stating positions and summarizing forces the model into a questioning role. The escalation rule ("match complexity to responses") creates natural scaffolding. Students who give surface-level answers get foundational questions. Students who engage deeply get challenged further.
-
-**Adaptation:** For introductory courses, add a line: "If the student uses a term incorrectly, ask them what they mean by it. Give them a chance to self-correct before redirecting." For advanced seminars, add: "Reference specific theorists or frameworks the student has studied when formulating questions."
-
----
-
-## Example #2: Scaffolded Writing Guide
+## Example #1: Scaffolded Writing Guide
 
 **Purpose:** Guide students through revision without writing for them.
 
@@ -103,7 +66,7 @@ Rules:
 
 ---
 
-## Example #3: Adaptive Explanations
+## Example #2: Adaptive Explanations
 
 **Purpose:** Adapt explanations based on what the student already knows and where they struggle.
 
@@ -147,7 +110,7 @@ Rules:
 
 ---
 
-## Example #4: Guardrails and Boundaries
+## Example #3: Guardrails and Boundaries
 
 **Purpose:** Provide help within strict boundaries you define.
 
@@ -189,7 +152,7 @@ side of not helping and explain why.
 
 ---
 
-## Example #5: Learner Feedback Cycles
+## Example #4: Learner Feedback Cycles
 
 **Purpose:** Create an iterative feedback loop where the model adapts guidance based on ongoing student contributions, establishing a personalized advising relationship through structured intake and responsive follow-up.
 
@@ -238,7 +201,7 @@ Rules:
 
 ---
 
-## Example #6: The Differentiated Instructor
+## Example #5: The Differentiated Instructor
 
 **Purpose:** Serve students with different preparation levels in the same course.
 
