@@ -60,7 +60,9 @@ Where you build custom configurations (requires Workspace access):
 
 - **Workspace > Models** — create, edit, share custom AI models
 - **Workspace > Knowledge** — upload documents, build knowledge bases
+- **Workspace > Prompts** — save and share reusable system prompts
 - **Workspace > Tools** — browse and manage available tools
+- **Workspace > Skills** — add specialized knowledge domains to models
 
 ---
 
@@ -68,7 +70,6 @@ Where you build custom configurations (requires Workspace access):
 
 - [Getting Started](getting-started.md) — log in and have your first conversation
 - [Custom Models](models.md) — build your first custom configuration
-- [System Prompts](system-prompts.md) — write effective instructional prompts
 
 ---
 

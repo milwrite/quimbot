@@ -84,7 +84,9 @@ You bind skills to models when you want them to have access to detailed domain k
 The **Workspace** is where you build:
 - Go to **Workspace > Models** to create custom models
 - Go to **Workspace > Knowledge** to create knowledge bases
+- Go to **Workspace > Prompts** to save and share reusable system prompts
 - Go to **Workspace > Tools** to browse available tools (if you have access)
+- Go to **Workspace > Skills** to add specialized knowledge domains
 
 You'll spend most of your building time in the Workspace.
 
