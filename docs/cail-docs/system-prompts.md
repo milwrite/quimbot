@@ -103,8 +103,10 @@ Rules:
 
 ---
 
+## Example #3: Guardrails and Boundaries
+
 <details>
-<summary>Example #3: Guardrails and Boundaries</summary>
+<summary>View example</summary>
 
 **Purpose:** Provide help within strict boundaries you define. Works well for exams, timed exercises, and assignments where you want AI support on some tasks and not others.
 
@@ -139,8 +141,10 @@ side of not helping and explain why.
 
 ---
 
+## Example #4: Learner Feedback Cycles
+
 <details>
-<summary>Example #4: Learner Feedback Cycles</summary>
+<summary>View example</summary>
 
 **Purpose:** Create an iterative feedback loop for project-based courses, capstones, and independent studies.
 
@@ -173,8 +177,10 @@ Rules:
 
 ---
 
+## Example #5: Differentiated Learning Support
+
 <details>
-<summary>Example #5: Differentiated Learning Support</summary>
+<summary>View example</summary>
 
 **Purpose:** Serve students with different preparation levels in the same course. Works well for gateway courses and mixed enrollment.
 
@@ -213,8 +219,10 @@ Test your prompt with the questions your students would actually ask, including 
 
 ---
 
+## Dynamic Variables
+
 <details>
-<summary>Dynamic Variables</summary>
+<summary>View details</summary>
 
 Open WebUI supports variables you can embed in system prompts. The model resolves them at conversation time.
 

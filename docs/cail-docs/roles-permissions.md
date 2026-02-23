@@ -68,8 +68,10 @@ When you share a resource with a group:
 
 ---
 
+## Advanced Settings
+
 <details>
-<summary>Advanced Settings</summary>
+<summary>View details</summary>
 
 ### SCIM 2.0 Provisioning
 

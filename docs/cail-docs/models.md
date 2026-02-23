@@ -40,8 +40,10 @@ Prompt suggestions are clickable chips that appear when a user opens a fresh cha
 - "Help me interpret these statistical results"
 - "Which test should I use for this research question?"
 
+## Advanced Settings
+
 <details>
-<summary>Advanced Settings</summary>
+<summary>View details</summary>
 
 ### Advanced Parameters
 

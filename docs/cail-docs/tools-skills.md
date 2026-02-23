@@ -73,8 +73,10 @@ When a user's question falls within a skill's domain, the model loads the releva
 
 ---
 
+## Advanced Settings
+
 <details>
-<summary>Advanced Settings</summary>
+<summary>View details</summary>
 
 ### Building Custom Tools
 
