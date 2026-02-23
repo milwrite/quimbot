@@ -251,17 +251,9 @@ Rules:
 
 ## Writing Your Own Prompts
 
-These patterns are starting points. When writing your own:
+These patterns are starting points. When writing your own, begin with the instructional goal: what should the student learn from interacting with this model? Write the prompt to serve that goal. Define boundaries before behaviors — the model follows "never do X" more reliably than "always do Y." Start with what the model should avoid, then describe what it should do. The most effective prompts treat student contributions as data the model works with. Reference what they said. Build on it. This makes interactions feel responsive rather than scripted.
 
-1. **Start with the instructional goal.** What should the student learn from interacting with this model? Write the prompt to serve that goal.
-
-2. **Define boundaries before behaviors.** It is easier for the model to follow "never do X" than "always do Y." Start with what the model should avoid, then describe what it should do.
-
-3. **Use the student's input.** The most effective prompts treat student contributions as data the model works with. Reference what they said. Build on it. This makes interactions feel responsive.
-
-4. **Test with real student questions.** Try the prompts your students would actually ask, including the lazy ones, the confused ones, and the ones trying to get the model to do their homework. If the prompt fails on those, revise.
-
-5. **Iterate during the semester.** Your first prompt will not be your best. Update it as you learn how students actually use the model. Check in mid-semester and revise.
+Test your prompt with the questions your students would actually ask, including the lazy ones, the confused ones, and the ones trying to get the model to do their homework. If the prompt fails on those, revise. Your first prompt will not be your best. Update it as you learn how students actually use the model. Check in mid-semester and revise based on what works and what breaks.
 
 ---
 
