@@ -77,6 +77,7 @@ For a methods guidance model:
 
 Most instructors will not need to adjust these. They are here for users who want finer control over how the model generates responses.
 
+- **Max Tokens** sets the maximum length of the model's response. One token is roughly three-quarters of a word. Lower values (100-500) produce concise answers: useful for quick definitions or focused feedback. Higher values (1000-4000) allow detailed explanations: appropriate for essay analysis or research summaries. If responses cut off mid-sentence, increase this value.
 - **Temperature** controls randomness. Lower values (0.1 to 0.3) produce focused, deterministic responses: good for factual research tasks. Higher values (0.7 to 1.0) allow more creative variation: useful for brainstorming or creative writing activities.
 - **Top P** (nucleus sampling) controls the diversity of word selection. A value of 0.9 means the model considers words covering 90% of the probability mass. Leave this at default unless you have a specific reason to change it.
 - **Stop Sequences** force the model to stop generating when it encounters specific text strings. Enter sequences like `<|end_of_text|>` or `User:` and press Enter. Useful for models that might otherwise generate both sides of a conversation.
