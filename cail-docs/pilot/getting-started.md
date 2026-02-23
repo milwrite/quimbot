@@ -16,7 +16,7 @@ Think of the Sandbox as a workspace. The conversations matter, but the real valu
 
 As a CUNY instructor or researcher, you face constraints that consumer AI tools don't address. Your students come from diverse linguistic and cultural backgrounds. Your courses have specific learning outcomes. Your research draws on specialized literature. The Sandbox lets you adapt AI to these realities. You control the tool. The tool doesn't control your pedagogy.
 
-The platform also keeps your work and your students' data within CUNY infrastructure. No third-party tracking. No training on student submissions. AI model providers operate under zero-retention agreements: prompts and responses are not stored or used for model training. Just a shared tool that you control.
+The platform also keeps your work and your students' data within CUNY infrastructure. No third-party tracking. No training on student submissions. AI model providers operate under zero-retention agreements: prompts and responses are not stored or used for model training. Your chat conversations are stored within Open WebUI for persistence purposes only and are accessible only to you and system administrators. Just a shared tool that you control.
 
 ---
 
