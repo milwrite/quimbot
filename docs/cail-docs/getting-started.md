@@ -1,4 +1,4 @@
-# Getting Started with the CAIL Sandbox
+# Getting Started
 
 Your first steps into the CUNY CAIL Sandbox — from logging in to having your first conversation with an AI model.
 
