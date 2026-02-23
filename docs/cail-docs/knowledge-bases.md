@@ -8,7 +8,7 @@ This process is called Retrieval-Augmented Generation (RAG). It means the model 
 
 ## Why This Matters
 
-Consider the difference. A student asks your course model: "What does the syllabus say about late submissions?" Without a knowledge base, the model guesses, drawing on generic academic policies from its training data. It might sound confident. It might be completely wrong.
+Consider the difference. A student asks your course model: "What does the syllabus say about late submissions?" Without a knowledge base, AI models have a tendency to guess when faced with uncertainty and forced to consult only their training data for support. The response might sound confident. It might be completely wrong.
 
 With your syllabus in a knowledge base, the model retrieves the actual passage from your document and uses it to answer. It cites what you wrote, not what it imagines you might have written.
 
