@@ -53,7 +53,7 @@ analysis reports. Point to course materials when relevant concepts appear.
 
 </details>
 
-**For detailed prompt patterns and pedagogical examples:** see [System Prompts as Instructional Design](system-prompts.md).
+Learn more about drafting system prompts [at this link](system-prompts.md).
 
 ### Prompt Suggestions
 
