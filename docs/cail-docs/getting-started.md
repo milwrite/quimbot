@@ -57,7 +57,7 @@ In the chat input at the bottom of the screen, type something simple:
 
 Press Enter (or click the send button). The AI responds. That's it. You just had your first Sandbox conversation.
 
-**What just happened?** You sent a message to whichever model is currently selected (look at the top of the screen to see which one). The model generated a response based on your prompt. Simple enough.
+**What just happened?** You sent a message to whichever AI model is currently selected (look at the top of the screen to see which one). The model generated a response based on your prompt. Simple enough.
 
 **But here's where it gets interesting:** Notice the model name at the top? Click it. A dropdown appears showing other available models. Each one has different strengths. Some are better at writing. Some excel at reasoning. Some understand images. Some run faster. You can switch models mid-conversation to leverage different capabilities for different parts of your work.
 
@@ -70,7 +70,7 @@ Before you start building, take a moment to understand the layout.
 ### The Sidebar (Left)
 
 - **Chats** — Your conversation history. Each chat is saved automatically.
-- **Workspace** — Where you'll create models, build knowledge bases, and configure tools (covered in the Design & Test section)
+- **Workspace** — Where you'll create AI models, build knowledge bases, and configure tools (covered in the Design & Test section)
 - **Admin Panel** — Instance-wide settings (if you have admin access)
 
 ### The Top Bar
@@ -100,7 +100,7 @@ Before you start building, take a moment to understand the layout.
 3. You'll see several tabs. Here's what matters for getting started:
 
 **General Tab:**
-- **Default Model** — Choose which model loads when you start a new chat
+- **Default Model** — Choose which AI model loads when you start a new chat
   - Recommendation: Start with a general-purpose model like DeepSeek V3.2 or Kimi K2.5
 - **Interface Theme** — Light, dark, or auto (matches your system settings)
   - Dark mode reduces eye strain during long writing sessions
@@ -112,7 +112,7 @@ Before you start building, take a moment to understand the layout.
 - **Display Name** — How your name appears to others when you share models or knowledge bases
 
 **Advanced Tab:**
-- **Temperature** — Controls how creative or focused the model's responses are
+- **Temperature** — Controls how creative or focused the AI model's responses are
   - Lower (0.3-0.5): More focused, consistent, deterministic
   - Higher (0.7-1.0): More creative, varied, exploratory
   - Default (0.7) works well for most teaching and research tasks
@@ -138,14 +138,14 @@ You've logged in, had a conversation, and customized your workspace. That's the 
 
 ### If You Want to Keep Exploring
 
-- Try different models by clicking the model name at the top
+- Try different AI models by clicking the model name at the top
 - Upload a document (PDF, Markdown, plain text) and ask questions about it
 - Experiment with different prompts and see how responses change
 
 ### If You're Ready to Build
 
 Head to the **Design & Test** section of this documentation. There you'll learn to:
-- Create custom models with specific behaviors
+- Create custom AI models with specific behaviors
 - Build knowledge bases from your course materials
 - Bind tools that extend what the AI can do
 
@@ -153,11 +153,11 @@ Head to the **Design & Test** section of this documentation. There you'll learn 
 
 ## Tips for Getting Started
 
-**Start small.** You don't need to build complex configurations on day one. Chat with the default models. See what works. See what doesn't. Let that guide what you build later.
+**Start small.** You don't need to build complex configurations on day one. Chat with the default AI models. See what works. See what doesn't. Let that guide what you build later.
 
 **Save interesting conversations.** Click the chat title in the sidebar to rename it. This makes it easier to find later when you want to revisit a useful interaction.
 
-**Don't worry about breaking things.** The Sandbox is a shared tool, but your personal workspace is yours. Create models. Delete them. Experiment. You can't break the instance for others.
+**Don't worry about breaking things.** The Sandbox is a shared tool, but your personal workspace is yours. Create AI models. Delete them. Experiment. You can't break the instance for others.
 
 **Ask for help.** If you get stuck, reach out to the AI Lab team or check the community channels. CUNY faculty and researchers are building with this platform every day, and the community is generous with support.
 
