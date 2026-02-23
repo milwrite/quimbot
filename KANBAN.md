@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-21 21:00 ET (nightly review)_
+_Last synced: 2026-02-23 07:00 ET (morning stand-up)_
 
 ## ✅ Done
 - Two-stage LoRA fine-tuning pipeline architecture (README)
@@ -24,13 +24,19 @@ _Last synced: 2026-02-21 21:00 ET (nightly review)_
 
 ## 🔨 In Progress
 - **Evaluate Stage 1 checkpoints** — step 350 looks optimal per early perplexity; need full eval
-- Decide synth followups **dedup policy** (hard dedup vs keep duplicates as weighting) — dedup passes done, policy confirmation still needed
-- Build a training-ready Stage 1 mix JSONL with pinned ratios/seeds (reproducible) — **script done** (`build_stage1_mix.py`, 43175 records), awaiting policy sign-off
+- Execute `build_stage1_mix.py` with blessed policies to generate v4 mix
+- Launch Run 5 with v4 mix once checkpoint eval confirms approach
 
-### 👇 Waiting on Petrarch decisions
-- Confirm policy: drop the 30 empty-assistant + 2 alternation-violation rows (vs reconstruct)
-- Confirm dedup: full `messages` hash hard-dedup vs keep dupes as weighting
-- Propose Stage 1 mixing ratios once above is settled
+## ✅ Policy Decisions (Morning Stand-up 2026-02-23)
+- **Empty-assistant + alternation violations:** DROP (32 rows <0.1% of dataset; clean > patched)
+- **Dedup policy:** HARD DEDUP (full messages hash; avoid implicit weighting)
+- **Stage 1 mixing ratios:** APPROVED
+  - LMSYS 40% — dialogue flow
+  - Magpie 25% — instruction alignment
+  - TOEFL 20% — scaffolding (9,227 records)
+  - Prosocial 10% — supportive tone
+  - Pilot 5% — domain-specific (1,366 records)
+  - Target: ~43K records
 
 ## 📋 Backlog
 - Run Stage 1 LoRA training on validated dataset mix
