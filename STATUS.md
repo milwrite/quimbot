@@ -1,31 +1,26 @@
-# Real-Time Status
+# STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Last Update:** 2026-02-08 21:35 EST by Petrarch
+**Date:** 2026-02-22 (Sun)
+**Time:** 09:00 ET (morning review)
 
-## Current Task
-- **[Petrarch]** Evaluation framework v2 complete + documentation
-- **[Quimbot]** Awaiting next stage training/eval instructions
+## Yesterday's accomplishments (Feb 21)
+- **Stage 1 LoRA Run 4 COMPLETE** — 671 steps, 14 checkpoints, Qwen3-8B rank 16, v3 dataset (43,170 records)
+- Gallery expanded to 22 artifacts (Fourier Circles, Rubik Patterns added)
+- CAIL docs scaffold created + AI Toolkit WordPress export (17 pages), then reverted to original Sandbox docs
+- Homepage updated with full 22-artifact gallery showcase
+- README + GitHub Pages overhaul (Petrarch transformed into three-tab hub)
 
-## Training Status
-**Stage 0 (production proof run):**
-- ✅ Qwen/Qwen3-8B LoRA, 63 steps
-- ✅ Checkpoints saved to Tinker (`step_0010` … `final`)
-- ✅ Final URI: `tinker://1d70c787-fc09-5de9-9922-4fcf062f7c80:train:0/sampler_weights/final`
+## Current blockers / risks
+- OpenRouter HTTP 402 still active (blocks synthetic data generation)
+- Gateway token mismatch persists (needs `openclaw gateway restart`)
+- Stage 1 checkpoint evaluation pending
 
-**Stage 1 (mixed dataset run):**
-- ⚠️ 500-step run completed but **weights not saved** (invalid checkpoint name format)
-- ✅ Script patched to use simple labels (`step_XXXX`, `final`)
-- 🔁 **Needs rerun** to persist weights
+## Current sprint focus
+- Evaluate Stage 1 LoRA checkpoints (step 350 looks optimal per early perplexity analysis)
+- Plan Stage 2 language/learner variant fine-tuning
+- Resolve OpenRouter billing for continued data generation
 
-## Active Work
-- ✅ Eval script fixed (`test_lora_model.py` sampling API)
-- ✅ Eval run completed; outputs in `lora_test_results.json` (LoRA more concise vs base)
-
-## Next Steps
-1. Rerun Stage 1 training with fixed checkpoint labels
-2. Capture and share tinker:// checkpoint URIs
-3. Run eval on Stage 1 final checkpoint and post diffs
-
----
-
-**Note:** Do not commit datasets to Git; datasets live in local `datasets/` only.
+## Next
+- Run checkpoint evaluation on Stage 1 Run 4 intermediates
+- Compare step 350 vs final checkpoint quality
+- Begin Stage 2 dataset planning (Spanish SFT datasets identified on HF)

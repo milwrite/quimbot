@@ -171,6 +171,15 @@ canvas.addEventListener('touchend', e => {
 }, { passive: true });
 
 initSim();
+
+// In iframe: pre-seed heavily and run simulation to show developed patterns immediately
+if (window.self !== window.top) {
+  for (let i = 0; i < 12; i++) {
+    seed(Math.random() * S, Math.random() * S, 6 + Math.random() * 8);
+  }
+  for (let i = 0; i < 500; i++) step();
+}
+
 draw();
 </script>
 </body>
