@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-23 07:00 ET (morning stand-up)_
+_Last synced: 2026-02-23 19:46 ET (evening stand-up)_
 
 ## ✅ Done
 - Two-stage LoRA fine-tuning pipeline architecture (README)
@@ -19,16 +19,16 @@ _Last synced: 2026-02-23 07:00 ET (morning stand-up)_
 - README overhaul: GitHub Pages showcase, gallery, scraper, models, side quests sections
 - Stage 1 LoRA Run 3: 83% complete before crash; superseded by Run 4
 - **Stage 1 LoRA Run 4 COMPLETE** — 671 steps, 14 checkpoints, v3 mix (43,170 records), Qwen3-8B rank 16
-- Gallery expanded to 22 artifacts; homepage showcase updated
+- Gallery expanded to 26 artifacts (incl. Rubik's cube, Mitosis, Pendulum Wave); homepage showcase updated
+- Mobile optimization pass on gallery artifacts (touch targets, readability)
 - CAIL docs: scaffold + AI Toolkit integration attempted, reverted to original Sandbox docs
 
 ## 🔨 In Progress
 - **Evaluate Stage 1 Run 4 checkpoints** — step 350 looks optimal per early perplexity; need full eval pass (TOP PRIORITY)
-- Mobile optimization pass on gallery artifacts (completed 2/23)
-- Rubik's cube interactive (built from scratch, multi-face rotation working)
+- **Evaluate Stage 1 Run 4 checkpoints** — BLOCKED: adapter weights not on local disk, need to locate/download
 
 ### 👇 Waiting on Petrarch
-- Stage 1 Run 4 eval: coordinate on eval methodology and checkpoint selection
+- Stage 1 Run 4 eval: need location of adapter weights (not on local disk) to begin eval pass
 
 ## 📋 Backlog
 - Stage 2 language/learner variant fine-tuning (Spanish SFT datasets scouted: ~1.1M rows from latam-gpt)
