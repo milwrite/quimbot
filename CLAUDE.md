@@ -92,3 +92,11 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
 - OpenRouter generation scaling currently blocked by HTTP 402; do not assume generation scripts will run until billing/key routing is fixed.
 - Stage 1 mix decision pending: whether to hard-dedup synth followups or keep duplicates as implicit weighting.
 - Repo hygiene: sidequest microlearning scripts exist under `sidequests/microlearning/`; **do not commit** `sidequests/microlearning/data/` artifacts (treat like datasets/output).
+
+## 2026-02-24 notes (nightly review)
+- Nightly stocktake completed and committed (`4efefe28`): added `fine-tuning/data/INVENTORY.md` with per-file row counts and dedup status.
+- Dataset state re-confirmed at 33,834 rows across 7 tracked JSONL files in `fine-tuning/data/`.
+- Evaluation scripts were syntax-validated (`evaluation/qwen-eval.py`, `evaluation/qwen-eval-v2.py`) and are execution-ready once weights land.
+- New generation utility scaffold added: `fine-tuning/scripts/generation/generate_toefl_ollama_10k.py` for local Ollama batch synthesis.
+- Hard blocker remains unchanged: Stage 1 Run 4 adapter weights are not on local disk (day 2 blocked).
+- Secondary blocker remains: OpenRouter HTTP 402 prevents scale-out synthetic generation.

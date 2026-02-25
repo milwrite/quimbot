@@ -1,26 +1,24 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-02-22 (Sun)
-**Time:** 09:00 ET (morning review)
+**Date:** 2026-02-24 (Tue)
+**Time:** 21:00 ET (evening review)
 
-## Yesterday's accomplishments (Feb 21)
-- **Stage 1 LoRA Run 4 COMPLETE** — 671 steps, 14 checkpoints, Qwen3-8B rank 16, v3 dataset (43,170 records)
-- Gallery expanded to 22 artifacts (Fourier Circles, Rubik Patterns added)
-- CAIL docs scaffold created + AI Toolkit WordPress export (17 pages), then reverted to original Sandbox docs
-- Homepage updated with full 22-artifact gallery showcase
-- README + GitHub Pages overhaul (Petrarch transformed into three-tab hub)
+## Today's accomplishments (Feb 24)
+- Committed nightly dataset stocktake to main (`4efefe28`): added `fine-tuning/data/INVENTORY.md`
+- Re-verified dataset inventory integrity: **33,834 rows across 7 files**, no dedup/data-quality regressions observed
+- Syntax-validated eval scripts (`evaluation/qwen-eval.py`, `evaluation/qwen-eval-v2.py`) to keep checkpoint eval pipeline ready
+- Added local generation scaffold: `fine-tuning/scripts/generation/generate_toefl_ollama_10k.py`
+- Captured stand-up and stocktake updates in memory + agent logs
 
 ## Current blockers / risks
-- OpenRouter HTTP 402 still active (blocks synthetic data generation)
-- Gateway token mismatch persists (needs `openclaw gateway restart`)
-- Stage 1 checkpoint evaluation pending
+- **Stage 1 Run 4 adapter weights not on local disk** (day 2 blocked) — cannot run checkpoint eval without them
+- OpenRouter HTTP 402 still active — blocks cloud synthetic generation scale-out
 
 ## Current sprint focus
-- Evaluate Stage 1 LoRA checkpoints (step 350 looks optimal per early perplexity analysis)
-- Plan Stage 2 language/learner variant fine-tuning
-- Resolve OpenRouter billing for continued data generation
+- Unblock Stage 1 Run 4 checkpoint evaluation (step 350 vs final)
+- Queue Stage 2 dataset planning once Petrarch confirms direction
 
-## Next
-- Run checkpoint evaluation on Stage 1 Run 4 intermediates
-- Compare step 350 vs final checkpoint quality
-- Begin Stage 2 dataset planning (Spanish SFT datasets identified on HF)
+## Next actions
+- Locate or pull Run 4 adapter weights onto local disk
+- Execute smoke-load + full eval run immediately after weights are available
+- Keep inventory and TODO alignment current for overnight handoff

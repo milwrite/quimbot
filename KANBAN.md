@@ -1,8 +1,12 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-23 19:46 ET (evening stand-up)_
+_Last synced: 2026-02-24 21:00 ET (nightly review)_
 
 ## ✅ Done
+- Nightly stocktake commit: dataset inventory added (`fine-tuning/data/INVENTORY.md`, commit `4efefe28`)
+- Eval scripts syntax validation complete (`evaluation/qwen-eval.py`, `evaluation/qwen-eval-v2.py`)
+- Dataset integrity re-check complete: 7 files, 33,834 rows, 0 errors
+- TOEFL Ollama generation scaffold added (`fine-tuning/scripts/generation/generate_toefl_ollama_10k.py`)
 - Two-stage LoRA fine-tuning pipeline architecture (README)
 - Stage 1 "Core Linguist" dataset assembly (`stage1_train.jsonl` ~445M)
 - UltraChat 200K SFT variants (base + CUNY ES)
@@ -22,6 +26,8 @@ _Last synced: 2026-02-23 19:46 ET (evening stand-up)_
 - Gallery expanded to 26 artifacts (incl. Rubik's cube, Mitosis, Pendulum Wave); homepage showcase updated
 - Mobile optimization pass on gallery artifacts (touch targets, readability)
 - CAIL docs: scaffold + AI Toolkit integration attempted, reverted to original Sandbox docs
+- CAIL docs day 2: 20 commits (condensed sections, accordion patterns, page merges, CAIL rename cycle)
+- TOEFL synth dataset (10k) added, superset 2 tail-50 sample reviewed
 
 ## 🔨 In Progress
 - **Evaluate Stage 1 Run 4 checkpoints** — step 350 looks optimal per early perplexity; need full eval pass (TOP PRIORITY)
