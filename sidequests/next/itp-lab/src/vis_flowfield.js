@@ -6,13 +6,9 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 
 export function flowField(container) {
   const { ctx, resize, destroy } = makeCanvas(container, { pixelRatioCap: 2 });
+  container.style.touchAction = 'manipulation';
 
   let W = 0, H = 0;
-  function onResize() {
-    const s = resize();
-    W = s.width; H = s.height;
-  }
-  onResize();
 
   // Simple hash noise (no external libs).
   function hash2(x, y) {
@@ -36,9 +32,16 @@ export function flowField(container) {
   }
 
   const particles = [];
-  const N = 1200;
+
+  function targetParticleCount() {
+    // Scale density to viewport area so mobile does not choke and desktop still feels rich.
+    const area = Math.max(1, W * H);
+    return Math.max(420, Math.min(1400, Math.floor(area / 700)));
+  }
+
   function seed() {
     particles.length = 0;
+    const N = targetParticleCount();
     for (let i = 0; i < N; i++) {
       particles.push({
         x: Math.random() * W,
@@ -60,6 +63,18 @@ export function flowField(container) {
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, W, H);
   }
+
+  function syncSize() {
+    const s = resize();
+    const nw = Math.max(1, Math.floor(s.width));
+    const nh = Math.max(1, Math.floor(s.height));
+    const changed = nw !== W || nh !== H;
+    W = nw;
+    H = nh;
+    return changed;
+  }
+
+  syncSize();
   seed();
 
   // Tap/click to reseed.
@@ -68,6 +83,13 @@ export function flowField(container) {
 
   let t0 = performance.now();
   const stop = rafLoop((t) => {
+    if (syncSize()) {
+      // Responsive resize: rebuild particles for the new aspect ratio.
+      seed();
+      t0 = t;
+      return;
+    }
+
     const dt = Math.min(32, t - t0);
     t0 = t;
 
@@ -107,7 +129,8 @@ export function flowField(container) {
       if (p.life <= 0 || out) {
         p.x = Math.random() * W;
         p.y = Math.random() * H;
-        p.vx = 0; p.vy = 0;
+        p.vx = 0;
+        p.vy = 0;
         p.life = Math.random() * 240 + 80;
       }
     }
