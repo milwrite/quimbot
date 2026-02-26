@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>How the Turing Patterns Sketch Grows Living Texture</title>
+<style>
+:root{--bg:#0b0e14;--fg:rgba(255,255,255,0.92);--muted:rgba(255,255,255,0.55);--stroke:rgba(255,255,255,0.10);--accent:#c8c8c8;--code:#111722}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+body{min-height:100vh;padding:clamp(24px,4vw,64px)}
+article{max-width:820px;margin:0 auto;line-height:1.72}
+h1{font-size:clamp(30px,4vw,44px);line-height:1.1;margin-bottom:10px;letter-spacing:-0.02em}
+.meta{color:var(--muted);font-size:14px;margin-bottom:26px}
+h2{margin:28px 0 10px;font-size:clamp(20px,2.5vw,28px)}
+p{margin:0 0 16px}
+pre{background:var(--code);border:1px solid var(--stroke);border-radius:10px;padding:14px 16px;overflow:auto;margin:10px 0 18px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.back{display:inline-block;margin-top:20px;padding:8px 14px;border:1px solid var(--stroke);border-radius:8px}
+.links{margin-top:8px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<article>
+  <h1>How the Turing Patterns Sketch Grows Living Texture</h1>
+  <p class="meta">Feb 25, 2026 • Quimbot gallery notes</p>
+
+  <p>The Turing Patterns sketch is driven by a reaction-diffusion system, and the visual complexity comes from a very small set of repeated local updates. Each pixel stores two concentrations, A and B, and on every frame those values both react with each other and spread into neighboring pixels according to fixed rates. Over time, that simple loop creates stable edges, spots, and branching structures that read as organic texture without any hand-drawn forms.</p>
+
+  <h2>1) Every pixel carries two values</h2>
+  <p>Think of each pixel as a tiny cup with two liquids inside. Most cups start full of A and empty of B. A small seeded region gets extra B so the pattern has somewhere to start.</p>
+  <pre><code>// per cell state
+A[x,y] = 1.0;
+B[x,y] = seed ? 1.0 : 0.0;
+</code></pre>
+
+  <h2>2) Diffusion is neighborhood averaging</h2>
+  <p>Each frame, A and B blur outward using a Laplacian stencil. In plain terms, each cup borrows a little from nearby cups. Center weight is negative, neighbor weights are positive, so we measure local curvature and smooth it over time.</p>
+
+  <h2>3) Reaction is a nonlinear swap</h2>
+  <p>The Gray-Scott update couples the chemicals with one compact term, <code>A * B * B</code>. Where B is present, it consumes A and helps make more B. Feed and kill rates keep the system from collapsing into all-one-color noise.</p>
+  <pre><code>dA = Da*lapA - A*B*B + f*(1 - A)
+dB = Db*lapB + A*B*B - (k + f)*B
+</code></pre>
+  <p>Kitchen analogy. Imagine yeast and sugar in dough. Sugar diffuses through the mix, yeast activity changes concentration locally, and temperature-like knobs decide whether you get a flat loaf or an interesting crumb.</p>
+
+  <h2>4) Why the patterns feel alive</h2>
+  <p>No pixel knows the global shape. It only sees nearby values, then applies the same rules as every other pixel. But repeated local updates create stable fronts, branching fingers, and spot-stripe transitions. It is the same emergence trick we love in Life and Boids, just with continuous values instead of binary cells.</p>
+
+  <h2>5) Rendering maps chemistry to tone</h2>
+  <p>The sketch usually colors by a function of <code>A - B</code> or directly from B concentration. High-B zones become dark ridges or bright veins. With small parameter shifts, you can move from zebra-like bands to cellular foam without changing the core algorithm.</p>
+
+  <p>That is the whole charm. Simple local equations, repeated fast, then suddenly it looks like biology.</p>
+
+  <p class="links">
+    Links. <a href="../gallery/turing.html" target="_blank" rel="noreferrer">Visualization</a> · <a href="../gallery/" target="_blank" rel="noreferrer">Gallery Index</a> · <a href="../" target="_blank" rel="noreferrer">Home</a>
+  </p>
+
+  <a class="back" href="../">← Back to main page</a>
+</article>
+</body>
+</html>
