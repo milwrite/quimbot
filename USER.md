@@ -6,7 +6,7 @@
 - **What to call them:** 
 - **Pronouns:** *(optional)*
 - **Timezone:** 
-- **Notes:** 
+- **Notes:** Prefers auto-push after commit when they say yes.
 
 ## Context
 

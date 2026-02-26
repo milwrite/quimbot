@@ -1,5 +1,9 @@
 # MEMORY.md
 
+## Working Preferences
+
+- Auto-push preference: after making a commit, if milwrite says "yes" to push, proceed directly with `git push`.
+
 ## Workspace
 
 - **Root directory:** `~/Quimbot` (set in `~/.openclaw/openclaw.json` as of 2026-02-22)

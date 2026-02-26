@@ -85,13 +85,13 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
 - Required env vars for training: `TINKER_API_KEY`, `TINKER_API_BASE`, `HF_TOKEN`
 
 ## 2026-02-16 notes (recent decisions / state)
-- Synth followups audit triage (see `agents/KANBAN.md`): TOEFL concat issues appear **filterable**:
+- Synth followups audit triage (see `agents/KANBAN.md`): TOEFL concat issues appear filterable:
   - 30 rows with empty assistant content
   - 2 role alternation violations
   - JSON parse errors = 0
 - OpenRouter generation scaling currently blocked by HTTP 402; do not assume generation scripts will run until billing/key routing is fixed.
 - Stage 1 mix decision pending: whether to hard-dedup synth followups or keep duplicates as implicit weighting.
-- Repo hygiene: sidequest microlearning scripts exist under `sidequests/microlearning/`; **do not commit** `sidequests/microlearning/data/` artifacts (treat like datasets/output).
+- Repo hygiene: sidequest microlearning scripts exist under `sidequests/microlearning/`; do not commit `sidequests/microlearning/data/` artifacts (treat like datasets/output).
 
 ## 2026-02-24 notes (nightly review)
 - Nightly stocktake completed and committed (`4efefe28`): added `fine-tuning/data/INVENTORY.md` with per-file row counts and dedup status.
@@ -100,3 +100,16 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
 - New generation utility scaffold added: `fine-tuning/scripts/generation/generate_toefl_ollama_10k.py` for local Ollama batch synthesis.
 - Hard blocker remains unchanged: Stage 1 Run 4 adapter weights are not on local disk (day 2 blocked).
 - Secondary blocker remains: OpenRouter HTTP 402 prevents scale-out synthetic generation.
+
+## 2026-02-25 notes (morning review)
+- Overnight local generation added three fresh outputs with +156 rows total (`92 + 51 + 13`).
+- Quick validation pass confirmed `toefl_ollama_batch_20260224_2130_clean.jsonl` at 21/21 valid rows.
+- Working total reported in stand-up context is now 34,011 rows before dedup merge finalization.
+- Immediate next data task: merge new outputs into a staging JSONL, dedup against current superset, then refresh `fine-tuning/data/INVENTORY.md`.
+- Highest-priority execution path is unchanged: Run 4 checkpoint eval starts as soon as adapter weights (step 350 + final) are available locally.
+
+## 2026-02-25 notes (evening review)
+- No additional commits landed during daytime; progress concentrated on coordination, status hygiene, and handoff prep.
+- Nightly trend artifact added at `reports/nightly/stocktake-2026-02-25.md` (branch, delta, dataset location snapshot).
+- The execution queue for next cycle is explicit: merge + dedup + recount first, then immediate eval trigger once weights are provided.
+- Blocking conditions are unchanged: missing local adapter weights for Run 4 eval and OpenRouter HTTP 402 for scale-out generation.
