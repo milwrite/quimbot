@@ -76,13 +76,14 @@ footer a{color:var(--accent)}
 <header>
 <h1>Quimbot</h1>
 <p class="sub">Orchestra project showcase: staged LoRA fine-tuning for language-learning assistants, creative coding experiments, and agent-driven workflows.</p>
-<p class="collab">A collaboration between <a href="https://github.com/milwrite" target="_blank">@milwrite</a> (Petrarch) and Quimbot, powered by <a href="https://docs.clawd.bot" target="_blank">Clawdbot</a>.</p>
+<p class="collab">A collaboration between Zach Muhlbauer, Petrarch (on the Studio), and Quimbot (on the Legion), powered by <a href="https://docs.openclaw.ai" target="_blank">OpenClaw</a>. Built in the open, with too much coffee and not enough sleep.</p>
 </header>
 
 <nav>
 <div class="nav-tabs">
 <button class="nav-tab active" data-section="gallery">Creative Coding</button>
 <button class="nav-tab" data-section="workflows">Workflows</button>
+<button class="nav-tab" data-section="microblog">Microblog</button>
 <button class="nav-tab" data-section="docs">Dev Docs</button>
 </div>
 </nav>
@@ -162,113 +163,93 @@ Interactive slide deck for ITP lab presentation. Built with Next.js, deployed to
 </div>
 </section>
 
+<!-- MICROBLOG -->
+<section class="section" id="microblog">
+<p style="color:var(--muted);margin-bottom:24px">A running microblog of our project work on Quimbot: reflections, technical breakdowns, and links to artifacts. Chronological order, 500 words or less.</p>
+
+<ul class="doc-list">
+<li class="doc-item">
+<a href="microblog/entry-4.html" target="_blank">
+<div>
+<div class="doc-title">The Fourier Pendulum That Draws a Wave</div>
+<div class="doc-desc">How chained rotating circles map harmonic motion into a live waveform, and why it feels like a pendulum machine.</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="microblog/entry-3.html" target="_blank">
+<div>
+<div class="doc-title">How the Turing Patterns Sketch Grows Living Texture</div>
+<div class="doc-desc">A concrete walkthrough of Gray-Scott reaction-diffusion, with plain analogies for how local chemical rules become organic structure.</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="microblog/entry-2.html" target="_blank">
+<div>
+<div class="doc-title">How the Rubik Sketch Works</div>
+<div class="doc-desc">A plain-language walkthrough of the cube engine, with code snippets and the logic behind moves, scramble, and solve.</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+<li class="doc-item">
+<a href="microblog/entry-1.html" target="_blank">
+<div>
+<div class="doc-title">What Broke, What Shipped, What’s Next</div>
+<div class="doc-desc">A candid first field note from the build. Real blockers, real progress, and the next move.</div>
+</div>
+<div class="doc-arrow">→</div>
+</a>
+</li>
+</ul>
+</section>
+
 <!-- DEV DOCS -->
 <section class="section" id="docs">
 <p style="color:var(--muted);margin-bottom:24px">Project documentation, research notes, and agent coordination artifacts.</p>
 
 <ul class="doc-list">
-<li class="doc-item">
-<a href="cail-docs/" target="_blank">
-<div>
-<div class="doc-title">CUNY AI Lab Sandbox Docs</div>
-<div class="doc-desc">Open WebUI workspace guide: models, knowledge bases, RAG, prompts, tools</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-<li class="doc-item">
-<a href="https://github.com/milwrite/quimbot/blob/main/README.md" target="_blank">
-<div>
-<div class="doc-title">README.md</div>
-<div class="doc-desc">Project overview, architecture, training data, pipeline components</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-<li class="doc-item">
-<a href="https://github.com/milwrite/quimbot/blob/main/agents/KANBAN.md" target="_blank">
-<div>
-<div class="doc-title">KANBAN.md</div>
-<div class="doc-desc">Task board, sprint planning, stand-ups</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-<li class="doc-item">
-<a href="https://github.com/milwrite/quimbot/blob/main/agents/STATUS.md" target="_blank">
-<div>
-<div class="doc-title">STATUS.md</div>
-<div class="doc-desc">Real-time project status, current training runs, blockers</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-<li class="doc-item">
-<a href="https://github.com/milwrite/quimbot/blob/main/agents/DEVLOG.md" target="_blank">
-<div>
-<div class="doc-title">DEVLOG.md</div>
-<div class="doc-desc">Timestamped work notes, decisions, observations</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-<li class="doc-item">
-<a href="devlog/2026-02-25-mitosis-pendulum.md" target="_blank">
-<div>
-<div class="doc-title">Wave Meets Cell -Feb 25, 2026</div>
-<div class="doc-desc">Microblog on generative strategy across systems.</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-<li class="doc-item">
-
-<div class="doc-title">CUNY Language Architecture</div>
-<div class="doc-desc">Full architectural specification for language-learning assistant</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-<li class="doc-item">
-<a href="https://github.com/milwrite/quimbot/blob/main/evaluation/QWEN-EVAL-V2-README.md" target="_blank">
-<div>
-<div class="doc-title">Evaluation Framework (v2)</div>
-<div class="doc-desc">15+ metrics, parallel execution, caching, comparison reporters</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-<li class="doc-item">
-<a href="https://github.com/milwrite/quimbot/tree/main/sidequests/microlearning/docs" target="_blank">
-<div>
-<div class="doc-title">Microlearning Pipeline Docs</div>
-<div class="doc-desc">Architecture, quality gates, Reddit-to-Veo methodology</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-<li class="doc-item">
-<a href="https://github.com/milwrite/quimbot/blob/main/agents/COLLABORATION.md" target="_blank">
-<div>
-<div class="doc-title">Multi-Agent Collaboration Protocol</div>
-<div class="doc-desc">Coordination patterns, handoff procedures, memory management</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-
-<li class="doc-item">
-<a href="devlog/2026-02-24-snapshot.md" target="_blank">
-<div>
-<div class="doc-title">Project Snapshot — Feb 24, 2026</div>
-<div class="doc-desc">Development log with work notes, decisions, and observations.</div>
-</div>
-<div class="doc-arrow">→</div>
-</a>
-</li>
-
+  <li class="doc-item">
+    <a href="https://github.com/milwrite/quimbot/blob/main/README.md" target="_blank">
+      <div>
+        <div class="doc-title">README</div>
+        <div class="doc-desc">Project overview, setup notes, and current direction</div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+  </li>
+  <li class="doc-item">
+    <a href="https://github.com/milwrite/quimbot/blob/main/KANBAN.md" target="_blank">
+      <div>
+        <div class="doc-title">KANBAN</div>
+        <div class="doc-desc">Active work, blockers, and next actions</div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+  </li>
+  <li class="doc-item">
+    <a href="https://github.com/milwrite/quimbot/blob/main/STATUS.md" target="_blank">
+      <div>
+        <div class="doc-title">STATUS</div>
+        <div class="doc-desc">Latest pipeline and evaluation status snapshot</div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+  </li>
+   <li class="doc-item">
+    <a href="https://github.com/milwrite/quimbot/issues" target="_blank">
+      <div>
+        <div class="doc-title">Issue Tracker</div>
+        <div class="doc-desc">Bugs, feature requests, and open discussions</div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+  </li>
+</ul>
 </section>
-
 
 <footer>
 <p>Source: <a href="https://github.com/milwrite/quimbot" target="_blank">milwrite/quimbot</a></p>
@@ -527,4 +508,3 @@ renderCards('all');
 </script>
 </body>
 </html>
-TEST DEV TEST
