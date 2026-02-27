@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing Under Surveillance — Zach Muhlbauer</title>
+  <meta name="description" content="A critique of AI detection software and its disproportionate harm to multilingual, working-class, and neurodivergent students.">
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --text: #d4d0c8;
+      --muted: #888;
+      --accent: #c8a97e;
+      --link: #8ab4c8;
+      --max: 680px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 18px;
+      line-height: 1.75;
+      min-height: 100vh;
+      padding: 0 1.5rem;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 4rem 0 6rem;
+    }
+
+    .back {
+      display: inline-block;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .back:hover { color: var(--accent); }
+    .back::before { content: '← '; }
+
+    header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.25;
+      font-weight: normal;
+      color: #f0ece0;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .byline {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .byline .author { color: var(--accent); }
+
+    .badge {
+      display: inline-block;
+      margin-left: 0.75rem;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 2px 8px;
+      border-radius: 3px;
+      vertical-align: middle;
+    }
+
+    article p {
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    article em { font-style: italic; color: #c8c0b0; }
+
+    cite {
+      font-style: normal;
+      color: var(--muted);
+      font-size: 0.9em;
+    }
+
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      margin: 2.5rem 0;
+      padding: 0.5rem 1.5rem;
+      color: #c8c0b0;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .works-cited {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .works-cited h2 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: normal;
+      margin-bottom: 1.5rem;
+    }
+
+    .works-cited ol {
+      list-style: none;
+      padding: 0;
+    }
+
+    .works-cited li {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+      padding-left: 1.5em;
+      text-indent: -1.5em;
+    }
+
+    .works-cited a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    .works-cited a:hover { text-decoration: underline; }
+
+    .revision-tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="/quimbot/" class="back">Gallery</a>
+
+    <header>
+      <h1>Writing Under Surveillance: A Critique of AI Detection Software</h1>
+      <p class="byline">
+        <span class="author">Zach Muhlbauer</span>
+        <span class="badge">Draft v1 · Feb 2026</span>
+      </p>
+    </header>
+
+    <article>
+      <div class="pullquote">
+        "The more we outsource evaluation to machines, the less room there is for empathy."
+        <br><cite>— Marc Watkins, <em>Rhetorica</em></cite>
+      </div>
+
+      <p>CUNY students know this firsthand. On Reddit, they describe receiving false positives for honest work, flagged by algorithms while instructors trust a black box over their own judgment.</p>
+
+      <p>AI detection software has already begun to shape how students learn to write and under what conditions they see themselves as writers. Multilingual students report being accused of cheating because their syntax looks "too clean." Others describe deliberately misspelling words or punctuating incorrectly to evade detection software, even when every word is their own, fearful of a false positive and a failed course.</p>
+
+      <p>When students must perform humanity for the imagined audience of an AI detector, they write not for their peers but for unproven algorithmic systems that not even their instructors understand. These harms fall hardest on multilingual, working-class students like those at CUNY.</p>
+
+      <p>To understand how, consider what these services actually claim to measure. Detectors like GPTZero use two metrics: <em>perplexity</em>, how predictable a word sequence is, and <em>burstiness</em>, variation in sentence length. Both assume AI-generated text is more uniform than human writing <cite>("AI Detectors")</cite>. The premise is shakier than it sounds. A 2025 study found that identical content was flagged as 10% AI-generated by one tool and 81% by another <cite>(Engelbrecht)</cite>. Each detector trains on distinct datasets with different labeling standards, producing wildly divergent results. Humans fare no better: a 2024 study found people identifying AI-generated content at only 19% accuracy, indistinguishable from random guessing <cite>(Cheng et al.)</cite>.</p>
+
+      <p>The errors fall unevenly. A Stanford study of seven widely-used detectors found they classified 61.22% of TOEFL essays by non-native English speakers as AI-generated <cite>(Liang et al.)</cite>. One tool flagged 89 of 91 essays. The reason is structural: non-native speakers tend to score lower on perplexity, and detectors use perplexity as a proxy for human authorship, penalizing writers whose patterns resemble what AI produces <cite>("AI Detectors Biased Against Non-Native English Writers")</cite>. The same disparity appears along racial and neurological lines. Common Sense Media found Black students faced disproportionately higher AI-detection accusations than white students; similar patterns emerged for neurodivergent learners <cite>(Hirsch; "AI Detection Tools," USD Law Library)</cite>.</p>
+
+      <p>Scaled up, a "low" 1% false positive rate across 22.35 million first-year college essays means 223,500 students falsely accused in a single year <cite>(Hirsch)</cite>. Students report "AI anxiety" on social media, describing fear, frustration, and paranoia. Some now second-guess their own voice on the page, rejiggering their style to guard against detection <cite>("How AI Policies Affect Student Mental Health")</cite>. This is the police state of writing: students subject to the verdicts of unvetted software.</p>
+
+      <p>The situation is made worse by how easy the software is to beat. Running AI text through a paraphrasing tool dropped DetectGPT's accuracy from 70.3% to 4.6% without changing meaning <cite>(Krishna et al.)</cite>. Randomly inserting the word "cheeky" fooled detectors 80–90% of the time <cite>("AI Detection Tools," USD Law Library)</cite>. Detection tools end up blocking honest writers while failing to catch dishonest ones.</p>
+
+      <p>Instructors who adopt these tools in good faith risk outsourcing their judgment to technology already shown to hardcode racial, linguistic, and neurological bias into academic integrity enforcement <cite>(Morris and Stommel; Warner)</cite>. The question is not whether AI detection can be improved. It is whether the category itself is sound.</p>
+
+      <p>Real solutions begin where surveillance ends. Meeting students where they are means treating writing as a situated, social practice rather than a product to be authenticated. Trust in classrooms cannot be rebuilt by better algorithms. It is rebuilt in the work of reading and writing together.</p>
+
+      <div class="revision-tag">Round 1 · Quimbot copyedit</div>
+    </article>
+
+    <div class="works-cited">
+      <h2>Works Cited</h2>
+      <ol>
+        <li>"AI Detectors." <em>Instructional Resources</em>, Illinois State University, <a href="https://prodev.illinoisstate.edu/instructional-resources/pedagogy/ai/detectors/" target="_blank">prodev.illinoisstate.edu/…</a>. Accessed 5 Feb. 2026.</li>
+        <li>"AI Detectors Biased Against Non-Native English Writers." <em>Stanford HAI</em>, Stanford University, <a href="https://hai.stanford.edu/news/ai-detectors-biased-against-non-native-english-writers" target="_blank">hai.stanford.edu/…</a>. Accessed 5 Feb. 2026.</li>
+        <li>"AI Detection Tools." <em>USD Law Library Guides</em>, University of San Diego, <a href="https://lawlibguides.sandiego.edu/c.php?g=1443311&p=10721367" target="_blank">lawlibguides.sandiego.edu/…</a>. Accessed 5 Feb. 2026.</li>
+        <li>Cheng, Adam, et al. "Ability of AI Detection Tools and Humans to Accurately Identify Different Forms of AI-Generated Written Content." <em>PMC</em>, National Library of Medicine, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12752165/" target="_blank">pmc.ncbi.nlm.nih.gov/…</a>. Accessed 5 Feb. 2026.</li>
+        <li>Engelbrecht, Leon. "AI Detection Tool Comparison 2025." <em>YouTube</em>, 2025, <a href="https://www.youtube.com/watch?v=N3RtTCF9E8g" target="_blank">youtube.com/…</a>. Accessed 5 Feb. 2026.</li>
+        <li>Hirsch, Amanda. "AI Detectors: An Ethical Minefield." <em>CITL</em>, Northern Illinois University, 12 Dec. 2024, <a href="https://citl.news.niu.edu/2024/12/12/ai-detectors-an-ethical-minefield/" target="_blank">citl.news.niu.edu/…</a>. Accessed 5 Feb. 2026.</li>
+        <li>"How AI Policies Affect Student Mental Health." <em>GovTech</em>, <a href="https://www.govtech.com/education/higher-ed/educause-25-how-ai-policies-affect-student-mental-health" target="_blank">govtech.com/…</a>. Accessed 5 Feb. 2026.</li>
+        <li>Krishna, Kalpesh, et al. "Paraphrasing Evades Detectors of AI-Generated Text, but Retrieval Is an Effective Defense." <em>OpenReview</em>, <a href="https://openreview.net/forum?id=WbFhFvjjKj" target="_blank">openreview.net/…</a>. Accessed 5 Feb. 2026.</li>
+        <li>Liang, Weixin, et al. "GPT Detectors Are Biased Against Non-Native English Writers." <em>Patterns</em>, vol. 4, no. 7, 2023, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10382961/" target="_blank">pmc.ncbi.nlm.nih.gov/…</a>.</li>
+        <li>Morris, Sean Michael, and Jesse Stommel. "A Guide for Resisting EdTech: The Case against Turnitin." <em>Hybrid Pedagogy</em>, 15 June 2017, <a href="https://hybridpedagogy.org/resisting-edtech/" target="_blank">hybridpedagogy.org/…</a>.</li>
+        <li>Warner, John. "Another Terrible Idea from Turnitin." <em>Inside Higher Ed</em>, 6 Feb. 2018, <a href="https://www.insidehighered.com/blogs/just-visiting/another-terrible-idea-turnitin" target="_blank">insidehighered.com/…</a>.</li>
+        <li>Watkins, Marc. "Beyond Ineffective: How Unreliable AI Detection Actively Harms Students." <em>Rhetorica</em>, 3 Sept. 2023, <a href="https://marcwatkins.substack.com/p/beyond-ineffective-how-unreliable" target="_blank">marcwatkins.substack.com/…</a>.</li>
+        <li>—. "Our Obsession with Cheating Is Ruining Our Relationship with Students." <em>Rhetorica</em>, 6 Jan. 2023, <a href="https://marcwatkins.substack.com/p/our-obsession-with-cheating-is-ruining" target="_blank">marcwatkins.substack.com/…</a>.</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
