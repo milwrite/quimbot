@@ -181,12 +181,12 @@ function runBatch(){
       // Log scale density
       const v=Math.log(buf[i]+1)/Math.log(gmax+1);
       // Purple-pink-white gradient
-      const r=Math.round(v*v*255+v*80);
-      const g=Math.round(v*v*120);
-      const b=Math.round(v*220+v*v*35);
-      d2[i*4]=Math.min(255,r);
-      d2[i*4+1]=Math.min(255,g);
-      d2[i*4+2]=Math.min(255,b);
+      const cr=Math.round(v*v*255+v*80);
+      const cg=Math.round(v*v*120);
+      const cb=Math.round(v*220+v*v*35);
+      d2[i*4]=Math.min(255,cr);
+      d2[i*4+1]=Math.min(255,cg);
+      d2[i*4+2]=Math.min(255,cb);
       d2[i*4+3]=255;
     }
   }
