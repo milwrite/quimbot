@@ -30,3 +30,14 @@ proposals/
 sidequests/microlearning/data/
 slidev-lab/node_modules/
 fine-tuning/prospects/
+
+# OpenClaw operational files (local only, not for public repo)
+AGENTS.md
+SOUL.md
+IDENTITY.md
+USER.md
+MEMORY.md
+HEARTBEAT.md
+TOOLS.md
+BOOTSTRAP.md
+memory/
