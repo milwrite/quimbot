@@ -113,3 +113,10 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
 - Nightly trend artifact added at `reports/nightly/stocktake-2026-02-25.md` (branch, delta, dataset location snapshot).
 - The execution queue for next cycle is explicit: merge + dedup + recount first, then immediate eval trigger once weights are provided.
 - Blocking conditions are unchanged: missing local adapter weights for Run 4 eval and OpenRouter HTTP 402 for scale-out generation.
+
+## 2026-02-26 notes (morning review)
+- Morning commit stream is active: stand-up sync + doc/microblog tightening + gallery visualization additions (`d14cb717` latest).
+- Site generation artifacts updated today under `docs/gallery/` and `docs/index.html`; this lane is shipping while training/eval remains blocked.
+- `fine-tuning/prospects/cron.log` shows repeated Discord notifier failures caused by shell call to missing `openclaw` binary (`/bin/sh: 1: openclaw: not found`).
+- Keep OpenClaw-native messaging for status posts (message tool / API path), do not rely on local CLI availability in cron environments.
+- Core blockers are still the same: missing Run 4 adapter weights locally and OpenRouter HTTP 402.

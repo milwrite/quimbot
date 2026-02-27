@@ -1,11 +1,12 @@
 # TODO
 
-**Last Updated:** 2026-02-25 21:00 EST
+**Last Updated:** 2026-02-26 09:00 EST
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
 - [ ] Run checkpoint eval pass (perplexity + inference samples) immediately after weights arrive
-- [ ] Merge overnight Ollama outputs into one staging JSONL and dedup against current superset
+- [ ] Merge fresh Ollama outputs into one staging JSONL and dedup against current superset
+- [ ] Fix `fine-tuning/prospects` Discord notifier path (`openclaw` binary missing in cron runtime)
 
 ## Medium Priority
 - [ ] Refresh `fine-tuning/data/INVENTORY.md` after merge/dedup and recount totals
@@ -19,14 +20,11 @@
 - [ ] Review and prune gallery visualizations (26 pages, stale check)
 - [ ] Document Slidev ConfigPanel integration patterns
 
-## Done (Feb 25)
-- [x] Logged 07:00 ET stand-up update in `agents/KANBAN.md`
-- [x] Ran three local Ollama generation passes overnight (+156 rows total)
-- [x] Validated clean batch slice (`toefl_ollama_batch_20260224_2130_clean.jsonl`: 21/21 valid)
-- [x] Added nightly stocktake artifact (`reports/nightly/stocktake-2026-02-25.md`)
+## Done (Feb 26)
+- [x] Morning review completed from live evidence (git, generated docs files, cron logs)
+- [x] Updated `KANBAN.md`, `CLAUDE.md`, and `STATUS.md` for 09:00 review cycle
+- [x] Identified recurring cron notifier failure signature in `fine-tuning/prospects/cron.log`
 
-## Done (Feb 24)
-- [x] Nightly stocktake commit: added `fine-tuning/data/INVENTORY.md` (`4efefe28`)
-- [x] Re-verified dataset integrity snapshot (33,834 rows across 7 files)
-- [x] Syntax-check completed for eval scripts (`qwen-eval.py`, `qwen-eval-v2.py`)
-- [x] Added generation scaffold `fine-tuning/scripts/generation/generate_toefl_ollama_10k.py`
+## Done (Feb 25)
+- [x] Added nightly stocktake artifact (`reports/nightly/stocktake-2026-02-25.md`)
+- [x] Logged evening sync and refreshed coordination state files

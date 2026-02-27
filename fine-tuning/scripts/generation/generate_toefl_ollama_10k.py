@@ -128,7 +128,7 @@ def generate_one(error: dict, system_prompt: str, phase_name: str, client, index
     for attempt in range(3):
         try:
             resp = client.chat.completions.create(
-                model="gemma3:27b",
+                model="gpt-oss:20b",
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_msg},
