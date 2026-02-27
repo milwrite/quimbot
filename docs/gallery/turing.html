@@ -7,7 +7,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;background:#000;overflow:hidden;display:flex;flex-direction:column}
-canvas{display:block;flex:1;width:100%;image-rendering:pixelated}
+canvas{display:block;flex:1;width:100%;image-rendering:pixelated;touch-action:none}
 .back{position:fixed;top:1rem;left:1rem;font:0.8rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;text-decoration:none;border:1px solid #333;z-index:10;transition:border-color 0.2s}
 .back:hover{border-color:#666;color:#fff}
 .panel{background:#111;border-top:1px solid #222;padding:0.6rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:0.8rem;font:0.75rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;flex-shrink:0}
@@ -169,6 +169,14 @@ canvas.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - tx;
   if (Math.abs(dx) > 60) cyclePreset();
 }, { passive: true });
+
+// Handle resize/orientation — simulation grid stays fixed, CSS handles scaling
+function handleResize() {
+  // Force layout recalc so flex:1 canvas fills correctly after orientation change
+  canvas.style.width = '100%';
+}
+window.addEventListener('resize', handleResize);
+window.addEventListener('orientationchange', handleResize);
 
 initSim();
 

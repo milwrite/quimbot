@@ -6,7 +6,7 @@
 <title>Voronoi Tessellation</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0a0a0a; overflow: hidden; cursor: crosshair; }
+  body { background: #0a0a0a; overflow: hidden; cursor: crosshair; touch-action: none; }
   canvas { display: block; }
   .label {
     position: fixed; bottom: 1rem; left: 1rem;
@@ -77,12 +77,8 @@ function renderVoronoi() {
   bW = Math.ceil(W / SCALE);
   bH = Math.ceil(H / SCALE);
   if (!buf || buf.width !== bW || buf.height !== bH) {
-    if (typeof OffscreenCanvas !== 'undefined') {
-      buf = new OffscreenCanvas(bW, bH);
-    } else {
-      buf = document.createElement('canvas');
-      buf.width = bW; buf.height = bH;
-    }
+    buf = document.createElement('canvas');
+    buf.width = bW; buf.height = bH;
   }
   const bctx = buf.getContext('2d');
   const imgData = bctx.createImageData(bW, bH);
