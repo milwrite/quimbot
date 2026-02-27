@@ -75,14 +75,13 @@ footer a{color:var(--accent)}
 
 <header>
 <h1>Quimbot</h1>
-<p class="sub">Orchestra project showcase: staged LoRA fine-tuning for language-learning assistants, creative coding experiments, and agent-driven workflows.</p>
+<p class="sub">Orchestra project showcase: staged LoRA fine-tuning for language-learning assistants, creative coding experiments.</p>
 <p class="collab">A collaboration between Zach Muhlbauer, Petrarch (on the Studio), and Quimbot (on the Legion), powered by <a href="https://docs.openclaw.ai" target="_blank">OpenClaw</a>. Built in the open, with too much coffee and not enough sleep.</p>
 </header>
 
 <nav>
 <div class="nav-tabs">
 <button class="nav-tab active" data-section="gallery">Creative Coding</button>
-<button class="nav-tab" data-section="workflows">Workflows</button>
 <button class="nav-tab" data-section="microblog">Microblog</button>
 <button class="nav-tab" data-section="docs">Dev Docs</button>
 </div>
@@ -106,61 +105,6 @@ footer a{color:var(--accent)}
 </div>
 
 <div class="grid" id="grid"></div>
-</section>
-
-<!-- WORKFLOWS -->
-<section class="section" id="workflows">
-<p style="color:var(--muted);margin-bottom:24px">Situated workflows developed through agent collaboration-from fine-tuning pipelines to Reddit scraping to autonomous git workflows.</p>
-
-<div class="workflow-card">
-<div class="workflow-title">Two-Stage Fine-Tuning Pipeline</div>
-<div class="workflow-status">🔄 Stage 1 In Progress</div>
-<div class="workflow-desc">
-Staged LoRA fine-tuning on Qwen-8B to build pedagogically-aware conversational models. Stage 1 establishes core linguistic competence; Stage 2 produces language-specific variants (Spanish heritage, Mandarin L2, etc.). Training mix: 43,175 records from LMSYS Chat-1M, Magpie, TOEFL, and prosocial dialogue corpora.
-</div>
-<div class="workflow-meta">
-<span>📂 <a href="https://github.com/milwrite/quimbot/tree/main/fine-tuning" target="_blank">fine-tuning/</a></span>
-<span>📊 <a href="https://github.com/milwrite/quimbot/tree/main/evaluation" target="_blank">Evaluation Framework</a></span>
-<span>📄 <a href="https://github.com/milwrite/quimbot/blob/main/research/CUNY-LANGUAGE-ARCHITECTURE.md" target="_blank">Architecture Spec</a></span>
-</div>
-</div>
-
-<div class="workflow-card">
-<div class="workflow-title">Reddit Scraper & Microlearning Pipeline</div>
-<div class="workflow-status">🧪 POC Stage</div>
-<div class="workflow-desc">
-Automated pipeline from trending Reddit posts to microlearning content packets. Workflow: scrape trending posts → rank by educational potential → human approval → generate structured learning packets → publish. Includes schemas, quality gates, and a Reddit-to-Veo visual storytelling methodology.
-</div>
-<div class="workflow-meta">
-<span>📂 <a href="https://github.com/milwrite/quimbot/tree/main/sidequests/microlearning" target="_blank">sidequests/microlearning/</a></span>
-<span>📄 <a href="https://github.com/milwrite/quimbot/tree/main/sidequests/microlearning/docs" target="_blank">Pipeline Docs</a></span>
-</div>
-</div>
-
-<div class="workflow-card">
-<div class="workflow-title">Agent Collaboration via Clawdbot</div>
-<div class="workflow-status">✅ Production</div>
-<div class="workflow-desc">
-Multi-agent coordination through Clawdbot (openclaw framework). Petrarch delegates specialized tasks to Quimbot via isolated sessions; Quimbot executes, commits changes, posts updates to Discord, and hands control back. Features: persistent memory (daily logs + MEMORY.md), heartbeat checks, GitHub integration, and Discord-native messaging.
-</div>
-<div class="workflow-meta">
-<span>📂 <a href="https://github.com/milwrite/quimbot/tree/main/agents" target="_blank">agents/</a></span>
-<span>📄 <a href="https://docs.clawd.bot" target="_blank">Clawdbot Docs</a></span>
-<span>🔗 <a href="https://github.com/clawdbot/clawdbot" target="_blank">openclaw GitHub</a></span>
-</div>
-</div>
-
-<div class="workflow-card">
-<div class="workflow-title">ITP Lab Presentation Deck</div>
-<div class="workflow-status">✅ Complete</div>
-<div class="workflow-desc">
-Interactive slide deck for ITP lab presentation. Built with Next.js, deployed to GitHub Pages. Showcases project architecture, training pipeline, and evaluation methodology.
-</div>
-<div class="workflow-meta">
-<span>🌐 <a href="https://milwrite.github.io/quimbot/itp-lab/" target="_blank">Live Deck</a></span>
-<span>📂 <a href="https://github.com/milwrite/quimbot/tree/main/sidequests/next/itp-lab" target="_blank">Source</a></span>
-</div>
-</div>
 </section>
 
 <!-- MICROBLOG -->
