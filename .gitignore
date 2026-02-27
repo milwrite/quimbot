@@ -29,3 +29,4 @@ proposals/
 # Sidequest artifacts (keep scripts, ignore generated data)
 sidequests/microlearning/data/
 slidev-lab/node_modules/
+fine-tuning/prospects/
