@@ -2,7 +2,7 @@
 
 Zach Muhlbauer
 
-"The more we outsource evaluation to machines," writes Marc Watkins, "the less room there is for empathy" (Watkins, "Beyond Ineffective"). CUNY students know the feeling. On Reddit and elsewhere, they describe the anxiety and frustration of being falsely accused by widely discredited software as their instructors defer to opaque algorithms over their own judgment and the word of their students.
+"The more we outsource evaluation to machines," writes Marc Watkins, "the less room there is for empathy" (Watkins, "Beyond Ineffective"). CUNY students know the feeling. On Reddit and elsewhere, they describe the anxiety and frustration of being falsely accused by widely discredited software adopted by instructors who defer to opaque classification systems over their own judgement or the word of their students.
 
 AI detection software has already begun to shape how students learn to write and under what conditions they see themselves as writers. Multilingual students report being accused of cheating because their syntax looks "too clean." Others describe deliberately misspelling words or punctuating incorrectly to evade detection software, even when every word is their own, fearful of a false positive and a failed course.
 
