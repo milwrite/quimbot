@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-27 19:00 ET (evening stand-up)_
+_Last synced: 2026-02-27 21:00 ET (nightly review)_
 
 ## ✅ Done
 - Merge+dedup all sources → superset3 (5,560 unique rows) (`b67bbf4c`) ✅ 2/27
@@ -8,9 +8,14 @@ _Last synced: 2026-02-27 19:00 ET (evening stand-up)_
 - Gallery: Wave Interference + Clifford Attractor (`a20be098`) ✅ 2/27
 - Gallery mobile optimization: Turing/voronoi HTML fixes for responsive display
 - Microblog entry-6 published: New content in `docs/microblog/entry-6.html`
+- Blog post "Writing Under Surveillance" drafted + copyedited through v3.2 (`ed5a581a`)
+- TOEFL superset2 merged: 14,566 unique records (Petrarch's gemma3:27b batch deduped + merged)
+- Microblog entry-2 (Rubik) + entry-4 (Fourier iframe) published; entry-5 removed
+- Gallery bugfix: Clifford attractor var redeclaration (`0b4cf9de`)
+- Site cleanup: OpenClaw files removed from repo, .gitignore updated, GH Pages source fixed
 
 ## 🔨 In Progress
-- **TOEFL generation running** — gpt-oss:20b via local Ollama, 1,814/10,000 entries (~78/hr). ETA ~March 2–3.
+- **TOEFL generation running** — gpt-oss:20b via local Ollama, 1,974/10,000 entries (~78/hr). ETA ~March 2–3.
 - Gallery/docs iteration continues
 - Superset3 quality validation needed (spot-check)
 
