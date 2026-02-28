@@ -5,8 +5,9 @@
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
 - [ ] Run checkpoint eval pass (perplexity + inference samples) immediately after weights arrive
-- [ ] Merge fresh Ollama outputs into one staging JSONL and dedup against current superset
+- [x] Merge fresh Ollama outputs into one staging JSONL and dedup against current superset → superset3 (5,560 unique) ✅ 2/27
 - [ ] Fix `fine-tuning/prospects` Discord notifier path (`openclaw` binary missing in cron runtime)
+- [ ] Spot-check superset3 quality (role alternation, empty assistants, schema validation)
 
 ## Medium Priority
 - [ ] Refresh `fine-tuning/data/INVENTORY.md` after merge/dedup and recount totals
