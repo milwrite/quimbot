@@ -18,7 +18,7 @@ Unsurprisingly, false positives fall hardest on those already at the margins. A 
 
 Scaled up, a "low" 1% false positive rate across 22.35 million first-year college essays means 223,500 students falsely accused in a single year (Hirsch). Call it the police state of writing, where students answer not to instructors but to the verdicts of unvetted software.
 
-The situation is made worse by how easy the software is to beat. Running AI text through a paraphrasing tool dropped DetectGPT's accuracy from 70.3% to 4.6% without changing meaning (Krishna et al.). Randomly inserting the word "cheeky" fooled detectors 80–90% of the time ("AI Detection Tools," USD Law Library). These tools end up protecting nothing and policing everyone.
+The situation is only made worse by how easy detection software is to beat. Running synthetic text through a paraphrasing tool, for example, dropped DetectGPT's accuracy from 70.3% to 4.6% without changing meaning (Krishna et al.). Better yet, randomly inserting the word "cheeky" fooled detectors 80–90% of the time ("AI Detection Tools," USD Law Library). At some point, the question becomes not whether students can evade detection, but why institutions keep pretending these tools work in the first place.
 
 Regardless of sophistication, AI detectors seek to identify patterns in language that are neither stable across large language models (LLMs) nor robust to adversarial modification by end users looking to beat the algorithm (Weber-Wulff et al.). As AI models grow more capable of mimicking human writing patterns, the technical distinction between machine and human text becomes harder to sustain at any reliable level.
 
