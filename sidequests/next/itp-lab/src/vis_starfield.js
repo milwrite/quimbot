@@ -1,9 +1,11 @@
 import { makeCanvas, rafLoop } from './util_canvas.js';
 
-// Slide 11/12 artifact: starfield w/ mouse parallax (vibe-coding example).
+// Slide 11/12 artifact: starfield w/ pointer parallax (vibe-coding example).
 export function starfield(container) {
   container.innerHTML = '';
   const { ctx, resize, destroy } = makeCanvas(container);
+  // Prevent scroll-on-drag on mobile so the parallax gesture works cleanly.
+  container.style.touchAction = 'none';
 
   let mouse = { x: 0, y: 0 };
   const onMove = (e) => {
@@ -14,8 +16,15 @@ export function starfield(container) {
   container.addEventListener('pointermove', onMove);
 
   let stars = [];
+  let lastW = 0, lastH = 0;
+
   function reset(width, height) {
-    stars = Array.from({ length: 260 }, () => ({
+    lastW = Math.floor(width);
+    lastH = Math.floor(height);
+    // Scale star count to viewport area — fewer on small/mobile screens.
+    const area = width * height;
+    const count = Math.max(80, Math.min(360, Math.floor(area / 1800)));
+    stars = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       z: Math.random() * 3 + 0.5,
@@ -27,6 +36,11 @@ export function starfield(container) {
 
   const stop = rafLoop(() => {
     ({ width, height } = resize());
+
+    // Redistribute stars on orientation change or resize — avoids sparse/clustered fields.
+    if (Math.floor(width) !== lastW || Math.floor(height) !== lastH) {
+      reset(width, height);
+    }
 
     ctx.fillStyle = 'rgba(0,0,0,0.25)';
     ctx.fillRect(0, 0, width, height);

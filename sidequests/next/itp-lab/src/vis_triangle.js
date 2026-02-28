@@ -36,6 +36,9 @@ export function triangle(container) {
     return { x: u * A.x + v * B.x + w * C.x, y: u * A.y + v * B.y + w * C.y };
   }
 
+  // Prevent page scroll while dragging the triangle point on mobile.
+  container.style.touchAction = 'none';
+
   const onDown = (e) => { dragging = true; p = toNorm(e); };
   const onMove = (e) => { if (dragging) p = toNorm(e); };
   const onUp = () => { dragging = false; };
@@ -106,15 +109,24 @@ export function triangle(container) {
     ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.lineTo(C.x, C.y); ctx.closePath();
     ctx.stroke();
 
-    // Labels
+    // Labels — responsive: shorter text on narrow viewports to avoid clipping.
+    const narrow = width < 420;
+    const labelPx = Math.max(10, Math.min(16, Math.floor(Math.min(width, height) * 0.032)));
     ctx.fillStyle = 'rgba(255,255,255,0.9)';
-    ctx.font = '16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto';
+    ctx.font = `${labelPx}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto`;
+
     ctx.textAlign = 'center';
-    ctx.fillText('Rules (System Prompt)', A.x, A.y - 14);
+    ctx.fillText(narrow ? 'Rules' : 'Rules (System Prompt)', A.x, Math.max(labelPx + 4, A.y - 10));
+
     ctx.textAlign = 'left';
-    ctx.fillText('Randomness (Temperature)', B.x, B.y + 26);
+    // Clamp left label so it doesn't bleed off the left edge.
+    const leftLabelX = Math.max(4, B.x);
+    ctx.fillText(narrow ? 'Randomness' : 'Randomness (Temperature)', leftLabelX, Math.min(height - 6, B.y + labelPx + 6));
+
     ctx.textAlign = 'right';
-    ctx.fillText('Interpretation (Curation)', C.x, C.y + 26);
+    // Clamp right label so it doesn't bleed off the right edge.
+    const rightLabelX = Math.min(width - 4, C.x);
+    ctx.fillText(narrow ? 'Interpretation' : 'Interpretation (Curation)', rightLabelX, Math.min(height - 6, C.y + labelPx + 6));
 
     // Draggable point
     ctx.fillStyle = 'rgba(255,255,255,0.95)';
@@ -125,10 +137,11 @@ export function triangle(container) {
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = 'rgba(255,255,255,0.65)';
-    ctx.font = '14px ui-monospace, SFMono-Regular, Menlo, monospace';
+    const hintPx = Math.max(10, Math.min(14, Math.floor(Math.min(width, height) * 0.028)));
+    ctx.fillStyle = 'rgba(255,255,255,0.55)';
+    ctx.font = `${hintPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
     ctx.textAlign = 'left';
-    ctx.fillText('Drag point to shift emphasis', 16, height - 18);
+    ctx.fillText('Drag to shift emphasis', 12, height - Math.max(14, hintPx + 4));
   });
 
   return () => {
