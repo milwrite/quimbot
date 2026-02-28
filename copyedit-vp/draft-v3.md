@@ -24,7 +24,7 @@ Regardless of sophistication, AI detectors seek to identify patterns in language
 
 Instructors who adopt these tools in good faith risk outsourcing their judgment to technology already shown to hardcode racial, linguistic, and neurological bias into academic integrity enforcement (Morris and Stommel; Warner). The question is not whether AI detection can be improved. It is whether the category itself is sound.
 
-The work begins where surveillance ends: in classrooms where instructors read student writing closely, respond to it honestly, and trust that learning is messier than any algorithm can adjudicate. Surveillance forecloses that work, and it turns instructors into auditors and students into suspects, undermining the very conditions under which writing development occurs. But those conditions can be rebuilt, and they start with the ordinary, irreplaceable work of reading and writing together.
+For educators, the real work begins where surveillance ends, seeded in classrooms where we are invited to read each other's writing compassionately, respond to it honestly, and remind ourselves that learning is far messier in practice than any one algorithm can name. Surveillance forecloses that work, and it turns instructors into auditors and students into suspects, undermining the very conditions under which writing development occurs. But those conditions can be rebuilt, and they start with the ordinary, irreplaceable work of reading and writing together.
 
 **Works Cited**
 
