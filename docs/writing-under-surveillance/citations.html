@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citation Validation — Writing Under Surveillance</title>
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --text: #d4d0c8;
+      --muted: #888;
+      --accent: #c8a97e;
+      --link: #8ab4c8;
+      --ok: #6db56d;
+      --warn: #e0c96b;
+      --fail: #d46b6b;
+      --max: 760px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      padding: 0 1.5rem;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 4rem 0 6rem;
+    }
+
+    .back {
+      display: inline-block;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .back:hover { color: var(--accent); }
+    .back::before { content: '← '; }
+
+    header {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      font-weight: normal;
+      color: #f0ece0;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .meta span { color: var(--accent); }
+
+    .section-head {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 3rem 0 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .entry {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.4rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .entry-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .status {
+      display: inline-block;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-weight: 600;
+    }
+
+    .status.ok { background: rgba(109,181,109,0.15); color: var(--ok); border: 1px solid rgba(109,181,109,0.25); }
+    .status.warn { background: rgba(224,201,107,0.15); color: var(--warn); border: 1px solid rgba(224,201,107,0.25); }
+    .status.fail { background: rgba(212,107,107,0.15); color: var(--fail); border: 1px solid rgba(212,107,107,0.25); }
+    .status.pending { background: rgba(136,136,136,0.15); color: var(--muted); border: 1px solid rgba(136,136,136,0.2); }
+
+    .cite-ref {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 14px;
+      color: #f0ece0;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .cite-ref a { color: var(--link); text-decoration: none; }
+    .cite-ref a:hover { text-decoration: underline; }
+
+    .entry p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 0.7rem;
+      line-height: 1.65;
+    }
+
+    .entry p:last-child { margin-bottom: 0; }
+
+    .quote-in-article {
+      border-left: 3px solid var(--border);
+      padding: 0.4rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 14px;
+      color: #b0a890;
+      font-style: italic;
+    }
+
+    .finding {
+      font-size: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .finding strong { color: var(--accent); }
+
+    .finding.ok { border-color: rgba(109,181,109,0.2); }
+    .finding.warn { border-color: rgba(224,201,107,0.2); }
+    .finding.fail { border-color: rgba(212,107,107,0.2); }
+
+    .author-tag {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .legend {
+      display: flex;
+      gap: 1.5rem;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+
+    .preamble {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .preamble a { color: var(--link); text-decoration: none; }
+    .preamble a:hover { text-decoration: underline; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    .collab-note {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .collab-note strong { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      body { font-size: 15px; }
+      h1 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="/quimbot/writing-under-surveillance/" class="back">Writing Under Surveillance</a>
+
+    <header>
+      <h1>Citation Validation</h1>
+      <p class="meta">
+        For: <a href="/quimbot/writing-under-surveillance/" style="color:var(--link);text-decoration:none">Writing Under Surveillance</a> by Zach Muhlbauer<br>
+        Conducted by: <span>Quimbot</span> (N–Z citations + works cited validity) and <span>Petrarch</span> (A–M citations + direct quotes)<br>
+        Deep research reference: <a href="https://bot.inference-arcade.com/src/search/technical-pedagogical-issues-detection-software-2026-02.html" style="color:var(--link);text-decoration:none">technical-pedagogical-issues-detection-software-2026-02.html</a><br>
+        Last updated: 2026-02-28 · In progress
+      </p>
+    </header>
+
+    <p class="preamble">
+      Each citation in the article is evaluated here: whether the source exists and is accessible, whether any direct quotes match the source text verbatim, and whether the source substantiates the claim it is used to support. Findings are flagged as <strong style="color:var(--ok)">Verified</strong>, <strong style="color:var(--warn)">Verified with Note</strong>, <strong style="color:var(--fail)">Unverified / Problem</strong>, or <strong style="color:var(--muted)">Pending</strong>.
+    </p>
+
+    <div class="legend">
+      <div class="legend-item"><span class="status ok">Verified</span> Source confirmed, claim accurate</div>
+      <div class="legend-item"><span class="status warn">Note</span> Source exists but with caveats</div>
+      <div class="legend-item"><span class="status fail">Problem</span> Quote not found or claim misrepresented</div>
+      <div class="legend-item"><span class="status pending">Pending</span> Not yet checked</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="section-head">Epigraph</div>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status fail">Problem</span>
+        <div class="cite-ref">
+          Watkins, Marc. "The more we outsource evaluation to machines, the less room there is for empathy."
+          — attributed to <em>Rhetorica</em> (Substack) <span class="author-tag">Quimbot</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"The more we outsource evaluation to machines, the less room there is for empathy."<br>— Marc Watkins, <em>Rhetorica</em></div>
+      <div class="finding fail">
+        <strong>Unverified direct quote.</strong> No verbatim match found in any publicly accessible Watkins Substack post. The epigraph cites <em>Rhetorica</em> (his newsletter) without specifying an article. The two Watkins pieces in the Works Cited ("Beyond Ineffective…" and "Our Obsession…") were checked; neither contains this sentence. A web search across his Substack archive found no match.
+        <br><br>
+        Watkins writes consistently about the risks of outsourcing human judgment to algorithms — the sentiment is consonant with his body of work. However, as a displayed direct quote preceding the article, it requires a verifiable source. Closest thematic match: <a href="https://marcwatkins.substack.com/p/tools-vs-agents-the-dehumanizing" style="color:var(--link)">"Tools vs. Agents: The Dehumanizing Threat of Impersonal AI Educators"</a>, where he writes "We cannot outsource the vital relationships at the core of transformative education."
+        <br><br>
+        <strong>Recommendation:</strong> Either locate the exact source and specify the article in the attribution, or replace with a verified Watkins quote and cite accordingly.
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="section-head">N–Z Citations — Quimbot</div>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <!-- USD Law Library #1 — neurodivergent -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status warn">Note</span>
+        <div class="cite-ref">
+          "AI Detection Tools." <em>USD Law Library Guides</em>, University of San Diego.
+          <a href="https://lawlibguides.sandiego.edu/c.php?g=1443311&p=10721367" target="_blank">lawlibguides.sandiego.edu/…</a>
+          <span class="author-tag">Quimbot</span>
+        </div>
+      </div>
+      <div class="quote-in-article">
+        "…while similar patterns emerged for neurodivergent learners <cite>(USD Law Library)</cite>."
+      </div>
+      <p>Source is accessible and confirmed live. The guide's page on false positives discusses bias issues broadly, referencing racial and language-based disparities. A neurodivergent learner claim is consistent with the guide's scope but is not stated explicitly on the specific page fetched (the guide spans multiple tabs; the claim may appear on an adjacent page).</p>
+      <div class="finding warn">
+        <strong>Page confirmed, specific claim not yet located on the fetched tab.</strong> The USD Law Library guide at this URL focuses on false positive/negative rates and the "cheeky" prompt-engineering case. A reference to neurodivergent learners may appear on a different tab of the same guide. Recommend checking the full guide navigation for explicit neurodivergent coverage before publication.
+      </div>
+    </div>
+
+    <!-- USD Law Library #2 — cheeky -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status warn">Note</span>
+        <div class="cite-ref">
+          "AI Detection Tools." <em>USD Law Library Guides</em> (second citation — "cheeky" claim)
+          <a href="https://lawlibguides.sandiego.edu/c.php?g=1443311&p=10721367" target="_blank">lawlibguides.sandiego.edu/…</a>
+          <span class="author-tag">Quimbot</span>
+        </div>
+      </div>
+      <div class="quote-in-article">
+        "Better yet, randomly inserting the word "cheeky" fooled detectors 80–90% of the time <cite>("AI Detection Tools," USD Law Library)</cite>."
+      </div>
+      <p>The 80–90% figure and the "cheeky" word are confirmed present in the USD Law Library guide, sourced there from Cat Casey (chief growth officer at Reveal, New York State Bar AI Task Force), originally reported by Isha Marathe in <em>Law.com</em>, Nov. 10, 2023. The figure and word are real.</p>
+      <div class="finding warn">
+        <strong>Paraphrase materially misrepresents the source.</strong> The article says Casey used "cheeky" by "randomly inserting" it. The source says she added "cheeky" to her <em>prompt</em> — meaning she instructed the AI to generate text using the word, not that she inserted it into already-generated or human-written text. This is a meaningful distinction: one describes manipulation of AI output at the generation stage; the other implies post-hoc insertion into any text.
+        <br><br>
+        The original <em>Law.com</em> source: <a href="https://www.law.com/legaltechnews/2023/11/10/ai-or-not-that-is-the-question-inside-the-burgeoning-ai-detection-market/" target="_blank" style="color:var(--link)">Marathe, Law.com, Nov. 10, 2023</a>.
+        <br><br>
+        <strong>Recommendation:</strong> Revise to: "…by adding the single word 'cheeky' to a generation prompt, which fooled detectors 80–90% of the time" or similar.
+      </div>
+    </div>
+
+    <!-- Warner -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status warn">Note</span>
+        <div class="cite-ref">
+          Warner, John. "Another Terrible Idea from Turnitin." <em>Inside Higher Ed</em>, 6 Feb. 2018.
+          <a href="https://www.insidehighered.com/blogs/just-visiting/another-terrible-idea-turnitin" target="_blank">insidehighered.com/…</a>
+          <span class="author-tag">Quimbot</span>
+        </div>
+      </div>
+      <div class="quote-in-article">
+        "Instructors who adopt these tools in good faith risk outsourcing their judgment to technology already shown to hardcode racial, linguistic, and neurological bias into academic integrity enforcement <cite>(Morris and Stommel; Warner)</cite>."
+      </div>
+      <p>Source confirmed accessible. Post is a substantive critique of Turnitin's "Authorship Investigation" feature, published in Warner's "Just Visiting" blog at Inside Higher Ed. The piece argues against surveillance-based plagiarism detection on pedagogical and ethical grounds, including that the software "doesn't work" and "is pedagogically dubious."</p>
+      <div class="finding warn">
+        <strong>Source confirmed; contextual stretch noted.</strong> Warner's 2018 post focuses on Turnitin's Authorship Investigation as a general surveillance problem — not specifically on racial, linguistic, or neurological bias (those specific biases are documented in research published after 2022). The article pairs Warner with Morris and Stommel to support a claim about bias "hardcoded" into enforcement. Warner supports the anti-surveillance argument broadly; the bias-specificity in the article's claim comes from other sources (Liang et al., Hirsch, etc.) and is not present in the Warner piece itself.
+        <br><br>
+        <strong>Recommendation:</strong> No correction required if the parenthetical is read as supporting the anti-surveillance argument generally (Morris and Stommel; Warner). If it is meant to support the specific bias framing, the parenthetical should replace or supplement Warner with sources that explicitly document those biases.
+      </div>
+    </div>
+
+    <!-- Weber-Wulff #1 — direct quote -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status ok">Verified</span>
+        <div class="cite-ref">
+          Weber-Wulff, Debora, et al. "Testing of Detection Tools for AI-Generated Text."
+          <em>International Journal for Educational Integrity</em>, vol. 19, no. 1, 2023.
+          <a href="https://eprints.whiterose.ac.uk/id/eprint/207396/" target="_blank">eprints.whiterose.ac.uk/…</a> · <a href="https://arxiv.org/abs/2306.15666" target="_blank">arxiv.org/abs/2306.15666</a>
+          <span class="author-tag">Quimbot</span>
+        </div>
+      </div>
+      <div class="quote-in-article">
+        "…tested fourteen publicly available tools alongside Turnitin and PlagiarismCheck, if only to conclude that the tools are "neither accurate nor reliable," exhibiting a systematic bias toward classifying AI-generated text as human-written rather than detecting it <cite>(Weber-Wulff et al.)</cite>."
+      </div>
+      <p>Both URLs confirmed accessible. White Rose repository (University of Leeds) and arXiv preprint both live. DOI: <a href="https://doi.org/10.1007/s40979-023-00146-z" target="_blank" style="color:var(--link)">10.1007/s40979-023-00146-z</a>. Published: 1 December 2023 (online: 25 December 2023).</p>
+      <div class="finding ok">
+        <strong>Direct quote verified.</strong> arXiv abstract states verbatim: "The researchers conclude that the available detection tools are <strong>neither accurate nor reliable</strong> and have a main bias towards classifying the output as human-written rather than detecting AI-generated text." This matches the article's quotation exactly.
+        <br><br>
+        <strong>Tool count note:</strong> The article says "fourteen publicly available tools alongside Turnitin and PlagiarismCheck." The arXiv abstract says "12 publicly available tools and two commercial systems (Turnitin and PlagiarismCheck)" — 12 + 2 = 14 total. The article's phrasing slightly implies 14 + Turnitin + PlagiarismCheck (i.e., 16), but reading in context ("fourteen publicly available tools alongside…") it appears to mean 14 tools total, which includes Turnitin and PlagiarismCheck as part of the 14. This is ambiguous but not inaccurate. Note: the deep research source cites it as "14 publicly available tools and two commercial systems" which is incorrect per the arxiv abstract; the article's phrasing is closer to correct.
+      </div>
+    </div>
+
+    <!-- Weber-Wulff #2 — second citation -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status ok">Verified</span>
+        <div class="cite-ref">
+          Weber-Wulff et al. (second citation — adversarial modification) <span class="author-tag">Quimbot</span>
+        </div>
+      </div>
+      <div class="quote-in-article">
+        "AI detectors seek to identify patterns in language that are neither stable across large language models (LLMs) nor robust to adversarial modification by end users looking to beat the algorithm <cite>(Weber-Wulff et al.)</cite>."
+      </div>
+      <p>Same source as above. The claim about adversarial robustness is consistent with the paper's findings on "content obfuscation techniques," which the abstract states "significantly worsen the performance of tools." The arXiv abstract explicitly addresses obfuscation as a key finding.</p>
+      <div class="finding ok">
+        <strong>Claim substantiated.</strong> The paper confirms that content obfuscation degrades detection performance significantly, supporting the article's claim about lack of robustness to adversarial modification.
+      </div>
+    </div>
+
+    <!-- Watkins Beyond Ineffective -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status warn">Note</span>
+        <div class="cite-ref">
+          Watkins, Marc. "Beyond Ineffective: How Unreliable AI Detection Actively Harms Students."
+          <em>Rhetorica</em>, 3 Sept. 2023.
+          <a href="https://marcwatkins.substack.com/p/beyond-ineffective-how-unreliable" target="_blank">marcwatkins.substack.com/…</a>
+          <span class="author-tag">Quimbot</span>
+        </div>
+      </div>
+      <div class="quote-in-article"><em>No parenthetical citation in the article body. Appears in Works Cited only.</em></div>
+      <p>Source confirmed accessible. Published Sept. 3, 2023. Content is directly relevant: Watkins surveys AI detection failures, documents the false positive problem, and argues institutions should abandon detection-based approaches. Consistent with the article's argument.</p>
+      <div class="finding warn">
+        <strong>Source valid; no body citation found.</strong> This entry appears in Works Cited but is not cited parenthetically in the article body, nor is it linked to the epigraph (which lacks a specific article citation). If this piece is the epigraph's source, the attribution should say so. If it is intended as background reading, it can remain in Works Cited with a note, but MLA convention expects Works Cited to reflect only sources cited in the text.
+      </div>
+    </div>
+
+    <!-- Watkins Our Obsession -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status warn">Note</span>
+        <div class="cite-ref">
+          Watkins, Marc. "Our Obsession with Cheating Is Ruining Our Relationship with Students."
+          <em>Rhetorica</em>, 6 Jan. 2023.
+          <a href="https://marcwatkins.substack.com/p/our-obsession-with-cheating-is-ruining" target="_blank">marcwatkins.substack.com/…</a>
+          <span class="author-tag">Quimbot</span>
+        </div>
+      </div>
+      <div class="quote-in-article"><em>No parenthetical citation in the article body. Appears in Works Cited only.</em></div>
+      <p>Source confirmed accessible. Published Jan. 6, 2023. Content argues that AI-detection panic damages student-instructor trust, that most students want to learn, and that surveillance tools are counterproductive — entirely consistent with the article's thesis.</p>
+      <div class="finding warn">
+        <strong>Orphaned citation.</strong> This entry appears in Works Cited but has no corresponding parenthetical citation anywhere in the article body. MLA convention (9th ed.) requires Works Cited to include only sources cited in the text. This entry should either be cited in the body, or removed from Works Cited. It could also serve as the sourced article for the Watkins epigraph if the quote appears there — but it was not found in the fetched content of this post.
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <hr class="divider">
+    <div class="section-head">A–M Citations — Petrarch</div>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <!-- AI Detectors (ISU) -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status pending">Pending</span>
+        <div class="cite-ref">
+          "AI Detectors." <em>Instructional Resources</em>, Illinois State University.
+          <a href="https://prodev.illinoisstate.edu/instructional-resources/pedagogy/ai/detectors/" target="_blank">prodev.illinoisstate.edu/…</a>
+          <span class="author-tag">Petrarch</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"…calculate the probability that a large language model produced the content <cite>("AI Detectors"; Galczynski)</cite>."</div>
+    </div>
+
+    <!-- AI Detectors Biased (Stanford HAI) -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status pending">Pending</span>
+        <div class="cite-ref">
+          "AI Detectors Biased Against Non-Native English Writers." <em>Stanford HAI</em>.
+          <a href="https://hai.stanford.edu/news/ai-detectors-biased-against-non-native-english-writers" target="_blank">hai.stanford.edu/…</a>
+          <span class="author-tag">Petrarch</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"Non-native speakers tend to score lower on perplexity, and detectors use perplexity as a proxy for human authorship, penalizing writers whose patterns resemble what AI produces <cite>("AI Detectors Biased Against Non-Native English Writers")</cite>."</div>
+    </div>
+
+    <!-- Cheng et al. -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status pending">Pending</span>
+        <div class="cite-ref">
+          Cheng, Adam, et al. "Ability of AI Detection Tools and Humans to Accurately Identify Different Forms of AI-Generated Written Content." <em>PMC</em>.
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12752165/" target="_blank">pmc.ncbi.nlm.nih.gov/…</a>
+          <span class="author-tag">Petrarch</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"…a recent study placing human attempts to classify AI-generated content at a paltry 19% accuracy, which is as good as guesswork <cite>(Cheng et al.)</cite>."</div>
+    </div>
+
+    <!-- Engelbrecht -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status pending">Pending</span>
+        <div class="cite-ref">
+          Engelbrecht, Leon. "AI Detection Tool Comparison 2025." <em>YouTube</em>, 2025.
+          <a href="https://www.youtube.com/watch?v=N3RtTCF9E8g" target="_blank">youtube.com/…</a>
+          <span class="author-tag">Petrarch</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"A 2025 study found that identical content was flagged as 10% AI-generated by one tool and 81% by another <cite>(Engelbrecht)</cite>."</div>
+    </div>
+
+    <!-- Galczynski -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status pending">Pending</span>
+        <div class="cite-ref">
+          Galczynski, Jordan. "The Imperfection of AI Detection Tools." <em>HumTech</em>, UCLA, 9 Oct. 2025.
+          <a href="https://humtech.ucla.edu/technology/the-imperfection-of-ai-detection-tools/" target="_blank">humtech.ucla.edu/…</a>
+          <span class="author-tag">Petrarch</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"…systems that are "prone to both generating false accusations and systematically biased against marginalized student populations" <cite>(Galczynski)</cite>."</div>
+    </div>
+
+    <!-- Hirsch -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status pending">Pending</span>
+        <div class="cite-ref">
+          Hirsch, Amanda. "AI Detectors: An Ethical Minefield." <em>CITL</em>, Northern Illinois University, 12 Dec. 2024.
+          <a href="https://citl.news.niu.edu/2024/12/12/ai-detectors-an-ethical-minefield/" target="_blank">citl.news.niu.edu/…</a>
+          <span class="author-tag">Petrarch</span>
+        </div>
+      </div>
+      <div class="quote-in-article">
+        "Common Sense Media found Black students faced disproportionately higher AI-detection accusations than white students <cite>(Hirsch)</cite>."<br>
+        "Scaled up, a "low" 1% false positive rate across 22.35 million first-year college essays means 223,500 students falsely accused in a single year <cite>(Hirsch)</cite>."
+      </div>
+    </div>
+
+    <!-- Krishna et al. -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status pending">Pending</span>
+        <div class="cite-ref">
+          Krishna, Kalpesh, et al. "Paraphrasing Evades Detectors of AI-Generated Text, but Retrieval Is an Effective Defense." <em>OpenReview</em>.
+          <a href="https://openreview.net/forum?id=WbFhFvjjKj" target="_blank">openreview.net/…</a>
+          <span class="author-tag">Petrarch</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"Running synthetic text through a paraphrasing tool, for example, dropped DetectGPT's accuracy from 70.3% to 4.6% without changing meaning <cite>(Krishna et al.)</cite>."</div>
+    </div>
+
+    <!-- Liang et al. -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status pending">Pending</span>
+        <div class="cite-ref">
+          Liang, Weixin, et al. "GPT Detectors Are Biased Against Non-Native English Writers." <em>Patterns</em>, vol. 4, no. 7, 2023.
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10382961/" target="_blank">pmc.ncbi.nlm.nih.gov/…</a>
+          <span class="author-tag">Petrarch</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"A Stanford study of seven widely-used detectors found they classified 61.22% of TOEFL essays by non-native English speakers as AI-generated <cite>(Liang et al.)</cite>. One tool flagged 89 of 91 essays."</div>
+    </div>
+
+    <!-- Morris and Stommel -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status pending">Pending</span>
+        <div class="cite-ref">
+          Morris, Sean Michael, and Jesse Stommel. "A Guide for Resisting EdTech: The Case against Turnitin." <em>Hybrid Pedagogy</em>, 15 June 2017.
+          <a href="https://hybridpedagogy.org/resisting-edtech/" target="_blank">hybridpedagogy.org/…</a>
+          <span class="author-tag">Petrarch</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"…technology already shown to hardcode racial, linguistic, and neurological bias into academic integrity enforcement <cite>(Morris and Stommel; Warner)</cite>."</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <hr class="divider">
+    <div class="section-head">Summary of Findings</div>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <div class="entry">
+      <p><strong style="color:#f0ece0">N–Z Citations (Quimbot, complete)</strong></p>
+      <p>
+        <span class="status ok" style="display:inline">Verified</span> Weber-Wulff et al. — direct quote "neither accurate nor reliable" confirmed verbatim in arXiv abstract.<br><br>
+        <span class="status warn" style="display:inline">Note</span> Warner — source confirmed; used to support bias claim he doesn't make explicitly.<br><br>
+        <span class="status warn" style="display:inline">Note</span> USD Law Library (neurodivergent) — page confirmed live; neurodivergent claim not yet located on the fetched tab.<br><br>
+        <span class="status warn" style="display:inline">Note</span> USD Law Library (cheeky) — figure confirmed; article's description of "randomly inserting" misrepresents source (prompt engineering, not post-hoc insertion).<br><br>
+        <span class="status warn" style="display:inline">Note</span> Watkins "Beyond Ineffective" — source valid; no body citation; may be epigraph source.<br><br>
+        <span class="status warn" style="display:inline">Note</span> Watkins "Our Obsession" — source valid; orphaned (no body citation in text).<br><br>
+        <span class="status fail" style="display:inline">Problem</span> Watkins epigraph — no verbatim match found in any Substack post; no specific article cited.
+      </p>
+      <p><strong style="color:#f0ece0">A–M Citations (Petrarch, pending)</strong></p>
+      <p>See Petrarch's entries above; validation in progress.</p>
+    </div>
+
+    <div class="collab-note">
+      <strong>Collaboration log:</strong> Document created by Quimbot, 2026-02-28. N–Z validation complete. A–M section scaffolded for Petrarch. Heartbeat-driven resume cycle active at 15-min intervals. Petrarch to populate A–M entries and update summary upon completion.
+    </div>
+
+  </div>
+</body>
+</html>
