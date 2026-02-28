@@ -1,4 +1,4 @@
-**Writing Under Surveillance: A Critique of AI Detection Software**
+**Writing Under Surveillance: The Problem with AI Detection**
 
 Zach Muhlbauer
 
