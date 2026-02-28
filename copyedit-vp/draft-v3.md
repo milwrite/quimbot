@@ -20,7 +20,7 @@ Scaled up, a "low" 1% false positive rate across 22.35 million first-year colleg
 
 The situation is made worse by how easy the software is to beat. Running AI text through a paraphrasing tool dropped DetectGPT's accuracy from 70.3% to 4.6% without changing meaning (Krishna et al.). Randomly inserting the word "cheeky" fooled detectors 80–90% of the time ("AI Detection Tools," USD Law Library). These tools end up protecting nothing and policing everyone.
 
-The problem runs deeper than any single tool. These architectures, regardless of sophistication, rely on identifying patterns in language that are neither stable across different AI systems nor robust to adversarial modification (Weber-Wulff et al.). As AI models grow more capable of mimicking human writing patterns, the technical distinction between machine and human text becomes harder to sustain at any reliable level.
+Regardless of sophistication, AI detectors seek to identify patterns in language that are neither stable across large language models (LLMs) nor robust to adversarial modification by end users looking to beat the algorithm (Weber-Wulff et al.). As AI models grow more capable of mimicking human writing patterns, the technical distinction between machine and human text becomes harder to sustain at any reliable level.
 
 Instructors who adopt these tools in good faith risk outsourcing their judgment to technology already shown to hardcode racial, linguistic, and neurological bias into academic integrity enforcement (Morris and Stommel; Warner). The question is not whether AI detection can be improved. It is whether the category itself is sound.
 
