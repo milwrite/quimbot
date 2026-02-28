@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3QgZmlsbD0iIzBhMGEwYSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIi8+CiAgPHBhdGggZD0iTTggOCBMMjQgOCBMMjQgMjQgTDggMjQgWiBNMTIgMTIgTDIwIDEyIEwyMCAyMCBMMTIgMjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8L3N2Zz4K"/>
+<title>Infinite Chainwheel</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0a; overflow: hidden; }
+canvas { display: block; width: 100vw; height: 100vh; }
+.controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  background: rgba(0,0,0,0.75);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #fff;
+  font-size: 13px;
+  align-items: center;
+}
+button {
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 13px;
+}
+button:hover { background: #333; }
+.back-btn {
+  position: fixed; top: 16px; right: 16px;
+  background: rgba(20,20,20,0.8); border: 1px solid #444;
+  color: #e0e0e0; padding: 8px 14px; border-radius: 6px;
+  font: 12px ui-monospace,monospace; cursor: pointer;
+  text-decoration: none; backdrop-filter: blur(8px);
+  z-index: 1000; transition: border-color 0.2s;
+}
+.back-btn:hover { border-color: #888; }
+</style>
+</head>
+<body>
+<a href="./" class="back-btn">← Gallery</a>
+<canvas id="c"></canvas>
+<div class="controls">
+  <button onclick="togglePause()">Pause/Resume</button>
+  <button onclick="reverseDir()">Reverse</button>
+  <span id="info">Gear system</span>
+</div>
+<script>
+// Infinite Chainwheel — mechanical gear system with chains
+// inspired by r/creativecoding trending, Quimbot 2026
+
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const inIframe = window.self !== window.top;
+if (inIframe) {
+  document.querySelector('.back-btn').style.display = 'none';
+  document.querySelector('.controls').style.display = 'none';
+}
+
+let W, H;
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+let paused = false;
+let direction = 1;
+
+// Define gears: {x, y, r (outer radius), teeth, angle, driver}
+// chain connections: pairs of gear indices
+// angles are computed from gear ratios (driven by first gear)
+
+function buildSystem() {
+  const cx = W / 2, cy = H / 2;
+  const S = Math.min(W, H);
+
+  // Gear definitions: x, y, r (pitch radius), color, phase
+  const gears = [
+    { x: cx,           y: cy,           r: S * 0.15,  teeth: 30, angle: 0, hue: 40  },   // master
+    { x: cx + S*0.32,  y: cy,           r: S * 0.09,  teeth: 18, angle: 0, hue: 180 },   // right small
+    { x: cx - S*0.32,  y: cy,           r: S * 0.09,  teeth: 18, angle: 0, hue: 280 },   // left small
+    { x: cx,           y: cy - S*0.32,  r: S * 0.07,  teeth: 14, angle: 0, hue: 120 },   // top tiny
+    { x: cx + S*0.32,  y: cy - S*0.28,  r: S * 0.055, teeth: 11, angle: 0, hue: 0   },   // top-right
+    { x: cx - S*0.32,  y: cy - S*0.28,  r: S * 0.055, teeth: 11, angle: 0, hue: 60  },   // top-left
+    { x: cx + S*0.15,  y: cy + S*0.3,   r: S * 0.065, teeth: 13, angle: 0, hue: 200 },   // bottom-right
+    { x: cx - S*0.15,  y: cy + S*0.3,   r: S * 0.065, teeth: 13, angle: 0, hue: 320 },   // bottom-left
+  ];
+
+  // Mesh connections: [i, j, sign] where sign=+1 means same direction (belt), -1 means meshed (opposite)
+  // For adjacent meshing gears: opposite rotation. For belt/chain: same direction.
+  const connections = [
+    [0, 1, -1],  // master -> right small (meshed)
+    [0, 2, -1],  // master -> left small (meshed)
+    [0, 3, -1],  // master -> top tiny (meshed)
+    [1, 4, -1],  // right small -> top-right (meshed)
+    [2, 5, -1],  // left small -> top-left (meshed)
+    [1, 6, +1],  // right small -> bottom-right (chain/belt, same dir)
+    [2, 7, +1],  // left small -> bottom-left (chain/belt, same dir)
+  ];
+
+  return { gears, connections };
+}
+
+let system = buildSystem();
+
+// Angular speed of master gear (rad/frame)
+const baseSpeed = 0.008;
+
+function drawGear(g, fill, stroke) {
+  const { x, y, r, teeth, angle, hue } = g;
+  const toothHeight = r * 0.22;
+  const innerR = r - toothHeight;
+  const toothWidth = (2 * Math.PI / teeth) * 0.38;
+
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(angle);
+
+  // Glow
+  const grd = ctx.createRadialGradient(0, 0, innerR * 0.3, 0, 0, r + toothHeight * 0.5);
+  grd.addColorStop(0, `hsla(${hue},60%,35%,0.4)`);
+  grd.addColorStop(1, `hsla(${hue},60%,10%,0)`);
+  ctx.beginPath();
+  ctx.arc(0, 0, r + toothHeight * 1.5, 0, Math.PI * 2);
+  ctx.fillStyle = grd;
+  ctx.fill();
+
+  // Gear body
+  ctx.beginPath();
+  for (let i = 0; i < teeth; i++) {
+    const a0 = (i / teeth) * 2 * Math.PI;
+    const a1 = a0 + toothWidth;
+    const a2 = a0 + toothWidth * 1.4;
+    const a3 = a0 + (2 * Math.PI / teeth);
+
+    ctx.arc(0, 0, innerR, a0 - toothWidth * 0.2, a0, false);
+    ctx.lineTo(Math.cos(a0) * r, Math.sin(a0) * r);
+    ctx.arc(0, 0, r, a0, a1, false);
+    ctx.lineTo(Math.cos(a2) * innerR, Math.sin(a2) * innerR);
+    ctx.arc(0, 0, innerR, a2, a3, false);
+  }
+  ctx.closePath();
+
+  const bodyGrd = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
+  bodyGrd.addColorStop(0, `hsl(${hue},25%,22%)`);
+  bodyGrd.addColorStop(1, `hsl(${hue},30%,12%)`);
+  ctx.fillStyle = bodyGrd;
+  ctx.fill();
+  ctx.strokeStyle = `hsl(${hue},50%,45%)`;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // Spokes
+  const spokeCount = Math.max(3, Math.floor(teeth / 7));
+  ctx.strokeStyle = `hsl(${hue},40%,30%)`;
+  ctx.lineWidth = 1.5;
+  for (let i = 0; i < spokeCount; i++) {
+    const a = (i / spokeCount) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(Math.cos(a) * innerR * 0.25, Math.sin(a) * innerR * 0.25);
+    ctx.lineTo(Math.cos(a) * innerR * 0.82, Math.sin(a) * innerR * 0.82);
+    ctx.stroke();
+  }
+
+  // Hub
+  ctx.beginPath();
+  ctx.arc(0, 0, innerR * 0.22, 0, Math.PI * 2);
+  ctx.fillStyle = `hsl(${hue},30%,18%)`;
+  ctx.fill();
+  ctx.strokeStyle = `hsl(${hue},50%,40%)`;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // Center bolt
+  ctx.beginPath();
+  ctx.arc(0, 0, innerR * 0.08, 0, Math.PI * 2);
+  ctx.fillStyle = `hsl(${hue},20%,60%)`;
+  ctx.fill();
+
+  ctx.restore();
+}
+
+function drawChain(g1, g2) {
+  // Draw a simple chain as a pair of tangent arcs + straight segments
+  const dx = g2.x - g1.x, dy = g2.y - g1.y;
+  const dist = Math.hypot(dx, dy);
+  const angle = Math.atan2(dy, dx);
+
+  const r1 = g1.r, r2 = g2.r;
+  const sinA = (r2 - r1) / dist;
+  if (Math.abs(sinA) >= 1) return; // too close
+  const cosA = Math.sqrt(1 - sinA * sinA);
+
+  const a1 = angle + Math.asin(sinA);
+  const a2 = angle - Math.asin(sinA);
+
+  const t1x1 = g1.x + r1 * Math.cos(a1 + Math.PI / 2);
+  const t1y1 = g1.y + r1 * Math.sin(a1 + Math.PI / 2);
+  const t1x2 = g2.x + r2 * Math.cos(a1 + Math.PI / 2);
+  const t1y2 = g2.y + r2 * Math.sin(a1 + Math.PI / 2);
+
+  const t2x1 = g1.x + r1 * Math.cos(a2 - Math.PI / 2);
+  const t2y1 = g1.y + r1 * Math.sin(a2 - Math.PI / 2);
+  const t2x2 = g2.x + r2 * Math.cos(a2 - Math.PI / 2);
+  const t2y2 = g2.y + r2 * Math.sin(a2 - Math.PI / 2);
+
+  ctx.save();
+  ctx.strokeStyle = 'rgba(180,160,100,0.25)';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([6, 4]);
+
+  ctx.beginPath();
+  ctx.moveTo(t1x1, t1y1);
+  ctx.lineTo(t1x2, t1y2);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(t2x1, t2y1);
+  ctx.lineTo(t2x2, t2y2);
+  ctx.stroke();
+
+  ctx.setLineDash([]);
+  ctx.restore();
+}
+
+function drawMeshLine(g1, g2) {
+  ctx.save();
+  ctx.strokeStyle = 'rgba(100,100,100,0.15)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 6]);
+  ctx.beginPath();
+  ctx.moveTo(g1.x, g1.y);
+  ctx.lineTo(g2.x, g2.y);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.restore();
+}
+
+function update() {
+  const { gears, connections } = system;
+  const master = gears[0];
+  master.angle += baseSpeed * direction;
+
+  // Propagate angles through connections
+  // For meshed: opposite direction, ratio = r1/r2
+  // For belt: same direction, ratio = r1/r2
+  for (const [i, j, sign] of connections) {
+    const ratio = gears[i].r / gears[j].r;
+    gears[j].angle = -sign * gears[i].angle * ratio;
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  // Subtle background
+  ctx.fillStyle = '#0a0a0a';
+  ctx.fillRect(0, 0, W, H);
+
+  const { gears, connections } = system;
+
+  // Draw connections first (behind gears)
+  for (const [i, j, sign] of connections) {
+    if (sign === 1) drawChain(gears[i], gears[j]);
+    else drawMeshLine(gears[i], gears[j]);
+  }
+
+  // Draw gears
+  for (const g of gears) drawGear(g);
+
+  // Label
+  if (!inIframe) {
+    ctx.fillStyle = '#555';
+    ctx.font = '12px ui-monospace,monospace';
+    ctx.fillText('Infinite Chainwheel', 20, H - 20);
+  }
+}
+
+function loop() {
+  if (!paused) { update(); draw(); }
+  requestAnimationFrame(loop);
+}
+
+function togglePause() { paused = !paused; }
+function reverseDir() { direction *= -1; }
+
+loop();
+</script>
+</body>
+</html>
