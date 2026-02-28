@@ -20,7 +20,7 @@ The situation is made worse by how easy the software is to beat. Running AI text
 
 Instructors who adopt these tools in good faith risk outsourcing their judgment to technology already shown to hardcode racial, linguistic, and neurological bias into academic integrity enforcement (Morris and Stommel; Warner). The question is not whether AI detection can be improved. It is whether the category itself is sound.
 
-Real solutions begin where surveillance ends, through meeting students where they are and treating writing as a situated, social practice rather than a product to be authenticated by software that cannot understand it. Scholars increasingly argue that detection-based integrity enforcement is counterproductive to the educational mission precisely because it reframes instructors as auditors and students as suspects, collapsing the very conditions under which genuine writing development occurs. No, it is rebuilt in the hard work of reading and writing together.
+The work begins where surveillance ends, through meeting students where they are and treating writing as a situated, social practice rather than a product to be authenticated by software that cannot understand it. Scholars increasingly argue that detection-based integrity enforcement is counterproductive to the educational mission precisely because it reframes instructors as auditors and students as suspects, collapsing the very conditions under which genuine writing development occurs. No, it is rebuilt in the hard work of reading and writing together.
 
 **Works Cited**
 
