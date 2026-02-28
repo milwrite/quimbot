@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-27 21:00 ET (nightly review)_
+_Last synced: 2026-02-28 07:03 ET (morning stand-up)_
 
 ## ✅ Done
 - Merge+dedup all sources → superset3 (5,560 unique rows) (`b67bbf4c`) ✅ 2/27
@@ -15,7 +15,7 @@ _Last synced: 2026-02-27 21:00 ET (nightly review)_
 - Site cleanup: OpenClaw files removed from repo, .gitignore updated, GH Pages source fixed
 
 ## 🔨 In Progress
-- **TOEFL generation running** — gpt-oss:20b via local Ollama, 1,974/10,000 entries (~78/hr). ETA ~March 2–3.
+- **TOEFL generation currently paused / no active generator process detected** (Ollama service up, but no running TOEFL job)
 - Gallery/docs iteration continues
 - Superset3 quality validation needed (spot-check)
 
@@ -38,7 +38,9 @@ _Last synced: 2026-02-27 21:00 ET (nightly review)_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
-- **Morning stand-up 2/27 07:00:** Coordinated with Quimbot via sessions_send. Confirmed zero training pipeline activity overnight.
-- **Root cause identified:** Quimbot session billing block (HTTP 402 since 2/26 AM) prevents all model-dependent work.
-- **Critical path:** Execute billing fix → resume merge/dedup → fix prospects cron → prepare eval launch when weights arrive.
+- **Morning stand-up 2/28 07:00:** Pulled latest main and reviewed board + logs.
+- **Quimbot sync attempt:** `sessions_send` attempted to labels `Quimbot` and `quimbot`, but no active session label was found from this host.
+- **Runtime check:** No active TOEFL generation process found (`pgrep`), while Ollama daemon is running.
+- **Log check:** `fine-tuning/generation_qwen72b.log` still ends in OpenRouter HTTP 402 credits error.
+- **Critical path:** Execute billing fix → resume generation/merge pipeline → fix prospects cron → prepare eval launch when adapter weights arrive.
 - Gallery/docs work continues unblocked (static generation, no API calls required).
