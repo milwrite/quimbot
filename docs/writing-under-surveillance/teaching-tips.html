@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching Tips — Writing Under Surveillance</title>
+  <meta name="description" content="Practical strategies for instructors navigating AI use in writing-intensive courses.">
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --text: #d4d0c8;
+      --muted: #888;
+      --accent: #c8a97e;
+      --link: #8ab4c8;
+      --max: 680px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 18px;
+      line-height: 1.75;
+      min-height: 100vh;
+      padding: 0 1.5rem;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 4rem 0 6rem;
+    }
+
+    .back {
+      display: inline-block;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .back:hover { color: var(--accent); }
+    .back::before { content: '← '; }
+
+    header {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.25;
+      font-weight: normal;
+      color: #f0ece0;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .byline {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .byline a { color: var(--muted); text-decoration: none; }
+    .byline a:hover { color: var(--accent); }
+
+    .opening {
+      font-size: 1.05em;
+      color: #c0bcb0;
+      margin-bottom: 3rem;
+      line-height: 1.75;
+    }
+
+    .tip {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tip:last-of-type {
+      border-bottom: none;
+    }
+
+    .tip-title {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      text-transform: none;
+    }
+
+    .tip p {
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .example {
+      border-left: 2px solid var(--border);
+      padding: 0.5rem 1.25rem;
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 0.93em;
+      line-height: 1.65;
+    }
+
+    .example strong {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #666;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .footer-links {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="index.html" class="back">Writing Under Surveillance</a>
+
+    <header>
+      <h1>Teaching Tips</h1>
+      <p class="byline">
+        A companion to <a href="index.html">Writing Under Surveillance</a> &middot;
+        <a href="citations.html">Citation validation</a>
+      </p>
+    </header>
+
+    <p class="opening">If AI use by students in your class conflicts with learning goals or disrupts community, see the quick tips below for recourse and future direction:</p>
+
+    <div class="tip">
+      <div class="tip-title">Progressive Disclosure</div>
+      <p>Disclose information and run activities in bite-sized portions, with learning framed as an ongoing, iterative process tied to students' growth in your class and as independent learners.</p>
+      <div class="example">
+        <strong>Example</strong>
+        Marc Watkins suggests allowing students access to only the first few weeks of course content at a time, which has the added effect of making it hard for students to use an LLM to flatten the course in a single sitting.
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">Assignment Makeovers</div>
+      <p>Audit your assignments for tasks that AI can complete faster and more fluently than a student just learning the material. Then redesign those tasks so that AI assistance is either clearly permitted, clearly irrelevant, or clearly insufficient. An assignment that asks students to apply a concept to something specific in their own lives — a neighborhood, a family history, a job — is harder to outsource than one that asks them to explain the concept in the abstract.</p>
+      <div class="example">
+        <strong>Example</strong>
+        A research paper prompt asking students to "analyze themes of justice in <em>Beloved</em>" can be largely AI-generated. A revised prompt asking students to trace a single recurring image across three scenes they personally selected, and explain why they chose those scenes, requires the kind of reading and judgment that cannot be delegated.
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">Check-ins and Analog Opportunities</div>
+      <p>Build in low-stakes, in-class moments that give you direct contact with students' thinking. Short handwritten responses, verbal check-ins, and brief one-on-one conversations create a running record of student development that no AI can fabricate in the moment. These also shift the weight of evidence from any single high-stakes submission to a pattern of visible engagement over time.</p>
+      <div class="example">
+        <strong>Example</strong>
+        At the start of each class, ask students to spend five minutes writing a "where I am" note: one thing they understand, one thing they're confused about, and one question the reading raised for them. Collect these on index cards. Over the semester, they become a portrait of intellectual growth — and a record that makes false accusations of AI use nearly impossible to sustain.
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">Transparent Dialogue</div>
+      <p>Open a frank class conversation about AI early — not as a policy announcement but as an inquiry. Ask students what they already use, what they find useful, and what concerns them. The conversation typically surfaces anxieties you didn't know were there, and it repositions the instructor as someone engaged in the same questions students are, rather than someone administering a policy from above.</p>
+      <div class="example">
+        <strong>Example</strong>
+        Jesse Stommel recommends running a "syllabus day" activity where students collaboratively draft the course's AI policy rather than receiving one pre-written. Students who helped write the policy are more likely to understand its reasoning and less likely to feel surveilled by it.
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">Disclosure Over Detection</div>
+      <p>Replace detection with disclosure. Ask students to note when and how they used AI assistance, what it produced, and what they changed or rejected. This treats AI as a citable resource rather than a forbidden tool, builds habits of transparency, and gives you far more useful information than any detection score. It also makes clear that the problem isn't AI use — it's undisclosed substitution of AI output for student thinking.</p>
+      <div class="example">
+        <strong>Example</strong>
+        Add a brief reflection prompt to any major assignment: "If you used an AI tool at any point in this project, describe where, what it gave you, and what you did differently as a result." Students who used AI thoughtfully often write the most interesting reflections. Students who didn't use it at all have nothing to hide.
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">Process Documentation</div>
+      <p>Require students to show the work alongside the product. Draft submissions, revision histories, annotated outlines, and research journals make process visible. They also shift what you're evaluating: not the polish of a final artifact but the quality of thinking that produced it. AI can generate a fluent essay in seconds; it cannot generate a genuine revision history that shows a student changing their mind.</p>
+      <div class="example">
+        <strong>Example</strong>
+        For a research paper, require students to submit (1) their initial search terms and why they chose them, (2) three sources they considered and rejected with a brief note on each, and (3) one place where their argument changed during writing and what changed it. These three pages tell you more about the student's thinking than the paper itself.
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">Clear, Specific Disclosure Policies</div>
+      <p>Ambiguous policies create anxiety without providing guidance. A policy that says "do not use AI" leaves students unsure whether asking an AI to explain a concept counts, whether running a draft through a grammar checker counts, or whether reading an AI-generated summary of a book they were supposed to read counts. A specific policy that names the tools at issue and describes what constitutes use gives students something to work with — and gives you a defensible standard that doesn't require detection software to enforce.</p>
+      <div class="example">
+        <strong>Example</strong>
+        The <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit</a> offers a range of ready-to-adapt policy statements, from "AI use is required" to "AI use is not permitted," each with language that explains the reasoning behind it. Starting from a template reduces the cognitive overhead of drafting from scratch and ensures students receive a policy they can actually act on.
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">← Essay</a>
+      <a href="citations.html">Citation validation</a>
+      <a href="https://aitoolkit.commons.gc.cuny.edu/" target="_blank">Teach@CUNY AI Toolkit ↗</a>
+    </div>
+  </div>
+</body>
+</html>
