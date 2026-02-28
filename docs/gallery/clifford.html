@@ -41,11 +41,9 @@ if(window.self!==window.top) document.documentElement.classList.add('in-iframe')
 const canvas=document.getElementById('c');
 const ctx=canvas.getContext('2d');
 
-let W,H;
-// Density buffer
-let buf,density;
+let W=0,H=0;
+let buf=null;
 
-// Attractor parameters
 const PRESETS=[
   [-1.4, 1.6, 1.0, 0.7],
   [-1.7, 1.8,-1.9,-0.4],
@@ -61,180 +59,187 @@ const PRESETS=[
 
 let pa,pb,pc,pd;
 let targetA,targetB,targetC,targetD;
-let morphT=1; // 0=start morph, 1=done
+let morphing=false;
 let presetIdx=0;
 
 function setParams(a,b,c,d){
   pa=a; pb=b; pc=c; pd=d;
-  updateParamDisplay();
+  updateDisplay();
 }
 
-function updateParamDisplay(){
+function updateDisplay(){
   document.getElementById('paramDisplay').textContent=
-    `a=${pa.toFixed(2)} b=${pb.toFixed(2)} c=${pc.toFixed(2)} d=${pd.toFixed(2)}`;
+    'a='+pa.toFixed(2)+' b='+pb.toFixed(2)+' c='+pc.toFixed(2)+' d='+pd.toFixed(2);
 }
 
-function startMorph(a,b,c,d){
-  targetA=a; targetB=b; targetC=c; targetD=d;
-  morphT=0;
-}
-
-// Initialize with first preset
 setParams(...PRESETS[0]);
 
-function resize(){
-  W=canvas.offsetWidth;
-  H=canvas.offsetHeight;
-  canvas.width=W;
-  canvas.height=H;
-  buf=new Float32Array(W*H);
-  density=new Float32Array(W*H);
-  redraw();
-}
-window.addEventListener('resize',()=>{resize();});
-resize();
-
-// Compute attractor bounds for current params
-function computeBounds(a,b,c,d,samples=50000){
+// Compute bounds by running the attractor briefly
+function computeBounds(a,b,c,d,n){
+  n=n||40000;
   let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
-  let x=0,y=0;
-  for(let i=0;i<samples;i++){
+  let x=0.1,y=0.1;
+  for(let i=0;i<n;i++){
     const nx=Math.sin(a*y)+c*Math.cos(a*x);
     const ny=Math.sin(b*x)+d*Math.cos(b*y);
     x=nx; y=ny;
-    if(i>100){
-      if(x<minX)minX=x; if(x>maxX)maxX=x;
-      if(y<minY)minY=y; if(y>maxY)maxY=y;
+    if(i>200){
+      if(x<minX) minX=x;
+      if(x>maxX) maxX=x;
+      if(y<minY) minY=y;
+      if(y>maxY) maxY=y;
     }
   }
-  return{minX,maxX,minY,maxY};
+  // Fallback if degenerate
+  if(!isFinite(minX)||maxX-minX<0.01){minX=-3;maxX=3;}
+  if(!isFinite(minY)||maxY-minY<0.01){minY=-3;maxY=3;}
+  return{minX:minX,maxX:maxX,minY:minY,maxY:maxY};
 }
 
 let bounds={minX:-3,maxX:3,minY:-3,maxY:3};
 
-function redraw(){
-  buf.fill(0);
-  density.fill(0);
-  bounds=computeBounds(pa,pb,pc,pd);
-}
-
-const N_ITER=800000; // points per frame batch (spread over frames)
-const BATCH=40000;
-let batchX=0,batchY=0;
+// Rendering state
+const N_TOTAL=800000;
+const BATCH=50000;
+let iterX=0.1,iterY=0.1;
 let iterCount=0;
 let rendering=false;
 
-function startRender(){
-  batchX=0; batchY=0; iterCount=0;
-  buf.fill(0);
-  density.fill(0);
+function fullReset(){
+  if(W<1||H<1) return;
+  buf=new Float32Array(W*H);
+  bounds=computeBounds(pa,pb,pc,pd);
+  iterX=0.1; iterY=0.1; iterCount=0;
   rendering=true;
 }
 
-startRender();
+function resize(){
+  const nw=canvas.offsetWidth;
+  const nh=canvas.offsetHeight;
+  if(nw<1||nh<1) return false;
+  if(nw===W&&nh===H) return false;
+  W=nw; H=nh;
+  canvas.width=W;
+  canvas.height=H;
+  fullReset();
+  return true;
+}
 
 function runBatch(){
-  if(!rendering) return;
+  if(!rendering||!buf||W<1||H<1) return;
+
   const a=pa,b=pb,c=pc,d=pd;
-  const{minX,maxX,minY,maxY}=bounds;
-  const rangeX=maxX-minX,rangeY=maxY-minY;
-  const pad=0.08;
-  const scaleX=(W*(1-2*pad))/rangeX;
-  const scaleY=(H*(1-2*pad))/rangeY;
-  const offX=W*pad-minX*scaleX;
-  const offY=H*pad-minY*scaleY;
+  var bnd=bounds;
+  var rangeX=bnd.maxX-bnd.minX;
+  var rangeY=bnd.maxY-bnd.minY;
+  var pad=0.08;
+  var sX=(W*(1-2*pad))/rangeX;
+  var sY=(H*(1-2*pad))/rangeY;
+  var oX=W*pad-bnd.minX*sX;
+  var oY=H*pad-bnd.minY*sY;
 
-  const limit=Math.min(BATCH,N_ITER-iterCount);
-  let x=batchX,y=batchY;
-  let maxD=0;
+  var count=Math.min(BATCH,N_TOTAL-iterCount);
+  var x=iterX,y=iterY;
 
-  for(let i=0;i<limit;i++){
-    const nx=Math.sin(a*y)+c*Math.cos(a*x);
-    const ny=Math.sin(b*x)+d*Math.cos(b*y);
+  for(var i=0;i<count;i++){
+    var nx=Math.sin(a*y)+c*Math.cos(a*x);
+    var ny=Math.sin(b*x)+d*Math.cos(b*y);
     x=nx; y=ny;
-
-    if(iterCount>100){
-      const px=Math.floor(x*scaleX+offX);
-      const py=Math.floor(y*scaleY+offY);
+    if(iterCount+i>200){
+      var px=(x*sX+oX)|0;
+      var py=(y*sY+oY)|0;
       if(px>=0&&px<W&&py>=0&&py<H){
-        const idx=py*W+px;
-        buf[idx]++;
-        if(buf[idx]>maxD) maxD=buf[idx];
+        buf[py*W+px]++;
       }
     }
-    iterCount++;
+  }
+  iterX=x; iterY=y;
+  iterCount+=count;
+
+  // Find max density for normalization
+  var gmax=0;
+  for(var j=0;j<buf.length;j++){
+    if(buf[j]>gmax) gmax=buf[j];
   }
 
-  batchX=x; batchY=y;
+  // Render density to canvas
+  var imgData=ctx.createImageData(W,H);
+  var d8=imgData.data;
+  var logMax=Math.log(gmax+1);
 
-  // Find global max for normalization
-  let gmax=0;
-  for(let i=0;i<buf.length;i++) if(buf[i]>gmax) gmax=buf[i];
-
-  // Render to canvas
-  const imgData=ctx.createImageData(W,H);
-  const d2=imgData.data;
-  for(let i=0;i<buf.length;i++){
-    if(buf[i]===0){
-      d2[i*4]=5; d2[i*4+1]=5; d2[i*4+2]=8; d2[i*4+3]=255;
+  for(var j=0;j<buf.length;j++){
+    var off=j*4;
+    if(buf[j]===0){
+      d8[off]=5; d8[off+1]=5; d8[off+2]=8; d8[off+3]=255;
     } else {
-      // Log scale density
-      const v=Math.log(buf[i]+1)/Math.log(gmax+1);
-      // Purple-pink-white gradient
-      const cr=Math.round(v*v*255+v*80);
-      const cg=Math.round(v*v*120);
-      const cb=Math.round(v*220+v*v*35);
-      d2[i*4]=Math.min(255,cr);
-      d2[i*4+1]=Math.min(255,cg);
-      d2[i*4+2]=Math.min(255,cb);
-      d2[i*4+3]=255;
+      var v=Math.log(buf[j]+1)/logMax;
+      // purple -> pink -> white
+      d8[off]=Math.min(255,(v*v*255+v*80)|0);
+      d8[off+1]=Math.min(255,(v*v*140)|0);
+      d8[off+2]=Math.min(255,(v*220+v*v*35)|0);
+      d8[off+3]=255;
     }
   }
   ctx.putImageData(imgData,0,0);
 
-  if(iterCount>=N_ITER) rendering=false;
+  if(iterCount>=N_TOTAL) rendering=false;
 }
 
-// Morph between parameter sets smoothly
-function easeInOut(t){return t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
-
-let frame=0;
 function loop(){
-  // Handle morph
-  if(morphT<1){
-    morphT=Math.min(1,morphT+0.015);
-    const e=easeInOut(morphT);
-    pa=pa+(targetA-pa)*0.05;
-    pb=pb+(targetB-pb)*0.05;
-    pc=pc+(targetC-pc)*0.05;
-    pd=pd+(targetD-pd)*0.05;
-    updateParamDisplay();
-    bounds=computeBounds(pa,pb,pc,pd,20000);
-    buf.fill(0);
-    batchX=0; batchY=0; iterCount=0;
-    rendering=true;
+  resize();
+
+  // Morph: interpolate params toward target
+  if(morphing){
+    var done=true;
+    var rate=0.06;
+    function step(cur,tgt){
+      if(Math.abs(cur-tgt)<0.001) return tgt;
+      done=false;
+      return cur+(tgt-cur)*rate;
+    }
+    pa=step(pa,targetA);
+    pb=step(pb,targetB);
+    pc=step(pc,targetC);
+    pd=step(pd,targetD);
+    updateDisplay();
+
+    if(done){
+      morphing=false;
+      pa=targetA; pb=targetB; pc=targetC; pd=targetD;
+    }
+    // Re-render from scratch each morph frame
+    if(W>0&&H>0){
+      buf.fill(0);
+      bounds=computeBounds(pa,pb,pc,pd,15000);
+      iterX=0.1; iterY=0.1; iterCount=0;
+      rendering=true;
+    }
   }
 
   runBatch();
-  frame++;
   requestAnimationFrame(loop);
 }
-loop();
 
-document.getElementById('morphBtn').addEventListener('click',()=>{
-  presetIdx=(presetIdx+1)%PRESETS.length;
-  startMorph(...PRESETS[presetIdx]);
+// Wait for layout so offsetWidth/Height are real
+requestAnimationFrame(function(){
+  requestAnimationFrame(loop);
 });
 
-document.getElementById('randomBtn').addEventListener('click',()=>{
-  // Random params in range that tend to produce interesting attractors
-  const rp=()=>(Math.random()*3-1.5);
-  // Bias toward values that work well: mostly [-2, 2]
-  const a=-2+Math.random()*4;
-  const b=-2+Math.random()*4;
-  const c=-2+Math.random()*4;
-  const d=-2+Math.random()*4;
-  startMorph(a,b,c,d);
+document.getElementById('morphBtn').addEventListener('click',function(){
+  presetIdx=(presetIdx+1)%PRESETS.length;
+  targetA=PRESETS[presetIdx][0];
+  targetB=PRESETS[presetIdx][1];
+  targetC=PRESETS[presetIdx][2];
+  targetD=PRESETS[presetIdx][3];
+  morphing=true;
+});
+
+document.getElementById('randomBtn').addEventListener('click',function(){
+  targetA=-2+Math.random()*4;
+  targetB=-2+Math.random()*4;
+  targetC=-2+Math.random()*4;
+  targetD=-2+Math.random()*4;
+  morphing=true;
   presetIdx=-1;
 });
 </script>

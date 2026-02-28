@@ -64,19 +64,21 @@ function initSources(){
 initSources();
 
 function resize(){
-  W=canvas.offsetWidth;
-  H=canvas.offsetHeight;
+  const nw=canvas.offsetWidth;
+  const nh=canvas.offsetHeight;
+  if(nw<1||nh<1) return;
+  if(nw===W&&nh===H) return;
+  W=nw; H=nh;
   canvas.width=W;
   canvas.height=H;
-  rW=Math.ceil(W/SCALE);
-  rH=Math.ceil(H/SCALE);
+  rW=Math.max(1,Math.ceil(W/SCALE));
+  rH=Math.max(1,Math.ceil(H/SCALE));
   off.width=rW;
   off.height=rH;
   imgData=octx.createImageData(rW,rH);
   data=imgData.data;
 }
 window.addEventListener('resize',resize);
-resize();
 
 function getWL(){return +document.getElementById('wl').value;}
 function getSpd(){return +document.getElementById('spd').value;}
@@ -149,11 +151,14 @@ function render(){
 }
 
 function loop(){
+  resize();
+  if(W<1||H<1||!data){requestAnimationFrame(loop);return;}
   t+=getSpd()*0.04;
   render();
   requestAnimationFrame(loop);
 }
-loop();
+// Defer start so flexbox layout has resolved offsetWidth/Height
+requestAnimationFrame(function(){requestAnimationFrame(loop);});
 
 // Pointer interaction
 function cpos(e){
