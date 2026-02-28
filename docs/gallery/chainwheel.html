@@ -3,19 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3QgZmlsbD0iIzA1MDUwNSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIi8+CiAgPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNTU1IiBzdHJva2Utd2lkdGg9IjIiLz4KPC9zdmc+"/>
-<title>Chainwheel</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3QgZmlsbD0iIzBhMGEwYSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIi8+CiAgPHBhdGggZD0iTTggOCBMMjQgOCBMMjQgMjQgTDggMjQgWiBNMTIgMTIgTDIwIDEyIEwyMCAyMCBMMTIgMjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8L3N2Zz4K"/>
+<title>Chainwheel System</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #050505; overflow: hidden; }
+body { background: #1a1612; overflow: hidden; }
 canvas { display: block; width: 100vw; height: 100vh; }
+.controls {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 12px; background: rgba(0,0,0,0.85);
+  padding: 12px 20px; border-radius: 8px;
+  font-family: ui-monospace,monospace; color: #888;
+  font-size: 13px; align-items: center;
+}
+button {
+  background: #222; color: #888; border: 1px solid #333;
+  padding: 6px 14px; border-radius: 4px; cursor: pointer;
+  font-family: ui-monospace,monospace; font-size: 13px;
+}
+button:hover { background: #2a2a2a; color: #aaa; }
 .back-btn {
   position: fixed; top: 16px; right: 16px;
-  background: rgba(8,8,8,0.92); border: 1px solid #2a2a2a;
-  color: #666; padding: 8px 14px; border-radius: 4px;
-  font: 12px ui-monospace, SFMono-Regular, Menlo, monospace;
-  cursor: pointer; text-decoration: none; z-index: 1000;
-  transition: border-color 0.2s, color 0.2s;
+  background: rgba(20,20,20,0.9); border: 1px solid #333;
+  color: #777; padding: 8px 14px; border-radius: 6px;
+  font: 12px ui-monospace,monospace; cursor: pointer;
+  text-decoration: none; backdrop-filter: blur(8px);
+  z-index: 1000; transition: border-color 0.2s;
 }
 .back-btn:hover { border-color: #555; color: #aaa; }
 </style>
@@ -23,380 +36,343 @@ canvas { display: block; width: 100vw; height: 100vh; }
 <body>
 <a href="./" class="back-btn">← Gallery</a>
 <canvas id="c"></canvas>
+<div class="controls">
+  <button onclick="togglePause()">Pause</button>
+  <button onclick="reverseDir()">Reverse</button>
+  <span id="info">Mechanical Assembly</span>
+</div>
 <script>
+// Chainwheel System — monochrome mechanical cascade
+// Cycle 1 rebuild (Petrarch) — Quimbot 2026
+
 const canvas = document.getElementById('c');
 const ctx = canvas.getContext('2d');
 const inIframe = window.self !== window.top;
-if (inIframe) document.querySelector('.back-btn').style.display = 'none';
-
-let W, H, S;
-function resize() {
-  W = canvas.width  = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-  S = Math.min(W, H);
+if (inIframe) {
+  document.querySelector('.back-btn').style.display = 'none';
+  document.querySelector('.controls').style.display = 'none';
 }
-window.addEventListener('resize', () => { resize(); buildGears(); });
+
+let W, H;
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  rebuildSystem();
+}
+window.addEventListener('resize', resize);
 resize();
 
-let masterAngle = 0;
-const MASTER_SPEED = 0.006;
+let paused = false;
+let direction = 1;
+const baseSpeed = 0.006;
 
-// ─── GEAR SPECS ───────────────────────────────────────────────────────────────
-// [xFrac, yFrac, rFrac, shade]  shade 0=darkest 1=lightest
-const SPECS = [
-  // 0  master center
-  [0.500, 0.500, 0.110, 0.55],
-  // 1-4  inner cardinal ring
-  [0.680, 0.500, 0.062, 0.40],
-  [0.320, 0.500, 0.062, 0.40],
-  [0.500, 0.680, 0.062, 0.40],
-  [0.500, 0.320, 0.062, 0.40],
-  // 5-8  diagonal mid
-  [0.760, 0.295, 0.044, 0.32],
-  [0.240, 0.295, 0.044, 0.32],
-  [0.760, 0.705, 0.044, 0.32],
-  [0.240, 0.705, 0.044, 0.32],
-  // 9-12  cardinal far
-  [0.820, 0.500, 0.034, 0.50],
-  [0.180, 0.500, 0.034, 0.50],
-  [0.500, 0.175, 0.034, 0.50],
-  [0.500, 0.825, 0.034, 0.50],
-  // 13-16  corner mid
-  [0.880, 0.200, 0.027, 0.62],
-  [0.120, 0.200, 0.027, 0.62],
-  [0.880, 0.800, 0.027, 0.62],
-  [0.120, 0.800, 0.027, 0.62],
-  // 17-20  far edge
-  [0.930, 0.500, 0.020, 0.45],
-  [0.070, 0.500, 0.020, 0.45],
-  [0.500, 0.085, 0.020, 0.45],
-  [0.500, 0.915, 0.020, 0.45],
-  // 21-24  extreme corners
-  [0.920, 0.120, 0.018, 0.70],
-  [0.080, 0.120, 0.018, 0.70],
-  [0.920, 0.880, 0.018, 0.70],
-  [0.080, 0.880, 0.018, 0.70],
-  // 25-28  top/bottom edge fillers
-  [0.740, 0.095, 0.022, 0.55],
-  [0.260, 0.095, 0.022, 0.55],
-  [0.740, 0.905, 0.022, 0.55],
-  [0.260, 0.905, 0.022, 0.55],
-  // 29-32  left/right side fillers
-  [0.092, 0.360, 0.019, 0.58],
-  [0.908, 0.360, 0.019, 0.58],
-  [0.092, 0.640, 0.019, 0.58],
-  [0.908, 0.640, 0.019, 0.58],
-];
+// Noise function for texture
+function noise(x, y) {
+  const n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+  return n - Math.floor(n);
+}
 
-// ─── CONNECTIONS ──────────────────────────────────────────────────────────────
-// All are chain drives. Propagation direction: -1 opposite, +1 same
-const CONNS = [
-  [0,1],[0,2],[0,3],[0,4],           // master -> inner ring
-  [1,5],[4,5],                       // top-right
-  [2,6],[4,6],                       // top-left
-  [1,7],[3,7],                       // bottom-right
-  [2,8],[3,8],                       // bottom-left
-  [1,9],[2,10],[4,11],[3,12],        // inner -> cardinal far
-  [5,13],[9,13],                     // top-right corner
-  [6,14],[10,14],                    // top-left corner
-  [7,15],[9,15],                     // bottom-right corner
-  [8,16],[10,16],                    // bottom-left corner
-  [9,17],[10,18],[11,19],[12,20],    // far edges
-  [13,21],[11,25],                   // top-right extreme + filler
-  [14,22],[11,26],                   // top-left
-  [15,23],[12,27],                   // bottom-right
-  [16,24],[12,28],                   // bottom-left
-  [10,29],[18,29],                   // left side
-  [9,30],[17,30],                    // right side
-  [10,31],[18,31],                   // left lower
-  [9,32],[17,32],                    // right lower
-  [19,25],[19,26],                   // top edge
-  [20,27],[20,28],                   // bottom edge
-];
+function buildGear(x, y, r, teeth, variant) {
+  return { x, y, r, teeth, angle: Math.random() * Math.PI * 2, variant, speed: 0 };
+}
 
 let gears = [];
-function buildGears() {
-  gears = SPECS.map(([xf, yf, rf, shade]) => {
-    const r = rf * S;
-    const teeth = Math.max(8, Math.round(2 * Math.PI * r / (S * 0.017)));
-    return { x: xf * W, y: yf * H, r, teeth, shade, angle: 0, xf, yf, rf };
-  });
-}
-buildGears();
+let chains = [];
 
-// ─── ANGLE PROPAGATION ────────────────────────────────────────────────────────
-function solveAngles() {
-  gears[0].angle = masterAngle;
-  const solved = new Set([0]);
-  const queue = [0];
-  while (queue.length) {
-    const idx = queue.shift();
-    for (const [a, b] of CONNS) {
-      let src = -1, dst = -1;
-      if (a === idx && !solved.has(b)) { src = a; dst = b; }
-      if (b === idx && !solved.has(a)) { src = b; dst = a; }
-      if (dst === -1) continue;
-      const ratio = gears[src].r / gears[dst].r;
-      gears[dst].angle = -gears[src].angle * ratio;
-      solved.add(dst);
-      queue.push(dst);
+function rebuildSystem() {
+  gears = [];
+  chains = [];
+  
+  const S = Math.min(W, H);
+  const cx = W / 2, cy = H / 2;
+  
+  // Grid-based placement for dense coverage
+  const cols = 7, rows = 5;
+  const spacingX = W / (cols + 1);
+  const spacingY = H / (rows + 1);
+  
+  let idx = 0;
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      const x = (col + 1) * spacingX + (Math.random() - 0.5) * spacingX * 0.3;
+      const y = (row + 1) * spacingY + (Math.random() - 0.5) * spacingY * 0.3;
+      const baseR = S * (0.05 + Math.random() * 0.06);
+      const teeth = Math.floor(12 + Math.random() * 20);
+      const variant = Math.floor(Math.random() * 3); // 0=standard, 1=spoked, 2=solid
+      gears.push(buildGear(x, y, baseR, teeth, variant));
+      idx++;
+      if (idx >= 35) break;
+    }
+    if (idx >= 35) break;
+  }
+  
+  // Build chain network — connect nearby gears
+  for (let i = 0; i < gears.length; i++) {
+    for (let j = i + 1; j < gears.length; j++) {
+      const g1 = gears[i], g2 = gears[j];
+      const dist = Math.hypot(g2.x - g1.x, g2.y - g1.y);
+      const minDist = g1.r + g2.r + 10;
+      const maxDist = S * 0.35;
+      
+      if (dist > minDist && dist < maxDist && Math.random() > 0.6) {
+        chains.push({ i, j, type: Math.random() > 0.5 ? 'chain' : 'mesh' });
+      }
+    }
+  }
+  
+  // Set master gear (largest)
+  gears.sort((a, b) => b.r - a.r);
+  gears[0].speed = baseSpeed;
+}
+
+function propagateSpeeds() {
+  // Reset all non-master speeds
+  for (let i = 1; i < gears.length; i++) gears[i].speed = 0;
+  
+  // Propagate through chains
+  let changed = true;
+  let iterations = 0;
+  while (changed && iterations < 100) {
+    changed = false;
+    iterations++;
+    for (const { i, j, type } of chains) {
+      const g1 = gears[i], g2 = gears[j];
+      const ratio = g1.r / g2.r;
+      const sign = type === 'chain' ? 1 : -1;
+      
+      if (g1.speed !== 0 && g2.speed === 0) {
+        g2.speed = sign * g1.speed * ratio;
+        changed = true;
+      } else if (g2.speed !== 0 && g1.speed === 0) {
+        g1.speed = sign * g2.speed / ratio;
+        changed = true;
+      }
     }
   }
 }
 
-// ─── CHAIN LINK RENDERING ─────────────────────────────────────────────────────
-function chainTangents(g1, g2) {
-  const dx = g2.x - g1.x, dy = g2.y - g1.y;
-  const d  = Math.hypot(dx, dy);
-  const baseA = Math.atan2(dy, dx);
-  const r1 = g1.r, r2 = g2.r;
-  const raw = (r2 - r1) / d;
-  const sinA = Math.max(-0.95, Math.min(0.95, raw));
-  const offA  = Math.asin(sinA);
+propagateSpeeds();
 
-  const topA1 = baseA + Math.PI / 2 - offA;
-  const topA2 = baseA + Math.PI / 2 - offA;
-  const botA1 = baseA - Math.PI / 2 + offA;
-  const botA2 = baseA - Math.PI / 2 + offA;
-
-  return {
-    tp1: { x: g1.x + r1 * Math.cos(topA1), y: g1.y + r1 * Math.sin(topA1) },
-    tp2: { x: g2.x + r2 * Math.cos(topA2), y: g2.y + r2 * Math.sin(topA2) },
-    bp1: { x: g1.x + r1 * Math.cos(botA1), y: g1.y + r1 * Math.sin(botA1) },
-    bp2: { x: g2.x + r2 * Math.cos(botA2), y: g2.y + r2 * Math.sin(botA2) },
-  };
+function drawGearTooth(r, innerR, a0, toothSpan) {
+  const mid = a0 + toothSpan / 2;
+  const toothTop = r;
+  const toothBase = innerR;
+  
+  ctx.lineTo(Math.cos(a0) * toothBase, Math.sin(a0) * toothBase);
+  ctx.lineTo(Math.cos(a0 + toothSpan * 0.1) * toothTop, Math.sin(a0 + toothSpan * 0.1) * toothTop);
+  ctx.lineTo(Math.cos(mid) * (toothTop + 2), Math.sin(mid) * (toothTop + 2));
+  ctx.lineTo(Math.cos(a0 + toothSpan * 0.9) * toothTop, Math.sin(a0 + toothSpan * 0.9) * toothTop);
+  ctx.lineTo(Math.cos(a0 + toothSpan) * toothBase, Math.sin(a0 + toothSpan) * toothBase);
 }
 
-function drawLinksAlong(p1, p2, pitch, phase) {
-  const segLen = Math.hypot(p2.x - p1.x, p2.y - p1.y);
-  if (segLen < pitch) return;
-  const segA = Math.atan2(p2.y - p1.y, p2.x - p1.x);
-  const count = Math.ceil(segLen / pitch) + 2;
-  const lh = pitch * 0.82;
-  const lw = pitch * 0.38;
-
-  for (let i = -1; i <= count; i++) {
-    let d = (i * pitch + phase) % segLen;
-    if (d < 0) d += segLen;
-    if (d > segLen) continue;
-    const frac = d / segLen;
-    const x = p1.x + (p2.x - p1.x) * frac;
-    const y = p1.y + (p2.y - p1.y) * frac;
-    drawLink(x, y, segA, lh, lw, i % 2 === 0);
-  }
-}
-
-function drawLink(x, y, angle, len, w, outer) {
+function drawGear(g) {
+  const { x, y, r, teeth, angle, variant } = g;
+  const toothHeight = r * 0.18;
+  const innerR = r - toothHeight;
+  const toothSpan = (2 * Math.PI / teeth);
+  
   ctx.save();
   ctx.translate(x, y);
   ctx.rotate(angle);
-
-  const hl = len / 2;
-  const hw = w / 2;
-  const cr = hw * 0.55;
-
+  
+  // Gear body with teeth
   ctx.beginPath();
-  ctx.moveTo(-hl + cr, -hw);
-  ctx.lineTo(hl - cr, -hw);
-  ctx.arcTo(hl, -hw, hl, 0, cr);
-  ctx.arcTo(hl, hw, hl - cr, hw, cr);
-  ctx.lineTo(-hl + cr, hw);
-  ctx.arcTo(-hl, hw, -hl, 0, cr);
-  ctx.arcTo(-hl, -hw, -hl + cr, -hw, cr);
+  for (let i = 0; i < teeth; i++) {
+    const a0 = i * toothSpan;
+    drawGearTooth(r, innerR, a0, toothSpan);
+  }
   ctx.closePath();
-
-  ctx.fillStyle   = outer ? '#242424' : '#161616';
-  ctx.strokeStyle = outer ? '#4a4a4a' : '#303030';
-  ctx.lineWidth   = 0.7;
+  
+  // Metal gradient — subtle variations
+  const bodyGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
+  const base = 40 + noise(x, y) * 30;
+  bodyGrad.addColorStop(0, `rgb(${base + 15}, ${base + 12}, ${base + 8})`);
+  bodyGrad.addColorStop(0.6, `rgb(${base}, ${base - 5}, ${base - 10})`);
+  bodyGrad.addColorStop(1, `rgb(${base - 20}, ${base - 25}, ${base - 30})`);
+  ctx.fillStyle = bodyGrad;
   ctx.fill();
+  
+  // Edge highlight
+  ctx.strokeStyle = `rgba(80, 75, 70, 0.7)`;
+  ctx.lineWidth = 1.5;
   ctx.stroke();
-
-  // pin holes
-  const pinR   = hw * 0.42;
-  const pinOff = hl - hw * 0.9;
-  for (const ox of [-pinOff, pinOff]) {
+  
+  // Interior details based on variant
+  if (variant === 1) {
+    // Spoked wheel
+    const spokeCount = Math.max(4, Math.floor(teeth / 5));
+    ctx.strokeStyle = `rgba(60, 55, 50, 0.8)`;
+    ctx.lineWidth = 2;
+    for (let i = 0; i < spokeCount; i++) {
+      const a = (i / spokeCount) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.moveTo(Math.cos(a) * innerR * 0.2, Math.sin(a) * innerR * 0.2);
+      ctx.lineTo(Math.cos(a) * innerR * 0.85, Math.sin(a) * innerR * 0.85);
+      ctx.stroke();
+    }
+  } else if (variant === 2) {
+    // Solid disc with texture
+    ctx.fillStyle = `rgba(35, 32, 28, 0.6)`;
     ctx.beginPath();
-    ctx.arc(ox, 0, pinR, 0, Math.PI * 2);
-    ctx.fillStyle = outer ? '#0a0a0a' : '#2e2e2e';
+    ctx.arc(0, 0, innerR * 0.8, 0, Math.PI * 2);
     ctx.fill();
-    if (!outer) {
-      ctx.strokeStyle = '#484848';
-      ctx.lineWidth   = 0.5;
+  } else {
+    // Standard — concentric rings
+    for (let ring = 0.3; ring < 0.9; ring += 0.25) {
+      ctx.strokeStyle = `rgba(50, 45, 40, ${0.3 + ring * 0.3})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(0, 0, innerR * ring, 0, Math.PI * 2);
       ctx.stroke();
     }
   }
+  
+  // Central hub
+  const hubR = innerR * 0.18;
+  ctx.beginPath();
+  ctx.arc(0, 0, hubR, 0, Math.PI * 2);
+  const hubGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, hubR);
+  hubGrad.addColorStop(0, 'rgb(55, 50, 45)');
+  hubGrad.addColorStop(1, 'rgb(25, 22, 18)');
+  ctx.fillStyle = hubGrad;
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(70, 65, 60, 0.9)';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  
+  // Axle bolt
+  ctx.beginPath();
+  ctx.arc(0, 0, hubR * 0.35, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgb(45, 42, 38)';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(60, 55, 50, 0.8)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  
+  ctx.restore();
+}
+
+function drawChainLink(x, y, angle, size) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(angle);
+  
+  // Outer link
+  ctx.strokeStyle = 'rgba(80, 75, 68, 0.7)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.ellipse(0, 0, size * 1.8, size * 0.9, 0, 0, Math.PI * 2);
+  ctx.stroke();
+  
+  // Inner shadows
+  ctx.strokeStyle = 'rgba(40, 38, 35, 0.6)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.ellipse(0, 0, size * 1.3, size * 0.6, 0, 0, Math.PI * 2);
+  ctx.stroke();
+  
   ctx.restore();
 }
 
 function drawChain(g1, g2) {
-  const { tp1, tp2, bp1, bp2 } = chainTangents(g1, g2);
-  const pitch = Math.max(S * 0.009, g1.r * 2 * Math.PI / g1.teeth);
-  const phase = ((g1.angle * g1.r) % pitch + pitch) % pitch;
-  drawLinksAlong(tp1, tp2, pitch, phase);
-  drawLinksAlong(bp2, bp1, pitch, (pitch - phase) % pitch); // bottom runs opposite
+  const dx = g2.x - g1.x, dy = g2.y - g1.y;
+  const dist = Math.hypot(dx, dy);
+  const angle = Math.atan2(dy, dx);
+  const r1 = g1.r, r2 = g2.r;
+  
+  // Tangent calculation
+  const dr = r2 - r1;
+  if (Math.abs(dr) >= dist) return;
+  
+  const alpha = Math.atan2(dr, dist);
+  const beta = Math.asin(dr / dist);
+  
+  // Top tangent line
+  const t1x1 = g1.x + r1 * Math.cos(angle + Math.PI / 2 - beta);
+  const t1y1 = g1.y + r1 * Math.sin(angle + Math.PI / 2 - beta);
+  const t1x2 = g2.x + r2 * Math.cos(angle + Math.PI / 2 - beta);
+  const t1y2 = g2.y + r2 * Math.sin(angle + Math.PI / 2 - beta);
+  
+  // Bottom tangent line
+  const t2x1 = g1.x + r1 * Math.cos(angle - Math.PI / 2 + beta);
+  const t2y1 = g1.y + r1 * Math.sin(angle - Math.PI / 2 + beta);
+  const t2x2 = g2.x + r2 * Math.cos(angle - Math.PI / 2 + beta);
+  const t2y2 = g2.y + r2 * Math.sin(angle - Math.PI / 2 + beta);
+  
+  // Draw chain links along both strands
+  const linkCount = Math.floor(dist / 8);
+  const linkSize = 3;
+  
+  for (let i = 0; i <= linkCount; i++) {
+    const t = i / linkCount;
+    const x1 = t1x1 + (t1x2 - t1x1) * t;
+    const y1 = t1y1 + (t1y2 - t1y1) * t;
+    const x2 = t2x1 + (t2x2 - t2x1) * t;
+    const y2 = t2y1 + (t2y2 - t2y1) * t;
+    
+    drawChainLink(x1, y1, angle, linkSize);
+    drawChainLink(x2, y2, angle, linkSize);
+  }
 }
 
-// ─── GEAR RENDERING ───────────────────────────────────────────────────────────
-function drawGear(g) {
-  const { x, y, r, teeth, angle, shade } = g;
-  const toothH = r * 0.20;
-  const innerR = r - toothH;
-  const pitch  = (2 * Math.PI) / teeth;
-  const tw     = pitch * 0.36;
-
-  // steel gray palette derived from shade
-  const base  = Math.round(18 + shade * 38);   // 18–56
-  const mid   = Math.round(40 + shade * 44);   // 40–84
-  const hi    = Math.round(72 + shade * 80);   // 72–152
-  const c0    = `rgb(${base},${base},${base})`;
-  const c1    = `rgb(${mid},${mid},${mid})`;
-  const c2    = `rgb(${hi},${hi},${hi})`;
-
+function drawMesh(g1, g2) {
+  // Meshed gears — subtle connection line
   ctx.save();
-  ctx.translate(x, y);
-  ctx.rotate(angle);
-
-  // drop shadow
-  const shadow = ctx.createRadialGradient(r * 0.15, r * 0.15, innerR * 0.3, 0, 0, r + toothH * 3);
-  shadow.addColorStop(0, 'rgba(0,0,0,0)');
-  shadow.addColorStop(1, 'rgba(0,0,0,0.65)');
+  ctx.strokeStyle = 'rgba(60, 55, 50, 0.15)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([3, 5]);
   ctx.beginPath();
-  ctx.arc(0, 0, r + toothH * 3, 0, Math.PI * 2);
-  ctx.fillStyle = shadow;
-  ctx.fill();
-
-  // gear body path with trapezoidal teeth
-  ctx.beginPath();
-  for (let i = 0; i < teeth; i++) {
-    const a0 = i * pitch;
-    const a1 = a0 + tw * 0.2;
-    const a2 = a0 + tw;
-    const a3 = a0 + tw * 1.55;
-    const a4 = a0 + pitch;
-    ctx.arc(0, 0, innerR, a0 - tw * 0.15, a1);
-    ctx.lineTo(Math.cos(a1) * r, Math.sin(a1) * r);
-    ctx.arc(0, 0, r, a1, a2);
-    ctx.lineTo(Math.cos(a3) * innerR, Math.sin(a3) * innerR);
-    ctx.arc(0, 0, innerR, a3, a4);
-  }
-  ctx.closePath();
-
-  const bodyGrd = ctx.createRadialGradient(-r * 0.25, -r * 0.25, 0, 0, 0, r);
-  bodyGrd.addColorStop(0, `rgb(${base+22},${base+22},${base+22})`);
-  bodyGrd.addColorStop(1, c0);
-  ctx.fillStyle = bodyGrd;
-  ctx.fill();
-  ctx.strokeStyle = c1;
-  ctx.lineWidth   = 1.2;
+  ctx.moveTo(g1.x, g1.y);
+  ctx.lineTo(g2.x, g2.y);
   ctx.stroke();
-
-  // machined groove around inner rim
-  ctx.beginPath();
-  ctx.arc(0, 0, innerR * 0.88, 0, Math.PI * 2);
-  ctx.strokeStyle = `rgb(${base-4},${base-4},${base-4})`;
-  ctx.lineWidth   = innerR * 0.10;
-  ctx.stroke();
-
-  // spokes
-  const nSpokes = Math.max(4, Math.floor(teeth / 6));
-  const spokeW  = Math.max(1.2, innerR * 0.08);
-  for (let i = 0; i < nSpokes; i++) {
-    const a   = (i / nSpokes) * Math.PI * 2;
-    const sx0 = Math.cos(a) * innerR * 0.22;
-    const sy0 = Math.sin(a) * innerR * 0.22;
-    const sx1 = Math.cos(a) * innerR * 0.80;
-    const sy1 = Math.sin(a) * innerR * 0.80;
-    const sg  = ctx.createLinearGradient(sx0, sy0, sx1, sy1);
-    sg.addColorStop(0, c1);
-    sg.addColorStop(1, `rgb(${base+10},${base+10},${base+10})`);
-    ctx.strokeStyle = sg;
-    ctx.lineWidth   = spokeW;
-    ctx.lineCap     = 'round';
-    ctx.beginPath();
-    ctx.moveTo(sx0, sy0);
-    ctx.lineTo(sx1, sy1);
-    ctx.stroke();
-    ctx.lineCap = 'butt';
-  }
-
-  // hub disk
-  ctx.beginPath();
-  ctx.arc(0, 0, innerR * 0.21, 0, Math.PI * 2);
-  const hubGrd = ctx.createRadialGradient(-innerR * 0.07, -innerR * 0.07, 0, 0, 0, innerR * 0.21);
-  hubGrd.addColorStop(0, `rgb(${mid+12},${mid+12},${mid+12})`);
-  hubGrd.addColorStop(1, `rgb(${base+6},${base+6},${base+6})`);
-  ctx.fillStyle   = hubGrd;
-  ctx.strokeStyle = c2;
-  ctx.lineWidth   = 0.9;
-  ctx.fill();
-  ctx.stroke();
-
-  // center bolt
-  ctx.beginPath();
-  ctx.arc(0, 0, innerR * 0.085, 0, Math.PI * 2);
-  ctx.fillStyle = c2;
-  ctx.fill();
-
-  // specular sheen on body
-  const sheen = ctx.createLinearGradient(-r * 0.55, -r * 0.55, r * 0.1, r * 0.1);
-  sheen.addColorStop(0, `rgba(${hi},${hi},${hi},0.10)`);
-  sheen.addColorStop(1, `rgba(${hi},${hi},${hi},0)`);
-  ctx.beginPath();
-  ctx.arc(0, 0, r, 0, Math.PI * 2);
-  ctx.fillStyle = sheen;
-  ctx.fill();
-
+  ctx.setLineDash([]);
   ctx.restore();
 }
 
-// ─── BACKGROUND ───────────────────────────────────────────────────────────────
-function drawBackground() {
-  ctx.fillStyle = '#050505';
-  ctx.fillRect(0, 0, W, H);
-
-  // hairline cross-grid
-  const step = Math.round(S * 0.038);
-  ctx.strokeStyle = 'rgba(255,255,255,0.025)';
-  ctx.lineWidth   = 0.5;
-  for (let x = 0; x <= W; x += step) {
-    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+function update() {
+  for (const g of gears) {
+    g.angle += g.speed * direction;
   }
-  for (let y = 0; y <= H; y += step) {
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
-  }
-
-  // vignette
-  const vig = ctx.createRadialGradient(W / 2, H / 2, S * 0.18, W / 2, H / 2, S * 0.85);
-  vig.addColorStop(0, 'rgba(0,0,0,0)');
-  vig.addColorStop(1, 'rgba(0,0,0,0.72)');
-  ctx.fillStyle = vig;
-  ctx.fillRect(0, 0, W, H);
 }
 
-// ─── MAIN LOOP ────────────────────────────────────────────────────────────────
-function loop() {
-  masterAngle += MASTER_SPEED;
-  solveAngles();
-
-  drawBackground();
-
-  // chains behind gears
-  for (const [i, j] of CONNS) {
-    drawChain(gears[i], gears[j]);
+function draw() {
+  // Barren landscape background
+  const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+  bgGrad.addColorStop(0, '#1a1612');
+  bgGrad.addColorStop(1, '#121010');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+  
+  // Draw chains first (background layer)
+  for (const { i, j, type } of chains) {
+    if (type === 'chain') drawChain(gears[i], gears[j]);
+    else drawMesh(gears[i], gears[j]);
   }
-
-  // gears on top
+  
+  // Draw gears (foreground)
   for (const g of gears) drawGear(g);
-
-  // watermark
+  
+  // Subtle vignette
+  const vignette = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.7);
+  vignette.addColorStop(0, 'rgba(0,0,0,0)');
+  vignette.addColorStop(1, 'rgba(0,0,0,0.5)');
+  ctx.fillStyle = vignette;
+  ctx.fillRect(0, 0, W, H);
+  
   if (!inIframe) {
-    ctx.fillStyle = 'rgba(255,255,255,0.12)';
-    ctx.font      = `${Math.max(10, Math.round(S * 0.011))}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-    ctx.fillText('CHAINWHEEL', 18, H - 18);
+    ctx.fillStyle = '#444';
+    ctx.font = '11px ui-monospace,monospace';
+    ctx.fillText(`${gears.length} gears · ${chains.length} connections`, 20, H - 20);
   }
+}
 
+function loop() {
+  if (!paused) { update(); draw(); }
   requestAnimationFrame(loop);
 }
+
+function togglePause() { paused = !paused; }
+function reverseDir() { direction *= -1; }
 
 loop();
 </script>
