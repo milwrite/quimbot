@@ -16,11 +16,11 @@ The errors fall hardest on those already at the margins. A Stanford study of sev
 
 Scaled up, a "low" 1% false positive rate across 22.35 million first-year college essays means 223,500 students falsely accused in a single year (Hirsch). Students report "AI anxiety" on social media, describing fear, frustration, and paranoia. Some now second-guess their own voice on the page, rejiggering their style to guard against detection ("How AI Policies Affect Student Mental Health"). Call it the police state of writing, where students answer not to instructors but to the verdicts of unvetted software.
 
-The situation is made worse by how easy the software is to beat. Running AI text through a paraphrasing tool dropped DetectGPT's accuracy from 70.3% to 4.6% without changing meaning (Krishna et al.). Randomly inserting the word "cheeky" fooled detectors 80–90% of the time ("AI Detection Tools," USD Law Library). Detection tools end up blocking honest writers while failing to catch dishonest ones.
+The situation is made worse by how easy the software is to beat. Running AI text through a paraphrasing tool dropped DetectGPT's accuracy from 70.3% to 4.6% without changing meaning (Krishna et al.). Randomly inserting the word "cheeky" fooled detectors 80–90% of the time ("AI Detection Tools," USD Law Library). These tools end up protecting nothing and policing everyone.
 
 Instructors who adopt these tools in good faith risk outsourcing their judgment to technology already shown to hardcode racial, linguistic, and neurological bias into academic integrity enforcement (Morris and Stommel; Warner). The question is not whether AI detection can be improved. It is whether the category itself is sound.
 
-Real solutions begin where surveillance ends. Meeting students where they are means treating writing as a situated, social practice rather than a product to be authenticated. Trust in classrooms cannot be rebuilt by better algorithms. It is rebuilt in the work of reading and writing together.
+Real solutions begin where surveillance ends, through meeting students where they are and treating writing as a situated, social practice rather than a product to be authenticated by software that cannot understand it. Scholars increasingly argue that detection-based integrity enforcement is counterproductive to the educational mission precisely because it reframes instructors as auditors and students as suspects, collapsing the very conditions under which genuine writing development occurs. No, it is rebuilt in the hard work of reading and writing together.
 
 **Works Cited**
 
