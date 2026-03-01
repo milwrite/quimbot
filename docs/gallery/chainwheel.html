@@ -129,11 +129,13 @@ function buildSystem() {
     if (gears[i].r > gears[masterIdx].r) masterIdx = i;
   }
   gears[masterIdx].speed = 0.007;
-  propagate();
+  propagate(masterIdx);
 }
 
-function propagate() {
-  for (let i = 1; i < gears.length; i++) gears[i].speed = 0;
+function propagate(sourceIdx) {
+  for (let i = 0; i < gears.length; i++) {
+    if (i !== sourceIdx) gears[i].speed = 0;
+  }
   let changed = true, iter = 0;
   while (changed && iter++ < 200) {
     changed = false;
