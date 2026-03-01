@@ -99,24 +99,26 @@ function buildSystem() {
     }
   }
 
-  // Connect grid neighbours — right and down — so the network spans the whole canvas
-  // Skip ~25% of connections randomly to leave some gears isolated
+  // Connect full grid neighbours so the whole assembly is mechanically linked.
+  // Right + down connections are all chain drives (no decorative/unpowered mesh links).
   for (let row = 0; row < ROWS; row++) {
     for (let col = 0; col < COLS; col++) {
       const i = row * COLS + col;
       // Connect to right neighbour
-      if (col < COLS - 1 && Math.random() > 0.25) {
+      if (col < COLS - 1) {
         const j = row * COLS + (col + 1);
         const g1 = gears[i], g2 = gears[j];
-        if (Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy) > g1.r + g2.r + 3)
+        if (Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy) > g1.r + g2.r + 3) {
           chains.push({ i, j, type: 'chain', offset: 0 });
+        }
       }
-      // Connect to bottom neighbour — also chain, not mesh
-      if (row < ROWS - 1 && Math.random() > 0.25) {
+      // Connect to bottom neighbour
+      if (row < ROWS - 1) {
         const j = (row + 1) * COLS + col;
         const g1 = gears[i], g2 = gears[j];
-        if (Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy) > g1.r + g2.r + 3)
+        if (Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy) > g1.r + g2.r + 3) {
           chains.push({ i, j, type: 'chain', offset: 0 });
+        }
       }
     }
   }
@@ -270,19 +272,6 @@ function drawChain(a, b, offset) {
   }
 }
 
-function drawMesh(a, b) {
-  ctx.save();
-  ctx.setLineDash([3, 6]);
-  ctx.strokeStyle = 'rgba(55,52,48,0.18)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(a.cx, a.cy);
-  ctx.lineTo(b.cx, b.cy);
-  ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.restore();
-}
-
 function draw() {
   const bg = ctx.createLinearGradient(0, 0, 0, H);
   bg.addColorStop(0, '#181614');
@@ -291,8 +280,7 @@ function draw() {
   ctx.fillRect(0, 0, W, H);
 
   for (const c of chains) {
-    if (c.type === 'chain') drawChain(gears[c.i], gears[c.j], c.offset);
-    else drawMesh(gears[c.i], gears[c.j]);
+    drawChain(gears[c.i], gears[c.j], c.offset);
   }
   for (const g of gears) drawGear(g);
 
