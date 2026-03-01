@@ -5,6 +5,8 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 export function molnarInterruptions(container) {
   container.innerHTML = '';
   const { ctx, resize, destroy } = makeCanvas(container);
+  // Prevent page scroll so drag-to-move-void works on mobile.
+  container.style.touchAction = 'none';
 
   let center = { x: 0.5, y: 0.5 };
   let dragging = false;
@@ -68,10 +70,11 @@ export function molnarInterruptions(container) {
     ctx.arc(cx, cy, voidR, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Instruction hint
+    // Instruction hint — responsive font size so it reads on small screens.
+    const hintPx = Math.max(11, Math.min(14, Math.floor(Math.min(width, height) * 0.032)));
     ctx.fillStyle = 'rgba(0,0,0,0.55)';
-    ctx.font = '14px ui-monospace, SFMono-Regular, Menlo, monospace';
-    ctx.fillText('Drag to move interruption', 16, height - 18);
+    ctx.font = `${hintPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+    ctx.fillText('Drag to move interruption', 16, height - Math.max(14, hintPx + 4));
   });
 
   return () => {

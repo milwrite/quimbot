@@ -5,6 +5,8 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 
 export function boids(container) {
   const { ctx, resize, destroy } = makeCanvas(container, { pixelRatioCap: 2 });
+  // Allow pointermove attraction without triggering page scroll on mobile.
+  container.style.touchAction = 'none';
 
   let W = 0, H = 0;
   function onResize() {
@@ -171,10 +173,11 @@ export function boids(container) {
       ctx.stroke();
     }
 
-    // Small caption.
+    // Caption — responsive font size so it reads on small/mobile screens.
+    const captionPx = Math.max(11, Math.min(14, Math.floor(Math.min(W, H) * 0.032)));
     ctx.fillStyle = 'rgba(255,255,255,0.55)';
-    ctx.font = '12px ui-monospace, SFMono-Regular, Menlo, monospace';
-    ctx.fillText('Boids (Reynolds, 1986) • tap to reseed', 14, 22);
+    ctx.font = `${captionPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+    ctx.fillText('Boids (Reynolds, 1986) • tap to reseed', 14, captionPx + 6);
   });
 
   return () => {
