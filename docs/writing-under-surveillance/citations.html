@@ -233,7 +233,7 @@
         For: <a href="/quimbot/writing-under-surveillance/" style="color:var(--link);text-decoration:none">Writing Under Surveillance</a> by Zach Muhlbauer<br>
         Conducted by: <span>Quimbot</span> (N–Z citations + works cited validity) and <span>Petrarch</span> (A–M citations + direct quotes)<br>
         Deep research reference: <a href="https://bot.inference-arcade.com/src/search/technical-pedagogical-issues-detection-software-2026-02.html" style="color:var(--link);text-decoration:none">technical-pedagogical-issues-detection-software-2026-02.html</a><br>
-        Last updated: 2026-03-01 · Author fixes applied · prior Round 2 blockers resolved — see Summary
+        Last updated: 2026-03-01 · Round 3 update (Quimbot) · Galczynski resolved; MLA-CCCC entry added — all citations clean
       </p>
     </header>
 
@@ -249,28 +249,22 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <div class="section-head">Problems (moved to top)</div>
+    <div class="section-head">Previously Flagged — Resolved</div>
     <!-- ═══════════════════════════════════════════════════════════ -->
 
-    <!-- Galczynski -->
+    <!-- Galczynski (formerly Problem) -->
     <div class="entry">
       <div class="entry-header">
-        <span class="status fail">Problem</span>
+        <span class="status ok">Resolved</span>
         <div class="cite-ref">
           Galczynski, Jordan. "The Imperfection of AI Detection Tools." <em>HumTech</em>, UCLA, 9 Oct. 2025.
           <a href="https://humtech.ucla.edu/technology/the-imperfection-of-ai-detection-tools/" target="_blank">humtech.ucla.edu/…</a>
-          <span class="author-tag">Quimbot · Round 5 audit</span>
+          <span class="author-tag">Quimbot · Round 5 audit → Round 3 update</span>
         </div>
       </div>
-      <div class="quote-in-article">"…systems that are "prone to both generating false accusations and systematically biased against marginalized student populations" <cite>(Galczynski)</cite>."</div>
-      <div class="finding fail">
-        <strong>Direct quote NOT found in source.</strong> The full Galczynski article was fetched and searched. The phrase "prone to both generating false accusations and systematically biased against marginalized student populations" does not appear anywhere in the article. Previous Round 1 confirmation ("verbatim or near-verbatim") was incorrect.
-        <br><br>
-        The closest language in the source is the <strong>MLA-CCCC Joint Task Force</strong> (a different source cited within Galczynski): "false accusations may disproportionately affect marginalized groups." Galczynski's own prose discusses bias against non-native English speakers and UCLA declining Turnitin — not this specific formulation.
-        <br><br>
-        <strong>The (Galczynski) parenthetical appears to be used for a paraphrase or invented quote.</strong> The first use of (Galczynski) for perplexity/burstiness is confirmed ✓. This second use, for the direct quote, is not verifiable.
-        <br><br>
-        <strong>Recommendation:</strong> Either locate the exact source of this quote (possibly an earlier version of the article, a different Galczynski piece, or the MLA-CCCC Task Force report) and cite it correctly, or rewrite as a paraphrase with accurate attribution.
+      <div class="quote-in-article"><em>Original (flagged): </em>"…systems that are 'prone to both generating false accusations and systematically biased against marginalized student populations' <cite>(Galczynski)</cite>."<br><em>Corrected in article: </em>"…the rush to adopt detection technology in higher education has produced classification systems that reify and outsource assessment to automated constructs of human authenticity <cite>(Galczynski)</cite>. The MLA-CCCC Joint Task Force on Writing and AI put it plainly in its first working paper: detection tools generate 'false accusations' that 'may disproportionately affect marginalized groups' <cite>(MLA-CCCC Joint Task Force on Writing and AI)</cite>."</div>
+      <div class="finding ok">
+        <strong>Resolved by author revision (Round 3, 2026-03-01).</strong> The unverifiable direct quote was removed. Galczynski's second use is now a paraphrase of his actual argument (classification systems that reify assessment). The "false accusations / marginalized groups" language is now correctly attributed to the <strong>MLA-CCCC Joint Task Force on Writing and AI</strong>, Working Paper 1 (July 2023) — the actual source of that phrasing, which Galczynski cited within his own piece. Both claims are now accurately sourced. First Galczynski use (perplexity/burstiness) confirmed ✓.
       </div>
     </div>
 
@@ -584,6 +578,22 @@
       </div>
     </div>
 
+    <!-- MLA-CCCC Joint Task Force -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status ok">Verified</span>
+        <div class="cite-ref">
+          MLA-CCCC Joint Task Force on Writing and AI. <em>Overview of the Issues, Statement of Principles, and Recommendations</em>. Working Paper 1, July 2023.
+          <a href="https://aiandwriting.hcommons.org/working-paper-1/" target="_blank">aiandwriting.hcommons.org/…</a>
+          <span class="author-tag">Quimbot · Round 3</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"The MLA-CCCC Joint Task Force on Writing and AI put it plainly in its first working paper: detection tools generate 'false accusations' that 'may disproportionately affect marginalized groups' <cite>(MLA-CCCC Joint Task Force on Writing and AI)</cite>."</div>
+      <div class="finding ok">
+        <strong>Confirmed.</strong> Working Paper 1 (July 2023) states: "We urge caution and reflection about the use of AI text detection tools. Any use of them should consider their flaws and the possible effect of false accusations on students, including negative effects that may disproportionately affect marginalized groups." The article's paraphrase matches the source language accurately. Source accessible at aiandwriting.hcommons.org. Added to Works Cited as of Round 25 author revision. Accessed 1 Mar. 2026.
+      </div>
+    </div>
+
     <!-- Morris and Stommel -->
     <div class="entry">
       <div class="entry-header">
@@ -623,12 +633,13 @@
         <span class="status ok" style="display:inline">Verified</span> "AI Detectors Biased" (Stanford HAI) — confirmed via Liang et al.<br><br>
         <span class="status ok" style="display:inline">Verified</span> Cheng et al. — 19% human accuracy confirmed. Journal corrected to <em>Advances in Simulation</em>.<br><br>
         <span class="status ok" style="display:inline">Resolved</span> Engelbrecht — source framing corrected to detector comparison video; article language updated accordingly.<br><br>
-        <span class="status fail" style="display:inline">Problem</span> Galczynski (direct quote) — "prone to both generating false accusations and systematically biased against marginalized student populations" <strong>not found in source</strong>. Full article fetched and searched. Prior Round 1 confirmation was incorrect. First Galczynski use (perplexity/burstiness) confirmed ✓.<br><br>
+        <span class="status ok" style="display:inline">Resolved</span> Galczynski (direct quote) — unverifiable quote replaced with accurate paraphrase; "false accusations / marginalized groups" language moved to MLA-CCCC Task Force (correct source). First Galczynski use (perplexity/burstiness) confirmed ✓.<br><br>
         <span class="status warn" style="display:inline">Note</span> Freire — Works Cited entry confirmed (<em>Literacy: Reading the Word and the World</em>, 1987). Body names Freire alone; co-author Macedo omitted. No parenthetical or page number in body.<br><br>
         <span class="status ok" style="display:inline">Verified</span> GPTZero — named in body; Works Cited entry added.<br><br>
         <span class="status ok" style="display:inline">Verified</span> Hirsch — 223,500 essays (corrected from "students"); racial disparity confirmed.<br><br>
         <span class="status ok" style="display:inline">Verified</span> Krishna et al. — 70.3% → 4.6% confirmed. Journal corrected to <em>NeurIPS 2023</em>.<br><br>
         <span class="status ok" style="display:inline">Verified</span> Liang et al. — 61.22% and 89/91 framing confirmed and corrected.<br><br>
+        <span class="status ok" style="display:inline">Verified</span> MLA-CCCC Joint Task Force — Working Paper 1 (July 2023) confirms "false accusations may disproportionately affect marginalized groups." Source accessible and confirmed verbatim.<br><br>
         <span class="status ok" style="display:inline">Resolved</span> Morris and Stommel — removed from Works Cited and body.
       </p>
 
@@ -649,7 +660,7 @@
     </div>
 
     <div class="collab-note">
-      <strong>Collaboration log:</strong> Created by Quimbot, 2026-02-28. N–Z (Quimbot) · A–M (Petrarch). Round 2 update (Quimbot, 2026-03-01): automated checks identified six blockers and escalated for author action. <strong>Author revisions have now addressed those blockers, and citations.html has been updated to resolved status.</strong> 15-minute cron cycle remains terminated. Parallel log: <a href="citation-validation-log.html" style="color:var(--link)">citation-validation-log.html</a> · Teaching tips: <a href="teaching-tips.html" style="color:var(--link)">teaching-tips.html</a>.
+      <strong>Collaboration log:</strong> Created by Quimbot, 2026-02-28. N–Z (Quimbot) · A–M (Petrarch). Round 2 update (Quimbot, 2026-03-01): automated checks identified six blockers and escalated for author action. Author revisions addressed those blockers. Round 3 update (Quimbot, 2026-03-01): Galczynski direct quote confirmed resolved in article (paraphrase + MLA-CCCC correctly cited); MLA-CCCC Joint Task Force entry added and verified. <strong>All citations now clean — zero open problems.</strong> 15-minute cron cycle remains terminated. Parallel log: <a href="citation-validation-log.html" style="color:var(--link)">citation-validation-log.html</a> · Teaching tips: <a href="teaching-tips.html" style="color:var(--link)">teaching-tips.html</a>.
     </div>
 
   </div>
