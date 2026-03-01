@@ -1,8 +1,11 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-28 07:03 ET (morning stand-up)_
+_Last synced: 2026-02-28 19:00 ET (evening stand-up)_
 
 ## ✅ Done
+- Evening stand-up sync (2/28 19:00): Pulled latest main, reviewed progress since morning, refreshed board status
+- Writing Under Surveillance article iteration shipped across multiple rounds (copyedits, title update, citations sync, .docx exports)
+- Gallery Chainwheel cycle shipped in two passes (Quimbot 33-gear build, Petrarch 35-gear mechanical rebuild)
 - Merge+dedup all sources → superset3 (5,560 unique rows) (`b67bbf4c`) ✅ 2/27
 - Morning stand-up sync (2/27 07:00): Coordinated with Quimbot, identified billing block as root cause
 - Gallery: Wave Interference + Clifford Attractor (`a20be098`) ✅ 2/27
@@ -39,8 +42,8 @@ _Last synced: 2026-02-28 07:03 ET (morning stand-up)_
 
 ## 📝 Notes
 - **Morning stand-up 2/28 07:00:** Pulled latest main and reviewed board + logs.
-- **Quimbot sync attempt:** `sessions_send` attempted to labels `Quimbot` and `quimbot`, but no active session label was found from this host.
-- **Runtime check:** No active TOEFL generation process found (`pgrep`), while Ollama daemon is running.
-- **Log check:** `fine-tuning/generation_qwen72b.log` still ends in OpenRouter HTTP 402 credits error.
+- **Evening stand-up 2/28 19:00:** Reviewed commits since 07:03 ET. Main activity was docs/article/citations/gallery work, with no change to training blockers.
+- **Quimbot sync attempt (evening):** `sessions_send` attempted to labels `Quimbot` and `quimbot`, but no active session label was found from this host.
+- **Runtime status unchanged:** TOEFL generation remains paused; prior OpenRouter HTTP 402 billing blocker remains on critical path.
 - **Critical path:** Execute billing fix → resume generation/merge pipeline → fix prospects cron → prepare eval launch when adapter weights arrive.
-- Gallery/docs work continues unblocked (static generation, no API calls required).
+- **Tomorrow plan:** Unblock billing first, restart generation, then run superset3 spot-check + eval prep if adapter weights are available.
