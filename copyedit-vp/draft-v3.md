@@ -3,7 +3,7 @@
 Zach Muhlbauer
 
 "There has always been resistance to teaching machines and to the technocracy in which they are embedded... And perhaps it's worth repeating that that resistance did not come only from disgruntled educators."
-— Audrey Watters, *Teaching Machines: The History of Personalized Learning*
+— Audrey Watters, *Teaching Machines*
 
 CUNY students certainly know the feeling. On Reddit, they describe anxiety and frustration at the prospect of being falsely accused by widely discredited software, their professors deferring to opaque algorithmic systems over their own judgement or the testimony of their students.
 
