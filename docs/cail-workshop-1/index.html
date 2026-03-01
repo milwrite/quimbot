@@ -102,12 +102,23 @@
       padding-top: clamp(36px,5vw,72px);
     }
 
-    /* Title slide: artifact floats on the same plane — no card, no box */
+    /* Title slide: artifact fills remaining vertical space under title */
+    [data-slide="title"] {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    [data-slide="title"] .content {
+      flex: 0 0 auto;
+      overflow: visible;
+      padding-bottom: 10px;
+    }
     [data-slide="title"] .stage {
+      flex: 1 1 auto;
+      min-height: clamp(260px, 52vh, 680px);
       background: transparent;
       border-color: transparent;
       border-radius: 0;
-      overflow: visible;
+      overflow: hidden;
     }
     [data-slide="title"] .stage .stage-fill iframe {
       border-radius: var(--radius);
@@ -257,6 +268,12 @@
       section.slide { flex-direction: row; align-items: stretch; overflow: hidden; padding: var(--header-h) clamp(16px,2.5vw,32px) 16px; gap: clamp(12px,1.5vw,20px); }
       .content { flex: 1 1 44%; overflow-y: auto; }
       .stage { flex: 1 1 52%; height: auto; align-self: stretch; min-height: unset; }
+
+      /* Keep title slide stacked (title on top, artifact below) */
+      [data-slide="title"] { flex-direction: column; }
+      [data-slide="title"] .content { flex: 0 0 auto; overflow: visible; }
+      [data-slide="title"] .stage { flex: 1 1 auto; min-height: clamp(300px, 58vh, 760px); }
+
       .slide-break.active { flex-direction: column; overflow: hidden; }
       .slide-icebreaker .content { flex: 0 0 clamp(180px,28%,260px); }
       .slide-icebreaker .stage { flex: 1 1 auto; }
@@ -329,7 +346,7 @@
     </div>
     <div class="stage" aria-hidden="true">
       <div class="stage-fill">
-        <iframe src="../gallery/noll.html" title="" tabindex="-1"></iframe>
+        <iframe src="../gallery/chainwheel.html" title="Infinite Wheel" tabindex="-1"></iframe>
       </div>
     </div>
   </section>
