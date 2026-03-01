@@ -27,7 +27,7 @@ No matter their complexity or sophistication, AI detectors seek to classify and 
 
 So, then, as LLMs grow more and more capable of mimicking human writing, and the technical distinction between machine and human text becomes harder to sustain, the question follows whether the problem of AI detection itself is sound and worth our concern, or rather intractable and more trouble than it's worth. For my part, I'd hazard a guess to say the latter.
 
-The real work begins in classrooms, in reading each other's work with care and responding to it honestly, in reminding ourselves learning is messier in practice than algorithms can name. AI detection forecloses that work, and recasts teachers as auditors with their students as suspects, undermining the conditions under which young writers learn, as Paulo Freire puts it, to read the word and the world.
+Where surveillance ends, the real work begins: whether in or around the classroom, in reading each other's work with care and responding to it honestly, or in reminding ourselves that learning is messier in practice than any set of algorithms can name. Detection practices foreclose that work, recasting educators as auditors and their students as suspects, undermining the conditions under which young writers learn, as Paulo Freire puts it, to read the word and the world.
 
 But trust can be rebuilt, and it so often starts simply, and slowly, with the everyday practice of reading and writing together again.
 
