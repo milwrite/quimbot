@@ -83,12 +83,15 @@
       min-height: 120px;
     }
 
-    /* ── STAGE SLOT — always reserved ── */
+    /* ── STAGE SLOT ──
+       Mobile: height auto — grows to fit content, never clips or scrolls.
+       Desktop (720px+): fills available column height via flex stretch.
+    ── */
     .stage {
       flex: 0 0 auto; position: relative; width: 100%;
-      aspect-ratio: var(--stage-aspect); min-height: var(--stage-min);
+      /* mobile: natural height, no aspect-ratio lock */
+      height: auto; min-height: var(--stage-min);
       border-radius: var(--radius);
-      /* default: very faint surface */
       border: 1px solid rgba(255,255,255,0.07);
       background: #05070b; overflow: hidden;
     }
@@ -111,52 +114,61 @@
       box-shadow: 0 8px 40px rgba(0,0,0,0.45);
     }
 
-    /* stage inner helpers */
+    /* ── STAGE INNER HELPERS ──
+       Mobile (default): position relative — element sizes to its content,
+       stage grows around it. No overflow scroll anywhere.
+       Desktop (720px+): position absolute inset-0 — fills fixed-height stage.
+    ── */
+
+    /* iframe / canvas fills: always absolute */
     .stage-fill { position: absolute; inset: 0; }
     .stage-fill iframe, .stage-fill canvas, .stage-fill video { width: 100%; height: 100%; border: none; display: block; }
+
+    /* centered overlay */
     .stage-center {
-      position: absolute; inset: 0;
+      position: relative; width: 100%;
       display: flex; align-items: center; justify-content: center;
       padding: clamp(14px,2.5vw,28px);
     }
     .stage-inner { width: 100%; max-width: 580px; }
 
-    /* placeholder label */
+    /* placeholder — empty dark area */
     .ph {
+      position: relative; width: 100%;
+      min-height: var(--stage-min);
       display: flex; align-items: center; justify-content: center;
-      position: absolute; inset: 0;
-      font-family: ui-monospace, monospace; font-size: 12px;
-      color: rgba(255,255,255,0.18); letter-spacing: 0.06em;
-      flex-direction: column; gap: 4px;
     }
-
 
     /* card grid (icebreaker) */
     .q-grid {
-      display: grid; grid-template-columns: 1fr; gap: 6px; width: 100%;
-      position: absolute; inset: clamp(12px,2vw,20px); overflow-y: auto;
+      position: relative; width: 100%;
+      display: grid; grid-template-columns: 1fr; gap: 6px;
+      padding: clamp(12px,2vw,20px);
     }
     .q-card {
       padding: clamp(10px,1.8vw,16px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);  /* single separator, no box */
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       display: flex; gap: 10px; align-items: flex-start;
     }
     .q-num { font-size: 11px; font-weight: 700; color: var(--part); flex-shrink: 0; padding-top: 1px; min-width: 20px; font-family: ui-monospace, monospace; }
     .q-ph  { font-size: clamp(12px,1.4vw,15px); color: rgba(255,255,255,0.2); font-family: ui-monospace, monospace; }
 
     /* step rows (VSC-IDE, Next Steps) */
-    .step-grid { position: absolute; inset: clamp(12px,2vw,24px); display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+    .step-grid {
+      position: relative; width: 100%;
+      display: flex; flex-direction: column; gap: 6px; justify-content: center;
+      padding: clamp(12px,2vw,24px);
+    }
     .step-row {
       display: flex; gap: 12px; align-items: center; padding: 10px 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);  /* separator only */
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--part); color: #fff; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
     .step-ph { font-size: clamp(12px,1.4vw,15px); color: rgba(255,255,255,0.2); font-family: ui-monospace, monospace; }
 
     /* agenda table — CUNY-AI-Lab workshop style */
     .agenda-table {
-      position: absolute; inset: 0;
-      overflow-y: auto;
+      position: relative; width: 100%;
       padding: clamp(14px,2.5vw,28px) clamp(16px,3vw,32px);
       display: flex; flex-direction: column; justify-content: center;
     }
@@ -188,18 +200,20 @@
       font-family: ui-monospace, monospace; flex-shrink: 0; padding-left: 12px;
     }
 
-    /* terminal */
+    /* terminal — relative on mobile (grows with content), absolute on desktop */
     .term-stub {
-      position: absolute; inset: 0; background: #010409;
+      position: relative; width: 100%; min-height: var(--stage-min);
+      background: #010409;
       display: flex; align-items: center; justify-content: center;
       font: 12px/1.6 ui-monospace, monospace;
       color: rgba(130,200,100,0.25); letter-spacing: 0.04em;
     }
     .term-box {
-      position: absolute; inset: 0; background: #010409; overflow-y: auto;
+      position: relative; width: 100%;
+      background: #010409;
       font: clamp(12px,1.4vw,15px)/1.75 ui-monospace, SFMono-Regular, Menlo, monospace;
       color: rgba(200,255,200,0.88);
-      padding: clamp(14px,2.5vw,24px) clamp(16px,2.5vw,28px);
+      padding: clamp(16px,2.5vw,28px) clamp(18px,2.5vw,32px);
     }
     .term-box .dim  { color: rgba(255,255,255,0.28); }
     .term-box .hl   { color: #79c0ff; }
@@ -210,7 +224,7 @@
     .step-text { font-size: clamp(13px,1.4vw,16px); color: rgba(255,255,255,0.86); line-height: 1.4; }
 
     /* resource link list */
-    .res-wrap { position: absolute; inset: 0; overflow-y: auto; padding: clamp(14px,2vw,24px); }
+    .res-wrap { position: relative; width: 100%; padding: clamp(14px,2vw,24px); }
     .res-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
     .res-list li { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .res-list li a { font-size: clamp(12px,1.3vw,15px); color: var(--accent); text-decoration: none; }
@@ -242,13 +256,41 @@
     @media (min-width: 720px) {
       section.slide { flex-direction: row; align-items: stretch; overflow: hidden; padding: var(--header-h) clamp(16px,2.5vw,32px) 16px; gap: clamp(12px,1.5vw,20px); }
       .content { flex: 1 1 44%; overflow-y: auto; }
-      .stage { flex: 1 1 52%; aspect-ratio: unset; align-self: stretch; min-height: unset; }
+      .stage { flex: 1 1 52%; height: auto; align-self: stretch; min-height: unset; }
       .slide-break.active { flex-direction: column; overflow: hidden; }
       .slide-icebreaker .content { flex: 0 0 clamp(180px,28%,260px); }
       .slide-icebreaker .stage { flex: 1 1 auto; }
       .q-grid { grid-template-columns: 1fr 1fr; }
       .q-card:last-child { grid-column: 1 / -1; }
       .nav-btn { display: inline-flex; }
+
+      /* Desktop: inner stage elements fill the full column height */
+      .term-box, .term-stub {
+        position: absolute; inset: 0; width: auto;
+      }
+      .stage-center {
+        position: absolute; inset: 0; width: auto;
+      }
+      .step-grid {
+        position: absolute; inset: clamp(12px,2vw,24px); width: auto;
+        overflow: hidden;
+      }
+      .agenda-table {
+        position: absolute; inset: 0; width: auto;
+        overflow: hidden;
+      }
+      .q-grid {
+        position: absolute; inset: clamp(12px,2vw,20px); width: auto;
+        overflow: hidden;
+      }
+      .res-wrap {
+        position: absolute; inset: 0; width: auto;
+        overflow-y: auto;        /* resources may be long — allow scroll on desktop only */
+      }
+      .ph {
+        position: absolute; inset: 0; width: auto;
+        min-height: unset;
+      }
     }
     @media (min-width: 1200px) {
       section.slide { padding: var(--header-h) clamp(28px,3vw,48px) 20px; gap: clamp(16px,2vw,28px); }
