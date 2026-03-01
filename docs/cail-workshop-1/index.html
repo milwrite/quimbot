@@ -3,324 +3,983 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CAIL Spotlight Workshop #1 — Coding with Generative AI</title>
+  <meta name="theme-color" content="#0b0e14" />
+  <title>CAIL Spotlight Workshop #1 — Coding &amp; Development Basics</title>
+
   <style>
+    /* ─────────────────────────────────────────────
+       TOKENS
+    ───────────────────────────────────────────── */
     :root {
-      --bg: #0b0e14;
-      --fg: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
-      --accent: #c0c0c0;
-      --card: rgba(255,255,255,0.06);
-      --stroke: rgba(255,255,255,0.16);
+      --bg:          #0b0e14;
+      --fg:          rgba(255,255,255,0.92);
+      --muted:       rgba(255,255,255,0.60);
+      --accent:      #7ea8d8;
+      --part:        #3a7bd5;
+      --card:        rgba(255,255,255,0.055);
+      --stroke:      rgba(255,255,255,0.13);
+      --radius:      14px;
+      --header-h:    48px;
+
+      /* Stage slot — always reserved, never collapses */
+      --stage-aspect: 16 / 9;   /* mobile / tablet */
+      --stage-min:    160px;    /* floor — never less than this */
     }
-    html, body { height: 100%; margin: 0; background: var(--bg); color: var(--fg); }
+
+    /* ─────────────────────────────────────────────
+       RESET / BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: var(--bg); color: var(--fg); }
     body {
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      overflow: hidden;
+      overflow: hidden;          /* deck mode: viewport = canvas */
+      -webkit-font-smoothing: antialiased;
     }
+    a { color: var(--accent); }
+    ul, ol { padding-left: 1.4em; }
+
+    /* skip link (a11y) */
+    .skip-link {
+      position: absolute; top: -100px; left: 12px; z-index: 100;
+      padding: 8px 16px; background: var(--accent); color: #000;
+      border-radius: 6px; font-size: 14px; font-weight: 600;
+      transition: top 0.15s;
+    }
+    .skip-link:focus { top: 12px; }
+
+    /* ─────────────────────────────────────────────
+       HEADER (fixed, pointer-events scoped)
+    ───────────────────────────────────────────── */
     header {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed; inset: 0 0 auto 0; height: var(--header-h);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 16px;
-      background: linear-gradient(to bottom, rgba(11,14,20,0.95), rgba(11,14,20,0.0));
-      pointer-events: none;
-      z-index: 5;
+      padding: 0 16px;
+      background: linear-gradient(to bottom, rgba(11,14,20,.96), rgba(11,14,20,0));
+      z-index: 20; pointer-events: none;
     }
-    header .left, header .right { pointer-events: auto; display: flex; gap: 12px; align-items: center; }
-    #counter { font-variant-numeric: tabular-nums; opacity: 0.8; }
-    .kbd {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    header .bar { pointer-events: auto; display: flex; align-items: center; gap: 10px; }
+    .pill {
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      padding: 3px 10px; border-radius: 20px;
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.04);
-      padding: 2px 8px;
-      border-radius: 8px;
-      font-size: 12px;
-      opacity: 0.8;
+      color: var(--muted);
+      white-space: nowrap;
     }
-    main { height: 100%; }
+    #counter { font-variant-numeric: tabular-nums; }
+    .logo-text {
+      font-size: 13px; font-weight: 600; letter-spacing: -0.01em;
+      color: var(--fg); opacity: 0.7;
+    }
+
+    /* nav arrows (visible on desktop) */
+    .nav-btn {
+      display: none;           /* hidden on mobile — swipe covers it */
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--stroke);
+      background: var(--card);
+      color: var(--fg); cursor: pointer;
+      align-items: center; justify-content: center;
+      font-size: 16px; line-height: 1;
+      pointer-events: auto;
+      transition: background 0.15s;
+    }
+    .nav-btn:hover { background: rgba(255,255,255,0.1); }
+    .nav-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* ─────────────────────────────────────────────
+       MAIN / SLIDE HOST
+    ───────────────────────────────────────────── */
+    main {
+      height: 100%;
+      position: relative;
+    }
+
+    /* ─────────────────────────────────────────────
+       SLIDE — MOBILE FIRST
+       Every slide: full-height column; content then stage stacked.
+       The .stage slot is always present with a guaranteed size.
+    ───────────────────────────────────────────── */
     section.slide {
+      display: none;        /* off by default */
       position: absolute; inset: 0;
-      display: none;
-      padding: 48px clamp(28px, 4vw, 48px) 24px clamp(48px, 6vw, 96px);
-      box-sizing: border-box;
-      overflow: auto;
+
+      /* Mobile: vertical stack */
+      flex-direction: column;
+      padding: var(--header-h) 12px 12px;
+      gap: 10px;
+      overflow-y: auto;
       overscroll-behavior: contain;
       -webkit-overflow-scrolling: touch;
     }
-    section.slide.active { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2vw, 28px); align-content: stretch; }
+    section.slide.active { display: flex; }
 
-    /* Full-width layout for title/section breaks */
-    section.slide.full.active { grid-template-columns: 1fr; align-items: center; }
-
+    /* ── CONTENT PANEL ── */
     .content {
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(32px, 4vw, 48px) clamp(28px, 3.5vw, 44px);
-      border-radius: 16px;
+      flex: 0 0 auto;       /* natural height on mobile; grows on desktop */
+      display: flex; flex-direction: column; justify-content: center;
+      padding: clamp(20px, 4vw, 40px) clamp(18px, 4vw, 36px);
+      border-radius: var(--radius);
       border: 1px solid var(--stroke);
       background: var(--card);
-      backdrop-filter: blur(6px);
+      /* min readable height so content never looks crushed */
+      min-height: 120px;
     }
-    .content h1 { font-size: clamp(36px, 5vw, 58px); margin: 0 0 16px; letter-spacing: -0.02em; line-height: 1.1; }
-    .content h2 { font-size: clamp(24px, 3.2vw, 36px); margin: 0 0 20px; color: var(--accent); letter-spacing: -0.01em; line-height: 1.15; }
-    .content .authors { font-size: clamp(20px, 2.4vw, 28px); color: var(--fg); margin: 24px 0 0; font-weight: 500; }
-    .content .orgs { font-size: clamp(16px, 1.8vw, 21px); color: var(--muted); margin: 14px 0 0; line-height: 1.4; }
-    .content .date { font-size: clamp(16px, 1.6vw, 20px); color: var(--muted); margin: 24px 0 0; opacity: 0.7; }
-    .content p { margin: 16px 0 0; color: var(--muted); line-height: 1.55; font-size: clamp(18px, 2.2vw, 24px); }
-    .content .part-label {
-      font-size: clamp(11px, 1.1vw, 14px); letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--muted); opacity: 0.55; margin: 0 0 16px;
-    }
-    a { color: var(--accent); }
+
+    /* ── STAGE SLOT — CONTAINERIZED ──
+       Always rendered. On mobile uses aspect-ratio to guarantee visible height.
+       Contains iframes, canvases, text overlays — whatever goes in the visual zone.
+    ── */
     .stage {
-      align-self: stretch;
-      border-radius: 16px;
+      flex: 0 0 auto;       /* don't let flexbox shrink this away */
+      position: relative;
+      width: 100%;
+      /* Aspect-ratio container: gives the slot a guaranteed box on mobile */
+      aspect-ratio: var(--stage-aspect);
+      min-height: var(--stage-min);
+      border-radius: var(--radius);
       border: 1px solid var(--stroke);
       background: #05070b;
       overflow: hidden;
-      position: relative;
-      min-height: 320px;
-    }
-    .stageCenter {
-      display: flex; align-items: center; justify-content: center;
-      padding: clamp(20px, 3vw, 36px); background: #070a10;
-    }
-    .stageInner { width: 100%; max-width: 90%; color: rgba(255,255,255,0.86); line-height: 1.5; }
-    .stageBig { font-size: clamp(24px, 3vw, 34px); font-weight: 650; line-height: 1.35; }
-    .stageHint { margin-top: 22px; opacity: 0.72; font-size: clamp(16px, 1.6vw, 20px); }
-    .stageListTitle { font-weight: 700; margin-bottom: 14px; font-size: clamp(20px, 2.2vw, 26px); }
-    .stageList { margin: 0; padding-left: 22px; opacity: 0.9; font-size: clamp(17px, 1.8vw, 22px); line-height: 1.55; }
-    .stage pre {
-      max-height: 70vh; overflow: auto; width: 100%; max-width: 90%;
-      padding: clamp(18px, 2.5vw, 32px); border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03);
-      font: clamp(15px, 1.7vw, 20px)/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
-      white-space: pre-wrap; color: rgba(255,255,255,0.88);
     }
 
-    /* ── Responsive ── */
-    @media (min-width: 1400px) {
-      section.slide { padding: 48px 40px 28px; }
-      .stage { min-height: 520px; }
+    /* ─────────────────────────────────────────────
+       STAGE INNER HELPERS
+       (content placed inside .stage — always absolute-filled or flex-centered)
+    ───────────────────────────────────────────── */
+    .stage-fill {
+      position: absolute; inset: 0;
     }
-    @media (max-width: 980px) {
-      section.slide.active { grid-template-columns: 1fr; }
-      section.slide { padding: 48px 16px 20px; }
-      .content { padding: 24px 20px 20px; }
-      .content h1 { font-size: 30px; }
-      .content h2 { font-size: 21px; }
-      .content p { font-size: 17px; }
-      .stage { min-height: 240px; }
+    .stage-fill iframe,
+    .stage-fill canvas,
+    .stage-fill video {
+      width: 100%; height: 100%; border: none; display: block;
     }
-    @media (max-width: 420px) {
-      section.slide { padding: 44px 10px 16px; }
-      .stage { min-height: 200px; }
-      .content { padding: 18px 14px 14px; }
-      .content h1 { font-size: 24px; }
-      .content h2 { font-size: 18px; }
-      .content p { font-size: 15px; }
+    .stage-center {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(14px, 2.5vw, 28px);
+    }
+    .stage-inner {
+      width: 100%; max-width: 600px;
+    }
+    .stage-label {
+      font-size: clamp(10px, 1vw, 12px); letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--part); font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .stage-big {
+      font-size: clamp(15px, 2vw, 22px); line-height: 1.45;
+      color: rgba(255,255,255,0.88);
+    }
+    .stage-hint {
+      margin-top: 14px; font-size: clamp(12px, 1.3vw, 15px); color: var(--muted);
+    }
+
+    /* terminal */
+    .term-box {
+      position: absolute; inset: 0;
+      background: #010409; overflow: auto;
+      font: clamp(12px, 1.4vw, 15px)/1.7 ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: rgba(200,255,200,0.9);
+      padding: clamp(14px, 2.5vw, 24px) clamp(14px, 2.5vw, 28px);
+    }
+    .term-box .dim  { color: rgba(255,255,255,0.3); }
+    .term-box .hl   { color: #79c0ff; }
+    .term-box .cmt  { color: rgba(130,200,100,0.65); }
+
+    /* placeholder for empty stages */
+    .stage-placeholder {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 6px;
+      color: rgba(255,255,255,0.12);
+      font-family: ui-monospace, monospace; font-size: 12px;
+    }
+
+    /* ─────────────────────────────────────────────
+       TYPOGRAPHY
+    ───────────────────────────────────────────── */
+    .content h1 {
+      font-size: clamp(26px, 4.5vw, 52px);
+      letter-spacing: -0.025em; line-height: 1.08;
+      margin-bottom: 10px;
+    }
+    .content h2 {
+      font-size: clamp(15px, 2.2vw, 24px);
+      color: var(--muted); font-weight: 500;
+      letter-spacing: -0.01em; line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .content p {
+      font-size: clamp(14px, 1.8vw, 20px);
+      color: var(--muted); line-height: 1.6; margin-top: 12px;
+    }
+    .content .label {
+      font-size: clamp(10px, 1vw, 12px); letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--part); font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .content .authors { font-size: clamp(16px, 2vw, 22px); color: var(--fg); font-weight: 500; margin-top: 18px; }
+    .content .orgs    { font-size: clamp(13px, 1.5vw, 17px); color: var(--muted); line-height: 1.5; margin-top: 10px; }
+    .content .date    { font-size: clamp(12px, 1.3vw, 15px); color: var(--muted); opacity: 0.65; margin-top: 16px; }
+    .content .time-tag {
+      display: inline-flex; align-items: center;
+      margin-top: 14px; padding: 3px 12px; border-radius: 20px;
+      border: 1px solid var(--stroke); color: var(--muted);
+      font-size: clamp(11px, 1.1vw, 13px);
+    }
+
+    /* ─────────────────────────────────────────────
+       SECTION BREAK (full-width, no stage)
+    ───────────────────────────────────────────── */
+    .slide-break.active {
+      align-items: flex-start; justify-content: flex-end;
+      padding-bottom: clamp(32px, 5vw, 60px);
+      padding-left: clamp(20px, 5vw, 80px);
+      background: linear-gradient(140deg, #0d1420 0%, var(--bg) 65%);
+    }
+    .slide-break .content {
+      background: transparent; border: none;
+      justify-content: flex-end;
+      min-height: unset;
+    }
+    .slide-break .content .break-tag {
+      font-size: clamp(10px, 1vw, 13px); letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--part); font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .slide-break .content h1 {
+      font-size: clamp(36px, 7vw, 80px);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.04;
+    }
+    .slide-break .content .break-sub {
+      font-size: clamp(14px, 1.6vw, 19px); color: var(--muted); margin-top: 16px;
+    }
+    .slide-break::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--part);
+    }
+
+    /* ─────────────────────────────────────────────
+       ICEBREAKER CARD GRID
+    ───────────────────────────────────────────── */
+    .q-grid {
+      display: grid;
+      grid-template-columns: 1fr;   /* 1-col on small mobile */
+      gap: 8px; width: 100%;
+    }
+    .q-card {
+      padding: clamp(12px, 2vw, 18px);
+      border: 1px solid var(--stroke); border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .q-num {
+      font-size: 12px; font-weight: 700; color: var(--part);
+      letter-spacing: 0.05em; text-transform: uppercase;
+      flex-shrink: 0; padding-top: 2px; min-width: 22px;
+    }
+    .q-text { font-size: clamp(13px, 1.5vw, 17px); line-height: 1.45; color: rgba(255,255,255,0.86); }
+
+    /* ─────────────────────────────────────────────
+       AGENDA BLOCK (used inside stage)
+    ───────────────────────────────────────────── */
+    .agenda-stack { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+    .agenda-row {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 14px; border-radius: 10px;
+      border: 1px solid var(--stroke); background: rgba(255,255,255,0.03);
+    }
+    .agenda-num { font-size: 12px; font-weight: 700; color: var(--part); flex-shrink: 0; padding-top: 3px; }
+    .agenda-title { font-size: clamp(13px, 1.5vw, 16px); font-weight: 600; }
+    .agenda-items { font-size: clamp(11px, 1.2vw, 14px); color: var(--muted); margin-top: 3px; line-height: 1.5; }
+    .time-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .chip {
+      font-size: clamp(10px, 1vw, 12px); padding: 3px 10px;
+      border-radius: 20px; border: 1px solid var(--stroke); color: var(--muted);
+    }
+
+    /* ─────────────────────────────────────────────
+       CONCEPT CARDS (used in stage-center)
+    ───────────────────────────────────────────── */
+    .concept-stack { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+    .concept-row {
+      display: flex; gap: 12px; align-items: center;
+      padding: 11px 14px; border-radius: 8px;
+      border: 1px solid var(--stroke); background: rgba(255,255,255,0.03);
+    }
+    .concept-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .concept-title { font-size: clamp(13px,1.5vw,16px); font-weight: 600; }
+    .concept-desc { font-size: clamp(11px,1.2vw,13px); color: var(--muted); margin-top: 2px; }
+
+    /* ─────────────────────────────────────────────
+       STEP ROWS (setup steps)
+    ───────────────────────────────────────────── */
+    .step-stack { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+    .step-row {
+      display: flex; gap: 12px; align-items: center;
+      padding: 11px 14px; border-radius: 8px;
+      border: 1px solid var(--stroke);
+    }
+    .step-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--part); color: #fff; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+    }
+    .step-text { font-size: clamp(13px,1.4vw,16px); line-height: 1.4; }
+
+    /* ─────────────────────────────────────────────
+       CONTRAST BLOCKS (agentic coding slide)
+    ───────────────────────────────────────────── */
+    .contrast-stack { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+    .contrast-row {
+      padding: 13px 16px;
+      border-radius: 0 8px 8px 0;
+      font-size: clamp(13px,1.4vw,16px); line-height: 1.5;
+    }
+    .contrast-row strong { display: block; font-size: clamp(14px,1.5vw,17px); margin-bottom: 4px; }
+    .contrast-row span { color: var(--muted); }
+    .contrast-note {
+      padding: 12px 14px; border: 1px solid var(--stroke); border-radius: 8px;
+      font-size: clamp(12px,1.3vw,14px); color: var(--muted); font-style: italic;
+      margin-top: 2px;
+    }
+
+    /* ─────────────────────────────────────────────
+       RESOURCES LIST
+    ───────────────────────────────────────────── */
+    .res-list { list-style: none; display: flex; flex-direction: column; gap: 8px; width: 100%; }
+    .res-list li { padding: 10px 14px; border-radius: 8px; border: 1px solid var(--stroke); background: rgba(255,255,255,0.02); }
+    .res-list li a { font-size: clamp(12px,1.3vw,15px); }
+    .res-desc { font-size: clamp(11px,1.1vw,13px); color: var(--muted); margin-top: 2px; }
+
+    /* ─────────────────────────────────────────────
+       TABLET / DESKTOP — side-by-side panels
+       At 720px+ the slide becomes a horizontal split.
+       The stage loses aspect-ratio and stretches to fill its column.
+    ───────────────────────────────────────────── */
+    @media (min-width: 720px) {
+      section.slide {
+        flex-direction: row;
+        align-items: stretch;
+        overflow: hidden;        /* desktop: no scroll on slide itself */
+        padding: var(--header-h) clamp(16px,2.5vw,32px) 16px;
+        gap: clamp(12px,1.5vw,20px);
+      }
+      .content {
+        flex: 1 1 44%;
+        overflow-y: auto;        /* content pane scrolls if needed */
+      }
+      .stage {
+        flex: 1 1 52%;
+        aspect-ratio: unset;     /* let it stretch to fill height */
+        align-self: stretch;
+        min-height: unset;
+      }
+      /* Break slides stay column */
+      .slide-break.active { flex-direction: column; overflow: hidden; }
+      /* Icebreaker: content narrow, stage wide */
+      .slide-icebreaker .content { flex: 0 0 clamp(180px,28%,280px); }
+      .slide-icebreaker .stage { flex: 1 1 auto; }
+      /* q-grid 2-col on tablet+ */
+      .q-grid { grid-template-columns: 1fr 1fr; }
+      .q-card:last-child { grid-column: 1 / -1; }
+      /* nav buttons visible */
+      .nav-btn { display: inline-flex; }
+    }
+
+    @media (min-width: 1200px) {
+      section.slide { padding: var(--header-h) clamp(28px,3vw,48px) 20px; gap: clamp(16px,2vw,28px); }
+    }
+
+    /* ─────────────────────────────────────────────
+       SMALL PHONE ADJUSTMENTS
+    ───────────────────────────────────────────── */
+    @media (max-width: 400px) {
+      :root { --stage-aspect: 4 / 3; }
+      .content { padding: 16px 14px; }
+      .content h1 { font-size: 22px; }
+    }
+
+    /* ─────────────────────────────────────────────
+       REDUCED MOTION
+    ───────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="left">
-    <div id="counter">1 / 16</div>
-    <div class="kbd">← →</div>
-    <div class="kbd">Swipe</div>
+<a href="#slide-content" class="skip-link">Skip to slide content</a>
+
+<header role="banner">
+  <div class="bar">
+    <span class="logo-text">CAIL Workshop #1</span>
+  </div>
+  <div class="bar">
+    <button class="nav-btn" id="btn-prev" aria-label="Previous slide">&#8592;</button>
+    <span class="pill" id="counter" aria-live="polite" aria-atomic="true">1 / 16</span>
+    <button class="nav-btn" id="btn-next" aria-label="Next slide">&#8594;</button>
   </div>
 </header>
 
-<main>
+<main id="slide-content" role="main" aria-label="Workshop slides">
 
-  <!-- 1. Title -->
-  <section class="slide" data-slide="title">
+  <!-- ═══════════════════════════════════════════════════════
+       1. TITLE
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="title" aria-label="Title slide">
     <div class="content">
-      <h1>Coding with Generative AI</h1>
-      <p class="authors">CAIL Spotlight Workshop #1</p>
-      <p class="orgs">CUNY AI Lab · New Media Lab · Teaching and Learning Center</p>
-      <p class="orgs">Interactive Technology and Pedagogy Certificate Program</p>
-      <p class="date">Spring 2026 · 2.5 min</p>
-    </div>
-    <div class="stage" aria-label="Title stage"></div>
-  </section>
-
-  <!-- 2. Agenda -->
-  <section class="slide" data-slide="agenda">
-    <div class="content">
-      <h1>Agenda</h1>
-      <h2>Two parts</h2>
-    </div>
-    <div class="stage" aria-label="Agenda stage"></div>
-  </section>
-
-  <!-- 3. Section: Part 1 -->
-  <section class="slide full" data-slide="part1">
-    <div class="content">
-      <p class="part-label">Part 1</p>
+      <div class="label">CAIL Spotlight Workshop #1</div>
       <h1>Coding &amp; Development Basics</h1>
+      <p class="authors">[ Presenter Names ]</p>
+      <p class="orgs">
+        CUNY AI Lab · New Media Lab · Teaching and Learning Center<br>
+        ASHP/CML · GC Digital Initiatives · Mina Rees Library<br>
+        Interactive Technology and Pedagogy Certificate Program
+      </p>
+      <p class="date">Spring 2026</p>
     </div>
-  </section>
-
-  <!-- 4. Icebreaker -->
-  <section class="slide" data-slide="icebreaker">
-    <div class="content">
-      <h1>Icebreaker</h1>
-      <h2>10 min</h2>
-    </div>
-    <div class="stage" aria-label="Icebreaker stage"></div>
-  </section>
-
-  <!-- 5. Inference as Coding Scaffold -->
-  <section class="slide" data-slide="inference">
-    <div class="content">
-      <h1>Inference as Coding Scaffold</h1>
-    </div>
-    <div class="stage" aria-label="Inference stage"></div>
-  </section>
-
-  <!-- 6. Problematics of Agentic Coding -->
-  <section class="slide" data-slide="agentic">
-    <div class="content">
-      <h1>Problematics of Agentic Coding</h1>
-    </div>
-    <div class="stage" aria-label="Agentic coding stage"></div>
-  </section>
-
-  <!-- 7. Git -->
-  <section class="slide" data-slide="git">
-    <div class="content">
-      <h1>Versioning and Project Management with Git</h1>
-    </div>
-    <div class="stage" aria-label="Git stage"></div>
-  </section>
-
-  <!-- 8. GitHub -->
-  <section class="slide" data-slide="github">
-    <div class="content">
-      <h1>Social Coding + Collaboration with GitHub</h1>
-    </div>
-    <div class="stage" aria-label="GitHub stage"></div>
-  </section>
-
-  <!-- 9. VSC-IDE -->
-  <section class="slide" data-slide="vscode">
-    <div class="content">
-      <h1>VSC-IDE Intro + Setup</h1>
-    </div>
-    <div class="stage stageCenter" aria-label="VSCode stage">
-      <div class="stageInner">
-        <div class="stageListTitle">Setup</div>
-        <ul class="stageList">
-          <li>Download / install; sign in with GH profile</li>
-          <li>Add GitHub extension; start tracking</li>
-        </ul>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-fill">
+        <iframe src="../gallery/lsystem.html" title="" tabindex="-1"></iframe>
       </div>
     </div>
   </section>
 
-  <!-- 10. Command Line -->
-  <section class="slide" data-slide="cli">
+  <!-- ═══════════════════════════════════════════════════════
+       2. AGENDA
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="agenda" aria-label="Agenda slide">
     <div class="content">
+      <div class="label">Workshop</div>
+      <h1>Agenda</h1>
+      <h2>Two parts · ~75 minutes</h2>
+      <p>Every semester, the New Media Lab offers in-person workshops on themes reflecting the needs of the Graduate Center community. This Spring 2026 series focuses on coding with Generative AI, offered by the CUNY AI Lab.</p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="agenda-stack">
+            <div class="agenda-row">
+              <div class="agenda-num">Pt 1</div>
+              <div>
+                <div class="agenda-title">Coding &amp; Development Basics</div>
+                <div class="agenda-items">Icebreaker · Inference · Agentic Coding · Git · GitHub · VSC-IDE · CLI</div>
+              </div>
+            </div>
+            <div class="agenda-row">
+              <div class="agenda-num">Pt 2</div>
+              <div>
+                <div class="agenda-title">Putting It Together</div>
+                <div class="agenda-items">Activity 1a · Activity 1b · Exit Ticket · Next Steps</div>
+              </div>
+            </div>
+            <div class="time-chips">
+              <span class="chip">Title 2.5m</span>
+              <span class="chip">Icebreaker 10m</span>
+              <span class="chip">Activities 2×10m</span>
+              <span class="chip">Exit Ticket 5m</span>
+              <span class="chip">Next Steps 2.5m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       3. SECTION BREAK — PART 1
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide slide-break" data-slide="part1" aria-label="Part 1 section break">
+    <div class="content">
+      <div class="break-tag">Part 1</div>
+      <h1>Coding &amp; Development Basics</h1>
+      <p class="break-sub">[ section overview — 1-2 sentences ]</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       4. ICEBREAKER
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide slide-icebreaker" data-slide="icebreaker" aria-label="Icebreaker slide">
+    <div class="content">
+      <div class="label">Icebreaker · 10 min</div>
+      <h1>Where does coding live in your imagination?</h1>
+      <p>Pick one question. Take a minute with the person next to you.</p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="q-grid">
+            <div class="q-card">
+              <div class="q-num">Q1</div>
+              <div class="q-text">What's one thing you've always wanted to code or develop but never knew where to start?</div>
+            </div>
+            <div class="q-card">
+              <div class="q-num">Q2</div>
+              <div class="q-text">What's a project idea you've shelved because the technical side felt out of reach?</div>
+            </div>
+            <div class="q-card">
+              <div class="q-num">Q3</div>
+              <div class="q-text">What's something you've seen someone build with code that made you think "I want to do that"?</div>
+            </div>
+            <div class="q-card">
+              <div class="q-num">Q4</div>
+              <div class="q-text">What would you create first if coding felt as natural as writing?</div>
+            </div>
+            <div class="q-card">
+              <div class="q-num">Q5</div>
+              <div class="q-text">What's one thing you wish you could make your computer do for your research that it doesn't do right now?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       5. INFERENCE AS CODING SCAFFOLD
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="inference" aria-label="Inference as coding scaffold">
+    <div class="content">
+      <div class="label">Concept</div>
+      <h1>Inference as Coding Scaffold</h1>
+      <h2>Prompts as prototypes — Karpathy, Feb 2025</h2>
+      <p>Inference closes the gap between intention and implementation. You describe what you want; the model writes the syntax. The code becomes legible because you steered it.</p>
+      <p>Three modes, increasing control: one-shot generation → iterative refinement → constraint-based authorship. Each round, you move from interpreter to architect.</p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="stage-label">Spectrum of control</div>
+          <div class="concept-stack">
+            <div class="concept-row">
+              <div class="concept-dot" style="background:#3a7bd5;"></div>
+              <div>
+                <div class="concept-title">One-shot</div>
+                <div class="concept-desc">Generate once. Observe what the model assumes.</div>
+              </div>
+            </div>
+            <div class="concept-row">
+              <div class="concept-dot" style="background:#7b5bd5;"></div>
+              <div>
+                <div class="concept-title">Iterative</div>
+                <div class="concept-desc">Generate → test → describe → request one change → repeat.</div>
+              </div>
+            </div>
+            <div class="concept-row">
+              <div class="concept-dot" style="background:#5bd5a0;"></div>
+              <div>
+                <div class="concept-title">Constraint-based</div>
+                <div class="concept-desc">Write the rules, not the request. You are the architect.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       6. PROBLEMATICS OF AGENTIC CODING
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="agentic" aria-label="Problematics of agentic coding">
+    <div class="content">
+      <div class="label">Concept</div>
+      <h1>Problematics of Agentic Coding</h1>
+      <h2>No-review vs deliberate iteration</h2>
+      <p>"Vibe coding" means accepting output without reading it. It moves fast and accumulates technical debt invisibly — the model's assumptions become load-bearing.</p>
+      <p>Decomposing tasks into smaller subtasks multiplies decision points for evaluation and redirection. More checkpoints means more deliberate output. <span style="opacity:0.6;font-size:.9em;">— Xu et al., 2024</span></p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="stage-label">The diagnostic question</div>
+          <div class="contrast-stack">
+            <div class="contrast-row" style="border-left:3px solid #d5453a;background:rgba(213,69,58,.07);">
+              <strong>No-review mode</strong>
+              <span>Accept output. Run it. Move on. Fast but opaque.</span>
+            </div>
+            <div class="contrast-row" style="border-left:3px solid #3a7bd5;background:rgba(58,123,213,.07);">
+              <strong>Deliberate mode</strong>
+              <span>Read. Test. Describe the gap. Request one change. Repeat.</span>
+            </div>
+            <div class="contrast-note">Ask: <em>what did the model assume?</em> That's the beginning of oversight.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       7. VERSIONING WITH GIT
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="git" aria-label="Versioning with Git">
+    <div class="content">
+      <div class="label">Tool</div>
+      <h1>Versioning and Project Management with Git</h1>
+      <h2>[ subtitle — from ITP deck ]</h2>
+      <p>[ Content pending — Petrarch locating GC ITP Git + GitHub PowerPoint. Key concepts: commit, branch, diff, log, .gitignore. ]</p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="term-box" role="img" aria-label="Git command examples">
+        <span class="dim"># initialize a repo</span><br>
+        git <span class="hl">init</span><br><br>
+        <span class="dim"># stage and commit</span><br>
+        git <span class="hl">add</span> .<br>
+        git <span class="hl">commit</span> -m <span style="color:#a5d6ff;">"first commit"</span><br><br>
+        <span class="dim"># view history</span><br>
+        git <span class="hl">log</span> --oneline<br><br>
+        <span class="cmt">[ → more commands from ITP deck ]</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       8. SOCIAL CODING + GITHUB
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="github" aria-label="Social coding with GitHub">
+    <div class="content">
+      <div class="label">Tool</div>
+      <h1>Social Coding + Collaboration with GitHub</h1>
+      <h2>[ subtitle — from ITP deck ]</h2>
+      <p>[ Content pending — Petrarch locating GC ITP slides. Key concepts: repo, fork, pull request, issues, GitHub Pages. ]</p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="stage-label">Key GitHub concepts</div>
+          <div class="concept-stack">
+            <div class="concept-row">
+              <div class="concept-dot" style="background:#3a7bd5;"></div>
+              <div>
+                <div class="concept-title">Repository</div>
+                <div class="concept-desc">Your project's home — history, files, collaborators.</div>
+              </div>
+            </div>
+            <div class="concept-row">
+              <div class="concept-dot" style="background:#7b5bd5;"></div>
+              <div>
+                <div class="concept-title">Fork + Pull Request</div>
+                <div class="concept-desc">Copy to experiment; propose changes back to the original.</div>
+              </div>
+            </div>
+            <div class="concept-row">
+              <div class="concept-dot" style="background:#5bd5a0;"></div>
+              <div>
+                <div class="concept-title">GitHub Pages</div>
+                <div class="concept-desc">Publish directly from a repo — no server required.</div>
+              </div>
+            </div>
+          </div>
+          <div class="stage-hint">[ → expand from ITP PowerPoint ]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       9. VSC-IDE INTRO + SETUP
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="vscode" aria-label="VSC-IDE setup">
+    <div class="content">
+      <div class="label">Setup</div>
+      <h1>VSC-IDE Intro + Setup</h1>
+      <h2>[ subtitle placeholder ]</h2>
+      <p>[ Content placeholder — walk through download, GH login, and extension setup. ]</p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="stage-label">Setup steps</div>
+          <div class="step-stack">
+            <div class="step-row">
+              <div class="step-num">1</div>
+              <div class="step-text">Download + install VS Code</div>
+            </div>
+            <div class="step-row">
+              <div class="step-num">2</div>
+              <div class="step-text">Sign in with your GitHub profile</div>
+            </div>
+            <div class="step-row">
+              <div class="step-num">3</div>
+              <div class="step-text">Add the GitHub extension; start tracking</div>
+            </div>
+          </div>
+          <div class="stage-hint">[ → add screenshot or screengrab here ]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       10. COMMAND LINE BASICS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="cli" aria-label="Command line basics">
+    <div class="content">
+      <div class="label">Tool</div>
       <h1>Command Line Basics</h1>
+      <h2>[ subtitle — reuse from vibe coding workshop ]</h2>
+      <p>[ Content placeholder — navigate, list, move, create. Pull from vibecoding workshop materials. ]</p>
     </div>
-    <div class="stage" aria-label="CLI stage"></div>
+    <div class="stage" aria-hidden="true">
+      <div class="term-box" role="img" aria-label="Command line examples">
+        <span class="dim"># where am I?</span><br>
+        pwd<br><br>
+        <span class="dim"># list files</span><br>
+        ls <span class="hl">-la</span><br><br>
+        <span class="dim"># move into a folder</span><br>
+        cd <span class="hl">my-project</span><br><br>
+        <span class="dim"># create a file</span><br>
+        touch <span class="hl">index.html</span><br><br>
+        <span class="cmt">[ → expand from vibecoding workshop ]</span>
+      </div>
+    </div>
   </section>
 
-  <!-- 11. Section: Part 2 -->
-  <section class="slide full" data-slide="part2">
+  <!-- ═══════════════════════════════════════════════════════
+       11. SECTION BREAK — PART 2
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide slide-break" data-slide="part2"
+           style="--part: #2ea043;"
+           aria-label="Part 2 section break">
     <div class="content">
-      <p class="part-label">Part 2</p>
+      <div class="break-tag">Part 2</div>
       <h1>Putting It Together</h1>
+      <p class="break-sub">Activities · Exit Ticket · Next Steps</p>
     </div>
   </section>
 
-  <!-- 12. Activity 1a -->
-  <section class="slide" data-slide="activity1a">
+  <!-- ═══════════════════════════════════════════════════════
+       12. ACTIVITY 1A
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="activity1a" aria-label="Activity 1a">
     <div class="content">
-      <h1>Activity 1a</h1>
-      <h2>10 min</h2>
+      <div class="label">Activity 1a · 10 min</div>
+      <h1>[ Activity Title ]</h1>
+      <h2>[ subtitle placeholder ]</h2>
+      <p>[ Activity description — what participants do, what tools they use, what they produce. ]</p>
+      <span class="time-tag">10 minutes</span>
     </div>
-    <div class="stage" aria-label="Activity 1a stage"></div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="stage-label">Prompt</div>
+          <div class="stage-big">[ Activity 1a prompt — to be filled from workshop materials ]</div>
+          <div class="stage-hint">[ instruction or scaffolding note ]</div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 13. Activity 1b -->
-  <section class="slide" data-slide="activity1b">
+  <!-- ═══════════════════════════════════════════════════════
+       13. ACTIVITY 1B
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="activity1b" aria-label="Activity 1b">
     <div class="content">
-      <h1>Activity 1b</h1>
-      <h2>10 min</h2>
+      <div class="label">Activity 1b · 10 min</div>
+      <h1>[ Activity Title ]</h1>
+      <h2>[ subtitle placeholder ]</h2>
+      <p>[ Activity description — build on 1a; introduce a constraint or extension. ]</p>
+      <span class="time-tag">10 minutes</span>
     </div>
-    <div class="stage" aria-label="Activity 1b stage"></div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="stage-label">Prompt</div>
+          <div class="stage-big">[ Activity 1b prompt ]</div>
+          <div class="stage-hint">[ instruction or scaffolding note ]</div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 14. Exit Ticket -->
-  <section class="slide" data-slide="exit">
+  <!-- ═══════════════════════════════════════════════════════
+       14. EXIT TICKET
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="exit" aria-label="Exit ticket">
     <div class="content">
-      <h1>Exit Ticket</h1>
-      <h2>5 min</h2>
+      <div class="label">Exit Ticket · 5 min</div>
+      <h1>[ Exit Ticket Title ]</h1>
+      <h2>[ subtitle placeholder ]</h2>
+      <p>[ Exit ticket framing — one or two sentences on what participants are reflecting on. ]</p>
+      <span class="time-tag">5 minutes</span>
     </div>
-    <div class="stage" aria-label="Exit ticket stage"></div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="stage-label">Reflect</div>
+          <div class="concept-stack">
+            <div class="concept-row" style="flex-direction:column;align-items:flex-start;gap:0;">
+              <div class="concept-title" style="margin-bottom:0;">[ Reflection prompt A ]</div>
+            </div>
+            <div class="concept-row" style="flex-direction:column;align-items:flex-start;gap:0;">
+              <div class="concept-title" style="margin-bottom:0;">[ Reflection prompt B ]</div>
+            </div>
+            <div class="concept-row" style="flex-direction:column;align-items:flex-start;gap:0;">
+              <div class="concept-title" style="margin-bottom:0;">[ Reflection prompt C ]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 15. Next Steps -->
-  <section class="slide" data-slide="nextsteps">
+  <!-- ═══════════════════════════════════════════════════════
+       15. NEXT STEPS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="nextsteps" aria-label="Next steps">
     <div class="content">
-      <h1>Next Steps</h1>
-      <h2>2.5 min</h2>
+      <div class="label">Next Steps · 2.5 min</div>
+      <h1>[ Next Steps Title ]</h1>
+      <h2>[ subtitle placeholder ]</h2>
+      <p>[ What participants do between sessions, upcoming workshops, how to stay connected. ]</p>
+      <span class="time-tag">2.5 minutes</span>
     </div>
-    <div class="stage" aria-label="Next steps stage"></div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center">
+        <div class="stage-inner">
+          <div class="stage-label">Keep going</div>
+          <div class="step-stack">
+            <div class="step-row"><div class="step-num">1</div><div class="step-text">[ Next step 1 ]</div></div>
+            <div class="step-row"><div class="step-num">2</div><div class="step-text">[ Next step 2 ]</div></div>
+            <div class="step-row"><div class="step-num">3</div><div class="step-text">[ Next step 3 ]</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 16. Resources -->
-  <section class="slide" data-slide="resources">
+  <!-- ═══════════════════════════════════════════════════════
+       16. RESOURCES
+  ═══════════════════════════════════════════════════════ -->
+  <section class="slide" data-slide="resources" aria-label="Resources">
     <div class="content">
-      <h1>Resources</h1>
+      <div class="label">Resources</div>
+      <h1>Links &amp; References</h1>
+      <h2>[ subtitle placeholder ]</h2>
+      <p>[ Petrarch: populate from cuny-ai-lab decks, zmuhls GitHub, ITP PowerPoint, and workshop prompts. ]</p>
     </div>
-    <div class="stage" aria-label="Resources stage"></div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-center" style="overflow-y:auto;align-items:flex-start;padding-top:clamp(16px,3vw,32px);">
+        <div class="stage-inner">
+          <ul class="res-list">
+            <li>
+              <a href="https://chat.ailab.gc.cuny.edu" target="_blank" rel="noopener">chat.ailab.gc.cuny.edu</a>
+              <div class="res-desc">CUNY AI Lab Sandbox (Open WebUI) — GLM 5, Kimi K2.5</div>
+            </li>
+            <li>
+              <a href="https://ailab.gc.cuny.edu/models" target="_blank" rel="noopener">ailab.gc.cuny.edu/models</a>
+              <div class="res-desc">Model notes and configuration guide</div>
+            </li>
+            <li>
+              <a href="https://github.com/cuny-ai-lab/creative-coding" target="_blank" rel="noopener">cuny-ai-lab/creative-coding</a>
+              <div class="res-desc">Creative Coding workshop — source deck, prompts, artifacts</div>
+            </li>
+            <li>
+              <a href="https://arxiv.org/html/2402.09750v2" target="_blank" rel="noopener">Xu et al., arXiv:2402.09750 (2024)</a>
+              <div class="res-desc">Reflection in Human–LLM Co-Creation for Creative Coding</div>
+            </li>
+            <li>
+              <a href="https://simonwillison.net/2025/Mar/19/vibe-coding/" target="_blank" rel="noopener">Willison, "Not all AI-assisted programming is vibe coding" (2025)</a>
+              <div class="res-desc">Deliberate vs no-review iteration</div>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener">[ GC ITP Git + GitHub slides — Petrarch to locate ]</a>
+              <div class="res-desc">Versioning + social coding workshop slides</div>
+            </li>
+            <li>
+              <a href="https://milwrite.github.io/quimbot/cail-workshop-1/" target="_blank" rel="noopener">milwrite.github.io/quimbot/cail-workshop-1/</a>
+              <div class="res-desc">This deck (live)</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
 </main>
 
 <script>
+  // ─────────────────────────────────────────────
+  // Deck controller
+  // ─────────────────────────────────────────────
+  'use strict';
   let idx = 0;
-  const slides = Array.from(document.querySelectorAll('section.slide'));
+  const slides  = Array.from(document.querySelectorAll('section.slide'));
+  const counter = document.getElementById('counter');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
 
-  function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
+  function clamp(n, lo, hi) { return Math.max(lo, Math.min(hi, n)); }
 
   function show(i) {
-    idx = clamp(i, 0, slides.length - 1);
-    slides.forEach((s, k) => s.classList.toggle('active', k === idx));
-    document.getElementById('counter').textContent = `${idx + 1} / ${slides.length}`;
+    const next = clamp(i, 0, slides.length - 1);
+    if (next === idx && slides[idx].classList.contains('active')) return;
+    slides[idx].classList.remove('active');
+    idx = next;
+    slides[idx].classList.add('active');
+    if (counter) counter.textContent = `${idx + 1} / ${slides.length}`;
+    if (btnPrev) btnPrev.disabled = idx === 0;
+    if (btnNext) btnNext.disabled = idx === slides.length - 1;
     history.replaceState(null, '', `#${idx + 1}`);
+    // Move focus into slide for screen readers (not into aria-hidden stage)
+    const focusTarget = slides[idx].querySelector('.content');
+    if (focusTarget) focusTarget.setAttribute('tabindex', '-1'), focusTarget.focus({ preventScroll: true });
   }
 
+  // Keyboard
   document.addEventListener('keydown', e => {
-    if (['ArrowRight','PageDown',' '].includes(e.key)) { e.preventDefault(); show(idx + 1); }
-    if (['ArrowLeft','PageUp'].includes(e.key)) { e.preventDefault(); show(idx - 1); }
+    if (['ArrowRight','PageDown',' '].includes(e.key) && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+      e.preventDefault(); show(idx + 1);
+    }
+    if (['ArrowLeft','PageUp'].includes(e.key) && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+      e.preventDefault(); show(idx - 1);
+    }
     if (e.key === 'Home') { e.preventDefault(); show(0); }
-    if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); }
+    if (e.key === 'End')  { e.preventDefault(); show(slides.length - 1); }
   });
 
-  let tx = 0, ty = 0;
+  // Buttons
+  if (btnPrev) btnPrev.addEventListener('click', () => show(idx - 1));
+  if (btnNext) btnNext.addEventListener('click', () => show(idx + 1));
+
+  // Swipe
+  let tx = 0, ty = 0, swipeActive = false;
   document.addEventListener('touchstart', e => {
-    if (e.touches.length !== 1) return;
-    tx = e.touches[0].clientX; ty = e.touches[0].clientY;
+    if (e.touches.length !== 1) { swipeActive = false; return; }
+    tx = e.touches[0].clientX; ty = e.touches[0].clientY; swipeActive = true;
+  }, { passive: true });
+  document.addEventListener('touchmove', e => {
+    if (!swipeActive || e.touches.length !== 1) return;
+    // cancel swipe if clearly vertical scroll
+    const dy = Math.abs(e.touches[0].clientY - ty);
+    const dx = Math.abs(e.touches[0].clientX - tx);
+    if (dy > dx * 1.5) swipeActive = false;
   }, { passive: true });
   document.addEventListener('touchend', e => {
+    if (!swipeActive) return;
     const t = e.changedTouches[0];
     const dx = t.clientX - tx, dy = t.clientY - ty;
-    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
     show(dx < 0 ? idx + 1 : idx - 1);
+    swipeActive = false;
   }, { passive: true });
 
+  // Hash navigation
   window.addEventListener('hashchange', () => {
     const m = location.hash.match(/^#(\d+)$/);
     if (m) show(parseInt(m[1], 10) - 1);
   });
 
+  // Init
   const m = location.hash.match(/^#(\d+)$/);
   show(m ? clamp(parseInt(m[1], 10) - 1, 0, slides.length - 1) : 0);
 </script>
