@@ -72,8 +72,11 @@ function noise(x, y) {
   return n - Math.floor(n);
 }
 
+let gearIdx = 0;
 function buildGear(x, y, r, teeth, variant) {
-  return { x, y, r, teeth, angle: Math.random() * Math.PI * 2, variant, speed: 0 };
+  const hue = (gearIdx * 47) % 360; // golden-angle hue spread
+  gearIdx++;
+  return { x, y, r, teeth, angle: Math.random() * Math.PI * 2, variant, speed: 0, hue };
 }
 
 let gears = [];
@@ -82,6 +85,7 @@ let chains = [];
 function rebuildSystem() {
   gears = [];
   chains = [];
+  gearIdx = 0;
   
   const S = Math.min(W, H);
   const cx = W / 2, cy = H / 2;
@@ -123,6 +127,7 @@ function rebuildSystem() {
   // Set master gear (largest)
   gears.sort((a, b) => b.r - a.r);
   gears[0].speed = baseSpeed;
+  propagateSpeeds();
 }
 
 function propagateSpeeds() {
@@ -166,7 +171,7 @@ function drawGearTooth(r, innerR, a0, toothSpan) {
 }
 
 function drawGear(g) {
-  const { x, y, r, teeth, angle, variant } = g;
+  const { x, y, r, teeth, angle, variant, hue } = g;
   const toothHeight = r * 0.18;
   const innerR = r - toothHeight;
   const toothSpan = (2 * Math.PI / teeth);
@@ -183,25 +188,33 @@ function drawGear(g) {
   }
   ctx.closePath();
   
-  // Metal gradient — subtle variations
+  // Glow
+  const glow = ctx.createRadialGradient(0, 0, innerR * 0.5, 0, 0, r * 1.6);
+  glow.addColorStop(0, `hsla(${hue},90%,55%,0.25)`);
+  glow.addColorStop(1, `hsla(${hue},90%,40%,0)`);
+  ctx.beginPath();
+  ctx.arc(0, 0, r * 1.8, 0, Math.PI * 2);
+  ctx.fillStyle = glow;
+  ctx.fill();
+
+  // Gear body gradient
   const bodyGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
-  const base = 40 + noise(x, y) * 30;
-  bodyGrad.addColorStop(0, `rgb(${base + 15}, ${base + 12}, ${base + 8})`);
-  bodyGrad.addColorStop(0.6, `rgb(${base}, ${base - 5}, ${base - 10})`);
-  bodyGrad.addColorStop(1, `rgb(${base - 20}, ${base - 25}, ${base - 30})`);
+  bodyGrad.addColorStop(0, `hsl(${hue},75%,48%)`);
+  bodyGrad.addColorStop(0.6, `hsl(${hue},80%,32%)`);
+  bodyGrad.addColorStop(1, `hsl(${hue},85%,18%)`);
   ctx.fillStyle = bodyGrad;
   ctx.fill();
-  
+
   // Edge highlight
-  ctx.strokeStyle = `rgba(80, 75, 70, 0.7)`;
-  ctx.lineWidth = 1.5;
+  ctx.strokeStyle = `hsl(${hue},100%,72%)`;
+  ctx.lineWidth = 2;
   ctx.stroke();
-  
+
   // Interior details based on variant
   if (variant === 1) {
     // Spoked wheel
     const spokeCount = Math.max(4, Math.floor(teeth / 5));
-    ctx.strokeStyle = `rgba(60, 55, 50, 0.8)`;
+    ctx.strokeStyle = `hsl(${hue},90%,70%)`;
     ctx.lineWidth = 2;
     for (let i = 0; i < spokeCount; i++) {
       const a = (i / spokeCount) * Math.PI * 2;
@@ -211,41 +224,41 @@ function drawGear(g) {
       ctx.stroke();
     }
   } else if (variant === 2) {
-    // Solid disc with texture
-    ctx.fillStyle = `rgba(35, 32, 28, 0.6)`;
+    // Solid disc
+    ctx.fillStyle = `hsla(${hue},70%,20%,0.7)`;
     ctx.beginPath();
     ctx.arc(0, 0, innerR * 0.8, 0, Math.PI * 2);
     ctx.fill();
   } else {
     // Standard — concentric rings
     for (let ring = 0.3; ring < 0.9; ring += 0.25) {
-      ctx.strokeStyle = `rgba(50, 45, 40, ${0.3 + ring * 0.3})`;
+      ctx.strokeStyle = `hsla(${hue},80%,65%,${0.2 + ring * 0.3})`;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.arc(0, 0, innerR * ring, 0, Math.PI * 2);
       ctx.stroke();
     }
   }
-  
+
   // Central hub
   const hubR = innerR * 0.18;
   ctx.beginPath();
   ctx.arc(0, 0, hubR, 0, Math.PI * 2);
   const hubGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, hubR);
-  hubGrad.addColorStop(0, 'rgb(55, 50, 45)');
-  hubGrad.addColorStop(1, 'rgb(25, 22, 18)');
+  hubGrad.addColorStop(0, `hsl(${hue},60%,55%)`);
+  hubGrad.addColorStop(1, `hsl(${hue},70%,25%)`);
   ctx.fillStyle = hubGrad;
   ctx.fill();
-  ctx.strokeStyle = 'rgba(70, 65, 60, 0.9)';
+  ctx.strokeStyle = `hsl(${hue},100%,75%)`;
   ctx.lineWidth = 1.5;
   ctx.stroke();
-  
+
   // Axle bolt
   ctx.beginPath();
   ctx.arc(0, 0, hubR * 0.35, 0, Math.PI * 2);
-  ctx.fillStyle = 'rgb(45, 42, 38)';
+  ctx.fillStyle = `hsl(${hue},80%,85%)`;
   ctx.fill();
-  ctx.strokeStyle = 'rgba(60, 55, 50, 0.8)';
+  ctx.strokeStyle = `hsl(${hue},90%,90%)`;
   ctx.lineWidth = 1;
   ctx.stroke();
   
@@ -258,14 +271,14 @@ function drawChainLink(x, y, angle, size) {
   ctx.rotate(angle);
   
   // Outer link
-  ctx.strokeStyle = 'rgba(80, 75, 68, 0.7)';
+  ctx.strokeStyle = 'rgba(210, 200, 160, 0.8)';
   ctx.lineWidth = 1.5;
   ctx.beginPath();
   ctx.ellipse(0, 0, size * 1.8, size * 0.9, 0, 0, Math.PI * 2);
   ctx.stroke();
-  
-  // Inner shadows
-  ctx.strokeStyle = 'rgba(40, 38, 35, 0.6)';
+
+  // Inner highlight
+  ctx.strokeStyle = 'rgba(255, 240, 180, 0.5)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.ellipse(0, 0, size * 1.3, size * 0.6, 0, 0, Math.PI * 2);
