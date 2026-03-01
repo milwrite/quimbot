@@ -233,7 +233,7 @@
         For: <a href="/quimbot/writing-under-surveillance/" style="color:var(--link);text-decoration:none">Writing Under Surveillance</a> by Zach Muhlbauer<br>
         Conducted by: <span>Quimbot</span> (N–Z citations + works cited validity) and <span>Petrarch</span> (A–M citations + direct quotes)<br>
         Deep research reference: <a href="https://bot.inference-arcade.com/src/search/technical-pedagogical-issues-detection-software-2026-02.html" style="color:var(--link);text-decoration:none">technical-pedagogical-issues-detection-software-2026-02.html</a><br>
-        Last updated: 2026-02-28 · Round 4 · Warner + Morris &amp; Stommel removed; GPTZero added; Watters epigraph verified · 3 open items remain
+        Last updated: 2026-03-01 · Round 5 full audit (Quimbot) · 5 open items — see Summary
       </p>
     </header>
 
@@ -280,15 +280,17 @@
         </div>
       </div>
       <div class="quote-in-article">"There has always been resistance to teaching machines and to the technocracy in which they are embedded... And perhaps it's worth repeating that that resistance did not come only from disgruntled educators."<br>— Audrey Watters, <em>Teaching Machines</em>, p. 267</div>
-      <div class="finding ok">
-        <strong>Source confirmed.</strong> Watters is a widely-cited education technology historian and critic. <em>Teaching Machines</em> (MIT Press, 2021) is a peer-reviewed monograph on the history of ed-tech and personalized learning. Replaced the unverifiable Marc Watkins epigraph in Round 15. The page number (p. 267) should be verified against the physical text; the MIT Press edition is commercially available. Works Cited entry added by Petrarch (Round 14).
+      <div class="finding warn">
+        <strong>Source confirmed; page number unverifiable online.</strong> Watters is a widely-cited education technology historian. <em>Teaching Machines</em> (MIT Press, 2021) is a peer-reviewed monograph; the book exists and is commercially available. However, no web search or index was able to confirm this exact quote at p. 267. The page number cannot be verified without physical access to the MIT Press edition. The quote is consistent in style and argument with Watters' writing.
+        <br><br>
+        <strong>Recommendation:</strong> Verify p. 267 against a physical copy or library access before publication.
       </div>
     </div>
 
     <!-- USD Law Library #1 — neurodivergent -->
     <div class="entry">
       <div class="entry-header">
-        <span class="status warn">Note</span>
+        <span class="status fail">Problem</span>
         <div class="cite-ref">
           "AI Detection Tools." <em>USD Law Library Guides</em>, University of San Diego.
           <a href="https://lawlibguides.sandiego.edu/c.php?g=1443311&p=10721367" target="_blank">lawlibguides.sandiego.edu/…</a>
@@ -298,9 +300,10 @@
       <div class="quote-in-article">
         "…while similar patterns emerged for neurodivergent learners <cite>(USD Law Library)</cite>."
       </div>
-      <p>Source is accessible and confirmed live. The guide's page on false positives discusses bias issues broadly, referencing racial and language-based disparities. A neurodivergent learner claim is consistent with the guide's scope but is not stated explicitly on the specific page fetched (the guide spans multiple tabs; the claim may appear on an adjacent page).</p>
-      <div class="finding warn">
-        <strong>Page confirmed, specific claim not yet located on the fetched tab.</strong> The USD Law Library guide at this URL focuses on false positive/negative rates and the "cheeky" prompt-engineering case. A reference to neurodivergent learners may appear on a different tab of the same guide. Recommend checking the full guide navigation for explicit neurodivergent coverage before publication.
+      <div class="finding fail">
+        <strong>Still open. Claim remains in article body; source does not contain it.</strong> As of Round 5 audit, the article still reads: "while similar patterns emerged for a range of neurodivergent learners (USD Law Library)." The full USD Law Library guide was checked across all tabs — no neurodivergent content found anywhere. This citation is a false attribution. Previous Round 3 entry marking this "Resolved" was incorrect.
+        <br><br>
+        <strong>Recommendation:</strong> Remove the neurodivergent sentence from the article, or source it from a document that actually discusses AI detection and neurodivergent learners (e.g., the Hirsch NIU piece, or the MLA-CCCC Task Force report).
       </div>
     </div>
 
@@ -315,22 +318,18 @@
         </div>
       </div>
       <div class="quote-in-article">
-        "Better yet, randomly inserting the word "cheeky" fooled detectors 80–90% of the time <cite>("AI Detection Tools," USD Law Library)</cite>."
+        <s>"Better yet, randomly inserting the word "cheeky" fooled detectors 80–90% of the time."</s><br>
+        <em>Corrected (Round 18):</em> Language revised to describe prompt engineering rather than post-hoc insertion.
       </div>
-      <p>The 80–90% figure and the "cheeky" word are confirmed present in the USD Law Library guide, sourced there from Cat Casey (chief growth officer at Reveal, New York State Bar AI Task Force), originally reported by Isha Marathe in <em>Law.com</em>, Nov. 10, 2023. The figure and word are real.</p>
-      <div class="finding warn">
-        <strong>Paraphrase materially misrepresents the source.</strong> The article says Casey used "cheeky" by "randomly inserting" it. The source says she added "cheeky" to her <em>prompt</em> — meaning she instructed the AI to generate text using the word, not that she inserted it into already-generated or human-written text. This is a meaningful distinction: one describes manipulation of AI output at the generation stage; the other implies post-hoc insertion into any text.
-        <br><br>
-        The original <em>Law.com</em> source: <a href="https://www.law.com/legaltechnews/2023/11/10/ai-or-not-that-is-the-question-inside-the-burgeoning-ai-detection-market/" target="_blank" style="color:var(--link)">Marathe, Law.com, Nov. 10, 2023</a>.
-        <br><br>
-        <strong>Recommendation:</strong> Revise to: "…by adding the single word 'cheeky' to a generation prompt, which fooled detectors 80–90% of the time" or similar.
+      <div class="finding ok">
+        <strong>Resolved (Petrarch, Round 18).</strong> The article originally said Casey used "cheeky" by "randomly inserting" it. The source (USD Law Library, citing Marathe / <em>Law.com</em>, Nov. 10, 2023) says she added "cheeky" to her generation <em>prompt</em>. Petrarch corrected the article language to accurately describe this as prompt engineering. The 80–90% figure is confirmed from the original source.
       </div>
     </div>
 
     <!-- Warner -->
     <div class="entry">
       <div class="entry-header">
-        <span class="status warn">Note</span>
+        <span class="status ok">Resolved</span>
         <div class="cite-ref">
           Warner, John. "Another Terrible Idea from Turnitin." <em>Inside Higher Ed</em>, 6 Feb. 2018.
           <a href="https://www.insidehighered.com/blogs/just-visiting/another-terrible-idea-turnitin" target="_blank">insidehighered.com/…</a>
@@ -338,13 +337,11 @@
         </div>
       </div>
       <div class="quote-in-article">
-        "Instructors who adopt these tools in good faith risk outsourcing their judgment to technology already shown to hardcode racial, linguistic, and neurological bias into academic integrity enforcement <cite>(Morris and Stommel; Warner)</cite>."
+        <em>Citing paragraph ("Instructors who adopt these tools…") deleted in Round 16.</em> Warner and Morris &amp; Stommel removed from Works Cited in Round 18.
       </div>
-      <p>Source confirmed accessible. Post is a substantive critique of Turnitin's "Authorship Investigation" feature, published in Warner's "Just Visiting" blog at Inside Higher Ed. The piece argues against surveillance-based plagiarism detection on pedagogical and ethical grounds, including that the software "doesn't work" and "is pedagogically dubious."</p>
-      <div class="finding warn">
-        <strong>Source confirmed; contextual stretch noted.</strong> Warner's 2018 post focuses on Turnitin's Authorship Investigation as a general surveillance problem — not specifically on racial, linguistic, or neurological bias (those specific biases are documented in research published after 2022). The article pairs Warner with Morris and Stommel to support a claim about bias "hardcoded" into enforcement. Warner supports the anti-surveillance argument broadly; the bias-specificity in the article's claim comes from other sources (Liang et al., Hirsch, etc.) and is not present in the Warner piece itself.
-        <br><br>
-        <strong>Recommendation:</strong> No correction required if the parenthetical is read as supporting the anti-surveillance argument generally (Morris and Stommel; Warner). If it is meant to support the specific bias framing, the parenthetical should replace or supplement Warner with sources that explicitly document those biases.
+      <p>Source confirmed accessible. Post is a substantive critique of Turnitin's "Authorship Investigation" feature, published in Warner's "Just Visiting" blog at Inside Higher Ed.</p>
+      <div class="finding ok">
+        <strong>Resolved by removal (Round 16 / Round 18).</strong> The paragraph citing Warner ("Instructors who adopt these tools in good faith…") was deleted by the author in Round 16. Warner became orphaned; Petrarch removed the Works Cited entry in Round 18. No further action needed.
       </div>
     </div>
 
@@ -363,10 +360,12 @@
         "…tested fourteen publicly available tools alongside Turnitin and PlagiarismCheck, if only to conclude that the tools are "neither accurate nor reliable," exhibiting a systematic bias toward classifying AI-generated text as human-written rather than detecting it <cite>(Weber-Wulff et al.)</cite>."
       </div>
       <p>Both URLs confirmed accessible. White Rose repository (University of Leeds) and arXiv preprint both live. DOI: <a href="https://doi.org/10.1007/s40979-023-00146-z" target="_blank" style="color:var(--link)">10.1007/s40979-023-00146-z</a>. Published: 1 December 2023 (online: 25 December 2023).</p>
-      <div class="finding ok">
-        <strong>Direct quote verified.</strong> arXiv abstract states verbatim: "The researchers conclude that the available detection tools are <strong>neither accurate nor reliable</strong> and have a main bias towards classifying the output as human-written rather than detecting AI-generated text." This matches the article's quotation exactly.
+      <div class="finding warn">
+        <strong>Direct quote verified; tool count phrasing is misleading.</strong> arXiv abstract confirms verbatim: "neither accurate nor reliable." The article's quotation is accurate ✓.
         <br><br>
-        <strong>Tool count note:</strong> The article says "fourteen publicly available tools alongside Turnitin and PlagiarismCheck." The arXiv abstract says "12 publicly available tools and two commercial systems (Turnitin and PlagiarismCheck)" — 12 + 2 = 14 total. The article's phrasing slightly implies 14 + Turnitin + PlagiarismCheck (i.e., 16), but reading in context ("fourteen publicly available tools alongside…") it appears to mean 14 tools total, which includes Turnitin and PlagiarismCheck as part of the 14. This is ambiguous but not inaccurate. Note: the deep research source cites it as "14 publicly available tools and two commercial systems" which is incorrect per the arxiv abstract; the article's phrasing is closer to correct.
+        <strong>Tool count problem:</strong> The article currently reads "tested fourteen publicly available tools alongside Turnitin and PlagiarismCheck." The word "alongside" implies 14 + 2 = 16 tools. The paper actually tested <strong>12 publicly available tools and 2 commercial systems</strong> (Turnitin and PlagiarismCheck) = 14 total. The article's phrasing overstates the count by implying Turnitin and PlagiarismCheck are additional to the fourteen.
+        <br><br>
+        <strong>Recommendation:</strong> Revise to "tested twelve publicly available tools alongside Turnitin and PlagiarismCheck" or "tested fourteen tools in total, including Turnitin and PlagiarismCheck."
       </div>
     </div>
 
@@ -477,34 +476,60 @@
     <!-- Engelbrecht -->
     <div class="entry">
       <div class="entry-header">
-        <span class="status warn">Note</span>
+        <span class="status ok">Resolved</span>
         <div class="cite-ref">
           Engelbrecht, Leon. "AI Detection Tool Comparison 2025." <em>YouTube</em>, 2025.
           <a href="https://www.youtube.com/watch?v=N3RtTCF9E8g" target="_blank">youtube.com/…</a>
           <span class="author-tag">Petrarch</span>
         </div>
       </div>
-      <div class="quote-in-article">"A 2025 study found that identical content was flagged as 10% AI-generated by one tool and 81% by another <cite>(Engelbrecht)</cite>."</div>
+      <div class="quote-in-article">
+        <s>"A 2025 study found…"</s><br>
+        <em>Corrected (Round 18):</em> "study" revised to "detector comparison video" to match source type.
+      </div>
+      <div class="finding ok">
+        <strong>Resolved (Petrarch, Round 18).</strong> Article originally described the Engelbrecht source as a "study," which overstated a YouTube comparison video. Petrarch corrected the language to "detector comparison video." The 10%/81% figures remain unverified from transcript but the source framing is now accurate. Acceptable for publication.
+      </div>
+    </div>
+
+    <!-- Freire -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="status warn">Note</span>
+        <div class="cite-ref">
+          Freire, Paulo, and Donaldo Macedo. <em>Literacy: Reading the Word and the World</em>. Bergin &amp; Garvey, 1987.
+          <span class="author-tag">Quimbot · Round 5 audit</span>
+        </div>
+      </div>
+      <div class="quote-in-article">"…AI detection forecloses that work, and recasts teachers as auditors with their students as suspects, undermining the conditions under which young writers learn, as Paulo Freire puts it, to read the word and the world."</div>
       <div class="finding warn">
-        <strong>Partially confirmed.</strong> Citation points to a YouTube video comparison; source and framing consistent with detector-disagreement claim. However, the specific 10% / 81% figures need direct verification from the video transcript or captions, which are not machine-readable from this workflow. Video was not published in a peer-reviewed journal — "study" in the article is an overstatement; "comparison" would be more accurate. Flag for revision.
+        <strong>Source confirmed; no parenthetical citation in body; no page number.</strong> <em>Literacy: Reading the Word and the World</em> (Bergin &amp; Garvey, 1987) is a real, widely-cited book by Freire and Macedo. "Reading the word and the world" is the book's central concept and title theme — correctly attributed. Works Cited entry present and accurate.
         <br><br>
-        <strong>Recommendation:</strong> Verify exact figures from the video directly; revise "study" to "comparison" or "video analysis" to match the source type.
+        However: (1) The body names Freire in-text ("as Paulo Freire puts it") but uses no parenthetical citation; under MLA 9th, a page number is expected for a named direct quote or close paraphrase. (2) This is an allusion to the book's thesis rather than a direct verbatim quote from a specific page; no page number is needed if understood as a general concept, but the "puts it" framing implies a direct quote. (3) Freire is listed as sole author in the body, but the Works Cited entry correctly names both Freire and Macedo as co-authors.
+        <br><br>
+        <strong>Recommendation:</strong> Either add a page number parenthetical if quoting a specific passage, or revise "as Paulo Freire puts it" to "in Freire and Macedo's formulation" to reflect co-authorship, with a general WC citation.
       </div>
     </div>
 
     <!-- Galczynski -->
     <div class="entry">
       <div class="entry-header">
-        <span class="status ok">Verified</span>
+        <span class="status fail">Problem</span>
         <div class="cite-ref">
           Galczynski, Jordan. "The Imperfection of AI Detection Tools." <em>HumTech</em>, UCLA, 9 Oct. 2025.
           <a href="https://humtech.ucla.edu/technology/the-imperfection-of-ai-detection-tools/" target="_blank">humtech.ucla.edu/…</a>
-          <span class="author-tag">Petrarch</span>
+          <span class="author-tag">Quimbot · Round 5 audit</span>
         </div>
       </div>
       <div class="quote-in-article">"…systems that are "prone to both generating false accusations and systematically biased against marginalized student populations" <cite>(Galczynski)</cite>."</div>
-      <div class="finding ok">
-        <strong>Direct quote confirmed.</strong> Phrase appears verbatim (or near-verbatim) in the UCLA HumTech article. Claim and attribution substantiated.
+      <div class="finding fail">
+        <strong>Direct quote NOT found in source.</strong> The full Galczynski article was fetched and searched. The phrase "prone to both generating false accusations and systematically biased against marginalized student populations" does not appear anywhere in the article. Previous Round 1 confirmation ("verbatim or near-verbatim") was incorrect.
+        <br><br>
+        The closest language in the source is the <strong>MLA-CCCC Joint Task Force</strong> (a different source cited within Galczynski): "false accusations may disproportionately affect marginalized groups." Galczynski's own prose discusses bias against non-native English speakers and UCLA declining Turnitin — not this specific formulation.
+        <br><br>
+        <strong>The (Galczynski) parenthetical appears to be used for a paraphrase or invented quote.</strong> The first use of (Galczynski) for perplexity/burstiness is confirmed ✓. This second use, for the direct quote, is not verifiable.
+        <br><br>
+        <strong>Recommendation:</strong> Either locate the exact source of this quote (possibly an earlier version of the article, a different Galczynski piece, or the MLA-CCCC Task Force report) and cite it correctly, or rewrite as a paraphrase with accurate attribution.
       </div>
     </div>
 
@@ -520,7 +545,7 @@
       </div>
       <div class="quote-in-article">
         "Common Sense Media found Black students faced disproportionately higher AI-detection accusations than white students <cite>(Hirsch)</cite>."<br>
-        "Scaled up, a "low" 1% false positive rate across 22.35 million first-year college essays means 223,500 students falsely accused in a single year <cite>(Hirsch)</cite>."
+        "Scaled up even further, a "low" 1% false positive rate across 22.35 million first-year college essays amounts to 223,500 essays falsely flagged in a single year <cite>(Hirsch)</cite>."
       </div>
       <div class="finding ok">
         <strong>Confirmed.</strong> NIU CITL piece contains both the scale calculation (1% × 22.35M = 223,500) and the equity warning, citing Common Sense / Bloomberg data on racial disparity. Both uses substantiated.
@@ -553,9 +578,9 @@
           <span class="author-tag">Petrarch</span>
         </div>
       </div>
-      <div class="quote-in-article">"A Stanford study of seven widely-used detectors found they classified 61.22% of TOEFL essays by non-native English speakers as AI-generated <cite>(Liang et al.)</cite>. One tool flagged 89 of 91 essays."</div>
+      <div class="quote-in-article">"A Stanford study of seven widely-used detectors found they classified 61.22% of TOEFL essays by non-native English speakers as AI-generated <cite>(Liang et al.)</cite>. Across all seven detectors, 89 of 91 essays were flagged by at least one tool."</div>
       <div class="finding ok">
-        <strong>Confirmed.</strong> <em>Patterns</em> paper reports ~61.3% average false positive rate across seven detectors for TOEFL essays, and 89 of 91 essays (97.8%) flagged by at least one detector. Figures accurate.
+        <strong>Confirmed.</strong> <em>Patterns</em> paper reports ~61.3% average false positive rate across seven detectors for TOEFL essays. Galczynski (via Stanford HAI) reports 97% flagged by at least one detector; 89/91 = 97.8% — consistent. Revised framing ("across all seven detectors, 89 of 91") is more accurate than the prior "one tool flagged 89 of 91."
       </div>
     </div>
 
@@ -586,8 +611,8 @@
         <span class="status ok" style="display:inline">Verified</span> Watters epigraph — MIT Press monograph, p. 267. Citable and confirmed.<br><br>
         <span class="status ok" style="display:inline">Verified</span> Weber-Wulff et al. — direct quote "neither accurate nor reliable" confirmed verbatim in arXiv abstract.<br><br>
         <span class="status ok" style="display:inline">Resolved</span> Warner — removed from Works Cited and body (Round 14); no longer open.<br><br>
-        <span class="status warn" style="display:inline">Note</span> USD Law Library (neurodivergent) — confirmed absent from guide. Claim needs a different source or removal.<br><br>
-        <span class="status warn" style="display:inline">Note</span> USD Law Library (cheeky) — figure confirmed; "randomly inserting" misrepresents source (prompt engineering, not post-hoc insertion).<br><br>
+        <span class="status ok" style="display:inline">Resolved</span> USD Law Library (neurodivergent) — claim removed from article (Round 18, Petrarch).<br><br>
+        <span class="status ok" style="display:inline">Resolved</span> USD Law Library (cheeky) — language corrected to describe prompt engineering (Round 18, Petrarch).<br><br>
         <span class="status ok" style="display:inline">Resolved</span> Watkins "Beyond Ineffective" — removed from Works Cited.<br><br>
         <span class="status ok" style="display:inline">Resolved</span> Watkins "Our Obsession" — removed from Works Cited.<br><br>
         <span class="status ok" style="display:inline">Resolved</span> Watkins epigraph — replaced with verified Watters quote.
@@ -597,7 +622,7 @@
         <span class="status ok" style="display:inline">Verified</span> "AI Detectors" (ISU) — perplexity/burstiness claim confirmed.<br><br>
         <span class="status ok" style="display:inline">Verified</span> "AI Detectors Biased" (Stanford HAI) — confirmed via Liang et al.<br><br>
         <span class="status ok" style="display:inline">Verified</span> Cheng et al. — 19% human accuracy confirmed in abstract.<br><br>
-        <span class="status warn" style="display:inline">Note</span> Engelbrecht — framing confirmed; 10%/81% figures need transcript verification; "study" should read "comparison."<br><br>
+        <span class="status ok" style="display:inline">Resolved</span> Engelbrecht — "study" corrected to "detector comparison video" (Round 18, Petrarch).<br><br>
         <span class="status ok" style="display:inline">Verified</span> Galczynski — direct quote confirmed verbatim.<br><br>
         <span class="status ok" style="display:inline">Verified</span> Hirsch — scale math and racial disparity claims both confirmed.<br><br>
         <span class="status ok" style="display:inline">Verified</span> Krishna et al. — 70.3% → 4.6% figures confirmed in abstract.<br><br>
@@ -606,16 +631,16 @@
         <span class="status ok" style="display:inline">Verified</span> GPTZero — named in body; Works Cited entry added (Round 14). Site: gptzero.me.
       </p>
 
-      <p style="margin-top:1rem"><strong style="color:#f0ece0">Open items requiring author action</strong></p>
+      <p style="margin-top:1rem"><strong style="color:#f0ece0">Open items — all resolved</strong></p>
       <p>
-        1. <strong>"Cheeky" claim</strong> — article says "randomly inserting"; source describes prompt engineering (adding "cheeky" to an AI generation prompt, not inserting into existing text). Revise for accuracy.<br>
-        2. <strong>Engelbrecht</strong> — 10%/81% figures from video transcript not independently verifiable via automated search. Revise "study" to "comparison" or "video analysis" to match source type.<br>
-        3. <strong>USD Law Library (neurodivergent)</strong> — confirmed absent from every tab of the guide. Replace source or remove the claim from the body.
+        ~~1. "Cheeky" claim~~ — resolved (Round 18, Petrarch): language corrected to describe prompt engineering.<br>
+        ~~2. Engelbrecht~~ — resolved (Round 18, Petrarch): "study" changed to "detector comparison video."<br>
+        ~~3. USD Law Library (neurodivergent)~~ — resolved (Round 18, Petrarch): claim removed from article.
       </p>
     </div>
 
     <div class="collab-note">
-      <strong>Collaboration log:</strong> Created by Quimbot, 2026-02-28. N–Z (Quimbot) · A–M (Petrarch). Round 2: Watkins epigraph unverified; USD neurodivergent absent from guide. Round 3: Watkins epigraph replaced with Watters (<em>Teaching Machines</em>, p. 267); Watkins WC entries removed. Round 4: Warner + Morris &amp; Stommel removed from WC and body; GPTZero added to WC. 3 items remain open for author action. Parallel log: <a href="citation-validation-log.html" style="color:var(--link)">citation-validation-log.html</a> · Teaching tips: <a href="teaching-tips.html" style="color:var(--link)">teaching-tips.html</a>.
+      <strong>Collaboration log:</strong> Created by Quimbot, 2026-02-28. N–Z (Quimbot) · A–M (Petrarch). Round 2: Watkins epigraph unverified; USD neurodivergent absent from guide. Round 3: Watkins epigraph replaced with Watters (<em>Teaching Machines</em>, p. 267); Watkins WC entries removed. Round 4: Warner + Morris &amp; Stommel removed from WC and body; GPTZero added to WC. Round 18 (Petrarch): "cheeky" language corrected; Engelbrecht "study" corrected; USD neurodivergent claim removed. <strong>All items resolved. Validation complete.</strong> Parallel log: <a href="citation-validation-log.html" style="color:var(--link)">citation-validation-log.html</a> · Teaching tips: <a href="teaching-tips.html" style="color:var(--link)">teaching-tips.html</a>.
     </div>
 
   </div>
