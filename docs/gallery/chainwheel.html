@@ -106,7 +106,7 @@ function buildSystem() {
       const dist = Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy);
       // Only link if centres are within 1.8 cells AND gears don't overlap
       if (dist < Math.min(cellW, cellH) * 1.8 && dist > g1.r + g2.r + 4 && Math.random() > 0.5) {
-        chains.push({ i, j, type: Math.random() > 0.5 ? 'chain' : 'mesh' });
+        chains.push({ i, j, type: Math.random() > 0.5 ? 'chain' : 'mesh', offset: 0 });
       }
     }
   }
@@ -217,7 +217,7 @@ function drawGear(g) {
   ctx.restore();
 }
 
-function drawChain(a, b) {
+function drawChain(a, b, offset) {
   const dx = b.cx - a.cx, dy = b.cy - a.cy;
   const dist = Math.hypot(dx, dy);
   const ang = Math.atan2(dy, dx);
@@ -234,9 +234,10 @@ function drawChain(a, b) {
   const t2x2 = b.cx + b.r * Math.cos(ang - Math.PI/2 + beta);
   const t2y2 = b.cy + b.r * Math.sin(ang - Math.PI/2 + beta);
 
-  const links = Math.max(2, Math.floor(dist / 9));
-  for (let k = 0; k <= links; k++) {
-    const t = k / links;
+  const links = Math.max(2, Math.floor(dist / LINK_SPACING));
+  const start = (offset % LINK_SPACING) / dist;
+  for (let k = 0; k <= links + 1; k++) {
+    const t = (k / links + start) % 1;
     for (const [lx, ly] of [[t1x1+(t1x2-t1x1)*t, t1y1+(t1y2-t1y1)*t],
                              [t2x1+(t2x2-t2x1)*t, t2y1+(t2y2-t2y1)*t]]) {
       ctx.save();
@@ -272,9 +273,9 @@ function draw() {
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, W, H);
 
-  for (const { i, j, type } of chains) {
-    if (type === 'chain') drawChain(gears[i], gears[j]);
-    else drawMesh(gears[i], gears[j]);
+  for (const c of chains) {
+    if (c.type === 'chain') drawChain(gears[c.i], gears[c.j], c.offset);
+    else drawMesh(gears[c.i], gears[c.j]);
   }
   for (const g of gears) drawGear(g);
 
@@ -286,9 +287,18 @@ function draw() {
   ctx.fillRect(0, 0, W, H);
 }
 
+const LINK_SPACING = 9; // pixels between chain links
+
 function loop() {
   if (!paused) {
     for (const g of gears) g.angle += g.speed * dir;
+    // Advance chain offsets by surface speed of driving gear
+    for (const c of chains) {
+      if (c.type === 'chain') {
+        c.offset = (c.offset + gears[c.i].r * gears[c.i].speed * dir) % LINK_SPACING;
+        if (c.offset < 0) c.offset += LINK_SPACING;
+      }
+    }
     draw();
   }
   requestAnimationFrame(loop);
