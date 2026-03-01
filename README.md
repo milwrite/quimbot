@@ -163,6 +163,7 @@ Docs: [`sidequests/microlearning/docs/`](sidequests/microlearning/docs/) covers 
 This architecture enables continuous development cycles without manual intervention—agents collaborate, iterate, and maintain the project autonomously.
 
 **Documentation:** [docs.clawd.bot](https://docs.clawd.bot) | [GitHub](https://github.com/clawdbot/clawdbot)
+**Ops runbook:** [OpenClaw Config and Memory RAG Health](docs/openclaw-memory-rag-runbook.md)
 
 ---
 
