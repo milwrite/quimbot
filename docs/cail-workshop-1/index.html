@@ -419,11 +419,37 @@
     <div class="content">
       <div class="label">Concept</div>
       <h1>Inference as Coding Scaffold</h1>
-      <h2>[ subtitle placeholder ]</h2>
-      <p>[ Content to be added — how AI inference functions as a scaffold for coding. Petrarch: pull from cuny-ai-lab resources + vibe coding workshop materials. ]</p>
+      <h2>Prompts as prototypes — Karpathy, Feb 2025</h2>
+      <p>Inference closes the gap between intention and implementation. You describe what you want; the model writes the syntax. The code becomes legible because you steered it.</p>
+      <p>Three modes, increasing control: one-shot generation → iterative refinement → constraint-based authorship. Each round, you move from interpreter to architect.</p>
     </div>
-    <div class="stage">
-      <iframe src="../gallery/flowfield.html" title="Flow field visualization" aria-hidden="true"></iframe>
+    <div class="stage stageCenter">
+      <div class="stageInner" style="width:90%;">
+        <div class="stageLabel">Spectrum of control</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="padding:12px 16px;border:1px solid var(--stroke);border-radius:8px;display:flex;align-items:center;gap:14px;">
+            <div style="width:10px;height:10px;border-radius:50%;background:#3a7bd5;flex-shrink:0;"></div>
+            <div>
+              <div style="font-size:clamp(13px,1.4vw,16px);font-weight:600;">One-shot</div>
+              <div style="font-size:clamp(11px,1.2vw,13px);color:var(--muted);margin-top:2px;">Generate once. Observe what the model assumes.</div>
+            </div>
+          </div>
+          <div style="padding:12px 16px;border:1px solid var(--stroke);border-radius:8px;display:flex;align-items:center;gap:14px;">
+            <div style="width:10px;height:10px;border-radius:50%;background:#7b5bd5;flex-shrink:0;"></div>
+            <div>
+              <div style="font-size:clamp(13px,1.4vw,16px);font-weight:600;">Iterative</div>
+              <div style="font-size:clamp(11px,1.2vw,13px);color:var(--muted);margin-top:2px;">Generate → test → describe → request one change → repeat.</div>
+            </div>
+          </div>
+          <div style="padding:12px 16px;border:1px solid var(--stroke);border-radius:8px;display:flex;align-items:center;gap:14px;">
+            <div style="width:10px;height:10px;border-radius:50%;background:#5bd5a0;flex-shrink:0;"></div>
+            <div>
+              <div style="font-size:clamp(13px,1.4vw,16px);font-weight:600;">Constraint-based</div>
+              <div style="font-size:clamp(11px,1.2vw,13px);color:var(--muted);margin-top:2px;">Write the rules, not the request. You are the architect.</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -434,11 +460,27 @@
     <div class="content">
       <div class="label">Concept</div>
       <h1>Problematics of Agentic Coding</h1>
-      <h2>[ subtitle placeholder ]</h2>
-      <p>[ Content to be added — critical framing of AI-generated code, oversight, review practices. Petrarch: pull from zmuhls GitHub + cuny-ai-lab materials. ]</p>
+      <h2>No-review vs deliberate iteration</h2>
+      <p>"Vibe coding" (Karpathy) means accepting output without reading it. It moves fast. It also accumulates technical debt invisibly — the model's assumptions become load-bearing.</p>
+      <p>Decomposing tasks into smaller subtasks increases the number of decision points where you can intervene, evaluate, and redirect. More checkpoints means more deliberate output. <span style="color:var(--muted);font-size:0.9em;">— Xu et al., 2024</span></p>
     </div>
-    <div class="stage">
-      <iframe src="../gallery/lorenz.html" title="Lorenz attractor" aria-hidden="true"></iframe>
+    <div class="stage stageCenter">
+      <div class="stageInner" style="width:90%;">
+        <div class="stageLabel">The diagnostic question</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="padding:14px 16px;border-left:3px solid #d5453a;border-radius:0 8px 8px 0;background:rgba(213,69,58,0.07);font-size:clamp(13px,1.4vw,16px);line-height:1.5;">
+            <strong>No-review mode</strong><br>
+            <span style="color:var(--muted);">Accept output. Run it. Move on. Fast but opaque.</span>
+          </div>
+          <div style="padding:14px 16px;border-left:3px solid #3a7bd5;border-radius:0 8px 8px 0;background:rgba(58,123,213,0.07);font-size:clamp(13px,1.4vw,16px);line-height:1.5;">
+            <strong>Deliberate mode</strong><br>
+            <span style="color:var(--muted);">Read. Test. Describe the gap. Request one change. Repeat.</span>
+          </div>
+          <div style="padding:14px 16px;border:1px solid var(--stroke);border-radius:8px;font-size:clamp(12px,1.3vw,14px);color:var(--muted);">
+            Ask: <em>what did the model assume?</em> That's the beginning of oversight.
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -660,27 +702,35 @@
     </div>
     <div class="stage stageCenter" style="overflow-y:auto;">
       <div class="stageInner" style="max-width:90%;width:100%;">
-        <div class="stageLabel">Placeholder — resources to be added</div>
+        <div class="stageLabel">Links &amp; Sources</div>
         <ul class="res-list">
           <li>
             <a href="https://github.com/cuny-ai-lab/creative-coding" target="_blank">cuny-ai-lab/creative-coding</a>
-            <div class="res-desc">Workshop source deck and prompts</div>
+            <div class="res-desc">Creative Coding with GenAI workshop — source deck, prompts, artifacts</div>
+          </li>
+          <li>
+            <a href="https://chat.ailab.gc.cuny.edu" target="_blank">chat.ailab.gc.cuny.edu</a>
+            <div class="res-desc">CUNY AI Lab Sandbox (Open WebUI) — GLM 5, Kimi K2.5</div>
           </li>
           <li>
             <a href="https://ailab.gc.cuny.edu/models" target="_blank">ailab.gc.cuny.edu/models</a>
-            <div class="res-desc">CAIL model notes (GLM 5, Kimi K2.5)</div>
+            <div class="res-desc">Model notes and configuration guide</div>
           </li>
           <li>
-            <a href="#" target="_blank">[ ITP Git + GitHub PowerPoint — Petrarch to locate ]</a>
-            <div class="res-desc">GC ITP slides on versioning and collaboration</div>
+            <a href="https://arxiv.org/html/2402.09750v2" target="_blank">Xu et al., arXiv:2402.09750 (2024)</a>
+            <div class="res-desc">Reflection in Human–LLM Co-Creation for Creative Coding</div>
           </li>
           <li>
-            <a href="#" target="_blank">[ zmuhls GitHub — Petrarch to surface relevant repos ]</a>
-            <div class="res-desc">Related course materials and tools</div>
+            <a href="https://simonwillison.net/2025/Mar/19/vibe-coding/" target="_blank">Willison, "Not all AI-assisted programming is vibe coding" (2025)</a>
+            <div class="res-desc">Deliberate vs. no-review iteration</div>
           </li>
           <li>
-            <a href="https://tools.ailab.gc.cuny.edu/" target="_blank">tools.ailab.gc.cuny.edu</a>
-            <div class="res-desc">CUNY AI Lab Sandbox (Open WebUI)</div>
+            <a href="#" target="_blank">[ GC ITP Git + GitHub slides — Petrarch to locate ]</a>
+            <div class="res-desc">Versioning + social coding workshop slides</div>
+          </li>
+          <li>
+            <a href="https://github.com/milwrite/quimbot/tree/main/sidequests/next/itp-lab" target="_blank">milwrite/quimbot — itp-lab</a>
+            <div class="res-desc">This workshop's source files, prompts, and expanded notes</div>
           </li>
         </ul>
       </div>
