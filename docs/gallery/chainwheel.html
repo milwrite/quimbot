@@ -111,12 +111,12 @@ function buildSystem() {
         if (Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy) > g1.r + g2.r + 3)
           chains.push({ i, j, type: 'chain', offset: 0 });
       }
-      // Connect to bottom neighbour
+      // Connect to bottom neighbour — also chain, not mesh
       if (row < ROWS - 1 && Math.random() > 0.25) {
         const j = (row + 1) * COLS + col;
         const g1 = gears[i], g2 = gears[j];
         if (Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy) > g1.r + g2.r + 3)
-          chains.push({ i, j, type: 'mesh', offset: 0 });
+          chains.push({ i, j, type: 'chain', offset: 0 });
       }
     }
   }
