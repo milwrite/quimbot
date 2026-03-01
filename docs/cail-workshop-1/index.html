@@ -93,6 +93,12 @@
       background: #05070b; overflow: hidden;
     }
 
+    /* Title slide: left-align content from top, not centered */
+    [data-slide="title"] .content {
+      justify-content: flex-start;
+      padding-top: clamp(36px,5vw,72px);
+    }
+
     /* Title slide: artifact floats on the same plane — no card, no box */
     [data-slide="title"] .stage {
       background: transparent;
@@ -266,12 +272,11 @@
     <div class="content">
       <div class="label">Workshop</div>
       <h1>Agenda</h1>
-      <h2>Two parts · ~75 minutes</h2>
     </div>
     <div class="stage" aria-hidden="true">
       <div class="agenda-grid">
         <div class="agenda-row"><div class="agenda-num">Pt 1</div><div class="agenda-ph">Coding &amp; Development Basics</div></div>
-        <div class="agenda-row"><div class="agenda-num">Pt 2</div><div class="agenda-ph">Putting It Together</div></div>
+        <div class="agenda-row"><div class="agenda-num">Pt 2</div><div class="agenda-ph">Applying the Foundations — Activity 1a · 1b · Exit Ticket · Next Steps</div></div>
         <div class="agenda-row"><div class="agenda-num">Time</div><div class="agenda-ph">Icebreaker 10m · Activities 2×10m · Exit 5m · Next Steps 2.5m</div></div>
       </div>
     </div>
@@ -412,6 +417,7 @@
     <div class="content">
       <div class="break-tag">Part 2</div>
       <h1>Putting It Together</h1>
+      <p class="break-sub">Hands-on practice with Git, GitHub, and the command line · Exit Ticket · Next Steps</p>
     </div>
   </section>
 
