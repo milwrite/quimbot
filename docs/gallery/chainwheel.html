@@ -234,16 +234,20 @@ function drawChain(a, b, offset) {
   const t2x2 = b.cx + b.r * Math.cos(ang - Math.PI/2 + beta);
   const t2y2 = b.cy + b.r * Math.sin(ang - Math.PI/2 + beta);
 
-  const links = Math.max(2, Math.floor(dist / LINK_SPACING));
-  const start = (offset % LINK_SPACING) / dist;
-  for (let k = 0; k <= links + 1; k++) {
-    const t = (k / links + start) % 1;
-    for (const [lx, ly] of [[t1x1+(t1x2-t1x1)*t, t1y1+(t1y2-t1y1)*t],
-                             [t2x1+(t2x2-t2x1)*t, t2y1+(t2y2-t2y1)*t]]) {
+  // Walk each strand in pixel-space; first link starts at offset % LINK_SPACING
+  const firstPos = ((offset % LINK_SPACING) + LINK_SPACING) % LINK_SPACING;
+  for (const [sx, sy, ex, ey] of [
+    [t1x1, t1y1, t1x2, t1y2],
+    [t2x1, t2y1, t2x2, t2y2]
+  ]) {
+    const strandLen = Math.hypot(ex - sx, ey - sy);
+    const sa = Math.atan2(ey - sy, ex - sx);
+    for (let pos = firstPos; pos < strandLen; pos += LINK_SPACING) {
+      const t = pos / strandLen;
       ctx.save();
-      ctx.translate(lx, ly);
-      ctx.rotate(ang);
-      ctx.strokeStyle = 'rgba(200,190,155,0.7)';
+      ctx.translate(sx + (ex - sx) * t, sy + (ey - sy) * t);
+      ctx.rotate(sa);
+      ctx.strokeStyle = 'rgba(200,190,155,0.75)';
       ctx.lineWidth = 1.2;
       ctx.beginPath();
       ctx.ellipse(0, 0, 5, 2.5, 0, 0, Math.PI * 2);
