@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-02-28 09:00 ET (morning review)_
+_Last synced: 2026-03-01 07:00 ET (morning stand-up)_
 
 ## ✅ Done
 - Merge+dedup all sources → superset3 (5,560 unique rows) (`b67bbf4c`) ✅ 2/27
@@ -15,7 +15,7 @@ _Last synced: 2026-02-28 09:00 ET (morning review)_
 - Site cleanup: OpenClaw files removed from repo, .gitignore updated, GH Pages source fixed
 
 ## 🔨 In Progress
-- **TOEFL gen at 2,834/10,000 — process may have stalled overnight** (no active PID found at 09:00)
+- **TOEFL gen at 2,834/10,000 — process still stalled** (no active PID found at 07:00 stand-up)
 - Gallery/docs iteration continues
 - Superset3 quality validation needed (spot-check)
 
@@ -38,9 +38,10 @@ _Last synced: 2026-02-28 09:00 ET (morning review)_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
-- **Morning stand-up 2/28 07:00:** Pulled latest main and reviewed board + logs.
-- **Quimbot sync attempt:** `sessions_send` attempted to labels `Quimbot` and `quimbot`, but no active session label was found from this host.
-- **Runtime check:** No active TOEFL generation process found (`pgrep`), while Ollama daemon is running.
+- **Morning stand-up 3/1 07:00:** Pulled latest `main` and reviewed board + local runtime/log state.
+- **Quimbot sync attempt:** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
+- **Runtime check:** No active TOEFL generation process found (`pgrep`), while Ollama daemon is still running.
 - **Log check:** `fine-tuning/generation_qwen72b.log` still ends in OpenRouter HTTP 402 credits error.
-- **Critical path:** Execute billing fix → resume generation/merge pipeline → fix prospects cron → prepare eval launch when adapter weights arrive.
+- **Cron check:** `fine-tuning/prospects/cron.log` is currently missing on this checkout (previous board note referenced `/bin/sh: 1: openclaw: not found`).
+- **Critical path:** Execute billing fix → resume generation/merge pipeline → restore prospects cron visibility/fix → prepare eval launch when adapter weights arrive.
 - Gallery/docs work continues unblocked (static generation, no API calls required).
