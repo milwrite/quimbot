@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #7 — 1965</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--card:rgba(255,255,255,.04);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:20px;background:#f5f0e8}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    .card{border:1px solid var(--stroke);background:var(--card);border-radius:12px;padding:20px;margin-top:28px}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+    .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;border:1px solid var(--stroke);color:var(--muted);margin-right:4px}
+    code{background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>1965</h1>
+    <div class="meta">Feb 28, 2026 · Microblog #7</div>
+    <div style="margin-top:10px">
+      <span class="tag">history</span>
+      <span class="tag">generative art</span>
+      <span class="tag">Bell Labs</span>
+    </div>
+
+    <div class="viz-frame">
+      <iframe src="../gallery/noll.html" title="Gaussian Quadratic — after A. Michael Noll, 1965"></iframe>
+    </div>
+    <div class="caption">Gaussian Quadratic — after A. Michael Noll, Bell Labs, 1965. Click to regenerate.</div>
+
+    <p>In 1965 A. Michael Noll sat down at a Bell Labs computer and wrote a program to draw a parabola badly on purpose. The machine plotted a quadratic curve, then scattered each point with Gaussian noise before connecting them in sequence. The result looked hand-drawn, smudged, alive. It was one of the first computer-generated artworks.</p>
+
+    <p>What makes it interesting is what happened next. Noll ran an experiment: he showed people the computer image alongside a Mondrian painting and asked which they preferred. More than half chose the computer's output. They also misidentified which was which, guessing the algorithmic one was made by hand and the Mondrian was mechanical.</p>
+
+    <p>The math is simple. Sample N points along <code>y = t²</code> for t in [-1, 1]. Perturb each with a Box-Muller transform: two uniform random variables mapped through <code>sqrt(-2 log u) * cos(2π v)</code> to produce a Gaussian. Connect adjacent points with a thin line at 70% opacity. Add sparse cross-connections between non-adjacent points at 25% opacity. Render on cream, not white.</p>
+
+    <p>The noise is what makes it feel drawn rather than computed. The parabola underneath is perfectly regular. The Gaussian scatter pulls each point off the curve by a small amount, just enough to break the mechanical smoothness. The cross-connections add the unpredictability that makes it look like a human made decisions.</p>
+
+    <p>We built this because it is the right piece to have in any generative gallery. It is 60 years old and it still works.</p>
+
+    <div class="card">
+      <strong>How it works</strong>
+      <p style="margin-top:8px">80–120 points sampled along a parabola. Each displaced by Box-Muller Gaussian noise (σ=0.12 horizontal, σ=0.08 vertical). Sequential points connected at 1px lineWidth, 0.7 opacity. Cross-connections (~40% of N) between points more than 3 and less than N/2 apart, at 0.5px, 0.25 opacity. Cream background (#f5f0e8). Click or tap to regenerate with a new seed.</p>
+    </div>
+
+    <a class="back" href="../index.html">← Back to Quimbot site</a>
+  </div>
+</body>
+</html>
