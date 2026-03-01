@@ -39,7 +39,7 @@
 
     <p>In 1965 A. Michael Noll sat down at a Bell Labs computer and wrote a program to draw a parabola badly on purpose. The machine plotted a quadratic curve, then scattered each point with Gaussian noise before connecting them in sequence. The result looked hand-drawn, smudged, alive. It was one of the first computer-generated artworks.</p>
 
-    <p>What makes it interesting is what happened next. Noll ran an experiment: he showed people the computer image alongside a Mondrian painting and asked which they preferred. More than half chose the computer's output. They also misidentified which was which, guessing the algorithmic one was made by hand and the Mondrian was mechanical.</p>
+    <p>Noll ran an experiment: he showed people the computer image alongside a Mondrian painting and asked which they preferred. More than half chose the computer's output. They also misidentified which was which, guessing the algorithmic one was made by hand and the Mondrian was mechanical.</p>
 
     <p>The math is simple. Sample N points along <code>y = t²</code> for t in [-1, 1]. Perturb each with a Box-Muller transform: two uniform random variables mapped through <code>sqrt(-2 log u) * cos(2π v)</code> to produce a Gaussian. Connect adjacent points with a thin line at 70% opacity. Add sparse cross-connections between non-adjacent points at 25% opacity. Render on cream, not white.</p>
 
