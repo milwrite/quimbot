@@ -7,8 +7,8 @@ Companion to `index.html`. Keep this file in sync whenever slide titles or text 
 
 ## Slide 1 — Title
 
-**Label:** Spotlight Workshop Series · Part 1/3
-**Title:** Foundations: AI, Command Line, and Version Control
+**Label:** CAIL Spotlight Workshop #1
+**Title:** Foundations: Coding with Generative AI
 **Date:** Spring 2026
 **Stage:** Infinite wheel artifact (`../gallery/chainwheel.html`)
 
@@ -18,19 +18,30 @@ Companion to `index.html`. Keep this file in sync whenever slide titles or text 
 
 **Label:** Workshop
 **Title:** Agenda
-**Subtitle:** Two parts · ~75 minutes
 
-**Stage rows:**
-- Pt 1 — Coding & Development Basics
-- Pt 2 — Putting It Together
-- Time — Icebreaker 10m · Activities 2×10m · Exit 5m · Next Steps 2.5m
+**Stage (agenda table):**
+
+Part 1 — Coding & Development Basics:
+- Icebreaker (10m)
+- Inference as Coding Scaffold
+- Problematics of Agentic Coding
+- Social Coding + Collaboration with GitHub
+- Setting up an IDE
+- Command Line Basics
+- Versioning + Project Management with Git
+
+Part 2 — Putting It Together:
+- Activity 1a (10m)
+- Activity 1b (10m)
+- Exit Ticket (5m)
+- Next Steps (2.5m)
 
 ---
 
 ## Slide 3 — Section Break: Part 1
 
 **Tag:** Part 1
-**Title:** Foundations: AI, Command Line, and Version Control
+**Title:** Coding & Development Basics
 
 ---
 
@@ -40,7 +51,9 @@ Companion to `index.html`. Keep this file in sync whenever slide titles or text 
 **Title:** Where does coding live in your imagination?
 **Subtitle:** Pick one. Talk to a neighbor.
 
-**Stage cards (Q1–Q5):** _(to fill)_
+**Stage (ib-pair):**
+- **A** — What would you create first if coding felt as natural as writing?
+- **B** — What's one thing you wish you could make your computer do for your research that it doesn't do right now?
 
 ---
 
@@ -48,7 +61,7 @@ Companion to `index.html`. Keep this file in sync whenever slide titles or text 
 
 **Label:** Concept
 **Title:** Inference as Coding Scaffold
-**Stage:** _(visual — spectrum / diagram · to fill)_
+**Stage:** _(content pending)_
 
 ---
 
@@ -56,58 +69,32 @@ Companion to `index.html`. Keep this file in sync whenever slide titles or text 
 
 **Label:** Concept
 **Title:** Problematics of Agentic Coding
-**Stage:** _(visual — contrast diagram · to fill)_
+**Stage:** _(content pending)_
 
 ---
 
-## Slide 7 — Versioning with Git
-
-**Label:** Tool
-**Title:** Versioning and Project Management with Git
-
-**Stage (terminal):**
-```
-# initialize a repo
-git init
-
-# stage your changes
-git add .
-
-# save a snapshot
-git commit -m "first commit"
-
-# view history
-git log --oneline
-
-# check what changed
-git status
-git diff
-```
-
----
-
-## Slide 8 — Social Coding + GitHub
+## Slide 7 — Social Coding + GitHub
 
 **Label:** Tool
 **Title:** Social Coding + Collaboration with GitHub
-**Stage:** _(visual — concept cards / diagram · to fill)_
+**Stage:** _(visual — pending ITP materials)_
 
 ---
 
-## Slide 9 — VSC-IDE Intro + Setup
+## Slide 8 — Setting up an Interactive Development Environment
 
 **Label:** Setup
-**Title:** VSC-IDE Intro + Setup
+**Title:** Setting up an Interactive Development Environment
 
 **Stage steps:**
 1. Download + install VS Code
 2. Sign in with your GitHub profile
-3. Add the GitHub extension
-4. Start tracking your project
+3. Add the GitHub extension; start tracking your project
+4. Open the integrated terminal — this is where CLI + Git live
 
 ---
 
-## Slide 10 — Command Line Basics
+## Slide 9 — Command Line Basics
 
 **Label:** Tool
 **Title:** Command Line Basics
@@ -129,8 +116,36 @@ cd ..
 # create a file
 touch index.html
 
-# create a folder
+# make a new folder
 mkdir assets
+```
+
+---
+
+## Slide 10 — Versioning + Project Management with Git
+
+**Label:** Tool
+**Title:** Versioning + Project Management with Git
+
+**Stage (terminal):**
+```
+# initialize a repo
+git init
+
+# stage your changes
+git add .
+
+# save a snapshot
+git commit -m "first commit"
+
+# push to GitHub
+git push origin main
+
+# view history
+git log --oneline
+
+# check what changed
+git status
 ```
 
 ---
@@ -139,6 +154,8 @@ mkdir assets
 
 **Tag:** Part 2
 **Title:** Putting It Together
+**Subtitle:** Activities, exit ticket, and next steps
+**Accent:** `#2ea043` (green)
 
 ---
 
@@ -174,8 +191,7 @@ mkdir assets
 **Label:** Next Steps · 2.5 min
 **Title:** Next Steps
 **Time:** 2.5 min
-
-**Stage steps (1–3):** _(to fill)_
+**Stage:** _(to fill)_
 
 ---
 
@@ -183,7 +199,18 @@ mkdir assets
 
 **Label:** Resources
 **Title:** Links & References
-**Stage:** _(link list · to fill)_
+
+**Stage (link list):**
+- [ailab.gc.cuny.edu](https://ailab.gc.cuny.edu) — CUNY AI Lab — home page, announcements, and model notes
+- [ailab.gc.cuny.edu/resources](https://ailab.gc.cuny.edu/resources) — CAIL Resources — guides, readings, and workshop materials
+- [chat.ailab.gc.cuny.edu](https://chat.ailab.gc.cuny.edu) — CAIL Sandbox (Open WebUI) — GLM 5, Kimi K2.5, and more
+- [tools.ailab.gc.cuny.edu](https://tools.ailab.gc.cuny.edu) — CAIL Tools — additional lab utilities and experiments
+- [newmedialab.cuny.edu](https://newmedialab.cuny.edu) — CUNY New Media Lab — workshop series host
+- [aitoolkit.gc.commons.edu](https://aitoolkit.gc.commons.edu) — GC AI Toolkit — curated tools and resources for the Graduate Center community
+- [github.com/cuny-ai-lab](https://github.com/cuny-ai-lab) — CUNY AI Lab on GitHub — open source repos, workshop decks, datasets
+- [cuny-ai-lab.github.io/Vibe-Coding-Workshop](https://cuny-ai-lab.github.io/Vibe-Coding-Workshop/) — Vibe Coding Workshop deck — companion CAIL workshop
+- [code.visualstudio.com/docs](https://code.visualstudio.com/docs) — VS Code documentation — setup, extensions, integrated terminal
+- [docs.github.com](https://docs.github.com) — GitHub documentation — repos, Pages, pull requests, Actions
 
 ---
 
