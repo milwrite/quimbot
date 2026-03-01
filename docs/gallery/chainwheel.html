@@ -99,27 +99,24 @@ function buildSystem() {
     }
   }
 
-  // Each gear connects to at most ONE neighbour (nearest within 1.5 cells that doesn't overlap)
-  // This keeps the graph sparse: isolated gears stay still
-  const connected = new Set();
-  for (let i = 0; i < gears.length; i++) {
-    const g1 = gears[i];
-    // Find nearest valid neighbour not yet paired with this gear
-    let bestJ = -1, bestDist = Infinity;
-    for (let j = 0; j < gears.length; j++) {
-      if (i === j) continue;
-      const g2 = gears[j];
-      const dist = Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy);
-      if (dist < Math.min(cellW, cellH) * 1.5 && dist > g1.r + g2.r + 4 && dist < bestDist) {
-        bestDist = dist; bestJ = j;
+  // Connect grid neighbours — right and down — so the network spans the whole canvas
+  // Skip ~25% of connections randomly to leave some gears isolated
+  for (let row = 0; row < ROWS; row++) {
+    for (let col = 0; col < COLS; col++) {
+      const i = row * COLS + col;
+      // Connect to right neighbour
+      if (col < COLS - 1 && Math.random() > 0.25) {
+        const j = row * COLS + (col + 1);
+        const g1 = gears[i], g2 = gears[j];
+        if (Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy) > g1.r + g2.r + 3)
+          chains.push({ i, j, type: 'chain', offset: 0 });
       }
-    }
-    // Only connect ~60% of gears to their nearest neighbour — leaves ~40% isolated
-    if (bestJ !== -1 && Math.random() > 0.4 && !chains.some(c => c.i === bestJ && c.j === i)) {
-      const pairKey = `${Math.min(i,bestJ)}-${Math.max(i,bestJ)}`;
-      if (!connected.has(pairKey)) {
-        connected.add(pairKey);
-        chains.push({ i, j: bestJ, type: Math.random() > 0.4 ? 'chain' : 'mesh', offset: 0 });
+      // Connect to bottom neighbour
+      if (row < ROWS - 1 && Math.random() > 0.25) {
+        const j = (row + 1) * COLS + col;
+        const g1 = gears[i], g2 = gears[j];
+        if (Math.hypot(g2.cx - g1.cx, g2.cy - g1.cy) > g1.r + g2.r + 3)
+          chains.push({ i, j, type: 'mesh', offset: 0 });
       }
     }
   }
