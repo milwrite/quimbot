@@ -9,7 +9,6 @@ Companion to `index.html`. Keep this file in sync whenever slide titles or text 
 
 **Label:** Spotlight Workshop Series · Part 1/3
 **Title:** Foundations: AI, Command Line, and Version Control
-**Orgs:** CUNY AI Lab · New Media Lab · Teaching and Learning Center · ASHP/CML · GC Digital Initiatives · Mina Rees Library · ITP
 **Date:** Spring 2026
 **Stage:** Noll quadratic artifact (`../gallery/noll.html`)
 
