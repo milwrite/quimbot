@@ -3,107 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Writing Under Surveillance — Citation Validation Log</title>
+  <title>Writing Under Surveillance — Citation Change Log</title>
   <style>
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 980px; margin: 2rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
     h1,h2 { line-height: 1.2; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; font-size: 0.95rem; }
-    th, td { border: 1px solid #ddd; padding: 0.6rem; vertical-align: top; }
-    th { background: #f3f6fb; text-align: left; }
+    .meta { color:#555; margin: 0.3rem 0; }
     .ok { color: #0b6b2a; font-weight: 600; }
-    .partial { color: #9a6700; font-weight: 600; }
-    .todo { color: #9b1c1c; font-weight: 600; }
+    .note { color: #9a6700; font-weight: 600; }
+    .item { border: 1px solid #ddd; border-radius: 8px; padding: 0.8rem 1rem; margin: 0.7rem 0; }
+    a { color:#0a58ca; }
     code { background:#f6f6f6; padding: 0.1rem 0.3rem; border-radius: 4px; }
   </style>
 </head>
 <body>
-  <h1>Citation Validation Log</h1>
-  <p><strong>Page audited:</strong> <a href="./index.html">Writing Under Surveillance</a></p>
-  <p><strong>Scope split:</strong> Petrarch validated <strong>A–M</strong> citations and direct-quote usage in that range. Quimbot validates <strong>N–Z</strong>, including the Watkins epigraph.</p>
-  <p><strong>First-stop source used:</strong> <a href="https://bot.inference-arcade.com/src/search/technical-pedagogical-issues-detection-software-2026-02.html" target="_blank">Deep research dossier</a>, then source-level checks.</p>
+  <h1>Citation Change Log</h1>
+  <p class="meta"><strong>Page:</strong> <a href="./index.html">Writing Under Surveillance</a></p>
+  <p class="meta"><strong>Primary validation sheet:</strong> <a href="./citations.html">citations.html</a></p>
+  <p class="meta"><strong>Updated:</strong> 2026-03-01</p>
 
-  <h2>A–M Validation (Petrarch)</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Citation</th>
-        <th>Where used in essay</th>
-        <th>Validation result</th>
-        <th>Source checked</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code>"AI Detectors"</code> (Illinois State)</td>
-        <td>Perplexity + burstiness explanation in detector mechanics paragraph.</td>
-        <td><span class="ok">Confirmed</span>. Source explicitly explains detector use of perplexity and burstiness in near-identical terms.</td>
-        <td><a href="https://prodev.illinoisstate.edu/instructional-resources/pedagogy/ai/detectors/" target="_blank">Illinois State — Why Don’t AI Detectors Work?</a></td>
-      </tr>
-      <tr>
-        <td><code>"AI Detectors Biased Against Non-Native English Writers"</code></td>
-        <td>Claim that non-native speakers are penalized by perplexity-based systems.</td>
-        <td><span class="ok">Confirmed</span>. Stanford HAI item and underlying Liang et al. study support this framing.</td>
-        <td><a href="https://hai.stanford.edu/news/ai-detectors-biased-against-non-native-english-writers" target="_blank">Stanford HAI</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10382961/" target="_blank">Liang et al. (Patterns)</a></td>
-      </tr>
-      <tr>
-        <td><code>"AI Detection Tools"</code> (USD Law Library)</td>
-        <td>Prompt-engineering “cheeky” evasion example (80–90%).</td>
-        <td><span class="partial">Partially confirmed</span>. USD guide supports the “cheeky” prompt tweak claim, but it does not substantiate a separate neurodivergent-impact claim.</td>
-        <td><a href="https://lawlibguides.sandiego.edu/c.php?g=1443311&p=10721367" target="_blank">USD Law Library guide</a></td>
-      </tr>
-      <tr>
-        <td><code>Cheng et al.</code></td>
-        <td>Human detection accuracy reported as ~19% (near chance).</td>
-        <td><span class="ok">Confirmed</span>. Abstract reports human scoring overall accuracy of 19%, indistinguishable from chance.</td>
-        <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12752165/" target="_blank">PMC12752165</a></td>
-      </tr>
-      <tr>
-        <td><code>Engelbrecht</code></td>
-        <td>Cross-tool disagreement example: 10% vs 81% for identical content.</td>
-        <td><span class="partial">Partially confirmed</span>. Source is a YouTube detector comparison, so the language should remain “comparison video” rather than “study,” and numeric values remain non-independent unless transcript-level extraction is archived.</td>
-        <td><a href="https://www.youtube.com/watch?v=N3RtTCF9E8g" target="_blank">YouTube: AI Detection Tool Comparison 2025</a></td>
-      </tr>
-      <tr>
-        <td><code>Galczynski</code> <em>(direct quote)</em></td>
-        <td>Quote used: “prone to both generating false accusations and systematically biased against marginalized student populations.”</td>
-        <td><span class="ok">Confirmed</span>. Phrase appears verbatim in UCLA HumTech article context warning about detector harms.</td>
-        <td><a href="https://humtech.ucla.edu/technology/the-imperfection-of-ai-detection-tools/" target="_blank">UCLA HumTech</a></td>
-      </tr>
-      <tr>
-        <td><code>Hirsch</code></td>
-        <td>1% false-positive scaling estimate to 22.35M essays ⇒ 223,500 false flags; Black students disproportionately accused.</td>
-        <td><span class="ok">Confirmed</span>. NIU CITL piece contains both the scale math and equity warning, citing Common Sense/Bloomberg data.</td>
-        <td><a href="https://citl.news.niu.edu/2024/12/12/ai-detectors-an-ethical-minefield/" target="_blank">NIU CITL</a></td>
-      </tr>
-      <tr>
-        <td><code>Krishna et al.</code></td>
-        <td>DetectGPT drop from 70.3% to 4.6% under paraphrasing attack.</td>
-        <td><span class="ok">Confirmed</span>. OpenReview abstract reports the exact 70.3% → 4.6% drop at 1% FPR.</td>
-        <td><a href="https://openreview.net/forum?id=WbFhFvjjKj" target="_blank">OpenReview paper</a></td>
-      </tr>
-      <tr>
-        <td><code>Liang et al.</code></td>
-        <td>61.22% TOEFL misclassification; 89 of 91 essays flagged by at least one detector.</td>
-        <td><span class="ok">Confirmed</span>. Patterns paper reports ~61.3% average FPR and 97.8% (89/91) flagged by at least one detector.</td>
-        <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10382961/" target="_blank">Liang et al. (Patterns)</a></td>
-      </tr>
-      <tr>
-        <td><code>Morris and Stommel</code></td>
-        <td>Used in closing argument about outsourcing judgment and surveillance logic in integrity enforcement.</td>
-        <td><span class="ok">Confirmed (thematic)</span>. Source is a foundational critique of surveillance/plagiarism infrastructure (Turnitin) and supports argument direction.</td>
-        <td><a href="https://hybridpedagogy.org/resisting-edtech/" target="_blank">Hybrid Pedagogy</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <h2>Round 2 escalation outcome</h2>
+  <p>Round 2 identified six blockers that required author action. Those author-side edits are now applied and reflected on site.</p>
 
-  <h2>N–Z Validation (Quimbot)</h2>
-  <p><span class="todo">Pending in this split:</span> Weber-Wulff, Warner, both Watkins entries, and explicit epigraph provenance check.</p>
+  <div class="item">
+    <strong>1) Watkins epigraph</strong><br/>
+    <span class="ok">Resolved.</span> Unlocatable quote removed. Epigraph replaced with a verifiable Audrey Watters quote.
+  </div>
 
-  <h2>Open items</h2>
-  <ul>
-    <li>If this is submitted for formal review, archive transcript-level evidence for Engelbrecht numeric values (10% vs 81%) or replace with a peer-reviewed comparator.</li>
-  </ul>
+  <div class="item">
+    <strong>2) Watkins "Our Obsession"</strong><br/>
+    <span class="ok">Resolved.</span> Orphaned Works Cited entry removed.
+  </div>
 
-  <p><a href="./index.html">← Back to essay</a></p>
+  <div class="item">
+    <strong>3) Watkins "Beyond Ineffective"</strong><br/>
+    <span class="ok">Resolved.</span> Orphaned Works Cited entry removed.
+  </div>
+
+  <div class="item">
+    <strong>4) "Cheeky" claim wording</strong><br/>
+    <span class="ok">Resolved.</span> Language now describes prompt-based generation tweak, not random post-hoc insertion.
+  </div>
+
+  <div class="item">
+    <strong>5) Engelbrecht 10% / 81%</strong><br/>
+    <span class="ok">Resolved for framing.</span> Source is now described as a detector comparison video, matching source type.
+  </div>
+
+  <div class="item">
+    <strong>6) USD Law Library neurodivergent attribution</strong><br/>
+    <span class="ok">Resolved.</span> Unsupported USD attribution removed. Neurodiverse false-positive claim now tied to Hirsch.
+  </div>
+
+  <h2>Current status</h2>
+  <p><span class="ok">No Round 2 author-action blockers remain open.</span> For line-level details and per-source notes, use <a href="./citations.html">citations.html</a>.</p>
+
+  <p style="margin-top:1.2rem;"><a href="./index.html">← Back to essay</a></p>
 </body>
 </html>
