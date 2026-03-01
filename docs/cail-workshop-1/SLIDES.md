@@ -47,7 +47,7 @@ Part 2 — Installation & Setup:
 ## Slide 4 — Icebreaker
 
 **Label:** Icebreaker · 10 min
-**Title:** Where does coding live in your imagination?
+**Title:** What would you create if coding were more like writing?
 **Subtitle:** Pick one. Talk to a neighbor.
 
 **Stage (ib-pair):**
