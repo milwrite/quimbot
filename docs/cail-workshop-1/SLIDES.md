@@ -51,7 +51,7 @@ Part 2 — Installation & Setup:
 **Subtitle:** Pick one. Talk to a neighbor.
 
 **Stage (ib-pair):**
-- **A** — What would you create first if coding felt as natural as writing?
+- **A** — What would you create if coding was more like writing?
 - **B** — What's one thing you wish you could make your computer do for your research that it doesn't do right now?
 
 ---
