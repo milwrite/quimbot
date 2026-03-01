@@ -344,9 +344,10 @@
       [data-slide="title"] .stage { flex: 1 1 auto; min-height: clamp(300px, 58vh, 760px); }
 
       .slide-break.active { flex-direction: column; overflow: hidden; }
-      .slide-icebreaker .content { flex: 0 0 clamp(180px,28%,260px); }
+      .slide-icebreaker .content { flex: 0 0 clamp(260px, 36%, 440px); }
       .slide-icebreaker .stage { flex: 1 1 auto; }
-      .q-grid { grid-template-columns: 1fr 1fr; }
+      .slide-icebreaker .content h1 { font-size: clamp(22px, 3vw, 38px); }
+      .q-grid { grid-template-columns: 1fr 1fr; align-content: start; }
       .q-card:last-child { grid-column: 1 / -1; }
       .nav-btn { display: inline-flex; }
 
@@ -356,7 +357,7 @@
       .stageCenter { position: absolute; inset: 0; width: auto; }
       .step-grid { position: absolute; inset: clamp(12px,2vw,24px); width: auto; overflow: hidden; }
       .agenda-table { position: absolute; inset: 0; width: auto; overflow: hidden; }
-      .q-grid { position: absolute; inset: clamp(12px,2vw,20px); width: auto; overflow: hidden; }
+      .q-grid { position: absolute; inset: clamp(12px,2vw,20px); width: auto; overflow-y: auto; align-content: start; }
       .res-wrap { position: absolute; inset: 0; width: auto; overflow-y: auto; }
       .ph { position: absolute; inset: 0; width: auto; min-height: unset; }
       .stageCompare { position: absolute; inset: 0; width: auto; overflow: hidden; }
