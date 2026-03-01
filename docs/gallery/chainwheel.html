@@ -84,33 +84,29 @@ function noise(x, y) {
 }
 
 function buildGear(x, y, r, teeth, variant) {
-  const hue = (gearIdx * 47) % 360; // golden-angle hue spread
-  gearIdx++;
-  return { x, y, r, teeth, angle: Math.random() * Math.PI * 2, variant, speed: 0, hue };
+  return { x, y, r, teeth, angle: Math.random() * Math.PI * 2, variant, speed: 0 };
 }
 
 function rebuildSystem() {
   gears = [];
   chains = [];
-  gearIdx = 0;
-  
-  const S = Math.min(W, H);
-  const cx = W / 2, cy = H / 2;
-  
-  // Grid-based placement for dense coverage
+
+  // Grid sizing: make each gear fit inside its cell with margin
   const cols = 7, rows = 5;
-  const spacingX = W / (cols + 1);
-  const spacingY = H / (rows + 1);
-  
+  const cellW = W / cols;
+  const cellH = H / rows;
+  const maxR = Math.min(cellW, cellH) * 0.38; // largest gear fills ~76% of cell width
+
   let idx = 0;
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
-      const x = (col + 1) * spacingX + (Math.random() - 0.5) * spacingX * 0.3;
-      const y = (row + 1) * spacingY + (Math.random() - 0.5) * spacingY * 0.3;
-      const baseR = S * (0.05 + Math.random() * 0.06);
-      const teeth = Math.floor(12 + Math.random() * 20);
-      const variant = Math.floor(Math.random() * 3); // 0=standard, 1=spoked, 2=solid
-      gears.push(buildGear(x, y, baseR, teeth, variant));
+      // Center of cell + small random nudge (max 15% of cell size, so gears can't leave cell)
+      const cx = (col + 0.5) * cellW + (Math.random() - 0.5) * cellW * 0.15;
+      const cy = (row + 0.5) * cellH + (Math.random() - 0.5) * cellH * 0.15;
+      const r = maxR * (0.55 + Math.random() * 0.45); // 55–100% of max radius
+      const teeth = Math.max(8, Math.floor(r * 1.8));  // tooth count scales with radius
+      const variant = Math.floor(Math.random() * 3);
+      gears.push(buildGear(cx, cy, r, teeth, variant));
       idx++;
       if (idx >= 35) break;
     }
@@ -178,7 +174,8 @@ function drawGearTooth(r, innerR, a0, toothSpan) {
 }
 
 function drawGear(g) {
-  const { x, y, r, teeth, angle, variant, hue } = g;
+  const { x, y, r, teeth, angle, variant } = g;
+  const steel = 42 + noise(x * 0.01, y * 0.01) * 28; // 42–70 gunmetal range
   const toothHeight = r * 0.18;
   const innerR = r - toothHeight;
   const toothSpan = (2 * Math.PI / teeth);
@@ -195,34 +192,25 @@ function drawGear(g) {
   }
   ctx.closePath();
   
-  // Glow
-  const glow = ctx.createRadialGradient(0, 0, innerR * 0.5, 0, 0, r * 1.6);
-  glow.addColorStop(0, `hsla(${hue},90%,55%,0.25)`);
-  glow.addColorStop(1, `hsla(${hue},90%,40%,0)`);
-  ctx.beginPath();
-  ctx.arc(0, 0, r * 1.8, 0, Math.PI * 2);
-  ctx.fillStyle = glow;
-  ctx.fill();
-
-  // Gear body gradient
+  // Gear body gradient — gunmetal steel
   const bodyGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
-  bodyGrad.addColorStop(0, `hsl(${hue},75%,48%)`);
-  bodyGrad.addColorStop(0.6, `hsl(${hue},80%,32%)`);
-  bodyGrad.addColorStop(1, `hsl(${hue},85%,18%)`);
+  bodyGrad.addColorStop(0, `rgb(${steel + 18},${steel + 15},${steel + 10})`);
+  bodyGrad.addColorStop(0.6, `rgb(${steel},${steel - 4},${steel - 8})`);
+  bodyGrad.addColorStop(1, `rgb(${steel - 18},${steel - 22},${steel - 26})`);
   ctx.fillStyle = bodyGrad;
   ctx.fill();
 
   // Edge highlight
-  ctx.strokeStyle = `hsl(${hue},100%,72%)`;
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = `rgba(${steel + 40},${steel + 38},${steel + 32},0.85)`;
+  ctx.lineWidth = 1.5;
   ctx.stroke();
 
   // Interior details based on variant
   if (variant === 1) {
     // Spoked wheel
     const spokeCount = Math.max(4, Math.floor(teeth / 5));
-    ctx.strokeStyle = `hsl(${hue},90%,70%)`;
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = `rgba(${steel + 30},${steel + 28},${steel + 22},0.75)`;
+    ctx.lineWidth = 1.5;
     for (let i = 0; i < spokeCount; i++) {
       const a = (i / spokeCount) * Math.PI * 2;
       ctx.beginPath();
@@ -232,14 +220,14 @@ function drawGear(g) {
     }
   } else if (variant === 2) {
     // Solid disc
-    ctx.fillStyle = `hsla(${hue},70%,20%,0.7)`;
+    ctx.fillStyle = `rgba(${steel - 10},${steel - 12},${steel - 16},0.6)`;
     ctx.beginPath();
     ctx.arc(0, 0, innerR * 0.8, 0, Math.PI * 2);
     ctx.fill();
   } else {
     // Standard — concentric rings
     for (let ring = 0.3; ring < 0.9; ring += 0.25) {
-      ctx.strokeStyle = `hsla(${hue},80%,65%,${0.2 + ring * 0.3})`;
+      ctx.strokeStyle = `rgba(${steel + 25},${steel + 22},${steel + 18},${0.25 + ring * 0.35})`;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.arc(0, 0, innerR * ring, 0, Math.PI * 2);
@@ -252,20 +240,20 @@ function drawGear(g) {
   ctx.beginPath();
   ctx.arc(0, 0, hubR, 0, Math.PI * 2);
   const hubGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, hubR);
-  hubGrad.addColorStop(0, `hsl(${hue},60%,55%)`);
-  hubGrad.addColorStop(1, `hsl(${hue},70%,25%)`);
+  hubGrad.addColorStop(0, `rgb(${steel + 12},${steel + 10},${steel + 6})`);
+  hubGrad.addColorStop(1, `rgb(${steel - 15},${steel - 18},${steel - 22})`);
   ctx.fillStyle = hubGrad;
   ctx.fill();
-  ctx.strokeStyle = `hsl(${hue},100%,75%)`;
+  ctx.strokeStyle = `rgba(${steel + 35},${steel + 33},${steel + 28},0.9)`;
   ctx.lineWidth = 1.5;
   ctx.stroke();
 
   // Axle bolt
   ctx.beginPath();
   ctx.arc(0, 0, hubR * 0.35, 0, Math.PI * 2);
-  ctx.fillStyle = `hsl(${hue},80%,85%)`;
+  ctx.fillStyle = `rgb(${steel + 8},${steel + 6},${steel + 2})`;
   ctx.fill();
-  ctx.strokeStyle = `hsl(${hue},90%,90%)`;
+  ctx.strokeStyle = `rgba(${steel + 30},${steel + 28},${steel + 24},0.8)`;
   ctx.lineWidth = 1;
   ctx.stroke();
   
