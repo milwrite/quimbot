@@ -153,14 +153,40 @@
     .step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--part); color: #fff; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
     .step-ph { font-size: clamp(12px,1.4vw,15px); color: rgba(255,255,255,0.2); font-family: ui-monospace, monospace; }
 
-    /* agenda rows */
-    .agenda-grid { position: absolute; inset: clamp(12px,2vw,24px); display: flex; flex-direction: column; gap: 6px; justify-content: center; }
-    .agenda-row {
-      display: flex; gap: 10px; align-items: center; padding: 10px 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+    /* agenda table — CUNY-AI-Lab workshop style */
+    .agenda-table {
+      position: absolute; inset: 0;
+      overflow-y: auto;
+      padding: clamp(14px,2.5vw,28px) clamp(16px,3vw,32px);
+      display: flex; flex-direction: column; justify-content: center;
     }
-    .agenda-num { font-size: 11px; font-weight: 700; color: var(--part); flex-shrink: 0; font-family: ui-monospace, monospace; }
-    .agenda-ph { font-size: clamp(12px,1.4vw,15px); color: rgba(255,255,255,0.2); font-family: ui-monospace, monospace; }
+    .agenda-section { margin-bottom: clamp(12px,2vw,20px); }
+    .agenda-section:last-child { margin-bottom: 0; }
+    .agenda-section-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      margin-bottom: 6px;
+    }
+    .agenda-section-title {
+      font-size: clamp(12px,1.4vw,15px); font-weight: 700;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.01em;
+    }
+    .agenda-section-time {
+      font-size: clamp(10px,1.1vw,13px); color: var(--part);
+      font-family: ui-monospace, monospace; font-weight: 600; flex-shrink: 0;
+    }
+    .agenda-item {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 3px 0;
+    }
+    .agenda-item-label {
+      font-size: clamp(11px,1.2vw,14px); color: var(--muted);
+    }
+    .agenda-item-time {
+      font-size: clamp(10px,1.05vw,12px); color: rgba(255,255,255,0.25);
+      font-family: ui-monospace, monospace; flex-shrink: 0; padding-left: 12px;
+    }
 
     /* terminal */
     .term-stub {
@@ -274,10 +300,31 @@
       <h1>Agenda</h1>
     </div>
     <div class="stage" aria-hidden="true">
-      <div class="agenda-grid">
-        <div class="agenda-row"><div class="agenda-num">Pt 1</div><div class="agenda-ph">Coding &amp; Development Basics</div></div>
-        <div class="agenda-row"><div class="agenda-num">Pt 2</div><div class="agenda-ph">Applying the Foundations — Activity 1a · 1b · Exit Ticket · Next Steps</div></div>
-        <div class="agenda-row"><div class="agenda-num">Time</div><div class="agenda-ph">Icebreaker 10m · Activities 2×10m · Exit 5m · Next Steps 2.5m</div></div>
+      <div class="agenda-table">
+
+        <div class="agenda-section">
+          <div class="agenda-section-head">
+            <span class="agenda-section-title">Part 1 — Coding &amp; Development Basics</span>
+          </div>
+          <div class="agenda-item"><span class="agenda-item-label">Icebreaker</span><span class="agenda-item-time">10m</span></div>
+          <div class="agenda-item"><span class="agenda-item-label">Inference as Coding Scaffold</span><span class="agenda-item-time"></span></div>
+          <div class="agenda-item"><span class="agenda-item-label">Problematics of Agentic Coding</span><span class="agenda-item-time"></span></div>
+          <div class="agenda-item"><span class="agenda-item-label">Versioning with Git</span><span class="agenda-item-time"></span></div>
+          <div class="agenda-item"><span class="agenda-item-label">Social Coding + GitHub</span><span class="agenda-item-time"></span></div>
+          <div class="agenda-item"><span class="agenda-item-label">VSC-IDE Intro + Setup</span><span class="agenda-item-time"></span></div>
+          <div class="agenda-item"><span class="agenda-item-label">Command Line Basics</span><span class="agenda-item-time"></span></div>
+        </div>
+
+        <div class="agenda-section">
+          <div class="agenda-section-head">
+            <span class="agenda-section-title">Part 2 — Putting It Together</span>
+          </div>
+          <div class="agenda-item"><span class="agenda-item-label">Activity 1a</span><span class="agenda-item-time">10m</span></div>
+          <div class="agenda-item"><span class="agenda-item-label">Activity 1b</span><span class="agenda-item-time">10m</span></div>
+          <div class="agenda-item"><span class="agenda-item-label">Exit Ticket</span><span class="agenda-item-time">5m</span></div>
+          <div class="agenda-item"><span class="agenda-item-label">Next Steps</span><span class="agenda-item-time">2.5m</span></div>
+        </div>
+
       </div>
     </div>
   </section>
