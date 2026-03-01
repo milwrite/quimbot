@@ -133,13 +133,26 @@
     .agenda-num { font-size: 11px; font-weight: 700; color: var(--part); flex-shrink: 0; font-family: ui-monospace, monospace; }
     .agenda-ph { font-size: clamp(12px,1.4vw,15px); color: rgba(255,255,255,0.2); font-family: ui-monospace, monospace; }
 
-    /* terminal stub */
+    /* terminal */
     .term-stub {
       position: absolute; inset: 0; background: #010409;
       display: flex; align-items: center; justify-content: center;
       font: 12px/1.6 ui-monospace, monospace;
       color: rgba(130,200,100,0.25); letter-spacing: 0.04em;
     }
+    .term-box {
+      position: absolute; inset: 0; background: #010409; overflow-y: auto;
+      font: clamp(12px,1.4vw,15px)/1.75 ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: rgba(200,255,200,0.88);
+      padding: clamp(14px,2.5vw,24px) clamp(16px,2.5vw,28px);
+    }
+    .term-box .dim  { color: rgba(255,255,255,0.28); }
+    .term-box .hl   { color: #79c0ff; }
+    .term-box .str  { color: #a5d6ff; }
+    .term-box .cmt  { color: rgba(130,200,100,0.55); }
+
+    /* step text (real content vs placeholder) */
+    .step-text { font-size: clamp(13px,1.4vw,16px); color: rgba(255,255,255,0.86); line-height: 1.4; }
 
     /* ── TYPOGRAPHY ── */
     .content h1 { font-size: clamp(26px,4.5vw,52px); letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 8px; }
@@ -329,9 +342,10 @@
     </div>
     <div class="stage" aria-hidden="true">
       <div class="step-grid">
-        <div class="step-row"><div class="step-num">1</div><div class="step-ph">—</div></div>
-        <div class="step-row"><div class="step-num">2</div><div class="step-ph">—</div></div>
-        <div class="step-row"><div class="step-num">3</div><div class="step-ph">—</div></div>
+        <div class="step-row"><div class="step-num">1</div><div class="step-text">Download + install VS Code</div></div>
+        <div class="step-row"><div class="step-num">2</div><div class="step-text">Sign in with your GitHub profile</div></div>
+        <div class="step-row"><div class="step-num">3</div><div class="step-text">Add the GitHub extension</div></div>
+        <div class="step-row"><div class="step-num">4</div><div class="step-text">Start tracking your project</div></div>
       </div>
     </div>
   </section>
@@ -343,7 +357,20 @@
       <h1>Command Line Basics</h1>
     </div>
     <div class="stage" aria-hidden="true">
-      <div class="term-stub">—</div>
+      <div class="term-box" role="img" aria-label="CLI command examples">
+        <span class="dim"># where am I?</span><br>
+        <span class="hl">pwd</span><br><br>
+        <span class="dim"># list files</span><br>
+        <span class="hl">ls</span> -la<br><br>
+        <span class="dim"># move into a folder</span><br>
+        <span class="hl">cd</span> my-project<br><br>
+        <span class="dim"># go up one level</span><br>
+        <span class="hl">cd</span> ..<br><br>
+        <span class="dim"># create a file</span><br>
+        <span class="hl">touch</span> index.html<br><br>
+        <span class="dim"># create a folder</span><br>
+        <span class="hl">mkdir</span> assets
+      </div>
     </div>
   </section>
 
