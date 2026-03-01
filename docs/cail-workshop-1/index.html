@@ -226,20 +226,26 @@
       font-size: 16px; color: rgba(255,255,255,0.2); flex-shrink: 0;
     }
 
-    /* card grid (icebreaker) */
-    .q-grid {
+    /* icebreaker two-question layout */
+    .ib-pair {
       position: relative; width: 100%;
-      display: grid; grid-template-columns: 1fr; gap: 0;
-      padding: clamp(8px,1.5vw,16px);
+      display: flex; flex-direction: column;
     }
-    .q-card {
-      padding: clamp(8px,1.5vw,14px) clamp(10px,1.5vw,16px);
+    .ib-q {
+      flex: 1;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: clamp(28px,4vw,56px) clamp(22px,3.5vw,48px);
       border-bottom: 1px solid rgba(255,255,255,0.07);
-      display: flex; gap: 10px; align-items: flex-start;
     }
-    .q-card:last-child { border-bottom: none; }
-    .q-num { font-size: 11px; font-weight: 700; color: var(--part); flex-shrink: 0; padding-top: 2px; min-width: 20px; font-family: ui-monospace, monospace; }
-    .q-text { font-size: clamp(12px,1.4vw,15px); color: rgba(255,255,255,0.78); line-height: 1.45; }
+    .ib-q:last-child { border-bottom: none; }
+    .ib-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--part); font-family: ui-monospace, monospace; margin-bottom: 16px;
+    }
+    .ib-text {
+      font-size: clamp(18px,2.4vw,30px); line-height: 1.4;
+      color: rgba(255,255,255,0.9); font-weight: 500;
+    }
 
     /* step rows */
     .step-grid {
@@ -347,17 +353,8 @@
       .slide-icebreaker .content { flex: 1 1 38%; max-width: 440px; }
       .slide-icebreaker .stage { flex: 1 1 58%; }
       .slide-icebreaker .content h1 { font-size: clamp(22px, 3vw, 38px); }
-      /* q-grid default 2-col for non-icebreaker slides */
-      .q-grid { grid-template-columns: 1fr 1fr; align-content: start; }
-      .q-card:last-child { grid-column: 1 / -1; }
-      /* icebreaker: override to flex column — each card shares full stage height */
-      .slide-icebreaker .q-grid {
-        display: flex; flex-direction: column;
-        position: absolute; inset: 0; overflow-y: auto; padding: 0;
-        align-content: unset;
-      }
-      .slide-icebreaker .q-card { flex: 1 1 0; align-items: center; }
-      .slide-icebreaker .q-card:last-child { border-bottom: none; }
+      /* ib-pair fills stage at desktop */
+      .ib-pair { position: absolute; inset: 0; overflow-y: auto; }
       .nav-btn { display: inline-flex; }
 
       /* Desktop: stage elements fill the full column */
@@ -366,7 +363,7 @@
       .stageCenter { position: absolute; inset: 0; width: auto; }
       .step-grid { position: absolute; inset: clamp(12px,2vw,24px); width: auto; overflow: hidden; }
       .agenda-table { position: absolute; inset: 0; width: auto; overflow: hidden; }
-      .q-grid { position: absolute; inset: clamp(12px,2vw,20px); width: auto; overflow-y: auto; align-content: start; }
+
       .res-wrap { position: absolute; inset: 0; width: auto; overflow-y: auto; }
       .ph { position: absolute; inset: 0; width: auto; min-height: unset; }
       .stageCompare { position: absolute; inset: 0; width: auto; overflow: hidden; }
@@ -467,26 +464,14 @@
       <h2>Pick one. Talk to a neighbor.</h2>
     </div>
     <div class="stage" aria-hidden="true">
-      <div class="q-grid">
-        <div class="q-card">
-          <div class="q-num">01</div>
-          <div class="q-text">What's one thing you've always wanted to code or build but never knew where to start?</div>
+      <div class="ib-pair">
+        <div class="ib-q">
+          <div class="ib-num">A</div>
+          <div class="ib-text">What would you create first if coding felt as natural as writing?</div>
         </div>
-        <div class="q-card">
-          <div class="q-num">02</div>
-          <div class="q-text">What's a project idea you've shelved because the technical side felt out of reach?</div>
-        </div>
-        <div class="q-card">
-          <div class="q-num">03</div>
-          <div class="q-text">What's something you've seen someone build with code that made you think "I want to do that"?</div>
-        </div>
-        <div class="q-card">
-          <div class="q-num">04</div>
-          <div class="q-text">What would you create first if coding felt as natural as writing?</div>
-        </div>
-        <div class="q-card">
-          <div class="q-num">05</div>
-          <div class="q-text">What's one thing you wish you could make your computer do for your research that it doesn't do right now?</div>
+        <div class="ib-q">
+          <div class="ib-num">B</div>
+          <div class="ib-text">What's one thing you wish you could make your computer do for your research that it doesn't do right now?</div>
         </div>
       </div>
     </div>
