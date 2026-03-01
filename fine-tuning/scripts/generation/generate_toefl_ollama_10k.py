@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-Generate 10k TOEFL-style scaffolding dialogues using ollama gemma3:27b.
+Generate TOEFL-style scaffolding dialogues from seed errors.
 Rotates system prompt every 2500 entries across 4 adaptive scaffolding measures.
+
+Default target is local Ollama, but you can point this script at any OpenAI-compatible endpoint
+(e.g. OpenRouter) via --base-url / --api-key / --model.
 
 Usage:
   python3 generate_toefl_ollama_10k.py [--output FILE] [--count N] [--resume]
@@ -121,14 +124,14 @@ def get_phase(index: int, phase_size: int = 2500):
     return phase, SYSTEM_PROMPTS[phase], PHASE_NAMES[phase]
 
 
-def generate_one(error: dict, system_prompt: str, phase_name: str, client, index: int) -> dict | None:
+def generate_one(error: dict, system_prompt: str, phase_name: str, client, model: str, index: int, max_attempts: int = 3) -> dict | None:
     """Generate a single dialogue turn from a seed error."""
     user_msg = error["s"]
 
-    for attempt in range(3):
+    for attempt in range(max_attempts):
         try:
             resp = client.chat.completions.create(
-                model="gpt-oss:20b",
+                model=model,
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_msg},
@@ -170,9 +173,32 @@ def main():
     parser.add_argument("--count", type=int, default=10000)
     parser.add_argument("--phase-size", type=int, default=2500)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--model", default=os.getenv("MODEL", "gpt-oss:20b"))
+    parser.add_argument("--base-url", default=os.getenv("BASE_URL", "http://localhost:11434/v1"))
+    parser.add_argument("--api-key", default=os.getenv("API_KEY", "ollama"))
+    parser.add_argument("--api-key-env", default="", help="If set, read API key from this env var (e.g., OPENROUTER_API_KEY)")
+    parser.add_argument("--timeout", type=float, default=90.0)
+    parser.add_argument("--max-attempts", type=int, default=3)
     args = parser.parse_args()
 
-    client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+    api_key = args.api_key
+    if args.api_key_env:
+        api_key = os.getenv(args.api_key_env, "")
+        if not api_key:
+            raise SystemExit(f"Missing env var for --api-key-env: {args.api_key_env}")
+
+    client_kwargs = {
+        "base_url": args.base_url,
+        "api_key": api_key,
+        "timeout": args.timeout,
+    }
+    if "openrouter.ai" in args.base_url:
+        client_kwargs["default_headers"] = {
+            "HTTP-Referer": "https://github.com/milwrite/quimbot",
+            "X-Title": "quimbot-toefl-seeded",
+        }
+
+    client = OpenAI(**client_kwargs)
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -184,6 +210,8 @@ def main():
         print(f"📂 Resuming from index {start_index}")
 
     print(f"🎯 Target: {args.count} dialogues")
+    print(f"🤖 Model: {args.model}")
+    print(f"🌐 Base URL: {args.base_url}")
     print(f"📋 Error bank: {len(ERRORS)} seed patterns")
     print(f"🔄 Phase rotation every {args.phase_size} entries")
     print(f"   Phase 1 (0-{args.phase_size-1}): Recast")
@@ -201,7 +229,15 @@ def main():
             error = random.choice(ERRORS)
             phase_idx, sys_prompt, phase_name = get_phase(i, args.phase_size)
 
-            result = generate_one(error, sys_prompt, phase_name, client, i)
+            result = generate_one(
+                error,
+                sys_prompt,
+                phase_name,
+                client,
+                args.model,
+                i,
+                max_attempts=args.max_attempts,
+            )
 
             if result:
                 f.write(json.dumps(result) + "\n")

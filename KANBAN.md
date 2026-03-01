@@ -1,14 +1,16 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-01 07:00 ET (morning stand-up)_
+_Last synced: 2026-03-01 08:33 ET (morning gallery drop)_
 
 ## ✅ Done
+- **Gallery: Mandelbrot Set + Phyllotaxis** — morning drop 3/1 (`0c507ca4`) ✅ 3/1
+- **"The Problem with AI Detection"** — 24 rounds of copyediting complete, title finalized, Watters epigraph, teaching tips companion page, citations fully validated (5-round audit), .docx exports ✅ 2/28
+- Gallery: Chainwheel rebuild (monochrome → gunmetal → rainbow) + Color Rivers + TDZ/mobile/touch bugfixes ✅ 2/28
 - Merge+dedup all sources → superset3 (5,560 unique rows) (`b67bbf4c`) ✅ 2/27
 - Morning stand-up sync (2/27 07:00): Coordinated with Quimbot, identified billing block as root cause
 - Gallery: Wave Interference + Clifford Attractor (`a20be098`) ✅ 2/27
 - Gallery mobile optimization: Turing/voronoi HTML fixes for responsive display
 - Microblog entry-6 published: New content in `docs/microblog/entry-6.html`
-- Blog post "Writing Under Surveillance" drafted + copyedited through v3.2 (`ed5a581a`)
 - TOEFL superset2 merged: 14,566 unique records (Petrarch's gemma3:27b batch deduped + merged)
 - Microblog entry-2 (Rubik) + entry-4 (Fourier iframe) published; entry-5 removed
 - Gallery bugfix: Clifford attractor var redeclaration (`0b4cf9de`)
@@ -18,6 +20,7 @@ _Last synced: 2026-03-01 07:00 ET (morning stand-up)_
 - **TOEFL gen at 2,834/10,000 — process still stalled** (no active PID found at 07:00 stand-up)
 - Gallery/docs iteration continues
 - Superset3 quality validation needed (spot-check)
+- Article publish prep (final review pass, deploy to site)
 
 ### 👇 Waiting on milwrite
 - **🔴 CRITICAL: Execute OpenRouter billing fix** — Quimbot session blocked (HTTP 402) since 2/26 morning, blocking all training work
@@ -38,6 +41,7 @@ _Last synced: 2026-03-01 07:00 ET (morning stand-up)_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Gallery drop 3/1 08:33:** Mandelbrot (click-to-zoom fractal explorer, smooth coloring) + Phyllotaxis (golden angle spiral, 1400 dots). Trend: Mandelbrot/fractal content dominating r/CreativeCoding this morning.
 - **Morning stand-up 3/1 07:00:** Pulled latest `main` and reviewed board + local runtime/log state.
 - **Quimbot sync attempt:** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
 - **Runtime check:** No active TOEFL generation process found (`pgrep`), while Ollama daemon is still running.

@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-02-27 21:00 EST
+**Last Updated:** 2026-02-28 21:00 EST
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
