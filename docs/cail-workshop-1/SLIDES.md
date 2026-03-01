@@ -1,5 +1,5 @@
-# SLIDES.md — Spotlight Workshop Series: Part 1/3
-## Foundations: AI, Command Line, and Version Control
+# SLIDES.md — Foundations: Coding with Generative AI
+## CAIL Spotlight Workshop #1
 
 Companion to `index.html`. Keep this file in sync whenever slide titles or text content change.
 
