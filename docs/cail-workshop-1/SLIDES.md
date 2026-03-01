@@ -47,7 +47,7 @@ Part 2 — Installation & Setup:
 ## Slide 4 — Icebreaker
 
 **Label:** Icebreaker · 10 min
-**Title:** What would you create if coding felt as intuitive to you as writing?
+**Title:** What would you create if coding were more like the act of writing?
 **Subtitle:** Pick one. Talk to a neighbor.
 
 **Stage (ib-pair):**
