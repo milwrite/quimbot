@@ -41,22 +41,20 @@
       background: linear-gradient(to bottom, rgba(11,14,20,.96), transparent);
       z-index: 20; pointer-events: none;
     }
-    header .bar { pointer-events: auto; display: flex; align-items: center; gap: 10px; }
-    .pill {
-      font-family: ui-monospace, monospace; font-size: 12px;
-      padding: 3px 10px; border-radius: 20px;
+    header .bar { pointer-events: auto; display: flex; align-items: center; gap: 12px; }
+    #counter { font-variant-numeric: tabular-nums; font-size: 13px; opacity: 0.8; color: var(--fg); }
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       border: 1px solid var(--stroke); background: rgba(255,255,255,0.04);
-      color: var(--muted); white-space: nowrap;
+      padding: 2px 8px; border-radius: 8px; font-size: 12px; opacity: 0.8; color: var(--muted);
     }
-    #counter { font-variant-numeric: tabular-nums; }
-    .logo-text { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--fg); opacity: 0.7; }
     .nav-btn {
-      display: none; width: 36px; height: 36px; border-radius: 50%;
-      border: 1px solid var(--stroke); background: var(--card);
-      color: var(--fg); cursor: pointer; align-items: center; justify-content: center;
-      font-size: 16px; pointer-events: auto; transition: background 0.15s;
+      display: inline-flex; width: 26px; height: 26px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04);
+      color: var(--muted); cursor: pointer; align-items: center; justify-content: center;
+      font-size: 13px; pointer-events: auto; transition: background 0.15s, opacity 0.15s; opacity: 0.7;
     }
-    .nav-btn:hover { background: rgba(255,255,255,0.1); }
+    .nav-btn:hover { background: rgba(255,255,255,0.09); opacity: 1; }
     .nav-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
     /* ── SLIDE HOST ── */
@@ -241,8 +239,8 @@
     }
     .ib-q:last-child { border-bottom: none; }
     .ib-num {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--part); font-family: ui-monospace, monospace; margin-bottom: 16px;
+      font-size: clamp(12px,1.3vw,16px); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--part); font-family: ui-monospace, monospace; margin-bottom: 20px; opacity: 0.9;
     }
     .ib-text {
       font-size: clamp(22px,2.8vw,36px); line-height: 1.4;
@@ -357,7 +355,7 @@
       .slide-icebreaker .content h1 { font-size: clamp(22px, 3vw, 38px); }
       /* ib-pair fills stage at desktop */
       .ib-pair { position: absolute; inset: 0; overflow-y: auto; }
-      .nav-btn { display: inline-flex; }
+      #kbdSwipe { display: none; }
 
       /* Desktop: stage elements fill the full column */
       .term-box, .term-stub { position: absolute; inset: 0; width: auto; overflow-y: auto; }
@@ -388,12 +386,11 @@
 
 <header role="banner">
   <div class="bar">
-    <span class="logo-text">Foundations: Coding with Generative AI</span>
-  </div>
-  <div class="bar">
     <button class="nav-btn" id="btn-prev" aria-label="Previous slide">&#8592;</button>
-    <span class="pill" id="counter" aria-live="polite" aria-atomic="true">1 / 16</span>
+    <div id="counter" aria-live="polite" aria-atomic="true">1 / 16</div>
     <button class="nav-btn" id="btn-next" aria-label="Next slide">&#8594;</button>
+    <div class="kbd" id="kbdKeys">← →</div>
+    <div class="kbd" id="kbdSwipe">Swipe</div>
   </div>
 </header>
 
@@ -508,15 +505,8 @@
       <div class="label">Concept</div>
       <h1>Problematics of Agentic Coding</h1>
     </div>
-    <!-- no-review vs deliberate iteration; oversight framing; credit / authorship / debugging -->
-    <div class="stage" aria-hidden="true">
-      <div class="stageCenter">
-        <div class="stageInner">
-          <div class="stageBig">The model can write all the code. That doesn't mean it should write all the code.</div>
-          <div class="stageHint">No-review iteration speeds things up. It also obscures what's happening — and why it breaks.</div>
-        </div>
-      </div>
-    </div>
+    <!-- no-review vs deliberate iteration · oversight / authorship framing — content pending -->
+    <div class="stage" aria-hidden="true"><div class="ph"></div></div>
   </section>
 
   <!-- 7 · GITHUB -->
