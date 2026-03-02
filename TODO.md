@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-02-28 21:00 EST
+**Last Updated:** 2026-03-01 EST
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -16,6 +16,13 @@
 - [ ] Validate `generate_toefl_ollama_10k.py` with a small reproducible smoke command in docs
 - [ ] Decide Stage 2 dataset composition (Spanish SFT candidates from latam-gpt)
 - [ ] Fix OpenRouter 402 on milwrite account
+
+## Workshop / CAIL Deck
+- [ ] Unpack VSC-IDE setup steps more concretely (slide 9):
+  - Step 1: Download + install VS Code — add download link, OS variants (macOS/Windows/Linux)
+  - Step 2: Sign in with your GitHub profile — clarify where in VS Code (accounts menu, bottom-left)
+  - Step 3: Add the GitHub extension — name the exact extension (GitHub Pull Requests / GitHub Repositories), show what "start tracking" means in practice
+  - Step 4: Open the integrated terminal — show the keyboard shortcut (Ctrl+` / Cmd+`), explain this is where CLI + Git commands run
 
 ## Low Priority
 - [ ] Reorganize `fine-tuning/prospects/` into main `fine-tuning/` workflow layout
