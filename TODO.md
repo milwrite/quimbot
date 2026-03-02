@@ -1,8 +1,13 @@
 # TODO
 
-**Last Updated:** 2026-02-28 21:00 EST
+**Last Updated:** 2026-03-01 22:52 EST
 
 ## High Priority
+- [ ] VP workshop polish pass (https://cuny-ai-lab.github.io/gen-dev-foundations/#1)
+  - [ ] Add click/space keybind to advance slides
+  - [ ] Add images/screenshots to support selected steps
+  - [ ] Add Parisa LLM intro segment
+  - [ ] Add a slider/scrubber to fast-forward through the deck
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
 - [ ] Run checkpoint eval pass (perplexity + inference samples) immediately after weights arrive
 - [x] Merge fresh Ollama outputs into one staging JSONL and dedup against current superset → superset3 (5,560 unique) ✅ 2/27
