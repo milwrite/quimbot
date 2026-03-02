@@ -30,8 +30,10 @@ export function molnarInterruptions(container) {
     ctx.fillStyle = '#f7f5ef';
     ctx.fillRect(0, 0, width, height);
 
-    const cols = 48;
-    const rows = 28;
+    // Responsive grid density so lines stay legible on small screens.
+    const minCell = Math.max(12, Math.min(20, Math.min(width, height) * 0.035));
+    const cols = Math.max(8, Math.floor(width / minCell));
+    const rows = Math.max(6, Math.floor(height / minCell));
     const stepX = width / cols;
     const stepY = height / rows;
 
@@ -42,7 +44,7 @@ export function molnarInterruptions(container) {
     const voidR = baseR + pulse;
 
     ctx.strokeStyle = '#101010';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = Math.min(width, height) < 400 ? 1.5 : 2;
 
     // Uniform-ish angle with tiny drift (order)
     const theta = 0.35 + 0.12 * Math.sin(t / 1300);

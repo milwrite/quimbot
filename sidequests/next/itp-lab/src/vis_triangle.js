@@ -74,7 +74,7 @@ export function triangle(container) {
     const gridAlpha = 0.55 * wA;
     ctx.strokeStyle = `rgba(120,180,255,${gridAlpha})`;
     ctx.lineWidth = 1;
-    const step = 22;
+    const step = Math.max(14, Math.min(26, Math.min(width, height) * 0.05));
     for (let x = 0; x <= width; x += step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke(); }
     for (let y = 0; y <= height; y += step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke(); }
 
