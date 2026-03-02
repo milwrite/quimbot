@@ -46,6 +46,13 @@ _Last synced: 2026-03-02 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning stand-up 3/2 07:00:** Pulled latest `main`, reviewed KANBAN, and attempted Quimbot sync.
+- **Quimbot sync attempt (morning):** `sessions_send` to label `Quimbot` still returns "No session found with label: Quimbot" from this host.
+- **Runtime check (3/2):** No active TOEFL generation PID found (`pgrep` only shows editor/python service helpers).
+- **Log check (3/2):** `fine-tuning/generation_qwen72b.log` still ends in OpenRouter HTTP 402 credits error (insufficient credits).
+- **Cron check (3/2):** `fine-tuning/prospects/cron.log` is still missing on this checkout.
+- **Status delta vs 3/1 evening:** No net progress change on blocked training lane. Gallery/docs remains the only confirmed unblocked lane.
+- **Immediate path:** (1) Execute billing fix, (2) restart generation and verify live PID + log growth, (3) provide adapter weights path for Stage 1 Run 4 eval, (4) restore/fix prospects cron path/runtime.
 - **Evening stand-up 3/1 19:00:** Pulled latest `main` and re-checked board state. No net progress change since morning sync.
 - **Quimbot sync attempt (evening):** `sessions_send` to label `Quimbot` still returned "No session found with label: Quimbot" from this host.
 - **Status delta since morning:** Training pipeline still blocked by OpenRouter HTTP 402. No active TOEFL generation PID found. Gallery/docs lane remains the only confirmed unblocked lane.
