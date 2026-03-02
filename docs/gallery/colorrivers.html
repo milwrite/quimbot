@@ -133,8 +133,8 @@ function curl(x, y, t) {
   };
 }
 
-const N = Math.min(4000, Math.max(1400, Math.floor((window.innerWidth * window.innerHeight) / 420)));
-const speed = window.innerWidth < 700 ? 1.35 : 1.8;
+let N = 0;
+let speed = 1.8;
 const scale = 0.0018;
 const trailAlpha = 0.012;
 
@@ -142,6 +142,22 @@ let particles = [];
 let t = 0;
 let paused = false;
 let raf;
+
+function prefersReducedMotion() {
+  return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+}
+
+function particleTarget() {
+  const area = W * H;
+  const base = Math.floor(area / 420);
+  const clamped = Math.min(4000, Math.max(1000, base));
+  return prefersReducedMotion() ? Math.floor(clamped * 0.6) : clamped;
+}
+
+function flowSpeed() {
+  const base = W < 700 ? 1.25 : 1.8;
+  return prefersReducedMotion() ? base * 0.8 : base;
+}
 
 class Particle {
   constructor() { this.reset(); }
@@ -160,6 +176,8 @@ class Particle {
 function reset() {
   seedPerm();
   t = 0;
+  N = particleTarget();
+  speed = flowSpeed();
   particles = Array.from({length: N}, () => new Particle());
   document.getElementById('info').textContent = `${N} particles`;
   ctx.fillStyle = '#000';

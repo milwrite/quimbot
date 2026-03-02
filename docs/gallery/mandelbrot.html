@@ -63,7 +63,10 @@ function smoothColor(iter, maxIter, zx, zy) {
 
 function scheduleRender() {
   const token = ++renderToken;
-  const maxIter = Math.max(100, 80 + Math.log2(2.6 / zoom) * 25 | 0);
+  const iterBase = 80 + (Math.log2(2.6 / zoom) * 25 | 0);
+  const mobileScale = W < 700 ? 0.78 : 1;
+  const reducedScale = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 0.75 : 1;
+  const maxIter = Math.max(90, Math.floor(iterBase * mobileScale * reducedScale));
   const scale = zoom / Math.min(W, H);
   const imgData = ctx.createImageData(W, H);
   const data = imgData.data;

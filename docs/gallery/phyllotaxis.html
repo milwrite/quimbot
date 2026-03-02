@@ -27,7 +27,7 @@ const ctx = c.getContext('2d');
 const PHI = (1 + Math.sqrt(5)) / 2;
 const GOLDEN_ANGLE = Math.PI * 2 * (2 - PHI); // ≈ 137.508°
 
-const N = 1400;
+let N = 1400;
 let W, H, ox, oy, maxR, DPR;
 let t = 0;
 let pulse = 0; // 0..1 pulse wave on click
@@ -44,6 +44,9 @@ function resize() {
   ox = W / 2;
   oy = H / 2;
   maxR = Math.min(W, H) * 0.455;
+  const baseN = Math.floor((W * H) / 520);
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  N = Math.min(1400, Math.max(700, reduced ? Math.floor(baseN * 0.7) : baseN));
 }
 
 addEventListener('resize', resize);
@@ -51,9 +54,12 @@ addEventListener('orientationchange', () => setTimeout(resize, 140));
 window.visualViewport?.addEventListener('resize', resize);
 resize();
 
-c.addEventListener('click', () => {
+function triggerPulse() {
   pulse = 1;
-});
+}
+
+c.addEventListener('click', triggerPulse);
+c.addEventListener('pointerdown', triggerPulse);
 
 function loop() {
   t += 0.006;
