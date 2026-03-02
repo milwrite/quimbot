@@ -200,7 +200,7 @@ _(git init covered on prior slide)_
 1. Create your first file: `touch README.md`
 2. Stage and commit: `git add . && git commit -m "first commit"`
 3. Publish to your GitHub: `gh repo create my-project --public --source=. --push`
-4. Add the CUNY AI Lab remote and push: `git remote add cuny https://github.com/cuny-ai-lab/my-project.git` then `git push cuny main`
+4. Add the CUNY AI Lab remote and push: `git remote add origin https://github.com/cuny-ai-lab/my-project` then `git push -u origin main` → [github.com/cuny-ai-lab](https://github.com/cuny-ai-lab)
 
 ---
 
