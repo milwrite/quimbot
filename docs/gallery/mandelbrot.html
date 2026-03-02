@@ -35,7 +35,6 @@ function resize() {
   c.height = Math.round(H * DPR);
   c.style.width = W + 'px';
   c.style.height = H + 'px';
-  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   scheduleRender();
 }
 
@@ -67,18 +66,20 @@ function scheduleRender() {
   const mobileScale = W < 700 ? 0.78 : 1;
   const reducedScale = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 0.75 : 1;
   const maxIter = Math.max(90, Math.floor(iterBase * mobileScale * reducedScale));
+  // Work in physical pixels so putImageData fills the full canvas on hi-DPI screens
+  const PW = c.width, PH = c.height;
   const scale = zoom / Math.min(W, H);
-  const imgData = ctx.createImageData(W, H);
+  const imgData = ctx.createImageData(PW, PH);
   const data = imgData.data;
   let row = 0;
 
   function batch() {
     if (token !== renderToken) return;
-    const end = Math.min(row + 6, H);
+    const end = Math.min(row + 6, PH);
     for (let py = row; py < end; py++) {
-      const y0 = cy + (py - H / 2) * scale;
-      for (let px = 0; px < W; px++) {
-        const x0 = cx + (px - W / 2) * scale;
+      const y0 = cy + (py / DPR - H / 2) * scale;
+      for (let px = 0; px < PW; px++) {
+        const x0 = cx + (px / DPR - W / 2) * scale;
         let x = 0, y = 0, iter = 0;
         while (x * x + y * y <= 4 && iter < maxIter) {
           const xt = x * x - y * y + x0;
@@ -86,12 +87,11 @@ function scheduleRender() {
           x = xt;
           iter++;
         }
-        const idx = (py * W + px) * 4;
+        const idx = (py * PW + px) * 4;
         if (iter === maxIter) {
           data[idx] = 5; data[idx+1] = 7; data[idx+2] = 11; data[idx+3] = 255;
         } else {
           const t = smoothColor(iter, maxIter, x, y) / maxIter;
-          // restrained deep-blue palette to avoid rainbow cycling
           const hue = 0.56 + t * 0.12;
           const [r, g, b] = hslToRgb(hue, 0.72, 0.08 + t * 0.56);
           data[idx] = r; data[idx+1] = g; data[idx+2] = b; data[idx+3] = 255;
@@ -100,7 +100,7 @@ function scheduleRender() {
     }
     ctx.putImageData(imgData, 0, 0);
     row = end;
-    if (row < H) requestAnimationFrame(batch);
+    if (row < PH) requestAnimationFrame(batch);
   }
   requestAnimationFrame(batch);
 }
