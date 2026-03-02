@@ -17,15 +17,15 @@ _Last synced: 2026-03-02 ET_
 - Site cleanup: OpenClaw files removed from repo, .gitignore updated, GH Pages source fixed
 
 ## 🔨 In Progress
-- **VP workshop deck polish** (<https://cuny-ai-lab.github.io/gen-dev-foundations/#1>)
-  - Add click/space interaction to advance slides
-  - Add images/screenshots on selected steps
-  - Add Parisa LLM intro
-  - Add slider/scrubber to fast-forward through deck
 - **TOEFL gen at 2,834/10,000 — process still stalled** (no active PID found at 07:00 stand-up)
 - Gallery/docs iteration continues
 - Superset3 quality validation needed (spot-check)
 - Article publish prep (final review pass, deploy to site)
+- **Workshop deck nearly done** — <https://cuny-ai-lab.github.io/gen-dev-foundations/#1>
+  - [ ] Click / Space to advance slides
+  - [ ] Images / screenshots for key steps
+  - [ ] Parisa LLM intro slide(s)
+  - [ ] Scrubber / slider to fast-forward through the deck
 
 ### 👇 Waiting on milwrite
 - **🔴 CRITICAL: Execute OpenRouter billing fix** — Quimbot session blocked (HTTP 402) since 2/26 morning, blocking all training work
