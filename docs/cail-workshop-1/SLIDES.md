@@ -196,10 +196,10 @@ mkdir assets
 **Title:** Creating a GitHub Repository
 
 **Stage (step-grid, fragments):**
-1. Initialize Git: `git init`
-2. Create your first file: `touch README.md`
-3. Stage and commit: `git add . && git commit -m "first commit"`
-4. Publish to GitHub: `gh repo create my-project --public --source=. --push`
+_(git init covered on prior slide)_
+1. Create your first file: `touch README.md`
+2. Stage and commit: `git add . && git commit -m "first commit"`
+3. Publish to GitHub: `gh repo create my-project --public --source=. --push`
 
 ---
 
