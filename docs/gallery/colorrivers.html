@@ -8,7 +8,7 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: #000; overflow: hidden; }
-canvas { display: block; width: 100vw; height: 100vh; }
+canvas { display: block; width: 100vw; height: 100vh; touch-action: none; }
 .controls {
   position: fixed;
   bottom: calc(12px + env(safe-area-inset-bottom));
@@ -73,12 +73,20 @@ if (inIframe) {
   document.querySelector('.controls').style.display = 'none';
 }
 
-let W, H;
+let W, H, DPR;
 function resize() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  W = window.innerWidth;
+  H = window.innerHeight;
+  canvas.width = Math.round(W * DPR);
+  canvas.height = Math.round(H * DPR);
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
 }
 window.addEventListener('resize', () => { resize(); reset(); });
+window.addEventListener('orientationchange', () => setTimeout(() => { resize(); reset(); }, 140));
+window.visualViewport?.addEventListener('resize', () => { resize(); reset(); });
 resize();
 
 // --- Simplex-style noise (minimal implementation) ---
@@ -125,8 +133,8 @@ function curl(x, y, t) {
   };
 }
 
-const N = 4000;
-const speed = 1.8;
+const N = Math.min(4000, Math.max(1400, Math.floor((window.innerWidth * window.innerHeight) / 420)));
+const speed = window.innerWidth < 700 ? 1.35 : 1.8;
 const scale = 0.0018;
 const trailAlpha = 0.012;
 
@@ -153,6 +161,7 @@ function reset() {
   seedPerm();
   t = 0;
   particles = Array.from({length: N}, () => new Particle());
+  document.getElementById('info').textContent = `${N} particles`;
   ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, W, H);
 }

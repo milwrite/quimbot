@@ -8,7 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;background:#05070b;overflow:hidden}
-canvas{display:block;width:100%;height:100%;cursor:crosshair}
+canvas{display:block;width:100%;height:100%;cursor:crosshair;touch-action:none}
 #info{position:fixed;bottom:calc(12px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.9);background:rgba(0,0,0,0.6);padding:6px 12px;border-radius:6px;text-shadow:0 1px 3px rgba(0,0,0,0.9);font:13px/1.4 ui-monospace,monospace;pointer-events:none;text-align:center;max-width:min(92vw,680px);white-space:normal}
 .back-btn{position:fixed;top:calc(12px + env(safe-area-inset-top));right:calc(12px + env(safe-area-inset-right));background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
 .back-btn:hover{border-color:#888}
@@ -24,12 +24,18 @@ const c = document.getElementById('c');
 const ctx = c.getContext('2d');
 
 let cx = -0.5, cy = 0.0, zoom = 2.6;
-let W, H;
+let W, H, DPR;
 let renderToken = 0;
 
 function resize() {
-  W = c.width = innerWidth;
-  H = c.height = innerHeight;
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  W = innerWidth;
+  H = innerHeight;
+  c.width = Math.round(W * DPR);
+  c.height = Math.round(H * DPR);
+  c.style.width = W + 'px';
+  c.style.height = H + 'px';
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   scheduleRender();
 }
 
@@ -142,6 +148,8 @@ c.addEventListener('touchmove', e => {
 c.addEventListener('touchend', () => { lastPinchDist = null; }, { passive: true });
 
 addEventListener('resize', resize);
+addEventListener('orientationchange', () => setTimeout(resize, 140));
+window.visualViewport?.addEventListener('resize', resize);
 resize();
 </script>
 <script>(function(){var inFrame=false;try{inFrame=window.self!==window.top}catch(e){inFrame=true}if(inFrame)document.querySelectorAll("#info,.info,#ctrl,#buttons,#depth,.controls,#mode,button,.back-btn").forEach(function(e){e.style.display="none"})})()</script>
