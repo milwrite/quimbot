@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-02 21:00 ET_
+_Last synced: 2026-03-03 07:00 ET_
 
 ## ✅ Done
 - **Gallery: Mandelbrot Set + Phyllotaxis** — morning drop 3/1 (`0c507ca4`) ✅ 3/1
@@ -48,6 +48,10 @@ _Last synced: 2026-03-02 21:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning stand-up 3/3 07:00:** Pulled latest `main`, reviewed KANBAN, and attempted Quimbot sync.
+- **Quimbot sync attempt (3/3 morning):** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
+- **Status delta (3/3 morning):** Workshop deck/gallery/docs lane continues moving. Training lane still blocked by OpenRouter billing (HTTP 402), missing adapter-path handoff, and stalled TOEFL generation.
+- **Today focus (3/3):** (1) execute billing fix, (2) restart generation and confirm live PID + log growth, (3) provide adapter weights transfer path for Stage 1 Run 4 eval, (4) verify/fix prospects cron runtime path.
 - **Evening stand-up 3/2 19:00:** Pulled latest `main`, reviewed KANBAN, and attempted Quimbot sync.
 - **Quimbot sync attempt (evening):** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
 - **Progress since morning:** Gallery lane moved forward with Chladni + Julia pages and a rendering bugfix pass merged to `main` (`e46913a`, `201862e`).
