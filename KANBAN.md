@@ -4,6 +4,8 @@ _Last synced: 2026-03-02 ET_
 
 ## ✅ Done
 - **Gallery: Mandelbrot Set + Phyllotaxis** — morning drop 3/1 (`0c507ca4`) ✅ 3/1
+- **Gallery: Chladni Figures + Julia Set** — added to docs/gallery (`e46913a`) ✅ 3/2
+- **Gallery: rendering bugfix pass** — follow-up fixes landed (`201862e`) ✅ 3/2
 - **"The Problem with AI Detection"** — 24 rounds of copyediting complete, title finalized, Watters epigraph, teaching tips companion page, citations fully validated (5-round audit), .docx exports ✅ 2/28
 - Gallery: Chainwheel rebuild (monochrome → gunmetal → rainbow) + Color Rivers + TDZ/mobile/touch bugfixes ✅ 2/28
 - Merge+dedup all sources → superset3 (5,560 unique rows) (`b67bbf4c`) ✅ 2/27
@@ -46,6 +48,11 @@ _Last synced: 2026-03-02 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening stand-up 3/2 19:00:** Pulled latest `main`, reviewed KANBAN, and attempted Quimbot sync.
+- **Quimbot sync attempt (evening):** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
+- **Progress since morning:** Gallery lane moved forward with Chladni + Julia pages and a rendering bugfix pass merged to `main` (`e46913a`, `201862e`).
+- **Status delta since morning:** Training lane still blocked on billing + adapter-path dependencies; no confirmation of resumed TOEFL generation from this host.
+- **Tomorrow plan (3/3):** (1) Execute billing fix first, (2) restart generation and verify live PID + log growth, (3) provide adapter weights path for Stage 1 Run 4 eval, (4) verify/fix prospects cron path/runtime, (5) continue gallery/docs throughput while training lane is blocked.
 - **Morning stand-up 3/2 07:00:** Pulled latest `main`, reviewed KANBAN, and attempted Quimbot sync.
 - **Quimbot sync attempt (morning):** `sessions_send` to label `Quimbot` still returns "No session found with label: Quimbot" from this host.
 - **Runtime check (3/2):** No active TOEFL generation PID found (`pgrep` only shows editor/python service helpers).
