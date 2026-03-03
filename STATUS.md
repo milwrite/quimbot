@@ -1,15 +1,16 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
 **Date:** 2026-03-02 (Mon)
-**Time:** 09:00 ET (morning review)
+**Time:** 21:00 ET (evening review)
 
-## Progress since last review (3/1 midday)
-- **Gallery: Chladni Figures + Julia Set** added (36 total artifacts) (`e46913a1`)
-- **Mobile optimization pass**: DPR handling, orientation change, touch-action, adaptive particle counts (`be60a194`)
-- **gen-dev-foundations deck** added to docs (`cf624428`); exit ticket removed, agenda updated (`a26b6499`)
-- **Workshop deck resources** updated with gen-dev-foundations links (`940876c1`)
-- **TODO**: VSC-IDE slide expansion task added (`745a5aa3`)
-- **KANBAN synced** for 3/2 morning (`b680a458`)
+## Progress today (3/2)
+- **Gallery: Chladni Figures + Julia Set** added, bringing gallery to 36 artifacts (`e46913a1`)
+- **Gallery rendering bugfix pass**: 3 bugs fixed (`201862e0`)
+- **Mobile optimization**: DPR, orientation, touch-action, adaptive particle counts (`d700248b`)
+- **gen-dev-foundations workshop deck** added to docs (`cf624428`); exit ticket removed (`a26b6499`)
+- **VSC-IDE slide expansion task** scoped and added to TODO (`745a5aa3`)
+- **KANBAN synced** 3x throughout the day
+- **Nightly file sync** committed (`79d0b9a2`)
 
 ## Current blockers / risks
 - **🔴 OpenRouter HTTP 402** — cloud generation blocked (needs milwrite billing fix)
