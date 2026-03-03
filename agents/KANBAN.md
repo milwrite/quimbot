@@ -1,6 +1,6 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-02 07:00 ET_
+_Last synced: 2026-03-02 19:00 ET_
 
 ## In Progress
 - **TOEFL superset4 merge** — gen complete (11,999 entries, QA passed). Next: triage 50 flagged short replies, then merge superset3 (5,560) + gpt-oss run into superset4 (~15k unique target).
@@ -18,6 +18,9 @@ _Last synced: 2026-03-02 07:00 ET_
 - Blog publish prep
 
 ## Done (recent)
+- Gallery: 36 artifacts live, 3 rendering bugs fixed, Chladni + Julia Set added (2026-03-02, 10 commits)
+- gen-dev-foundations workshop deck added to docs (2026-03-02)
+- Mobile viewport optimization for latest gallery artifacts (2026-03-02)
 - Blog retitled "The Problem with AI Detection"; 18 copyedit rounds, teaching tips page, .docx exports, chainwheel art (2026-02-28, 48 commits)
 - Tail-50 QA on toefl_gptoss20b_10k.jsonl: 0 parse errors (2026-02-28)
 - Superset3 merge+dedup: 5,560 unique rows (2026-02-27)
