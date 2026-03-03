@@ -1,89 +1,94 @@
-# SLIDES.md — Foundations: Coding with Generative AI
-## CAIL Spotlight Workshop #1
+# SLIDES.md — CAIL Spotlight Workshop #1
+## Foundations: Coding with Generative AI
 
 Companion to `index.html`. Keep this file in sync whenever slide titles or text content change.
+Upstream source: <https://github.com/CUNY-AI-Lab/gen-dev-foundations>
+Live deck: <https://cuny-ai-lab.github.io/gen-dev-foundations/>
 
 ---
 
-## Slide 1 — Title
+## Slide 1 — Title (`data-slide="title"`)
 
 **Label:** CAIL Spotlight Workshop #1
 **Title:** Foundations: Coding with Generative AI
-**Date:** Spring 2026
-**Stage:** Infinite wheel artifact (`../gallery/chainwheel.html`)
+**Stage:** Noll quadratic artifact (`../gallery/noll.html`)
 
 ---
 
-## Slide 2 — Agenda
+## Slide 2 — Agenda (`data-slide="agenda"`)
 
 **Label:** Workshop
 **Title:** Agenda
 
-**Stage (agenda table):**
-
-Part 1 — Coding & Development Basics:
-- Icebreaker (10m)
-- Inference as Coding Scaffold
-- Problematics of Agentic Coding
-- Setting up an IDE
-- The Command Line
-- Versioning + Project Management with Git
-
-Part 2 — Installation & Setup:
-- Installing Gemini CLI
-- Login Setup
-- Exit Ticket
-- Next Steps
-
 ---
 
-## Slide 3 — Section Break: Part 1
+## Slide 3 — Section Break: Part 1 (`data-slide="part1"`)
 
 **Tag:** Part 1
-**Title:** Coding & Development Basics
+**Title:** Concepts & Context
 
 ---
 
-## Slide 4 — Icebreaker
+## Slide 4 — Icebreaker (`data-slide="icebreaker"`)
 
 **Label:** Icebreaker · 10 min
-**Title:** What would you create if coding were more like the act of writing?
+**Title:** Where does coding live in your imagination?
 **Subtitle:** Pick one. Talk to a neighbor.
 
-**Stage (ib-pair):**
-- **A** — What would you create if coding was more like writing?
-- **B** — What's one thing you wish you could make your computer do for your research that it doesn't do right now?
+**Stage cards:** Q1–Q5 _(content in index.html)_
 
 ---
 
-## Slide 5 — Demo
+## Slide 5 — Demo (`data-slide="demo"`)
 
 **Label:** Demo
 **Title:** Vibe Coding in Action
 
-**Stage (stageCenter):**
-- **Big:** Live walkthrough: building something from scratch with an AI coding agent
-- **Hint:** Watch how a conversation with Gemini CLI turns a plain-language idea into working code — step by step, inside VS Code.
-
 ---
 
-## Slide 6 — Inference as Coding Scaffold
+## Slide 6 — LLM Concept (`data-slide="llm"`)
 
 **Label:** Concept
-**Title:** Inference as Coding Scaffold
-**Stage:** _(content pending)_
+**Title:** What is a Large Language Model (LLM)?
 
 ---
 
-## Slide 7 — Problematics of Agentic Coding
+## Slide 7 — LLM Process (`data-slide="llm-process"`)
 
 **Label:** Concept
-**Title:** Problematics of Agentic Coding
-**Stage:** _(content pending)_
+**Title:** How Does an LLM Actually Produce an Answer?
 
 ---
 
-## Slide 8 — Setting up an Interactive Development Environment
+## Slide 8 — Code Generation (`data-slide="code-generation"`)
+
+**Label:** Concept
+**Title:** How Do LLMs Generate Code?
+
+---
+
+## Slide 9 — Good / Bad (`data-slide="good-bad"`)
+
+**Label:** Concept
+**Title:** What's Good / What's Bad
+
+---
+
+## Slide 10 — Section Break: Part 2 (`data-slide="part2"`)
+
+**Tag:** Part 2
+**Title:** Development Environment
+
+---
+
+## Slide 11 — VS Code Intro (`data-slide="vscode-intro"`)
+
+**Label:** Concept
+**Title:** What is VS Code?
+
+---
+
+## Slide 12 — VS Code Setup (`data-slide="vscode"`)
 
 **Label:** Setup
 **Title:** Setting up an Interactive Development Environment
@@ -94,228 +99,138 @@ Part 2 — Installation & Setup:
 3. Add the GitHub extension; start tracking your project
 4. Open the integrated terminal — this is where CLI + Git live
 
----
-
-## Slide 9 — What is VS Code?
-
-**Label:** Concept
-**Title:** What is VS Code?
-
-**Stage (stageCenter):**
-- **Big:** A free code editor that works like a smart writing desk for programmers
-- **Hint:** It highlights your code, catches errors, and connects to tools like Git and AI assistants — all in one window.
-- **Why VS Code?**
-  - Free, open-source, and runs on Mac, Windows, and Linux
-  - Built-in terminal, Git support, and thousands of extensions
-  - Where AI coding agents (like Gemini CLI) do their work
+_(TODO: unpack each step more concretely — download link, OS variants, exact extension names, keyboard shortcut for terminal)_
 
 ---
 
-## Slide 10 — What is the Command Line?
+## Slide 13 — CLI Intro (`data-slide="cli-intro"`)
 
 **Label:** Concept
 **Title:** What is the Command Line?
 
-**Stage (stageCenter):**
-- **Big:** A text-based interface for controlling your computer
-- **Hint:** Instead of clicking buttons and icons, you type commands.
-- **Why use it?**
-  - More powerful and precise control
-  - Essential for development work
-  - How AI coding agents interact with your system
+---
+
+## Slide 14 — Opening Terminal (`data-slide="cli-open"`)
+
+**Label:** Outside VS Code
+**Title:** Opening a Standalone Terminal
 
 ---
 
-## Slide 11 — Opening Your Terminal
-
-**Label:** Setup
-**Title:** Opening Your Terminal
-
-**Stage (stageCompare):**
-- **macOS — Terminal:** 1. Press Cmd + Space → 2. Type "Terminal" → 3. Press Return
-- **Windows — PowerShell:** 1. Press the Windows key → 2. Type "PowerShell" → 3. Press Enter
-
----
-
-## Slide 12 — Command Line Basics
+## Slide 15 — CLI Navigation (`data-slide="cli-nav"`)
 
 **Label:** Tool
 **Title:** Command Line Basics
-
-**Stage (terminal):**
-```
-# where am I?
-pwd
-
-# list files
-ls -la
-
-# move into a folder
-cd my-project
-
-# go up one level
-cd ..
-
-# create a file
-touch index.html
-
-# make a new folder
-mkdir assets
-```
+_(navigation: pwd, ls, cd, mkdir)_
 
 ---
 
-## Slide 13 — What is Git? What is GitHub?
+## Slide 16 — CLI File Ops (`data-slide="cli-files"`)
+
+**Label:** Tool
+**Title:** Command Line Basics
+_(file ops: touch, mv, cp, rm, cat)_
+
+---
+
+## Slide 17 — Git Intro (`data-slide="git-intro"`)
 
 **Label:** Concept
 **Title:** What is Git? What is GitHub?
 
-**Stage (stageCompare):**
-- **Local — Git:** A version control system that runs on your computer. Tracks every change to your files so you can go back in time, undo mistakes, and work in parallel.
-- **Cloud — GitHub:** A website that stores your Git repositories online. Share code, collaborate with others, and host websites — all from your browser.
+---
+
+## Slide 18 — Git Setup (`data-slide="git-setup"`)
+
+**Label:** Tool
+**Title:** Git Basics
+_(init, add, commit)_
 
 ---
 
-## Slide 14 — Logging into GitHub
+## Slide 19 — Git Sync (`data-slide="git-sync"`)
+
+**Label:** Tool
+**Title:** Git Basics
+_(push, pull, log, status, diff)_
+
+---
+
+## Slide 20 — GitHub Login (`data-slide="gh-login"`)
 
 **Label:** Setup
 **Title:** Logging into GitHub
 
-**Stage (step-grid, fragments):**
-1. Install the GitHub CLI: `brew install gh` (macOS) / `winget install GitHub.cli` (Windows)
-2. Start login from your terminal: `gh auth login`
-3. Choose **GitHub.com** → **HTTPS** → **Login with a web browser**
-4. Copy the one-time code, press Enter, and approve in the browser window that opens
-5. Back in your terminal you'll see: **✓ Logged in as your-username**
+**Stage steps:**
+1. Install GitHub CLI: `brew install gh` (macOS) / `winget install GitHub.cli` (Windows)
+2. Start login: `gh auth login`
+3. Choose GitHub.com → HTTPS → Login with a web browser
+4. Copy the one-time code, press Enter, approve in browser
+5. Confirm: `✓ Logged in as your-username`
 
 ---
 
-## Slide 15 — Creating a GitHub Repository
+## Slide 21 — GitHub Repo (`data-slide="gh-repo"`)
 
 **Label:** Setup
-**Title:** Creating a GitHub Repository
+**Title:** Staging, Committing, and Pushing to GitHub
 
-**Stage (step-grid, fragments):**
-_(git init covered on prior slide)_
+**Stage steps:**
+_(git init covered on git-setup slide)_
 1. Create your first file: `touch README.md`
 2. Stage and commit: `git add . && git commit -m "first commit"`
 3. Publish to your GitHub: `gh repo create my-project --public --source=. --push`
-4. Add the CUNY AI Lab remote and push: `git remote add origin https://github.com/cuny-ai-lab/my-project` then `git push -u origin main` → [github.com/cuny-ai-lab](https://github.com/cuny-ai-lab)
+4. Add the CUNY AI Lab remote and push:
+   `git remote add origin https://github.com/cuny-ai-lab/my-project`
+   `git push -u origin main` → [github.com/cuny-ai-lab](https://github.com/cuny-ai-lab)
 
 ---
 
-## Slide 16 — Versioning + Project Management with Git
+## Slide 22 — Section Break: Part 3 (`data-slide="part3"`)
 
-**Label:** Tool
-**Title:** Versioning + Project Management with Git
-
-**Stage (terminal, fragments):**
-```
-# initialize a repo
-git init
-
-# stage your changes
-git add .
-
-# save a snapshot
-git commit -m "first commit"
-
-# push to GitHub
-git push origin main
-
-# view history
-git log --oneline
-
-# check what changed
-git status
-```
-
----
-
-## Slide 17 — Section Break: Part 2
-
-**Tag:** Part 2
+**Tag:** Part 3
 **Title:** Installation & Setup
-**Subtitle:** Getting Gemini CLI running on your machine
-**Accent:** `#2ea043` (green)
 
 ---
 
-## Slide 18 — Installing Gemini CLI
+## Slide 23 — Install Gemini CLI (`data-slide="install"`)
 
 **Label:** Setup
 **Title:** Installing Gemini CLI
 
-**Stage (stageCompare):**
-- **Windows — PowerShell:** 1. Install Node.js LTS from nodejs.org → 2. Reopen PowerShell → 3. `npm install -g @google/gemini-cli`
-- **macOS — Terminal:** 1. Install Homebrew from brew.sh → 2. Add Homebrew to PATH → 3. `brew install gemini-cli`
-
 ---
 
-## Slide 19 — Login Setup
+## Slide 24 — Login (`data-slide="login"`)
 
 **Label:** Setup
-**Title:** Login Setup
-
-**Stage (step-grid, fragments):**
-1. Run `gemini` in your terminal to start authentication
-2. Choose "Login with Google" and follow the browser prompt
-3. Free tier: 60 requests/min · 1,000 requests/day
-4. Having technical issues? Just ask!
+**Title:** Login Step
 
 ---
 
-## Slide 20 — Troubleshooting
+## Slide 25 — Troubleshooting (`data-slide="troubleshoot"`)
 
 **Label:** Check-in
 **Title:** Troubleshooting
 
-**Stage (stageCenter):**
-- **Big:** Having trouble installing or logging in?
-- **Hint:** VS Code, GitHub CLI, Git, Gemini CLI — if anything didn't work, now's the time to fix it together.
-- Raise your hand — we'll come to you
-- Help a neighbor if you're all set
-- No issue too small to ask about
+---
+
+## Slide 26 — Next Steps (`data-slide="nextsteps"`)
+
+**Label:** What's Next
+**Title:** Upcoming Workshop
 
 ---
 
-## Slide 21 — Exit Ticket
-
-**Label:** Exit Ticket
-**Title:** What's Your Next Move?
-**Stage:** _(reflection prompts · to fill)_
-
----
-
-## Slide 22 — Next Steps
-
-**Label:** Next Steps
-**Title:** Next Steps
-**Stage:** _(to fill)_
-
----
-
-## Slide 23 — Resources
+## Slide 27 — Resources (`data-slide="resources"`)
 
 **Label:** Resources
 **Title:** Links & References
 
-**Stage (link list):**
-- [ailab.gc.cuny.edu](https://ailab.gc.cuny.edu) — CUNY AI Lab — home page, announcements, and model notes
-- [ailab.gc.cuny.edu/resources](https://ailab.gc.cuny.edu/resources) — CAIL Resources — guides, readings, and workshop materials
-- [chat.ailab.gc.cuny.edu](https://chat.ailab.gc.cuny.edu) — CAIL Sandbox (Open WebUI) — GLM 5, Kimi K2.5, and more
-- [tools.ailab.gc.cuny.edu](https://tools.ailab.gc.cuny.edu) — CAIL Tools — additional lab utilities and experiments
-- [newmedialab.cuny.edu](https://newmedialab.cuny.edu) — CUNY New Media Lab — workshop series host
-- [aitoolkit.gc.commons.edu](https://aitoolkit.gc.commons.edu) — GC AI Toolkit — curated tools and resources for the Graduate Center community
-- [github.com/cuny-ai-lab](https://github.com/cuny-ai-lab) — CUNY AI Lab on GitHub — open source repos, workshop decks, datasets
-- [cuny-ai-lab.github.io/gen-dev-foundations](https://cuny-ai-lab.github.io/gen-dev-foundations/) — Foundations: AI, Command Line, and Version Control — this deck (live)
-- [github.com/CUNY-AI-Lab/gen-dev-foundations](https://github.com/CUNY-AI-Lab/gen-dev-foundations) — Deck source repo — branch: main · Pages: root /
-- [cuny-ai-lab.github.io/Vibe-Coding-Workshop](https://cuny-ai-lab.github.io/Vibe-Coding-Workshop/) — Vibe Coding Workshop deck — companion CAIL workshop
-- [code.visualstudio.com/docs](https://code.visualstudio.com/docs) — VS Code documentation — setup, extensions, integrated terminal
-- [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) — Gemini CLI — open-source AI coding agent that runs in your terminal
-- [developers.googleblog.com/gemini-cli-vs-code…](https://developers.googleblog.com/gemini-cli-vs-code-native-diffing-context-aware-workflows/) — Gemini CLI + VS Code — native diffing and context-aware workflows
-- [docs.github.com](https://docs.github.com) — GitHub documentation — repos, Pages, pull requests, Actions
+**Workshop decks:**
+- [cuny-ai-lab.github.io/gen-dev-foundations](https://cuny-ai-lab.github.io/gen-dev-foundations/) — this deck (live)
+- [github.com/CUNY-AI-Lab/gen-dev-foundations](https://github.com/CUNY-AI-Lab/gen-dev-foundations) — source repo
+- [cuny-ai-lab.github.io/Vibe-Coding-Workshop](https://cuny-ai-lab.github.io/Vibe-Coding-Workshop/) — companion deck
 
 ---
 
-_Last synced: 2026-03-01 (sync from gen-dev-foundations; removed Slide 8 — Social Coding + GitHub; exit ticket updated). Update both this file and `index.html` together._
+_Last synced: 2026-03-02. Upstream: CUNY-AI-Lab/gen-dev-foundations @ main. Update both files together._

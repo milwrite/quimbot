@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b0e14" />
+  <link rel="icon" type="image/png" href="src/logo.png" />
   <title>Foundations: Coding with Generative AI — CAIL Workshop #1</title>
 
   <style>
@@ -17,6 +18,7 @@
       --stroke:      rgba(255,255,255,0.13);
       --radius:      14px;
       --header-h:    48px;
+      --footer-h:    54px;
       --stage-aspect: 16 / 9;
       --stage-min:    160px;
     }
@@ -38,15 +40,15 @@
       position: fixed; inset: 0 0 auto 0; height: var(--header-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 16px;
-      background: linear-gradient(to bottom, rgba(11,14,20,.96), transparent);
+      background: linear-gradient(to bottom, rgba(11,14,20,.72), transparent);
       z-index: 20; pointer-events: none;
     }
-    header .bar { pointer-events: auto; display: flex; align-items: center; gap: 12px; }
-    #counter { font-variant-numeric: tabular-nums; font-size: 13px; opacity: 0.8; color: var(--fg); }
+    header .bar { pointer-events: auto; display: flex; align-items: center; gap: 8px; }
     .kbd {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      border: 1px solid var(--stroke); background: rgba(255,255,255,0.04);
-      padding: 2px 8px; border-radius: 8px; font-size: 12px; opacity: 0.8; color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.08); background: transparent;
+      padding: 2px 7px; border-radius: 6px; font-size: 11px; opacity: 0.45; color: var(--muted);
+      letter-spacing: 0.02em;
     }
     .nav-btn {
       display: inline-flex; width: 26px; height: 26px; border-radius: 6px;
@@ -57,13 +59,91 @@
     .nav-btn:hover { background: rgba(255,255,255,0.09); opacity: 1; }
     .nav-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+    /* ── STICKY FOOTER SLIDER ── */
+    .sticky-footer {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
+      background: linear-gradient(to top, rgba(11,14,20,.97), rgba(11,14,20,.5) 60%, transparent);
+      padding: 10px 16px 12px; pointer-events: none;
+      backdrop-filter: blur(12px);
+    }
+    .footer-slider {
+      max-width: 760px; margin: 0 auto; pointer-events: auto;
+      display: flex; flex-direction: row; gap: 10px; align-items: center;
+    }
+    .footer-arrow {
+      display: inline-flex; width: 28px; height: 28px; flex-shrink: 0;
+      border-radius: 6px; border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04); color: var(--muted);
+      cursor: pointer; align-items: center; justify-content: center;
+      font-size: 13px; transition: background 0.15s, opacity 0.15s; opacity: 0.7;
+    }
+    .footer-arrow:hover { background: rgba(255,255,255,0.09); opacity: 1; }
+    .footer-arrow:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .footer-meta {
+      display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+      font-size: 12px; color: rgba(255,255,255,0.45); font-variant-numeric: tabular-nums;
+    }
+    .footer-meta .kbd {
+      font-size: 10px; padding: 1px 6px; opacity: 0.6;
+    }
+    .slider-track {
+      position: relative; flex: 1; height: 3px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 2px; overflow: visible;
+    }
+    .slider-progress {
+      position: absolute; top: 0; left: 0; height: 100%;
+      background: rgba(255,255,255,0.55);
+      width: 5%;
+      transition: width 0.2s ease;
+      border-radius: 2px;
+    }
+    .slider-thumb {
+      position: absolute; top: -5px; width: 13px; height: 13px;
+      left: calc(5% - 6px);
+      border-radius: 50%; pointer-events: none;
+      background: rgba(255,255,255,0.80);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      transition: left 0.2s ease, transform 0.15s ease;
+      z-index: 2;
+    }
+    .slider-track:hover .slider-thumb {
+      transform: scale(1.2);
+    }
+    #slide-scrubber {
+      position: absolute; top: -10px; left: 0; width: 100%; height: 23px;
+      opacity: 0; cursor: grab; margin: 0;
+      -webkit-appearance: none; appearance: none;
+      touch-action: manipulation;
+    }
+    #slide-scrubber:active { cursor: grabbing; }
+    #slide-scrubber::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: transparent; cursor: grab;
+    }
+    #slide-scrubber::-moz-range-thumb {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: transparent; cursor: grab; border: none;
+    }
+    /* Touch enhancements */
+    @media (pointer: coarse) {
+      .slider-track { height: 4px; }
+      .slider-thumb { width: 18px; height: 18px; top: -7px; left: calc(5% - 9px); }
+      #slide-scrubber { height: 36px; top: -16px; }
+    }
+    @media (max-width: 600px) {
+      .sticky-footer { padding: 8px 10px 10px; }
+      .footer-meta .kbd { display: none; }
+    }
+
     /* ── SLIDE HOST ── */
     main { height: 100%; position: relative; }
 
     section.slide {
       display: none; position: absolute; inset: 0;
       flex-direction: column;
-      padding: var(--header-h) 12px 12px; gap: 10px;
+      padding: var(--header-h) 12px calc(12px + var(--footer-h)); gap: 10px;
       overflow-y: auto; overscroll-behavior: contain;
       -webkit-overflow-scrolling: touch;
     }
@@ -133,7 +213,7 @@
     }
     [data-slide="title"] .stage {
       flex: 1 1 auto;
-      min-height: clamp(260px, 52vh, 680px);
+      min-height: clamp(280px, 55vh, 680px);
       background: transparent;
       border-color: transparent;
       border-radius: 0;
@@ -189,8 +269,7 @@
     .stageCompare .col-tag {
       display: inline-block; margin-bottom: 10px;
       font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 2px 10px; border-radius: 20px;
-      border: 1px solid var(--stroke); color: var(--part);
+      color: var(--part);
     }
 
     /* Big text + hint */
@@ -232,24 +311,45 @@
 
     /* Spectrum bar */
     .spectrumBar {
-      display: flex; align-items: center; width: 100%;
-      gap: 0;
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(4px,0.8vw,10px); width: 100%;
     }
     .spectrumNode {
-      flex: 1; padding: clamp(14px,2vw,24px) clamp(10px,1.5vw,20px);
-      text-align: center; border-right: 1px solid rgba(255,255,255,0.08);
+      min-width: 0; padding: clamp(8px,1.2vw,14px) clamp(2px,0.4vw,6px);
+      text-align: center;
     }
-    .spectrumNode:last-child { border-right: none; }
     .spectrumNode .sn-label {
-      font-size: clamp(11px,1.3vw,15px); font-weight: 700;
+      font-size: clamp(13px,1.6vw,18px); font-weight: 700;
       color: rgba(255,255,255,0.9); margin-bottom: 6px;
     }
     .spectrumNode .sn-desc {
       font-size: clamp(10px,1.1vw,13px); color: var(--muted); line-height: 1.4;
     }
     .spectrumArrow {
-      font-size: 16px; color: rgba(255,255,255,0.2); flex-shrink: 0;
+      font-size: clamp(10px,1.2vw,14px); color: rgba(255,255,255,0.5); flex-shrink: 0;
+      transform: translateY(-2px);
     }
+
+    /* spectrum bar L→R sequenced reveal */
+    @keyframes spectrum-node-in {
+      from { opacity: 0; transform: translateX(-6px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes spectrum-arrow-in {
+      from { opacity: 0; transform: translateX(-10px) translateY(-2px); }
+      to   { opacity: 0.5; transform: translateX(0) translateY(-2px); }
+    }
+    .spectrumBar.frag { transition: none; }
+    .spectrumBar.visible > * { opacity: 0; }
+    .spectrumBar.visible > :nth-child(1) { animation: spectrum-node-in  0.28s ease-out 0.00s forwards; }
+    .spectrumBar.visible > :nth-child(2) { animation: spectrum-arrow-in 0.22s ease-out 0.18s forwards; }
+    .spectrumBar.visible > :nth-child(3) { animation: spectrum-node-in  0.28s ease-out 0.28s forwards; }
+    .spectrumBar.visible > :nth-child(4) { animation: spectrum-arrow-in 0.22s ease-out 0.46s forwards; }
+    .spectrumBar.visible > :nth-child(5) { animation: spectrum-node-in  0.28s ease-out 0.56s forwards; }
+    .spectrumBar.visible > :nth-child(6) { animation: spectrum-arrow-in 0.22s ease-out 0.74s forwards; }
+    .spectrumBar.visible > :nth-child(7) { animation: spectrum-node-in  0.28s ease-out 0.84s forwards; }
+    .spectrumBar.visible > :nth-child(8) { animation: spectrum-arrow-in 0.22s ease-out 1.02s forwards; }
+    .spectrumBar.visible > :nth-child(9) { animation: spectrum-node-in  0.28s ease-out 1.12s forwards; }
 
     /* icebreaker two-question layout */
     .ib-pair {
@@ -364,14 +464,166 @@
     .term-box .str  { color: #a5d6ff; }
     .term-box .cmt  { color: rgba(130,200,100,0.55); }
 
+    /* ── COMMAND CARDS (CLI visualizations) ── */
+    .cmd-cards {
+      display: flex; flex-direction: column;
+      gap: clamp(8px, 1.2vw, 14px);
+      width: 100%; height: 100%;
+      padding: clamp(12px, 2vw, 24px);
+      justify-content: stretch;
+    }
+    .cmd-card {
+      display: grid; grid-template-columns: 2fr 3fr;
+      gap: clamp(8px, 1.2vw, 14px); align-items: stretch;
+      flex: 1;
+    }
+    .cmd-info {
+      display: flex; flex-direction: column;
+      justify-content: center; gap: 6px;
+      padding: clamp(12px, 1.4vw, 20px);
+      background: rgba(255,255,255,0.025);
+      border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);
+    }
+    .cmd-info code {
+      font: 600 clamp(14px, 1.5vw, 18px)/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: #e2e2e2;
+    }
+    .cmd-info code .hl { color: var(--accent); }
+    .cmd-info code .str { color: #a5d6ff; }
+    .cmd-info .cmd-desc {
+      font-size: clamp(12px, 1.15vw, 15px);
+      color: var(--muted); opacity: 0.55; line-height: 1.4;
+    }
+    /* CRT monitor */
+    .cmd-screen {
+      background: #030810;
+      border: 1px solid rgba(121,192,255,0.08);
+      border-radius: 10px;
+      padding: clamp(14px, 1.8vw, 24px);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.4), 0 0 6px rgba(121,192,255,0.02);
+    }
+    .cmd-screen::before {
+      content: ''; position: absolute; top: 7px; right: 9px;
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(46,160,67,0.5); z-index: 2;
+    }
+    .cmd-screen::after {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg,
+        transparent 0px, transparent 2px,
+        rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+      pointer-events: none; border-radius: 10px; z-index: 1;
+    }
+    /* visualization primitives */
+    .vis {
+      position: relative; z-index: 0;
+      display: flex; align-items: center; gap: clamp(10px, 1.2vw, 16px);
+    }
+    .vis-col { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .vis-folder {
+      width: clamp(40px, 4.5vw, 56px); height: clamp(30px, 3.2vw, 42px);
+      border: 1.5px solid rgba(184,144,96,0.5);
+      border-radius: 1px 5px 5px 5px;
+      background: rgba(184,144,96,0.12);
+      position: relative; flex-shrink: 0;
+    }
+    .vis-folder::before {
+      content: ''; position: absolute;
+      left: -1.5px; bottom: calc(100% - 1px);
+      width: 16px; height: 9px;
+      background: rgba(184,144,96,0.12);
+      border: 1.5px solid rgba(184,144,96,0.5);
+      border-bottom: none; border-radius: 3px 5px 0 0;
+    }
+    .vis-file {
+      width: clamp(30px, 3.2vw, 42px); height: clamp(38px, 4vw, 52px);
+      border: 1.5px solid rgba(121,192,255,0.3);
+      border-radius: 2px; background: rgba(121,192,255,0.06); flex-shrink: 0;
+      position: relative;
+    }
+    .vis-path {
+      font: clamp(13px, 1.2vw, 16px)/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: rgba(200,255,200,0.65);
+    }
+    .vis-path .vis-here { color: var(--accent); }
+    .vis-cursor {
+      display: inline-block; width: 8px; height: 16px;
+      background: rgba(200,255,200,0.6); margin-left: 3px; vertical-align: middle;
+    }
+    .frag.visible .vis-cursor { animation: vis-blink 1s step-end infinite; }
+    .vis-label {
+      font: clamp(10px, 1vw, 13px)/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: rgba(255,255,255,0.4);
+    }
+    .vis-arrow { color: var(--accent); opacity: 0.5; font-size: clamp(18px, 2vw, 26px); flex-shrink: 0; }
+    /* git visualization primitives */
+    .vis-commit {
+      width: clamp(28px, 3vw, 38px); height: clamp(28px, 3vw, 38px);
+      border: 2px solid var(--accent); border-radius: 50%;
+      background: rgba(121,192,255,0.10); flex-shrink: 0;
+    }
+    .vis-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      position: absolute; top: 6px; right: 6px;
+    }
+    .vis-dot--ok  { background: #2ea043; }
+    .vis-dot--mod { background: var(--part); }
+    .vis-stage-box {
+      border: 1.5px dashed rgba(255,255,255,0.18);
+      border-radius: 6px; padding: clamp(8px, 1vw, 14px) clamp(10px, 1.2vw, 16px);
+      display: flex; align-items: center; gap: clamp(6px, 0.8vw, 10px);
+    }
+    .vis-cloud {
+      width: clamp(48px, 5vw, 64px); height: clamp(32px, 3.5vw, 44px);
+      border: 1.5px solid rgba(255,255,255,0.2); border-radius: 999px;
+      background: rgba(255,255,255,0.04); position: relative;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .vis-cloud::before {
+      content: ''; position: absolute;
+      width: 55%; height: 50%; top: -30%; left: 22.5%;
+      border: 1.5px solid rgba(255,255,255,0.2); border-bottom: none;
+      border-radius: 999px 999px 0 0; background: rgba(255,255,255,0.04);
+    }
+    .vis-line {
+      width: clamp(16px, 2vw, 24px); height: 2px;
+      background: rgba(121,192,255,0.3); flex-shrink: 0;
+    }
+    /* screen animations */
+    @keyframes vis-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    @keyframes vis-pop { from { transform: scale(0.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes vis-slide-r { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes vis-slide-l { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    .vis-pop { opacity: 0; }
+    .frag.visible .vis-pop { animation: vis-pop 0.45s cubic-bezier(0.34,1.56,0.64,1) 0.2s forwards; }
+    .vis-slide-r { opacity: 0; }
+    .frag.visible .vis-slide-r { animation: vis-slide-r 0.45s ease-out 0.2s forwards; }
+    .vis-slide-l { opacity: 0; }
+    .frag.visible .vis-slide-l { animation: vis-slide-l 0.45s ease-out 0.2s forwards; }
+    .vis-stagger > * { opacity: 0; }
+    .frag.visible .vis-stagger > :nth-child(1) { animation: vis-pop 0.35s ease-out 0.15s forwards; }
+    .frag.visible .vis-stagger > :nth-child(2) { animation: vis-pop 0.35s ease-out 0.35s forwards; }
+    .frag.visible .vis-stagger > :nth-child(3) { animation: vis-pop 0.35s ease-out 0.55s forwards; }
+    .frag.visible .vis-stagger > :nth-child(4) { animation: vis-pop 0.35s ease-out 0.75s forwards; }
+    .frag.visible .vis-stagger > :nth-child(5) { animation: vis-pop 0.35s ease-out 0.95s forwards; }
+
     /* resource list */
-    .res-wrap { position: relative; width: 100%; padding: clamp(14px,2vw,24px); }
+    .res-wrap { position: relative; width: 100%; padding: clamp(10px,1.5vw,20px) clamp(14px,2vw,24px); overflow-y: auto; }
+    .res-group { margin-bottom: clamp(12px,2vw,20px); }
+    .res-group:last-child { margin-bottom: 0; }
+    .res-group-title {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--part); opacity: 0.8; padding: 0 14px 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 2px;
+    }
     .res-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .res-list li { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .res-list li { padding: 8px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); }
     .res-list li:last-child { border-bottom: none; }
-    .res-list li a { font-size: clamp(15px,1.7vw,20px); color: var(--accent); text-decoration: none; }
+    .res-list li a { font-size: clamp(13px,1.5vw,17px); color: var(--accent); text-decoration: none; }
     .res-list li a:hover { text-decoration: underline; }
-    .res-desc { font-size: clamp(13px,1.3vw,15px); color: var(--muted); margin-top: 3px; opacity: 0.7; }
+    .res-desc { font-size: clamp(11px,1.1vw,13px); color: var(--muted); margin-top: 2px; opacity: 0.65; }
 
     /* ── TYPOGRAPHY ── */
     .content h1 { font-size: clamp(36px,5vw,58px); letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 8px; }
@@ -381,6 +633,28 @@
     .content .authors { font-size: clamp(18px,2.2vw,26px); color: var(--muted); margin-top: 18px; }
     .content .orgs { font-size: clamp(15px,1.8vw,20px); color: var(--muted); opacity: 0.65; line-height: 1.5; margin-top: 10px; }
     .content .date { font-size: clamp(14px,1.5vw,18px); color: var(--muted); opacity: 0.5; margin-top: 18px; }
+
+    /* ── ASIDE SLIDE ── */
+    .slide-aside .content {
+      border: 1px dashed rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.015);
+      position: relative;
+    }
+    .slide-aside .content::before {
+      content: 'FYI';
+      position: absolute; top: clamp(16px,2vw,24px); right: clamp(16px,2vw,24px);
+      font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--muted); opacity: 0.4;
+      padding: 3px 10px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .slide-aside .content .label { color: var(--muted); opacity: 0.6; }
+    .slide-aside .content h1 { opacity: 0.75; }
+    .slide-aside .content .aside-note {
+      font-size: clamp(12px,1.3vw,15px); color: var(--muted); opacity: 0.5;
+      line-height: 1.5; margin-top: auto; padding-top: clamp(12px,1.5vw,20px);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
 
     /* ── SECTION BREAK ── */
     .slide-break.active {
@@ -394,15 +668,22 @@
     .slide-break .content .break-sub { font-size: clamp(13px,1.5vw,18px); color: var(--muted); margin-top: 14px; }
     .slide-break::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--part); }
 
+    /* ── MEDIUM TABLET ── */
+    @media (min-width: 640px) {
+      [data-slide="title"] .stage {
+        min-height: clamp(320px, 60vh, 720px);
+      }
+    }
+
     /* ── TABLET / DESKTOP ── */
     @media (min-width: 720px) {
-      section.slide { flex-direction: row; align-items: stretch; overflow: hidden; padding: var(--header-h) clamp(16px,2.5vw,32px) 16px; gap: clamp(12px,1.5vw,20px); }
+      section.slide { flex-direction: row; align-items: stretch; overflow: hidden; padding: var(--header-h) clamp(16px,2.5vw,32px) calc(16px + var(--footer-h)); gap: clamp(12px,1.5vw,20px); }
       .content { flex: 1 1 44%; overflow-y: auto; }
       .stage { flex: 1 1 52%; height: auto; align-self: stretch; min-height: unset; }
       /* Keep title slide stacked (title on top, artifact below) */
       [data-slide="title"] { flex-direction: column; }
-      [data-slide="title"] .content { flex: 0 0 auto; overflow: visible; }
-      [data-slide="title"] .stage { flex: 1 1 auto; min-height: clamp(300px, 58vh, 760px); }
+      [data-slide="title"] .content { flex: 0 0 auto; overflow: visible; max-width: 600px; margin: 0 auto; }
+      [data-slide="title"] .stage { flex: 1 1 auto; min-height: clamp(340px, 62vh, 800px); }
 
       .slide-break.active { flex-direction: column; overflow: hidden; }
       .slide-icebreaker .content { flex: 1 1 38%; max-width: 440px; }
@@ -414,6 +695,7 @@
 
       /* Desktop: stage elements fill the full column */
       .term-box, .term-stub { position: absolute; inset: 0; width: auto; overflow-y: auto; }
+      .cmd-cards { position: absolute; inset: 0; width: auto; }
       .stage-center { position: absolute; inset: 0; width: auto; }
       .stageCenter { position: absolute; inset: 0; width: auto; }
       .step-grid { position: absolute; inset: clamp(12px,2vw,24px); width: auto; overflow: hidden; }
@@ -422,15 +704,49 @@
       .res-wrap { position: absolute; inset: 0; width: auto; overflow-y: auto; }
       .ph { position: absolute; inset: 0; width: auto; min-height: unset; }
       .stageCompare { position: absolute; inset: 0; width: auto; overflow-y: auto; }
-      .spectrumBar { position: absolute; inset: 0; width: auto; }
+      .stage > .spectrumBar { position: absolute; inset: 0; width: auto; }
+
+      /* Slide 6: flex column layout — stageCenter above spectrumBar */
+      [data-slide="llm"] .stage { display: flex; flex-direction: column; }
+      [data-slide="llm"] .stageCenter { position: relative; inset: unset; width: auto; flex: 1; }
+      [data-slide="llm"] .stage > .spectrumBar { position: relative; inset: unset; flex-shrink: 0; }
     }
+    /* ── LARGE DESKTOP ── */
+    @media (min-width: 1024px) {
+      [data-slide="title"] .stage {
+        min-height: clamp(400px, 65vh, 900px);
+      }
+    }
+
     @media (min-width: 1200px) {
-      section.slide { padding: var(--header-h) clamp(28px,3vw,48px) 20px; gap: clamp(16px,2vw,28px); }
+      section.slide { padding: var(--header-h) clamp(28px,3vw,48px) calc(20px + var(--footer-h)); gap: clamp(16px,2vw,28px); }
+      [data-slide="title"] .content { max-width: 700px; }
+      [data-slide="title"] .stage {
+        min-height: clamp(450px, 68vh, 1000px);
+      }
     }
+
+    /* ── VERY LARGE SCREENS ── */
+    @media (min-width: 1600px) {
+      [data-slide="title"] .content { max-width: 800px; }
+      [data-slide="title"] .stage {
+        min-height: clamp(500px, 70vh, 1100px);
+      }
+    }
+    /* ── SMALL MOBILE ── */
+    @media (max-width: 480px) {
+      [data-slide="title"] .stage {
+        min-height: clamp(240px, 50vh, 500px);
+      }
+    }
+
     @media (max-width: 400px) {
       :root { --stage-aspect: 4 / 3; }
       .content { padding: 16px 14px; }
       .content h1 { font-size: 22px; }
+      [data-slide="title"] .stage {
+        min-height: clamp(220px, 45vh, 400px);
+      }
     }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 
@@ -506,10 +822,6 @@
 
 <header role="banner">
   <div class="bar">
-    <button class="nav-btn" id="btn-prev" aria-label="Previous slide">&#8592;</button>
-    <div id="counter" aria-live="polite" aria-atomic="true">1 / 16</div>
-    <button class="nav-btn" id="btn-next" aria-label="Next slide">&#8594;</button>
-    <div class="kbd" id="kbdKeys">← →</div>
     <div class="kbd" id="kbdSwipe">Swipe</div>
   </div>
 </header>
@@ -531,7 +843,7 @@
     </div>
     <div class="stage" aria-hidden="true">
       <div class="stage-fill">
-        <iframe src="../gallery/chainwheel.html" title="Infinite Wheel" tabindex="-1"></iframe>
+        <iframe src="src/chainwheel.html" title="Infinite Wheel" tabindex="-1"></iframe>
       </div>
     </div>
   </section>
@@ -547,27 +859,37 @@
 
         <div class="agenda-section">
           <div class="agenda-section-head">
-            <span class="agenda-section-title">Part 1 — Coding &amp; Development Basics</span>
-            <span class="agenda-section-time">60m</span>
+            <span class="agenda-section-title">Part 1 — Concepts &amp; Context</span>
+            <span class="agenda-section-time">30m</span>
           </div>
           <a class="agenda-item" href="#4"><span class="agenda-item-label">Icebreaker</span></a>
-          <a class="agenda-item" href="#5"><span class="agenda-item-label">Demo</span></a>
-          <a class="agenda-item" href="#6"><span class="agenda-item-label">Inference as Coding Scaffold</span></a>
-          <a class="agenda-item" href="#7"><span class="agenda-item-label">Problematics of Agentic Coding</span></a>
-          <a class="agenda-item" href="#8"><span class="agenda-item-label">Setting up an IDE</span></a>
-          <a class="agenda-item" href="#10"><span class="agenda-item-label">The Command Line</span></a>
-          <a class="agenda-item" href="#16"><span class="agenda-item-label">Versioning + Project Management with Git</span></a>
+          <a class="agenda-item" href="#5"><span class="agenda-item-label">Vibe Coding in Action</span></a>
+          <a class="agenda-item" href="#6"><span class="agenda-item-label">What is a Large Language Model (LLM)?</span></a>
+          <a class="agenda-item" href="#8"><span class="agenda-item-label">How Do LLMs Generate Code?</span></a>
+          <a class="agenda-item" href="#9"><span class="agenda-item-label">Strengths &amp; Limitations</span></a>
         </div>
 
         <div class="agenda-section">
           <div class="agenda-section-head">
-            <span class="agenda-section-title">Part 2 — Installation &amp; Setup</span>
+            <span class="agenda-section-title">Part 2 — Development Environment</span>
             <span class="agenda-section-time">30m</span>
           </div>
-          <a class="agenda-item" href="#18"><span class="agenda-item-label">Installing Gemini CLI</span></a>
-          <a class="agenda-item" href="#19"><span class="agenda-item-label">Login Setup</span></a>
-          <a class="agenda-item" href="#21"><span class="agenda-item-label">Exit Ticket</span></a>
-          <a class="agenda-item" href="#22"><span class="agenda-item-label">Next Steps</span></a>
+          <a class="agenda-item" href="#11"><span class="agenda-item-label">What is VS Code?</span></a>
+          <a class="agenda-item" href="#12"><span class="agenda-item-label">Setting up an IDE</span></a>
+          <a class="agenda-item" href="#13"><span class="agenda-item-label">The Command Line</span></a>
+          <a class="agenda-item" href="#18"><span class="agenda-item-label">Initializing a Git Repository</span></a>
+          <a class="agenda-item" href="#20"><span class="agenda-item-label">Getting Started with GitHub</span></a>
+        </div>
+
+        <div class="agenda-section">
+          <div class="agenda-section-head">
+            <span class="agenda-section-title">Part 3 — Installation &amp; Setup</span>
+            <span class="agenda-section-time">30m</span>
+          </div>
+          <a class="agenda-item" href="#23"><span class="agenda-item-label">Installing Gemini CLI</span></a>
+          <a class="agenda-item" href="#24"><span class="agenda-item-label">Login Step</span></a>
+          <a class="agenda-item" href="#26"><span class="agenda-item-label">Upcoming Workshop</span></a>
+          <a class="agenda-item" href="#27"><span class="agenda-item-label">Links &amp; Resources</span></a>
         </div>
 
       </div>
@@ -578,7 +900,7 @@
   <section class="slide slide-break" data-slide="part1" aria-label="Part 1 section break">
     <div class="content">
       <div class="break-tag">Part 1</div>
-      <h1>Coding &amp; Development Basics</h1>
+      <h1>Concepts &amp; Context</h1>
     </div>
   </section>
 
@@ -586,25 +908,25 @@
   <section class="slide slide-icebreaker" data-slide="icebreaker" aria-label="Icebreaker">
     <div class="content">
       <div class="label">Icebreaker · 10 min</div>
-      <h1>What would you create if coding were more like the act of writing?</h1>
-      <h2>Pick one. Talk to a neighbor.</h2>
+      <h1>Where does coding live in your imagination?</h1>
+      <h2>Pick one. Turn to a neighbor.</h2>
     </div>
     <div class="stage" aria-hidden="true">
       <div class="ib-pair">
         <div class="ib-q">
           <div class="ib-num">A</div>
-          <div class="ib-text">What would you create if coding was more like writing?</div>
+          <div class="ib-text">Name a technical difficulty from your everyday life or research.</div>
         </div>
         <div class="ib-q">
           <div class="ib-num">B</div>
-          <div class="ib-text">What do you wish your computer could do for your research?</div>
+          <div class="ib-text">How would you address that challenge if coding felt as familiar to you as writing?</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 5 · DEMO -->
-  <section class="slide" data-slide="demo" aria-label="Live demo">
+  <section class="slide" data-slide="demo" aria-label="Vibe Coding in Action">
     <div class="content">
       <div class="label">Demo</div>
       <h1>Vibe Coding in Action</h1>
@@ -613,49 +935,124 @@
       <div class="stageCenter">
         <div class="stageInner">
           <div class="stageBig">Live walkthrough: building something from scratch with an AI coding agent</div>
-          <div class="stageHint">Watch how a conversation with Gemini CLI turns a plain-language idea into working code — step by step, inside VS Code.</div>
+          <div class="stageHint">Observe how a set of prompts via Gemini CLI turns a plain-language idea into working code, step by step, inside VS Code.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6 · INFERENCE AS CODING SCAFFOLD -->
-  <section class="slide" data-slide="inference" aria-label="Inference as coding scaffold">
+  <!-- 6 · WHAT IS A LARGE LANGUAGE MODEL? -->
+  <section class="slide" data-slide="llm" aria-label="What is a Large Language Model (LLM)?">
     <div class="content">
       <div class="label">Concept</div>
-      <h1>Inference as Coding Scaffold</h1>
+      <h1>What is a Large Language Model (LLM)?</h1>
     </div>
-    <!-- spectrum: one-shot → iterative → constraint-based; temperature comparison — content pending -->
-    <div class="stage" aria-hidden="true"><div class="ph"></div></div>
-  </section>
-
-  <!-- 7 · PROBLEMATICS OF AGENTIC CODING -->
-  <section class="slide" data-slide="agentic" aria-label="Problematics of agentic coding">
-    <div class="content">
-      <div class="label">Concept</div>
-      <h1>Problematics of Agentic Coding</h1>
-    </div>
-    <!-- no-review vs deliberate iteration · oversight / authorship framing — content pending -->
-    <div class="stage" aria-hidden="true"><div class="ph"></div></div>
-  </section>
-
-  <!-- 9 · IDE SETUP -->
-  <section class="slide" data-slide="vscode" aria-label="Setting up an Interactive Development Environment">
-    <div class="content">
-      <div class="label">Setup</div>
-      <h1>Setting up an Interactive Development Environment</h1>
-    </div>
-    <div class="stage" aria-hidden="true">
-      <div class="step-grid">
-        <div class="step-row"><div class="step-num">1</div><div class="step-text">Download + install VS Code</div></div>
-        <div class="step-row"><div class="step-num">2</div><div class="step-text">Sign in with your GitHub profile</div></div>
-        <div class="step-row"><div class="step-num">3</div><div class="step-text">Add the GitHub extension; start tracking your project</div></div>
-        <div class="step-row"><div class="step-num">4</div><div class="step-text">Open the integrated terminal — this is where CLI + Git live</div></div>
+    <div class="stage" aria-hidden="true" style="display:flex; flex-direction:column;">
+      <div class="stageCenter">
+        <div class="stageInner">
+          <div class="stageBig">A probabilistic pattern engine for text.</div>
+          <ul class="stageList" style="margin-top:clamp(18px,2.5vw,28px);">
+            <li class="frag">It learns statistical relationships between tokens (not &ldquo;facts&rdquo;)</li>
+            <li class="frag">It predicts the most likely next token, step by step</li>
+            <li class="frag">It generates output by repeating that prediction process</li>
+          </ul>
+        </div>
+      </div>
+      <div class="spectrumBar frag" style="flex-shrink:0; padding:clamp(12px,1.5vw,20px) clamp(16px,2vw,28px); border-top:1px solid rgba(255,255,255,0.08);">
+        <div class="spectrumNode"><div class="sn-label">Tokens</div></div>
+        <div class="spectrumArrow">&rarr;</div>
+        <div class="spectrumNode"><div class="sn-label">Vectors</div></div>
+        <div class="spectrumArrow">&rarr;</div>
+        <div class="spectrumNode"><div class="sn-label">Attention</div></div>
+        <div class="spectrumArrow">&rarr;</div>
+        <div class="spectrumNode"><div class="sn-label">Probabilities</div></div>
+        <div class="spectrumArrow">&rarr;</div>
+        <div class="spectrumNode"><div class="sn-label">Output</div></div>
       </div>
     </div>
   </section>
 
-  <!-- 10 · WHAT IS VS CODE? -->
+  <!-- 7 · HOW DOES AN LLM PRODUCE AN ANSWER? -->
+  <section class="slide" data-slide="llm-process" aria-label="How Does an LLM Actually Produce an Answer?">
+    <div class="content">
+      <div class="label">Concept</div>
+      <h1>How Does an LLM Actually Produce an Answer?</h1>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="step-grid">
+        <div class="step-row frag"><div class="step-num">1</div><div class="step-text"><strong>Tokenize</strong> &mdash; break your prompt into tokens</div></div>
+        <div class="step-row frag"><div class="step-num">2</div><div class="step-text"><strong>Embed</strong> &mdash; turn tokens into vectors</div></div>
+        <div class="step-row frag"><div class="step-num">3</div><div class="step-text"><strong>Transform</strong> &mdash; attention mixes information across tokens</div></div>
+        <div class="step-row frag"><div class="step-num">4</div><div class="step-text"><strong>Predict + decode</strong> &mdash; choose the next token; repeat</div></div>
+        <div class="step-row frag" style="margin-top:clamp(8px,1.5vw,16px); padding-top:clamp(12px,1.5vw,20px); border-top:1px solid rgba(255,255,255,0.1);">
+          <div class="step-num" style="background:var(--accent);">&darr;</div>
+          <div class="step-text" style="opacity:0.8; font-size:clamp(14px,1.6vw,19px);">Your prompt shapes the probability space. The response is a probabilistic approximation of what you like to see. Wording changes can dramatically shift output.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · HOW DO LLMS GENERATE CODE? -->
+  <section class="slide" data-slide="code-generation" aria-label="How Do LLMs Generate Code?">
+    <div class="content">
+      <div class="label">Concept</div>
+      <h1>How Do LLMs Generate Code?</h1>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="stageCenter">
+        <div class="stageInner">
+          <div class="stageBig">Code is just another language pattern.</div>
+          <ul class="stageList" style="margin-top:clamp(18px,2.5vw,28px);">
+            <li class="frag">The model was trained on large amounts of code + documentation</li>
+            <li class="frag">It learned patterns in syntax, structure, and common problem solutions</li>
+            <li class="frag">When you ask for code, it predicts the most likely next tokens in a programming language</li>
+            <li class="frag">It does not run or test the code unless connected to tools</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · WHAT'S GOOD / WHAT'S BAD -->
+  <section class="slide" data-slide="good-bad" aria-label="What is good, what is bad">
+    <div class="content">
+      <div class="label">Concept</div>
+      <h1>What&rsquo;s Good / What&rsquo;s Bad</h1>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="stageCompare">
+        <div class="col">
+          <div class="col-tag" style="color:#2ea043;">&check;</div>
+          <div class="col-title">What Works</div>
+          <div class="col-sub">
+            They autocomplete entire functions, not just words<br><br>
+            They infer intent from partial instructions<br><br>
+            They generalize from patterns they have seen before
+          </div>
+        </div>
+        <div class="col">
+          <div class="col-tag" style="color:#f85149;">&cross;</div>
+          <div class="col-title">Where Things Go Wrong</div>
+          <div class="col-sub">
+            Silent logical errors<br><br>
+            Hallucinated functions or libraries<br><br>
+            Outdated APIs<br><br>
+            Confident but wrong assumptions
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · SECTION BREAK: PART 2 -->
+  <section class="slide slide-break" data-slide="part2" style="--part:#5a8dee;" aria-label="Part 2 section break">
+    <div class="content">
+      <div class="break-tag">Part 2</div>
+      <h1>Development Environment</h1>
+    </div>
+  </section>
+
+  <!-- 11 · WHAT IS VS CODE? -->
   <section class="slide" data-slide="vscode-intro" aria-label="What is VS Code?">
     <div class="content">
       <div class="label">Concept</div>
@@ -677,7 +1074,23 @@
     </div>
   </section>
 
-  <!-- 11 · WHAT IS THE COMMAND LINE? -->
+  <!-- 12 · IDE SETUP -->
+  <section class="slide" data-slide="vscode" aria-label="Setting up an Interactive Development Environment">
+    <div class="content">
+      <div class="label">Setup</div>
+      <h1>Setting up an Interactive Development Environment</h1>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="step-grid">
+        <div class="step-row"><div class="step-num">1</div><div class="step-text">Download VS Code from <a href="https://code.visualstudio.com" target="_blank" rel="noopener"><strong>code.visualstudio.com</strong></a></div></div>
+        <div class="step-row"><div class="step-num">2</div><div class="step-text">Install and open VS Code on your machine</div></div>
+        <div class="step-row"><div class="step-num">3</div><div class="step-text">Open the integrated terminal: <a href="#" onclick="alert('In VS Code: click Terminal in the top menu bar, then New Terminal')"><strong>Terminal → New Terminal</strong></a> (or <strong>Ctrl+`</strong>)</div></div>
+        <div class="step-row"><div class="step-num">4</div><div class="step-text">Confirm it works — you should see a command prompt at the bottom</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · WHAT IS THE COMMAND LINE? -->
   <section class="slide" data-slide="cli-intro" aria-label="What is the command line?">
     <div class="content">
       <div class="label">Concept</div>
@@ -692,18 +1105,20 @@
           <ul class="stageList">
             <li>More powerful and precise control</li>
             <li>Essential for development work</li>
-            <li>How AI coding agents interact with your system</li>
+            <li>How AI coding agents interact with your machine</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 12 · OPENING YOUR TERMINAL -->
-  <section class="slide" data-slide="cli-open" aria-label="Opening your terminal">
+  <!-- 14 · OPENING YOUR TERMINAL -->
+  <section class="slide slide-aside" data-slide="cli-open" aria-label="Opening your terminal">
     <div class="content">
-      <div class="label">Setup</div>
-      <h1>Opening Your Terminal</h1>
+      <div class="label">Outside VS Code</div>
+      <h1>Opening a Standalone Terminal</h1>
+      <h2>(You won't need this today)</h2>
+      <div class="aside-note">It's the same terminal. VS Code just puts one inside the editor so you don't have to switch windows.</div>
     </div>
     <div class="stage" aria-hidden="true">
       <div class="stageCompare">
@@ -721,25 +1136,152 @@
     </div>
   </section>
 
-  <!-- 13 · COMMAND LINE -->
-  <section class="slide" data-slide="cli" aria-label="Command line basics">
+  <!-- 15 · COMMAND LINE: NAVIGATING -->
+  <section class="slide" data-slide="cli-nav" aria-label="Command line navigation">
     <div class="content">
       <div class="label">Tool</div>
       <h1>Command Line Basics</h1>
+      <h2>Navigating</h2>
     </div>
     <div class="stage" aria-hidden="true">
-      <div class="term-box" role="img" aria-label="CLI command examples">
-        <div class="frag"><span class="dim"># where am I?</span><br><span class="hl">pwd</span></div>
-        <div class="frag"><br><span class="dim"># list files</span><br><span class="hl">ls</span> -la</div>
-        <div class="frag"><br><span class="dim"># move into a folder</span><br><span class="hl">cd</span> my-project</div>
-        <div class="frag"><br><span class="dim"># go up one level</span><br><span class="hl">cd</span> ..</div>
-        <div class="frag"><br><span class="dim"># create a file</span><br><span class="hl">touch</span> index.html</div>
-        <div class="frag"><br><span class="dim"># make a new folder</span><br><span class="hl">mkdir</span> assets</div>
+      <div class="cmd-cards">
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code><span class="hl">pwd</span></code>
+            <span class="cmd-desc">Print your current location</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis">
+              <span class="vis-path">~ / <span class="vis-here">my-project</span></span><span class="vis-cursor"></span>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code><span class="hl">mkdir</span> my-project</code>
+            <span class="cmd-desc">Make a new folder</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis">
+              <div class="vis-col vis-pop">
+                <div class="vis-folder"></div>
+                <div class="vis-label">my-project</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code><span class="hl">cd</span> my-project</code>
+            <span class="cmd-desc">Move into a folder</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis vis-slide-r">
+              <span class="vis-arrow">&rarr;</span>
+              <div class="vis-folder"></div>
+              <div class="vis-label">my-project</div>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code><span class="hl">cd</span> ..</code>
+            <span class="cmd-desc">Go up one level</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis vis-slide-l">
+              <div class="vis-folder" style="opacity:0.3;"></div>
+              <span class="vis-arrow">&larr;</span>
+              <span class="vis-path">~/</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 14 · WHAT IS GIT / GITHUB? -->
+  <!-- 16 · COMMAND LINE: FILES -->
+  <section class="slide" data-slide="cli-files" aria-label="Command line file operations">
+    <div class="content">
+      <div class="label">Tool</div>
+      <h1>Command Line Basics</h1>
+      <h2>Working with Files</h2>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="cmd-cards">
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code><span class="hl">touch</span> index.html</code>
+            <span class="cmd-desc">Create a new file</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis">
+              <div class="vis-col vis-pop">
+                <div class="vis-file"></div>
+                <div class="vis-label">index.html</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code><span class="hl">ls</span></code>
+            <span class="cmd-desc">List what's in the folder</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis vis-stagger">
+              <div class="vis-col">
+                <div class="vis-file"></div>
+                <div class="vis-label">index.html</div>
+              </div>
+              <div class="vis-col">
+                <div class="vis-file"></div>
+                <div class="vis-label">style.css</div>
+              </div>
+              <div class="vis-col">
+                <div class="vis-folder"></div>
+                <div class="vis-label">img/</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code><span class="hl">mv</span> index.html my-project</code>
+            <span class="cmd-desc">Move a file into a folder</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis">
+              <div class="vis-col vis-slide-r">
+                <div class="vis-file"></div>
+                <div class="vis-label">index.html</div>
+              </div>
+              <span class="vis-arrow">&rarr;</span>
+              <div class="vis-col">
+                <div class="vis-folder"></div>
+                <div class="vis-label">my-project</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code><span class="hl">cd</span> my-project</code>
+            <span class="cmd-desc">Move into a folder (again)</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis vis-slide-r">
+              <span class="vis-arrow">&rarr;</span>
+              <div class="vis-folder"></div>
+              <div class="vis-label">my-project</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 · WHAT IS GIT / GITHUB? -->
   <section class="slide" data-slide="git-intro" aria-label="What is Git and GitHub?">
     <div class="content">
       <div class="label">Concept</div>
@@ -755,13 +1297,147 @@
         <div class="col">
           <div class="col-tag">Cloud</div>
           <div class="col-title">GitHub</div>
-          <div class="col-sub">A website that stores your Git repositories online.<br><br>Share code, collaborate with others, and host websites — all from your browser.</div>
+          <div class="col-sub">A website that stores your Git repositories online.<br><br>Share code, collaborate with others, and host websites from your browser or terminal.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 15 · LOGGING INTO GITHUB -->
+  <!-- 18 · GIT BASICS: SETTING UP -->
+  <section class="slide" data-slide="git-setup" aria-label="Git basics: setting up">
+    <div class="content">
+      <div class="label">Tool</div>
+      <h1>Git Basics</h1>
+      <h2>Setting Up</h2>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="cmd-cards">
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code>git <span class="hl">init</span></code>
+            <span class="cmd-desc">Initialize a repo</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis">
+              <div class="vis-col vis-pop">
+                <div class="vis-folder"><span class="vis-dot vis-dot--ok"></span></div>
+                <div class="vis-label">.git</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code>git <span class="hl">add</span> .</code>
+            <span class="cmd-desc">Stage your changes</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis vis-slide-r">
+              <div class="vis-col">
+                <div class="vis-file"></div>
+                <div class="vis-label">index.html</div>
+              </div>
+              <div class="vis-col">
+                <div class="vis-file"></div>
+                <div class="vis-label">style.css</div>
+              </div>
+              <span class="vis-arrow">&rarr;</span>
+              <div class="vis-stage-box">
+                <div class="vis-label">staged</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code>git <span class="hl">commit</span> -m <span class="str">"first commit"</span></code>
+            <span class="cmd-desc">Save a snapshot</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis">
+              <div class="vis-col vis-pop">
+                <div class="vis-commit"></div>
+                <div class="vis-label">a1b2c3d</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 19 · GIT BASICS: SYNCING & INSPECTING -->
+  <section class="slide" data-slide="git-sync" aria-label="Git basics: syncing and inspecting">
+    <div class="content">
+      <div class="label">Tool</div>
+      <h1>Git Basics</h1>
+      <h2>Syncing &amp; Inspecting</h2>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="cmd-cards">
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code>git <span class="hl">status</span></code>
+            <span class="cmd-desc">Check what changed</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis vis-stagger">
+              <div class="vis-col">
+                <div class="vis-file"><span class="vis-dot vis-dot--ok"></span></div>
+                <div class="vis-label">index.html</div>
+              </div>
+              <div class="vis-col">
+                <div class="vis-file"><span class="vis-dot vis-dot--mod"></span></div>
+                <div class="vis-label">style.css</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code>git <span class="hl">log</span> --oneline</code>
+            <span class="cmd-desc">View history</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis vis-stagger">
+              <div class="vis-col">
+                <div class="vis-commit"></div>
+                <div class="vis-label">a1b2c3d</div>
+              </div>
+              <div class="vis-line"></div>
+              <div class="vis-col">
+                <div class="vis-commit"></div>
+                <div class="vis-label">e4f5g6h</div>
+              </div>
+              <div class="vis-line"></div>
+              <div class="vis-col">
+                <div class="vis-commit"></div>
+                <div class="vis-label">i7j8k9l</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cmd-card frag">
+          <div class="cmd-info">
+            <code>git <span class="hl">push</span> origin main</code>
+            <span class="cmd-desc">Push to GitHub</span>
+          </div>
+          <div class="cmd-screen">
+            <div class="vis vis-slide-r">
+              <div class="vis-col">
+                <div class="vis-commit"></div>
+                <div class="vis-label">a1b2c3d</div>
+              </div>
+              <span class="vis-arrow">&rarr;</span>
+              <div class="vis-cloud"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20 · LOGGING INTO GITHUB -->
   <section class="slide" data-slide="gh-login" aria-label="Logging into GitHub from the command line">
     <div class="content">
       <div class="label">Setup</div>
@@ -769,7 +1445,7 @@
     </div>
     <div class="stage" aria-hidden="true">
       <div class="step-grid">
-        <div class="step-row frag"><div class="step-num">1</div><div class="step-text">Install the GitHub CLI:<span class="code-block">brew install gh          # macOS
+        <div class="step-row frag"><div class="step-num">1</div><div class="step-text">Install the GitHub CLI — download the installer at <a href="https://cli.github.com" target="_blank" rel="noopener">cli.github.com</a> or run:<span class="code-block">brew install gh          # macOS
 winget install GitHub.cli  # Windows</span></div></div>
         <div class="step-row frag"><div class="step-num">2</div><div class="step-text">Start login from your terminal:<span class="code-block">gh auth login</span></div></div>
         <div class="step-row frag"><div class="step-num">3</div><div class="step-text">Choose <strong>GitHub.com</strong> → <strong>HTTPS</strong> → <strong>Login with a web browser</strong></div></div>
@@ -779,51 +1455,34 @@ winget install GitHub.cli  # Windows</span></div></div>
     </div>
   </section>
 
-  <!-- 16 · CREATING A GITHUB REPOSITORY -->
-  <section class="slide" data-slide="gh-repo" aria-label="Creating a GitHub repository">
+  <!-- 21 · STAGING, COMMITTING, AND PUSHING TO GITHUB -->
+  <section class="slide" data-slide="gh-repo" aria-label="Staging, committing, and pushing to GitHub">
     <div class="content">
       <div class="label">Setup</div>
-      <h1>Creating a GitHub Repository</h1>
+      <h1>Staging, Committing, and Pushing to GitHub</h1>
     </div>
     <div class="stage" aria-hidden="true">
       <div class="step-grid">
-        <div class="step-row frag"><div class="step-num">1</div><div class="step-text">Create your first file:<span class="code-block">touch README.md</span></div></div>
-        <div class="step-row frag"><div class="step-num">2</div><div class="step-text">Stage and commit:<span class="code-block">git add . &amp;&amp; git commit -m "first commit"</span></div></div>
-        <div class="step-row frag"><div class="step-num">3</div><div class="step-text">Publish to your GitHub:<span class="code-block">gh repo create my-project --public --source=. --push</span></div></div>
-        <div class="step-row frag"><div class="step-num">4</div><div class="step-text">Add the CUNY AI Lab remote and push:<span class="code-block">git remote add origin https://github.com/cuny-ai-lab/my-project
-git push -u origin main</span><a href="https://github.com/cuny-ai-lab" target="_blank" rel="noopener" style="display:block;margin-top:6px;font-size:0.85em;">github.com/cuny-ai-lab</a></div></div>
+        <div class="step-row frag"><div class="step-num">1</div><div class="step-text">Create a README file:<span class="code-block">touch README.md</span></div></div>
+        <div class="step-row frag"><div class="step-num">2</div><div class="step-text">Stage your files:<span class="code-block">git add README.md</span></div></div>
+        <div class="step-row frag"><div class="step-num">3</div><div class="step-text">Commit your changes:<span class="code-block">git commit -m "first commit"</span></div></div>
+        <div class="step-row frag"><div class="step-num">4</div><div class="step-text">Create a GitHub repo:<span class="code-block">gh repo create my-project --public --source=.</span></div></div>
+        <div class="step-row frag"><div class="step-num">5</div><div class="step-text">Push your code to GitHub:<span class="code-block">git push -u origin main</span></div></div>
+        <div class="step-row frag"><div class="step-num">6</div><div class="step-text">Visit <strong>github.com/your-username/my-project</strong> to see it live</div></div>
       </div>
     </div>
   </section>
 
-  <!-- 17 · GIT COMMANDS -->
-  <section class="slide" data-slide="git" aria-label="Versioning and project management with Git">
+  <!-- 22 · SECTION BREAK: PART 3 -->
+  <section class="slide slide-break" data-slide="part3" style="--part:#2ea043;" aria-label="Part 3 section break">
     <div class="content">
-      <div class="label">Tool</div>
-      <h1>Versioning + Project Management with Git</h1>
-    </div>
-    <div class="stage" aria-hidden="true">
-      <div class="term-box" role="img" aria-label="Git command examples">
-        <div class="frag"><span class="dim"># initialize a repo</span><br>git <span class="hl">init</span></div>
-        <div class="frag"><br><span class="dim"># stage your changes</span><br>git <span class="hl">add</span> .</div>
-        <div class="frag"><br><span class="dim"># save a snapshot</span><br>git <span class="hl">commit</span> -m <span class="str">"first commit"</span></div>
-        <div class="frag"><br><span class="dim"># push to GitHub</span><br>git <span class="hl">push</span> origin main</div>
-        <div class="frag"><br><span class="dim"># view history</span><br>git <span class="hl">log</span> --oneline</div>
-        <div class="frag"><br><span class="dim"># check what changed</span><br>git <span class="hl">status</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 18 · SECTION BREAK: PART 2 -->
-  <section class="slide slide-break" data-slide="part2" style="--part:#2ea043;" aria-label="Part 2 section break">
-    <div class="content">
-      <div class="break-tag">Part 2</div>
+      <div class="break-tag">Part 3</div>
       <h1>Installation &amp; Setup</h1>
       <p class="break-sub">Getting Gemini CLI running on your machine</p>
     </div>
   </section>
 
-  <!-- 19 · INSTALLING GEMINI CLI -->
+  <!-- 23 · INSTALLING GEMINI CLI -->
   <section class="slide" data-slide="install" aria-label="Installing Gemini CLI">
     <div class="content">
       <div class="label">Setup</div>
@@ -858,11 +1517,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</span>
     </div>
   </section>
 
-  <!-- 20 · LOGIN SETUP -->
+  <!-- 24 · LOGIN SETUP -->
   <section class="slide" data-slide="login" aria-label="Login setup">
     <div class="content">
       <div class="label">Setup</div>
-      <h1>Login Setup</h1>
+      <h1>Login Step</h1>
     </div>
     <div class="stage" aria-hidden="true">
       <div class="step-grid">
@@ -874,7 +1533,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</span>
     </div>
   </section>
 
-  <!-- 21 · TROUBLESHOOTING -->
+  <!-- 25 · TROUBLESHOOTING -->
   <section class="slide" data-slide="troubleshoot" aria-label="Troubleshooting">
     <div class="content">
       <div class="label">Check-in</div>
@@ -895,27 +1554,33 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</span>
     </div>
   </section>
 
-  <!-- 22 · EXIT TICKET -->
-  <section class="slide" data-slide="exit" aria-label="Exit ticket">
+
+  <!-- 26 · UPCOMING WORKSHOP -->
+  <section class="slide" data-slide="nextsteps" aria-label="Upcoming Workshop">
     <div class="content">
-      <div class="label">Exit Ticket</div>
-      <h1>What's Your Next Move?</h1>
+      <div class="label">What's Next</div>
+      <h1>Upcoming Workshop</h1>
+      <h2>Vibe-Coding Prototypes &middot; Tuesday, March 10 &middot; 4:00&ndash;5:30 pm</h2>
     </div>
-    <!-- reflection prompts — to be filled from workshop materials -->
-    <div class="stage" aria-hidden="true"><div class="ph"></div></div>
+    <div class="stage" aria-hidden="true">
+      <div class="step-grid">
+        <div class="step-row frag">
+          <div class="step-num">1</div>
+          <div class="step-text">Use AI from the command line to build a small prototype. We'll model prompting, project design, and troubleshooting, then you'll customize a feature of your own.</div>
+        </div>
+        <div class="step-row frag">
+          <div class="step-num">2</div>
+          <div class="step-text"><a href="https://docs.google.com/forms/d/e/1FAIpQLSenSkDfoz3ftYiz6t5KJUEdYDGrbkUKmR6SGVC4j-fF6qNbdA/viewform" target="_blank" rel="noopener">Register for the next workshop</a><br><span style="opacity:0.7;">Prerequisite: this workshop, or prior familiarity with the command line and Git/GitHub</span></div>
+        </div>
+        <div class="step-row frag">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>In the meantime:</strong> experiment with Gemini CLI on your own!<br><span style="opacity:0.7;">Try building a small page, asking it to explain code, or exploring a new idea from your terminal.</span></div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 23 · NEXT STEPS -->
-  <section class="slide" data-slide="nextsteps" aria-label="Next steps">
-    <div class="content">
-      <div class="label">Next Steps</div>
-      <h1>Next Steps</h1>
-    </div>
-    <!-- next steps — to be filled from workshop materials -->
-    <div class="stage" aria-hidden="true"><div class="ph"></div></div>
-  </section>
-
-  <!-- 24 · RESOURCES -->
+  <!-- 27 · RESOURCES -->
   <section class="slide" data-slide="resources" aria-label="Resources">
     <div class="content">
       <div class="label">Resources</div>
@@ -923,164 +1588,110 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</span>
     </div>
     <div class="stage" aria-hidden="true">
       <div class="res-wrap">
-        <ul class="res-list">
-          <li>
-            <a href="https://ailab.gc.cuny.edu" target="_blank" rel="noopener">ailab.gc.cuny.edu</a>
-            <div class="res-desc">CUNY AI Lab — home page, announcements, and model notes</div>
-          </li>
-          <li>
-            <a href="https://ailab.gc.cuny.edu/resources" target="_blank" rel="noopener">ailab.gc.cuny.edu/resources</a>
-            <div class="res-desc">CAIL Resources: Model Registry, Support Docs, and Workshop Material</div>
-          </li>
-          <li>
-            <a href="https://chat.ailab.gc.cuny.edu" target="_blank" rel="noopener">chat.ailab.gc.cuny.edu</a>
-            <div class="res-desc">CAIL Sandbox (Open WebUI): Self-Hosted Chat Platform for Teaching and Research</div>
-          </li>
-          <li>
-            <a href="https://tools.ailab.gc.cuny.edu" target="_blank" rel="noopener">tools.ailab.gc.cuny.edu</a>
-            <div class="res-desc">CAIL Tools: Toolset for Multimedia Processing and Agentic Coding</div>
-          </li>
-          <li>
-            <a href="https://newmedialab.cuny.edu" target="_blank" rel="noopener">newmedialab.cuny.edu</a>
-            <div class="res-desc">CUNY New Media Lab — workshop series host</div>
-          </li>
-          <li>
-            <a href="https://aitoolkit.gc.commons.edu" target="_blank" rel="noopener">aitoolkit.gc.commons.edu</a>
-            <div class="res-desc">GC AI Toolkit — curated tools and resources for the Graduate Center community</div>
-          </li>
-          <li>
-            <a href="https://github.com/cuny-ai-lab" target="_blank" rel="noopener">github.com/cuny-ai-lab</a>
-            <div class="res-desc">CUNY AI Lab on GitHub — open source repos, workshop decks, datasets</div>
-          </li>
-          <li>
-            <a href="https://cuny-ai-lab.github.io/gen-dev-foundations/" target="_blank" rel="noopener">cuny-ai-lab.github.io/gen-dev-foundations</a>
-            <div class="res-desc">Foundations: AI, Command Line, and Version Control — this deck (live)</div>
-          </li>
-          <li>
-            <a href="https://github.com/CUNY-AI-Lab/gen-dev-foundations" target="_blank" rel="noopener">github.com/CUNY-AI-Lab/gen-dev-foundations</a>
-            <div class="res-desc">Deck source repo — branch: main · Pages: root /</div>
-          </li>
-          <li>
-            <a href="https://cuny-ai-lab.github.io/Vibe-Coding-Workshop/" target="_blank" rel="noopener">cuny-ai-lab.github.io/Vibe-Coding-Workshop</a>
-            <div class="res-desc">Vibe Coding Workshop deck — companion CAIL workshop</div>
-          </li>
-          <li>
-            <a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener">code.visualstudio.com/docs</a>
-            <div class="res-desc">VS Code documentation — setup, extensions, integrated terminal</div>
-          </li>
-          <li>
-            <a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener">github.com/google-gemini/gemini-cli</a>
-            <div class="res-desc">Gemini CLI — open-source AI coding agent that runs in your terminal</div>
-          </li>
-          <li>
-            <a href="https://developers.googleblog.com/gemini-cli-vs-code-native-diffing-context-aware-workflows/" target="_blank" rel="noopener">developers.googleblog.com/gemini-cli-vs-code…</a>
-            <div class="res-desc">Gemini CLI + VS Code — native diffing and context-aware workflows</div>
-          </li>
-          <li>
-            <a href="https://docs.github.com" target="_blank" rel="noopener">docs.github.com</a>
-            <div class="res-desc">GitHub documentation — repos, Pages, pull requests, Actions</div>
-          </li>
-        </ul>
+
+        <div class="res-group">
+          <div class="res-group-title">CAIL</div>
+          <ul class="res-list">
+            <li>
+              <a href="https://ailab.gc.cuny.edu" target="_blank" rel="noopener">ailab.gc.cuny.edu</a>
+              <div class="res-desc">CUNY AI Lab — home page, announcements, and model notes</div>
+            </li>
+            <li>
+              <a href="https://ailab.gc.cuny.edu/resources" target="_blank" rel="noopener">ailab.gc.cuny.edu/resources</a>
+              <div class="res-desc">Model Registry, Support Docs, and Workshop Material</div>
+            </li>
+            <li>
+              <a href="https://chat.ailab.gc.cuny.edu" target="_blank" rel="noopener">chat.ailab.gc.cuny.edu</a>
+              <div class="res-desc">CAIL Sandbox — self-hosted chat platform for teaching and research</div>
+            </li>
+            <li>
+              <a href="https://tools.ailab.gc.cuny.edu" target="_blank" rel="noopener">tools.ailab.gc.cuny.edu</a>
+              <div class="res-desc">CAIL Tools — multimedia processing and agentic coding</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="res-group">
+          <div class="res-group-title">GC Community</div>
+          <ul class="res-list">
+            <li>
+              <a href="https://newmedialab.cuny.edu" target="_blank" rel="noopener">newmedialab.cuny.edu</a>
+              <div class="res-desc">CUNY New Media Lab — workshop series host</div>
+            </li>
+            <li>
+              <a href="https://aitoolkit.gc.commons.edu" target="_blank" rel="noopener">aitoolkit.gc.commons.edu</a>
+              <div class="res-desc">GC AI Toolkit — curated tools and resources for the Graduate Center</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="res-group">
+          <div class="res-group-title">Workshops</div>
+          <ul class="res-list">
+            <li>
+              <a href="https://github.com/cuny-ai-lab" target="_blank" rel="noopener">github.com/cuny-ai-lab</a>
+              <div class="res-desc">CUNY AI Lab on GitHub — open source repos, workshop decks, datasets</div>
+            </li>
+            <li>
+              <a href="https://cuny-ai-lab.github.io/Vibe-Coding-Workshop/" target="_blank" rel="noopener">cuny-ai-lab.github.io/Vibe-Coding-Workshop</a>
+              <div class="res-desc">Vibe Coding Workshop — companion CAIL workshop deck</div>
+            </li>
+            <li>
+              <a href="https://cuny-ai-lab.github.io/gen-dev-foundations/" target="_blank" rel="noopener">cuny-ai-lab.github.io/gen-dev-foundations</a>
+              <div class="res-desc">Foundations: AI, Command Line, and Version Control — this deck (live)</div>
+            </li>
+            <li>
+              <a href="https://github.com/CUNY-AI-Lab/gen-dev-foundations" target="_blank" rel="noopener">github.com/CUNY-AI-Lab/gen-dev-foundations</a>
+              <div class="res-desc">Deck source repo — branch: main · Pages: root /</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="res-group">
+          <div class="res-group-title">Tools &amp; Docs</div>
+          <ul class="res-list">
+            <li>
+              <a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener">code.visualstudio.com/docs</a>
+              <div class="res-desc">VS Code documentation — setup, extensions, integrated terminal</div>
+            </li>
+            <li>
+              <a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener">github.com/google-gemini/gemini-cli</a>
+              <div class="res-desc">Gemini CLI — open-source AI coding agent that runs in your terminal</div>
+            </li>
+            <li>
+              <a href="https://developers.googleblog.com/gemini-cli-vs-code-native-diffing-context-aware-workflows/" target="_blank" rel="noopener">developers.googleblog.com/gemini-cli-vs-code…</a>
+              <div class="res-desc">Gemini CLI + VS Code — native diffing and context-aware workflows</div>
+            </li>
+            <li>
+              <a href="https://docs.github.com" target="_blank" rel="noopener">docs.github.com</a>
+              <div class="res-desc">GitHub documentation — repos, Pages, pull requests, Actions</div>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </section>
 
 </main>
 
-<script>
-  'use strict';
-  let idx = 0;
-  const slides  = Array.from(document.querySelectorAll('section.slide'));
-  const counter = document.getElementById('counter');
-  const btnPrev = document.getElementById('btn-prev');
-  const btnNext = document.getElementById('btn-next');
+<!-- STICKY FOOTER SLIDER -->
+<div class="sticky-footer">
+  <div class="footer-slider">
+    <button class="footer-arrow" id="btn-prev" aria-label="Previous slide">&#8592;</button>
+    <div class="slider-track">
+      <input type="range" id="slide-scrubber" min="1" max="27" value="1" aria-label="Navigate to slide">
+      <div class="slider-progress"></div>
+      <div class="slider-thumb"></div>
+    </div>
+    <button class="footer-arrow" id="btn-next" aria-label="Next slide">&#8594;</button>
+    <div class="footer-meta">
+      <span id="slider-counter">1 / 27</span>
+      <span class="kbd">Space</span>
+    </div>
+  </div>
+</div>
 
-  function clamp(n, lo, hi) { return Math.max(lo, Math.min(hi, n)); }
-
-  function fragsOf(slide) { return Array.from(slide.querySelectorAll('.frag')); }
-
-  function show(i, revealAll) {
-    const next = clamp(i, 0, slides.length - 1);
-    slides[idx].classList.remove('active');
-    idx = next;
-    slides[idx].classList.add('active');
-    fragsOf(slides[idx]).forEach(f => f.classList.toggle('visible', !!revealAll));
-    if (counter) counter.textContent = `${idx + 1} / ${slides.length}`;
-    if (btnPrev) btnPrev.disabled = idx === 0;
-    if (btnNext) btnNext.disabled = idx === slides.length - 1;
-    history.replaceState(null, '', `#${idx + 1}`);
-    const f = slides[idx].querySelector('.content');
-    if (f) { f.setAttribute('tabindex', '-1'); f.focus({ preventScroll: true }); }
-  }
-
-  function advance() {
-    const frags = fragsOf(slides[idx]);
-    const hidden = frags.filter(f => !f.classList.contains('visible'));
-    if (hidden.length) hidden[0].classList.add('visible');
-    else show(idx + 1);
-  }
-
-  function retreat() {
-    const frags = fragsOf(slides[idx]);
-    const shown = frags.filter(f => f.classList.contains('visible'));
-    if (shown.length) shown[shown.length - 1].classList.remove('visible');
-    else show(idx - 1, true);
-  }
-
-  /* ── Overview mode ── */
-  function toggleOverview() {
-    const on = document.body.classList.toggle('overview');
-    if (on) {
-      slides[idx].scrollIntoView({ block: 'center', behavior: 'instant' });
-    }
-  }
-
-  slides.forEach((s, i) => {
-    s.setAttribute('data-slide-num', i + 1);
-    s.addEventListener('click', () => {
-      if (!document.body.classList.contains('overview')) return;
-      document.body.classList.remove('overview');
-      show(i, true);
-    });
-  });
-
-  document.addEventListener('keydown', e => {
-    if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
-    if (e.key === 'Escape') { e.preventDefault(); toggleOverview(); return; }
-    if (document.body.classList.contains('overview')) return;
-    if (['ArrowRight','PageDown',' '].includes(e.key)) { e.preventDefault(); advance(); }
-    if (['ArrowLeft','PageUp'].includes(e.key))        { e.preventDefault(); retreat(); }
-    if (e.key === 'Home') { e.preventDefault(); show(0); }
-    if (e.key === 'End')  { e.preventDefault(); show(slides.length - 1, true); }
-  });
-
-  if (btnPrev) btnPrev.addEventListener('click', () => retreat());
-  if (btnNext) btnNext.addEventListener('click', () => advance());
-
-  let tx = 0, ty = 0, swipeOk = false;
-  document.addEventListener('touchstart', e => {
-    if (e.touches.length !== 1) { swipeOk = false; return; }
-    if (e.target.closest('.stage')) { swipeOk = false; return; }
-    tx = e.touches[0].clientX; ty = e.touches[0].clientY; swipeOk = true;
-  }, { passive: true });
-  document.addEventListener('touchmove', e => {
-    if (!swipeOk || e.touches.length !== 1) return;
-    if (Math.abs(e.touches[0].clientY - ty) > Math.abs(e.touches[0].clientX - tx) * 1.5) swipeOk = false;
-  }, { passive: true });
-  document.addEventListener('touchend', e => {
-    if (!swipeOk) return;
-    const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
-    if (Math.abs(dx) >= 48 && Math.abs(dx) >= Math.abs(dy) * 1.2) { dx < 0 ? advance() : retreat(); }
-    swipeOk = false;
-  }, { passive: true });
-
-  window.addEventListener('hashchange', () => {
-    const m = location.hash.match(/^#(\d+)$/);
-    if (m) show(parseInt(m[1], 10) - 1, true);
-  });
-
-  const m = location.hash.match(/^#(\d+)$/);
-  show(m ? clamp(parseInt(m[1], 10) - 1, 0, slides.length - 1) : 0, true);
-</script>
+<script src="src/slides.js"></script>
 </body>
 </html>
