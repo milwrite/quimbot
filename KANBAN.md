@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-03 19:00 ET_
+_Last synced: 2026-03-04 07:00 ET_
 
 ## ✅ Done
 - **Gallery: Spring Wires + Cursor Aura visualizations** — merged to `main` (`a44bcf5`) ✅ 3/3
@@ -49,6 +49,10 @@ _Last synced: 2026-03-03 19:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning stand-up 3/4 07:00:** Pulled latest `main`, reviewed KANBAN, and attempted Quimbot sync.
+- **Quimbot sync attempt (3/4 morning):** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
+- **Status delta (3/4 morning):** No new unblock signal detected from this host. Training lane remains blocked by billing (HTTP 402), missing adapter-path handoff, and stalled TOEFL generation. Gallery/docs/workshop lane remains active.
+- **Today focus (3/4):** (1) execute billing fix, (2) restart generation and confirm live PID + log growth, (3) provide adapter weights transfer path for Stage 1 Run 4 eval, (4) verify/fix prospects cron runtime path, (5) continue workshop deck + gallery/docs throughput.
 - **Evening stand-up 3/3 19:00:** Pulled latest `main`, reviewed KANBAN, and attempted Quimbot sync.
 - **Quimbot sync attempt (3/3 evening):** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
 - **Progress since morning:** Gallery lane moved forward with Spring Wires + Cursor Aura visualizations merged to `main` (`a44bcf5`).
