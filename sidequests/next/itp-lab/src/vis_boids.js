@@ -5,8 +5,9 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 
 export function boids(container) {
   const { ctx, resize, destroy } = makeCanvas(container, { pixelRatioCap: 2 });
-  // Allow pointermove attraction without triggering page scroll on mobile.
-  container.style.touchAction = 'none';
+  // Use 'manipulation' (not 'none') so mobile users can still scroll the slide
+  // past this stage by panning. Pointer attraction is a nice-to-have, not critical.
+  container.style.touchAction = 'manipulation';
 
   let W = 0, H = 0;
   function onResize() {

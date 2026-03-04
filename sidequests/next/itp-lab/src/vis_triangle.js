@@ -111,7 +111,7 @@ export function triangle(container) {
 
     // Labels — responsive: shorter text on narrow viewports to avoid clipping.
     const narrow = width < 420;
-    const labelPx = Math.max(10, Math.min(16, Math.floor(Math.min(width, height) * 0.032)));
+    const labelPx = Math.max(12, Math.min(16, Math.floor(Math.min(width, height) * 0.032)));
     ctx.fillStyle = 'rgba(255,255,255,0.9)';
     ctx.font = `${labelPx}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto`;
 
@@ -128,16 +128,24 @@ export function triangle(container) {
     const rightLabelX = Math.min(width - 4, C.x);
     ctx.fillText(narrow ? 'Interpretation' : 'Interpretation (Curation)', rightLabelX, Math.min(height - 6, C.y + labelPx + 6));
 
-    // Draggable point
+    // Draggable point — scale radius so it's always finger-friendly on mobile.
+    const dotR = Math.max(8, Math.min(13, Math.min(width, height) * 0.025));
+    // Outer ring (touch affordance)
+    ctx.beginPath();
+    ctx.arc(P.x, P.y, dotR + 4, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    // Core dot
     ctx.fillStyle = 'rgba(255,255,255,0.95)';
     ctx.beginPath();
-    ctx.arc(P.x, P.y, 6, 0, Math.PI * 2);
+    ctx.arc(P.x, P.y, dotR, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = 'rgba(0,0,0,0.55)';
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    const hintPx = Math.max(10, Math.min(14, Math.floor(Math.min(width, height) * 0.028)));
+    const hintPx = Math.max(12, Math.min(14, Math.floor(Math.min(width, height) * 0.028)));
     ctx.fillStyle = 'rgba(255,255,255,0.55)';
     ctx.font = `${hintPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
     ctx.textAlign = 'left';
