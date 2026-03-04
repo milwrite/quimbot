@@ -3,7 +3,7 @@
 _Last synced: 2026-03-04 19:00 ET_
 
 ## ✅ Done
-- **Gallery: Metaballs + Gray-Scott Reaction-Diffusion visualizations** — merged to `main` (`34c293c`) ✅ 3/4
+- **Gallery: Metaballs + Gray-Scott Reaction-Diffusion** — merged to `main` (`34c293cd`) ✅ 3/4
 - **Gallery: Spring Wires + Cursor Aura visualizations** — merged to `main` (`a44bcf5`) ✅ 3/3
 - **Gallery: Mandelbrot Set + Phyllotaxis** — morning drop 3/1 (`0c507ca4`) ✅ 3/1
 - **Gallery: Chladni Figures + Julia Set** — added to docs/gallery (`e46913a`) ✅ 3/2

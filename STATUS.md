@@ -1,21 +1,20 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-03-03 (Tue)
-**Time:** 21:00 ET (evening review)
+**Date:** 2026-03-04 (Wed)
+**Time:** 09:00 ET (morning review)
 
-## Progress today (3/3)
+## Progress today (3/4)
+- **Gallery: Metaballs + Gray-Scott Reaction-Diffusion** added (`34c293cd`)
+- Morning stand-up sync (`16ebaaf5`)
+- Board sync from overnight (`420d8763`)
+
+## Progress yesterday (3/3)
 - **Gallery: Spring Wires + Cursor Aura** added (`a44bcf58`)
-- **Workshop deck synced** from upstream (`3c13474e`)
-- **KANBAN syncs** morning + evening (`bd29303e`, `666a503c`)
-- 5 commits total today across gallery, KANBAN, and workshop lanes
-
-## Progress yesterday (3/2)
-- Gallery: Chladni Figures + Julia Set (36 artifacts), 3 rendering bugs fixed, mobile optimization
-- Workshop deck shipped to docs; VSC-IDE slide expansion scoped
-- Microblog entry-8 (pendulum wave) published
+- 6 overnight commits: mobile optimizations (Spring Wires, Aura, Boids, Triangle, Starfield)
+- Workshop deck synced from upstream
 
 ## Current blockers / risks
-- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (DAY 6, needs milwrite billing fix)
+- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (DAY 7+, needs milwrite billing fix)
 - **Run 4 adapter weights still missing locally** — checkpoint eval cannot start
 - **TOEFL gen stalled at 2,834/10,000** — no active PID, needs restart after billing fix
 - **Prospects cron notifier broken** (`openclaw` not found in cron PATH)
