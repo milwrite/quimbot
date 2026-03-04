@@ -7,13 +7,36 @@ export function starfield(container) {
   // Prevent scroll-on-drag on mobile so the parallax gesture works cleanly.
   container.style.touchAction = 'none';
 
-  let mouse = { x: 0, y: 0 };
-  const onMove = (e) => {
+  let mouse = { x: 0.5, y: 0.5 };
+  let touching = false;
+
+  function updateMouse(e) {
     const r = container.getBoundingClientRect();
     mouse.x = (e.clientX - r.left) / r.width;
     mouse.y = (e.clientY - r.top) / r.height;
+  }
+  const onMove = (e) => { updateMouse(e); };
+  const onDown = (e) => { touching = true; updateMouse(e); };
+  const onUp = () => {
+    touching = false;
+    // Drift back to center so the field settles.
+    mouse.x = 0.5; mouse.y = 0.5;
   };
   container.addEventListener('pointermove', onMove);
+  container.addEventListener('pointerdown', onDown);
+  container.addEventListener('pointerup', onUp);
+
+  // Device orientation fallback for mobile (tilt-to-parallax).
+  let orientSupported = false;
+  const onOrient = (e) => {
+    if (touching) return; // touch takes priority
+    const gamma = (e.gamma || 0) / 45; // left-right tilt, [-1, 1]
+    const beta = ((e.beta || 0) - 45) / 45; // front-back tilt, [-1, 1]
+    mouse.x = 0.5 + Math.max(-0.5, Math.min(0.5, gamma));
+    mouse.y = 0.5 + Math.max(-0.5, Math.min(0.5, beta));
+    orientSupported = true;
+  };
+  window.addEventListener('deviceorientation', onOrient);
 
   let stars = [];
   let lastW = 0, lastH = 0;
@@ -64,6 +87,9 @@ export function starfield(container) {
   return () => {
     stop();
     container.removeEventListener('pointermove', onMove);
+    container.removeEventListener('pointerdown', onDown);
+    container.removeEventListener('pointerup', onUp);
+    window.removeEventListener('deviceorientation', onOrient);
     destroy();
   };
 }

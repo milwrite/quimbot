@@ -15,10 +15,15 @@ export function boids(container) {
   }
   onResize();
 
-  const N = 90;
   const boid = [];
+  function boidCount() {
+    // Scale to viewport area: fewer on small screens, more on large.
+    const area = Math.max(1, W * H);
+    return Math.max(30, Math.min(120, Math.floor(area / 4500)));
+  }
   function reset() {
     boid.length = 0;
+    const N = boidCount();
     for (let i = 0; i < N; i++) {
       boid.push({
         x: Math.random() * W,
@@ -57,9 +62,11 @@ export function boids(container) {
     ctx.fillRect(0, 0, W, H);
 
     // Parameters (tuned for "readable" on a slide).
-    const sepDist = 18;
-    const aliDist = 42;
-    const cohDist = 52;
+    // Scale flocking radii to viewport so boids spread well on any screen.
+    const scale = Math.max(0.5, Math.min(1.2, Math.min(W, H) / 500));
+    const sepDist = 18 * scale;
+    const aliDist = 42 * scale;
+    const cohDist = 52 * scale;
 
     const maxSpeed = 2.1;
     const maxForce = 0.06;
@@ -162,7 +169,7 @@ export function boids(container) {
     for (let i = 0; i < boid.length; i++) {
       const b = boid[i];
       const a = Math.atan2(b.vy, b.vx);
-      const s = 7;
+      const s = Math.max(4, Math.min(8, Math.min(W, H) * 0.015));
 
       ctx.beginPath();
       ctx.moveTo(b.x + Math.cos(a) * s, b.y + Math.sin(a) * s);
