@@ -7,10 +7,11 @@
 <title>Cursor Aura</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;background:#03030a;overflow:hidden;cursor:none}
-canvas{display:block;width:100%;height:100%}
-#info{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:6px 14px;border-radius:6px;font:12px/1.4 ui-monospace,monospace;pointer-events:none;text-align:center;white-space:nowrap}
-.back-btn{position:fixed;top:16px;right:16px;background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:none;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
+html,body{height:100%;background:#03030a;overflow:hidden}
+@media (pointer:fine){ html,body{cursor:none} }
+canvas{display:block;width:100%;height:100%;touch-action:none}
+#info{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:6px 14px;border-radius:6px;font:12px/1.4 ui-monospace,monospace;pointer-events:none;text-align:center;max-width:min(92vw,560px)}
+.back-btn{position:fixed;top:16px;right:16px;background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
 .back-btn:hover{border-color:#888}
 </style>
 </head>
@@ -36,6 +37,7 @@ let mx=W/2, my=H/2, smx=W/2, smy=H/2; // mouse + smooth mouse
 let hue=0, clicking=false, lastMx=W/2, lastMy=H/2;
 const particles=[];
 const trails=[]; // historical aura positions
+const IS_TOUCH=window.matchMedia('(pointer:coarse)').matches;
 
 // Particle: emitted from cursor
 class Particle {
@@ -117,7 +119,7 @@ function drawCursor(x,y){
 }
 
 function emit(burst){
-  const count=burst?30:(clicking?3:1);
+  const count=IS_TOUCH ? (burst?16:(clicking?2:1)) : (burst?30:(clicking?3:1));
   for(let i=0;i<count;i++) particles.push(new Particle(smx+Math.random()*4-2, smy+Math.random()*4-2, burst));
 }
 
@@ -136,7 +138,8 @@ function loop(t){
 
   // Emit particles
   const speed=Math.hypot(mx-lastMx,my-lastMy);
-  if(t-lastTrail>16){
+  const trailInterval=IS_TOUCH?28:16;
+  if(t-lastTrail>trailInterval){
     trails.push(new TrailPoint(smx,smy,hue));
     lastTrail=t;
     emit(false);
