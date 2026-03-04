@@ -25,7 +25,7 @@ if(window.self!==window.top){
 }
 
 const canvas=document.getElementById('c'),ctx=canvas.getContext('2d');
-let W,H;
+let W,H,DPR=1;
 
 // Verlet integration physics
 const DAMPING=0.985, GRAVITY=0.08, SPRING_REST=110, SPRING_K=0.04;
@@ -37,8 +37,12 @@ let nodes=[], edges=[], dragging=null, dragOffX=0, dragOffY=0;
 let mouseX=0, mouseY=0;
 
 function resize(){
-  W=canvas.width=innerWidth;
-  H=canvas.height=innerHeight;
+  DPR=Math.min(window.devicePixelRatio||1,IS_TOUCH?1.5:2);
+  W=window.innerWidth;
+  H=window.innerHeight;
+  canvas.width=Math.round(W*DPR);
+  canvas.height=Math.round(H*DPR);
+  ctx.setTransform(DPR,0,0,DPR,0,0);
 }
 
 function makeGrid(){
@@ -71,7 +75,12 @@ function makeGrid(){
 
 resize();
 makeGrid();
-window.addEventListener('resize',()=>{resize();makeGrid();});
+let resizeTimer;
+window.addEventListener('resize',()=>{
+  clearTimeout(resizeTimer);
+  resizeTimer=setTimeout(()=>{resize();makeGrid();},120);
+});
+window.addEventListener('orientationchange',()=>setTimeout(()=>{resize();makeGrid();},200));
 
 // Physics step
 function step(){
