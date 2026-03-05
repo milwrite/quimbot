@@ -1,6 +1,6 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-03 19:00 ET_
+_Last synced: 2026-03-04 19:00 ET_
 
 ## In Progress
 - **TOEFL superset4 merge** — gen complete (11,999 entries, QA passed). Next: triage 50 flagged short replies, then merge superset3 (5,560) + gpt-oss run into superset4 (~15k unique target).
@@ -14,7 +14,7 @@ _Last synced: 2026-03-03 19:00 ET_
 ## Queued
 - gemma3:12b eval
 - Prospects notifier fix (Petrarch)
-- Flagged short-reply review (10 items from superset3 QA)
+- Flagged short-reply review: 10 degenerate entries identified (lines in `superset3_flagged_short_lines.txt`), need removal before superset4 merge
 - Blog publish prep
 
 ## Done (recent)
