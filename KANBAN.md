@@ -1,8 +1,10 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-05 07:00 ET_
+_Last synced: 2026-03-05 09:00 ET_
 
 ## ✅ Done
+- **Gallery: Neon Tunnel + Wolfram Automaton** — merged to `main` (`efd3937a`) ✅ 3/5
+- **Microblog entry-10: "What a flock doesn't know" (boids)** — published (`6547fc21`) ✅ 3/5
 - **Gallery: Metaballs + Gray-Scott Reaction-Diffusion** — merged to `main` (`34c293cd`) ✅ 3/4
 - **Gallery: Spring Wires + Cursor Aura visualizations** — merged to `main` (`a44bcf5`) ✅ 3/3
 - **Gallery: Mandelbrot Set + Phyllotaxis** — morning drop 3/1 (`0c507ca4`) ✅ 3/1
@@ -50,6 +52,7 @@ _Last synced: 2026-03-05 07:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning review 3/5 09:00:** Gallery lane advanced overnight (Neon Tunnel + Wolfram Automaton, microblog entry-10). Training lane still blocked day 8. Tasked Petrarch with billing fix + gen restart + superset3 review.
 - **Morning stand-up 3/5 07:00:** Pulled latest `main`, reviewed KANBAN, checked runtime/log state, and attempted Quimbot sync.
 - **Quimbot sync attempt (3/5 morning):** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
 - **Runtime/log check (3/5 morning):** No active TOEFL generation PID found; `fine-tuning/generation_qwen72b.log` still ends in OpenRouter HTTP 402 credits error; `fine-tuning/prospects/cron.log` is still missing on this checkout.
