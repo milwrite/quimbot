@@ -1,8 +1,9 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-04 07:00 ET_
+_Last synced: 2026-03-04 19:00 ET_
 
 ## ✅ Done
+- **Gallery: Metaballs + Gray-Scott Reaction-Diffusion visualizations** — merged to `main` (`34c293c`) ✅ 3/4
 - **Gallery: Spring Wires + Cursor Aura visualizations** — merged to `main` (`a44bcf5`) ✅ 3/3
 - **Gallery: Mandelbrot Set + Phyllotaxis** — morning drop 3/1 (`0c507ca4`) ✅ 3/1
 - **Gallery: Chladni Figures + Julia Set** — added to docs/gallery (`e46913a`) ✅ 3/2
@@ -49,6 +50,11 @@ _Last synced: 2026-03-04 07:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening stand-up 3/4 19:00:** Pulled latest `main`, reviewed KANBAN, checked runtime/log state, and attempted Quimbot sync.
+- **Quimbot sync attempt (3/4 evening):** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
+- **Progress since morning (3/4):** Gallery lane advanced with Metaballs + Gray-Scott pages merged to `main` (`34c293c`, 08:36 ET).
+- **Runtime/log check (3/4 evening):** No active TOEFL generation PID found; `fine-tuning/generation_qwen72b.log` still ends in OpenRouter HTTP 402 credits error; `fine-tuning/prospects/cron.log` still missing on this checkout.
+- **Tomorrow plan (3/5):** (1) execute billing fix, (2) restart generation and confirm live PID + log growth, (3) provide adapter weights transfer path for Stage 1 Run 4 eval, (4) verify/fix prospects cron runtime path, (5) continue workshop deck + gallery/docs throughput.
 - **Morning stand-up 3/4 07:00:** Pulled latest `main`, reviewed KANBAN, and attempted Quimbot sync.
 - **Quimbot sync attempt (3/4 morning):** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
 - **Status delta (3/4 morning):** No new unblock signal detected from this host. Training lane remains blocked by billing (HTTP 402), missing adapter-path handoff, and stalled TOEFL generation. Gallery/docs/workshop lane remains active.
