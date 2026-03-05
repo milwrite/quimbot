@@ -1,5 +1,5 @@
 # Dataset Inventory
-_Updated: 2026-02-27 07:01 ET_
+_Updated: 2026-03-04 19:30 ET_
 
 ## Active Superset (use this for training)
 
@@ -33,6 +33,12 @@ _Updated: 2026-02-27 07:01 ET_
 | `proof_of_concept_10.jsonl` | 10 | Minimal POC |
 | `test_scaffolding.jsonl` | 2 | Test set |
 | `scaffolding_kimi_k2.5_50.jsonl` | 0 | Empty placeholder |
+
+## QA Flags (2026-03-04)
+
+| File | Lines | Notes |
+|------|-------|-------|
+| `superset3_flagged_short_lines.txt` | 10 line indices | Degenerate/short replies flagged for review |
 
 ## Dedup Summary (2026-02-27)
 
