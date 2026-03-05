@@ -30,6 +30,16 @@
   .di-title { font-size: 0.82rem; font-weight: 600; color: #e0e0e0; }
   .di-desc { font-size: 0.72rem; color: #888; margin-top: 3px; line-height: 1.4; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+
+  /* ── mobile ── */
+  @media (max-width: 500px) {
+    body { padding: 1rem; }
+    h1 { font-size: 1.2rem; }
+    .grid { grid-template-columns: 1fr; gap: 0.9rem; }
+    .card .preview { height: 160px; }
+    /* dropdown: keep inside viewport */
+    .dropdown-menu { min-width: 0; width: calc(100vw - 2rem); max-width: 340px; }
+  }
   a.card {
     display: flex;
     flex-direction: column;
