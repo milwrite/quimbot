@@ -9,7 +9,26 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: #0a0a0a; color: #e0e0e0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; padding: 1.5rem; }
   h1 { font-size: 1.5rem; margin-bottom: 0.3rem; color: #fff; }
-  .subtitle { color: #aaa; font-size: 0.85rem; margin-bottom: 2rem; }
+  .subtitle { color: #aaa; font-size: 0.85rem; margin-bottom: 1.5rem; }
+
+  /* ── nav bar ── */
+  .topnav { display: flex; align-items: center; gap: 8px; margin-bottom: 1.5rem; border-bottom: 1px solid #222; padding-bottom: 0.9rem; flex-wrap: wrap; }
+  .topnav a.home-link { color: #aaa; text-decoration: none; font-size: 0.8rem; transition: color 0.15s; }
+  .topnav a.home-link:hover { color: #fff; }
+
+  /* dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-btn { background: transparent; border: 1px solid #333; border-radius: 5px; color: #aaa; cursor: pointer; font-family: inherit; font-size: 0.8rem; padding: 4px 12px; display: flex; align-items: center; gap: 5px; transition: color 0.15s, border-color 0.15s; }
+  .nav-dropdown-btn:hover, .nav-dropdown-btn.open { color: #fff; border-color: #666; }
+  .chevron { font-size: 9px; opacity: 0.7; transition: transform 0.2s; }
+  .nav-dropdown-btn.open .chevron { transform: rotate(180deg); }
+  .dropdown-menu { display: none; position: absolute; top: calc(100% + 6px); left: 0; min-width: 320px; max-height: 70vh; overflow-y: auto; background: #111; border: 1px solid #333; border-radius: 8px; z-index: 200; box-shadow: 0 12px 40px rgba(0,0,0,0.8); }
+  .nav-dropdown.open .dropdown-menu { display: block; }
+  .dropdown-item { display: block; padding: 11px 14px; text-decoration: none; color: inherit; border-bottom: 1px solid #1e1e1e; transition: background 0.15s; }
+  .dropdown-item:last-child { border-bottom: none; }
+  .dropdown-item:hover { background: rgba(255,255,255,0.05); }
+  .di-title { font-size: 0.82rem; font-weight: 600; color: #e0e0e0; }
+  .di-desc { font-size: 0.72rem; color: #888; margin-top: 3px; line-height: 1.4; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
   a.card {
     display: flex;
@@ -66,6 +85,46 @@
 </style>
 </head>
 <body>
+<div class="topnav">
+  <a class="home-link" href="../">← Home</a>
+  <div class="nav-dropdown" id="blog-dd">
+    <button class="nav-dropdown-btn" id="blog-dd-btn">Microblog <span class="chevron">▾</span></button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="../microblog/entry-10.html" target="_blank">
+        <div class="di-title">What a flock doesn't know</div>
+        <div class="di-desc">Craig Reynolds' boids — three rules, no conductor, and a murmuration that only exists in phase.</div>
+      </a>
+      <a class="dropdown-item" href="../microblog/entry-9.html" target="_blank">
+        <div class="di-title">Tuning forks and pixel dust</div>
+        <div class="di-desc">Lissajous attached mirrors to tuning forks in 1855 and turned sound into geometry.</div>
+      </a>
+      <a class="dropdown-item" href="../microblog/entry-8.html" target="_blank">
+        <div class="di-title">The wave that isn't there</div>
+        <div class="di-desc">24 uncoupled pendulums and a traveling wave that exists only in the phase gradient.</div>
+      </a>
+      <a class="dropdown-item" href="../microblog/entry-7.html" target="_blank">
+        <div class="di-title">1965</div>
+        <div class="di-desc">A. Michael Noll's Gaussian Quadratic — one of the first computer artworks.</div>
+      </a>
+      <a class="dropdown-item" href="../microblog/entry-6.html" target="_blank">
+        <div class="di-title">Deterministic chaos and chemical memory</div>
+        <div class="di-desc">The Lorenz attractor and Turing patterns at the edge between order and chaos.</div>
+      </a>
+      <a class="dropdown-item" href="../microblog/entry-4.html" target="_blank">
+        <div class="di-title">The Fourier Pendulum That Draws a Wave</div>
+        <div class="di-desc">Chained rotating circles mapping harmonic motion into a live waveform.</div>
+      </a>
+      <a class="dropdown-item" href="../microblog/entry-3.html" target="_blank">
+        <div class="di-title">How the Turing Patterns Sketch Grows Living Texture</div>
+        <div class="di-desc">A concrete walkthrough of Gray-Scott reaction-diffusion.</div>
+      </a>
+      <a class="dropdown-item" href="../microblog/entry-2.html" target="_blank">
+        <div class="di-title">How the Rubik Sketch Works</div>
+        <div class="di-desc">The cube engine, isometric projection, and the logic behind moves and scramble.</div>
+      </a>
+    </div>
+  </div>
+</div>
 <h1>Creative Coding Gallery</h1>
 <p class="subtitle">Interactive generative art — click any card to launch</p>
 <div class="grid" id="gallery"></div>
@@ -114,6 +173,12 @@ const artifacts = [
   { file: 'tunnel', name: 'Neon Tunnel', desc: 'Hexagonal perspective tunnel with neon glow — move mouse to steer through the vortex', tag: 'animation' },
   { file: 'wolfram', name: 'Wolfram Automaton', desc: '1D elementary cellular automata: Rule 30 breeds chaos, Rule 90 grows fractals, Rule 110 is Turing-complete', tag: 'simulation' },
 ];
+
+// dropdown
+const dd = document.getElementById('blog-dd');
+const ddBtn = document.getElementById('blog-dd-btn');
+ddBtn.addEventListener('click', e => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.classList.toggle('open'); });
+document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.classList.remove('open'); });
 
 const grid = document.getElementById('gallery');
 artifacts.forEach(a => {
