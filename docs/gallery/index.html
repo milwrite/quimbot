@@ -22,7 +22,7 @@
   .nav-dropdown-btn:hover, .nav-dropdown-btn.open { color: #fff; border-color: #666; }
   .chevron { font-size: 9px; opacity: 0.7; transition: transform 0.2s; }
   .nav-dropdown-btn.open .chevron { transform: rotate(180deg); }
-  .dropdown-menu { display: none; position: absolute; top: calc(100% + 6px); left: 0; min-width: 320px; max-height: 70vh; overflow-y: auto; background: #111; border: 1px solid #333; border-radius: 8px; z-index: 200; box-shadow: 0 12px 40px rgba(0,0,0,0.8); }
+  .dropdown-menu { display: none; position: absolute; top: calc(100% + 6px); left: 0; min-width: 320px; max-width: calc(100vw - 2rem); max-height: 70vh; overflow-y: auto; background: #111; border: 1px solid #333; border-radius: 8px; z-index: 200; box-shadow: 0 12px 40px rgba(0,0,0,0.8); }
   .nav-dropdown.open .dropdown-menu { display: block; }
   .dropdown-item { display: block; padding: 11px 14px; text-decoration: none; color: inherit; border-bottom: 1px solid #1e1e1e; transition: background 0.15s; }
   .dropdown-item:last-child { border-bottom: none; }
