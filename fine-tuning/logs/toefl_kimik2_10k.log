@@ -1,0 +1,35 @@
+📂 Resuming from index 131
+🎯 Target: 10000 dialogues
+🤖 Model: deepseek/deepseek-chat-v3-0324
+🌐 Base URL: https://openrouter.ai/api/v1
+📋 Error bank: 54 seed patterns
+🔄 Phase rotation every 2500 entries
+   Phase 1 (0-2499): Recast
+   Phase 2 (2500-4999): Elicitation
+   Phase 3 (5000-7499): Expansion
+   Phase 4 (7500-9999): Metalinguistic Hints
+
+[100/9869] phase=recast type=subject_omission
+[200/9869] phase=recast type=subject_verb
+[300/9869] phase=recast type=preposition
+[400/9869] phase=recast type=negation
+[500/9869] phase=recast type=negation
+[600/9869] phase=recast type=past_tense
+📂 Resuming from index 802
+🎯 Target: 10000 dialogues
+🤖 Model: deepseek/deepseek-chat-v3-0324
+🌐 Base URL: https://openrouter.ai/api/v1
+📋 Error bank: 54 seed patterns
+🔄 Phase rotation every 2500 entries
+   Phase 1 (0-2499): Recast
+   Phase 2 (2500-4999): Elicitation
+   Phase 3 (5000-7499): Expansion
+   Phase 4 (7500-9999): Metalinguistic Hints
+
+[100/9198] phase=recast type=future_after
+[200/9198] phase=recast type=preposition
+[300/9198] phase=recast type=conjunction
+[400/9198] phase=recast type=be_overuse
+[500/9198] phase=recast type=word_order
+[600/9198] phase=recast type=word_order
+[700/9198] phase=recast type=preposition

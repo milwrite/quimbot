@@ -1,9 +1,9 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-04 19:00 ET_
+_Last synced: 2026-03-05 07:00 ET_
 
 ## In Progress
-- **TOEFL superset4 merge** — gen complete (11,999 entries, QA passed). Next: triage 50 flagged short replies, then merge superset3 (5,560) + gpt-oss run into superset4 (~15k unique target).
+- **TOEFL superset4 merge** — gen complete (11,999 entries, QA passed). 10 degenerate entries flagged for removal. **Blocker:** superset3_merged.jsonl missing from disk; need to locate/regenerate before cleanup + merge.
 - **CAIL Workshop #1 deck** — 74+ commits; icebreaker redesigned, gen-dev-foundations deck added. Stubs remain for slides 7–8 (awaiting Petrarch's ITP content), 12–15 (activities/exit).
 - **Blog "The Problem with AI Detection"** — 3 open validation issues need milwrite action (cheeky claim, Engelbrecht figures, USD neurodivergent source). Needs final publish review.
 
