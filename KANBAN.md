@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-05 09:00 ET_
+_Last synced: 2026-03-05 21:00 ET_
 
 ## ✅ Done
 - **Gallery: Neon Tunnel + Wolfram Automaton** — merged to `main` (`efd3937a`) ✅ 3/5
@@ -23,6 +23,9 @@ _Last synced: 2026-03-05 09:00 ET_
 - Site cleanup: OpenClaw files removed from repo, .gitignore updated, GH Pages source fixed
 
 ## 🔨 In Progress
+- **Gallery dropdown nav + mobile responsive** — shipped 5 commits today (`04e1c2a1`..`dc29c3af`) ✅ 3/5
+- **Starfield: steering + tracking overhaul** — 4x steering, lerp, cursor-distance speed (`3849b997`) ✅ 3/5
+- **Microblog: gallery links for entry-6 + entry-7** — (`3c424fc0`) ✅ 3/5
 - **TOEFL gen at 2,834/10,000 — process still stalled** (no active PID found at 07:00 stand-up)
 - Gallery/docs iteration continues
 - Superset3 quality validation needed (spot-check)

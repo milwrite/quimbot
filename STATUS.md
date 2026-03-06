@@ -1,16 +1,16 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
 **Date:** 2026-03-05 (Thu)
-**Time:** 09:00 ET (morning review)
+**Time:** 21:00 ET (evening review)
 
-## Progress since last review (3/4 evening)
-- **Gallery: Neon Tunnel + Wolfram Automaton** added (`efd3937a`)
-- **Microblog entry-10** published: "What a flock doesn't know" (boids) (`6547fc21`)
-- Morning stand-up syncs (`63ce5e87`, `c127a86f`)
-
-## Progress yesterday (3/4)
-- **Gallery: Metaballs + Gray-Scott Reaction-Diffusion** added (`34c293cd`)
-- **Superset3 triage:** reviewed short replies, flagged 10 degenerate entries (`710cb95d`)
+## Today's progress (3/5)
+- 12 commits across gallery, microblog, starfield, and standups
+- **Gallery dropdown nav**: replaced tab nav with dropdown menu, anchored to topnav width, mobile responsive, single-column layout, viewport-capped width (`04e1c2a1`, `0bd9315e`, `4666bacb`, `06b037b0`, `dc29c3af`)
+- **Starfield overhaul**: 4x stronger steering, lerp tracking, speed scales with cursor distance (`3849b997`)
+- **Microblog**: gallery links added to entry-6 and entry-7 (`3c424fc0`)
+- **Gallery**: Neon Tunnel + Wolfram Automaton added (`efd3937a`)
+- **Microblog entry-10** published: boids (`6547fc21`)
+- 3 standup/sync commits
 
 ## Current blockers / risks
 - **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (DAY 8, needs milwrite billing fix)
@@ -19,13 +19,13 @@
 - **Prospects cron notifier broken** (`openclaw` not found in cron PATH)
 
 ## Current focus
+- Gallery/docs iteration (unblocked lane, productive)
 - Workshop deck polish (slides needing fill)
-- Gallery/docs iteration (unblocked lane)
 
 ## Next actions (queued)
 1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 8
 2. Restart TOEFL gen after billing restored
 3. Review 10 flagged short assistant replies in superset3
-4. Complete remaining workshop slides
+4. Complete remaining workshop slides (12-15)
 5. Fix prospects cron notifier routing
 6. Run 4 weights retrieval (needs milwrite)
