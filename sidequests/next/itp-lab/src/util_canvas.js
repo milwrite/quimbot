@@ -7,12 +7,22 @@ export function makeCanvas(container, { pixelRatioCap = 2 } = {}) {
 
   const ctx = c.getContext('2d');
 
+  let _pw = 0, _ph = 0, _dpr = 0;
+
   function resize() {
     const r = container.getBoundingClientRect();
     const dpr = Math.min(window.devicePixelRatio || 1, pixelRatioCap);
-    c.width = Math.max(1, Math.floor(r.width * dpr));
-    c.height = Math.max(1, Math.floor(r.height * dpr));
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const pw = Math.max(1, Math.floor(r.width * dpr));
+    const ph = Math.max(1, Math.floor(r.height * dpr));
+    // Only touch canvas dimensions when they actually change.
+    // Setting c.width/c.height clears the canvas per spec, which destroys
+    // trail-based effects (flowfield, starfield) that rely on partial fade.
+    if (pw !== _pw || ph !== _ph || dpr !== _dpr) {
+      c.width = pw;
+      c.height = ph;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      _pw = pw; _ph = ph; _dpr = dpr;
+    }
     return { width: r.width, height: r.height, dpr };
   }
 

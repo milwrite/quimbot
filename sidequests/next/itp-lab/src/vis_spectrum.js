@@ -46,6 +46,34 @@ export function spectrum(container) {
   range.style.height = '44px';
   range.style.cursor = 'pointer';
   range.style.touchAction = 'none';
+  // Cross-browser: override native styling so the track/thumb render
+  // consistently on iOS Safari, Chrome Android, and Firefox mobile.
+  range.style.webkitAppearance = 'none';
+  range.style.appearance = 'none';
+  range.style.background = 'transparent';
+
+  // Inject a <style> for pseudo-element selectors (can't set via .style).
+  const sliderCSS = document.createElement('style');
+  sliderCSS.textContent = `
+    input[type=range].spectrum-slider::-webkit-slider-runnable-track {
+      height: 6px; background: rgba(255,255,255,0.25); border-radius: 3px;
+    }
+    input[type=range].spectrum-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #fff; border: 2px solid rgba(0,0,0,0.3);
+      margin-top: -11px; cursor: pointer;
+    }
+    input[type=range].spectrum-slider::-moz-range-track {
+      height: 6px; background: rgba(255,255,255,0.25); border-radius: 3px; border: none;
+    }
+    input[type=range].spectrum-slider::-moz-range-thumb {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #fff; border: 2px solid rgba(0,0,0,0.3); cursor: pointer;
+    }
+  `;
+  root.appendChild(sliderCSS);
+  range.classList.add('spectrum-slider');
 
   const hint = document.createElement('div');
   hint.textContent = 'Drag';
