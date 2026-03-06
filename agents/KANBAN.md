@@ -1,6 +1,6 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-05 07:00 ET_
+_Last synced: 2026-03-05 19:00 ET_
 
 ## In Progress
 - **TOEFL superset4 merge** — gen complete (11,999 entries, QA passed). 10 degenerate entries flagged for removal. **Blocker:** superset3_merged.jsonl missing from disk; need to locate/regenerate before cleanup + merge.
@@ -18,6 +18,9 @@ _Last synced: 2026-03-05 07:00 ET_
 - Blog publish prep
 
 ## Done (recent)
+- Gallery: 42 artifacts live; Neon Tunnel + Wolfram Automaton added; dropdown nav + mobile responsive overhaul (2026-03-05, 8 commits)
+- Microblog: gallery links added to entry-6 and entry-7 (2026-03-05)
+- Data validation: 3 source JSONLs confirmed 0 parse errors (2026-03-05)
 - Gallery: 39 artifacts live; Spring Wires + Cursor Aura added (2026-03-03, 3 commits)
 - Gallery: 36 artifacts live, 3 rendering bugs fixed, Chladni + Julia Set added (2026-03-02, 10 commits)
 - gen-dev-foundations workshop deck added to docs (2026-03-02)
