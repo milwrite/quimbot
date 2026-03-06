@@ -40,6 +40,12 @@ export function spectrum(container) {
   range.value = '0.45';
   range.style.flex = '1';
   range.style.minWidth = '110px';
+  // Explicit height meets Apple's 44px minimum touch target on mobile.
+  // touch-action: none lets the browser give pointer events to the slider
+  // instead of triggering a scroll while dragging.
+  range.style.height = '44px';
+  range.style.cursor = 'pointer';
+  range.style.touchAction = 'none';
 
   const hint = document.createElement('div');
   hint.textContent = 'Drag';

@@ -10,9 +10,15 @@ export function boids(container) {
   container.style.touchAction = 'manipulation';
 
   let W = 0, H = 0;
+  // Returns true when the container size actually changed.
+  // Callers that run after boid[] is initialized can call reset() on a true return.
   function onResize() {
     const s = resize();
-    W = s.width; H = s.height;
+    const nw = Math.max(1, Math.floor(s.width));
+    const nh = Math.max(1, Math.floor(s.height));
+    if (nw === W && nh === H) return false;
+    W = nw; H = nh;
+    return true;
   }
   onResize();
 
@@ -56,7 +62,8 @@ export function boids(container) {
   }
 
   const stop = rafLoop(() => {
-    onResize();
+    // Rebuild boids on viewport change (e.g. screen rotation on mobile).
+    if (onResize()) reset();
 
     ctx.clearRect(0, 0, W, H);
     ctx.fillStyle = '#05070b';
