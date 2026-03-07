@@ -1,8 +1,10 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-05 21:00 ET_
+_Last synced: 2026-03-06 09:00 ET_
 
 ## ✅ Done
+- **Gallery: ASCII Donut + Crystal Dendrite (DLA snowflake)** — merged to `main` (`ea53d9ff`) ✅ 3/6
+- **Superset3 blocker cleared** — data validation clean (`7a660b28`) ✅ 3/6
 - **Gallery: Neon Tunnel + Wolfram Automaton** — merged to `main` (`efd3937a`) ✅ 3/5
 - **Microblog entry-10: "What a flock doesn't know" (boids)** — published (`6547fc21`) ✅ 3/5
 - **Gallery: Metaballs + Gray-Scott Reaction-Diffusion** — merged to `main` (`34c293cd`) ✅ 3/4
@@ -55,6 +57,7 @@ _Last synced: 2026-03-05 21:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning review 3/6 09:00:** Superset3 blocker cleared per 07:00 standup. Gallery added ASCII Donut + Crystal Dendrite. Training lane day 9 blocked (OpenRouter 402). Tasked Petrarch with billing fix, flagged-reply review, workshop slides, cron fix.
 - **Morning review 3/5 09:00:** Gallery lane advanced overnight (Neon Tunnel + Wolfram Automaton, microblog entry-10). Training lane still blocked day 8. Tasked Petrarch with billing fix + gen restart + superset3 review.
 - **Morning stand-up 3/5 07:00:** Pulled latest `main`, reviewed KANBAN, checked runtime/log state, and attempted Quimbot sync.
 - **Quimbot sync attempt (3/5 morning):** `sessions_send` to label `Quimbot` returned "No session found with label: Quimbot" from this host.
