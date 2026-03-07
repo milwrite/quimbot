@@ -135,33 +135,42 @@ function hasNeighbor(x, y) {
 // ── single DLA walker step ─────────────────────────────────
 // Returns number of new frozen points, or 0 if walker escaped
 function walkOnce() {
-  // launch from circle just beyond crystal edge
   const launchR = Math.min(crystalR + 8, MAX_R - 1);
   const angle   = Math.random() * 6.2832;
   let x = Math.round(CX + launchR * Math.cos(angle));
   let y = Math.round(CY + launchR * Math.sin(angle));
-
-  const killR = launchR + 16; // restart if walker strays this far
+  const killR = launchR + 16;
 
   for (let step = 0; step < 8000; step++) {
-    // random step in 8 directions
-    const d = (Math.random() * 8) | 0;
-    x += DX[d]; y += DY[d];
+    const d  = (Math.random() * 8) | 0;
+    const nx = x + DX[d], ny = y + DY[d];
 
-    if (x < 1 || x >= GSIZE - 1 || y < 1 || y >= GSIZE - 1) return 0;
-    if (Math.hypot(x - CX, y - CY) > killR) return 0;
-    if (grid[y * GSIZE + x]) continue; // already frozen — back off
-    x -= DX[d]; y -= DY[d];
-    if (x < 1 || x >= GSIZE - 1 || y < 1 || y >= GSIZE - 1) return 0;
+    if (nx < 1 || nx >= GSIZE - 1 || ny < 1 || ny >= GSIZE - 1) return 0;
+    if (Math.hypot(nx - CX, ny - CY) > killR) return 0;
 
+    if (grid[ny * GSIZE + nx]) {
+      // bumped into frozen cell — current pos (x,y) is adjacent, try to stick
+      const n = hasNeighbor(x, y);
+      if (n > 0) {
+        const stick = 0.3 + 0.14 * n;
+        if (Math.random() < stick) {
+          freezePoint(x, y, Math.hypot(x - CX, y - CY) / MAX_R);
+          return 12;
+        }
+      }
+      continue; // blocked — try different direction next step
+    }
+
+    // move to empty cell
+    x = nx; y = ny;
+
+    // check adjacency at new position
     const n = hasNeighbor(x, y);
     if (n > 0) {
-      // sticking probability rises with neighbor count (encourages dense clusters)
       const stick = 0.3 + 0.14 * n;
       if (Math.random() < stick) {
-        const d2 = Math.hypot(x - CX, y - CY) / MAX_R;
-        freezePoint(x, y, d2);
-        return 12; // up to 12 symmetry copies added
+        freezePoint(x, y, Math.hypot(x - CX, y - CY) / MAX_R);
+        return 12;
       }
     }
   }
