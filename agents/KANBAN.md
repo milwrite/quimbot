@@ -1,6 +1,6 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-06 07:00 ET_
+_Last synced: 2026-03-06 19:00 ET_
 
 ## In Progress
 - **TOEFL superset4 merge** — gen complete (11,999 entries, QA passed). 10 degenerate entries flagged for removal. superset3_merged.jsonl found on disk (5,560 lines, 0 parse errors). Ready for flagged-entry removal + merge script.
