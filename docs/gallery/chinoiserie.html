@@ -8,14 +8,14 @@
 <style>
   * { margin: 0; padding: 0; }
   body { background: #0c1a2e; overflow: hidden; }
-  canvas { display: block; width: 100vw; height: 100vh; }
+  canvas { display: block; width: 100vw; height: 100vh; touch-action: none; }
   .info {
     position: fixed; bottom: 1rem; left: 1rem;
     color: rgba(255,255,255,0.85); font: 0.75rem/1.4 monospace;
     text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     pointer-events: none;
   }
-.back-btn{position:fixed;top:16px;right:16px;background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
+.back-btn{position:fixed;top:calc(12px + env(safe-area-inset-top));right:calc(12px + env(safe-area-inset-right));background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
 .back-btn:hover{border-color:#888}
 </style>
 </head>

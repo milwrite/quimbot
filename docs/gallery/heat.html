@@ -7,10 +7,10 @@
 <style>
   * { margin: 0; padding: 0; }
   body { background: #000; overflow: hidden; }
-  canvas { display: block; }
-  .back{position:fixed;top:1rem;left:1rem;font:0.8rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;text-decoration:none;border:1px solid #333;z-index:10;transition:border-color 0.2s}
+  canvas { display: block; touch-action: none; }
+  .back{position:fixed;top:calc(0.8rem + env(safe-area-inset-top));left:calc(0.8rem + env(safe-area-inset-left));font:0.8rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aaa;background:rgba(10,10,10,0.85);padding:0.5rem 0.8rem;border-radius:4px;text-decoration:none;border:1px solid #333;z-index:10;transition:border-color 0.2s}
   .back:hover{border-color:#666;color:#fff}
-  .label{position:fixed;bottom:1rem;left:1rem;font:0.75rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#888;background:rgba(10,10,10,0.85);padding:0.4rem 0.7rem;border-radius:4px;pointer-events:none}
+  .label{position:fixed;bottom:calc(0.8rem + env(safe-area-inset-bottom));left:calc(0.8rem + env(safe-area-inset-left));font:0.75rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#888;background:rgba(10,10,10,0.85);padding:0.4rem 0.7rem;border-radius:4px;pointer-events:none}
   .in-iframe .back,.in-iframe .label{display:none}
 </style>
 </head>
