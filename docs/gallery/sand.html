@@ -119,32 +119,46 @@ function tick(){
           } else if(dl===EMPTY){swap(x,y,x-1,y+1);updated[idx(x-1,y+1)]=1;}
           else if(dr===EMPTY){swap(x,y,x+1,y+1);updated[idx(x+1,y+1)]=1;}
           else {
-            const sl=get(x-1,y),sr=get(x+1,y);
-            if(sl===EMPTY&&sr===EMPTY){
-              if(Math.random()<0.5){swap(x,y,x-1,y);updated[idx(x-1,y)]=1;}
-              else{swap(x,y,x+1,y);updated[idx(x+1,y)]=1;}
-            } else if(sl===EMPTY){swap(x,y,x-1,y);updated[idx(x-1,y)]=1;}
-            else if(sr===EMPTY){swap(x,y,x+1,y);updated[idx(x+1,y)]=1;}
+            // scan up to 3 cells sideways for an empty spot
+            let ml=0,mr=0;
+            for(let s=1;s<=3;s++){
+              if(get(x-s,y)===EMPTY)ml=s; else break;
+            }
+            for(let s=1;s<=3;s++){
+              if(get(x+s,y)===EMPTY)mr=s; else break;
+            }
+            if(ml&&mr){
+              if(Math.random()<0.5){swap(x,y,x-ml,y);updated[idx(x-ml,y)]=1;}
+              else{swap(x,y,x+mr,y);updated[idx(x+mr,y)]=1;}
+            } else if(ml){swap(x,y,x-ml,y);updated[idx(x-ml,y)]=1;}
+            else if(mr){swap(x,y,x+mr,y);updated[idx(x+mr,y)]=1;}
           }
         }
       }
       else if(m===FIRE){
-        // Spread to neighbors
+        // Spread fire to adjacent empty cells
         const neighbors=[[x,y-1],[x-1,y],[x+1,y],[x,y+1]];
         for(const[nx,ny]of neighbors){
-          if(get(nx,ny)===EMPTY&&Math.random()<0.03){
-            set(nx,ny,SMOKE);updated[idx(nx,ny)]=1;
+          const nb=get(nx,ny);
+          if(nb===EMPTY&&Math.random()<0.06){
+            set(nx,ny,FIRE);updated[idx(nx,ny)]=1;
+          } else if(nb===SAND&&Math.random()<0.008){
+            // fire can ignite sand
+            set(nx,ny,FIRE);updated[idx(nx,ny)]=1;
           }
         }
-        // Die randomly
-        if(Math.random()<0.04){set(x,y,SMOKE);continue;}
-        // Rise
-        if(get(x,y-1)===EMPTY&&Math.random()<0.6){
+        // Produce smoke above
+        if(get(x,y-1)===EMPTY&&Math.random()<0.15){
+          set(x,y-1,SMOKE);updated[idx(x,y-1)]=1;
+        }
+        // Die into smoke
+        if(Math.random()<0.012){set(x,y,SMOKE);continue;}
+        // Rise through empty space
+        if(get(x,y-1)===EMPTY&&Math.random()<0.7){
           swap(x,y,x,y-1);updated[idx(x,y-1)]=1;
-        } else if(Math.random()<0.3){
-          // Flicker sideways
-          const dx=Math.random()<0.5?-1:1;
-          if(get(x+dx,y)===EMPTY){swap(x,y,x+dx,y);updated[idx(x+dx,y)]=1;}
+        } else if(Math.random()<0.35){
+          const fdx=Math.random()<0.5?-1:1;
+          if(get(x+fdx,y)===EMPTY){swap(x,y,x+fdx,y);updated[idx(x+fdx,y)]=1;}
         }
       }
       else if(m===SMOKE){
@@ -206,9 +220,7 @@ function paintAt(cx,cy){
       if(dx*dx+dy*dy>BRUSH*BRUSH)continue;
       const x=gx+dx,y=gy+dy;
       if(x<0||x>=cols||y<0||y>=rows)continue;
-      if(curMat===EMPTY){set(x,y,EMPTY);}
-      else if(get(x,y)===EMPTY||(curMat===WALL)){set(x,y,curMat);}
-      else if(Math.random()<0.3)set(x,y,curMat);
+      set(x,y,curMat);
     }
   }
 }
