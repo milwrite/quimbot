@@ -12,9 +12,14 @@ export function spectrum(container) {
 
   const ui = document.createElement('div');
   ui.style.position = 'absolute';
-  ui.style.left = 'max(12px, env(safe-area-inset-left))';
-  ui.style.right = 'max(12px, env(safe-area-inset-right))';
-  ui.style.bottom = 'max(12px, env(safe-area-inset-bottom))';
+  // Pixel fallbacks for browsers without CSS max() (iOS < 14, old Android WebView).
+  // The second assignment overrides in browsers that support max() + env().
+  ui.style.left = '12px';
+  ui.style.left = 'max(12px, env(safe-area-inset-left, 0px))';
+  ui.style.right = '12px';
+  ui.style.right = 'max(12px, env(safe-area-inset-right, 0px))';
+  ui.style.bottom = '12px';
+  ui.style.bottom = 'max(12px, env(safe-area-inset-bottom, 0px))';
   ui.style.display = 'flex';
   ui.style.gap = '10px';
   ui.style.alignItems = 'center';
