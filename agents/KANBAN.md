@@ -1,6 +1,6 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-06 19:00 ET_
+_Last synced: 2026-03-08 19:00 ET_
 
 ## In Progress
 - **TOEFL superset4 merge** — gen complete (11,999 entries, QA passed). 10 degenerate entries flagged for removal. superset3_merged.jsonl found on disk (5,560 lines, 0 parse errors). Ready for flagged-entry removal + merge script.
@@ -14,10 +14,18 @@ _Last synced: 2026-03-06 19:00 ET_
 ## Queued
 - gemma3:12b eval
 - Prospects notifier fix (Petrarch)
-- Flagged short-reply review: 10 degenerate entries identified (lines in `superset3_flagged_short_lines.txt`), need removal before superset4 merge
+- Run removal script on superset3_merged.jsonl (file not on disk yet; script ready at `fine-tuning/scripts/remove_flagged.py`)
 - Blog publish prep
 
 ## Done (recent)
+- Gallery: Langton's Ant + Falling Sand added; sand fire/brush/water fixes (2026-03-08, 3 commits, 49 artifacts live)
+- Gallery: 20 missing artifacts added to index + mobile fixes across 12 artifacts (2026-03-07/08, 5 commits)
+- Removal script for 10 flagged degenerate entries committed (2026-03-07, `remove_flagged.py`)
+- Crystal dendrite DLA walker bug fixed (2026-03-07, 1 commit)
+- Workshop deck synced from cuny-ai-lab/gen-dev-foundations fae418b4 (2026-03-07, 1 commit)
+- Gallery: Monte Carlo Pi + Ant Colony added (2026-03-07, 1 commit)
+- Microblog entries 11 + 12 published: phyllotaxis, Chladni figures (2026-03-06, 2 commits)
+- Gallery: 42 artifacts live; ASCII Donut + Crystal Dendrite added (2026-03-06, 1 commit)
 - Gallery: 42 artifacts live; Neon Tunnel + Wolfram Automaton added; dropdown nav + mobile responsive overhaul (2026-03-05, 8 commits)
 - Microblog: gallery links added to entry-6 and entry-7 (2026-03-05)
 - Data validation: 3 source JSONLs confirmed 0 parse errors (2026-03-05)

@@ -1,27 +1,29 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-03-06 (Fri)
+**Date:** 2026-03-08 (Sun)
 **Time:** 09:00 ET (morning review)
 
-## Today's progress (3/6)
-- **07:00 standup**: superset3 blocker cleared, data validation clean (`7a660b28`)
-- **Gallery**: ASCII Donut + Crystal Dendrite (DLA snowflake) added (`ea53d9ff`)
+## Today's progress (3/8)
+- **07:00 standup**: 5 overnight commits (gallery index + mobile fixes across 12 artifacts). OpenRouter 402 day 11.
+- **08:31**: Gallery drop: Langton's Ant + Falling Sand simulations (`9a6566e7`)
+- **6 commits since last review** (overnight mobile fixes + gallery index + Langton/Sand)
 
 ## Current blockers / risks
-- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (DAY 9, needs milwrite billing fix)
+- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (DAY 11, needs milwrite billing fix)
 - **Run 4 adapter weights still missing locally** — checkpoint eval cannot start
 - **TOEFL gen stalled at 2,834/10,000** — no active PID, needs restart after billing fix
 - **Prospects cron notifier broken** (`openclaw` not found in cron PATH)
+- **superset3_merged.jsonl not on disk** — removal script ready but needs the file
 
 ## Current focus
-- Gallery/docs iteration (unblocked lane, productive)
-- Superset3 validated: ready for flagged-reply review
+- Run removal script once superset3 file is pulled → produce superset4
+- Gallery/docs iteration continues (unblocked lane)
 - Workshop deck polish (slides 12-15 still need content)
 
 ## Next actions (queued)
-1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 9
-2. Restart TOEFL gen after billing restored
-3. Review 10 flagged short assistant replies in superset3
+1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 11
+2. Pull superset3_merged.jsonl + run removal script → superset4
+3. Restart TOEFL gen after billing restored
 4. Complete remaining workshop slides (12-15)
 5. Fix prospects cron notifier routing
 6. Run 4 weights retrieval (needs milwrite)

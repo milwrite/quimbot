@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-06 09:00 ET
+**Last Updated:** 2026-03-07 09:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -8,7 +8,9 @@
 - [x] Merge fresh Ollama outputs into one staging JSONL and dedup against current superset → superset3 (5,560 unique) ✅ 2/27
 - [ ] Fix `fine-tuning/prospects` Discord notifier path (`openclaw` binary missing in cron runtime)
 - [x] Spot-check superset3 quality (5,560 rows, 0 parse errors, 10 short replies flagged) ✅ 2/27
-- [ ] Review 10 flagged short assistant replies in superset3
+- [x] Review 10 flagged short assistant replies in superset3 — all degenerate (2-38 chars) ✅ 3/7
+- [x] Write removal script for 10 degenerate replies (`0e9d57bc`) ✅ 3/7
+- [ ] Run removal script → produce superset4
 
 ## Medium Priority
 - [ ] Refresh `fine-tuning/data/INVENTORY.md` after merge/dedup and recount totals

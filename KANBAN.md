@@ -1,8 +1,16 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-06 09:00 ET_
+_Last synced: 2026-03-08 09:00 ET_
 
 ## ✅ Done
+- **Gallery: Langton's Ant + Falling Sand** — merged to `main` (`9a6566e7`) ✅ 3/8
+- **Gallery: mobile fixes (12 artifacts) + index (20 artifacts)** — 5 commits overnight ✅ 3/8
+- **Gallery: Monte Carlo Pi + Ant Colony** — merged to `main` (`408e3a85`) ✅ 3/7
+- **Microblog entry-11 (phyllotaxis) + entry-12 (Chladni)** — published (`a143e173`, `515e00f2`) ✅ 3/7
+- **remove_flagged.py committed** — degenerate entry removal script ready to run (`0e9d57bc`) ✅ 3/7
+- **Crystal DLA walker bug fixed** — continue/undo logic inversion (`97d90274`) ✅ 3/7
+- **Workshop slides synced** — from cuny-ai-lab/gen-dev-foundations (`02ff4f4f`) ✅ 3/7
+- **Superset3 flagged replies validated** — all 10 degenerate (2-38 chars), removal script next ✅ 3/7
 - **Gallery: ASCII Donut + Crystal Dendrite (DLA snowflake)** — merged to `main` (`ea53d9ff`) ✅ 3/6
 - **Superset3 blocker cleared** — data validation clean (`7a660b28`) ✅ 3/6
 - **Gallery: Neon Tunnel + Wolfram Automaton** — merged to `main` (`efd3937a`) ✅ 3/5
@@ -57,6 +65,8 @@ _Last synced: 2026-03-06 09:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning review 3/8 09:00:** Overnight: 5 mobile fix commits + gallery index (20 artifacts). Morning gallery drop: Langton's Ant + Falling Sand (`9a6566e7`). OpenRouter 402 day 11. superset3 file still not on disk. Tasked Petrarch with billing fix, superset3 pull, workshop slides, cron fix.
+- **Morning review 3/7 09:00:** Overnight gallery (Monte Carlo Pi + Ant Colony) and microblog (entries 11-12). Flagged replies validated: all degenerate, removal script queued. OpenRouter 402 day 10. Tasked Petrarch with billing fix, removal script, workshop slides, cron fix.
 - **Morning review 3/6 09:00:** Superset3 blocker cleared per 07:00 standup. Gallery added ASCII Donut + Crystal Dendrite. Training lane day 9 blocked (OpenRouter 402). Tasked Petrarch with billing fix, flagged-reply review, workshop slides, cron fix.
 - **Morning review 3/5 09:00:** Gallery lane advanced overnight (Neon Tunnel + Wolfram Automaton, microblog entry-10). Training lane still blocked day 8. Tasked Petrarch with billing fix + gen restart + superset3 review.
 - **Morning stand-up 3/5 07:00:** Pulled latest `main`, reviewed KANBAN, checked runtime/log state, and attempted Quimbot sync.
