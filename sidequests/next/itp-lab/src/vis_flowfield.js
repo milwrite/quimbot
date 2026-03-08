@@ -100,7 +100,8 @@ export function flowField(container) {
     const scale = 0.008; // field frequency
     const speed = 0.035;
 
-    ctx.lineWidth = 1;
+    // Slightly thicker trails on small screens so they stay visible.
+    ctx.lineWidth = Math.min(W, H) < 400 ? 1.5 : 1;
     ctx.strokeStyle = 'rgba(122,215,255,0.18)';
 
     ctx.beginPath();
@@ -135,6 +136,12 @@ export function flowField(container) {
       }
     }
     ctx.stroke();
+
+    // Caption — responsive font size so it reads on small/mobile screens.
+    const captionPx = Math.max(11, Math.min(14, Math.floor(Math.min(W, H) * 0.032)));
+    ctx.fillStyle = 'rgba(255,255,255,0.45)';
+    ctx.font = `${captionPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+    ctx.fillText('Flow field • tap to reseed', 14, captionPx + 6);
   });
 
   return () => {

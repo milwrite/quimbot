@@ -93,9 +93,13 @@ export function starfield(container) {
     const mx = (mouse.x - 0.5) * width;
     const my = (mouse.y - 0.5) * height;
 
+    // Minimum star size so sub-pixel stars stay visible on mobile screens.
+    const minStar = Math.max(1, Math.min(width, height) * 0.003);
+
     for (const s of stars) {
+      const sz = Math.max(minStar, s.z);
       ctx.fillStyle = `rgba(255,255,255,${s.z / 3})`;
-      ctx.fillRect(s.x, s.y, s.z, s.z);
+      ctx.fillRect(s.x, s.y, sz, sz);
       s.x += mx * 0.0009 * s.z;
       s.y += my * 0.0009 * s.z;
       // wrap
@@ -104,6 +108,13 @@ export function starfield(container) {
       if (s.y < 0) s.y += height;
       if (s.y > height) s.y -= height;
     }
+
+    // Interaction hint — responsive font size.
+    const hintPx = Math.max(11, Math.min(14, Math.floor(Math.min(width, height) * 0.032)));
+    ctx.fillStyle = 'rgba(255,255,255,0.45)';
+    ctx.font = `${hintPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+    const hintText = width < 480 ? 'Drag or tilt to shift' : 'Drag or tilt device to shift parallax';
+    ctx.fillText(hintText, 14, height - Math.max(14, hintPx + 4));
   });
 
   return () => {
