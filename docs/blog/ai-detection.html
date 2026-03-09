@@ -5,35 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Writing Under Surveillance — The Problem with AI Detection</title>
 <style>
-:root{--bg:#0b0e14;--fg:rgba(255,255,255,0.92);--muted:rgba(255,255,255,0.55);--stroke:rgba(255,255,255,0.10);--accent:#c8c8c8;--max:680px}
 *{margin:0;padding:0;box-sizing:border-box}
-html{background:var(--bg);color:var(--fg);font-family:Georgia,'Times New Roman',serif;line-height:1.75}
-body{padding:clamp(24px,5vw,64px) clamp(20px,5vw,40px);max-width:var(--max);margin:0 auto}
+html{background:#fff;color:#111;font-family:Georgia,'Times New Roman',Times,serif;line-height:1.75}
+body{padding:clamp(32px,6vw,72px) clamp(20px,8vw,120px);max-width:780px;margin:0 auto}
 
-.back{display:inline-block;margin-bottom:2.5rem;font:13px/1 ui-monospace,monospace;color:var(--muted);text-decoration:none;border:1px solid var(--stroke);padding:6px 14px;border-radius:6px;transition:color .2s,border-color .2s}
-.back:hover{color:var(--fg);border-color:rgba(255,255,255,.3)}
+.back{display:inline-block;margin-bottom:2.5rem;font:12px/1 ui-monospace,monospace;color:#888;text-decoration:none;border:1px solid #ddd;padding:5px 12px;border-radius:4px;transition:color .2s,border-color .2s}
+.back:hover{color:#333;border-color:#aaa}
 
-.label{font:11px/1 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
-h1{font-size:clamp(22px,4vw,34px);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:.4rem;font-family:ui-sans-serif,system-ui,sans-serif}
-.subtitle{font-size:clamp(14px,2vw,18px);color:var(--muted);margin-bottom:2rem;font-style:italic;font-family:ui-sans-serif,system-ui,sans-serif}
+h1{font-size:clamp(20px,3vw,28px);font-weight:700;line-height:1.2;margin-bottom:.2rem}
+.subtitle{font-size:clamp(14px,2vw,17px);font-weight:400;color:#111;margin-bottom:1.8rem}
 
-blockquote{border-left:3px solid rgba(255,255,255,.2);margin:2rem 0;padding:.75rem 1.25rem}
-blockquote p{font-style:italic;color:rgba(255,255,255,.75);font-size:0.95rem;line-height:1.7}
-blockquote cite{display:block;margin-top:.6rem;font-size:.8rem;color:var(--muted);font-style:normal;font-family:ui-monospace,monospace}
+blockquote{margin:1.8rem 0 1.8rem 2rem;padding:0}
+blockquote p{font-style:italic;font-size:clamp(14px,1.8vw,16px);line-height:1.7;color:#111}
+blockquote cite{display:block;text-align:right;margin-top:.5rem;font-style:italic;font-size:.9em;color:#111}
 
-p{margin-bottom:1.4rem;font-size:clamp(15px,1.8vw,17px);color:rgba(255,255,255,.88)}
-p:last-of-type{margin-bottom:0}
+p{margin-bottom:1.3rem;font-size:clamp(15px,1.8vw,16.5px);text-align:left}
 
-.refs{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--stroke)}
-.refs h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-family:ui-monospace,monospace;margin-bottom:1.2rem;font-weight:500}
-.refs ol{padding-left:1.4rem}
-.refs li{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:.75rem}
-.refs li a{color:var(--accent);text-decoration:none}
-.refs li a:hover{text-decoration:underline}
+.refs{margin-top:3rem;padding-top:2rem;border-top:1px solid #ccc}
+.refs h2{font-size:14px;font-weight:700;margin-bottom:1rem}
+.refs ol{padding-left:1.5rem}
+.refs li{font-size:13.5px;line-height:1.7;margin-bottom:.65rem;color:#222}
+.refs li a{color:#333;text-decoration:underline}
+.refs li a:hover{color:#000}
 
-@media(max-width:480px){
-  body{padding:20px 16px}
-  .refs li{font-size:12px}
+@media(max-width:500px){
+  body{padding:24px 18px}
+  blockquote{margin-left:1rem}
 }
 </style>
 </head>
@@ -41,7 +38,6 @@ p:last-of-type{margin-bottom:0}
 
 <a class="back" href="../">← Home</a>
 
-<div class="label">Essay · CUNY AI Lab</div>
 <h1>Writing Under Surveillance</h1>
 <p class="subtitle">The Problem with AI Detection</p>
 
@@ -56,7 +52,7 @@ p:last-of-type{margin-bottom:0}
 
 <p>When students feel the need to perform their humanity for an audience of algorithms, something has gone awry, as students are writing not for their human peers, but for automated systems, seldom even understood by professors who mandate them or administrators who procure them. The harms those systems inflict — from wrongful suspicion to self-censorship — often fall hardest on working-class and non-native English-speaking students like so many enrolled across the CUNY system.</p>
 
-<p>To understand the problem with AI detection, consider what these services claim to measure. For example, GPTZero claims to use two metrics: one is perplexity, a measure of how well a language model would predict each successive word in a passage; another is burstiness, which tracks creative variability in sentence rhythm and structure (Tian). This logic relies on the assumption that human writers intuitively exhibit syntactic variance and mix long and short sentences together, while AI models tend to propagate consistent, flat tempos at the sentence- and paragraph-level ("AI Detectors"; Galczynski).</p>
+<p>To understand the problem with AI detection, consider what these services claim to measure. For example, GPTZero claims to use two metrics: one is <strong><em>perplexity</em></strong>, a measure of how well a language model would predict each successive word in a passage; another is <strong><em>burstiness</em></strong>, which tracks creative variability in sentence rhythm and structure (Tian). This logic relies on the assumption that human writers intuitively exhibit syntactic variance and mix long and short sentences together, while AI models tend to propagate consistent, flat tempos at the sentence- and paragraph-level ("AI Detectors"; Galczynski).</p>
 
 <p>This premise is incredibly shaky, and also constitutive of AI detection failures at scale. For instance, one of the most comprehensive accounts in the field tested twelve publicly available tools alongside Turnitin and PlagiarismCheck, reporting they were "neither accurate nor reliable" and exhibited a systematic bias toward classifying AI-generated text as human-written (Weber-Wulff et al.). It's worth noting here that even a "low" 1% false positive rate across 22.35 million first-year college essays amounts to 223,500 essays falsely flagged in a single year (Hirsch).</p>
 
