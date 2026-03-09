@@ -1,11 +1,11 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-08 19:00 ET_
+_Last synced: 2026-03-09 09:15 ET (Legion-side; Studio merge 788644f pending push auth fix)_
 
 ## In Progress
 - **TOEFL superset4 merge** — gen complete (11,999 entries, QA passed). 10 degenerate entries flagged for removal. superset3_merged.jsonl found on disk (5,560 lines, 0 parse errors). Ready for flagged-entry removal + merge script.
 - **CAIL Workshop #1 deck** — 74+ commits; icebreaker redesigned, gen-dev-foundations deck added. Stubs remain for slides 7–8 (awaiting Petrarch's ITP content), 12–15 (activities/exit).
-- **Blog "The Problem with AI Detection"** — 3 open validation issues need milwrite action (cheeky claim, Engelbrecht figures, USD neurodivergent source). Needs final publish review.
+- **Blog "Writing Under Surveillance"** — published (commit 114f26ca). Writing nav tab added. Validation issues may still need milwrite review.
 
 ## Blocked
 - **Run 4 adapter weights** — missing, need retrieval
@@ -15,7 +15,7 @@ _Last synced: 2026-03-08 19:00 ET_
 - gemma3:12b eval
 - Prospects notifier fix (Petrarch)
 - Run removal script on superset3_merged.jsonl (file not on disk yet; script ready at `fine-tuning/scripts/remove_flagged.py`)
-- Blog publish prep
+- Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
 - Gallery: Langton's Ant + Falling Sand added; sand fire/brush/water fixes (2026-03-08, 3 commits, 49 artifacts live)

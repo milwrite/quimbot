@@ -1,12 +1,14 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
 **Date:** 2026-03-08 (Sun)
-**Time:** 09:00 ET (morning review)
+**Time:** 21:00 ET (evening review)
 
 ## Today's progress (3/8)
 - **07:00 standup**: 5 overnight commits (gallery index + mobile fixes across 12 artifacts). OpenRouter 402 day 11.
 - **08:31**: Gallery drop: Langton's Ant + Falling Sand simulations (`9a6566e7`)
-- **6 commits since last review** (overnight mobile fixes + gallery index + Langton/Sand)
+- **Post-morning**: Falling Sand gameplay fixes: fire propagation, brush painting, water flow width, fire lifetime (`613e515e`)
+- **Tracking files synced** (`44947f31`)
+- **8 commits total today** (overnight mobile fixes + gallery index + Langton/Sand + Sand fixes + sync)
 
 ## Current blockers / risks
 - **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (DAY 11, needs milwrite billing fix)
