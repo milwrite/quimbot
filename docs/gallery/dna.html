@@ -2,28 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover"/>
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3QgZmlsbD0iIzBhMGEwYSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIi8+CiAgPHBhdGggZD0iTTggOCBMMjQgOCBMMjQgMjQgTDggMjQgWiBNMTIgMTIgTDIwIDEyIEwyMCAyMCBMMTIgMjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8L3N2Zz4K"/>
 <title>DNA Double Helix</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;background:#030510;overflow:hidden}
-canvas{display:block;width:100%;height:100%}
-#info{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.55);padding:6px 14px;border-radius:6px;font:12px/1.5 ui-monospace,monospace;pointer-events:none;text-align:center;white-space:nowrap}
-.back-btn{position:fixed;top:16px;right:16px;background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;transition:border-color 0.2s}
+canvas{display:block;width:100%;height:100%;touch-action:none}
+#info{position:fixed;bottom:max(16px,env(safe-area-inset-bottom,16px));left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.55);padding:6px 14px;border-radius:6px;font:12px/1.5 ui-monospace,monospace;pointer-events:none;text-align:center;white-space:nowrap}
+.back-btn{position:fixed;top:max(16px,env(safe-area-inset-top,16px));right:max(16px,env(safe-area-inset-right,16px));background:rgba(20,20,20,0.8);border:1px solid #444;color:#e0e0e0;padding:8px 14px;border-radius:6px;font:12px ui-monospace,monospace;cursor:pointer;text-decoration:none;backdrop-filter:blur(8px);z-index:1000;min-height:44px;display:flex;align-items:center;transition:border-color 0.2s}
 .back-btn:hover{border-color:#888}
 </style>
 </head>
 <body>
 <a href="./" class="back-btn">← Gallery</a>
 <canvas id="c"></canvas>
-<div id="info">DNA double helix · Watson–Crick base pairs · drag to tilt · scroll to zoom</div>
+<div id="info">DNA double helix · Watson–Crick base pairs · drag to tilt · pinch or scroll to zoom</div>
 <script>
 (function(){
 'use strict';
 const c=document.getElementById('c'),ctx=c.getContext('2d');
 let W,H;
-function resize(){W=c.width=innerWidth;H=c.height=innerHeight}
+function resize(){
+  W=c.width=innerWidth;H=c.height=innerHeight;
+  RADIUS_BASE=Math.min(W,H)*0.16; // responsive helix radius
+}
 resize();
 addEventListener('resize',resize);
 
@@ -37,27 +40,38 @@ if(window.self!==window.top){
 const RUNGS=60;         // base pairs
 const PITCH=32;         // px per full turn (vertical)
 const TURNS=12;         // number of full turns visible
-const RADIUS_BASE=110;  // helix radius at default zoom
+let RADIUS_BASE=Math.min(innerWidth,innerHeight)*0.16; // responsive, updated on resize
 
 let zoom=1.0;
 let tiltX=0.18;         // 3D tilt (radians)
 let phase=0;            // rotation phase
 let speed=0.008;
 
-// drag
-let dragging=false,lastY=0;
-addEventListener('pointerdown',e=>{dragging=true;lastY=e.clientY});
-addEventListener('pointermove',e=>{
+// drag + pinch
+let dragging=false,lastY=0,pinchDist=0;
+c.addEventListener('pointerdown',e=>{c.setPointerCapture(e.pointerId);dragging=true;lastY=e.clientY});
+c.addEventListener('pointermove',e=>{
   if(!dragging)return;
   tiltX+=(e.clientY-lastY)*0.003;
   tiltX=Math.max(-0.5,Math.min(0.5,tiltX));
   lastY=e.clientY;
 });
-addEventListener('pointerup',()=>dragging=false);
+c.addEventListener('pointerup',()=>dragging=false);
+c.addEventListener('pointercancel',()=>dragging=false);
 addEventListener('wheel',e=>{
   zoom*=e.deltaY>0?0.95:1.05;
   zoom=Math.max(0.4,Math.min(2.5,zoom));
   e.preventDefault();
+},{passive:false});
+// pinch-to-zoom
+c.addEventListener('touchstart',e=>{if(e.touches.length===2)pinchDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY)},{passive:true});
+c.addEventListener('touchmove',e=>{
+  if(e.touches.length===2){
+    const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
+    if(pinchDist>0){zoom*=d/pinchDist;zoom=Math.max(0.4,Math.min(2.5,zoom));}
+    pinchDist=d;
+    e.preventDefault();
+  }
 },{passive:false});
 
 // base pair colors: A-T cyan/amber, G-C magenta/lime
