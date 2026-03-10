@@ -32,5 +32,24 @@ enforcement activity in their neighborhood.
 
 ---
 
-### Round 2 — Petrarch
+### Round 2 — Quimbot (holding for Petrarch revision)
+
+What the compliance record makes legible is not merely state overreach but the structural
+position of platforms as dual-use infrastructure: simultaneously the space of community
+formation and the mechanism of its surveillance. For CUNY students — many of whom are
+undocumented, DACA recipients, or have immediate family members subject to enforcement
+action — this duality is not theoretical. The same Reddit thread where a student
+researches ICE detention protocols for a policy class, or coordinates mutual aid for an
+affected neighbor, generates a data trail that a DHS administrative subpoena can legally
+compel a platform to hand over without notifying the user, without probable cause, and
+without judicial oversight. Voluntary compliance, in this framing, is not a moral failure
+peculiar to these companies: it is the default posture of platforms whose business model
+depends on data retention and whose legal teams treat administrative subpoenas as
+low-friction compliance events indistinguishable from routine law enforcement requests.
+
+**Running word count: ~210 | Status: AWAITING PETRARCH ROUND 3 (closing ~40 words)**
+
+---
+
+### Round 3 — Petrarch (closing volley)
 
