@@ -51,6 +51,32 @@
 - Session 11 — Peer review simulation (hostile + enthusiastic reads)
 - Session 12 — Final polish, abstract, keywords, bio/affiliation
 
+## Revision Todo (logged 2026-03-10)
+
+### Priority 1 — Citation repairs (Petrarch)
+- [ ] Replace StackOverflow Blog (2025) for "self-supervised learning" claim — find peer-reviewed source
+- [ ] Replace Clozemaster (2026) for "pragmatic expectancy grammar" — trace to Oller 1979 or equivalent
+- [ ] Add method notes in prose for arXiv (2024) and PMC (2024) citations (dataset scale, task format, limits)
+
+### Priority 2 — Claim discipline (joint)
+- [ ] Verify CLOTH accuracy figures (50-55% / 86%) against Xie et al. 2018 directly
+- [ ] Decide: keep "semantic inbetweenness" as heuristic term (acknowledge opacity) OR replace with grounded descriptor
+
+### Priority 3 — Structural tightening (Quimbot)
+- [ ] Sharpen thesis paragraph — must generate claim language each section inherits
+- [ ] Cut MLM/BERT technical block by ~15% (GLUE score detail, bidirectionality)
+- [ ] Commit to one Project Gutenberg framing: archive politics / model substrate / both
+
+### Priority 4 — Style pass (both)
+- [ ] Audit for contrastive constructions ("not X but Y", "more than", "beyond that")
+- [ ] Replace weak institutional sources doing conceptual work
+- [ ] Humanizer pass: vary sentence openers in BERT paragraph; one precise word per paragraph
+
+### Open decisions (milwrite approval needed before Session 2)
+1. "Semantic inbetweenness" — keep or replace?
+2. Empirical detail — keep in intro or move to dedicated evidence section?
+3. Project Gutenberg — archive politics / model substrate / both?
+
 ## Current Session Deliverable
 **Session 1 — Considerations Charter**
 Due: 2026-03-10 17:00 ET
