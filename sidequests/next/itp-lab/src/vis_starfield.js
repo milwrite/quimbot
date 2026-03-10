@@ -25,6 +25,7 @@ export function starfield(container) {
   container.addEventListener('pointermove', onMove);
   container.addEventListener('pointerdown', onDown);
   container.addEventListener('pointerup', onUp);
+  container.addEventListener('pointercancel', onUp); // mobile: cancel resets parallax
 
   // Device orientation fallback for mobile (tilt-to-parallax).
   // iOS 13+ gates this event behind an explicit user-gesture permission prompt.
@@ -122,6 +123,7 @@ export function starfield(container) {
     container.removeEventListener('pointermove', onMove);
     container.removeEventListener('pointerdown', onDown);
     container.removeEventListener('pointerup', onUp);
+    container.removeEventListener('pointercancel', onUp);
     if (orientListening) window.removeEventListener('deviceorientation', onOrient);
     destroy();
   };

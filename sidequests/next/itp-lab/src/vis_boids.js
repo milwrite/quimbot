@@ -52,6 +52,7 @@ export function boids(container) {
   function onLeave() { px = null; py = null; }
   container.addEventListener('pointermove', onMove);
   container.addEventListener('pointerleave', onLeave);
+  container.addEventListener('pointercancel', onLeave); // mobile: cancel clears pointer influence
   container.addEventListener('pointerup', reset);
 
   function wrap(p) {
@@ -199,6 +200,7 @@ export function boids(container) {
     stop();
     container.removeEventListener('pointermove', onMove);
     container.removeEventListener('pointerleave', onLeave);
+    container.removeEventListener('pointercancel', onLeave);
     container.removeEventListener('pointerup', reset);
     destroy();
   };

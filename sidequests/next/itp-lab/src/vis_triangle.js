@@ -46,6 +46,7 @@ export function triangle(container) {
   container.addEventListener('pointerdown', onDown);
   container.addEventListener('pointermove', onMove);
   window.addEventListener('pointerup', onUp);
+  window.addEventListener('pointercancel', onUp); // mobile: cancel releases drag point
 
   const stop = rafLoop((t) => {
     const { width, height } = resize();
@@ -157,6 +158,7 @@ export function triangle(container) {
     container.removeEventListener('pointerdown', onDown);
     container.removeEventListener('pointermove', onMove);
     window.removeEventListener('pointerup', onUp);
+    window.removeEventListener('pointercancel', onUp);
     destroy();
   };
 }
