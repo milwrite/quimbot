@@ -16,7 +16,7 @@
 
 | # | Date | Focus | Status | Approval |
 |---|------|-------|--------|----------|
-| 1 | 2026-03-10 | Considerations charter + scope lock | PENDING | — |
+| 1 | 2026-03-10 | Considerations charter + scope lock | COMPLETE | AWAITING milwrite |
 
 ## Labor Division
 - **Quimbot:** artifact/code analysis, argument structure, prose refinement, consistency checks
