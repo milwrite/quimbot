@@ -1,9 +1,9 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-09 09:15 ET (Legion-side; Studio merge 788644f pending push auth fix)_
+_Last synced: 2026-03-10 07:00 ET_
 
 ## In Progress
-- **TOEFL superset4 merge** — gen complete (11,999 entries, QA passed). 10 degenerate entries flagged for removal. superset3_merged.jsonl found on disk (5,560 lines, 0 parse errors). Ready for flagged-entry removal + merge script.
+- **TOEFL superset4 merge** — superset3_cleaned.jsonl produced (5,550 entries, 10 flagged removed). superset4 gen complete (11,999 entries). Next: merge superset3_cleaned + superset4 into final superset4_merged.
 - **CAIL Workshop #1 deck** — 74+ commits; icebreaker redesigned, gen-dev-foundations deck added. Stubs remain for slides 7–8 (awaiting Petrarch's ITP content), 12–15 (activities/exit).
 - **Blog "Writing Under Surveillance"** — published (commit 114f26ca). Writing nav tab added. Validation issues may still need milwrite review.
 
@@ -14,11 +14,15 @@ _Last synced: 2026-03-09 09:15 ET (Legion-side; Studio merge 788644f pending pus
 ## Queued
 - gemma3:12b eval
 - Prospects notifier fix (Petrarch)
-- Run removal script on superset3_merged.jsonl (file not on disk yet; script ready at `fine-tuning/scripts/remove_flagged.py`)
+- Merge superset3_cleaned + superset4 into superset4_merged.jsonl
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
-- Gallery: Langton's Ant + Falling Sand added; sand fire/brush/water fixes (2026-03-08, 3 commits, 49 artifacts live)
+- superset3 flagged-entry removal: 10 degenerate entries removed, 5,550 kept → superset3_cleaned.jsonl (2026-03-10)
+- Writing/reddit ping-pong session + STYLE_GUIDE.md drafted (2026-03-09, 8 commits)
+- Blog ai-detection restyled: light theme, serif, bolded perplexity/burstiness (2026-03-09, 1 commit)
+- Gallery: Marching Squares + Ambiguous Rotation added (2026-03-09, 1 commit, 51 artifacts live)
+- Gallery: Langton's Ant + Falling Sand added; sand fire/brush/water fixes (2026-03-08, 3 commits)
 - Gallery: 20 missing artifacts added to index + mobile fixes across 12 artifacts (2026-03-07/08, 5 commits)
 - Removal script for 10 flagged degenerate entries committed (2026-03-07, `remove_flagged.py`)
 - Crystal dendrite DLA walker bug fixed (2026-03-07, 1 commit)

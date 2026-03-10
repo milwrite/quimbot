@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-INPUT = DATA_DIR / "superset3_merged.jsonl"
+INPUT = DATA_DIR / "toefl_superset3_merged_20260227_0701.jsonl"
 FLAGGED = DATA_DIR / "superset3_flagged_short_lines.txt"
 OUTPUT = DATA_DIR / "superset3_cleaned.jsonl"
 
