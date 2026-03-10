@@ -38,9 +38,13 @@ export function tenPrint(container) {
   syncSize();
   clear(true);
 
-  ctx.strokeStyle = '#00FF41';
-  ctx.lineWidth = 2;
-  ctx.lineCap = 'square';
+  // Set initial stroke style (will be re-applied after any resize).
+  function applyStrokeStyle() {
+    ctx.strokeStyle = '#00FF41';
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'square';
+  }
+  applyStrokeStyle();
 
   function reseed() { clear(true); }
   container.addEventListener('pointerup', reseed);
@@ -48,6 +52,8 @@ export function tenPrint(container) {
   const stop = rafLoop(() => {
     if (syncSize()) {
       clear(true);
+      // Canvas resize resets all context state — reapply stroke properties.
+      applyStrokeStyle();
       return;
     }
 

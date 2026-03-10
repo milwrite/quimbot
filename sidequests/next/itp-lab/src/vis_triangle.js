@@ -39,14 +39,20 @@ export function triangle(container) {
   // Prevent page scroll while dragging the triangle point on mobile.
   container.style.touchAction = 'none';
 
-  const onDown = (e) => { dragging = true; p = toNorm(e); };
+  const onDown = (e) => {
+    dragging = true;
+    p = toNorm(e);
+    // Capture pointer so pointermove keeps firing even when finger drifts
+    // outside the container (common on mobile drag gestures).
+    container.setPointerCapture(e.pointerId);
+  };
   const onMove = (e) => { if (dragging) p = toNorm(e); };
   const onUp = () => { dragging = false; };
 
   container.addEventListener('pointerdown', onDown);
   container.addEventListener('pointermove', onMove);
-  window.addEventListener('pointerup', onUp);
-  window.addEventListener('pointercancel', onUp); // mobile: cancel releases drag point
+  container.addEventListener('pointerup', onUp);
+  container.addEventListener('pointercancel', onUp); // mobile: cancel releases drag point
 
   const stop = rafLoop((t) => {
     const { width, height } = resize();
@@ -157,8 +163,8 @@ export function triangle(container) {
     stop();
     container.removeEventListener('pointerdown', onDown);
     container.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-    window.removeEventListener('pointercancel', onUp);
+    container.removeEventListener('pointerup', onUp);
+    container.removeEventListener('pointercancel', onUp);
     destroy();
   };
 }
