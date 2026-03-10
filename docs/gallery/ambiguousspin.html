@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 <title>Ambiguous Rotation</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: #0a0a0a; overflow: hidden; display: flex; align-items: center; justify-content: center; height: 100vh; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-  canvas { display: block; cursor: pointer; }
+  canvas { display: block; cursor: pointer; touch-action: none; }
   #ui {
     position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
     color: #555; font-size: 11px; text-align: center; pointer-events: none;
@@ -24,14 +24,19 @@
     position: fixed; top: 14px; left: 14px;
     color: #666; text-decoration: none; font-size: 11px;
     border: 1px solid #2a2a2a; padding: 5px 11px; border-radius: 5px;
+    min-height: 44px; display: flex; align-items: center;
     transition: color 0.15s, border-color 0.15s;
   }
   #back:hover { color: #ccc; border-color: #555; }
+  @media (max-width: 500px) {
+    #ui { font-size: 10px; bottom: 14px; }
+    #label { transform: translate(-50%, -50%) translateY(140px); font-size: 9px; }
+  }
 </style>
 </head>
 <body>
 <canvas id="c"></canvas>
-<div id="ui">click to nudge direction · your brain may flip on its own</div>
+<div id="ui">tap to nudge direction · your brain may flip on its own</div>
 <div id="label" id="label">ambiguous</div>
 <a href="../" id="back">← gallery</a>
 <script>
@@ -69,10 +74,8 @@ function applyNudge(dir) {
   nudgeAlpha = 1.0;
 }
 
-canvas.addEventListener('click', () => {
-  // Alternate nudge direction
-  applyNudge(nudgeDir <= 0 ? 1 : -1);
-});
+canvas.addEventListener('click', () => { applyNudge(nudgeDir <= 0 ? 1 : -1); });
+canvas.addEventListener('touchend', (e) => { e.preventDefault(); applyNudge(nudgeDir <= 0 ? 1 : -1); }, { passive: false });
 
 // ── projection ─────────────────────────────────────────────
 // Orthographic projection of a 3D point with a slight tilt
