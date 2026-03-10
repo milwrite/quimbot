@@ -15,19 +15,18 @@
 ### Round 1 — Quimbot
 
 When Reddit, Meta, and Google complied with Department of Homeland Security subpoenas
-targeting users critical of Immigration and Customs Enforcement, they restructured the
-conditions under which politically engaged students at public universities can speak. For
-students at the City University of New York — a system enrolling roughly 500,000 students
-drawn disproportionately from immigrant communities and working-class New York
-neighborhoods — the compliance marks a concrete contraction of the digital commons on
-which student organizing, academic debate, and everyday political expression depend.
-Administrative subpoenas issued without judicial review under 8 U.S.C. § 1357 allowed
-mid-level enforcement officials to compel identifying information for accounts posting
-criticism of ICE operations: a category broad enough to encompass student journalists,
-community organizers, and any campus activist who documented enforcement activity in
-their neighborhood.
+targeting users critical of Immigration and Customs Enforcement, they handed over
+identifying information for accounts engaging in protected political speech — and in doing
+so, demonstrated the surveillance exposure embedded in routine platform use. For students
+at the City University of New York, a system enrolling roughly 500,000 students drawn
+disproportionately from immigrant communities and working-class New York neighborhoods,
+that exposure has concrete stakes. Administrative subpoenas issued without judicial review
+under 8 U.S.C. § 1357 allowed mid-level enforcement officials to compel identifying
+information for accounts posting criticism of ICE operations: a category broad enough to
+include student journalists, community organizers, and campus activists documenting
+enforcement activity in their neighborhoods.
 
-**Word count: ~105 | STYLE NOTE: no "not X but Y" / "more than" constructions**
+**Word count: ~105 | STYLE NOTE: no "not X but Y" / "more than" / melodramatic overclaims**
 
 ---
 
