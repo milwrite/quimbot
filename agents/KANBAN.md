@@ -1,11 +1,12 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-10 07:00 ET_
+_Last synced: 2026-03-10 19:00 ET_
 
 ## In Progress
 - **TOEFL superset4 merge** — superset3_cleaned.jsonl produced (5,550 entries, 10 flagged removed). superset4 gen complete (11,999 entries). Next: merge superset3_cleaned + superset4 into final superset4_merged.
 - **CAIL Workshop #1 deck** — 74+ commits; icebreaker redesigned, gen-dev-foundations deck added. Stubs remain for slides 7–8 (awaiting Petrarch's ITP content), 12–15 (activities/exit).
 - **Blog "Writing Under Surveillance"** — published (commit 114f26ca). Writing nav tab added. Validation issues may still need milwrite review.
+- **Cloze Reader paper (DHQ)** — Session 1 complete (considerations charter + scope lock). Awaiting milwrite approval gate for S2.
 
 ## Blocked
 - **Run 4 adapter weights** — missing, need retrieval
@@ -18,6 +19,11 @@ _Last synced: 2026-03-10 07:00 ET_
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
+- Gallery: DNA Double Helix + Mondrian Generator added, mobile fixes (2026-03-10, 2 commits, 53 artifacts live)
+- Cloze Reader paper Session 1: considerations charter + scope lock (2026-03-10, 1 commit)
+- Reddit post restructured: 3 revision rounds, mechanics-led structure (2026-03-10, 7 commits)
+- STYLE_GUIDE.md created (2026-03-10, 1 commit)
+- superset3_cleaned.jsonl revalidated: 5,550 lines, 0 errors (2026-03-10)
 - superset3 flagged-entry removal: 10 degenerate entries removed, 5,550 kept → superset3_cleaned.jsonl (2026-03-10)
 - Writing/reddit ping-pong session + STYLE_GUIDE.md drafted (2026-03-09, 8 commits)
 - Blog ai-detection restyled: light theme, serif, bolded perplexity/burstiness (2026-03-09, 1 commit)

@@ -1,18 +1,13 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-03-09 (Mon)
-**Time:** 21:00 ET (evening review)
+**Date:** 2026-03-10 (Tue)
+**Time:** 09:00 ET (morning review)
 
-## Today (3/9)
-- **Blog restyle:** `ai-detection.html` — light theme, serif, perplexity/burstiness bolded (`5a32c172`)
-- No other commits today (rest day after 5-commit overnight push)
-
-## Overnight progress (3/8 evening → 3/9 morning)
-- **Microblog entry-13:** harmonograph ("the first art machine") (`ebc26152`)
-- **Microblog entry-14:** L-Systems ("the grammar that grows a forest") (`063f3400`)
-- **Blog:** Published "Writing Under Surveillance" (AI detection essay) + Writing nav tab (`114f26ca`)
-- **Gallery:** Marching Squares + Ambiguous Rotation (`e46876b3`)
-- **Sync:** KANBAN + STATUS morning sync (`f682f4d1`)
+## Overnight progress (3/9 evening → 3/10 morning)
+- **Gallery: DNA Double Helix + Mondrian Generator** (`f1da18ba`) + mobile fixes (`79690d46`)
+- **Data: superset3 cleaned** — removed 10 flagged degenerate entries, 5550 kept (`0faa7767`)
+- **Writing/reddit:** case study revision — causal claim progression, stripped metadiscourse (`336f6f16`, `42f1a493`)
+- **Writing/cloze-reader-paper:** added revision todo list to SESSION_STATE (`1fa9be99`)
 
 ## Current blockers / risks
 - **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 12**, needs milwrite billing fix)
@@ -22,9 +17,10 @@
 - **superset3_merged.jsonl not on disk** — removal script ready but needs the file
 
 ## Current focus
-- Run removal script once superset3 file is pulled → produce superset4
+- superset3 cleaned (5550 rows) — ready for superset4 naming/packaging
 - Gallery/docs iteration continues (unblocked lane)
 - Workshop deck polish (slides 12-15 still need content)
+- Writing: cloze reader paper revision + reddit case study finalization
 
 ## Next actions (queued)
 1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 12

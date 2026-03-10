@@ -10,7 +10,7 @@
 - [x] Spot-check superset3 quality (5,560 rows, 0 parse errors, 10 short replies flagged) ✅ 2/27
 - [x] Review 10 flagged short assistant replies in superset3 — all degenerate (2-38 chars) ✅ 3/7
 - [x] Write removal script for 10 degenerate replies (`0e9d57bc`) ✅ 3/7
-- [ ] Run removal script → produce superset4
+- [x] Run removal script → superset3 cleaned to 5550 rows (`0faa7767`) ✅ 3/10
 
 ## Medium Priority
 - [ ] Refresh `fine-tuning/data/INVENTORY.md` after merge/dedup and recount totals
