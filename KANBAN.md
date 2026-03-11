@@ -1,11 +1,15 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-10 09:00 ET_
+_Last synced: 2026-03-11 07:00 ET_
 
 ## ✅ Done
+- **Microblog #16 (Gray-Scott reaction-diffusion)** — published (`64acd94`) ✅ 3/10
+- **Microblog #15 (Voronoi)** — published (`5063713`) ✅ 3/10
+- **Writing/cloze-reader-paper Session 1** — complete, awaiting approval gate (`b60e4a2`) ✅ 3/10
+- **Writing/reddit case study restyle** — removed em dashes/colons, restructured for mechanics-first flow (`017de08`, `685e7fd`) ✅ 3/10
+- **KANBAN/STATUS sync** — tracking files updated (`ca378a3`) ✅ 3/10
 - **Superset3 cleaned** — 10 degenerate entries removed, 5550 kept (`0faa7767`) ✅ 3/10
 - **Gallery: DNA Double Helix + Mondrian Generator** — merged + mobile fixes (`f1da18ba`, `79690d46`) ✅ 3/10
-- **Writing/reddit case study** — causal claim progression, stripped metadiscourse (`336f6f16`, `42f1a493`) ✅ 3/10
 - **Blog: "Writing Under Surveillance"** — AI detection essay published + Writing nav tab (`114f26ca`) ✅ 3/9
 - **Gallery: Marching Squares + Ambiguous Rotation** — merged to `main` (`e46876b3`) ✅ 3/9
 - **Microblog entry-13 (harmonograph) + entry-14 (L-Systems)** — published (`ebc26152`, `063f3400`) ✅ 3/9
@@ -71,6 +75,7 @@ _Last synced: 2026-03-10 09:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning stand-up 3/11 07:00:** Pulled latest `main` (64acd94), reviewed KANBAN. **6 commits since 3/10 09:00:** microblog #15 (Voronoi) + #16 (Gray-Scott), writing/reddit restyle complete (em dashes/colons removed, mechanics-first restructure), cloze-reader Session 1 complete, KANBAN sync. **Quimbot sync:** No active session found. **Training lane:** Still blocked (OpenRouter 402 day 14, no active TOEFL gen PID). **Gallery/docs lane:** 2 new microblogs published. **Critical blocker:** OpenRouter billing fix still not executed.
 - **Morning review 3/10 09:00:** Overnight: 5 commits (gallery DNA+Mondrian, superset3 cleanup to 5550, reddit case study revision, cloze reader paper). OpenRouter 402 day 13. Superset3 now cleaned. Tasked Petrarch with billing fix, workshop slides, cron fix, cloze paper review.
 - **Morning review 3/9 09:00:** Overnight: 5 commits (2 microblogs, blog essay, gallery Marching Squares + Ambiguous Rotation, sync). OpenRouter 402 day 12. Tasked Petrarch with billing fix, superset3 pull, workshop slides, cron fix.
 - **Morning review 3/8 09:00:** Overnight: 5 mobile fix commits + gallery index (20 artifacts). Morning gallery drop: Langton's Ant + Falling Sand (`9a6566e7`). OpenRouter 402 day 11. superset3 file still not on disk. Tasked Petrarch with billing fix, superset3 pull, workshop slides, cron fix.
