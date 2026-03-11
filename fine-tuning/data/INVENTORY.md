@@ -1,11 +1,11 @@
 # Dataset Inventory
-_Updated: 2026-03-04 19:30 ET_
+_Updated: 2026-03-11 09:01 ET_
 
 ## Active Superset (use this for training)
 
 | File | Rows | Notes |
 |------|------|-------|
-| `toefl_superset3_merged_20260227_0701.jsonl` | 5,560 | **Current canonical superset.** Deduplicated on first user message across all sources. |
+| `toefl_superset4_merged_20260311.jsonl` | 17,549 | **Current canonical superset.** Merged from superset3_cleaned (5,550) + toefl_gptoss20b_10k (11,999). 0 parse errors, deduplicated by exact JSON key. |
 
 ## Source Files
 
@@ -18,12 +18,15 @@ _Updated: 2026-03-04 19:30 ET_
 | `toefl_ollama_batch_20260224_2130_clean.jsonl` | 21 | 0 | Subsumed by superset3 (+1 unique) |
 | `toefl_ollama_gemma27b_10k.jsonl` | 1 | 0 | Subsumed by superset3 (+0 unique) |
 | `toefl_ollama_batch_20260224_2130.jsonl` | 51 | 0 | Raw (unclean version of _clean above) |
+| `toefl_superset3_merged_20260227_0701.jsonl` | 5,560 | 0 | Subsumed by superset4 (original) |
+| `superset3_cleaned.jsonl` | 5,550 | 0 | Subsumed by superset4 (10 degenerate entries stripped) |
+| `toefl_gptoss20b_10k.jsonl` | 11,999 | 0 | Subsumed by superset4 |
 
 ## In-Progress Generation
 
 | File | Rows (live) | Model | Status |
 |------|-------------|-------|--------|
-| `toefl_gptoss20b_10k.jsonl` | 914+ | gpt-oss:20b via Ollama | Active, ~70/hr via systemd service |
+| _(none active — OpenRouter 402 blocking cloud gen; ollama gen paused)_ | — | — | Blocked |
 
 ## Misc / Scaffolding
 
