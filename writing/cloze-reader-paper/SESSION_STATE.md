@@ -16,7 +16,7 @@
 
 | # | Date | Focus | Status | Approval |
 |---|------|-------|--------|----------|
-| 1 | 2026-03-10 | Considerations charter + scope lock | COMPLETE | AWAITING milwrite |
+| 1 | 2026-03-10 | Considerations charter + scope lock | COMPLETE | APPROVED by milwrite (thread decision) |
 
 ## Labor Division
 - **Quimbot:** artifact/code analysis, argument structure, prose refinement, consistency checks
@@ -38,7 +38,7 @@
 
 ### Phase 2: Close Reading & Analysis (Sessions 4–6)
 - Session 4 — Deep Cloze Reader artifact engagement
-- Session 5 — Architecture as argument: code rhetoric, semantic inbetweenness, corpus selection
+- Session 5 — Architecture as argument: code rhetoric, selection heuristics, corpus selection
 - Session 6 — Player experience, pedagogy, AI-mediated reading debates
 
 ### Phase 3: Development & Refinement (Sessions 7–9)
@@ -60,22 +60,26 @@
 
 ### Priority 2 — Claim discipline (joint)
 - [ ] Verify CLOTH accuracy figures (50-55% / 86%) against Xie et al. 2018 directly
-- [ ] Decide: keep "semantic inbetweenness" as heuristic term (acknowledge opacity) OR replace with grounded descriptor
+- [x] Remove "semantic inbetweenness" terminology entirely
 
 ### Priority 3 — Structural tightening (Quimbot)
 - [ ] Sharpen thesis paragraph — must generate claim language each section inherits
 - [ ] Cut MLM/BERT technical block by ~15% (GLUE score detail, bidirectionality)
-- [ ] Commit to one Project Gutenberg framing: archive politics / model substrate / both
+- [x] Project Gutenberg framing locked: model substrate, with explicit awareness that re-centering core training materials is a critical artifact construction move
 
 ### Priority 4 — Style pass (both)
 - [ ] Audit for contrastive constructions ("not X but Y", "more than", "beyond that")
 - [ ] Replace weak institutional sources doing conceptual work
 - [ ] Humanizer pass: vary sentence openers in BERT paragraph; one precise word per paragraph
 
-### Open decisions (milwrite approval needed before Session 2)
-1. "Semantic inbetweenness" — keep or replace?
-2. Empirical detail — keep in intro or move to dedicated evidence section?
-3. Project Gutenberg — archive politics / model substrate / both?
+### Decisions resolved by milwrite (thread)
+1. Cut "semantic inbetweenness" language
+2. Migrate empirical figures (CLOTH + PMC/arXiv divergence) out of intro into dedicated evidence section
+3. Use Project Gutenberg as substrate framing, with awareness that re-centering core training materials is a critical move in artifact construction
+
+### Session gate status
+- Session 1 approved by decision thread
+- Session 2 is unblocked with above constraints
 
 ## Current Session Deliverable
 **Session 1 — Considerations Charter**
