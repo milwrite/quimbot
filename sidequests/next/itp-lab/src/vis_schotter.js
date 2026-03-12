@@ -4,7 +4,7 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 export function schotter(container) {
   container.innerHTML = '';
   const { ctx, resize, destroy } = makeCanvas(container);
-  container.style.touchAction = 'manipulation';
+  container.style.touchAction = 'none';
 
   let width = 0;
   let height = 0;
@@ -49,13 +49,15 @@ export function schotter(container) {
     const labelSize = Math.max(13, Math.min(16, Math.floor(Math.min(width, height) * 0.026)));
     ctx.fillStyle = 'rgba(17,17,17,0.7)';
     ctx.font = `${labelSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-    ctx.fillText('Tap to redraw', 14, height - 16);
+    const safeBottom = 10;
+    const y = height - Math.max(16, safeBottom + labelSize);
+    ctx.fillText('Tap to redraw', 14, y);
   }
 
-  // Pointer works on desktop and mobile. Keep click fallback for older browsers.
+  // Pointer works on desktop and mobile.
+  // Use pointerdown for immediate feedback and avoid touch click ghost events.
   const redraw = () => { dirty = true; };
-  container.addEventListener('pointerup', redraw);
-  container.addEventListener('click', redraw);
+  container.addEventListener('pointerdown', redraw);
 
   const stop = rafLoop(() => {
     const { width: w, height: h } = resize();
@@ -69,8 +71,7 @@ export function schotter(container) {
 
   return () => {
     stop();
-    container.removeEventListener('pointerup', redraw);
-    container.removeEventListener('click', redraw);
+    container.removeEventListener('pointerdown', redraw);
     destroy();
   };
 }

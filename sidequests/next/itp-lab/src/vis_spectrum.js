@@ -7,7 +7,7 @@ export function spectrum(container) {
   root.style.position = 'relative';
   root.style.width = '100%';
   root.style.height = '100%';
-  root.style.touchAction = 'manipulation';
+  root.style.touchAction = 'none';
   container.appendChild(root);
 
   const ui = document.createElement('div');
@@ -98,13 +98,18 @@ export function spectrum(container) {
   let H = 0;
   function updateResponsiveUI() {
     const isNarrow = W < 560;
+    const isTiny = W < 400;
     const fontPx = Math.max(12, Math.min(15, Math.floor(Math.min(W, H) * 0.03)));
     ui.style.font = `500 ${fontPx}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto`;
     ui.style.gap = isNarrow ? '7px' : '10px';
+    ui.style.flexWrap = isTiny ? 'wrap' : 'nowrap';
     hint.style.display = isNarrow ? 'none' : 'block';
     left.textContent = isNarrow ? 'V' : 'Vibe';
     right.textContent = isNarrow ? 'D' : 'Deliberate';
-    range.style.minWidth = isNarrow ? '90px' : '110px';
+    left.style.flex = isTiny ? '0 0 auto' : '0 0 auto';
+    right.style.flex = isTiny ? '0 0 auto' : '0 0 auto';
+    range.style.flex = isTiny ? '1 0 100%' : '1';
+    range.style.minWidth = isTiny ? '100%' : (isNarrow ? '90px' : '110px');
   }
 
   const stop = rafLoop((t) => {
