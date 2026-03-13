@@ -14,10 +14,11 @@ that include reading patterns, click paths, dwell time, posting activity, and ac
 engagement histories. The FTC's 2024 report on major social and video platforms described
 this broader pattern as data collection that exceeds service necessity and supports
 prediction products for advertisers. On Reddit, this means that student communication is
-captured as behavioral surplus while it is also experienced as social exchange. A student
-seeking housing advice in a campus subreddit and a student posting labor concerns about an
-off-campus job both produce data artifacts that the platform stores, models, and monetizes.
-The communication remains meaningful for students. It remains extractive for the platform.
+captured as behavioral surplus while it is also experienced as social exchange. A post
+about registration deadlines, a thread about financial-aid delays, and a discussion of
+campus work schedules all generate account-level traces that the platform stores, models,
+and monetizes. The communication remains meaningful for students. It remains extractive for
+the platform.
 
 Visibility then becomes a second layer of control. Empirical audits of Reddit's
 algorithmically curated feeds show that comment velocity and recent interaction intensity
