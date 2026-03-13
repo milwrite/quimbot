@@ -81,6 +81,11 @@
 - Session 1 approved by decision thread
 - Session 2 is unblocked with above constraints
 
+## Added Role (2026-03-12)
+- Excerptor role added for rewrite support: `writing/cloze-reader-paper/ROLE_EXCERPTOR.md`
+- Excerpt log: `writing/cloze-reader-paper/EXCERPTS.md`
+- Suggested-edits Word file with track changes: `writing/cloze-reader-paper/docx_versions/cloze_reader_intro_suggested-edits_v02_trackchanges.docx`
+
 ## Current Session Deliverable
 **Session 1 — Considerations Charter**
 Due: 2026-03-10 17:00 ET
