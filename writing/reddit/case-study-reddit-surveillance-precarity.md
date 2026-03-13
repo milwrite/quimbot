@@ -45,10 +45,12 @@ profiling once disclosure is compelled.
 This condition reshapes how alternative publics are inhabited across interconnected CUNY
 subreddits. Students already navigating economic strain, immigration vulnerability, or
 employment precarity evaluate posting risk differently from peers with lower exposure.
-Those differences appear in discourse form as topic avoidance, coded phrasing, account
-fragmentation, and migration between more and less visible subreddit contexts. They also
-appear in trajectory form through who becomes a bridge user across campuses, who remains a
-single-community participant, and who exits public participation while continuing to read.
+These differences surface first in how students write and interact. Some avoid certain
+topics, some use coded language, some split participation across multiple accounts, and
+some move between high-visibility and low-visibility subreddit contexts depending on risk.
+The same differences shape longer participation paths, including who becomes a bridge user
+across campuses, who remains in a single community, and who stops posting while continuing
+to read.
 A dissertation centered on student uses of Reddit for life, work, and study cannot treat
 those trajectories as pure preference signals. They are shaped by governance conditions in
 which platform extraction, algorithmic ranking, and legal disclosure are structurally
