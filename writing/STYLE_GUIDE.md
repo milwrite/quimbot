@@ -56,6 +56,14 @@ The model sentence:
 
 5. **Use placeholders rather than vague hedges.** When data is coming but not yet confirmed, write [X] and [Y] and note the source obligation. Never write "many" or "significant numbers" — that's a hedge masquerading as a claim. Put the bracket in; fill it later.
 
+6. **Open with the named place, nest the data inside it, then let the mechanism act on consequence.** The structure that works:
+   - **Place first:** "Across r/CUNY and r/Baruch..." — opens with the specific site
+   - **Data nested in the location clause:** "...where posts average [X] per day..." — data enters as a subordinate clause on the place, not bolted on at the end
+   - **Mechanism as acting subject:** "...students' trajectories are sorted by the ranking criteria that decide..." — the mechanism does the verb
+   - **Consequence named in the subject's own terms:** "...before they can gather the replies that would let a question about work, study, housing, or campus life become a usable public exchange" — the cost is what the students actually lose, not what the analyst observes
+
+   What this kills: data as afterthought ("such as r/CUNY, which receives X posts per day"), consequence as abstraction ("reduced visibility"), stakes framed by the analyst instead of the subject. The data should enter where consequence becomes legible — at the point in the sentence where what's being lost first comes into view.
+
 ---
 
 ## Humanizer Recommendations
