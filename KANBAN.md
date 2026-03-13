@@ -1,8 +1,10 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-11 07:00 ET_
+_Last synced: 2026-03-13 19:00 ET_
 
 ## ✅ Done
+- **Microblog #17 (Mandelbrot Set)** — committed locally (`4591608`), pushed to `main` 3/13 ✅ 3/13
+- **Gallery: Halftone + DLA Crystal visualizations** — merged to `main` (`2cc5a0f`) ✅ 3/10
 - **Microblog #16 (Gray-Scott reaction-diffusion)** — published (`64acd94`) ✅ 3/10
 - **Microblog #15 (Voronoi)** — published (`5063713`) ✅ 3/10
 - **Writing/cloze-reader-paper Session 1** — complete, awaiting approval gate (`b60e4a2`) ✅ 3/10
@@ -75,6 +77,7 @@ _Last synced: 2026-03-11 07:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening stand-up 3/13 19:00:** Pulled/rebased local branch (resolved conflict in docs/index.html + entry-17.html — kept HEAD revision). Pushed microblog #17 (Mandelbrot) + standup commits. **Quimbot sync:** No active session (consistent since 3/1). **Training lane:** OpenRouter 402 day 17 — still blocked, no billing fix from milwrite. TOEFL gen stalled at 2,834/10,000. **Gallery/docs:** microblog #17 published. **New milwrite preference:** all new blogs + creative coding artifacts → milwrite.github.io/creative-clawing (noted 3/13). **Tomorrow plan:** (1) Execute billing fix, (2) restart TOEFL gen, (3) begin migrating new content to creative-clawing site per milwrite preference, (4) continue gallery/microblog throughput.
 - **Morning stand-up 3/11 07:00:** Pulled latest `main` (64acd94), reviewed KANBAN. **6 commits since 3/10 09:00:** microblog #15 (Voronoi) + #16 (Gray-Scott), writing/reddit restyle complete (em dashes/colons removed, mechanics-first restructure), cloze-reader Session 1 complete, KANBAN sync. **Quimbot sync:** No active session found. **Training lane:** Still blocked (OpenRouter 402 day 14, no active TOEFL gen PID). **Gallery/docs lane:** 2 new microblogs published. **Critical blocker:** OpenRouter billing fix still not executed.
 - **Morning review 3/10 09:00:** Overnight: 5 commits (gallery DNA+Mondrian, superset3 cleanup to 5550, reddit case study revision, cloze reader paper). OpenRouter 402 day 13. Superset3 now cleaned. Tasked Petrarch with billing fix, workshop slides, cron fix, cloze paper review.
 - **Morning review 3/9 09:00:** Overnight: 5 commits (2 microblogs, blog essay, gallery Marching Squares + Ambiguous Rotation, sync). OpenRouter 402 day 12. Tasked Petrarch with billing fix, superset3 pull, workshop slides, cron fix.
