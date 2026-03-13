@@ -47,7 +47,7 @@ them to exist. For studying CUNY student Reddit use, the implications extend pas
 exposure. They bear on what students can reasonably say, who takes visible positions, and
 why some campus publics stay quieter than their size or activity would predict.
 
-At a certain layer of abstraction, how students move through Reddit encodes the platform's
-data retention practices, its ranking criteria, and the vulnerability those records carry.
-Each trajectory marks where infrastructure determined who became visible and who became
-findable.
+The participation patterns of students moving through Reddit are encoded with the
+platform's data retention practices, its ranking criteria, and the vulnerability those
+records carry. Each trajectory marks where infrastructure determined who became visible
+and who became findable.
