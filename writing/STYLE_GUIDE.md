@@ -30,6 +30,7 @@ Last updated: 2026-03-12
 
 - **Concrete before abstract** — give the example or event first, then the inference
 - **Bound your claims** — "the compliance record reveals..." not "this shows that all platforms..."
+- **Name the mechanism, not the category** — "infrastructure" and "the system" and "the platform" are category labels. Name what actually acts: the ranking algorithm, the data retention pipeline, the administrative subpoena process. If you can't name it, you probably don't understand the claim yet.
 - **Don't overfit the frame to the subject** — check that abstractions fit the actual subject position being described. "Legal risk" belongs to lawyers or activists calculating exposure; CUNY students face "vulnerability" or being "findable." Pick the term that names their actual condition, not an adjacent professional category's concern. Same rule: "extraction pressures" is a platform-studies analyst's frame; name the concrete behavior instead (data retention, behavioral logging, etc.).
 - **Acknowledge limits** — separate observation, inference, and speculation; don't smooth over partial evidence
 - **Counterargument slot** — include at least one serious rival reading per major claim cluster

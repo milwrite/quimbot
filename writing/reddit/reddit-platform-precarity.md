@@ -49,5 +49,5 @@ why some campus publics stay quieter than their size or activity would predict.
 
 The participation patterns of students moving through Reddit are encoded with the
 platform's data retention practices, its ranking criteria, and the vulnerability those
-records carry. Each trajectory marks where infrastructure determined who became visible
-and who became findable.
+records carry. Each trajectory marks where the ranking algorithm determined who became visible and where
+data retention determined who became findable.
