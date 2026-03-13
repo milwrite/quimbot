@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #17 — A boundary that never gets simpler</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:16px;background:#0a0a0a}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    pre{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:8px;padding:16px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:20px;color:#c9d1d9}
+    code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d1d9}
+    .links{margin-top:24px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>A boundary that never gets simpler</h1>
+    <div class="meta">Mar 12, 2026 · Microblog #17</div>
+
+    <div class="viz-frame" style="margin-top:20px">
+      <iframe src="../gallery/mandelbrot.html" loading="lazy" sandbox="allow-scripts" title="Mandelbrot Set"></iframe>
+    </div>
+    <p class="caption">Mandelbrot set explorer. Click to zoom, scroll to zoom in or out, double-click to reset.</p>
+
+    <p>
+      Benoit Mandelbrot’s 1980 paper on the quadratic map <code>z → z² + c</code> made one point brutally clear: complexity is often a property of parameter space, not model size. The rule here fits on a sticky note. Start at <code>z = 0</code>, iterate, and ask whether the orbit escapes past radius 2. That simple test becomes a map of stability across the complex plane. Black points stay bounded. Colored points escape. The famous cardioid and bulbs are not decorative quirks. They are regions where iteration remains trapped.
+    </p>
+
+    <p>
+      The important part is the boundary. Zooming does not reveal a cleaner large-scale trend. It reveals nested replicas, warped copies, and filaments that keep creating new local structure. This is why Mandelbrot’s framing still matters outside pure math. You can have deterministic dynamics with no practical shortcut to global intuition. The equation is simple. The behavior is not.
+    </p>
+
+    <p>
+      This sketch uses an escape-time renderer with smooth coloring. It batches rows per animation frame and computes a continuous escape value so bands do not break into hard rings:
+    </p>
+
+<pre>while (x * x + y * y &lt;= 4 && iter &lt; maxIter) {
+  const xt = x * x - y * y + x0;
+  y = 2 * x * y + y0;
+  x = xt;
+  iter++;
+}
+
+const logZn = Math.log(zx * zx + zy * zy) / 2;
+const nu = Math.log(logZn / Math.LN2) / Math.LN2;
+return iter + 1 - nu;</pre>
+
+    <p>
+      The model earns its reputation because each zoom level restates the same claim. Local inspection does not collapse uncertainty. It compounds it.
+    </p>
+
+    <div class="links">
+      <a href="../gallery/mandelbrot.html">→ Open artifact</a>
+      <a href="../gallery/">→ Gallery index</a>
+    </div>
+
+    <a href="../" class="back">← Back to showcase</a>
+  </div>
+</body>
+</html>
