@@ -49,5 +49,8 @@ why some campus publics stay quieter than their size or activity would predict.
 
 The participation patterns of students moving through Reddit are encoded with the
 platform's data retention practices, its ranking criteria, and the vulnerability those
-records carry. Each trajectory marks where the ranking algorithm determined who became visible and where
-data retention determined who became findable.
+records carry. Each trajectory marks where scoring and ranking algorithms mold which posts become
+"hottest" or most "controversial" on Reddit and which contributions go unseen, buried in
+the weight of an active feed of subreddit content, such as r/CUNY or r/Baruch, which
+receive a mean average of [X] and [Y] posts per day with a median of [Z] and [N] comments
+per post. <!-- DATA PLACEHOLDER: pull from empirical audit of r/CUNY + r/Baruch -->
