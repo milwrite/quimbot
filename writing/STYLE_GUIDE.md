@@ -14,6 +14,7 @@ Last updated: 2026-03-12
 - **No AI slop:** delve, tapestry, vibrant, crucial, comprehensive, meticulous, embark, robust, seamless, groundbreaking, synergy, transformative, paramount, multifaceted, myriad, cornerstone, reimagine, empower, catalyst, invaluable, bustling, nestled, realm
 - **No setup phrases:** "What makes this interesting is...", "Here's the thing:", "The key insight is..." — make the point, skip the announcement
 - **No filler:** "in order to" → "to"; "due to the fact that" → "because"
+- **Never construct the subject of a sentence as a list, especially following another list.** A sentence whose subject is "X, Y, Z, and W" almost always has a better singular subject available. Find it. Two consecutive list-subject sentences is a hard stop — restructure one or both.
 - **No mid-sentence transitional interruption with "in this light"** — it stalls the sentence and signals hedging. If the logical connection is real, the verb makes it; if not, restructure. Never: "X, in this light, Y." Either rewrite as two sentences or find the verb that carries the relationship directly.
 
 ### Required habits
