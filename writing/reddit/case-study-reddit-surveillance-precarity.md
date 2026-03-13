@@ -19,8 +19,9 @@ aid, then drift into campus work scheduling, and every step of that movement is 
 modeled, and monetized as account-level behavior.
 
 Visibility then becomes a second layer of control. Empirical audits of Reddit's
-algorithmically curated feeds show that comment velocity and recent interaction intensity
-shape how long posts remain prominent. Content does not circulate only because a community
+algorithmically curated feeds, including a study of more than ten thousand posts across
+roughly eleven months, show that comment velocity and recent interaction intensity shape
+how long posts remain prominent. Content does not circulate only because a community
 values it. Content circulates when engagement signals satisfy ranking thresholds set by
 systems users cannot inspect or contest. For CUNY students, this creates precarious
 visibility conditions inside spaces they treat as shared publics. A post about tuition
@@ -41,16 +42,17 @@ email identifiers, IP histories, or cross-posting behavior that can support retr
 profiling once disclosure is compelled.
 
 This condition reshapes how alternative publics are inhabited across interconnected CUNY
-subreddits. Students already navigating economic strain, immigration vulnerability, or
-employment precarity assess posting risk through unequal stakes. That difference first
-appears in language. A thread that begins with direct naming can shift toward coded phrasing
-once participants sense exposure, and the shift changes who responds and what can be said.
-Over time, that same pressure reorganizes participation paths. Some users become bridge
-participants across campuses because they can absorb visibility risk; others remain inside a
-single community; others withdraw from posting and stay as readers. A dissertation centered
-on student uses of Reddit for life, work, and study cannot treat those trajectories as pure
-preference signals. They are shaped by governance conditions in which platform extraction,
-algorithmic ranking, and legal disclosure are structurally linked.
+subreddits. The link evidence on algorithmic curation shows that visibility is sensitive to
+comment velocity and recent interaction intensity, which means discourse uptake depends on
+ranking dynamics as much as topic importance. In this chapter, the claim is empirical and
+bounded. We should expect uneven visibility across similar student threads and test that
+expectation directly in r/CUNY and campus subreddits. We should also treat linguistic
+indirection, cross-subreddit movement, and posting-to-reading shifts as observable
+adaptations to platform conditions rather than immediate evidence of preference. A
+dissertation centered on student uses of Reddit for life, work, and study cannot treat
+participation trajectories as pure choice signals. They are shaped by governance conditions
+in which platform extraction, algorithmic ranking, and legal disclosure are structurally
+linked.
 
 The methodological implication follows directly from that linkage. Analysis of CUNY Reddit
 participation has to reduce stored identifiers and limit how easily a posting history can
