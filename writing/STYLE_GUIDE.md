@@ -1,7 +1,7 @@
 # Writing Style Guide
 ## Running Record — milwrite projects
 
-Last updated: 2026-03-10
+Last updated: 2026-03-12
 
 ---
 
@@ -14,10 +14,12 @@ Last updated: 2026-03-10
 - **No AI slop:** delve, tapestry, vibrant, crucial, comprehensive, meticulous, embark, robust, seamless, groundbreaking, synergy, transformative, paramount, multifaceted, myriad, cornerstone, reimagine, empower, catalyst, invaluable, bustling, nestled, realm
 - **No setup phrases:** "What makes this interesting is...", "Here's the thing:", "The key insight is..." — make the point, skip the announcement
 - **No filler:** "in order to" → "to"; "due to the fact that" → "because"
+- **No mid-sentence transitional interruption with "in this light"** — it stalls the sentence and signals hedging. If the logical connection is real, the verb makes it; if not, restructure. Never: "X, in this light, Y." Either rewrite as two sentences or find the verb that carries the relationship directly.
 
 ### Required habits
 - **Simple subjects** — lead with people, things, or actions; no noun-phrase pileups
 - **Strong verbs** — build, cut, show, reveal, compel, generate, push; ban utilize, leverage, facilitate, enhance, optimize
+- **Verb audit on every revision pass** — for each sentence, ask: is the verb the most descriptively precise and rhetorically effective option available? Weak copula constructions ("are X-mediated", "is shaped by") usually have a stronger replacement. Find the verb that carries the meaning rather than outsourcing it to an adjective. Example: "participation trajectories are platform-mediated outcomes" → "participation trajectories encode the pressures of the infrastructure they run through."
 - **Sentence variation** — mix short and long; vary openers; use fragments for emphasis
 - **Claim discipline** — every non-trivial claim tied to traceable evidence; no floating assertions
 

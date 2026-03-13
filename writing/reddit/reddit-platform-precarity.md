@@ -47,8 +47,8 @@ them to exist. For studying CUNY student Reddit use, the implications extend pas
 exposure. They bear on what students can reasonably say, who takes visible positions, and
 why some campus publics stay quieter than their size or activity would predict.
 
-Participation trajectories, in this light, are platform-mediated outcomes shaped jointly by
-extraction pressures, ranking criteria, and legal risk. Bridge-user movement, uneven
-cross-campus uptake, posting-to-reading shifts, and thread-level silence all carry traces
-of this infrastructure, shaping what becomes visible, what persists, and what carries risk
-in ways that surface only when the infrastructure itself is examined.
+At a certain layer of abstraction, the participation trajectories of students on Reddit
+encode extraction pressures, ranking criteria, and legal risk. Bridge-user movement,
+uneven cross-campus uptake, posting-to-reading shifts, and thread-level silence each mark
+the points where infrastructure determined what became visible, what persisted, and what
+carried risk.
