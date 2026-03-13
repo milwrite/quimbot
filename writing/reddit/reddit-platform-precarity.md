@@ -48,7 +48,7 @@ exposure. They bear on what students can reasonably say, who takes visible posit
 why some campus publics stay quieter than their size or activity would predict.
 
 At a certain layer of abstraction, the participation trajectories of students on Reddit
-encode extraction pressures, ranking criteria, and legal risk. Bridge-user movement,
-uneven cross-campus uptake, posting-to-reading shifts, and thread-level silence each mark
-the points where infrastructure determined what became visible, what persisted, and what
-carried risk.
+encode data retention practices, ranking criteria, and the vulnerability those records
+carry. Bridge-user movement, uneven cross-campus uptake, posting-to-reading shifts, and
+thread-level silence each mark the points where infrastructure determined what became
+visible, what persisted, and what made students findable.
