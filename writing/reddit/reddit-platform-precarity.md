@@ -8,10 +8,10 @@ building a stock of peer-sourced institutional knowledge that travels through su
 networks without touching official advising channels and persists in ways no campus office
 formally maintains.
 
-That process is inseparable from platform infrastructure built to serve other purposes
-entirely. Reddit logs interaction data at the level of individual votes, dwell time, and
-session sequences and uses it to rank and distribute content, so what students treat as peer
-communication also feeds systems built to model behavior for engagement and monetization.
+That process runs through infrastructure Reddit built for engagement and monetization.
+Votes, dwell time, and session sequences get logged at the individual-interaction level
+and fed into ranking systems. Student peer exchanges are behavioral data — captured by
+the same pipeline as everything else on the platform.
 The FTC's 2024 staff report on major social and video platforms, issued after 6(b) orders
 to nine companies including Reddit, found that covered platforms collected personal data
 from users and non-users alike, retained it indefinitely with inadequate minimization
