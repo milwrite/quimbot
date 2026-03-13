@@ -1,7 +1,7 @@
 # Writing Style Guide
 ## Running Record — milwrite projects
 
-Last updated: 2026-03-12
+Last updated: 2026-03-12 (data-in-context section added)
 
 ---
 
@@ -35,6 +35,26 @@ Last updated: 2026-03-12
 - **Acknowledge limits** — separate observation, inference, and speculation; don't smooth over partial evidence
 - **Counterargument slot** — include at least one serious rival reading per major claim cluster
 - **Citation hygiene** — no blog posts or aggregator sites doing load-bearing theoretical work; use peer-reviewed sources for key claims; track edition/URL/access date
+
+---
+
+## Data-in-Context: The Target Structure
+*What good empirical grounding looks like in academic prose*
+
+The model sentence:
+> Each trajectory marks where scoring and ranking algorithms mold which posts become "hottest" or most "controversial" on Reddit and which contributions go unseen, buried in the weight of an active feed of subreddit content, such as r/CUNY or r/Baruch, which receive a mean average of [X] and [Y] posts per day with a median of [Z] and [N] comments per post.
+
+**What makes this work — and what to replicate:**
+
+1. **Name the mechanism with its own language.** "Scoring and ranking algorithms" names what acts. "Hottest" and "controversial" are Reddit's own UI labels, quoted directly. Quoting the platform's terminology grounds the claim in the actual interface rather than a paraphrase. When the platform has a name for it, use that name.
+
+2. **Show the effect concretely, not abstractly.** "Which contributions go unseen, buried in the weight of an active feed" is spatial and physical. The reader can picture it. Don't say "reduced visibility" — say buried, dropped, pushed down, gone from view.
+
+3. **Name the specific instances.** Not "campus subreddits" but "r/CUNY or r/Baruch." The named instance carries more weight than the category. When you have the specific name, use it. When you don't, get it.
+
+4. **Embed data inside the prose clause, not in parentheses or tables.** The pattern: general claim → named mechanism → named instance → quantitative grounding, all in one continuous sentence. The data is a subordinate clause ("which receive a mean average of..."), not an interruption. It reads as evidence woven in, not as citation-dropping.
+
+5. **Use placeholders rather than vague hedges.** When data is coming but not yet confirmed, write [X] and [Y] and note the source obligation. Never write "many" or "significant numbers" — that's a hedge masquerading as a claim. Put the bracket in; fill it later.
 
 ---
 
