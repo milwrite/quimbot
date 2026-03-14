@@ -1,11 +1,11 @@
 # Dataset Inventory
-_Updated: 2026-03-11 09:01 ET_
+_Updated: 2026-03-13 19:30 ET_
 
 ## Active Superset (use this for training)
 
 | File | Rows | Notes |
 |------|------|-------|
-| `toefl_superset4_merged_20260311.jsonl` | 17,549 | **Current canonical superset.** Merged from superset3_cleaned (5,550) + toefl_gptoss20b_10k (11,999). 0 parse errors, deduplicated by exact JSON key. |
+| `toefl_superset5_merged_20260313.jsonl` | 19,133 | **Current canonical superset.** Merged from superset4 (17,549) + toefl_kimik2_10k (+1,503) + toefl_ollama_qwen8b_batch (+81). 0 parse errors, deduplicated by exact JSON key. |
 
 ## Source Files
 
@@ -18,9 +18,12 @@ _Updated: 2026-03-11 09:01 ET_
 | `toefl_ollama_batch_20260224_2130_clean.jsonl` | 21 | 0 | Subsumed by superset3 (+1 unique) |
 | `toefl_ollama_gemma27b_10k.jsonl` | 1 | 0 | Subsumed by superset3 (+0 unique) |
 | `toefl_ollama_batch_20260224_2130.jsonl` | 51 | 0 | Raw (unclean version of _clean above) |
-| `toefl_superset3_merged_20260227_0701.jsonl` | 5,560 | 0 | Subsumed by superset4 (original) |
+| `toefl_superset4_merged_20260311.jsonl` | 17,549 | 0 | Subsumed by superset5 |
+| `toefl_superset3_merged_20260227_0701.jsonl` | 5,560 | 0 | Subsumed by superset4 |
 | `superset3_cleaned.jsonl` | 5,550 | 0 | Subsumed by superset4 (10 degenerate entries stripped) |
 | `toefl_gptoss20b_10k.jsonl` | 11,999 | 0 | Subsumed by superset4 |
+| `toefl_kimik2_10k.jsonl` | 1,503 | 0 | Subsumed by superset5 |
+| `toefl_ollama_qwen8b_batch_20260313.jsonl` | 81 | 0 | Subsumed by superset5 |
 
 ## In-Progress Generation
 
