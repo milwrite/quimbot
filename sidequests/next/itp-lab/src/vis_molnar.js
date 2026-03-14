@@ -16,7 +16,13 @@ export function molnarInterruptions(container) {
     return { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height };
   }
 
-  const onDown = (e) => { dragging = true; center = pointerPos(e); };
+  const onDown = (e) => {
+    dragging = true;
+    center = pointerPos(e);
+    // Capture pointer so pointermove keeps firing even when the finger drifts
+    // outside the container boundary (common on mobile drag gestures).
+    container.setPointerCapture(e.pointerId);
+  };
   const onMove = (e) => { if (dragging) center = pointerPos(e); };
   const onUp = () => { dragging = false; };
 

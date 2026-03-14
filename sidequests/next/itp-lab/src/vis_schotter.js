@@ -4,7 +4,9 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 export function schotter(container) {
   container.innerHTML = '';
   const { ctx, resize, destroy } = makeCanvas(container);
-  container.style.touchAction = 'none';
+  // 'manipulation' (not 'none') — schotter only needs tap-to-redraw, not drag.
+  // 'none' would block native page scroll when the user's finger is on this canvas.
+  container.style.touchAction = 'manipulation';
 
   let width = 0;
   let height = 0;
