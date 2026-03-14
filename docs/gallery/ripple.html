@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Water Ripple</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; display: flex; align-items: center; justify-content: center;
+       height: 100dvh; overflow: hidden; }
+canvas { display: block; touch-action: none; cursor: crosshair; }
+#ui {
+  position: fixed; bottom: max(20px, env(safe-area-inset-bottom));
+  left: 50%; transform: translateX(-50%);
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center;
+  background: rgba(0,0,0,.55); border: 1px solid #333; border-radius: 8px; padding: 8px 14px;
+}
+#ui label { color: #8af; font: 12px/1.6 monospace; display: flex; align-items: center; gap: 6px; }
+#ui input[type=range] { width: 90px; accent-color: #4af; }
+#back {
+  position: fixed; top: max(16px, env(safe-area-inset-top)); left: max(16px, env(safe-area-inset-left));
+  background: rgba(0,0,0,.65); color: #aaa; font: 13px monospace;
+  padding: 6px 12px; border: 1px solid #444; border-radius: 4px; text-decoration: none;
+}
+#back:hover { color: #fff; border-color: #888; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="ui">
+  <label>damping <input id="damp" type="range" min="0.960" max="0.999" step="0.001" value="0.986"></label>
+  <label>speed   <input id="cvel" type="range" min="0.10"  max="0.50"  step="0.01"  value="0.28"></label>
+</div>
+<a id="back" href="../">← gallery</a>
+
+<script>
+'use strict';
+const canvas  = document.getElementById('c');
+const ctx     = canvas.getContext('2d');
+const dampEl  = document.getElementById('damp');
+const cvelEl  = document.getElementById('cvel');
+
+// Hide chrome when embedded in iframe
+if (window.self !== window.top) {
+  document.getElementById('ui').style.display = 'none';
+  document.getElementById('back').style.display = 'none';
+}
+
+// Simulation grid (intentionally small — rendered scaled up for smooth look)
+const COLS = 220, ROWS = 160;
+let buf0  = new Float32Array(COLS * ROWS);  // t-1
+let buf1  = new Float32Array(COLS * ROWS);  // t
+let bufTmp;
+
+// Offscreen canvas for pixel data
+const offC   = document.createElement('canvas');
+offC.width   = COLS;
+offC.height  = ROWS;
+const offCtx = offC.getContext('2d');
+let imgData  = offCtx.createImageData(COLS, ROWS);
+// pre-fill alpha
+for (let a = 3; a < imgData.data.length; a += 4) imgData.data[a] = 255;
+
+function resize() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// ── wave step ────────────────────────────────────────────────────────────────
+function step() {
+  const damp = parseFloat(dampEl.value);
+  const c2   = parseFloat(cvelEl.value) ** 2;
+  bufTmp = buf0;                     // will become next frame's t-1
+
+  for (let y = 1; y < ROWS - 1; y++) {
+    for (let x = 1; x < COLS - 1; x++) {
+      const i   = y * COLS + x;
+      const lap = buf1[i - 1] + buf1[i + 1]
+                + buf1[i - COLS] + buf1[i + COLS]
+                - 4.0 * buf1[i];
+      bufTmp[i] = damp * (2.0 * buf1[i] - buf0[i] + c2 * lap);
+    }
+  }
+  buf0 = buf1;
+  buf1 = bufTmp;
+}
+
+// ── render ───────────────────────────────────────────────────────────────────
+function render() {
+  const d   = imgData.data;
+  const inv = 1 / 320;              // amplitude normalizer
+  for (let i = 0; i < COLS * ROWS; i++) {
+    const t   = Math.max(-1, Math.min(1, buf1[i] * inv));
+    const pos = t > 0 ? t : 0;
+    const neg = t < 0 ? -t : 0;
+    // deep blue base → cyan/white crest, deep indigo in trough
+    d[i * 4]     = (10  + pos * 190 + neg * 30)  | 0;
+    d[i * 4 + 1] = (25  + pos * 215 + neg * 10)  | 0;
+    d[i * 4 + 2] = (80  + pos * 175 + neg * 100) | 0;
+  }
+  offCtx.putImageData(imgData, 0, 0);
+  ctx.drawImage(offC, 0, 0, canvas.width, canvas.height);
+}
+
+// ── disturb helpers ──────────────────────────────────────────────────────────
+function splat(px, py, radius, strength) {
+  const cx = (px / canvas.width)  * COLS | 0;
+  const cy = (py / canvas.height) * ROWS | 0;
+  const r  = Math.ceil(radius);
+  for (let dy = -r; dy <= r; dy++) {
+    for (let dx = -r; dx <= r; dx++) {
+      const x = cx + dx, y = cy + dy;
+      if (x < 1 || x >= COLS - 1 || y < 1 || y >= ROWS - 1) continue;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d <= radius) buf1[y * COLS + x] += strength * (1 - d / radius);
+    }
+  }
+}
+
+// ── pointer events ───────────────────────────────────────────────────────────
+let pressing = false, lastX = 0, lastY = 0;
+
+canvas.addEventListener('pointerdown', e => {
+  canvas.setPointerCapture(e.pointerId);
+  pressing = true;
+  splat(e.offsetX, e.offsetY, 6, 900);
+  lastX = e.offsetX; lastY = e.offsetY;
+});
+canvas.addEventListener('pointermove', e => {
+  if (!pressing) return;
+  const dx = e.offsetX - lastX, dy = e.offsetY - lastY;
+  if (dx * dx + dy * dy > 4) {
+    splat(e.offsetX, e.offsetY, 4, 350);
+    lastX = e.offsetX; lastY = e.offsetY;
+  }
+});
+canvas.addEventListener('pointerup',     () => { pressing = false; });
+canvas.addEventListener('pointercancel', () => { pressing = false; });
+
+// ── auto-drop random pebble ──────────────────────────────────────────────────
+let autoTimer = 0;
+function maybeAutoDrop(now) {
+  if (now - autoTimer > 2800) {
+    autoTimer = now;
+    splat(
+      Math.random() * canvas.width,
+      Math.random() * canvas.height,
+      5 + Math.random() * 5,
+      600 + Math.random() * 500
+    );
+  }
+}
+
+// ── main loop ────────────────────────────────────────────────────────────────
+let lastT = 0;
+function frame(now) {
+  const dt = now - lastT; lastT = now;
+  const iters = Math.min(4, Math.round(dt / 16));
+  for (let i = 0; i < iters; i++) step();
+  maybeAutoDrop(now);
+  render();
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+// First drop so the canvas isn't blank
+splat(canvas.width / 2, canvas.height / 2, 10, 1200);
+</script>
+</body>
+</html>

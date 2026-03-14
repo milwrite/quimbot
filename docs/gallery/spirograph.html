@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Spirograph</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #050510; display: flex; align-items: center; justify-content: center;
+       height: 100dvh; overflow: hidden; }
+canvas { display: block; touch-action: none; }
+#ui {
+  position: fixed; bottom: max(18px, env(safe-area-inset-bottom));
+  left: 50%; transform: translateX(-50%);
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center;
+  background: rgba(5,5,20,.7); border: 1px solid #334; border-radius: 8px; padding: 8px 14px;
+}
+#ui label { color: #99c; font: 12px/1.6 monospace; display: flex; align-items: center; gap: 6px; }
+#ui input[type=range] { width: 90px; accent-color: #c8f; }
+#hint { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+        color: #445; font: 13px monospace; pointer-events: none; }
+#back {
+  position: fixed; top: max(16px, env(safe-area-inset-top)); left: max(16px, env(safe-area-inset-left));
+  background: rgba(0,0,.1,.65); color: #aab; font: 13px monospace;
+  padding: 6px 12px; border: 1px solid #334; border-radius: 4px; text-decoration: none;
+}
+#back:hover { color: #fff; border-color: #99c; }
+#label { position: fixed; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right));
+         color: #445; font: 11px monospace; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="ui">
+  <label>speed <input id="spd" type="range" min="1" max="8" step="0.5" value="3"></label>
+  <label>pen   <input id="pen" type="range" min="0.2" max="1.8" step="0.05" value="1.0"></label>
+</div>
+<a id="back" href="../">← gallery</a>
+<div id="label"></div>
+
+<script>
+'use strict';
+const canvas  = document.getElementById('c');
+const ctx     = canvas.getContext('2d');
+const spdEl   = document.getElementById('spd');
+const penEl   = document.getElementById('pen');
+const labelEl = document.getElementById('label');
+
+const inIframe = window.self !== window.top;
+if (inIframe) {
+  document.getElementById('ui').style.display   = 'none';
+  document.getElementById('back').style.display = 'none';
+  document.getElementById('label').style.display = 'none';
+}
+
+// ── Spirograph presets (p outer teeth, q inner teeth)  ───────────────────────
+// hypotrochoid: r = R*q/p, period = 2π·p
+const PRESETS = [
+  { p:  5, q:  3, hue: 280 }, // 5-petal rose
+  { p:  7, q:  2, hue:  50 }, // 7 outer petals
+  { p:  7, q:  3, hue: 160 },
+  { p:  8, q:  3, hue: 200 },
+  { p: 11, q:  4, hue: 320 },
+  { p: 13, q:  5, hue:  20 },
+  { p: 17, q:  7, hue: 180 },
+  { p: 19, q:  6, hue: 260 },
+  { p: 21, q:  8, hue: 100 },
+  { p: 24, q:  7, hue: 340 },
+];
+
+let W, H, R;    // canvas dims + outer radius
+
+function resize() {
+  W = canvas.width  = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  R = Math.min(W, H) * 0.42;
+}
+resize();
+window.addEventListener('resize', () => { resize(); startNew(); });
+
+// ── state ─────────────────────────────────────────────────────────────────────
+let preset, r, d, period, t, hue0, phase;
+let trailBuf = [];   // [{x,y,h}] — accumulated path for redraw
+let state;           // 'drawing' | 'pause' | 'fade'
+let pauseTimer;
+
+function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
+
+function pickPreset(skip) {
+  let idx;
+  do { idx = Math.floor(Math.random() * PRESETS.length); } while (PRESETS[idx] === skip);
+  return PRESETS[idx];
+}
+
+function startNew() {
+  preset = pickPreset(preset);
+  const { p, q } = preset;
+  const g = gcd(p, q);
+  const pp = p / g, qq = q / g;
+  r      = R * qq / pp;
+  const d_ratio = parseFloat(penEl.value);
+  d      = r * d_ratio;
+  period = 2 * Math.PI * pp;   // full closure period
+  t      = 0;
+  hue0   = preset.hue;
+  phase  = Math.random() * 2 * Math.PI;
+  trailBuf = [];
+  state  = 'drawing';
+  // clear canvas
+  ctx.fillStyle = '#050510';
+  ctx.fillRect(0, 0, W, H);
+  if (!inIframe) labelEl.textContent = `p=${pp}  q=${qq}`;
+}
+
+// ── hypotrochoid point ────────────────────────────────────────────────────────
+function htPoint(tt) {
+  const Rr = R - r;
+  const ratio = Rr / r;
+  return {
+    x: W / 2 + Rr * Math.cos(tt) + d * Math.cos(ratio * tt),
+    y: H / 2 + Rr * Math.sin(tt) - d * Math.sin(ratio * tt),
+  };
+}
+
+// ── draw trail array ──────────────────────────────────────────────────────────
+function drawFull(alpha) {
+  if (trailBuf.length < 2) return;
+  for (let i = 1; i < trailBuf.length; i++) {
+    const a = trailBuf[i - 1], b = trailBuf[i];
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
+    const prog = i / trailBuf.length;
+    const hue  = (hue0 + prog * 240) % 360;
+    ctx.strokeStyle = `hsla(${hue},90%,65%,${alpha.toFixed(3)})`;
+    ctx.lineWidth   = 1.5;
+    ctx.stroke();
+  }
+}
+
+// ── main loop ─────────────────────────────────────────────────────────────────
+const STEPS_PER_FRAME = 800;          // sub-steps per frame to hit speed
+let   STEP_SIZE       = 0.004;        // t increment per sub-step
+
+function frame() {
+  requestAnimationFrame(frame);
+
+  const speed = parseFloat(spdEl.value);
+  STEP_SIZE   = 0.003 * speed;
+
+  if (state === 'drawing') {
+    const prevPt = htPoint(t);
+    let steps = Math.ceil(speed * 80);
+    for (let i = 0; i < steps; i++) {
+      t += STEP_SIZE;
+      if (t >= period) { t = period; state = 'pause'; pauseTimer = performance.now(); break; }
+      const pt = htPoint(t);
+      const prog = t / period;
+      const h    = (hue0 + prog * 240) % 360;
+      ctx.beginPath();
+      ctx.moveTo(trailBuf.length ? trailBuf[trailBuf.length-1].x : prevPt.x,
+                 trailBuf.length ? trailBuf[trailBuf.length-1].y : prevPt.y);
+      ctx.lineTo(pt.x, pt.y);
+      ctx.strokeStyle = `hsla(${h},90%,65%,0.85)`;
+      ctx.lineWidth   = 1.6;
+      ctx.stroke();
+      trailBuf.push({ x: pt.x, y: pt.y });
+    }
+
+  } else if (state === 'pause') {
+    const elapsed = performance.now() - pauseTimer;
+    if (elapsed > 1800) { state = 'fade'; pauseTimer = performance.now(); }
+
+  } else if (state === 'fade') {
+    const elapsed = performance.now() - pauseTimer;
+    const alpha   = Math.max(0, 1 - elapsed / 600);
+    ctx.fillStyle = '#050510';
+    ctx.fillRect(0, 0, W, H);
+    drawFull(alpha);
+    if (alpha <= 0) startNew();
+  }
+}
+
+// ── pointer — click to skip to next ──────────────────────────────────────────
+canvas.addEventListener('pointerdown', () => startNew());
+
+startNew();
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
