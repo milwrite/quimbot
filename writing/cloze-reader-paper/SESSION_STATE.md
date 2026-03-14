@@ -17,6 +17,7 @@
 | # | Date | Focus | Status | Approval |
 |---|------|-------|--------|----------|
 | 1 | 2026-03-10 | Considerations charter + scope lock | COMPLETE | APPROVED by milwrite (thread decision) |
+| 2 | 2026-03-14 | Literature expansion: MLM genealogy, cloze ed research, human/model comparative studies | IN PROGRESS | AWAITING APPROVAL |
 
 ## Labor Division
 - **Quimbot:** artifact/code analysis, argument structure, prose refinement, consistency checks
@@ -87,5 +88,6 @@
 - Suggested-edits Word file with track changes: `writing/cloze-reader-paper/docx_versions/cloze_reader_intro_suggested-edits_v02_trackchanges.docx`
 
 ## Current Session Deliverable
-**Session 1 — Considerations Charter**
-Due: 2026-03-10 17:00 ET
+**Session 2 — Literature Expansion**
+Due: 2026-03-14 17:00 ET
+Notes: session2_lit_notes.md produced. Six Petrarch tasks queued. Citation repairs drafted for Oller 1979, ELMo, self-supervised learning source. Two PMC/arXiv stubs require Petrarch author/method verification before body can use them. No prose committed until approval.

@@ -1,17 +1,24 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-13 19:00 ET_
+_Last synced: 2026-03-14 09:00 ET_
 
 ## ✅ Done
-- **Microblog #17 (Mandelbrot Set)** — committed locally (`4591608`), pushed to `main` 3/13 ✅ 3/13
-- **Gallery: Halftone + DLA Crystal visualizations** — merged to `main` (`2cc5a0f`) ✅ 3/10
-- **Microblog #16 (Gray-Scott reaction-diffusion)** — published (`64acd94`) ✅ 3/10
-- **Microblog #15 (Voronoi)** — published (`5063713`) ✅ 3/10
-- **Writing/cloze-reader-paper Session 1** — complete, awaiting approval gate (`b60e4a2`) ✅ 3/10
-- **Writing/reddit case study restyle** — removed em dashes/colons, restructured for mechanics-first flow (`017de08`, `685e7fd`) ✅ 3/10
-- **KANBAN/STATUS sync** — tracking files updated (`ca378a3`) ✅ 3/10
+- **superset5 merged: 19,133 unique entries** — superset4 + kimik2_10k + ollama_qwen8b (`ba9b598a`) ✅ 3/14
+- **Gallery: Water Ripple + Spirograph** — morning drop (`5a9c1df5`) ✅ 3/14
+- **Mobile: molnar pointer + schotter touch + tenprint caption + flowfield pointercancel** — (`777a6680`, `a7fa7dc7`) ✅ 3/14
+- **creative-clawing manifest-v2.json** — full schema, 58 artifacts, 15 microblogs, contributors (`224c9b7`) ✅ 3/14
+- **Writing: Reddit case study → chapter-one subsection** — CUNY alternative publics, 4 revision passes, style guide matured (16 commits 3/13, 28+ total) ✅ 3/13
+- **superset4 merged: 17,549 unique entries** — superset3_cleaned + toefl_gptoss20b_10k (`b2a936c3`) ✅ 3/12
+- **Gallery: Halftone + DLA Crystal** — merged (`2cc5a0f3`) ✅ 3/13
+- **Gallery: Scan Drift + ASCII Reactive** — merged (`3bb3c546`, `1f7ec830`) ✅ 3/12
+- **Microblog #17 (Mandelbrot)** — published (`6094adea`) ✅ 3/12
+- **Cloze reader paper: Excerptor role + Session 2 unblocked** — (`cd278bc6`, `d8c66274`) ✅ 3/12
+- **ITP lab: mobile pass (schotter + spectrum)** — (`11773e22`) ✅ 3/12
+- **Gallery: Quadratic Walk + Maurer Rose** — merged (`4dd42e8e`) ✅ 3/11
+- **Microblog #15 (Voronoi) + #16 (Gray-Scott)** — published (`50637139`, `64acd94b`) ✅ 3/11
 - **Superset3 cleaned** — 10 degenerate entries removed, 5550 kept (`0faa7767`) ✅ 3/10
 - **Gallery: DNA Double Helix + Mondrian Generator** — merged + mobile fixes (`f1da18ba`, `79690d46`) ✅ 3/10
+- **Writing/reddit case study** — causal claim progression, stripped metadiscourse (`336f6f16`, `42f1a493`) ✅ 3/10
 - **Blog: "Writing Under Surveillance"** — AI detection essay published + Writing nav tab (`114f26ca`) ✅ 3/9
 - **Gallery: Marching Squares + Ambiguous Rotation** — merged to `main` (`e46876b3`) ✅ 3/9
 - **Microblog entry-13 (harmonograph) + entry-14 (L-Systems)** — published (`ebc26152`, `063f3400`) ✅ 3/9
@@ -48,6 +55,7 @@ _Last synced: 2026-03-13 19:00 ET_
 - **Gallery dropdown nav + mobile responsive** — shipped 5 commits today (`04e1c2a1`..`dc29c3af`) ✅ 3/5
 - **Starfield: steering + tracking overhaul** — 4x steering, lerp, cursor-distance speed (`3849b997`) ✅ 3/5
 - **Microblog: gallery links for entry-6 + entry-7** — (`3c424fc0`) ✅ 3/5
+- **superset5 landed (19,133 rows)** — data lane moving again
 - **TOEFL gen at 2,834/10,000 — process still stalled** (no active PID found at 07:00 stand-up)
 - Gallery/docs iteration continues
 - Superset3 quality validation needed (spot-check)
@@ -77,8 +85,7 @@ _Last synced: 2026-03-13 19:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
-- **Evening stand-up 3/13 19:00:** Pulled/rebased local branch (resolved conflict in docs/index.html + entry-17.html — kept HEAD revision). Pushed microblog #17 (Mandelbrot) + standup commits. **Quimbot sync:** No active session (consistent since 3/1). **Training lane:** OpenRouter 402 day 17 — still blocked, no billing fix from milwrite. TOEFL gen stalled at 2,834/10,000. **Gallery/docs:** microblog #17 published. **New milwrite preference:** all new blogs + creative coding artifacts → milwrite.github.io/creative-clawing (noted 3/13). **Tomorrow plan:** (1) Execute billing fix, (2) restart TOEFL gen, (3) begin migrating new content to creative-clawing site per milwrite preference, (4) continue gallery/microblog throughput.
-- **Morning stand-up 3/11 07:00:** Pulled latest `main` (64acd94), reviewed KANBAN. **6 commits since 3/10 09:00:** microblog #15 (Voronoi) + #16 (Gray-Scott), writing/reddit restyle complete (em dashes/colons removed, mechanics-first restructure), cloze-reader Session 1 complete, KANBAN sync. **Quimbot sync:** No active session found. **Training lane:** Still blocked (OpenRouter 402 day 14, no active TOEFL gen PID). **Gallery/docs lane:** 2 new microblogs published. **Critical blocker:** OpenRouter billing fix still not executed.
+- **Evening review 3/10 21:00:** 15 commits today. Writing lane productive: reddit case study v1 complete (7 commits), cloze reader paper Session 1 done, STYLE_GUIDE.md created. Gallery: DNA + Mondrian + mobile fixes. Data: superset3 cleaned to 5550. OpenRouter 402 day 13. Studio push auth still broken for Petrarch.
 - **Morning review 3/10 09:00:** Overnight: 5 commits (gallery DNA+Mondrian, superset3 cleanup to 5550, reddit case study revision, cloze reader paper). OpenRouter 402 day 13. Superset3 now cleaned. Tasked Petrarch with billing fix, workshop slides, cron fix, cloze paper review.
 - **Morning review 3/9 09:00:** Overnight: 5 commits (2 microblogs, blog essay, gallery Marching Squares + Ambiguous Rotation, sync). OpenRouter 402 day 12. Tasked Petrarch with billing fix, superset3 pull, workshop slides, cron fix.
 - **Morning review 3/8 09:00:** Overnight: 5 mobile fix commits + gallery index (20 artifacts). Morning gallery drop: Langton's Ant + Falling Sand (`9a6566e7`). OpenRouter 402 day 11. superset3 file still not on disk. Tasked Petrarch with billing fix, superset3 pull, workshop slides, cron fix.

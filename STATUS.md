@@ -1,31 +1,30 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-03-10 (Tue)
+**Date:** 2026-03-14 (Sat)
 **Time:** 09:00 ET (morning review)
 
-## Overnight progress (3/9 evening → 3/10 morning)
-- **Gallery: DNA Double Helix + Mondrian Generator** (`f1da18ba`) + mobile fixes (`79690d46`)
-- **Data: superset3 cleaned** — removed 10 flagged degenerate entries, 5550 kept (`0faa7767`)
-- **Writing/reddit:** case study revision — causal claim progression, stripped metadiscourse (`336f6f16`, `42f1a493`)
-- **Writing/cloze-reader-paper:** added revision todo list to SESSION_STATE (`1fa9be99`)
+## Today's progress (3/14)
+- **superset5 merged: 19,133 unique entries** — superset4 + kimik2_10k + ollama_qwen8b batch (`ba9b598a`)
+- **Gallery: Water Ripple + Spirograph** — morning drop (`5a9c1df5`)
+- **Mobile fixes:** molnar pointer capture, schotter touch-action, tenprint caption, flowfield pointercancel (`777a6680`, `a7fa7dc7`)
+- **creative-clawing manifest-v2.json** — full schema: 58 artifacts, 15 microblogs, contributors table (`224c9b7`)
+- **Mobile horizontal scroll fix** — `overflow-x: clip` on body (`bbff003`)
 
 ## Current blockers / risks
-- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 12**, needs milwrite billing fix)
+- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 17**, needs milwrite billing fix)
 - **Run 4 adapter weights still missing locally** — checkpoint eval cannot start
-- **TOEFL gen stalled at 2,834/10,000** — no active PID, needs restart after billing fix
+- **Petrarch Studio push auth** — zmuhls lacks write on milwrite/quimbot, 9+ commits queued
 - **Prospects cron notifier broken** (`openclaw` not found in cron PATH)
-- **superset3_merged.jsonl not on disk** — removal script ready but needs the file
 
 ## Current focus
-- superset3 cleaned (5550 rows) — ready for superset4 naming/packaging
-- Gallery/docs iteration continues (unblocked lane)
-- Workshop deck polish (slides 12-15 still need content)
-- Writing: cloze reader paper revision + reddit case study finalization
+- Dataset lane moving again (superset5 landed)
+- Gallery/mobile polish continues
+- Workshop deck + ITP slides 7-8 still pending
 
 ## Next actions (queued)
-1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 12
-2. Pull superset3_merged.jsonl + run removal script → superset4
-3. Restart TOEFL gen after billing restored
-4. Complete remaining workshop slides (12-15)
-5. Fix prospects cron notifier routing
-6. Run 4 weights retrieval (needs milwrite)
+1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 17
+2. Run 4 weights retrieval (needs milwrite)
+3. Grant Petrarch write access to milwrite/quimbot
+4. Fix prospects cron notifier routing
+5. ITP slides 7-8 content
+6. Stage 2 dataset composition decision

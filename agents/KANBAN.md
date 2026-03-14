@@ -1,24 +1,37 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-10 19:00 ET_
+_Last synced: 2026-03-14 19:00 ET_
 
 ## In Progress
-- **TOEFL superset4 merge** — superset3_cleaned.jsonl produced (5,550 entries, 10 flagged removed). superset4 gen complete (11,999 entries). Next: merge superset3_cleaned + superset4 into final superset4_merged.
-- **CAIL Workshop #1 deck** — 74+ commits; icebreaker redesigned, gen-dev-foundations deck added. Stubs remain for slides 7–8 (awaiting Petrarch's ITP content), 12–15 (activities/exit).
-- **Blog "Writing Under Surveillance"** — published (commit 114f26ca). Writing nav tab added. Validation issues may still need milwrite review.
-- **Cloze Reader paper (DHQ)** — Session 1 complete (considerations charter + scope lock). Awaiting milwrite approval gate for S2.
+- **creative-clawing manifest + tooling** — manifest-v2.json backfilled (58 artifacts, 15 microblogs, contributors); update_manifest.py committed; INSPIRATION.md standardized; asset consolidation done
+- **CAIL Workshop #1 deck** — 74+ commits; stubs remain for slides 7–8 (awaiting Petrarch's ITP content), 12–15 (activities/exit)
+- **Cloze Reader paper (DHQ)** — Session 2 unblocked; excerptor role + excerpt log added. Session 2 lit notes drafted (uncommitted)
+- **Reddit "Writing Under Surveillance" chapter draft** — closing landed, style guide extended. Stable.
 
 ## Blocked
 - **Run 4 adapter weights** — missing, need retrieval
 - **OpenRouter 402 errors** — unresolved
+- **Petrarch Studio push auth** — zmuhls lacks write on milwrite/quimbot; 9+ commits queued
 
 ## Queued
 - gemma3:12b eval
 - Prospects notifier fix (Petrarch)
-- Merge superset3_cleaned + superset4 into superset4_merged.jsonl
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
+- manifest-v2.json full backfill + update_manifest.py + INSPIRATION.md + asset consolidation (2026-03-14, 7 commits across repos)
+- superset5_merged validated: 19,133 lines, 0 parse errors (2026-03-14)
+- Gallery: Water Ripple + Spirograph added (2026-03-14, 1 commit)
+- All 56+ gallery artifacts mobile-optimized (Petrarch 4 commits, 2026-03-14)
+- Reddit chapter draft: 20+ commits, 4 editing passes, CUNY alternative-publics subsection, STYLE_GUIDE extended (2026-03-12/13)
+- Cloze paper S2 unblocked + Excerptor role added (2026-03-11, 2 commits)
+- superset4_merged.jsonl: 17,549 unique entries (superset3_cleaned + toefl_gptoss20b_10k), INVENTORY updated (2026-03-11, commit b2a936c3)
+- superset5_merged validated: 19,133 lines, 0 parse errors (2026-03-14)
+- Gallery: Halftone + DLA Crystal added, 59 artifacts live (2026-03-13, 1 commit)
+- Reddit chapter: 16 commits, closing landed, Petrarch's revision adopted, style guide extended (2026-03-13)
+- Gallery: Quadratic Walk + Maurer Rose + Scan Drift + ASCII Reactive added (2026-03-11, 3 commits)
+- ITP lab: mobile pass on schotter + spectrum (2026-03-11)
+- Microblog entry #17: Mandelbrot set (2026-03-11)
 - Gallery: DNA Double Helix + Mondrian Generator added, mobile fixes (2026-03-10, 2 commits, 53 artifacts live)
 - Cloze Reader paper Session 1: considerations charter + scope lock (2026-03-10, 1 commit)
 - Reddit post restructured: 3 revision rounds, mechanics-led structure (2026-03-10, 7 commits)
