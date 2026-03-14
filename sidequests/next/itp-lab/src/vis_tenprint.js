@@ -83,6 +83,12 @@ export function tenPrint(container) {
         clear();
       }
     }
+
+    // Caption — responsive font size matching other vis files.
+    const captionPx = Math.max(11, Math.min(14, Math.floor(Math.min(width, height) * 0.032)));
+    ctx.fillStyle = 'rgba(0,255,65,0.45)';
+    ctx.font = `${captionPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+    ctx.fillText('10 PRINT (1982) • tap to reseed', 14, height - Math.max(14, captionPx + 4));
   });
 
   return () => {

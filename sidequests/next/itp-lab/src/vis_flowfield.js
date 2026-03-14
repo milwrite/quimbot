@@ -80,6 +80,7 @@ export function flowField(container) {
   // Tap/click to reseed.
   function onPointer() { seed(); }
   container.addEventListener('pointerup', onPointer);
+  container.addEventListener('pointercancel', onPointer);
 
   let t0 = performance.now();
   const stop = rafLoop((t) => {
@@ -147,6 +148,7 @@ export function flowField(container) {
   return () => {
     stop();
     container.removeEventListener('pointerup', onPointer);
+    container.removeEventListener('pointercancel', onPointer);
     destroy();
   };
 }
