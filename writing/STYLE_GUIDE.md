@@ -8,7 +8,7 @@ Last updated: 2026-03-12 (data-in-context section added)
 ## Hard Rules (always on)
 
 ### Banned constructions
-- **No em dashes** — use periods, commas, colons, semicolons, or parentheses
+- **No em dashes** — use periods, commas, semicolons, or parentheses; colons only when genuinely necessary (introducing a list or definition), not as a default em-dash replacement; when in doubt, restructure the sentence to avoid both
 - **No contrastive pivots:** kill "not X but Y", "not just X", "more than X", "beyond that", "not merely X but Y", "not only X but also Y", "less about X more about Y" — state the point directly
 - **No melodramatic overclaims** — no "restructured the conditions under which", no "transformed how we", no sweeping systemic claims from single events; bound claims to what the evidence shows
 - **No AI slop:** delve, tapestry, vibrant, crucial, comprehensive, meticulous, embark, robust, seamless, groundbreaking, synergy, transformative, paramount, multifaceted, myriad, cornerstone, reimagine, empower, catalyst, invaluable, bustling, nestled, realm
