@@ -1,7 +1,7 @@
 # Writing Style Guide
 ## Running Record — milwrite projects
 
-Last updated: 2026-03-12 (data-in-context section added)
+Last updated: 2026-03-15 (gap-bridging constructions banned)
 
 ---
 
@@ -16,6 +16,7 @@ Last updated: 2026-03-12 (data-in-context section added)
 - **No filler:** "in order to" → "to"; "due to the fact that" → "because"
 - **Never construct the subject of a sentence as a list, especially following another list.** A sentence whose subject is "X, Y, Z, and W" almost always has a better singular subject available. Find it. Two consecutive list-subject sentences is a hard stop — restructure one or both.
 - **No mid-sentence transitional interruption with "in this light"** — it stalls the sentence and signals hedging. If the logical connection is real, the verb makes it; if not, restructure. Never: "X, in this light, Y." Either rewrite as two sentences or find the verb that carries the relationship directly.
+- **No gap-bridging constructions:** ban "the gap between X and Y", "bridges the gap", "this paper bridges", "fills the gap between" — these announce the paper's contribution instead of making it. State what the paper does; don't describe the distance it crosses.
 
 ### Required habits
 - **Simple subjects** — lead with people, things, or actions; no noun-phrase pileups
