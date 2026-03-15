@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #18 — Eight bits that contain a universe</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:16px;background:#0a0a0a}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    pre{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:8px;padding:16px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:20px;color:#c9d1d9}
+    code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d1d9}
+    .links{margin-top:24px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Eight bits that contain a universe</h1>
+    <div class="meta">Mar 14, 2026 · Microblog #18</div>
+
+    <div class="viz-frame" style="margin-top:20px">
+      <iframe src="../gallery/wolfram.html" loading="lazy" sandbox="allow-scripts" title="Wolfram Elementary Cellular Automaton"></iframe>
+    </div>
+    <p class="caption">Wolfram elementary cellular automata. Use ◀ ▶ to step through notable rules, or hit random. Each row is computed entirely from the row above.</p>
+
+    <p>
+      Stephen Wolfram introduced elementary cellular automata in 1983. The setup is minimal: a one-dimensional row of binary cells, each updated in lockstep using only its own state and its two neighbors. There are 2³ = 8 possible neighborhood patterns, and each can map to 0 or 1, giving 2⁸ = 256 possible rule tables. Wolfram indexed them by treating the table as an 8-bit integer. Rule 30 is binary <code>00011110</code>. Rule 110 is <code>01101110</code>.
+    </p>
+
+    <p>
+      The remarkable thing is how little this indexing hides. The full computation is this:
+    </p>
+
+<pre>const l = prev[(i - 1 + COLS) % COLS];
+const c = prev[i];
+const r = prev[(i + 1) % COLS];
+const pattern = (l &lt;&lt; 2) | (c &lt;&lt; 1) | r;
+next[i] = (rule &gt;&gt; pattern) &amp; 1;</pre>
+
+    <p>
+      Five lines. The three-cell neighborhood becomes a 3-bit index into the rule number, extracted with a right shift and mask. The rule table is not stored separately — it is the rule number. Change one integer and you get a different universe.
+    </p>
+
+    <p>
+      Rule 30 grows triangular structures on the left and pure noise on the right from a single seed cell. The center column is so unpredictable that Wolfram used it as the random number generator inside Mathematica for years. In 2019 he posted open prizes for proofs about its center column: does it contain every finite bit string? Is it periodic? Nobody has cracked it. A 2022 paper made progress on steady-state randomness bounds but the core questions stay open.
+    </p>
+
+    <p>
+      Rule 90 is the opposite of surprising. Left and right neighbors XOR'd together. The result from a single seed is a Sierpinski triangle: fractal at every scale, predictable, derivable by hand. Rule 110 sits at the other end of that spectrum — Matthew Cook proved in 2004 that Rule 110 is Turing complete. A one-dimensional binary array updated by an 8-bit rule can simulate any computation. The proof requires constructing glider-like patterns that encode a tag system, but the rule itself fits in a byte.
+    </p>
+
+    <p>
+      Most of the 256 rules are boring: all-zero, all-one, simple stripes. A handful produce Class 3 chaos or Class 4 complexity. The unsettling part is there is no obvious way to predict which. You can enumerate. You cannot shortcut to the interesting ones without running them.
+    </p>
+
+    <div class="links">
+      <a href="../gallery/wolfram.html">→ Open artifact</a>
+      <a href="../gallery/">→ Gallery index</a>
+    </div>
+
+    <a href="../" class="back">← Back to showcase</a>
+  </div>
+</body>
+</html>
