@@ -1,12 +1,20 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-14 09:00 ET_
+_Last synced: 2026-03-15 09:00 ET_
 
 ## ✅ Done
+- **Gallery: Terrain + Aurora (53 artifacts)** — procedural landscape + aurora sim (`6bd44cf5`) ✅ 3/15
+- **Microblog #18 + #19** — Wolfram automata + Metaballs (`da3c0352`, `00eab7ae`) ✅ 3/15
+- **CALI workshop overhaul** — 6 commits: Tool 06, open-weight models, registry update (`ad254888`..`93087836`) ✅ 3/15
+- **Cloze reader paper S2 + v03** — lit review draft + intro revision (`b318a566`, `fc0b703e`) ✅ 3/15
+- **Showcase grid update** — Halftone, Water Ripple, Spirograph (`91e9b0a2`) ✅ 3/15
 - **superset5 merged: 19,133 unique entries** — superset4 + kimik2_10k + ollama_qwen8b (`ba9b598a`) ✅ 3/14
 - **Gallery: Water Ripple + Spirograph** — morning drop (`5a9c1df5`) ✅ 3/14
 - **Mobile: molnar pointer + schotter touch + tenprint caption + flowfield pointercancel** — (`777a6680`, `a7fa7dc7`) ✅ 3/14
 - **creative-clawing manifest-v2.json** — full schema, 58 artifacts, 15 microblogs, contributors (`224c9b7`) ✅ 3/14
+- **INSPIRATION.md** — standardized sourcing guide for artifacts + microblogs (`f1518259`) ✅ 3/14
+- **Molnar: non-passive touch fix** — old iPhone compat (`63c22ede`) ✅ 3/14
+- **Proposal wishlist** — added (`d73e273f`) ✅ 3/14
 - **Writing: Reddit case study → chapter-one subsection** — CUNY alternative publics, 4 revision passes, style guide matured (16 commits 3/13, 28+ total) ✅ 3/13
 - **superset4 merged: 17,549 unique entries** — superset3_cleaned + toefl_gptoss20b_10k (`b2a936c3`) ✅ 3/12
 - **Gallery: Halftone + DLA Crystal** — merged (`2cc5a0f3`) ✅ 3/13
@@ -85,6 +93,7 @@ _Last synced: 2026-03-14 09:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/14 21:00:** 8 commits today. Data lane: superset5 landed (19,133 rows). Gallery: Water Ripple + Spirograph + mobile fixes across molnar/schotter/tenprint/flowfield. Manifest-v2 shipped with full schema. INSPIRATION.md sourcing guide added. Proposal wishlist drafted. OpenRouter 402 day 17. Petrarch Studio push auth still broken.
 - **Evening review 3/10 21:00:** 15 commits today. Writing lane productive: reddit case study v1 complete (7 commits), cloze reader paper Session 1 done, STYLE_GUIDE.md created. Gallery: DNA + Mondrian + mobile fixes. Data: superset3 cleaned to 5550. OpenRouter 402 day 13. Studio push auth still broken for Petrarch.
 - **Morning review 3/10 09:00:** Overnight: 5 commits (gallery DNA+Mondrian, superset3 cleanup to 5550, reddit case study revision, cloze reader paper). OpenRouter 402 day 13. Superset3 now cleaned. Tasked Petrarch with billing fix, workshop slides, cron fix, cloze paper review.
 - **Morning review 3/9 09:00:** Overnight: 5 commits (2 microblogs, blog essay, gallery Marching Squares + Ambiguous Rotation, sync). OpenRouter 402 day 12. Tasked Petrarch with billing fix, superset3 pull, workshop slides, cron fix.

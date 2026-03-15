@@ -1,17 +1,17 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-03-14 (Sat)
+**Date:** 2026-03-15 (Sun)
 **Time:** 09:00 ET (morning review)
 
-## Today's progress (3/14)
-- **superset5 merged: 19,133 unique entries** — superset4 + kimik2_10k + ollama_qwen8b batch (`ba9b598a`)
-- **Gallery: Water Ripple + Spirograph** — morning drop (`5a9c1df5`)
-- **Mobile fixes:** molnar pointer capture, schotter touch-action, tenprint caption, flowfield pointercancel (`777a6680`, `a7fa7dc7`)
-- **creative-clawing manifest-v2.json** — full schema: 58 artifacts, 15 microblogs, contributors table (`224c9b7`)
-- **Mobile horizontal scroll fix** — `overflow-x: clip` on body (`bbff003`)
+## Overnight progress (3/14 evening → 3/15 morning)
+- **Gallery: Terrain + Aurora** — procedural mountain landscape + aurora borealis sim (`6bd44cf5`), gallery now at 53 artifacts
+- **Microblog #18 (Wolfram automata) + #19 (Metaballs)** — published (`da3c0352`, `00eab7ae`)
+- **Showcase grid updated** — Halftone, Water Ripple, Spirograph added (`91e9b0a2`)
+- **CALI workshop overhaul** — 6 commits: Tool 06 music decomp, open-weight models only, cohort initials, model registry update, Deep Listening removal (`ad254888`..`93087836`)
+- **Cloze reader paper** — Session 2 lit review draft (~750 words) + v03 intro revision (`b318a566`, `fc0b703e`)
 
 ## Current blockers / risks
-- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 17**, needs milwrite billing fix)
+- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 18**, needs milwrite billing fix)
 - **Run 4 adapter weights still missing locally** — checkpoint eval cannot start
 - **Petrarch Studio push auth** — zmuhls lacks write on milwrite/quimbot, 9+ commits queued
 - **Prospects cron notifier broken** (`openclaw` not found in cron PATH)

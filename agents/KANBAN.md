@@ -1,11 +1,11 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-14 19:00 ET_
+_Last synced: 2026-03-15 19:00 ET_
 
 ## In Progress
-- **creative-clawing manifest + tooling** — manifest-v2.json backfilled (58 artifacts, 15 microblogs, contributors); update_manifest.py committed; INSPIRATION.md standardized; asset consolidation done
-- **CAIL Workshop #1 deck** — 74+ commits; stubs remain for slides 7–8 (awaiting Petrarch's ITP content), 12–15 (activities/exit)
-- **Cloze Reader paper (DHQ)** — Session 2 unblocked; excerptor role + excerpt log added. Session 2 lit notes drafted (uncommitted)
+- **Cloze Reader paper (DHQ)** — v13 landed (milwrite intro restored); Section III rewritten from evidence up (v12); STYLE_GUIDE updated (gap-bridging ban); 8 docx versions today (v06–v13); 18 commits today on quimbot
+- **creative-clawing manifest + tooling** — 61 artifacts, 15 microblogs in manifest-v2; Terrain + Aurora shipped to correct repo; INSPIRATION.md pushed; 31 artifacts still missing `mobile_optimized` flag
+- **CAIL Workshop #1 deck** — model registry updated (Kimi K2.5, Llama 3.1 70B, Qwen3 235B, DeepSeek V3.2); Tool 03 removed, Tool 06 (music decomposition) added; open-weight only; stubs remain slides 7–8, 12–15
 - **Reddit "Writing Under Surveillance" chapter draft** — closing landed, style guide extended. Stable.
 
 ## Blocked
