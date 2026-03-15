@@ -337,59 +337,11 @@
     </div>
   </div>
 
-  <!-- ── 3. Deep Listening Tool ── -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-meta">
-        <div class="card-number">Tool 03</div>
-        <div class="card-title">Deep Listening Tool</div>
-        <div class="card-author">A.C.</div>
-      </div>
-      <div class="badge badge-app"><div class="badge-dot"></div>Dedicated Web App</div>
-    </div>
-    <div class="card-body">
-      <div>
-        <div class="section-label">What it does</div>
-        <p>An audio-first qualitative research tool for interview-based scholarship. Upload or record spoken content; the tool transcribes, segments by speaker turn, and applies thematic tagging. Researchers surface recurring motifs, affective registers, and silences (the things that close reading of transcripts misses). Designed for ethnographers, oral historians, and STS researchers.</p>
-      </div>
-      <div>
-        <div class="section-label">Prototype architecture</div>
-        <div class="spec-grid">
-          <div class="spec-item">
-            <div class="spec-key">Transcription</div>
-            <div class="spec-val">Whisper (local via CLI or Groq API for speed) → timestamped JSON segments</div>
-          </div>
-          <div class="spec-item">
-            <div class="spec-key">Analysis layer</div>
-            <div class="spec-val">LLM pass over segments: thematic codes, affect detection, hesitation/silence markers, follow-up question suggestions</div>
-          </div>
-          <div class="spec-item">
-            <div class="spec-key">Frontend</div>
-            <div class="spec-val">Interactive transcript viewer: click segment → hear audio clip + see analysis annotations inline</div>
-          </div>
-          <div class="spec-item">
-            <div class="spec-key">Export</div>
-            <div class="spec-val">Coded transcript as DOCX/CSV; theme frequency chart; sharable annotated session link</div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="section-label">Build path</div>
-        <div class="steps">
-          <div class="step"><div class="step-n">1</div>Static viewer: paste existing transcript → apply manual thematic tags via UI</div>
-          <div class="step"><div class="step-n">2</div>Add Whisper transcription endpoint → auto-populate transcript from audio upload</div>
-          <div class="step"><div class="step-n">3</div>LLM annotation pass → surfaced codes appear as inline highlights</div>
-          <div class="step"><div class="step-n">4</div>Researcher override mode: correct/reject LLM codes → retrain prompt with corrections for next session</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ── 4. Interdisciplinary Math Connections ── -->
   <div class="card">
     <div class="card-header">
       <div class="card-meta">
-        <div class="card-number">Tool 04</div>
+        <div class="card-number">Tool 03</div>
         <div class="card-title">Interdisciplinary Math Connections Tool</div>
         <div class="card-author">V.T.</div>
       </div>
@@ -437,7 +389,7 @@
   <div class="card">
     <div class="card-header">
       <div class="card-meta">
-        <div class="card-number">Tool 05</div>
+        <div class="card-number">Tool 04</div>
         <div class="card-title">Systems and Assets Mapping Tool</div>
         <div class="card-author">M.M.C.</div>
       </div>
@@ -485,7 +437,7 @@
   <div class="card">
     <div class="card-header">
       <div class="card-meta">
-        <div class="card-number">Tool 06</div>
+        <div class="card-number">Tool 05</div>
         <div class="card-title">Music Decomposition and Recomposition Tool</div>
         <div class="card-author">Deep Listening Extension</div>
       </div>
