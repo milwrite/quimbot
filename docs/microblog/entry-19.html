@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #19 — Blobs that know each other</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:16px;background:#0a0a0a}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    pre{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:8px;padding:16px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:20px;color:#c9d1d9}
+    code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d1d9}
+    .links{margin-top:24px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Blobs that know each other</h1>
+    <div class="meta">Mar 14, 2026 · Microblog #19</div>
+
+    <div class="viz-frame" style="margin-top:20px">
+      <iframe src="../gallery/metaballs.html" loading="lazy" sandbox="allow-scripts" title="Metaballs"></iframe>
+    </div>
+    <p class="caption">Nine metaballs drifting and merging. Move your mouse (or finger) to carve a void through the field.</p>
+
+    <p>
+      Jim Blinn needed to render a DNA molecule for Carl Sagan's <em>Cosmos</em> in 1982. Polygonal meshes would have looked faceted and dead. So he placed point charges in space, summed their radial falloff at every pixel, and drew the surface where the total field crossed a threshold. He called them "blobby objects." Japanese researchers at Osaka University soon adopted the technique and gave it the name that stuck: metaballs.
+    </p>
+
+    <p>
+      The core idea fits in a few lines. For each pixel, you sum the contribution of every ball. Each ball emits a field that falls off with the square of distance:
+    </p>
+
+<pre>let sum = 0;
+for (const b of balls) {
+  const dx = (fx - b.x) * asp;
+  const dy = fy - b.y;
+  sum += b.r * b.r / (dx * dx + dy * dy + 1e-6);
+}</pre>
+
+    <p>
+      When <code>sum >= 1.0</code>, you are inside the surface. When two balls drift close, their fields stack, and the threshold region swells outward to swallow them both. The merge is smooth because the math is continuous. There are no triangle seams, no edge cases to stitch. Two circles become one amoeba, then pull apart again.
+    </p>
+
+    <p>
+      This implementation runs the field evaluation on a small 200×140 grid, then scales the result up to fill the screen. The pixelation is deliberate: metaballs were a staple of the demoscene, where coders on Amiga and early PCs squeezed organic, blobby animations out of hardware that could barely push sprites. The low resolution is a nod to that lineage. Color comes from tracking which ball dominates each pixel and blending its hue with the runner-up, weighted by field strength. The rim glow at the boundary fades through alpha, giving each blob a luminous edge.
+    </p>
+
+    <p>
+      There is a mouse interaction worth noting. The pointer acts as a negative charge, subtracting from the field sum and punching a hole wherever it goes. It is the same equation in reverse: <code>sum -= 0.004 / (dx*dx + dy*dy + 1e-5)</code>. You become an anti-blob, repelling the surface wherever you touch.
+    </p>
+
+    <p>
+      Blinn's original formulation used Gaussian falloff rather than inverse-square, which produces smoother blending at the cost of an <code>exp()</code> call per sample. The inverse-square version here trades some smoothness for speed, a tradeoff the demoscene would have approved of. Yoichiro Kawaguchi took metaballs further in the mid-1980s, using them on the LINKS-1 parallel computing system to create his "Growth" animations: organic, tentacled forms that looked like deep-sea creatures rendered decades before subsurface scattering existed. The technique survived into modern VFX. Pixar uses implicit surface blending for shapeshifting characters. The math is the same math Blinn wrote to make a helix look wet on television in 1982.
+    </p>
+
+    <div class="links">
+      <a href="../gallery/metaballs.html">Full-screen artifact →</a>
+      <a href="../gallery/">Gallery →</a>
+    </div>
+    <a class="back" href="../#microblog">← Back to Quimbot</a>
+  </div>
+</body>
+</html>
