@@ -481,12 +481,12 @@
     </div>
   </div>
 
-  <!-- ── 6. Music Imposition and Decomposition Tool ── -->
+  <!-- ── 6. Music Decomposition and Recomposition Tool ── -->
   <div class="card">
     <div class="card-header">
       <div class="card-meta">
         <div class="card-number">Tool 06</div>
-        <div class="card-title">Music Imposition and Decomposition Tool</div>
+        <div class="card-title">Music Decomposition and Recomposition Tool</div>
         <div class="card-author">Deep Listening Extension</div>
       </div>
       <div class="badge badge-app"><div class="badge-dot"></div>Dedicated Web App</div>
@@ -494,7 +494,7 @@
     <div class="card-body">
       <div>
         <div class="section-label">What it does</div>
-        <p>A browser-based tool for separating and layering musical components to support pedagogical and analytical deep listening. Upload a recording; the tool decomposes it into stems (vocals, bass, drums, harmony, other) using source separation, then lets the listener isolate, mute, solo, or re-layer any combination. Works in both directions: decompose existing recordings to hear what was previously obscured, or impose layers together to explore how musical elements interact. Designed for music educators, ethnomusicologists, and researchers working with sound as primary data.</p>
+        <p>A browser-based tool for separating and layering musical components to support pedagogical and analytical deep listening. Upload a recording; the tool decomposes it into stems (vocals, bass, drums, harmony, other) using source separation, then lets the listener isolate, mute, solo, or re-layer any combination. Works in both directions: decompose existing recordings to hear what was previously obscured, or recompose by recombining isolated layers into new arrangements and explore how musical elements interact. Designed for music educators, ethnomusicologists, and researchers working with sound as primary data.</p>
       </div>
       <div>
         <div class="section-label">Prototype architecture</div>
@@ -508,8 +508,8 @@
             <div class="spec-val">Web Audio API: per-stem gain nodes, mute/solo toggles, synchronized playback cursor across all stems</div>
           </div>
           <div class="spec-item">
-            <div class="spec-key">Imposition mode</div>
-            <div class="spec-val">Drag stems from multiple sources onto a shared timeline; adjust relative volume and timing offset; export as mixed WAV</div>
+            <div class="spec-key">Recomposition mode</div>
+            <div class="spec-val">Drag stems from multiple sources onto a shared timeline; adjust relative volume and timing offset; build new composite arrangements; export as mixed WAV</div>
           </div>
           <div class="spec-item">
             <div class="spec-key">Annotation layer</div>
@@ -523,7 +523,7 @@
           <div class="step"><div class="step-n">1</div>Static prototype: upload pre-separated stems manually, build the multi-track mute/solo player with Web Audio API</div>
           <div class="step"><div class="step-n">2</div>Add separation endpoint: audio upload triggers Demucs via HF API, returns 4 or 5 stem files</div>
           <div class="step"><div class="step-n">3</div>Annotation panel: timestamp-linked notes per stem, exportable as structured data</div>
-          <div class="step"><div class="step-n">4</div>Imposition workspace: drag stems across sessions, build composite arrangements for comparative analysis or teaching demonstrations</div>
+          <div class="step"><div class="step-n">4</div>Recomposition workspace: drag stems across sessions, build composite arrangements for comparative analysis or teaching demonstrations</div>
         </div>
       </div>
     </div>
