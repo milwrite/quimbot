@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CALI T(h)inkering Track — Tool Prototypes</title>
+<style>
+  :root {
+    --bg: #0c0c0f;
+    --surface: #13131a;
+    --border: rgba(255,255,255,0.08);
+    --fg: rgba(255,255,255,0.90);
+    --muted: rgba(255,255,255,0.50);
+    --accent: #7ec8ff;
+    --accent2: #a78bfa;
+    --tag-bg: rgba(255,255,255,0.06);
+    --app-color: #34d399;
+    --sandbox-color: #f59e0b;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    padding: 64px 24px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  header h1 {
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  header p {
+    color: var(--muted);
+    max-width: 680px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ─── LEGEND ─── */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-app { background: var(--app-color); }
+  .dot-sandbox { background: var(--sandbox-color); }
+
+  /* ─── GRID ─── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+    display: grid;
+    gap: 24px;
+  }
+
+  /* ─── TOOL CARD ─── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .card-meta { display: flex; flex-direction: column; gap: 4px; }
+  .card-number {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .card-author {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .badge-app {
+    background: rgba(52,211,153,0.12);
+    color: var(--app-color);
+    border: 1px solid rgba(52,211,153,0.25);
+  }
+  .badge-sandbox {
+    background: rgba(245,158,11,0.12);
+    color: var(--sandbox-color);
+    border: 1px solid rgba(245,158,11,0.25);
+  }
+  .badge-dot { width: 7px; height: 7px; border-radius: 50%; }
+  .badge-app .badge-dot { background: var(--app-color); }
+  .badge-sandbox .badge-dot { background: var(--sandbox-color); }
+
+  .card-body { padding: 24px 28px; display: flex; flex-direction: column; gap: 22px; }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card-body p { color: rgba(255,255,255,0.78); font-size: 14px; line-height: 1.65; }
+
+  /* ─── SPEC TABLE ─── */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 640px) { .spec-grid { grid-template-columns: 1fr; } }
+  .spec-item {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .spec-key {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .spec-val {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+  }
+  .spec-val code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    background: rgba(255,255,255,0.06);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  /* ─── STEPS ─── */
+  .steps { display: flex; flex-direction: column; gap: 8px; }
+  .step {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 13px; color: rgba(255,255,255,0.78); line-height: 1.5;
+  }
+  .step-n {
+    min-width: 22px; height: 22px;
+    background: rgba(126,200,255,0.12);
+    border: 1px solid rgba(126,200,255,0.22);
+    border-radius: 50%;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    max-width: 900px; margin: 0 auto;
+    padding: 24px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 12px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">CUNY AI Lab · T(h)inkering Track</div>
+  <h1>CALI Cohort Tool Prototypes</h1>
+  <p>Five faculty-proposed tools for the t(h)inkering track. Each is scoped either as a dedicated web app or an agentic workspace configuration in the CUNY AI Lab Sandbox (Open WebUI) — designed to be testable, reusable, and iterable beyond the initial chat interface.</p>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><div class="dot dot-app"></div> Dedicated web app / standalone tool</div>
+  <div class="legend-item"><div class="dot dot-sandbox"></div> Open WebUI workspace configuration</div>
+</div>
+
+<main>
+
+  <!-- ── 1. Research Writing Scaffold ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <div class="card-number">Tool 01</div>
+        <div class="card-title">Research Writing Scaffold</div>
+        <div class="card-author">Katherine Chen</div>
+      </div>
+      <div class="badge badge-sandbox"><div class="badge-dot"></div>Open WebUI Workspace</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="section-label">What it does</div>
+        <p>A structured writing companion that guides researchers through iterative stages of academic writing: claim formation, evidence integration, paragraph-level revision, and citation scaffolding. The model responds to uploaded drafts or pasted text and returns stage-specific feedback rather than full rewrites — preserving the researcher's voice while surfacing structural weaknesses.</p>
+      </div>
+      <div>
+        <div class="section-label">Sandbox configuration</div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-key">Model preset</div>
+            <div class="spec-val">GPT-4o or Claude 3.5 Sonnet — strong instruction-following + long context for draft uploads</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">System prompt role</div>
+            <div class="spec-val">Academic writing coach; stage-gated feedback; never rewrites full passages</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Knowledge collections</div>
+            <div class="spec-val">Discipline-specific citation guides (APA/MLA/Chicago), sample argument maps, genre exemplars</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Tools enabled</div>
+            <div class="spec-val"><code>file upload</code>, <code>web search</code> (citation lookup), <code>code interpreter</code> (for quantitative claims)</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Build path beyond chat UI</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div>Export workspace preset as JSON — share URL with cohort members for one-click load</div>
+          <div class="step"><div class="step-n">2</div>Companion web form: student pastes draft → backend calls Sandbox API → returns stage-tagged feedback as structured HTML</div>
+          <div class="step"><div class="step-n">3</div>Google Docs add-on (Apps Script + Sandbox API) for in-document marginal feedback</div>
+          <div class="step"><div class="step-n">4</div>Evaluation rubric embedded in system prompt; export feedback logs for iterative prompt tuning</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 2. Laboratory Workflow Tool ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <div class="card-number">Tool 02</div>
+        <div class="card-title">Laboratory Workflow Tool</div>
+        <div class="card-author">Chantale Damas</div>
+      </div>
+      <div class="badge badge-app"><div class="badge-dot"></div>Dedicated Web App</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="section-label">What it does</div>
+        <p>A protocol-aware lab assistant that parses standard operating procedures (SOPs) into step-by-step interactive checklists, flags safety checkpoints, and lets researchers annotate deviations in real time. Supports multi-session workflows — return to a paused protocol and resume with context intact. Can ingest uploaded PDFs of existing lab protocols.</p>
+      </div>
+      <div>
+        <div class="section-label">Prototype architecture</div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-key">Frontend</div>
+            <div class="spec-val">Single-page HTML + vanilla JS; step-navigator sidebar, annotation panel, progress state saved to <code>localStorage</code></div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">AI layer</div>
+            <div class="spec-val">OpenRouter API call on SOP upload → returns structured JSON of steps, safety flags, materials list</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Persistence</div>
+            <div class="spec-val">Export completed session as annotated PDF; importable JSON for sharing across lab members</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Evaluation loop</div>
+            <div class="spec-val">Log deviation annotations → surface patterns across sessions to flag protocol ambiguities</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Build path</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div>Static HTML prototype: manual SOP entry → stepwise checklist display</div>
+          <div class="step"><div class="step-n">2</div>Add PDF upload + LLM parsing → auto-generate step list from uploaded protocol</div>
+          <div class="step"><div class="step-n">3</div>Annotation layer + export → share with PI for review</div>
+          <div class="step"><div class="step-n">4</div>Multi-user mode: shared session link, concurrent annotation by lab team</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 3. Deep Listening Tool ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <div class="card-number">Tool 03</div>
+        <div class="card-title">Deep Listening Tool</div>
+        <div class="card-author">Agustina Checa</div>
+      </div>
+      <div class="badge badge-app"><div class="badge-dot"></div>Dedicated Web App</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="section-label">What it does</div>
+        <p>An audio-first qualitative research tool for interview-based scholarship. Upload or record spoken content; the tool transcribes, segments by speaker turn, and applies thematic tagging. Researchers surface recurring motifs, affective registers, and silences — the things that close reading of transcripts misses. Designed for ethnographers, oral historians, and STS researchers.</p>
+      </div>
+      <div>
+        <div class="section-label">Prototype architecture</div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-key">Transcription</div>
+            <div class="spec-val">Whisper (local via CLI or Groq API for speed) → timestamped JSON segments</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Analysis layer</div>
+            <div class="spec-val">LLM pass over segments: thematic codes, affect detection, hesitation/silence markers, follow-up question suggestions</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Frontend</div>
+            <div class="spec-val">Interactive transcript viewer: click segment → hear audio clip + see analysis annotations inline</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Export</div>
+            <div class="spec-val">Coded transcript as DOCX/CSV; theme frequency chart; sharable annotated session link</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Build path</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div>Static viewer: paste existing transcript → apply manual thematic tags via UI</div>
+          <div class="step"><div class="step-n">2</div>Add Whisper transcription endpoint → auto-populate transcript from audio upload</div>
+          <div class="step"><div class="step-n">3</div>LLM annotation pass → surfaced codes appear as inline highlights</div>
+          <div class="step"><div class="step-n">4</div>Researcher override mode: correct/reject LLM codes → retrain prompt with corrections for next session</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 4. Interdisciplinary Math Connections ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <div class="card-number">Tool 04</div>
+        <div class="card-title">Interdisciplinary Math Connections Tool</div>
+        <div class="card-author">Virginia Thompson</div>
+      </div>
+      <div class="badge badge-sandbox"><div class="badge-dot"></div>Open WebUI Workspace</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="section-label">What it does</div>
+        <p>A concept-bridging assistant that helps educators and students discover how a given mathematical idea (topology, statistics, linear algebra, etc.) shows up in non-math disciplines — art history, urban planning, music theory, biology. Returns worked examples, visual analogies, and suggested readings. Intended to break the disciplinary isolation of math instruction at CUNY.</p>
+      </div>
+      <div>
+        <div class="section-label">Sandbox configuration</div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-key">Model preset</div>
+            <div class="spec-val">Claude 3.5 Sonnet — strong at analogy generation and cross-domain synthesis</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">System prompt role</div>
+            <div class="spec-val">Interdisciplinary math translator; always returns ≥2 non-math domains; includes a worked example per domain</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Knowledge collections</div>
+            <div class="spec-val">Curated cross-disciplinary math texts (Ellenberg, Strogatz, Hofstadter), CUNY syllabus excerpts</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Tools enabled</div>
+            <div class="spec-val"><code>web search</code> (find current research applications), <code>image generation</code> (visual analogies)</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Build path beyond chat UI</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div>Concept map web app: enter a math topic → interactive network graph of disciplinary connections</div>
+          <div class="step"><div class="step-n">2</div>Each node in the graph links to a generated "connection card" with example + reading</div>
+          <div class="step"><div class="step-n">3</div>Teacher mode: export connection cards as printable handouts or slide deck</div>
+          <div class="step"><div class="step-n">4</div>Community layer: submit your own connection examples → build a CUNY-specific cross-disciplinary corpus</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 5. Systems and Assets Mapping Tool ── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <div class="card-number">Tool 05</div>
+        <div class="card-title">Systems and Assets Mapping Tool</div>
+        <div class="card-author">Maria Mavrides Calderon</div>
+      </div>
+      <div class="badge badge-app"><div class="badge-dot"></div>Dedicated Web App</div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="section-label">What it does</div>
+        <p>A visual mapping environment for community-based and participatory action research. Users add actors, institutions, resources, and relationships to a live canvas; the AI layer surfaces connection gaps, power asymmetries, and underutilized assets based on the mapped structure. Outputs shareable SVG maps and structured data for grant applications and program planning.</p>
+      </div>
+      <div>
+        <div class="section-label">Prototype architecture</div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-key">Canvas layer</div>
+            <div class="spec-val">Force-directed graph (D3.js or Cytoscape.js); drag-drop node creation; edge type labels (resource, power, information)</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">AI analysis layer</div>
+            <div class="spec-val">Submit graph JSON → LLM returns: isolated nodes, bridging opportunities, missing actor types, narrative summary</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Input modes</div>
+            <div class="spec-val">Manual node entry; CSV import of stakeholder list; text description → AI-generated draft map</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-key">Export</div>
+            <div class="spec-val">SVG/PNG map; JSON for re-import; narrative analysis as DOCX; embed-ready iframe</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Build path</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div>Static canvas prototype: manual node + edge creation, visual grouping by category</div>
+          <div class="step"><div class="step-n">2</div>Add CSV import → auto-populate nodes from stakeholder spreadsheet</div>
+          <div class="step"><div class="step-n">3</div>LLM analysis panel: submit current map → receive gap analysis and narrative summary</div>
+          <div class="step"><div class="step-n">4</div>Collaborative mode: shared map URL, real-time co-editing by community members</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  CUNY AI Lab · T(h)inkering Track · CALI 2026 &nbsp;|&nbsp;
+  <a href="https://ailab.gc.cuny.edu/" target="_blank">ailab.gc.cuny.edu</a> &nbsp;|&nbsp;
+  <a href="https://tools.ailab.gc.cuny.edu/" target="_blank">Sandbox (Open WebUI)</a>
+</footer>
+
+</body>
+</html>
