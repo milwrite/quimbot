@@ -17,7 +17,7 @@
 | # | Date | Focus | Status | Approval |
 |---|------|-------|--------|----------|
 | 1 | 2026-03-10 | Considerations charter + scope lock | COMPLETE | APPROVED by milwrite (thread decision) |
-| 2 | 2026-03-14 | Literature expansion: MLM genealogy, cloze ed research, human/model comparative studies | IN PROGRESS | AWAITING APPROVAL |
+| 2 | 2026-03-14 | Literature expansion: MLM genealogy, cloze ed research, human/model comparative studies | COMPLETE | AWAITING milwrite |
 
 ## Labor Division
 - **Quimbot:** artifact/code analysis, argument structure, prose refinement, consistency checks
