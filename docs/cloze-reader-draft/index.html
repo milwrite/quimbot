@@ -12,8 +12,15 @@
     font-family: "Times New Roman", Georgia, serif;
     font-size: 18px;
     line-height: 1.8;
-    color: #1a1a1a;
-    background: #fefefe;
+    color: #d4d4d4;
+    background: #1a1a1a;
+  }
+  @media (prefers-color-scheme: light) {
+    body { color: #1a1a1a; background: #fefefe; }
+    .byline, .byline a { color: #555; }
+    hr { border-top-color: #ccc; }
+    .draft-note { color: #888; }
+    a { color: #2a5db0; }
   }
   h1 {
     font-size: 1.6em;
@@ -23,11 +30,11 @@
   }
   .byline {
     font-size: 0.85em;
-    color: #555;
+    color: #888;
     margin-bottom: 2em;
     line-height: 1.5;
   }
-  .byline a { color: #555; }
+  .byline a { color: #888; }
   h2 {
     font-size: 1.15em;
     font-weight: bold;
@@ -41,17 +48,18 @@
   p:first-of-type, h2 + p { text-indent: 0; }
   hr {
     border: none;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #333;
     margin: 2.5em 0;
   }
   .draft-note {
     font-size: 0.8em;
-    color: #888;
+    color: #666;
     font-style: italic;
     margin-top: 3em;
     text-indent: 0;
   }
-  a { color: #2a5db0; text-decoration: none; }
+
+  a { color: #6b9edd; text-decoration: none; }
   a:hover { text-decoration: underline; }
   .back { font-size: 0.85em; margin-bottom: 2em; display: block; text-indent: 0; }
 </style>
