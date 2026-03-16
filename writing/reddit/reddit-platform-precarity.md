@@ -57,14 +57,14 @@ other subreddit participant. That record was retained because the ranking system
 It became accessible to enforcement because the retention was indefinite and the subpoena
 mechanism required no court order.
 
-The chapter that follows examines how Reddit's ranking and retention systems shape the
-participation patterns of CUNY students who rely on the platform for access to
-institutional information and peer support. Across r/CUNY and r/Baruch, where posts
-average [X] and [Y] per day and draw medians of [Z] and [N] comments, students'
-participation trajectories are sorted by the ranking criteria that decide which threads
-become "hottest," which are marked "controversial," and which sink from view before they
-can gather the replies that would let a question about work, study, housing, or campus
-life become a usable public exchange. The analysis considers what these patterns reveal
-about the conditions under which student publics form on commercial platforms, and what
-those conditions mean for researchers who study them.
+The practical publics that CUNY students build on Reddit are therefore precarious in two
+directions. Across r/CUNY and r/Baruch, where posts average [X] and [Y] per day and draw
+medians of [Z] and [N] comments, the ranking criteria that decide which threads become
+"hottest," which are marked "controversial," and which sink from view determine whether a
+question about work, study, housing, or campus life gathers the replies that would make it
+a usable exchange. The same behavioral records that feed those ranking criteria persist
+indefinitely and remain accessible through administrative subpoena. The peer-sourced
+institutional knowledge that students accumulate without official channels, and that no
+campus office maintains, sits on an infrastructure that shapes who sees it and logs who
+contributed it.
 <!-- DATA PLACEHOLDER: pull from empirical audit of r/CUNY + r/Baruch -->
