@@ -8,50 +8,63 @@ building a stock of peer-sourced institutional knowledge that travels through su
 networks without touching official advising channels and persists in ways no campus office
 formally maintains.
 
-That process runs through infrastructure Reddit built for engagement and monetization.
-Votes, dwell time, and session sequences get logged at the individual-interaction level
-and fed into ranking systems. Student peer exchanges are behavioral data — captured by
-the same pipeline as everything else on the platform.
-The FTC's 2024 staff report on major social and video platforms, issued after 6(b) orders
-to nine companies including Reddit, found that covered platforms collected personal data
-from users and non-users alike, retained it indefinitely with inadequate minimization
-practices, and fed it into automated ranking and advertising systems with little meaningful
-user opt-out. The linked platform-surveillance review draws on that finding to show, for
-Reddit specifically, how the recommendation and ranking systems that determine post
-visibility require continuous behavioral capture just to sustain the interaction signals
-that keep ranked feeds functional.
+That knowledge accumulates inside a ranking system. Reddit's "hot" sort applies a
+logarithmic score function with linear time decay, a formula whose practical consequence
+is that the first ten upvotes on a post carry the same weight as the next hundred (Miller
+2009). A post twenty-four hours old needs roughly ten times the score of a fresh one to
+hold equivalent rank. For a student question posted at midnight after a late shift, asking
+about a FAFSA verification delay or a registration hold, the window for gathering the
+replies that would make it a useful exchange closes within hours. Comment sorting applies a
+separate mechanism: the lower bound of a Wilson score confidence interval, which penalizes
+comments with few votes regardless of their upvote ratio (Miller 2009). An early, brief
+reply can outrank a detailed response that arrives later. The algorithm does not evaluate
+the answer. It evaluates the timing.
 
-Algorithmic curation then decides what student publics can actually see, and the criteria
-governing that decision favor early-accumulating threads over slower or later ones. The
-linked review draws on empirical audit work across more than ten thousand Reddit posts over
-roughly eleven months to show that comment velocity in the first hours after posting and
-recent interaction intensity both function as primary ranking inputs, with threads that
-accumulate early replies receiving sustained algorithmic promotion while later-arriving or
-slower-burning threads drop from default sort views within days regardless of substantive
-uptake, so a thread's reach depends partly on its posting window, independent of what it
-raises. Comparable threads raising comparable concerns can therefore receive substantially
-different visibility depending on when and how they enter the ranking system. Observed
-participation is accordingly partly an artifact of algorithmic timing, which means uptake
-across r/CUNY and campus subreddits cannot be read as a straightforward index of student
-engagement or topic salience.
+This means that what a researcher or a student encounters as "the conversation" in r/CUNY
+or r/Baruch is an artifact of when and how posts entered the scoring pipeline. Comparable
+threads raising comparable concerns can receive substantially different visibility depending
+on the posting window and the velocity of early interaction. Observed participation across
+campus subreddits cannot therefore be read as a direct index of student engagement or topic
+salience; it is partly an artifact of algorithmic timing, and any analysis that treats
+uptake as a transparent measure of interest risks mistaking the ranking system's output for
+the population's preferences.
 
-The 2026 DHS administrative subpoenas make the legal stakes of this arrangement concrete.
-When Reddit, Meta, and Google complied with requests issued under 8 U.S.C. § 1357,
-identifying information tied to accounts critical of ICE became obtainable through
-administrative process without judicial approval, revealing that data captured for
-engagement optimization moves into enforcement workflows without any change in underlying
-records. The FTC report's finding that retention practices were "woefully inadequate" and
-that data was broadly shared with limited oversight gives the legal exposure a structural
-dimension: the records existed, at scale, because the platform's ranking model required
-them to exist. For studying CUNY student Reddit use, the implications extend past that
-exposure. They bear on what students can reasonably say, who takes visible positions, and
-why some campus publics stay quieter than their size or activity would predict.
+The data that powers this ranking is behavioral. Votes, dwell time, session sequences, and
+interaction timestamps get logged at the individual level and fed into scoring and
+recommendation pipelines. The FTC's 2024 staff report, "A Look Behind the Screens,"
+issued after 6(b) orders to nine companies including Reddit, found that covered platforms
+collected personal data from users and non-users, retained it indefinitely with what the
+Commission called "woefully inadequate" minimization practices, and fed it into automated
+ranking and advertising systems with limited user opt-out (FTC 2024). Reddit was among
+the nine companies examined. The behavioral data that sustains the ranking system also
+constitutes a retention archive, one whose scope and duration the platform determines
+unilaterally.
 
-The participation patterns of students moving through Reddit are encoded with the
-platform's data retention practices, its ranking criteria, and the vulnerability those
-records carry. Across r/CUNY and r/Baruch, where posts average [X] and [Y] per day and draw medians of
-[Z] and [N] comments, students' participation trajectories are sorted by the ranking
-criteria that decide which threads become "hottest," which are marked "controversial," and
-which sink from view before they can gather the replies that would let a question about
-work, study, housing, or campus life become a usable public exchange.
+In early 2026, the Department of Homeland Security issued hundreds of administrative
+subpoenas to Reddit, Meta, Google, and Discord, requesting identifying information tied
+to accounts critical of Immigration and Customs Enforcement (NYT 2026). These subpoenas,
+authorized under 8 U.S.C. § 1357, required no judicial approval. Reddit, Meta, and Google
+complied with some requests. The records that made compliance possible were the same
+records the ranking algorithm required to function: behavioral logs, account metadata,
+interaction histories. Nothing changed in the underlying data when it moved from a ranking
+input to an enforcement exhibit.
+
+For CUNY students, a population that includes undocumented students, DACA recipients, and
+students with family members subject to enforcement action, this sequence has particular
+weight. A student researching ICE detention procedures for a policy course, or seeking
+advice on a family member's legal situation, generates the same behavioral record as any
+other subreddit participant. That record was retained because the ranking system needed it.
+It became accessible to enforcement because the retention was indefinite and the subpoena
+mechanism required no court order.
+
+The chapter that follows examines how Reddit's ranking and retention systems shape the
+participation patterns of CUNY students who rely on the platform for access to
+institutional information and peer support. Across r/CUNY and r/Baruch, where posts
+average [X] and [Y] per day and draw medians of [Z] and [N] comments, students'
+participation trajectories are sorted by the ranking criteria that decide which threads
+become "hottest," which are marked "controversial," and which sink from view before they
+can gather the replies that would let a question about work, study, housing, or campus
+life become a usable public exchange. The analysis considers what these patterns reveal
+about the conditions under which student publics form on commercial platforms, and what
+those conditions mean for researchers who study them.
 <!-- DATA PLACEHOLDER: pull from empirical audit of r/CUNY + r/Baruch -->
