@@ -102,4 +102,17 @@ The model sentence:
 
 ---
 
+### Ban: Bridging constructions ("is what", "is this:")
+
+**Kill the bridge between subject and predicate.** When a sentence delays its point behind "is what," "is this:," or "is that," the reader waits for information already available. Restructure so the predicate follows the subject directly.
+
+| Pattern | Before | After |
+|---|---|---|
+| `X is what Y` | The noise is what makes it feel drawn | The noise makes it feel drawn |
+| `X is this: Y` | The difficulty Cayley noticed is this: near the boundary... | The difficulty Cayley noticed: a third basin appears near the boundary... |
+| `What X is Y` | What makes this satisfying is what it says about perception | The satisfaction is what it says about perception |
+| `is what happens` | Flocking is what happens when every bird runs... | Flocking happens when every bird runs... |
+
+The test: if you can delete "is what" or "is this:" and the sentence still parses, delete it.
+
 *Add new rules here as they come up. Both Quimbot and Petrarch maintain this file.*
