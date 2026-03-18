@@ -121,3 +121,18 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - **No verb phrase nominalizations** — "pretraining's reduction of text to token distributions" → "pretraining reduces text to token distributions"
 - The pattern: `[gerund/noun]'s [noun] of [noun]` before the verb arrives = always rewrite as two short sentences
 - Split the nominalization into its verb, then carry the consequence forward as a second sentence
+
+### "What X does" opener ban (added 2026-03-18)
+- **Kill the "What X [verb] as Y applies/shows/reveals..." construction** — it holds the subject at arm's length behind a nominalizing "What." Put the scholar or source as the grammatical subject doing the verb directly.
+- Before: "What Gitelman and Jackson describe as the mythology of raw data applies to..."
+- After: "Gitelman and Jackson describe the mythology of raw data as it applies to..."
+- Variant: "What this shows is..." → "This shows..." (covered also by bridging ban, but worth naming explicitly)
+
+### Vague intensifiers (added 2026-03-18)
+- **Ban "with particular force," "especially acutely," "with renewed urgency," and similar intensifier phrases** — they amplify without adding content. If something applies particularly, name precisely why or to what degree. If you can't, cut the intensifier and let the claim stand on its own.
+
+### Negative definitions (added 2026-03-18)
+- **Don't define by absence** — "patterns that no reader encounters as such," "a form that remains invisible to users," "something no one can observe directly" — these define the thing by what it isn't or who doesn't see it. Name where the thing goes or what it does instead.
+- Before: "available only as weighted co-occurrence patterns that no reader encounters as such"
+- After: "remediated as weighted co-occurrence patterns for end users"
+- The test: if your characterization is entirely negative (no X, unavailable to Y, never Z), rewrite to say what IS present, what IS available, what DOES happen.
