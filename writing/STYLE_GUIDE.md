@@ -134,5 +134,5 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 ### Negative definitions (added 2026-03-18)
 - **Don't define by absence** — "patterns that no reader encounters as such," "a form that remains invisible to users," "something no one can observe directly" — these define the thing by what it isn't or who doesn't see it. Name where the thing goes or what it does instead.
 - Before: "available only as weighted co-occurrence patterns that no reader encounters as such"
-- After: "remediated as weighted co-occurrence patterns for end users"
+- After: "remediated as weighted co-occurrence patterns"
 - The test: if your characterization is entirely negative (no X, unavailable to Y, never Z), rewrite to say what IS present, what IS available, what DOES happen.
