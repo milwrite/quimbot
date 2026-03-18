@@ -134,9 +134,9 @@ CRITICAL RULES:
   with strong contextual salience
 - Return ONLY a JSON array like ["word1", "word2"]</code></pre>
 
-<p>The prompt translates pedagogical goals into instructions that the model interprets through the statistical regularities of its training corpus rather than through explicit definitions, and this opacity is itself part of what the project stages for critical examination. The prompt further modulates difficulty through vocabulary complexity, requesting &ldquo;easy vocabulary words&rdquo; at early levels and &ldquo;challenging words&rdquo; at higher levels, while a validation layer filters the model&rsquo;s selections by length and presence in the passage, with a manual fallback that avoids function words if the AI response fails parsing.</p>
+<p>The prompt translates pedagogical goals into instructions that the model interprets through the statistical regularities of its training corpus rather than through explicit definitions &mdash; what Bommasani et al. (2021) describe as capabilities &ldquo;implicitly induced rather than explicitly constructed&rdquo; &mdash; and this opacity is itself part of what the project stages for critical examination. The prompt further modulates difficulty through vocabulary complexity, requesting &ldquo;easy vocabulary words&rdquo; at early levels and &ldquo;challenging words&rdquo; at higher levels, while a validation layer filters the model&rsquo;s selections by length and presence in the passage, with a manual fallback that avoids function words if the AI response fails parsing.</p>
 
-<p>This architecture enacts a feedback loop. A model trained through large-scale contextual prediction, a descendant of the masked language modeling paradigm that BERT popularized, now generates cloze-like tasks that return to human readers as exercises in contextual induction, and the prompt that governs this generation functions as an interface between pedagogical intent and machine prediction, translating the designer&rsquo;s goals into language the model can act upon however it interprets that language.</p>
+<p>This architecture enacts a feedback loop. A model whose parameters were shaped by a cloze-like training objective now generates cloze tasks for humans, and the prompt governing that generation serves as an interface between pedagogical intent and statistical prediction &mdash; translating the designer&rsquo;s goals into language the model acts upon through whatever regularities its training instilled.</p>
 
 <p>The Project Gutenberg corpus situates this feedback loop within a specific textual archive that predates the web-scale corpora on which contemporary language models train yet contributed to those corpora as digitized public-domain material &mdash; it is a standard component of large-scale pre-training datasets including The Pile (Gao et al. 2020). Over 70,000 public-domain e-books, filtered for high-quality narrative prose, supply the passages from which blanks are generated, and these texts include Shakespeare, nineteenth-century American oratory, and early twentieth-century fiction. When Gemma-3 selects words from a Melville passage, it draws on representations shaped partly by Melville&rsquo;s own prose, encountered during pre-training as statistical residue &mdash; and in some cases memorized verbatim (Carlini et al. 2021) &mdash; and the historical distance between the texts and contemporary readers becomes legible in the difficulty of restoration. A player struggling with a blank in <em>Moby-Dick</em> faces local syntactic constraints and the accumulated distance between nineteenth-century prose conventions and contemporary linguistic intuition at the same time.</p>
 
@@ -148,7 +148,7 @@ CRITICAL RULES:
 
 <h2>Continuity and Asymmetry</h2>
 
-<p class="no-indent">Both histories share a structural premise, that contextual prediction is a meaningful index of linguistic competence. Taylor operationalized that premise as an assessment instrument. BERT&rsquo;s developers operationalized it as a training objective. The two applications differ in what they treat as the system under examination (human readers in the first case, neural parameters in the second) and in what the procedure is meant to produce, a measurement of existing capacity versus an induction of new representations.</p>
+<p class="no-indent">Both histories share a structural premise, that contextual prediction is a meaningful index of linguistic competence. Taylor operationalized that premise as an assessment instrument. BERT&rsquo;s developers operationalized it as a training objective. The two applications differ in what they treat as the system under examination &mdash; human readers in one case, neural parameters in the other &mdash; and in what the procedure is meant to produce: a measurement of existing capacity, or an induction of new representations.</p>
 
 <p>By dividing the cloze task between model and player, separating selection from interpretation, Cloze Reader holds apart what masked language modeling conflates and makes visible the asymmetry that the structural resemblance between educational cloze tests and machine learning tends to obscure. The model locates where context matters while the reader learns what context means. This division stages rather than resolves the asymmetry between Taylor&rsquo;s cloze procedure, which assessed comprehension as a holistic capacity, and BERT&rsquo;s masked language modeling, which optimized prediction as a training objective.</p>
 
@@ -165,6 +165,8 @@ CRITICAL RULES:
 <p class="ref">Alammar, J. (2019) &lsquo;The illustrated BERT, ELMo, and co.,&rsquo; <em>jalammar.github.io</em>. Available at: <a href="https://jalammar.github.io/illustrated-bert/">jalammar.github.io/illustrated-bert/</a></p>
 
 <p class="ref">Bachman, L.F. (1985) &lsquo;Performance on cloze tests with fixed-ratio and rational deletions,&rsquo; <em>TESOL Quarterly</em>, 19(3), pp. 535&ndash;556.</p>
+
+<p class="ref">Bommasani, R. et al. (2021) &lsquo;On the opportunities and risks of foundation models,&rsquo; <em>arXiv:2108.07258</em>. Available at: <a href="https://arxiv.org/abs/2108.07258">arxiv.org/abs/2108.07258</a></p>
 
 <p class="ref">Devlin, J. et al. (2019) &lsquo;BERT: Pre-training of deep bidirectional transformers for language understanding,&rsquo; in <em>Proceedings of NAACL-HLT 2019</em>. Minneapolis, MN: Association for Computational Linguistics, pp. 4171&ndash;4186.</p>
 
@@ -200,7 +202,7 @@ CRITICAL RULES:
 
 <p class="ref">Wood, D., Bruner, J.S. and Ross, G. (1976) &lsquo;The role of tutoring in problem solving,&rsquo; <em>Journal of Child Psychology and Psychiatry</em>, 17(2), pp. 89&ndash;100.</p>
 
-<p class="draft-note">Draft v15 &middot; 2026-03-18 &middot; Additions only: Gao/Pile, Carlini, scaffolding (Wood/Bruner/Ross, Vygotsky, Pea), closing sentences</p>
+<p class="draft-note">Draft v16 &middot; 2026-03-18 &middot; Citations: Bommasani, Gao/Pile, Carlini, Wood/Bruner/Ross, Vygotsky, Pea &middot; Prose buff: feedback loop, continuity section</p>
 
 </body>
 </html>
