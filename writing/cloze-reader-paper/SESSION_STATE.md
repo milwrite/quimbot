@@ -91,3 +91,13 @@
 **Session 2 — Literature Expansion**
 Due: 2026-03-14 17:00 ET
 Notes: session2_lit_notes.md produced. Six Petrarch tasks queued. Citation repairs drafted for Oller 1979, ELMo, self-supervised learning source. Two PMC/arXiv stubs require Petrarch author/method verification before body can use them. No prose committed until approval.
+
+## Open Items — Next Session
+- [ ] Para 18 (hint system): scaffolding citations already in draft_intro.txt — confirm merge into docx v04
+- [ ] EX-04: replace "something else entirely" with specific claim language the body sections can inherit
+- [ ] Citation chain integration: v03 docx produced 2026-03-18, track changes on
+
+## v03 Docx Status (2026-03-18)
+- `cloze_reader_intro_suggested-edits_v03.docx` — 37 paragraphs, track changes enabled
+- Citation chain applied: StackOverflow Blog/Clozemaster removed; Bommasani, Oller, Bachman, Peters, Gao, Carlini, Vygotsky, Wood/Bruner/Ross, Pea added
+- Closing revision applied: "Pretraining reduces text to token distributions. The blank makes that reduction legible as loss, and refilling it demonstrates what the model, having processed the same passage, cannot do: read it."
