@@ -1,8 +1,12 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-15 09:00 ET_
+_Last synced: 2026-03-17 21:00 ET_
 
 ## ✅ Done
+- **3 TOEFL generation scripts** — `build_toefl_spell_seeds`, `expand_seeds`, `generate_toefl_expanded` (302 lines, `097c0081`) ✅ 3/17
+- **toefl_batch_20260317: 10,000 entries** — 20 error categories, programmatic generation ✅ 3/17
+- **Cloze reader paper Section III v3** — 6 revision passes, closing paragraph polished (~320 words) ✅ 3/17
+- **INVENTORY.md updated** — full superset7 lineage documented ✅ 3/17
 - **Gallery: Terrain + Aurora (53 artifacts)** — procedural landscape + aurora sim (`6bd44cf5`) ✅ 3/15
 - **Microblog #18 + #19** — Wolfram automata + Metaballs (`da3c0352`, `00eab7ae`) ✅ 3/15
 - **CALI workshop overhaul** — 6 commits: Tool 06, open-weight models, registry update (`ad254888`..`93087836`) ✅ 3/15
@@ -63,7 +67,7 @@ _Last synced: 2026-03-15 09:00 ET_
 - **Gallery dropdown nav + mobile responsive** — shipped 5 commits today (`04e1c2a1`..`dc29c3af`) ✅ 3/5
 - **Starfield: steering + tracking overhaul** — 4x steering, lerp, cursor-distance speed (`3849b997`) ✅ 3/5
 - **Microblog: gallery links for entry-6 + entry-7** — (`3c424fc0`) ✅ 3/5
-- **superset5 landed (19,133 rows)** — data lane moving again
+- **superset7 merged (39,133 rows)** — new high-water mark, pending dedup verification
 - **TOEFL gen at 2,834/10,000 — process still stalled** (no active PID found at 07:00 stand-up)
 - Gallery/docs iteration continues
 - Superset3 quality validation needed (spot-check)
@@ -93,6 +97,8 @@ _Last synced: 2026-03-15 09:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning review 3/18 09:00:** 2 overnight commits: cloze reader citation chain upgrades (Bommasani, Oller, Bachman, Peters, Gao/Pile, Carlini, Vygotsky/Wood/Pea). Cron jobs back online after 3-day pause (milwrite halted all jobs 3/15, Wednesday lift now in effect). OpenRouter 402 day 21. Tasked Petrarch with billing fix, superset7 verification, cloze paper Section IV, cron notifier fix.
+- **Evening review 3/17 21:00:** 8 commits today. Two lanes: (1) Data tooling: 3 validated TOEFL generation scripts committed + 10k batch generated + superset7 merged to 39,133 rows. (2) Writing: cloze reader paper Section III v3 polished through 6 revision passes. OpenRouter 402 day 20. Programmatic generation bypassing the billing block effectively.
 - **Evening review 3/14 21:00:** 8 commits today. Data lane: superset5 landed (19,133 rows). Gallery: Water Ripple + Spirograph + mobile fixes across molnar/schotter/tenprint/flowfield. Manifest-v2 shipped with full schema. INSPIRATION.md sourcing guide added. Proposal wishlist drafted. OpenRouter 402 day 17. Petrarch Studio push auth still broken.
 - **Evening review 3/10 21:00:** 15 commits today. Writing lane productive: reddit case study v1 complete (7 commits), cloze reader paper Session 1 done, STYLE_GUIDE.md created. Gallery: DNA + Mondrian + mobile fixes. Data: superset3 cleaned to 5550. OpenRouter 402 day 13. Studio push auth still broken for Petrarch.
 - **Morning review 3/10 09:00:** Overnight: 5 commits (gallery DNA+Mondrian, superset3 cleanup to 5550, reddit case study revision, cloze reader paper). OpenRouter 402 day 13. Superset3 now cleaned. Tasked Petrarch with billing fix, workshop slides, cron fix, cloze paper review.

@@ -114,6 +114,13 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
 - The execution queue for next cycle is explicit: merge + dedup + recount first, then immediate eval trigger once weights are provided.
 - Blocking conditions are unchanged: missing local adapter weights for Run 4 eval and OpenRouter HTTP 402 for scale-out generation.
 
+## 2026-03-18 notes (morning review)
+- Cron jobs back online after 3-day pause (milwrite halted all 9 jobs on 3/15, Wednesday lift now in effect).
+- 2 overnight commits: cloze reader citation chain upgrades — Bommasani, Oller, Bachman, Peters, Gao/Pile, Carlini, Vygotsky/Wood/Pea (`4f672690`, `2e65b8ed`).
+- OpenRouter 402 now day 21 — still blocking cloud generation.
+- Superset7 at 39,133 rows, verification pending.
+- Petrarch push auth still blocked (zmuhls lacks write on milwrite/quimbot).
+
 ## 2026-02-26 notes (morning review)
 - Morning commit stream is active: stand-up sync + doc/microblog tightening + gallery visualization additions (`d14cb717` latest).
 - Site generation artifacts updated today under `docs/gallery/` and `docs/index.html`; this lane is shipping while training/eval remains blocked.

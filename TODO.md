@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-14 21:00 ET
+**Last Updated:** 2026-03-17 21:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -13,11 +13,14 @@
 - [x] Run removal script → superset3 cleaned to 5550 rows (`0faa7767`) ✅ 3/10
 
 ## Medium Priority
-- [ ] Refresh `fine-tuning/data/INVENTORY.md` after merge/dedup and recount totals
+- [x] Refresh `fine-tuning/data/INVENTORY.md` after merge/dedup and recount totals ✅ 3/17
+- [x] Cloze reader paper: citation chain upgrades (words 1000-2000) ✅ 3/18
 - [ ] Log dedup delta (kept vs removed rows) in `STATUS.md` and `KANBAN.md`
+- [ ] Verify superset7 dedup integrity (39,133 rows — confirm no duplicates slipped through)
+- [ ] Cloze reader paper: draft Section IV
 - [ ] Validate `generate_toefl_ollama_10k.py` with a small reproducible smoke command in docs
 - [ ] Decide Stage 2 dataset composition (Spanish SFT candidates from latam-gpt)
-- [ ] Fix OpenRouter 402 on milwrite account
+- [ ] Fix OpenRouter 402 on milwrite account (DAY 21)
 
 ## Workshop / CAIL Deck
 - [ ] Unpack VSC-IDE setup steps more concretely (slide 9):

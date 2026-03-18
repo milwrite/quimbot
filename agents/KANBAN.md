@@ -1,12 +1,12 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-15 19:00 ET_
+_Last synced: 2026-03-18 19:00 ET_
 
 ## In Progress
-- **Cloze Reader paper (DHQ)** — v13 landed (milwrite intro restored); Section III rewritten from evidence up (v12); STYLE_GUIDE updated (gap-bridging ban); 8 docx versions today (v06–v13); 18 commits today on quimbot
-- **creative-clawing manifest + tooling** — 61 artifacts, 15 microblogs in manifest-v2; Terrain + Aurora shipped to correct repo; INSPIRATION.md pushed; 31 artifacts still missing `mobile_optimized` flag
-- **CAIL Workshop #1 deck** — model registry updated (Kimi K2.5, Llama 3.1 70B, Qwen3 235B, DeepSeek V3.2); Tool 03 removed, Tool 06 (music decomposition) added; open-weight only; stubs remain slides 7–8, 12–15
-- **Reddit "Writing Under Surveillance" chapter draft** — closing landed, style guide extended. Stable.
+- **Cloze Reader paper (DHQ)** — draft at v29 (~2,359 words in draft_intro.txt); 36 commits today; JOURNAL.md added (shared running record); Gitelman sentence revised; inference-engine para + context window separation + Fillenbaum/Hofmann/Rumelhart/Snell refs added; 3 new style rules; reddit directory + old memory directory cleaned out
+- **creative-clawing site** — 67 artifacts live; no new artifacts today (paper focus day)
+- **CAIL Workshop #1 deck** — stubs remain slides 7–8, 12–15
+- **Fine-tuning generation scripts** — 3 scripts committed (097c0081); need test run; superset7 at 39,133 entries
 
 ## Blocked
 - **Run 4 adapter weights** — missing, need retrieval
@@ -19,6 +19,12 @@ _Last synced: 2026-03-15 19:00 ET_
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
+- creative-clawing homepage overhaul: lazy-load iframes, lane glide, manifest single-source, blog card fixes (2026-03-17/18, ~20 commits)
+- Domain Warping artifact added (2026-03-17, 1 commit)
+- Penrose Tiling + Rössler Attractor added, K. Moonshot attribution (2026-03-16, 67 artifacts live)
+- Cloze paper citation chain: Bommasani/Oller/Bachman/Peters/Carlini/Vygotsky (2026-03-17, 2 commits)
+- TOEFL generation scripts committed: build_toefl_spell_seeds, expand_seeds, generate_toefl_expanded (2026-03-17, commit 097c0081)
+- Slime canvas init/sizing fixes (2026-03-18, 2 commits)
 - manifest-v2.json full backfill + update_manifest.py + INSPIRATION.md + asset consolidation (2026-03-14, 7 commits across repos)
 - superset5_merged validated: 19,133 lines, 0 parse errors (2026-03-14)
 - Gallery: Water Ripple + Spirograph added (2026-03-14, 1 commit)

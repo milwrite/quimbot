@@ -1,19 +1,19 @@
 # Dataset Inventory
-_Updated: 2026-03-15 17:05 ET_
+_Updated: 2026-03-17 19:30 ET_
 
 ## Active Superset (use this for training)
 
 | File | Rows | Notes |
 |------|------|-------|
-| `toefl_superset5_merged_20260313.jsonl` | 19,133 | Canonical superset through 2026-03-13. Merged from superset4 (17,549) + toefl_kimik2_10k (+1,503) + toefl_ollama_qwen8b_batch (+81). 0 parse errors, deduplicated by exact JSON key. |
-| `toefl_batch_20260315.jsonl` | 10,000 | **New batch (2026-03-15).** Programmatic TOEFL-style generation. 16 error types (SV agreement, tense, articles, prepositions, adj/adv, modals, redundancy, comparatives, emotion-adj confusion, pronouns, missing auxiliary, double negatives, word order, vocabulary substitution, plurals, make/do). 0 parse errors. Deduplicated against superset5. **Merge into superset6 before training.**
+| `toefl_superset6_merged_20260317.jsonl` | 15,555 | Canonical superset as of 2026-03-17. See source files below. 0 parse errors. |
+| `toefl_batch_20260317.jsonl` | 10,000 | **New batch (2026-03-17).** Off-day generation. 20 error categories: SV agreement, tense base-form, present perfect aux, articles, prepositions, adj/adv, modals, gerund/inf, emotion adj, pronouns, mass noun plurals, double negatives, word order, comparatives, language context, travel context, irregular past, was/were, make/do, since+duration. 0 parse errors. Deduplicated against superset6. **Merge into superset7 before training.** |
 
-## Pending: Superset6
+## Pending: Superset7
 
 | Action | Status |
 |--------|--------|
-| Merge superset5 + toefl_batch_20260315 → toefl_superset6_merged.jsonl | **Pending** (run merge+dedup script) |
-| Expected superset6 rows (pre-dedup) | ~29,133 |
+| Merge superset6 + toefl_batch_20260317 → toefl_superset7_merged.jsonl | **Pending** (run merge+dedup script) |
+| Expected superset7 rows (pre-dedup) | ~25,555 |
 
 ## Source Files
 
@@ -32,9 +32,15 @@ _Updated: 2026-03-15 17:05 ET_
 | `toefl_gptoss20b_10k.jsonl` | 11,999 | 0 | Subsumed by superset4 |
 | `toefl_kimik2_10k.jsonl` | 1,503 | 0 | Subsumed by superset5 |
 | `toefl_ollama_qwen8b_batch_20260313.jsonl` | 81 | 0 | Subsumed by superset5 |
-| `toefl_batch_20260315.jsonl` | 10,000 | 0 | New — pending merge into superset6 |
+| `toefl_batch_20260315.jsonl` | 10,000 | 0 | Merged into superset6 |
+| `toefl_batch_20260317.jsonl` | 10,000 | 0 | New — pending merge into superset7 |
 
 ## In-Progress Generation
+
+| File | Rows (live) | Model | Status |
+| `toefl_batch_20260317.jsonl` | 10,000 | programmatic (Python) | **Complete — awaiting superset7 merge** |
+
+## Prior In-Progress (now complete)
 
 | File | Rows (live) | Model | Status |
 |------|-------------|-------|--------|
