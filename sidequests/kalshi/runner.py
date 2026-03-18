@@ -20,6 +20,9 @@ Usage:
   python runner.py --strategy weather --now
   python runner.py --strategy cpi --now --force-cpi
   python runner.py --status      # print today's P&L + open positions
+
+Strategies: weather + CPI only.
+Fed and NBA strategies exist as files but are not loaded by this runner.
 """
 
 import os
@@ -36,8 +39,6 @@ from core.client import KalshiClient
 from core import log_signal, log_trade, log_close, manage_positions
 import strategies.weather as weather_strat
 import strategies.cpi as cpi_strat
-import strategies.fed as fed_strat
-import strategies.nba as nba_strat
 
 # ── logging setup ──────────────────────────────────────────────────────────────
 Path("logs").mkdir(exist_ok=True)
@@ -59,7 +60,7 @@ MAX_OPEN_POSITIONS  = int(os.getenv("MAX_OPEN_POSITIONS",    "50"))
 MAX_DAILY_LOSS_C    = int(os.getenv("MAX_DAILY_LOSS_CENTS",  "5000"))  # $50
 SCAN_INTERVAL       = int(os.getenv("SCAN_INTERVAL_SEC",     "60"))
 
-ALL_STRATEGIES      = ["weather", "cpi", "fed", "nba"]
+ALL_STRATEGIES      = ["weather", "cpi"]
 
 
 # ── state helpers ─────────────────────────────────────────────────────────────
@@ -146,10 +147,6 @@ def run_scan(strategies: list, client: KalshiClient, dry_run: bool) -> int:
                 orders = weather_strat.run(client, dry_run=dry_run)
             elif strat_name == "cpi":
                 orders = cpi_strat.run(client, dry_run=dry_run)
-            elif strat_name == "fed":
-                orders = fed_strat.run(client, dry_run=dry_run)
-            elif strat_name == "nba":
-                orders = nba_strat.run(client, dry_run=dry_run)
             else:
                 log.warning("Unknown strategy: %s", strat_name)
                 orders = []

@@ -1,28 +1,36 @@
 # Kalshi Trading Bot
 
-Systematic prediction market trading on Kalshi. Two strategies — weather and CPI — using free public data sources. Up to 5 trades per day at scheduled windows.
+Information-edge trading on Kalshi weather and CPI contracts.
+
+## Strategy
+
+The edge is data speed: HRRR forecasts update hourly, NWS station observations
+are near-realtime, and BLS CPI drops at 8:30 AM sharp. Kalshi markets often
+price off stale consensus. When your model disagrees with the market by more
+than the fee hurdle, you trade.
 
 ## Structure
 
 ```
 kalshi/
 ├── core/
-│   ├── auth.py        # RSA-PSS signing, Kalshi API key auth
-│   ├── client.py      # REST client: markets, orderbook, orders, positions
-│   └── logger.py      # JSONL trade + signal logging
+│   ├── auth.py            # RSA-PSS signing, Kalshi API key auth
+│   ├── client.py          # REST client: markets, orderbook, orders, positions
+│   ├── logger.py          # JSONL trade + signal logging
+│   └── position_manager.py
 ├── strategies/
-│   ├── weather.py     # Open-Meteo forecast vs Kalshi high-temp markets
-│   └── cpi.py         # Cleveland Fed nowcast vs Kalshi CPI markets
-├── logs/              # trades.jsonl, signals.jsonl, runner.log (gitignored)
-├── runner.py          # Scheduler + CLI
-├── .env.example       # Config template
+│   ├── weather.py         # HRRR forecast + live NWS obs vs Kalshi high-temp markets
+│   └── cpi.py             # Cleveland Fed nowcast vs Kalshi CPI contracts
+├── logs/                  # trades.jsonl, signals.jsonl, runner.log (gitignored)
+├── runner.py              # Continuous scanner + CLI
+├── .env.example           # Config template
 └── requirements.txt
 ```
 
 ## Setup
 
 ```bash
-cd /home/milwrite/kalshi
+cd sidequests/kalshi
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -30,7 +38,7 @@ cp .env.example .env
 # fill in KALSHI_API_KEY_ID + KALSHI_PRIVATE_KEY_PATH in .env
 ```
 
-## Kalshi Account Setup (morning)
+## Kalshi Account Setup
 
 1. Sign up at kalshi.com
 2. Account & Security → API Keys → Create Key
@@ -47,50 +55,67 @@ python runner.py --dry-run --now
 # Run both strategies now (live)
 python runner.py --now
 
-# Run only weather strategy
+# Run only weather
 python runner.py --strategy weather --now
 
-# Run CPI strategy, ignore timing gate
+# Run CPI only, skip timing gate
 python runner.py --strategy cpi --now --force-cpi
 
-# Start scheduled 5x/day loop
+# Start continuous scan loop (60s interval)
 python runner.py
+
+# Print today's P&L + positions
+python runner.py --status
 ```
-
-## Schedule (ET)
-
-| Time  | Strategies      | Rationale |
-|-------|-----------------|-----------|
-| 07:45 | Weather         | Pre-open scan before markets reprice morning forecast |
-| 08:25 | CPI             | Pre-release window (BLS drops 8:30 AM on release days) |
-| 10:30 | Weather         | Intraday forecast update lag |
-| 13:00 | Weather + CPI   | Afternoon sweep |
-| 15:45 | Weather         | EOD — markets close, expiration approaching |
 
 ## Strategies
 
-### Weather
-- Source: Open-Meteo API (no key) + NWS fallback
-- Markets: Kalshi high-temperature contracts (e.g. "NYC high > 75°F today")
-- Edge: forecast divergence from market-implied probability
-- Minimum edge: 6% after fees
+### Weather (HRRR + live obs)
+- **Forecast source:** Open-Meteo with `models=hrrr_conus` — actual HRRR runs,
+  updated every ~1 hour
+- **Live observations:** NWS `observations/latest` endpoint per city — current
+  station temp, not forecast
+- **Signal:** blended probability weights obs more heavily as market close
+  approaches (obs weight ~0.2 at 12h out, ~0.75 at 2h out)
+- **Cities:** NYC, CHI, LA, MIA, DAL, ATL, HOU, PHX, SEA, BOS
+- **Minimum edge:** 6% after fees
 
 ### CPI
-- Source: Cleveland Fed Inflation Nowcast + BLS API
-- Markets: Kalshi "CPI MoM > X%" contracts
-- Window: 8:00–8:30 AM ET on BLS release days only
-- Minimum edge: 7% after fees
+- **Source:** Cleveland Fed Inflation Nowcast + BLS API fallback
+- **Window:** 8:00–8:30 AM ET on BLS release days only
+- **Minimum edge:** 7% after fees
+
+## Risk Controls
+
+All configured via `.env`:
+
+| Variable | Default | Description |
+|---|---|---|
+| `MAX_DAILY_TRADES` | 200 | Hard cap on orders per day |
+| `MAX_OPEN_POSITIONS` | 50 | Max concurrent open contracts |
+| `MAX_DAILY_LOSS_CENTS` | 5000 | Halt if down $50 on the day |
+| `ORDER_CONTRACTS` | 1 | Contracts per order (start small) |
+| `SCAN_INTERVAL_SEC` | 60 | Seconds between full scans |
+| `WEATHER_EDGE_THRESHOLD` | 0.06 | Minimum edge to trade (weather) |
+| `CPI_EDGE_THRESHOLD` | 0.07 | Minimum edge to trade (CPI) |
+
+## Ticker Format
+
+The series prefixes (`KXHIGHNYCTEMP`, `KXCPI`, etc.) are placeholder guesses.
+Run `--dry-run --now` after adding credentials and check what the market scan
+returns — update `CITIES[*]["series"]` in `weather.py` and `CPI_SERIES_PREFIX`
+in `cpi.py` to match real Kalshi tickers before going live.
 
 ## Trade Log
 
-All signals and orders are written to `logs/`:
-- `signals.jsonl` — every signal considered (including below-edge)
+All signals and orders go to `logs/`:
+- `signals.jsonl` — every signal evaluated (including below-edge)
 - `trades.jsonl` — orders placed + close events
 - `runner.log` — full run log
 
-## Risk
+## Risks
 
-- Hard cap: 5 orders/day (`MAX_DAILY_TRADES` in `.env`)
-- Maker-only limit orders (no market orders)
-- All positions logged with expected close for manual review
-- Kalshi is a CFTC-regulated exchange; real money at risk
+- Kalshi is a CFTC-regulated exchange. Real money is at risk.
+- Maker-only limit orders — no market orders.
+- Ticker format must be confirmed before live trading.
+- Edge thresholds assume ~1% fee per side. Verify current Kalshi fee structure.
