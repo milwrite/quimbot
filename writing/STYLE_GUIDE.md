@@ -116,3 +116,8 @@ The model sentence:
 The test: if you can delete "is what" or "is this:" and the sentence still parses, delete it.
 
 *Add new rules here as they come up. Both Quimbot and Petrarch maintain this file.*
+
+### Nominalization ban (added 2026-03-18)
+- **No verb phrase nominalizations** — "pretraining's reduction of text to token distributions" → "pretraining reduces text to token distributions"
+- The pattern: `[gerund/noun]'s [noun] of [noun]` before the verb arrives = always rewrite as two short sentences
+- Split the nominalization into its verb, then carry the consequence forward as a second sentence
