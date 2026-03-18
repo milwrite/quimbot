@@ -120,6 +120,11 @@
 
 <h2>Cloze Reader</h2>
 
+<figure style="margin: 1.5em 0; border: 1px solid #333; border-radius: 4px; overflow: hidden;">
+  <img src="cloze-reader-screenshot.png" alt="Cloze Reader interface showing a passage from 'Our Legal Heritage, 4th Ed.' by S. A. Reilly at Level 1 with one blank. The passage reads: 'In 1622, the king mandated that clergymen quote scripture only in ________ of the Book of Articles of Religion of 1562...'" style="width: 100%; display: block;">
+  <figcaption style="font-size: 0.8em; color: #888; padding: 0.5em 0.8em; background: #1e1e1e; font-style: italic;">Figure 1. Cloze Reader in use: <em>Our Legal Heritage, 4th Ed.</em> by S. A. Reilly, Level 1, one blank. The model has selected a word from a passage on Puritan dissent and royal preaching restrictions. The AI hint panel (speech bubble icon) is available but not yet consulted.</figcaption>
+</figure>
+
 <p class="no-indent">This article examines a browser-based educational game called Cloze Reader (<a href="https://reader.inference-arcade.com">reader.inference-arcade.com</a>) that uses a language model to generate cloze tasks and returns them to human readers as exercises in contextual induction. Developed as part of the CUNY AI Lab and the broader Inference Arcade initiative, Cloze Reader presents players with short passages from public-domain texts drawn from the Project Gutenberg corpus via the Hugging Face Datasets API, and players propose completions for missing words while consulting an embedded chat panel powered by Google&rsquo;s Gemma-3-27B model for guidance. The hints offer paraphrase and leading questions rather than answers, but the model&rsquo;s primary work happens earlier, when it selects which words to remove, and this selection process instantiates the recursive structure that makes the project a critical artifact.</p>
 
 <p>The recursive structure is in the architecture. Word selection is delegated to the same class of model whose training descended from the cloze procedure. Gemma-3 receives heuristic instructions that translate pedagogical intent into language it can act upon. The following prompt governs which words are removed:</p>
