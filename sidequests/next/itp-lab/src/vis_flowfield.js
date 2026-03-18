@@ -5,6 +5,7 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 // This is a lightweight, no-deps version designed for workshop slides.
 
 export function flowField(container) {
+  container.innerHTML = '';
   const { ctx, resize, destroy } = makeCanvas(container, { pixelRatioCap: 2 });
   container.style.touchAction = 'manipulation';
 
@@ -78,9 +79,11 @@ export function flowField(container) {
   seed();
 
   // Tap/click to reseed.
+  // Only pointerup triggers reseed — pointercancel fires on mobile for system
+  // gestures, incoming notifications, and scroll takeover, and reseeding the
+  // field there is disruptive.
   function onPointer() { seed(); }
   container.addEventListener('pointerup', onPointer);
-  container.addEventListener('pointercancel', onPointer);
 
   let t0 = performance.now();
   const stop = rafLoop((t) => {
@@ -148,7 +151,6 @@ export function flowField(container) {
   return () => {
     stop();
     container.removeEventListener('pointerup', onPointer);
-    container.removeEventListener('pointercancel', onPointer);
     destroy();
   };
 }

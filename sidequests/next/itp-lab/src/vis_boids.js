@@ -4,6 +4,7 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 // This is a lightweight implementation for a slide-stage preview.
 
 export function boids(container) {
+  container.innerHTML = '';
   const { ctx, resize, destroy } = makeCanvas(container, { pixelRatioCap: 2 });
   // Use 'manipulation' (not 'none') so mobile users can still scroll the slide
   // past this stage by panning. Pointer attraction is a nice-to-have, not critical.
