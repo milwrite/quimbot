@@ -125,35 +125,37 @@
   <figcaption style="font-size: 0.8em; color: #888; padding: 0.5em 0.8em; background: #1e1e1e; font-style: italic;">Figure 1. Cloze Reader in use: <em>Our Legal Heritage, 4th Ed.</em> by S. A. Reilly, Level 1, one blank. The model has selected a word from a passage on Puritan dissent and royal preaching restrictions. The AI hint panel (speech bubble icon) is available but not yet consulted.</figcaption>
 </figure>
 
-<p class="no-indent">Cloze Reader (<a href="https://reader.inference-arcade.com">reader.inference-arcade.com</a>) is a browser-based educational game developed as part of the CUNY AI Lab and the broader Inference Arcade initiative. It uses a language model to generate cloze tasks and returns them to human readers as exercises in contextual induction. Players encounter short passages from public-domain texts drawn from the Project Gutenberg corpus via the Hugging Face Datasets API, propose completions for missing words, and consult an embedded chat panel powered by Google&rsquo;s Gemma-3-27B model for guidance. The hints offer paraphrase and leading questions rather than answers, but the model&rsquo;s primary work happens earlier, when it selects which words to remove, and this selection process instantiates the recursive structure that makes the project a critical artifact.</p>
+<p class="no-indent">Cloze Reader (<a href="https://reader.inference-arcade.com">reader.inference-arcade.com</a>) is a browser-based educational game that uses a language model to generate cloze tasks and return them to human readers as exercises in contextual induction. Public source modules for the live application show that passages are drawn from Project Gutenberg through the Hugging Face Datasets API and that the app uses Google&rsquo;s Gemma-3-27B model for word selection, hints, and contextualization (Cloze Reader 2026a; 2026b; Project Gutenberg 2026). Players propose completions for missing words and can consult an embedded chat panel that withholds the answer while offering structural hints and preset questions about part of speech, sentence role, word category, and synonymy (Cloze Reader 2026b; 2026c; 2026d). The model&rsquo;s primary work happens earlier, when it selects which words to remove, and this selection process instantiates the recursive structure that makes the project a critical artifact.</p>
 
-<p>The recursive structure is in the architecture. Word selection is delegated to the same class of model whose training descended from the cloze procedure. Gemma-3 receives heuristic instructions that translate pedagogical intent into language it can act upon. The following prompt governs which words are removed:</p>
+<p>The recursive structure is in the architecture. Word selection is delegated not to a fixed deletion rule but to a predictive language model. The public <code>aiService.js</code> module shows the live app calling <code>google/gemma-3-27b-it</code> for selection and supplying heuristic constraints that translate pedagogical intent into operational rules (Cloze Reader 2026b; Gemma Team 2025). The following prompt governs which words are removed:</p>
 
-<pre><code>Select ${count} ${level <= 2 ? 'easy' : level <= 4 ? 'medium' : 'challenging'} words from this passage.
+<pre><code>Select ${count} ${level <= 2 ? 'easy' : level <= 4 ? 'medium' : 'challenging'} words (${wordLengthConstraint}) from this passage.
 
 CRITICAL RULES:
-- ONLY select lowercase words (no proper nouns)
-- ONLY select words from the MIDDLE or END of the passage
+- Select EXACT words that appear in the passage (copy them exactly as written)
+- ONLY select lowercase words (no capitalized words, no proper nouns)
+- ONLY select words from the MIDDLE or END of the passage (skip the first ~10 words)
+- Words must be ${wordLengthConstraint}
 - Choose nouns, verbs, or adjectives
-- AVOID compound words - choose single, verifiable words
-  with strong contextual salience
+- AVOID compound words like "courthouse" or "steamboat" - choose single, verifiable words with semantic inbetweenness
+- AVOID indexes, tables of contents, and capitalized content
 - Return ONLY a JSON array like ["word1", "word2"]</code></pre>
 
-<p>The prompt translates pedagogical goals into instructions that the model interprets through the statistical regularities of its training corpus rather than through explicit definitions. <strong>Bommasani et al. (2021) describe these as capabilities &ldquo;implicitly induced rather than explicitly constructed,&rdquo;</strong> and this opacity is itself part of what the project stages for critical examination. The prompt further modulates difficulty through vocabulary complexity, requesting &ldquo;easy vocabulary words&rdquo; at early levels and &ldquo;challenging words&rdquo; at higher levels, while a validation layer filters the model&rsquo;s selections by length and presence in the passage, with a manual fallback that avoids function words if the AI response fails parsing.</p>
+<p>The prompt translates pedagogical goals into instructions that the model interprets through the statistical regularities of its training corpus rather than through explicit definitions. <strong>Bommasani et al. (2021) describe these as capabilities &ldquo;implicitly induced rather than explicitly constructed,&rdquo;</strong> and this opacity is itself part of what the project stages for critical examination. The prompt further modulates difficulty through vocabulary and word-length constraints, requesting &ldquo;easy,&rdquo; &ldquo;medium,&rdquo; or &ldquo;challenging&rdquo; selections by level, while a validation layer filters outputs by passage presence and length, with a manual fallback that excludes common function words if the AI response fails or returns unusable items (Cloze Reader 2026b; 2026c).</p>
 
-<p>This architecture enacts a feedback loop. A model whose parameters were shaped by a cloze-like training objective now generates cloze tasks for humans, and the prompt governing that generation serves as an interface between pedagogical intent and statistical prediction. It translates the designer&rsquo;s goals into language the model acts upon through whatever regularities its training instilled.</p>
+<p>This architecture enacts a feedback loop. A model shaped by large-scale predictive pretraining now generates cloze tasks for humans, and the prompt governing that generation serves as an interface between pedagogical intent and statistical prediction. The live app makes that interface unusually visible because the selection rules are written in plain language rather than hidden behind a fixed deletion schedule or a hand-authored word list (Cloze Reader 2026b; Gemma Team 2025).</p>
 
-<p>No two runs of Cloze Reader are identical. Each session draws a passage at random from the Gutenberg corpus, and word selection is performed by a language model whose outputs are temperature-sampled rather than deterministic: the same passage, fed to Gemma-3 twice with the same prompt, will not necessarily yield the same blank. This is not a design failure to be corrected but a structural property of how the system works. The stochasticity of token sampling, which is how large language models avoid collapsing to a single high-probability output, propagates up through the word selection process and into the player&rsquo;s experience. A player who returns to a passage they have seen before may encounter a different word removed, encounter the same word from a different angle because the surrounding hint differs, or find that the model has now flagged something they had not noticed the first time. The opacity is inherited from pretraining: because the model selects by learned regularities rather than by explicit criteria, its choices vary with the same kind of principled unpredictability that characterizes statistical inference at scale. This keeps the game from functioning as a memorizable test and keeps the passages from resolving into fixed puzzles. It also means that the experience of the game is, in a limited but precise sense, a record of the model in motion, a trace of probabilistic inference made legible as play.</p>
+<p>No two runs of Cloze Reader are identical. Each session draws from a streamed Gutenberg dataset, and word selection is performed with non-zero-temperature decoding: the live app requests selections at <code>temperature: 0.5</code> and preloads books from random offsets in its Hugging Face dataset proxy, so the same passage need not yield the same blank on successive runs (Cloze Reader 2026a; 2026b). This is not a design failure to be corrected but a structural property of how the system works. The stochasticity of token sampling propagates up through the word-selection process and into the player&rsquo;s experience. A returning player may encounter a different word removed, or encounter the same word from a different angle because the surrounding hint differs. The opacity is inherited from probabilistic inference: because the model selects by learned regularities rather than by explicit semantic criteria, its choices vary in ways that keep the game from resolving into a fixed, memorizable test.</p>
 
-<p>The choice of Project Gutenberg as source archive is not incidental to Cloze Reader&rsquo;s critical project but constitutive of it. The texts that populate the corpus belong to a body of public-domain literature that the pretraining pipelines of contemporary large language models have absorbed wholesale. Gutenberg&rsquo;s digitized holdings appear as standard components of large-scale training corpora: <em>The Pile</em>, an 800-gigabyte pretraining dataset assembled by EleutherAI, explicitly includes Gutenberg texts among its source collections (Gao et al. 2020), and empirical work on LLM memorization has demonstrated that models trained on such corpora can reproduce verbatim passages from these books under targeted prompting conditions (Carlini et al. 2021). The books have, in a precise sense, been flattened into parameter weights: disaggregated from their narrative forms and recomposed as statistical distributions over tokens, unattributed and unacknowledged in the model&rsquo;s outputs. What Gitelman and Jackson (2013) describe as the mythology of raw data applies with particular force to the literary canon as it enters machine learning infrastructure: the texts arrive as data, stripped of authorship, stripped of occasion, available only as weighted co-occurrence patterns that no reader encounters as such.</p>
+<p>The choice of Project Gutenberg as source archive is not incidental to Cloze Reader&rsquo;s critical project but constitutive of it. The texts that populate the corpus belong to Project Gutenberg&rsquo;s public-domain holdings (Project Gutenberg 2026; Cloze Reader 2026a). Gutenberg&rsquo;s digitized holdings appear as standard components of large-scale training corpora: <em>The Pile</em>, an 800-gigabyte pretraining dataset assembled by EleutherAI, explicitly includes Gutenberg texts among its source collections (Gao et al. 2020), and empirical work on LLM memorization has demonstrated that models trained on such corpora can reproduce verbatim passages from these books under targeted prompting conditions (Carlini et al. 2021). The books have, in a precise sense, been flattened into parameter weights: disaggregated from their narrative forms and recomposed as statistical distributions over tokens, unattributed and unacknowledged in the model&rsquo;s outputs. What Gitelman and Jackson (2013) describe as the mythology of raw data applies with particular force to the literary canon as it enters machine learning infrastructure: the texts arrive as data, stripped of authorship, stripped of occasion, available only as weighted co-occurrence patterns that no reader encounters as such.</p>
 
 <p>Cloze Reader works against this flattening by restoring the passage to the surface. The language model is positioned as one layer of a call stack rather than the whole of it, a component whose outputs become legible only when a human reader engages the passage it was trained on.</p>
 
-<p>The difficulty system distributes challenge across two independent dimensions. Blank count rises from one (levels 1&ndash;5) to two (levels 6&ndash;10) to three (level 11 and beyond). Hint granularity decreases in parallel: early levels provide word length plus first and last letter; later levels give only the first letter; the highest levels offer none. Vocabulary complexity scales separately, with word selection moving from &ldquo;easy&rdquo; to &ldquo;challenging&rdquo; independent of blank count. The result is a two-dimensional difficulty curve that separates the quantity of inferential demand from its lexical complexity.</p>
+<p>The difficulty system distributes challenge across two independent dimensions. Blank count rises from one (levels 1&ndash;5) to two (levels 6&ndash;10) to three (level 11 and beyond). Structural hints also change by level: levels 1&ndash;2 provide word length plus first and last letter, while later levels provide word length plus the first letter only. Vocabulary difficulty scales separately, with the word-selection prompt moving from &ldquo;easy&rdquo; to &ldquo;medium&rdquo; to &ldquo;challenging&rdquo; as levels increase. The result is a two-dimensional difficulty curve that separates the number of inferential tasks from the lexical difficulty of the selected words (Cloze Reader 2026b; 2026c).</p>
 
-<p><strong>The hint system models a form of graduated scaffolding, following Wood, Bruner, and Ross (1976) and Vygotsky&rsquo;s (1978) zone of proximal development, directing attention without supplying the answer. Its hints are static rather than adaptive, a constraint Pea (2004) would recognize as a departure from the original scaffolding criteria, and this design choice is part of what the artifact makes available for examination.</strong></p>
+<p><strong>The hint system models a form of graduated scaffolding, following Wood, Bruner, and Ross (1976) and Vygotsky&rsquo;s (1978) zone of proximal development, directing attention without supplying the answer. The live code enforces that withholding explicitly (&ldquo;Never reveal the answer word directly&rdquo;), while the hints remain static rather than adaptive, a constraint Pea (2004) would recognize as a departure from the original scaffolding criteria (Cloze Reader 2026b).</strong></p>
 
-<p>The embedded chat panel runs on Gemma-3-27B to paraphrase surrounding context and provide target clues in the form of preset syntactic or semantic hints. When a player consults it, they see one way of parsing the passage&rsquo;s contextual constraints, which may clarify their own thinking or feel beside the point. That variability is itself instructive: it surfaces the difference between machine-generated guidance and human interpretive judgment.</p>
+<p>The embedded chat panel runs on the same Gemma-3-27B endpoint and offers preset prompts about part of speech, sentence role, word category, and synonymy rather than a free-form explanatory tutor (Cloze Reader 2026b; 2026d). When a player consults it, they see one way of parsing the passage&rsquo;s contextual constraints, which may clarify their own thinking or feel beside the point. That variability is itself instructive: it surfaces the difference between machine-generated guidance and human interpretive judgment.</p>
 
 <h2>Continuity and Asymmetry</h2>
 
@@ -161,7 +163,7 @@ CRITICAL RULES:
 
 <p>Dividing the cloze task between model and player, separating selection from interpretation, holds apart what masked language modeling conflates. The model identifies where context matters. The reader decides what context means. That division stages the asymmetry rather than resolving it: Taylor&rsquo;s procedure assessed comprehension as a holistic capacity; BERT&rsquo;s objective optimized prediction as a training signal. Cloze Reader makes the gap between those two operations visible through play.</p>
 
-<p>Empirical work comparing human and model cloze responses confirms that structural similarity does not guarantee functional equivalence. Across recent studies, models systematically misalign with human response distributions and struggle with contextual integration across longer spans (PMC 2024; arXiv 2024; Xie et al. 2018). Detailed performance figures follow in the evidence section.</p>
+<p>Empirical work comparing human and model cloze responses confirms that structural similarity does not guarantee functional equivalence. Across recent studies, models systematically misalign with human response distributions and struggle with contextual integration across longer spans (Rego, Snell, and Meeter 2024; Jacobs, Grobol, and Tsang 2024; Xie et al. 2018). Detailed performance figures follow in the evidence section.</p>
 
 <p>Cloze Reader returns a practice that migrated from educational assessment into machine learning infrastructure back to human readers as an invitation to read slowly and contextually. The article traces the pedagogical and computational genealogies of the cloze procedure, examines empirical evidence documenting divergences between human and model performance on cloze tasks, and presents Cloze Reader&rsquo;s architectural and design decisions as a critical intervention into contemporary debates about AI literacy and the limits of prediction as a proxy for understanding. The convergence between Taylor&rsquo;s procedure and masked language modeling is real, grounded in the shared insight that contextual prediction offers a window onto linguistic competence. The purposes differ. Taylor wanted to measure comprehension. BERT&rsquo;s developers wanted to induce representations. Cloze Reader inherits both histories and uses game mechanics to hold them apart for examination. Pretraining reduces text to token distributions, and the blanked-out word makes that selection and reduction of human language legible by way of metonym, which is to say, through an act of occlusion that foregrounds how Gutenberg Project texts have been broken down, mathematized, and rendered into training data. The act of inferring the word from context, read against the summary and hint mechanisms, therefore requires human players to partake in precisely the sort of close reading practices that have been decentered by the advent of LLMs, reacquainting them with otherwise flattened or forgotten texts that have been totalized through extraction and foreclosure at scale. At the same time, the process demonstrates what the model, having processed the same passage and selected a word to occlude, cannot do by virtue of its low-latency engine: read, or better yet, read slowly.</p>
 
@@ -171,17 +173,33 @@ CRITICAL RULES:
 
 <p class="ref">Abraham, R.G. and Chapelle, C.A. (1992) &lsquo;The meaning of cloze test scores: An item difficulty perspective,&rsquo; <em>The Modern Language Journal</em>, 76(4), pp. 468&ndash;479.</p>
 
-<p class="ref">Alammar, J. (2019) &lsquo;The illustrated BERT, ELMo, and co.,&rsquo; <em>jalammar.github.io</em>. Available at: <a href="https://jalammar.github.io/illustrated-bert/">jalammar.github.io/illustrated-bert/</a></p>
-
 <p class="ref">Bachman, L.F. (1985) &lsquo;Performance on cloze tests with fixed-ratio and rational deletions,&rsquo; <em>TESOL Quarterly</em>, 19(3), pp. 535&ndash;556.</p>
 
 <p class="ref">Bommasani, R. et al. (2021) &lsquo;On the opportunities and risks of foundation models,&rsquo; <em>arXiv:2108.07258</em>. Available at: <a href="https://arxiv.org/abs/2108.07258">arxiv.org/abs/2108.07258</a></p>
+
+<p class="ref">Carlini, N. et al. (2021) &lsquo;Extracting training data from large language models,&rsquo; in <em>Proceedings of the 30th USENIX Security Symposium</em>. USENIX Association, pp. 2633&ndash;2650.</p>
+
+<p class="ref">Cloze Reader (2026a) &lsquo;bookDataService.js&rsquo;. Available at: <a href="https://reader.inference-arcade.com/src/bookDataService.js">reader.inference-arcade.com/src/bookDataService.js</a> (Accessed: 18 March 2026).</p>
+
+<p class="ref">Cloze Reader (2026b) &lsquo;aiService.js&rsquo;. Available at: <a href="https://reader.inference-arcade.com/src/aiService.js">reader.inference-arcade.com/src/aiService.js</a> (Accessed: 18 March 2026).</p>
+
+<p class="ref">Cloze Reader (2026c) &lsquo;clozeGameEngine.js&rsquo;. Available at: <a href="https://reader.inference-arcade.com/src/clozeGameEngine.js">reader.inference-arcade.com/src/clozeGameEngine.js</a> (Accessed: 18 March 2026).</p>
+
+<p class="ref">Cloze Reader (2026d) &lsquo;conversationManager.js&rsquo;. Available at: <a href="https://reader.inference-arcade.com/src/conversationManager.js">reader.inference-arcade.com/src/conversationManager.js</a> (Accessed: 18 March 2026).</p>
 
 <p class="ref">Devlin, J. et al. (2019) &lsquo;BERT: Pre-training of deep bidirectional transformers for language understanding,&rsquo; in <em>Proceedings of NAACL-HLT 2019</em>. Minneapolis, MN: Association for Computational Linguistics, pp. 4171&ndash;4186.</p>
 
 <p class="ref">Firth, J.R. (1957) &lsquo;A synopsis of linguistic theory, 1930&ndash;1955,&rsquo; in <em>Studies in Linguistic Analysis</em>. Oxford: Philological Society, pp. 1&ndash;32.</p>
 
+<p class="ref">Gao, L. et al. (2020) &lsquo;The Pile: An 800GB dataset of diverse text for language modeling,&rsquo; <em>arXiv:2101.00027</em>. Available at: <a href="https://arxiv.org/abs/2101.00027">arxiv.org/abs/2101.00027</a></p>
+
+<p class="ref">Gemma Team (2025) &lsquo;Gemma 3 Technical Report,&rsquo; <em>arXiv:2503.19786</em>. Available at: <a href="https://arxiv.org/abs/2503.19786">arxiv.org/abs/2503.19786</a></p>
+
+<p class="ref">Gitelman, L. and Jackson, V. (2013) &lsquo;Introduction,&rsquo; in Gitelman, L. and Jackson, V. (eds) <em>&lsquo;Raw Data&rsquo; Is an Oxymoron</em>. Cambridge, MA: MIT Press, pp. 1&ndash;14.</p>
+
 <p class="ref">Harris, Z.S. (1954) &lsquo;Distributional structure,&rsquo; <em>Word</em>, 10(2&ndash;3), pp. 146&ndash;162.</p>
+
+<p class="ref">Jacobs, C.L., Grobol, L. and Tsang, A. (2024) &lsquo;Large-scale cloze evaluation reveals that token prediction tasks are neither lexically nor semantically aligned,&rsquo; <em>arXiv:2410.12057</em>. Available at: <a href="https://arxiv.org/abs/2410.12057">arxiv.org/abs/2410.12057</a></p>
 
 <p class="ref">Jongsma, E. (1980) <em>Cloze instruction research: A second look</em>. Newark, DE: International Reading Association.</p>
 
@@ -193,24 +211,23 @@ CRITICAL RULES:
 
 <p class="ref">Oller, J.W. (1979) <em>Language Tests at School</em>. London: Longman.</p>
 
+<p class="ref">Pea, R.D. (2004) &lsquo;The social and technological dimensions of scaffolding and related theoretical concepts for learning, education, and human activity,&rsquo; <em>Journal of the Learning Sciences</em>, 13(3), pp. 423&ndash;451.</p>
+
 <p class="ref">Peters, M.E. et al. (2018) &lsquo;Deep contextualized word representations,&rsquo; in <em>Proceedings of NAACL-HLT 2018</em>. New Orleans, LA: Association for Computational Linguistics, pp. 2227&ndash;2237.</p>
 
+<p class="ref">Project Gutenberg (2026) <em>Project Gutenberg</em>. Available at: <a href="https://www.gutenberg.org/">www.gutenberg.org</a> (Accessed: 18 March 2026).</p>
+
+<p class="ref">Rego, A.T.L., Snell, J. and Meeter, M. (2024) &lsquo;Language models outperform cloze predictability in a cognitive model of reading,&rsquo; <em>PLOS Computational Biology</em>, 20(9), e1012117. Available at: <a href="https://doi.org/10.1371/journal.pcbi.1012117">doi.org/10.1371/journal.pcbi.1012117</a></p>
+
 <p class="ref">Taylor, W.L. (1953) &lsquo;&ldquo;Cloze procedure&rdquo;: A new tool for measuring readability,&rsquo; <em>Journalism Quarterly</em>, 30(4), pp. 415&ndash;433.</p>
-
-<p class="ref">Xie, Q. et al. (2018) &lsquo;Large-scale cloze test dataset created by teachers,&rsquo; in <em>Proceedings of EMNLP 2018</em>. Brussels: Association for Computational Linguistics, pp. 2344&ndash;2356.</p>
-
-
-<p class="ref">Carlini, N. et al. (2021) &lsquo;Extracting training data from large language models,&rsquo; in <em>Proceedings of the 30th USENIX Security Symposium</em>. USENIX Association, pp. 2633&ndash;2650.</p>
-
-<p class="ref">Gao, L. et al. (2020) &lsquo;The Pile: An 800GB dataset of diverse text for language modeling,&rsquo; <em>arXiv:2101.00027</em>. Available at: <a href="https://arxiv.org/abs/2101.00027">arxiv.org/abs/2101.00027</a></p>
-
-<p class="ref">Pea, R.D. (2004) &lsquo;The social and technological dimensions of scaffolding and related theoretical concepts for learning, education, and human activity,&rsquo; <em>Journal of the Learning Sciences</em>, 13(3), pp. 423&ndash;451.</p>
 
 <p class="ref">Vygotsky, L.S. (1978) <em>Mind in Society: The Development of Higher Psychological Processes</em>. Cambridge, MA: Harvard University Press.</p>
 
 <p class="ref">Wood, D., Bruner, J.S. and Ross, G. (1976) &lsquo;The role of tutoring in problem solving,&rsquo; <em>Journal of Child Psychology and Psychiatry</em>, 17(2), pp. 89&ndash;100.</p>
 
-<p class="draft-note">Draft v24 &middot; Updated 2026-03-18 13:07 EDT &middot; ~2,830 words &middot; Redundancy fix + artifact signpost removed</p>
+<p class="ref">Xie, Q. et al. (2018) &lsquo;Large-scale cloze test dataset created by teachers,&rsquo; in <em>Proceedings of EMNLP 2018</em>. Brussels: Association for Computational Linguistics, pp. 2344&ndash;2356.</p>
+
+<p class="draft-note">Draft v25 &middot; Updated 2026-03-18 14:16 EDT &middot; ~3,250 words &middot; Citation pass + primary-source additions</p>
 
 </body>
 </html>
