@@ -29,11 +29,11 @@ Zero latency, no JSON compliance risk, no model dependency. The post-hoc JS vali
 
 One sentence of literary/historical context per passage. Max 150 tokens, temperature 0.7. Output is decorative — doesn't affect gameplay. Failure falls back gracefully to a boilerplate attribution string.
 
-**Proposal: 1B–3B instruct model.**
+**Proposal: static lookup table first, model as fallback.**
 
-SmolLM2-1.7B-Instruct or Phi-3.5-Mini. One sentence of well-known Gutenberg-era author context is well within 1B range. Quality degrades for obscure texts, but the fallback is already deployed and acceptable.
+A static author/period/genre → context string table covers the Gutenberg corpus well (finite author set, stable metadata). Zero inference cost, no hallucination risk on dates or attributions. For authors outside the table, fall back to SmolLM2-1.7B-Instruct or Phi-3.5-Mini. The existing boilerplate fallback stays as the final tier.
 
-**Risk:** Low. Fallback covers failure. If the model hallucinates a date or attribution, it's decorative — not part of the scored mechanic.
+**Risk:** Low. The only failure mode is a gap in the lookup table, which the fallback already handles.
 
 ### 3. Hint Generation (`generateContextualHint` via `ChatService`)
 
@@ -49,7 +49,9 @@ Qwen2.5-7B-Instruct or Mistral-7B-Instruct-v0.3. Both handle the soft instructio
 2. **Morphological leak** — model outputs a variant (e.g., "a form of *illuminate*" when target is "illumined"). Harder to catch; requires stemming or edit-distance check against the target in the hint validator.
 3. **Near-synonym that collapses difficulty** — model gives a synonym so obvious it removes the challenge. Subjective; requires human eval pass.
 
-The current `_validateWords` string match catches case 1 only. Before committing to a smaller model for hints, run an adversarial pass on the synonym prompt with 50–100 literary word samples, checking for cases 1 and 2 specifically.
+The current `_validateWords` string match catches case 1 only. The fix for cases 1 and 2 belongs in the `/api/ai/chat` proxy as a server-side output filter — stemmed match check against the target word before the response reaches the client. This applies regardless of model size and should ship independently of the model swap.
+
+Before committing to a smaller model for hints, run an adversarial pass on the synonym prompt with 50–100 literary word samples, checking for cases 1 and 2 specifically.
 
 **Risk:** Medium. The failure mode isn't bad output — it's output that breaks the game mechanic. Morphological leak (case 2) is the highest-priority gap in the current validation logic regardless of model size.
 
@@ -60,7 +62,7 @@ The current `_validateWords` string match catches case 1 only. Before committing
 | Task | Current | Proposed | Risk |
 |---|---|---|---|
 | Word selection | LLM call (JSON array) | `wordfreq` + NLTK POS — no model | Low |
-| Contextualization | LLM call (~25 words) | SmolLM2-1.7B or Phi-3.5-Mini | Low (fallback covers failure) |
+| Contextualization | LLM call (~25 words) | Static lookup table; SmolLM2-1.7B as fallback | Low (fallback covers failure) |
 | Hint generation | LLM call (4 hint types) | Qwen2.5-7B-Instruct | Medium (needs adversarial pass) |
 
 ---
