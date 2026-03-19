@@ -21,21 +21,25 @@ class KalshiClient:
 
     def _get(self, path: str, params: dict = None) -> dict:
         url = self.base + path
-        headers = sign_headers("GET", path)
+        # Signing requires the full path including /trade-api/v2 prefix
+        full_path = "/trade-api/v2" + path
+        headers = sign_headers("GET", full_path)
         r = self.session.get(url, headers=headers, params=params, timeout=self.timeout)
         r.raise_for_status()
         return r.json()
 
     def _post(self, path: str, body: dict) -> dict:
         url = self.base + path
-        headers = sign_headers("POST", path)
+        full_path = "/trade-api/v2" + path
+        headers = sign_headers("POST", full_path)
         r = self.session.post(url, headers=headers, json=body, timeout=self.timeout)
         r.raise_for_status()
         return r.json()
 
     def _delete(self, path: str) -> dict:
         url = self.base + path
-        headers = sign_headers("DELETE", path)
+        full_path = "/trade-api/v2" + path
+        headers = sign_headers("DELETE", full_path)
         r = self.session.delete(url, headers=headers, timeout=self.timeout)
         r.raise_for_status()
         return r.json()

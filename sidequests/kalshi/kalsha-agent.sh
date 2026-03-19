@@ -20,6 +20,12 @@ if [[ -f venv/bin/activate ]]; then
     source venv/bin/activate
 fi
 
+# ~/kalshi/.env is the canonical credentials file
+if [[ -f "$HOME/kalshi/.env" ]]; then
+    set -a; source "$HOME/kalshi/.env"; set +a
+fi
+
+# Local sidequests/kalshi/.env can override individual vars if needed
 if [[ -f .env ]]; then
     set -a; source .env; set +a
 fi

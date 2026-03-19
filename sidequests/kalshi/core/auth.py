@@ -1,6 +1,11 @@
 """
 Kalshi API v2 - RSA-PSS authentication helper.
-Reads KALSHI_API_KEY_ID and KALSHI_PRIVATE_KEY_PATH from env / .env file.
+Reads KALSHI_API_KEY_ID and KALSHI_PRIVATE_KEY_PATH from env at call time.
+
+Env load order (first match wins per var):
+  1. Already-set environment variables (e.g. from shell or cron set -a source)
+  2. ~/kalshi/.env  (canonical credentials location)
+  3. local .env in the kalshi project dir (overrides)
 """
 
 import os
@@ -13,33 +18,57 @@ from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.backends import default_backend
 
-# ── env ──────────────────────────────────────────────────────────────────────
+# ── env loading ───────────────────────────────────────────────────────────────
 try:
     from dotenv import load_dotenv
-    load_dotenv(Path(__file__).parent.parent / ".env")
+    # Load ~/kalshi/.env first (canonical creds), then local .env (overrides)
+    # override=False so already-exported env vars are never clobbered
+    _home_env = Path.home() / "kalshi" / ".env"
+    _local_env = Path(__file__).parent.parent / ".env"
+    if _home_env.exists():
+        load_dotenv(_home_env, override=False)
+    if _local_env.exists():
+        load_dotenv(_local_env, override=True)
 except ImportError:
     pass
 
-DEMO_BASE   = "https://demo-api.kalshi.co/trade-api/v2"
-PROD_BASE   = "https://trading-api.kalshi.com/trade-api/v2"
+DEMO_BASE = "https://demo-api.kalshi.co/trade-api/v2"
+PROD_BASE = "https://api.elections.kalshi.com/trade-api/v2"
 
-USE_DEMO    = os.getenv("KALSHI_USE_DEMO", "true").lower() == "true"
-BASE_URL    = DEMO_BASE if USE_DEMO else PROD_BASE
 
-API_KEY_ID       = os.getenv("KALSHI_API_KEY_ID", "")
-PRIVATE_KEY_PATH = os.getenv("KALSHI_PRIVATE_KEY_PATH", "")
+def _base_url() -> str:
+    use_demo = os.getenv("KALSHI_USE_DEMO", "true").lower() == "true"
+    return DEMO_BASE if use_demo else PROD_BASE
+
+
+# Expose BASE_URL as a property-like helper (read at call time)
+BASE_URL = property(lambda self: _base_url())
+
+
+def _get_api_key_id() -> str:
+    return os.getenv("KALSHI_API_KEY_ID", "")
+
+
+def _get_private_key_path() -> str:
+    return os.getenv("KALSHI_PRIVATE_KEY_PATH", "")
+
+
+def get_base_url() -> str:
+    return _base_url()
 
 
 def _load_private_key():
-    if not PRIVATE_KEY_PATH:
+    path = _get_private_key_path()
+    if not path:
         raise EnvironmentError("KALSHI_PRIVATE_KEY_PATH not set")
-    with open(PRIVATE_KEY_PATH, "rb") as f:
+    with open(path, "rb") as f:
         return serialization.load_pem_private_key(f.read(), password=None, backend=default_backend())
 
 
 def sign_headers(method: str, path: str) -> dict:
     """Return the three Kalshi auth headers for a given method + path."""
-    if not API_KEY_ID:
+    api_key_id = _get_api_key_id()
+    if not api_key_id:
         raise EnvironmentError("KALSHI_API_KEY_ID not set")
 
     ts = str(int(datetime.datetime.now().timestamp() * 1000))
@@ -58,8 +87,12 @@ def sign_headers(method: str, path: str) -> dict:
     )
 
     return {
-        "KALSHI-ACCESS-KEY":       API_KEY_ID,
+        "KALSHI-ACCESS-KEY":       api_key_id,
         "KALSHI-ACCESS-TIMESTAMP": ts,
         "KALSHI-ACCESS-SIGNATURE": base64.b64encode(sig).decode(),
         "Content-Type":            "application/json",
     }
+
+
+# Module-level BASE_URL compat: read at import time but also refreshable
+BASE_URL = get_base_url()
