@@ -56,7 +56,30 @@ class KalshiClient:
         return self._get(f"/markets/{ticker}").get("market", {})
 
     def get_orderbook(self, ticker: str, depth: int = 10) -> dict:
-        return self._get(f"/markets/{ticker}/orderbook", {"depth": depth})
+        raw = self._get(f"/markets/{ticker}/orderbook", {"depth": depth})
+        if not raw:
+            return {}
+        # API returns orderbook_fp with decimal dollar strings; normalise to
+        # legacy format {orderbook: {yes: [[cents, qty], ...], no: [...]}}
+        fp = raw.get("orderbook_fp") or raw.get("orderbook")
+        if fp is None:
+            return raw
+        def to_cents(rows):
+            out = []
+            for row in (rows or []):
+                try:
+                    cents = round(float(row[0]) * 100)
+                    qty   = float(row[1])
+                    out.append([cents, qty])
+                except (IndexError, ValueError, TypeError):
+                    pass
+            return out
+        return {
+            "orderbook": {
+                "yes": to_cents(fp.get("yes_dollars", [])),
+                "no":  to_cents(fp.get("no_dollars",  [])),
+            }
+        }
 
     def get_market_history(self, ticker: str, limit: int = 100) -> list:
         return self._get(f"/markets/{ticker}/history", {"limit": limit}).get("history", [])
