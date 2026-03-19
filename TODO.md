@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-17 21:00 ET
+**Last Updated:** 2026-03-18 21:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -15,6 +15,11 @@
 ## Medium Priority
 - [x] Refresh `fine-tuning/data/INVENTORY.md` after merge/dedup and recount totals ✅ 3/17
 - [x] Cloze reader paper: citation chain upgrades (words 1000-2000) ✅ 3/18
+- [x] Cloze reader paper: v15-v29 revision marathon (Gutenberg, stochasticity, Figure 1, closing, Gitelman, inference-engine) ✅ 3/18
+- [x] Create shared JOURNAL.md for cloze-reader paper ✅ 3/18
+- [x] Add Kalshi trading bot (weather + CPI strategies) ✅ 3/18
+- [ ] Cloze reader paper: sharpen thesis paragraph for body section inheritance
+- [ ] Cloze reader paper: obtain formal S1→S2 approval from milwrite
 - [ ] Log dedup delta (kept vs removed rows) in `STATUS.md` and `KANBAN.md`
 - [ ] Verify superset7 dedup integrity (39,133 rows — confirm no duplicates slipped through)
 - [ ] Cloze reader paper: draft Section IV

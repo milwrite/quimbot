@@ -1,8 +1,13 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-17 21:00 ET_
+_Last synced: 2026-03-18 21:00 ET_
 
 ## ✅ Done
+- **Cloze reader paper v15→v29** — 38 commits: citation chain, Gutenberg rationale, stochasticity para, Figure 1, milwrite closing, Gitelman/Fillenbaum/Hofmann/Rumelhart/Snell, inference-engine para, context window separation, 3 new style rules ✅ 3/18
+- **Shared JOURNAL.md** — merged Quimbot + Petrarch entries into single running record (`7c625f6e`) ✅ 3/18
+- **Kalshi trading bot** — weather + CPI strategies (`b9defd29`), trimmed (`75db7eba`) ✅ 3/18
+- **Repo cleanup** — deleted stale `writing/reddit/` + `memory/` dirs from git ✅ 3/18
+- **Nightly stocktake** — STATUS, KANBAN, TODO synced (`4532d74d`) ✅ 3/18
 - **3 TOEFL generation scripts** — `build_toefl_spell_seeds`, `expand_seeds`, `generate_toefl_expanded` (302 lines, `097c0081`) ✅ 3/17
 - **toefl_batch_20260317: 10,000 entries** — 20 error categories, programmatic generation ✅ 3/17
 - **Cloze reader paper Section III v3** — 6 revision passes, closing paragraph polished (~320 words) ✅ 3/17

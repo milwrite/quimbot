@@ -10,6 +10,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-03-18)
+- **Cloze reader live draft is additive-only** — never rewrite existing v14 prose; only insert new sentences or extend. milwrite preserves voice.
+- **JOURNAL.md is the canonical shared record** for cloze-reader paper (both bots maintain it)
+- **Style guide now has 3 new rules**: bridging constructions ban, nominalization ban, em-dash enclosure rule
+- **Kalshi sidequest**: weather + CPI only (trimmed from broader scope)
+- **Session 2 requires formal S1→S2 token** from milwrite before scope opens
+
 ## Agent Documentation
 
 Agent coordination files are in the project root:
