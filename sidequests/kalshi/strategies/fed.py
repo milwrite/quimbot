@@ -95,12 +95,11 @@ def fetch_fred_fedfunds() -> Optional[float]:
 
 def find_fed_markets(client: KalshiClient) -> list:
     """Return all open Fed rate markets, sorted by threshold ascending."""
-    markets = client.get_markets(limit=500)
-    fed_markets = [
-        m for m in markets
-        if any(m.get("ticker", "").startswith(p) for p in FED_SERIES_PREFIXES)
-        and m.get("status") == "open"
-    ]
+    fed_markets = []
+    for series in FED_SERIES_PREFIXES:
+        resp = client._get("/markets", {"series_ticker": series, "status": "open", "limit": 100})
+        if resp:
+            fed_markets.extend(resp.get("markets", []))
     return fed_markets
 
 
@@ -108,20 +107,19 @@ def parse_rate_threshold(ticker: str) -> Optional[float]:
     """
     Extract rate threshold from ticker.
     Examples:
-      KXFED-25DEC-T4P25 → 4.25
-      KXFED-25MAR-T4P00 → 4.00
-      KXFED-25JUN-T4P50 → 4.50
+      KXFED-27APR-T4.25  → 4.25  (new decimal format)
+      KXFED-25DEC-T4P25  → 4.25  (old P-delimited format)
     """
-    # Pattern: T{whole}P{frac} where frac is hundredths
+    # New format: T followed by decimal like T4.25 or T3.50
+    match = re.search(r"-T(\d+\.\d+)", ticker)
+    if match:
+        return float(match.group(1))
+    # Old format: T{whole}P{frac}
     match = re.search(r"T(\d+)P(\d+)", ticker)
     if match:
         whole = int(match.group(1))
         frac  = int(match.group(2))
         return whole + frac / 100
-    # Alternate: look for decimal in ticker like 4.25, 4.00
-    match2 = re.search(r"(\d+)\.(\d+)", ticker)
-    if match2:
-        return float(f"{match2.group(1)}.{match2.group(2)}")
     return None
 
 
