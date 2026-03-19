@@ -110,14 +110,19 @@ class KalshiClient:
         order_type: str = "limit",
         client_order_id: str = None,
     ) -> dict:
+        # API requires exactly one price field: yes_price OR no_price (not both)
+        # price param is always in cents for the side being bought
+        if side == "yes":
+            price_key, price_val = "yes_price", price
+        else:
+            price_key, price_val = "no_price", price
         body = {
-            "ticker":     ticker,
-            "side":       side,
-            "action":     action,
-            "count":      count,
-            "type":       order_type,
-            "yes_price":  price if side == "yes" else 100 - price,
-            "no_price":   100 - price if side == "yes" else price,
+            "ticker":   ticker,
+            "side":     side,
+            "action":   action,
+            "count":    count,
+            "type":     order_type,
+            price_key:  price_val,
         }
         if client_order_id:
             body["client_order_id"] = client_order_id
