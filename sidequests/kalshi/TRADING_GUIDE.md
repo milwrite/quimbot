@@ -160,3 +160,50 @@ Start with CPI and weather — external data sources are clean, the trading wind
 - fiftycentdollars.substack.com — structural inefficiency analysis
 - Cleveland Fed Inflation Nowcasting — <https://www.clevelandfed.org/indicators-and-data/inflation-nowcasting>
 - NOAA GFS forecasts — <https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/global-forcast-system-gfs>
+
+---
+
+## Known Failures (Dry Run Audit — 2026-03-18)
+
+### Bug 1: B-ticker threshold parsing is broken (CRITICAL)
+
+B-type contracts use format `KXHIGHNY-26MAR19-B49.5`. The parser is stripping the decimal and reading the threshold as 495°F instead of 49.5°F.
+
+Evidence from log:
+```
+KXHIGHNY-26MAR19-B49.5 no @ $0.0600 edge=86.5% — NYC forecast=37.6°F vs threshold=495°F (NO)
+KXHIGHNY-26MAR19-B47.5 no @ $0.1200 edge=80.5% — NYC forecast=37.6°F vs threshold=475°F (NO)
+```
+
+All B-type weather contract edge calculations are garbage. Do not go live until fixed.
+
+**Fix:** Update `parse_threshold()` in `weather.py` to handle `B{float}` tickers correctly:
+```python
+# B-type: "KXHIGHNY-26MAR19-B49.5" → 49.5
+m = re.search(r"-B(\d+\.?\d*)$", ticker)
+if m: return float(m.group(1))
+```
+
+### Bug 2: Cleveland Fed nowcast scraper failing silently
+
+Log: `CPI: using BLS trailing MoM: 0.267%`
+
+The Cleveland Fed scraper fell back to last month's actual BLS CPI data. The bot is trading on a stale backward-looking number, not a forward nowcast estimate.
+
+This is critical for CPI strategy — the whole edge depends on having the *forward* estimate, not last month's actual.
+
+**Fix:** Add explicit log when nowcast fetch fails. Check if Cleveland Fed URL has changed or rate-limited. Consider parsing the JSON data endpoint directly instead of scraping HTML.
+
+### Bug 3: Double-firing scheduler
+
+Log shows two identical runs 42 seconds apart (11:53:01 and 11:53:43). The scheduler is triggering the same strategy twice in quick succession. With live orders this would double your position.
+
+**Fix:** Add a run lock / debounce. Track last-run timestamp per strategy and skip if last run was < N minutes ago.
+
+### What is working:
+- RSA-PSS authentication: confirmed live
+- Balance read: $6,282 confirmed
+- Market fetching: all open markets loading
+- T-type weather tickers: parsing correctly
+- CPI T-type tickers: parsing correctly, edge calculation directionally sound
+- Signal direction: LA at 92.9°F correctly identifies YES on 83°F / 89°F thresholds
