@@ -75,6 +75,10 @@ Before committing to a smaller model for hints, run an adversarial pass on the s
 
 ---
 
+## Paper Relevance Note
+
+The replaceability of word selection by a frequency table and POS tagger is analytically useful for the artifact section of the paper. If `wordfreq` + NLTK reproduces the output behavior of the 27B model on this task, that sharpens the question of what the larger model is actually contributing when it "selects words with semantic inbetweenness." The answer is either: (a) something the frequency table cannot capture (genuine semantic judgment), or (b) nothing — the prompt's post-hoc constraints do the real work and the model is incidental. That distinction is worth surfacing explicitly in the artifact description. Running a small comparison pass (model selections vs. wordfreq selections on 20–30 passages) would make the claim empirical rather than conjectural.
+
 ## Open Questions for milwrite
 
 - Is local inference (Ollama) acceptable, or does this need to stay API-compatible?
