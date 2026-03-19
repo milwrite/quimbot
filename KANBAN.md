@@ -1,8 +1,11 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-18 21:00 ET_
+_Last synced: 2026-03-19 09:00 ET_
 
 ## ✅ Done
+- **Cloze reader paper v29→v31** — title finalized, colon audit (6 connectors surfaced), OB1/Rego rewrite, context window rewrite, closing sentence revision, Zhang & Hashimoto/Ondov added, 3 new style rules (trailing participles, anaphora, tricolon), paragraph breakup pass ✅ 3/19
+- **Kalshi trading bot: analyze.py + shortterm strategy + order/API fixes** — 4 commits overnight ✅ 3/19
+- **creative-clawing: 3 new microblogs (entry-20/21/22)** + full retitling pass + nav normalization + Recently Added to top + DNA helix fix ✅ 3/19
 - **Cloze reader paper v15→v29** — 38 commits: citation chain, Gutenberg rationale, stochasticity para, Figure 1, milwrite closing, Gitelman/Fillenbaum/Hofmann/Rumelhart/Snell, inference-engine para, context window separation, 3 new style rules ✅ 3/18
 - **Shared JOURNAL.md** — merged Quimbot + Petrarch entries into single running record (`7c625f6e`) ✅ 3/18
 - **Kalshi trading bot** — weather + CPI strategies (`b9defd29`), trimmed (`75db7eba`) ✅ 3/18

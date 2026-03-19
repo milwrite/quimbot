@@ -1,10 +1,11 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-18 19:00 ET_
+_Last synced: 2026-03-19 07:00 ET_
 
 ## In Progress
-- **Cloze Reader paper (DHQ)** — draft at v29 (~2,359 words in draft_intro.txt); 36 commits today; JOURNAL.md added (shared running record); Gitelman sentence revised; inference-engine para + context window separation + Fillenbaum/Hofmann/Rumelhart/Snell refs added; 3 new style rules; reddit directory + old memory directory cleaned out
-- **creative-clawing site** — 67 artifacts live; no new artifacts today (paper focus day)
+- **Cloze Reader paper (DHQ)** — draft at v31+; new title "Fill in the Blank: Cloze Reader and the Twin Histories of Occlusion"; colon audit (6 hidden connectors surfaced); OB1/Rego + context window paras rewritten for clarity; Ondov 2024 + Zhang & Hashimoto 2021 added; ~5 commits overnight (Mar 19)
+- **creative-clawing site** — 67+ artifacts; 3 new microblog entries (20: Julia Set, 21: Harmonograph, 22: DLA); full retitling pass on all microblogs; Recently Added section moved to top of homepage
+- **Kalshi trading bot** — agent scripts added (kalsha-agent.sh, analyze.py, shortterm strategy); auth/orderbook/ticker fixes landed; cron every 5min weather + every 30min shortterm
 - **CAIL Workshop #1 deck** — stubs remain slides 7–8, 12–15
 - **Fine-tuning generation scripts** — 3 scripts committed (097c0081); need test run; superset7 at 39,133 entries
 
@@ -19,6 +20,10 @@ _Last synced: 2026-03-18 19:00 ET_
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
+- Cloze paper colon audit + OB1/Rego/context-window rewrites + new title (2026-03-19, 5 commits)
+- 3 new microblog entries (Julia Set, Harmonograph, DLA) + full retitling pass (2026-03-18, 17 commits on creative-clawing)
+- Kalshi agent scripts + auth/orderbook/ticker fixes (2026-03-18, 8 commits)
+- Microblog #20 Julia Set added to quimbot (2026-03-18, 1 commit)
 - creative-clawing homepage overhaul: lazy-load iframes, lane glide, manifest single-source, blog card fixes (2026-03-17/18, ~20 commits)
 - Domain Warping artifact added (2026-03-17, 1 commit)
 - Penrose Tiling + Rössler Attractor added, K. Moonshot attribution (2026-03-16, 67 artifacts live)

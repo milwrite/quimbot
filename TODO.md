@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-18 21:00 ET
+**Last Updated:** 2026-03-19 09:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -18,6 +18,9 @@
 - [x] Cloze reader paper: v15-v29 revision marathon (Gutenberg, stochasticity, Figure 1, closing, Gitelman, inference-engine) ✅ 3/18
 - [x] Create shared JOURNAL.md for cloze-reader paper ✅ 3/18
 - [x] Add Kalshi trading bot (weather + CPI strategies) ✅ 3/18
+- [x] Cloze reader paper: colon audit pass (6 hidden connectors surfaced) ✅ 3/19
+- [x] Cloze reader paper: OB1/Rego + context window paragraph rewrites ✅ 3/19
+- [x] Cloze reader paper: title finalized ("Fill in the Blank: Cloze Reader and the Twin Histories of Occlusion") ✅ 3/19
 - [ ] Cloze reader paper: sharpen thesis paragraph for body section inheritance
 - [ ] Cloze reader paper: obtain formal S1→S2 approval from milwrite
 - [ ] Log dedup delta (kept vs removed rows) in `STATUS.md` and `KANBAN.md`

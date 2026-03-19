@@ -10,6 +10,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-03-19)
+- **Paper title finalized**: "Fill in the Blank: Cloze Reader and the Twin Histories of Occlusion"
+- **Colon/semicolon audit rule** added to STYLE_GUIDE (Petrarch's connector-surfacing principle)
+- **3 more style rules**: trailing participle phrases ban, anaphora abuse ban, tricolon abuse ban
+- **Draft at v31**: ~2,800+ words, Zhang & Hashimoto 2021 + Ondov 2024 in bibliography
+- **Closing sentence inverts training signal framing** — "inductive bias" pushed to body
+
 ## Key Decisions Log (2026-03-18)
 - **Cloze reader live draft is additive-only** — never rewrite existing v14 prose; only insert new sentences or extend. milwrite preserves voice.
 - **JOURNAL.md is the canonical shared record** for cloze-reader paper (both bots maintain it)
