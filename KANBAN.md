@@ -1,9 +1,10 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-19 09:00 ET_
+_Last synced: 2026-03-19 19:00 ET_
 
 ## ✅ Done
 - **Cloze reader paper v29→v31** — title finalized, colon audit (6 connectors surfaced), OB1/Rego rewrite, context window rewrite, closing sentence revision, Zhang & Hashimoto/Ondov added, 3 new style rules (trailing participles, anaphora, tricolon), paragraph breakup pass ✅ 3/19
+- **toefl_batch_20260319 validated** — 10k generated, 7,870 clean entries after short-reply filter ✅ 3/19
 - **Kalshi trading bot: analyze.py + shortterm strategy + order/API fixes** — 4 commits overnight ✅ 3/19
 - **creative-clawing: 3 new microblogs (entry-20/21/22)** + full retitling pass + nav normalization + Recently Added to top + DNA helix fix ✅ 3/19
 - **Cloze reader paper v15→v29** — 38 commits: citation chain, Gutenberg rationale, stochasticity para, Figure 1, milwrite closing, Gitelman/Fillenbaum/Hofmann/Rumelhart/Snell, inference-engine para, context window separation, 3 new style rules ✅ 3/18
@@ -105,6 +106,7 @@ _Last synced: 2026-03-19 09:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/19 19:00:** 10 commits today across 3 lanes: cloze reader paper v29→v31 (title finalized, colon audit, OB1/Rego rewrite, 3 style rules), Kalshi trading bot (TRADING_GUIDE + failure audit + cleanup), cloze paper draft_v32 in progress. Data: validated toefl_batch_20260319 (7,870/10k clean). OpenRouter 402 day 22.
 - **Morning review 3/18 09:00:** 2 overnight commits: cloze reader citation chain upgrades (Bommasani, Oller, Bachman, Peters, Gao/Pile, Carlini, Vygotsky/Wood/Pea). Cron jobs back online after 3-day pause (milwrite halted all jobs 3/15, Wednesday lift now in effect). OpenRouter 402 day 21. Tasked Petrarch with billing fix, superset7 verification, cloze paper Section IV, cron notifier fix.
 - **Evening review 3/17 21:00:** 8 commits today. Two lanes: (1) Data tooling: 3 validated TOEFL generation scripts committed + 10k batch generated + superset7 merged to 39,133 rows. (2) Writing: cloze reader paper Section III v3 polished through 6 revision passes. OpenRouter 402 day 20. Programmatic generation bypassing the billing block effectively.
 - **Evening review 3/14 21:00:** 8 commits today. Data lane: superset5 landed (19,133 rows). Gallery: Water Ripple + Spirograph + mobile fixes across molnar/schotter/tenprint/flowfield. Manifest-v2 shipped with full schema. INSPIRATION.md sourcing guide added. Proposal wishlist drafted. OpenRouter 402 day 17. Petrarch Studio push auth still broken.
