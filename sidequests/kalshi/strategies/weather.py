@@ -34,16 +34,16 @@ KALSHI_FEE      = 0.01
 # Cities: lat/lon for HRRR model pull, ICAO station for live obs,
 # Kalshi series prefix (confirm against live /markets endpoint before trading).
 CITIES = [
-    {"name": "NYC",     "lat": 40.7128, "lon": -74.0060,  "station": "KNYC",  "series": "KXHIGHNYCTEMP"},
-    {"name": "CHI",     "lat": 41.8781, "lon": -87.6298,  "station": "KORD",  "series": "KXHIGHCHITEMP"},
-    {"name": "LA",      "lat": 33.9425, "lon": -118.4081, "station": "KLAX",  "series": "KXHIGHLATEMP"},
-    {"name": "MIA",     "lat": 25.7959, "lon": -80.2870,  "station": "KMIA",  "series": "KXHIGHMETEMP"},  # Miami
-    {"name": "DAL",     "lat": 32.8998, "lon": -97.0403,  "station": "KDFW",  "series": "KXHIGHDTEMP"},   # Dallas
-    {"name": "ATL",     "lat": 33.6407, "lon": -84.4277,  "station": "KATL",  "series": "KXHIGHATTEMP"},  # Atlanta
-    {"name": "HOU",     "lat": 29.9902, "lon": -95.3368,  "station": "KIAH",  "series": "KXHIGHHOUTEMP"}, # Houston
-    {"name": "PHX",     "lat": 33.4373, "lon": -112.0078, "station": "KPHX",  "series": "KXHIGHPHXTEMP"}, # Phoenix
-    {"name": "SEA",     "lat": 47.4502, "lon": -122.3088, "station": "KSEA",  "series": "KXHIGHSEATEMP"}, # Seattle
-    {"name": "BOS",     "lat": 42.3656, "lon": -71.0096,  "station": "KBOS",  "series": "KXHIGHBOSTEMP"}, # Boston
+    {"name": "NYC",     "lat": 40.7128, "lon": -74.0060,  "station": "KNYC",  "series": "KXHIGHNY"},
+    {"name": "CHI",     "lat": 41.8781, "lon": -87.6298,  "station": "KORD",  "series": "KXHIGHCHI"},
+    {"name": "LA",      "lat": 33.9425, "lon": -118.4081, "station": "KLAX",  "series": "KXHIGHLAX"},
+    {"name": "MIA",     "lat": 25.7959, "lon": -80.2870,  "station": "KMIA",  "series": "KXHIGHMIA"},   # Miami
+    {"name": "DAL",     "lat": 32.8998, "lon": -97.0403,  "station": "KDFW",  "series": "KXHIGHTDAL"},  # Dallas
+    {"name": "ATL",     "lat": 33.6407, "lon": -84.4277,  "station": "KATL",  "series": "KXHIGHTATL"},  # Atlanta
+    {"name": "HOU",     "lat": 29.9902, "lon": -95.3368,  "station": "KIAH",  "series": "KXHIGHTHOU"},  # Houston
+    {"name": "PHX",     "lat": 33.4373, "lon": -112.0078, "station": "KPHX",  "series": "KXHIGHTPHX"},  # Phoenix
+    {"name": "SEA",     "lat": 47.4502, "lon": -122.3088, "station": "KSEA",  "series": "KXHIGHTSEA"},  # Seattle
+    {"name": "BOS",     "lat": 42.3656, "lon": -71.0096,  "station": "KBOS",  "series": "KXHIGHTBOS"},  # Boston
 ]
 
 _NWS_HEADERS = {"User-Agent": "kalshi-weather-bot/2.0 (contact@example.com)"}
@@ -228,25 +228,23 @@ def compute_edge(
 # ── Market matching ────────────────────────────────────────────────────────────
 
 def find_weather_markets(client: KalshiClient, series: str) -> list:
-    """Return open Kalshi markets whose ticker starts with the series prefix."""
-    markets = client.get_markets(limit=200)
-    return [
-        m for m in markets
-        if m.get("ticker", "").startswith(series)
-        and m.get("status") == "open"
-    ]
+    """Return open Kalshi markets for the given series (uses series_ticker API param)."""
+    resp = client._get("/markets", {"series_ticker": series, "limit": 100, "status": "open"})
+    return resp.get("markets", []) if isinstance(resp, dict) else []
 
 
 def parse_threshold(ticker: str, series: str) -> Optional[int]:
     """
     Extract numeric threshold from ticker.
-    e.g. KXHIGHNYCTEMP75-26MAR18 → 75
-    Adjust if live Kalshi ticker format differs.
+    Live format: KXHIGHNY-26MAR19-T50 → 50  (T = above/below threshold)
+                 KXHIGHNY-26MAR19-B49.5 → None (B = between, skip)
     """
     try:
-        core = ticker.replace(series, "").split("-")[0]
-        digits = "".join(filter(str.isdigit, core))
-        return int(digits) if digits else None
+        parts = ticker.split("-")
+        for part in reversed(parts):
+            if part.startswith("T") and part[1:].replace(".", "").isdigit():
+                return int(float(part[1:]))
+        return None  # B (between) markets or unrecognised format
     except Exception:
         return None
 
