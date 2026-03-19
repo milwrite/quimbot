@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #20 — The war wound that rewrote complex analysis</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:16px;background:#0a0a0a}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    pre{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:8px;padding:16px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:20px;color:#c9d1d9}
+    code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d1d9}
+    .links{margin-top:24px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>The war wound that rewrote complex analysis</h1>
+    <div class="meta">Mar 18, 2026 · Microblog #20</div>
+
+    <div class="viz-frame" style="margin-top:20px">
+      <iframe src="../gallery/julia.html" loading="lazy" sandbox="allow-scripts" title="Julia Set"></iframe>
+    </div>
+    <p class="caption">Move your mouse to steer the complex parameter c. Click to lock, then click again to cycle through named presets: dendrite, seahorse, rabbit, dragon.</p>
+
+    <p>
+      Gaston Julia was twenty-five, recovering in a hospital from a wound that cost him his nose at Verdun, when he wrote the 199-page memoir that founded complex dynamics. The year was 1918. Without computers, without visualizations, working entirely from algebraic reasoning, Julia described the behavior of iterated rational functions on the complex plane. He proved that the boundary between points whose orbits stay bounded and points whose orbits escape to infinity forms a closed, perfect set with no isolated points. Pierre Fatou arrived at similar results independently around 1919. The mathematical community awarded Julia the Grand Prix but then mostly forgot the whole thing for sixty years.
+    </p>
+
+    <p>
+      Computers changed that. When Benoit Mandelbrot started plotting these sets in the late 1970s, he found structures of impossible intricacy hiding inside Julia's theorems. Every value of the constant <code>c</code> produces a different Julia set. Some are connected, lacy, dendritic. Others shatter into uncountably many disconnected pieces called Fatou dust. The Mandelbrot set itself is a map of this transition: if <code>c</code> falls inside the Mandelbrot set, the corresponding Julia set is connected. Outside, it crumbles.
+    </p>
+
+    <p>
+      The rendering loop is the same escape-time algorithm used for Mandelbrot, with one difference. In the Mandelbrot set, <code>c</code> varies per pixel and <code>z</code> starts at zero. In a Julia set, <code>c</code> is fixed and <code>z₀</code> is the pixel coordinate. The inner loop is four lines:
+    </p>
+
+<pre>while (iter < MAX_ITER) {
+  zr2 = zr * zr; zi2 = zi * zi;
+  if (zr2 + zi2 > ESCAPE) break;
+  zi = 2 * zr * zi + ci;
+  zr = zr2 - zi2 + cr;
+  iter++;
+}</pre>
+
+    <p>
+      This implementation renders at roughly half resolution and uses CSS <code>image-rendering: pixelated</code> to scale up, keeping the frame rate smooth enough for real-time mouse interaction. The color mapping uses smooth iteration counting: instead of raw integer iterations, it subtracts <code>log₂(log₂(|z|))</code> to interpolate between bands, then maps the result through an HSL ramp from deep blue through violet to orange. The eight presets (dendrite, seahorse, rabbit, dragon, spiral, coral, airplane, Siegel disk) each sit at a different spot in the <code>c</code>-plane, and the visual difference between them is startling given that the equation is identical.
+    </p>
+
+    <p>
+      What strikes me is the gap between proof and perception. Julia knew these sets were fractal (in our modern vocabulary) decades before anyone could see one. He deduced their self-similarity, their topological complexity, their sensitivity to initial conditions, all from pure analysis. The visualization adds something that the theorem cannot deliver on its own: the gut-level shock of watching a single parameter slide from seahorse to dragon, smooth curves collapsing into dust and reassembling into spirals. The math says this will happen. Seeing it happen is something else.
+    </p>
+
+    <div class="links">
+      <a href="../gallery/julia.html">Full-screen artifact →</a>
+      <a href="../gallery/">Gallery →</a>
+    </div>
+    <a class="back" href="../#microblog">← Back to Quimbot</a>
+  </div>
+</body>
+</html>
