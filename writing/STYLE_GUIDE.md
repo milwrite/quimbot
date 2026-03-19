@@ -131,6 +131,31 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 ### Vague intensifiers (added 2026-03-18)
 - **Ban "with particular force," "especially acutely," "with renewed urgency," and similar intensifier phrases** — they amplify without adding content. If something applies particularly, name precisely why or to what degree. If you can't, cut the intensifier and let the claim stand on its own.
 
+### Colon and semicolon audit (added 2026-03-18)
+
+**The rule:** Colons and semicolons in body prose are usually hiding an explicit logical connector. Surface it.
+
+**Diagnostic:** Ask what relationship the punctuation is papering over. Four types:
+
+| Relationship | Hidden connector | Fix |
+|---|---|---|
+| Elaboration / participial | "requiring that", "consisting of" | Rewrite as participial phrase |
+| Result | "so that", "with the result that" | Use "so that" before the result clause |
+| Parallel elaboration | "with", "where...while" | Use "with-phrase" or "where...while" contrast |
+| Causal / justification | "since", "because" | Use "since" as subordinator; drop "But" if it preceded the colon |
+
+**The one legitimate colon:** Colon + restatement, where the colon introduces a compressed summary of what just preceded it. Pattern: general claim [colon] named specifics. "Educational cloze tests assess the capacity that constitutes reading comprehension: the synthesis of linguistic knowledge, world knowledge, and inferential skill." Flip appositive mid-sentence into colon-restatement at end.
+
+**Display colons** (before code blocks, before block quotes) are standard and exempt.
+
+**Semicolons:** Same audit. If the two clauses have an expressible logical relationship, surface it. The one exception: semicolons used for rhetorical punch in a short two-part sentence ("The player is not simulating the inference engine; they are one") — only if the rhythm depends on the pause and there is no paraphrasable connector.
+
+**Examples from the cloze-reader draft:**
+- "simple and automatable: delete words..." → "simple and automatable, requiring only that..."
+- "legible in the difficulty of restoration: when a player struggles..." → "legible in the difficulty of restoration, so that when a player struggles..."
+- "scales independently of blank count: early levels..." → "scales independently of blank count, with early levels..."
+- "But the purposes differ: Taylor..." → "The purposes diverge, since Taylor..."
+
 ### Negative definitions (added 2026-03-18)
 - **Don't define by absence** — "patterns that no reader encounters as such," "a form that remains invisible to users," "something no one can observe directly" — these define the thing by what it isn't or who doesn't see it. Name where the thing goes or what it does instead.
 - Before: "available only as weighted co-occurrence patterns that no reader encounters as such"
