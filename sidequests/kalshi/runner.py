@@ -12,6 +12,8 @@ Schedule:
   All strategies run on every scan cycle.
   CPI is gated internally to the 8:00–8:30 AM ET window on release days
   (override with FORCE_CPI_RUN=1).
+  NFP is gated to 8:00–8:30 AM ET on first Friday of month (FORCE_NFP_RUN=1).
+  Oil is gated to 10:25–11:00 AM ET on Wednesdays (FORCE_OIL_RUN=1).
 
 Usage:
   python runner.py               # live continuous mode
@@ -19,10 +21,16 @@ Usage:
   python runner.py --now         # single scan pass then exit
   python runner.py --strategy weather --now
   python runner.py --strategy cpi --now --force-cpi
+  python runner.py --strategy nfp --now --force-nfp
+  python runner.py --strategy crypto --now
+  python runner.py --strategy polls --now
+  python runner.py --strategy oil --now --force-oil
+  python runner.py --strategy hurricane --now
+  python runner.py --strategy earnings --now
+  python runner.py --strategy fed --now
   python runner.py --status      # print today's P&L + open positions
 
-Strategies: weather + CPI only.
-Fed and NBA strategies exist as files but are not loaded by this runner.
+All strategies: weather, cpi, nfp, crypto, polls, oil, hurricane, earnings, fed.
 """
 
 import os
@@ -37,8 +45,15 @@ from pathlib import Path
 
 from core.client import KalshiClient
 from core import log_signal, log_trade, log_close, manage_positions
-import strategies.weather as weather_strat
-import strategies.cpi as cpi_strat
+import strategies.weather    as weather_strat
+import strategies.cpi        as cpi_strat
+import strategies.nfp        as nfp_strat
+import strategies.crypto     as crypto_strat
+import strategies.polls      as polls_strat
+import strategies.oil        as oil_strat
+import strategies.hurricane  as hurricane_strat
+import strategies.earnings   as earnings_strat
+import strategies.fed        as fed_strat
 
 # ── logging setup ──────────────────────────────────────────────────────────────
 Path("logs").mkdir(exist_ok=True)
@@ -60,7 +75,10 @@ MAX_OPEN_POSITIONS  = int(os.getenv("MAX_OPEN_POSITIONS",    "50"))
 MAX_DAILY_LOSS_C    = int(os.getenv("MAX_DAILY_LOSS_CENTS",  "5000"))  # $50
 SCAN_INTERVAL       = int(os.getenv("SCAN_INTERVAL_SEC",     "60"))
 
-ALL_STRATEGIES      = ["weather", "cpi"]
+ALL_STRATEGIES = [
+    "weather", "cpi", "nfp", "crypto", "polls",
+    "oil", "hurricane", "earnings", "fed",
+]
 
 
 # ── state helpers ─────────────────────────────────────────────────────────────
@@ -147,6 +165,20 @@ def run_scan(strategies: list, client: KalshiClient, dry_run: bool) -> int:
                 orders = weather_strat.run(client, dry_run=dry_run)
             elif strat_name == "cpi":
                 orders = cpi_strat.run(client, dry_run=dry_run)
+            elif strat_name == "nfp":
+                orders = nfp_strat.run(client, dry_run=dry_run)
+            elif strat_name == "crypto":
+                orders = crypto_strat.run(client, dry_run=dry_run)
+            elif strat_name == "polls":
+                orders = polls_strat.run(client, dry_run=dry_run)
+            elif strat_name == "oil":
+                orders = oil_strat.run(client, dry_run=dry_run)
+            elif strat_name == "hurricane":
+                orders = hurricane_strat.run(client, dry_run=dry_run)
+            elif strat_name == "earnings":
+                orders = earnings_strat.run(client, dry_run=dry_run)
+            elif strat_name == "fed":
+                orders = fed_strat.run(client, dry_run=dry_run)
             else:
                 log.warning("Unknown strategy: %s", strat_name)
                 orders = []
@@ -235,12 +267,20 @@ def main():
                         help="limit to one strategy: weather|cpi")
     parser.add_argument("--force-cpi", action="store_true",
                         help="ignore CPI timing gate")
+    parser.add_argument("--force-nfp", action="store_true",
+                        help="ignore NFP timing gate")
+    parser.add_argument("--force-oil", action="store_true",
+                        help="ignore EIA oil report timing gate")
     parser.add_argument("--status",    action="store_true",
                         help="print today's status and exit")
     args = parser.parse_args()
 
     if args.force_cpi:
         os.environ["FORCE_CPI_RUN"] = "1"
+    if args.force_nfp:
+        os.environ["FORCE_NFP_RUN"] = "1"
+    if args.force_oil:
+        os.environ["FORCE_OIL_RUN"] = "1"
 
     strats = [args.strategy] if args.strategy else ALL_STRATEGIES
     client = KalshiClient()
