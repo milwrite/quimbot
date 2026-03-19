@@ -161,3 +161,22 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - Before: "available only as weighted co-occurrence patterns that no reader encounters as such"
 - After: "remediated as weighted co-occurrence patterns"
 - The test: if your characterization is entirely negative (no X, unavailable to Y, never Z), rewrite to say what IS present, what IS available, what DOES happen.
+
+### Superficial analyses via trailing participles (added 2026-03-19)
+- **Ban:** Tacking a present participle phrase onto the end of a sentence to inject shallow significance. This is a telltale AI slop pattern.
+- Banned forms: "highlighting its importance", "reflecting broader trends", "contributing to the development of...", "underscoring its role as...", "showcasing how...", "demonstrating the enduring legacy of..."
+- **Fix:** Delete the participial phrase entirely, or state the actual claim as its own sentence with a subject and verb.
+- Test: If the "-ing" clause could be removed without losing information, it should be removed.
+
+### Anaphora abuse (added 2026-03-19)
+- **Ban:** Repeating the same sentence opener multiple times in quick succession.
+- Bad: "They assume that... They assume that... They assume that..."
+- Bad: "It wasn't X. It wasn't Y. It wasn't Z."
+- **Exception:** Deliberate rhetorical anaphora is allowed once per piece, sparingly, when it's clearly the point of the passage (not a tic).
+- **Fix:** Vary openers. Use pronouns, conjunctions, temporal markers, or restructure to avoid repetition.
+
+### Tricolon abuse (added 2026-03-19)
+- **Ban:** Overuse of the rule-of-three pattern, especially when extended to four or five items, or when multiple tricolons appear back-to-back.
+- Bad: "Products impress people; platforms empower them. Products solve problems; platforms create worlds. Products scale linearly; platforms scale exponentially."
+- A single tricolon is elegant. Three in a row is a pattern-recognition failure.
+- **Fix:** Keep one tricolon per argument cluster. Break the others into varied sentence structures.
