@@ -186,6 +186,12 @@ $RECENT_TRADES
 $EXTRA"
     ;;
 
+  shortterm)
+    echo "[$(date '+%Y-%m-%d %H:%M:%S %Z')] Running short-term exploit scan" | tee -a "$LOG"
+    python runner.py --now --strategy shortterm 2>&1 | tee -a "$LOG"
+    exit 0
+    ;;
+
   *)
     PROMPT="You are an autonomous Kalshi trading agent.
 
@@ -209,3 +215,6 @@ claude \
 
 echo "" >> "$LOG"
 echo "[kalsha-agent] Task $TASK complete: $(date)" >> "$LOG"
+
+# shortterm task is handled directly by runner, not Claude Code
+# (for raw speed; no agent overhead needed)

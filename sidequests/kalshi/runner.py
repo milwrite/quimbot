@@ -54,6 +54,7 @@ import strategies.oil        as oil_strat
 import strategies.hurricane  as hurricane_strat
 import strategies.earnings   as earnings_strat
 import strategies.fed        as fed_strat
+import strategies.shortterm  as shortterm_strat
 
 # ── logging setup ──────────────────────────────────────────────────────────────
 Path("logs").mkdir(exist_ok=True)
@@ -77,7 +78,7 @@ SCAN_INTERVAL       = int(os.getenv("SCAN_INTERVAL_SEC",     "60"))
 
 ALL_STRATEGIES = [
     "weather", "cpi", "nfp", "crypto", "polls",
-    "oil", "hurricane", "earnings", "fed",
+    "oil", "hurricane", "earnings", "fed", "shortterm",
 ]
 
 
@@ -179,6 +180,8 @@ def run_scan(strategies: list, client: KalshiClient, dry_run: bool) -> int:
                 orders = earnings_strat.run(client, dry_run=dry_run)
             elif strat_name == "fed":
                 orders = fed_strat.run(client, dry_run=dry_run)
+            elif strat_name == "shortterm":
+                orders = shortterm_strat.run(client, dry_run=dry_run)
             else:
                 log.warning("Unknown strategy: %s", strat_name)
                 orders = []
