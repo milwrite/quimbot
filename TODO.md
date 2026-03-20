@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-19 09:00 ET
+**Last Updated:** 2026-03-19 21:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -28,7 +28,10 @@
 - [ ] Cloze reader paper: draft Section IV
 - [ ] Validate `generate_toefl_ollama_10k.py` with a small reproducible smoke command in docs
 - [ ] Decide Stage 2 dataset composition (Spanish SFT candidates from latam-gpt)
-- [ ] Fix OpenRouter 402 on milwrite account (DAY 21)
+- [ ] Fix OpenRouter 402 on milwrite account (DAY 22)
+- [ ] Merge toefl_batch_20260319 (7,870 clean) into superset8 (~49,133 pre-dedup)
+- [ ] Complete cloze reader draft_v32 (185 lines in progress)
+- [ ] Kalshi: v2 graduated rollout design (budget caps, risk tiers)
 
 ## Workshop / CAIL Deck
 - [ ] Unpack VSC-IDE setup steps more concretely (slide 9):

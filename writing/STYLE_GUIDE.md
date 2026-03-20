@@ -175,6 +175,15 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - **Exception:** Deliberate rhetorical anaphora is allowed once per piece, sparingly, when it's clearly the point of the passage (not a tic).
 - **Fix:** Vary openers. Use pronouns, conjunctions, temporal markers, or restructure to avoid repetition.
 
+### Interrupted subject (added 2026-03-20)
+- **Ban:** Sentences where the subject is followed by a comma-bracketed phrase before the verb arrives. Pattern: "Subject, [qualifier], verb."
+- Bad: "The second debate, equally consequential for what the procedure actually measures, concerned deletion method."
+- Bad: "Taylor, working within the Gestalt tradition, developed the cloze procedure."
+- **Fix:** Move the qualifier after the verb, make it a separate sentence, or rewrite as a subordinate clause.
+- After: "The second debate concerned deletion method and carried equal weight for what the procedure actually measures."
+- After: "Taylor developed the cloze procedure within the Gestalt tradition."
+- **Exception:** Very short, clearly non-restrictive appositives ("Oller, a linguist, argued...") are acceptable if the phrase is two or three words and doesn't bury the verb. When in doubt, restructure.
+
 ### Tricolon abuse (added 2026-03-19)
 - **Ban:** Overuse of the rule-of-three pattern, especially when extended to four or five items, or when multiple tricolons appear back-to-back.
 - Bad: "Products impress people; platforms empower them. Products solve problems; platforms create worlds. Products scale linearly; platforms scale exponentially."
