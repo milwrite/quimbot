@@ -22,7 +22,6 @@
     hr { border-top-color: #ccc; }
     .draft-note { color: #888; }
     a { color: #2a5db0; }
-    code, pre { background: #f4f4f4; color: #1a1a1a; }
   }
   h1 {
     font-size: 1.6em;
@@ -67,6 +66,7 @@
     font-family: "SF Mono", "Fira Code", Consolas, monospace;
     font-size: 0.82em;
     background: #252525;
+    color: #d4d4d4;
     border-radius: 3px;
   }
   code { padding: 0.15em 0.35em; }
@@ -77,6 +77,9 @@
     margin: 1.5em 0;
     white-space: pre-wrap;
     word-wrap: break-word;
+  }
+  @media (prefers-color-scheme: light) {
+    code, pre { background: #f4f4f4; color: #1a1a1a; }
   }
   .ref { font-size: 0.9em; text-indent: -2em; padding-left: 2em; }
   mark.hl { background: #f0c040; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
