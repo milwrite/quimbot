@@ -884,11 +884,13 @@ filters.addEventListener('click', e => {
 
 // Tab Navigation
 document.querySelectorAll('.nav-tab').forEach(tab => {
+  if (tab.tagName === 'A') return; // external link tabs handle navigation themselves
   tab.addEventListener('click', () => {
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     tab.classList.add('active');
-    document.getElementById(tab.dataset.section).classList.add('active');
+    const section = tab.dataset.section && document.getElementById(tab.dataset.section);
+    if (section) section.classList.add('active');
   });
 });
 
