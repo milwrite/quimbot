@@ -79,6 +79,46 @@
     word-wrap: break-word;
   }
   .ref { font-size: 0.9em; text-indent: -2em; padding-left: 2em; }
+  mark.hl { background: #f0c040; color: #1a1a1a; border-radius: 2px; padding: 0 1px; }
+  @media (prefers-color-scheme: light) { mark.hl { background: #f0c040; color: #1a1a1a; } }
+  /* ── editor chrome ── */
+  #__lock {
+    position: fixed; top: 1rem; right: 1rem;
+    background: none; border: none; font-size: 1.1em;
+    cursor: pointer; opacity: 0.25; z-index: 9999;
+    line-height: 1; padding: 0; transition: opacity 0.15s;
+  }
+  #__lock:hover { opacity: 0.85; }
+  #__hlbar {
+    position: absolute; display: none;
+    background: #2a2a2a; border: 1px solid #555;
+    border-radius: 4px; padding: 4px 10px; z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+  }
+  #__hlbar button {
+    background: none; border: none; color: #f0c040;
+    cursor: pointer; font-size: 0.82em; padding: 0;
+  }
+  #__hlbar button:hover { color: #ffe080; }
+  #__footer {
+    display: none; position: fixed; bottom: 1.2rem; right: 1.2rem;
+    background: #222; border: 1px solid #444; border-radius: 6px;
+    padding: 0.55rem 0.85rem; gap: 0.55rem; align-items: center;
+    z-index: 9999; box-shadow: 0 2px 14px rgba(0,0,0,0.55);
+  }
+  #__commitmsg {
+    background: #1a1a1a; border: 1px solid #444; color: #d4d4d4;
+    padding: 0.28em 0.55em; border-radius: 3px; font-size: 0.82em;
+    width: 200px; font-family: inherit;
+  }
+  #__commitbtn {
+    background: #2a5db0; color: #fff; border: none;
+    padding: 0.32em 0.75em; border-radius: 3px;
+    cursor: pointer; font-size: 0.82em;
+  }
+  #__commitbtn:hover { background: #3a6dc0; }
+  #__commitstatus { font-size: 0.78em; color: #888; white-space: nowrap; }
+  [contenteditable="true"]:focus { outline: 1px dashed #4a7dce; outline-offset: 2px; }
 </style>
 </head>
 <body>
@@ -279,5 +319,168 @@ CRITICAL RULES:
 
 <p class="draft-note">Draft v31 &middot; Updated 2026-03-18 17:48 EDT &middot; ~3,700 words &middot; Inference-engine para (Petrarch); context window para revised; refs: Fillenbaum, Hofmann, Rumelhart, Snell/Grainger added; soft citations flagged pending</p>
 
+<!-- ── inline editor ── -->
+<button id="__lock" title="Edit mode">🔒</button>
+
+<div id="__hlbar"><button id="__hlbtn">✦ highlight</button></div>
+
+<div id="__footer">
+  <input id="__commitmsg" type="text" placeholder="commit message…" value="draft edit">
+  <button id="__commitbtn">↑ commit</button>
+  <span id="__commitstatus"></span>
+</div>
+
+<script>
+(function(){
+  const PASS = '1647weirfield';
+  const REPO = 'milwrite/quimbot';
+  const PATH = 'docs/cloze-reader-draft/index.html';
+  const LS_PAT = '__editor_pat';
+  const LS_SHA = '__editor_sha';
+  const EDITABLE = 'h1,h2,p,pre,code,.ref,figcaption';
+  let editMode = false;
+
+  const lock    = document.getElementById('__lock');
+  const hlbar   = document.getElementById('__hlbar');
+  const hlbtn   = document.getElementById('__hlbtn');
+  const footer  = document.getElementById('__footer');
+  const cmsg    = document.getElementById('__commitmsg');
+  const cbtn    = document.getElementById('__commitbtn');
+  const cstatus = document.getElementById('__commitstatus');
+
+  /* ── auth ── */
+  lock.addEventListener('click', () => {
+    if (editMode) { exitEdit(); return; }
+    const pw = prompt('Password:');
+    if (pw !== PASS) { alert('Wrong password.'); return; }
+    let pat = localStorage.getItem(LS_PAT);
+    if (!pat) {
+      pat = prompt('GitHub PAT (stored in localStorage — never sent elsewhere):');
+      if (!pat) return;
+      localStorage.setItem(LS_PAT, pat.trim());
+    }
+    enterEdit();
+  });
+
+  function enterEdit() {
+    editMode = true;
+    lock.textContent = '🔓';
+    lock.style.opacity = '0.7';
+    document.querySelectorAll(EDITABLE).forEach(el => {
+      el.setAttribute('contenteditable', 'true');
+      el.setAttribute('spellcheck', 'true');
+    });
+    footer.style.display = 'flex';
+  }
+
+  function exitEdit() {
+    editMode = false;
+    lock.textContent = '🔒';
+    lock.style.opacity = '0.25';
+    document.querySelectorAll('[contenteditable]').forEach(el => {
+      el.removeAttribute('contenteditable');
+      el.removeAttribute('spellcheck');
+    });
+    footer.style.display = 'none';
+    hlbar.style.display = 'none';
+  }
+
+  /* ── highlight toolbar ── */
+  document.addEventListener('mouseup', () => {
+    if (!editMode) return;
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || sel.rangeCount === 0) {
+      hlbar.style.display = 'none'; return;
+    }
+    const range = sel.getRangeAt(0);
+    const rect = range.getBoundingClientRect();
+    hlbar.style.display = 'block';
+    hlbar.style.left = (window.scrollX + rect.left) + 'px';
+    hlbar.style.top  = (window.scrollY + rect.top - 38) + 'px';
+  });
+
+  document.addEventListener('mousedown', e => {
+    if (e.target !== hlbtn) hlbar.style.display = 'none';
+  });
+
+  hlbtn.addEventListener('mousedown', e => {
+    e.preventDefault();
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed) return;
+    const range = sel.getRangeAt(0);
+    const mark = document.createElement('mark');
+    mark.className = 'hl';
+    try { range.surroundContents(mark); }
+    catch(_) {
+      const frag = range.extractContents();
+      mark.appendChild(frag);
+      range.insertNode(mark);
+    }
+    sel.removeAllRanges();
+    hlbar.style.display = 'none';
+  });
+
+  /* ── commit ── */
+  cbtn.addEventListener('click', async () => {
+    const pat = localStorage.getItem(LS_PAT);
+    if (!pat) { cstatus.textContent = 'No PAT stored.'; return; }
+    cbtn.disabled = true;
+    cstatus.textContent = 'Fetching SHA…';
+
+    try {
+      /* 1. get current SHA */
+      let sha = localStorage.getItem(LS_SHA);
+      const metaRes = await fetch(
+        `https://api.github.com/repos/${REPO}/contents/${PATH}`,
+        { headers: { Authorization: `Bearer ${pat}`, Accept: 'application/vnd.github+json' } }
+      );
+      if (!metaRes.ok) throw new Error(`GitHub ${metaRes.status}`);
+      const meta = await metaRes.json();
+      sha = meta.sha;
+      localStorage.setItem(LS_SHA, sha);
+
+      /* 2. serialize — clone DOM, strip editor chrome */
+      const clone = document.documentElement.cloneNode(true);
+      clone.querySelectorAll('[contenteditable]').forEach(el => {
+        el.removeAttribute('contenteditable');
+        el.removeAttribute('spellcheck');
+      });
+      clone.querySelectorAll('#__lock,#__hlbar,#__footer,script').forEach(el => el.remove());
+      const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+
+      /* 3. base64 encode */
+      const b64 = btoa(unescape(encodeURIComponent(html)));
+
+      /* 4. PUT */
+      cstatus.textContent = 'Pushing…';
+      const msg = cmsg.value.trim() || 'draft edit';
+      const putRes = await fetch(
+        `https://api.github.com/repos/${REPO}/contents/${PATH}`,
+        {
+          method: 'PUT',
+          headers: {
+            Authorization: `Bearer ${pat}`,
+            Accept: 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ message: msg, content: b64, sha })
+        }
+      );
+      if (!putRes.ok) {
+        const err = await putRes.json().catch(() => ({}));
+        throw new Error(err.message || `GitHub ${putRes.status}`);
+      }
+      const result = await putRes.json();
+      localStorage.setItem(LS_SHA, result.content.sha);
+      cstatus.textContent = '✓ committed';
+      setTimeout(() => { cstatus.textContent = ''; }, 3000);
+    } catch(e) {
+      cstatus.textContent = '✗ ' + e.message;
+    } finally {
+      cbtn.disabled = false;
+    }
+  });
+})();
+</script>
 </body>
 </html>
