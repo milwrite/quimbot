@@ -15,10 +15,6 @@ body{padding:clamp(32px,6vw,72px) clamp(20px,8vw,120px);max-width:780px;margin:0
 h1{font-size:clamp(20px,3vw,28px);font-weight:700;line-height:1.2;margin-bottom:.2rem}
 .subtitle{font-size:clamp(14px,2vw,17px);font-weight:400;color:#111;margin-bottom:1.8rem}
 
-blockquote{margin:1.8rem 0 1.8rem 2rem;padding:0}
-blockquote p{font-style:italic;font-size:clamp(14px,1.8vw,16px);line-height:1.7;color:#111}
-blockquote cite{display:block;text-align:right;margin-top:.5rem;font-style:italic;font-size:.9em;color:#111}
-
 p{margin-bottom:1.3rem;font-size:clamp(15px,1.8vw,16.5px);text-align:left}
 
 .refs{margin-top:3rem;padding-top:2rem;border-top:1px solid #ccc}
@@ -28,9 +24,10 @@ p{margin-bottom:1.3rem;font-size:clamp(15px,1.8vw,16.5px);text-align:left}
 .refs li a{color:#333;text-decoration:underline}
 .refs li a:hover{color:#000}
 
+.version-note{font:12px/1 ui-monospace,monospace;color:#aaa;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #eee}
+
 @media(max-width:500px){
   body{padding:24px 18px}
-  blockquote{margin-left:1rem}
 }
 </style>
 </head>
@@ -41,51 +38,48 @@ p{margin-bottom:1.3rem;font-size:clamp(15px,1.8vw,16.5px);text-align:left}
 <h1>Writing Under Surveillance</h1>
 <p class="subtitle">The Problem with AI Detection</p>
 
-<blockquote>
-  <p>"There has always been resistance to teaching machines and to the technocracy in which they are embedded… And perhaps it's worth repeating that that resistance did not come only from disgruntled educators."</p>
-  <cite>— Audrey Watters, <em>Teaching Machines</em></cite>
-</blockquote>
+<p>Be it on Reddit or Discord, CUNY students often express anger and anxiety at the prospect of being falsely flagged by AI detection software, their professors entrusting algorithmic systems over the word and testimony of their students.</p>
 
-<p>Whether on Reddit or by word of mouth, CUNY learners describe anxiety and frustration around the prospect of being falsely accused by AI detection software, their professors entrusting algorithmic systems over the word and testimony of their students.</p>
+<p>Plagiarism detection giants like Turnitin have long shaped how students learn to write and under what conditions they see themselves as writers. More recently, the plot has thickened, with these platforms marketing AI detection services that claim to distinguish human-written text from machine-generated output. Now, international students report accusations of academic dishonesty for syntax that is "too clean" while others testify to misspelling words or introducing mistakes in their writing to beat the algorithm and evade detection, even when every word is their own.</p>
 
-<p>Plagiarism detection software like Turnitin have long shaped how students learn to write and under what conditions they see themselves as writers. More recently, the plot has thickened, and these platforms have begun marketing AI detection features that claim to distinguish human-written text from machine-generated output. Now, international students report accusations of academic dishonesty for syntax that is "too clean," while others testify to misspelling words or introducing mistakes in their writing to evade false positives, even when every word is their own.</p>
+<p>When students feel the need to perform their humanity for an audience of algorithms, something has gone wrong. These students write not for their human peers but for automated systems, seldom even understood by professors who mandate them or administrators who procure them. From wrongful accusations to self-policing practices, the harms of these tools are diverse and diffuse and often fall hardest on working-class and non-native English-speaking students like so many enrolled across the CUNY system.</p>
 
-<p>When students feel the need to perform their humanity for an audience of algorithms, something has gone awry, as students are writing not for their human peers, but for automated systems, seldom even understood by professors who mandate them or administrators who procure them. The harms those systems inflict — from wrongful suspicion to self-censorship — often fall hardest on working-class and non-native English-speaking students like so many enrolled across the CUNY system.</p>
+<p>To grasp the problem with AI detection, let's consider what a prominent service claims to do. GPTZero reports use of two metrics: one is <em>perplexity</em>, a measure of how well a LLM would predict each successive word in a passage; another is <em>burstiness</em>, used to score variation in the sentence-level rhythm and structure of student writing (Tian). Of course, this depends on the assumption that human writers intuitively exhibit syntactic diversity, and mix long and short sentences together by default, while AI models lean toward consistent, flat tempos at the sentence- and paragraph-level ("AI Detectors"; Galczynski).</p>
 
-<p>To understand the problem with AI detection, consider what these services claim to measure. For example, GPTZero claims to use two metrics: one is <strong><em>perplexity</em></strong>, a measure of how well a language model would predict each successive word in a passage; another is <strong><em>burstiness</em></strong>, which tracks creative variability in sentence rhythm and structure (Tian). This logic relies on the assumption that human writers intuitively exhibit syntactic variance and mix long and short sentences together, while AI models tend to propagate consistent, flat tempos at the sentence- and paragraph-level ("AI Detectors"; Galczynski).</p>
+<p>This premise is incredibly shaky; it's also constitutive of detection failures at scale. One of the most comprehensive accounts in the field tested twelve publicly available tools alongside Turnitin and PlagiarismCheck, reporting they were "neither accurate nor reliable," and exhibited a systematic bias toward classifying AI-generated text as human-written (Weber-Wulff et al.). More broadly, it is also worth noting that even a "low" 1% false positive rate across 22.35 million first-year college essays amounts to 223,500 essays falsely flagged in a single year (Hirsch).</p>
 
-<p>This premise is incredibly shaky, and also constitutive of AI detection failures at scale. For instance, one of the most comprehensive accounts in the field tested twelve publicly available tools alongside Turnitin and PlagiarismCheck, reporting they were "neither accurate nor reliable" and exhibited a systematic bias toward classifying AI-generated text as human-written (Weber-Wulff et al.). It's worth noting here that even a "low" 1% false positive rate across 22.35 million first-year college essays amounts to 223,500 essays falsely flagged in a single year (Hirsch).</p>
+<p>Those affected are hardly edge cases. The MLA-CCCC Joint Task Force on Writing and AI put it plainly when it warned AI detection tools enable "false accusations" that "may disproportionately affect marginalized groups." Sure enough Black students face disproportionately higher rates of AI-detection accusations than their white peers (Madden et al.). Students identifying as disabled are also reported more likely to receive a false positive for submitted writing that departs from the narrowed standards these tools inscribe as human (Hirsch). Lastly, one study of seven widely used detectors found these services flagged as AI-generated 61.22% of TOEFL essays by non-native English speakers, and, across all seven detectors, 89 of 91 essays were flagged by at least one of the tools sampled in the study (Liang et al.).</p>
 
-<p>Those affected are not just edge cases at the margins of detection either. The MLA-CCCC Joint Task Force on Writing and AI put it plainly when it said AI detection tools enable "false accusations" that "may disproportionately affect marginalized groups," with Black students facing disproportionately higher rates of AI-detection accusations than their white peers (Madden et al.). At the same time, neurodivergent students have been reported as more likely to receive a false positive for submitted writing that departs from the narrowed templates these tools inscribe as human (Hirsch). Likewise, a Stanford study of seven widely used detectors found they classified 61.22% of TOEFL essays by non-native English speakers as AI-generated (Liang et al.). Across all seven detectors, 89 of 91 essays were flagged by at least one of the tools sampled in the study.</p>
+<p>The failings of AI detection software matter all the more because of how these services rely on a construct of authenticity narrowed to features the algorithm can count, weight, and score — and that legibility is not evenly distributed, especially among student groups as diverse as those at CUNY.</p>
 
-<p>This matters because AI detection relies on a construct of authenticity narrowed to features the algorithm can count, weight, and score, and such legibility is not evenly distributed, especially among student groups as diverse as those at CUNY. The "human" quality these tools claim to detect is less a quality inherent in student writing than a predefined likeness the system measures their prose against, as though it were always already there. Students are left to manage the burden of a system that casts doubt on styles and registers of prose through which they might otherwise express themselves.</p>
+<p>The "human" criteria these systems reify is less an inherent quality of submitted writing than a dynamic classification scheme for evaluating prose, as if its standards were always already there. In return students are left to bear the burden of an automated specter casting doubt over different kinds of writing they might otherwise use to express themselves.</p>
 
-<p>Why, then, do institutions keep insisting that detectors work as intended? Part of the answer lies in the pedagogical logic these tools presume and produce. AI detection treats writing as an object of surveillance, invites suspicion in place of trust, and frames assessment as a matter of automated verification rather than pedagogical judgment.</p>
+<p>Part of the issue lies in the "problems" these tools presume of us and the solutions they claim to provide alongside them. At the same time, detection treats writing as a process under surveillance, invites suspicion in place of trust and audience, and recasts assessment as a form of automated verification rather than a responsive, context-aware teaching practice.</p>
 
-<p>Is this really the future we want for our students as learners, or for ourselves as educators?</p>
+<p>For all their alleged sophistication, AI detectors are still trying to sort language into patterns that do not hold consistently across LLMs and that are easily disrupted by simple obfuscation strategies (Weber-Wulff et al.). Their unreliability, and the anxiety they produce, is therefore hardly surprising. The larger problem is that they invite us to accept a hidden standard of human writing that is at once opaque and flattening, one that treats authentic prose as a fixed object or end product. As large language models get better and better at simulating human communication, the goal posts will continue to shift as the line between human- and machine-generated text narrows by the day.</p>
 
-<p>No matter their alleged sophistication, AI detectors ultimately seek to classify and identify patterns in language that are neither stable across large language models (LLMs) nor robust to the quick tricks or jailbreaking methods of those bent on gaming the system (Weber-Wulff et al.). They are anxiety-inducing, mercurial, and bear reified standards for human writing that are as opaque as they are normativizing. And as language models grow more capable of simulating human prose, the distinction between machine- and human-generated text becomes only more difficult to maintain. At that point, the question then arises whether AI detection poses a solvable problem at all. It very likely does not.</p>
-
-<p>Building trust in the classroom is hard work, and AI detection services undermine that effort at every turn, much like a wolf in sheep's clothing, a problem dressed in its own solution. We and our students are better served when we take time to slow down, start small, and hold space in that pause for reading and writing as social projects still in the making. All the while, it'd do us well to leave the problem of AI detection at the door.</p>
+<p>Building trust in the classroom is hard work, and AI detectors undermine that effort at every turn, like a wolf in sheep's clothing, a problem dressed in its own solution. We and our students are better served when we take time to slow down, start small, and treat reading and writing as social projects still in the making. And for how fraught authorship is these days, it'd do us well to leave the problem of AI detection at the door.</p>
 
 <div class="refs">
 <h2>References</h2>
 <ol>
-  <li>"Why Don't AI Detectors Work?" Center for Integrated Professional Development, Illinois State University, 2024. <a href="https://prodev.illinoisstate.edu/instructional-resources/pedagogy/ai/detectors/" target="_blank" rel="noopener">prodev.illinoisstate.edu</a></li>
+  <li>"AI Detectors." Center for Integrated Professional Development, Illinois State University, 2024. <a href="https://prodev.illinoisstate.edu/instructional-resources/pedagogy/ai/detectors/" target="_blank" rel="noopener">prodev.illinoisstate.edu</a></li>
   <li>"AI Detectors Biased Against Non-Native English Writers." Stanford HAI, Stanford University, 10 July 2023. <a href="https://hai.stanford.edu/news/ai-detectors-biased-against-non-native-english-writers" target="_blank" rel="noopener">hai.stanford.edu</a></li>
   <li>"Generative AI Detection Tools." USD Law Library Guides, University of San Diego Legal Research Center. <a href="https://lawlibguides.sandiego.edu/generative-AI-detectors" target="_blank" rel="noopener">lawlibguides.sandiego.edu</a></li>
   <li>Cheng, Adam, et al. "Ability of AI Detection Tools and Humans to Accurately Identify Different Forms of AI-Generated Written Content." <em>Advances in Simulation</em>, vol. 10, no. 66, 22 Nov. 2025. <a href="https://doi.org/10.1186/s41077-025-00396-6" target="_blank" rel="noopener">doi.org/10.1186/s41077-025-00396-6</a></li>
-  <li>Madden, Mary, et al. <em>The Dawn of the AI Era: Teens, Parents, and the Adoption of Generative AI at Home and School.</em> Common Sense Media, 18 Sept. 2024. <a href="https://www.commonsensemedia.org/sites/default/files/research/report/2024-the-dawn-of-the-ai-era_final-release-for-web.pdf" target="_blank" rel="noopener">commonsensemedia.org</a></li>
   <li>Galczynski, Jordan. "The Imperfection of AI Detection Tools." HumTech, UCLA, 9 Oct. 2025. <a href="https://humtech.ucla.edu/technology/the-imperfection-of-ai-detection-tools/" target="_blank" rel="noopener">humtech.ucla.edu</a></li>
-  <li>Tian, Edward. "Perplexity, Burstiness, and Statistical AI Detection." GPTZero, 1 Mar. 2023. <a href="https://gptzero.me/news/perplexity-and-burstiness-what-is-it/" target="_blank" rel="noopener">gptzero.me</a></li>
   <li>Hirsch, Amanda. "AI Detectors: An Ethical Minefield." Center for Innovative Teaching and Learning, Northern Illinois University, 12 Dec. 2024. <a href="https://citl.news.niu.edu/2024/12/12/ai-detectors-an-ethical-minefield/" target="_blank" rel="noopener">citl.news.niu.edu</a></li>
   <li>Krishna, Kalpesh, et al. "Paraphrasing Evades Detectors of AI-Generated Text, but Retrieval Is an Effective Defense." NeurIPS 2023. <a href="https://doi.org/10.48550/arXiv.2303.13408" target="_blank" rel="noopener">doi.org/10.48550/arXiv.2303.13408</a></li>
-  <li>Liang, Weixin, et al. "GPT Detectors Are Biased Against Non-Native English Writers." <em>Patterns</em>, vol. 4, no. 7, 14 July 2023. <a href="https://doi.org/10.1016/j.patter.2023.100779" target="_blank" rel="noopener">doi.org/10.1016/j.patter.2023.100779</a></li>
+  <li>Liang, Weixin, et al. "GPT Detectors Are Biased Against Non-Native English Writers." <em>Patterns</em>, vol. 4, no. 7, 14 July 2023, p. 100779. <a href="https://doi.org/10.1016/j.patter.2023.100779" target="_blank" rel="noopener">doi.org/10.1016/j.patter.2023.100779</a></li>
+  <li>Madden, Mary, et al. <em>The Dawn of the AI Era: Teens, Parents, and the Adoption of Generative AI at Home and School.</em> Common Sense Media, 18 Sept. 2024. <a href="https://www.commonsensemedia.org/sites/default/files/research/report/2024-the-dawn-of-the-ai-era_final-release-for-web.pdf" target="_blank" rel="noopener">commonsensemedia.org</a></li>
   <li>MLA-CCCC Joint Task Force on Writing and AI. <em>Overview of the Issues, Statement of Principles, and Recommendations.</em> Working Paper 1, July 2023. <a href="https://aiandwriting.hcommons.org/" target="_blank" rel="noopener">aiandwriting.hcommons.org</a></li>
-  <li>Weber-Wulff, Debora, et al. "Testing of Detection Tools for AI-Generated Text." <em>International Journal for Educational Integrity</em>, vol. 19, no. 26, 2023. <a href="https://doi.org/10.1007/s40979-023-00146-z" target="_blank" rel="noopener">doi.org/10.1007/s40979-023-00146-z</a></li>
+  <li>Tian, Edward. "Perplexity, Burstiness, and Statistical AI Detection." GPTZero, 1 Mar. 2023. <a href="https://gptzero.me/news/perplexity-and-burstiness-what-is-it/" target="_blank" rel="noopener">gptzero.me</a></li>
   <li>Watters, Audrey. <em>Teaching Machines: The History of Personalized Learning.</em> The MIT Press, 2021.</li>
+  <li>Weber-Wulff, Debora, et al. "Testing of Detection Tools for AI-Generated Text." <em>International Journal for Educational Integrity</em>, vol. 19, no. 26, 2023. <a href="https://doi.org/10.1007/s40979-023-00146-z" target="_blank" rel="noopener">doi.org/10.1007/s40979-023-00146-z</a></li>
 </ol>
 </div>
+
+<p class="version-note">Draft v4 · Mar 2026 · Updated from new ms</p>
 
 </body>
 </html>
