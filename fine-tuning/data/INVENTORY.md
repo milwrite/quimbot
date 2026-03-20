@@ -1,19 +1,21 @@
 # Dataset Inventory
-_Updated: 2026-03-17 19:30 ET_
+_Updated: 2026-03-19 17:00 ET_
 
 ## Active Superset (use this for training)
 
 | File | Rows | Notes |
 |------|------|-------|
-| `toefl_superset6_merged_20260317.jsonl` | 15,555 | Canonical superset as of 2026-03-17. See source files below. 0 parse errors. |
-| `toefl_batch_20260317.jsonl` | 10,000 | **New batch (2026-03-17).** Off-day generation. 20 error categories: SV agreement, tense base-form, present perfect aux, articles, prepositions, adj/adv, modals, gerund/inf, emotion adj, pronouns, mass noun plurals, double negatives, word order, comparatives, language context, travel context, irregular past, was/were, make/do, since+duration. 0 parse errors. Deduplicated against superset6. **Merge into superset7 before training.** |
+| `toefl_superset8_merged_20260320.jsonl` | 46,943 | **Canonical superset as of 2026-03-20.** Superset7 + batch_20260319, deduped. 0 parse errors. |
+| `toefl_superset7_merged_20260317.jsonl` | 39,133 | Superseded by superset8. 0 parse errors. |
+| `toefl_batch_20260319.jsonl` | 10,000 | **New batch (2026-03-19).** Off-day generation. 26 error categories: SV agreement, tense base-form, present perfect aux, articles, prepositions, adj/adv, modals, gerund/inf, emotion adj, pronouns, mass noun plurals, double negatives, word order, comparatives, language context, travel context, irregular past, was/were, make/do, since+duration, conditionals, reported speech, question formation, passive voice, relative clauses, purpose infinitives. 0 parse errors. Deduplicated against superset7. **Merge into superset8 before training.** |
 
-## Pending: Superset7
+## Superset8 (completed 2026-03-20)
 
 | Action | Status |
 |--------|--------|
-| Merge superset6 + toefl_batch_20260317 → toefl_superset7_merged.jsonl | **Pending** (run merge+dedup script) |
-| Expected superset7 rows (pre-dedup) | ~25,555 |
+| Merge superset7 + toefl_batch_20260319 → `toefl_superset8_merged_20260320.jsonl` | **Done** |
+| Rows (post-dedup) | 46,943 (2,190 dupes removed from 49,133 raw) |
+| Parse errors | 0 |
 
 ## Source Files
 
@@ -38,13 +40,15 @@ _Updated: 2026-03-17 19:30 ET_
 ## In-Progress Generation
 
 | File | Rows (live) | Model | Status |
-| `toefl_batch_20260317.jsonl` | 10,000 | programmatic (Python) | **Complete — awaiting superset7 merge** |
+|------|-------------|-------|--------|
+| `toefl_batch_20260319.jsonl` | 10,000 | programmatic (Python) | **Complete — awaiting superset8 merge** |
 
 ## Prior In-Progress (now complete)
 
 | File | Rows (live) | Model | Status |
 |------|-------------|-------|--------|
-| `toefl_batch_20260315.jsonl` | 10,000 | programmatic (Python) | **Complete — awaiting superset6 merge** |
+| `toefl_batch_20260317.jsonl` | 10,000 | programmatic (Python) | **Complete — merged into superset7** |
+| `toefl_batch_20260315.jsonl` | 10,000 | programmatic (Python) | **Complete — merged into superset6** |
 
 ## Misc / Scaffolding
 

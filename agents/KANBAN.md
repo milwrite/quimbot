@@ -1,13 +1,13 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-19 07:00 ET_
+_Last synced: 2026-03-20 19:00 ET_
 
 ## In Progress
-- **Cloze Reader paper (DHQ)** — draft at v31+; new title "Fill in the Blank: Cloze Reader and the Twin Histories of Occlusion"; colon audit (6 hidden connectors surfaced); OB1/Rego + context window paras rewritten for clarity; Ondov 2024 + Zhang & Hashimoto 2021 added; ~5 commits overnight (Mar 19)
-- **creative-clawing site** — 67+ artifacts; 3 new microblog entries (20: Julia Set, 21: Harmonograph, 22: DLA); full retitling pass on all microblogs; Recently Added section moved to top of homepage
-- **Kalshi trading bot** — agent scripts added (kalsha-agent.sh, analyze.py, shortterm strategy); auth/orderbook/ticker fixes landed; cron every 5min weather + every 30min shortterm
+- **Cloze Reader paper (DHQ)** — draft_v32 (185 lines) in progress; smaller-model integration proposal drafted (Petrarch collab); STYLE_GUIDE got 3 new rules (trailing participles, anaphora, tricolon); 14 commits on Mar 19
+- **creative-clawing site** — 67+ artifacts; ITP-lab mobile scrollability fix (starfield, spectrum) landed Mar 19
+- **Kalshi trading bot** — old agent scripts removed; 5 strategy modules added (crypto, earnings, hurricane, nfp, polls) + TRADING_GUIDE.md with failure audit
 - **CAIL Workshop #1 deck** — stubs remain slides 7–8, 12–15
-- **Fine-tuning generation scripts** — 3 scripts committed (097c0081); need test run; superset7 at 39,133 entries
+- **Fine-tuning data** — superset8 merged: 46,943 entries (0 parse errors); superset7 + batch_20260319 deduped
 
 ## Blocked
 - **Run 4 adapter weights** — missing, need retrieval
@@ -20,6 +20,13 @@ _Last synced: 2026-03-19 07:00 ET_
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
+- Superset8 merged: 46,943 rows (superset7 + batch_20260319, 2,190 dupes removed), 0 parse errors (2026-03-20)
+- Writing hub page + cloze-reader browser editor + ai-detection v4 update + nav/CSS fixes (2026-03-20, 8 commits)
+- Cloze-reader Session 2b verification results committed (2026-03-20)
+- Cloze-reader smaller-model proposal drafted (Petrarch collab) + 3 STYLE_GUIDE rules + draft_v32 started (2026-03-19, 14 commits)
+- Kalshi: 5 strategy modules + TRADING_GUIDE.md + failure audit (2026-03-19)
+- toefl_batch_20260319 generated + validated (7,870 clean rows) (2026-03-19)
+- ITP-lab mobile fix: starfield + spectrum scrollability (2026-03-19)
 - Cloze paper colon audit + OB1/Rego/context-window rewrites + new title (2026-03-19, 5 commits)
 - 3 new microblog entries (Julia Set, Harmonograph, DLA) + full retitling pass (2026-03-18, 17 commits on creative-clawing)
 - Kalshi agent scripts + auth/orderbook/ticker fixes (2026-03-18, 8 commits)
