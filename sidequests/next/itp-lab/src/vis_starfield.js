@@ -4,8 +4,10 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 export function starfield(container) {
   container.innerHTML = '';
   const { ctx, resize, destroy } = makeCanvas(container);
-  // Prevent scroll-on-drag on mobile so the parallax gesture works cleanly.
-  container.style.touchAction = 'none';
+  // Use 'manipulation' (not 'none') so mobile users can still scroll past
+  // the starfield. Tilt-to-parallax via deviceorientation is the primary
+  // mobile input; pointer drag is a desktop nicety, not worth blocking scroll.
+  container.style.touchAction = 'manipulation';
 
   let mouse = { x: 0.5, y: 0.5 };
   let touching = false;

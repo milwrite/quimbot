@@ -7,7 +7,9 @@ export function spectrum(container) {
   root.style.position = 'relative';
   root.style.width = '100%';
   root.style.height = '100%';
-  root.style.touchAction = 'none';
+  // Allow vertical scrolling past the canvas; only the slider itself needs
+  // touch-action: none (set below on the range input).
+  root.style.touchAction = 'pan-y';
   container.appendChild(root);
 
   const ui = document.createElement('div');
