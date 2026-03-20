@@ -101,3 +101,17 @@ Notes: session2_lit_notes.md produced. Six Petrarch tasks queued. Citation repai
 - `cloze_reader_intro_suggested-edits_v03.docx` — 37 paragraphs, track changes enabled
 - Citation chain applied: StackOverflow Blog/Clozemaster removed; Bommasani, Oller, Bachman, Peters, Gao, Carlini, Vygotsky, Wood/Bruner/Ross, Pea added
 - Closing revision applied: "Pretraining reduces text to token distributions. The blank makes that reduction legible as loss, and refilling it demonstrates what the model, having processed the same passage, cannot do: read it."
+
+## Session 2b Verification Results (Petrarch, 2026-03-20)
+
+### Citation repairs resolved:
+1. **SSL ×3** → Liu et al. 2021, "Self-supervised learning: Generative or contrastive," IEEE TKDE. DOI: 10.1109/TKDE.2021.3090866. Covers MLM/NLP. Bommasani stays as secondary.
+2. **arXiv 2410.12057** → Jacobs, Grobol & Tsang (2024), "Large-scale cloze evaluation reveals that token prediction tasks are neither lexically nor semantically aligned." ✅ correct for divergence argument.
+3. **PMC 11458034** → Veldre et al. (2024), "Language models outperform cloze predictability in a cognitive model of reading," PLOS Comput Biol. ⚠️ FLAGGED: argues LLM predictability *outperforms* cloze norming for eye-movement data. Does not support divergence-as-failure framing. Quimbot recommendation: reframe as productive complication (better predictor ≠ comprehension). Decision needed from milwrite before Session 7.
+4. **Taylor 1953 DOI** → Confirmed correct. 403 = paywall, not dead link.
+5. **Bachman 1985** → Recommend integrating in Session 5 body section (architecture as argument).
+6. **Oller 1979** → Already integrated in s2_v2 lit review draft. No further action.
+
+### Gate status
+- Session 2 complete pending `APPROVED S2->S3` from milwrite
+- One open decision: Veldre et al. — retain as reframe or drop?
