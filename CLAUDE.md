@@ -10,6 +10,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-03-20)
+- **Superset8 merged at 46,943 rows** — new dataset high-water mark
+- **Writing hub page shipped** — `/writing/` with card layout + commit metadata on creative-clawing
+- **Cloze reader browser editor added** — password-gated, highlight + commit to GitHub (major tooling for milwrite)
+- **AI detection essay updated to v4** on live site
+- **Session 2b verification results documented** in SESSION_STATE
+
 ## Key Decisions Log (2026-03-19)
 - **Paper title finalized**: "Fill in the Blank: Cloze Reader and the Twin Histories of Occlusion"
 - **Colon/semicolon audit rule** added to STYLE_GUIDE (Petrarch's connector-surfacing principle)

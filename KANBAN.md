@@ -1,8 +1,15 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-19 21:00 ET_
+_Last synced: 2026-03-20 21:00 ET_
 
 ## ✅ Done
+- **Superset8 merged (46,943 rows)** — new high-water mark, INVENTORY synced (`d294a109`) ✅ 3/20
+- **Writing hub page** — `/writing/` landing with card layout + commit metadata, nav tab updated (`a251aa54`, `c1792b07`) ✅ 3/20
+- **Cloze reader browser editor** — password-gated, highlight + commit to GitHub (`b945c771`) ✅ 3/20
+- **AI detection essay v4** — manuscript text updated on live site (`0ee47bc2`) ✅ 3/20
+- **Session 2b verification** — results documented in SESSION_STATE (`05a0d9d9`) ✅ 3/20
+- **Bug fixes** — pre/code light mode cascade fix, nav-tab external link guard, pages redeploy (`0c821667`, `477c76fe`, `76614d82`) ✅ 3/20
+- **Nightly sync** — KANBAN, STATUS, TODO, STYLE_GUIDE synced (`45a24981`) ✅ 3/20
 - **Cloze reader paper v29→v31** — title finalized, colon audit (6 connectors surfaced), OB1/Rego rewrite, context window rewrite, closing sentence revision, Zhang & Hashimoto/Ondov added, 3 new style rules (trailing participles, anaphora, tricolon), paragraph breakup pass ✅ 3/19
 - **toefl_batch_20260319 validated** — 10k generated, 7,870 clean entries after short-reply filter ✅ 3/19
 - **Kalshi trading bot: analyze.py + shortterm strategy + order/API fixes** — 4 commits overnight ✅ 3/19
@@ -106,6 +113,7 @@ _Last synced: 2026-03-19 21:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/20 21:00:** 10 commits today across 3 lanes: (1) Data: superset8 merged to 46,943 rows. (2) Writing/site: writing hub page, AI detection v4, cloze reader browser editor, Session 2b verification. (3) Bug fixes: light mode cascade, nav-tab external link guard. OpenRouter 402 day 23.
 - **Evening review 3/19 21:00:** 14 quimbot commits + 2 creative-clawing + 3 kalshi. Three lanes: (1) Cloze reader paper v29→v31 + smaller-model proposal + draft_v32 started. (2) Kalshi cleanup + 5 strategy modules + TRADING_GUIDE + failure audit. (3) Data: toefl_batch_20260319 validated (7,870/10k clean), superset8 merge plan ready. creative-clawing: Burning Ship + Cyclic CA + mobile fixes. OpenRouter 402 day 22.
 - **Morning review 3/18 09:00:** 2 overnight commits: cloze reader citation chain upgrades (Bommasani, Oller, Bachman, Peters, Gao/Pile, Carlini, Vygotsky/Wood/Pea). Cron jobs back online after 3-day pause (milwrite halted all jobs 3/15, Wednesday lift now in effect). OpenRouter 402 day 21. Tasked Petrarch with billing fix, superset7 verification, cloze paper Section IV, cron notifier fix.
 - **Evening review 3/17 21:00:** 8 commits today. Two lanes: (1) Data tooling: 3 validated TOEFL generation scripts committed + 10k batch generated + superset7 merged to 39,133 rows. (2) Writing: cloze reader paper Section III v3 polished through 6 revision passes. OpenRouter 402 day 20. Programmatic generation bypassing the billing block effectively.
