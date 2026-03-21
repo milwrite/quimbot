@@ -193,6 +193,12 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - After: "Taylor developed the cloze procedure within the Gestalt tradition."
 - **Exception:** Very short, clearly non-restrictive appositives ("Oller, a linguist, argued...") are acceptable if the phrase is two or three words and doesn't bury the verb. When in doubt, restructure.
 
+### No abstract concepts as subjects of short sentences (added 2026-03-21)
+- **Ban:** Stub sentences where an abstraction stands alone as subject: "Meaning played no part in Harris's analysis. The distribution was the object of study."
+- These read as fragment-summary insertions. The concept doesn't do anything in the sentence — Harris does.
+- **Fix:** Fold the claim back into the person, method, or action it belongs to. "Harris set meaning aside entirely, arguing that..." keeps the researcher as subject and absorbs the conceptual point as a subordinate clause.
+- **Test:** If a short sentence has an abstraction (meaning, distribution, context, prediction, structure) as its subject and the verb is just "is/was/played/remained," it probably needs to be folded into the surrounding prose with a human or method as the grammatical agent.
+
 ### No invented academic noun phrases (added 2026-03-21)
 - **Ban:** Noun phrases that sound scholarly but don't appear in actual field literature. LLMs routinely mint these: "LLM-derived predictability," "semantic retrieval interference," "distributional alignment pressure," "cloze-norming divergence."
 - **Test:** Would a researcher in the relevant field use this phrase in their own writing? If not, don't coin it. Use the terms that appear in the literature you're actually citing.
