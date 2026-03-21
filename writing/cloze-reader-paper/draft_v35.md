@@ -12,7 +12,19 @@ Cloze reading began as a simple procedural idea. Delete words from a passage at 
 
 The intervention proved durable enough to move from educational psychology to computational laboratories, where cloze-like objectives now structure how machines learn language.
 
-That migration has a technical genealogy. Distributional semantics established the core insight: word meaning derives from context (Harris 1954; Firth 1957). Mikolov et al. (2013) showed this insight could be operationalized as a training objective at scale. Peters et al. (2018) pushed further with ELMo, generating context-sensitive word representations through bidirectional LSTM language modeling. Devlin et al. (2019) formalized the move with BERT, whose masked token prediction trained a joint bidirectional encoder across billions of words of unannotated text. The shared motif is that contextual prediction is a lever for linguistic competence, whether that competence belongs to a human reader or a model updating its parameters through gradient descent.
+In this paper, I suggest we can learn from the technical genealogy of the cloze procedure, tracing its arc of use from early reading comprehension assessment to its later adoption by machine learning researchers training masked language models (MLMs) to predict missing tokens from surrounding context.
+
+Harris (1954) set meaning aside entirely, arguing that phonemes, morphemes, and words could be identified through their co-occurrence patterns alone. Harris showed that elements appearing in the same environments belong to the same grammatical class, and that the restrictions on how those classes combine generate the grammar.
+
+Firth (1957) took Harris's structural observation and redirected it toward meaning. In "Modes of Meaning," he proposed that words carry semantic content through their habitual collocations, the words they characteristically appear alongside. "You shall know a word by the company it keeps." For Firth, *time*'s tendency to collocate with *saved*, *spent*, or *wasted* was itself semantic information, since nothing internal to the word fixes those pairings.
+
+NLP researchers inherited both accounts and merged them into a single computable question, asking whether a model given enough text could learn what words mean by observing what they appear near.
+
+Mikolov et al. (2013) showed that it could. Their word2vec framework trained shallow neural networks to predict a word's surrounding context from the word itself (skip-gram) or to predict the word from its context (CBOW). Across large corpora, words sharing distributional contexts ended up near each other in vector space, so that semantic similarity followed from distributional similarity.
+
+Peters et al. (2018) identified a limitation word2vec left unaddressed, noting that each word's representation remained fixed regardless of context, treating *bank* as the same word in every sentence it appeared. ELMo addressed this by training two LSTM language models in parallel, one processing text left to right and one right to left, combining their outputs at each word position to produce representations shaped by the specific sentence the word appeared in.
+
+Devlin et al. (2019) carried that logic further and named it explicitly. During BERT's pre-training, they randomly masked 15% of input tokens and trained a Transformer encoder to predict them from the full surrounding context, attending to both directions jointly in every layer rather than merging separately trained directional models at the output. Devlin et al. called this objective masked language modeling and drew the analogy to the cloze task directly, having updated the scale and the architecture but not the task itself.
 
 Cloze Reader ([reader.inference-arcade.com](https://reader.inference-arcade.com)), a browser-based educational game developed through the CUNY AI Lab and the Inference Arcade initiative, sits at the intersection of these two lines. It preserves the cloze prompt as a human-facing task while delegating word removal to a language model guided by heuristic instructions. That design holds two things in view at once: the continuity of the cloze premise across seventy years of research, and the divergence in what removal reveals about the system performing it.
 
@@ -182,4 +194,4 @@ Zhang, Z. and Hashimoto, T. (2021) 'On the inductive bias of masked language mod
 
 ---
 
-*Draft v35 · Updated 2026-03-21 EDT · gap-bridging construction removed from Continuity section: "makes the gap between those two operations visible" → "makes those two operations visible side by side"*
+*Draft v35 · Updated 2026-03-21 EDT · thesis sentence + Harris/Firth/Mikolov/Peters/Devlin genealogy restored to intro; gap-bridging fix in Continuity section*
