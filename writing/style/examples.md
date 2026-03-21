@@ -4,25 +4,39 @@
 
 ---
 
-## Positive Examples (from STYLE_GUIDE.md — drawn from milwrite's work and revision sessions)
+## Positive Examples — FROM PUBLISHED WORK
 
-### Data-in-context (the target sentence)
+*Slots below are reserved for actual published prose from milwrite. Paste text from the Journalism Studies article or the CUNY Academic Works piece to populate these.*
 
-> Each trajectory marks where scoring and ranking algorithms mold which posts become "hottest" or most "controversial" on Reddit and which contributions go unseen, buried in the weight of an active feed of subreddit content, such as r/CUNY or r/Baruch, which receive a mean average of [X] and [Y] posts per day with a median of [Z] and [N] comments per post.
+### Data-in-context (PLACEHOLDER — Reddit/platform piece)
 
-**Why it works:**
-- Names the mechanism with its own language ("scoring and ranking algorithms"; "hottest," "controversial" are Reddit's own UI labels)
-- Shows the effect concretely ("buried in the weight of an active feed")
-- Names specific instances ("r/CUNY or r/Baruch") not category ("campus subreddits")
-- Embeds data inside the prose clause as a subordinate, not as a parenthetical
+> [Paste the passage here when available]
 
-### Short sentence after long
+**What to annotate:**
+- How the mechanism is named (platform's own UI language vs. analyst's paraphrase)
+- Where data enters (subordinate clause at the point of consequence vs. bolted on at end)
+- Named instances vs. category labels
+- Short sentence placement
 
-> Each trajectory marks where scoring and ranking algorithms mold which posts become "hottest" or most "controversial" on Reddit and which contributions go unseen, buried in the weight of an active feed of subreddit content. The data makes this visible.
+### Opening sentence(s) (PLACEHOLDER)
 
-The short sentence after the long one lands harder and reads like thought.
+> [Paste the article opening here]
+
+**Annotate:** how quickly stakes arrive; whether the opening starts with the thing itself or with background.
+
+### Ending (PLACEHOLDER)
+
+> [Paste the closing paragraph here]
+
+**Annotate:** does it extend/reframe or summarize; what does it commit to that wasn't stated at the start.
+
+---
+
+## Documented Patterns (from revision sessions — these are constructed targets, not published prose)
 
 ### The full Place → Data → Mechanism → Consequence structure
+
+Constructed during revision work on the Reddit/platform piece. Not from a published draft — treat as a target pattern, not a finished example.
 
 > Across r/CUNY and r/Baruch, where posts average [X] per day, students' trajectories are sorted by the ranking criteria that decide which contributions reach the surface before they can gather the replies that would let a question about work, study, housing, or campus life become a usable public exchange.
 
