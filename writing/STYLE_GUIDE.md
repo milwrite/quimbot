@@ -117,6 +117,15 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 
 *Add new rules here as they come up. Both Quimbot and Petrarch maintain this file.*
 
+### Logical prepositions over conjunctive ones (added 2026-03-21)
+- **Rule:** When a preposition relates two elements, prefer a logical connector (showing cause, consequence, contrast, or purpose) over a conjunctive one (showing mere addition or temporal sequence).
+- **Test:** Can the relationship made by "and," "while," or "as well as" be expressed as a logical relationship — "to," "so that," "because," "which reveals," "since"? If yes, make that the preposition.
+- **Before:** "I trace these genealogies and interrogate the divergences..."
+- **After:** "I trace these genealogies to show where the divergences lie..."
+- **Before:** "I kept each task separate, with no information carried forward."
+- **After:** "I kept each task separate so that no information carries forward."
+- **Not a rule against "and":** Short parallel constructions ("build, test, push") are fine. The rule targets compound predicates where the second element is the logical consequence or purpose of the first.
+
 ### Nominalization ban (added 2026-03-18)
 - **No verb phrase nominalizations** — "pretraining's reduction of text to token distributions" → "pretraining reduces text to token distributions"
 - The pattern: `[gerund/noun]'s [noun] of [noun]` before the verb arrives = always rewrite as two short sentences
@@ -183,6 +192,22 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - After: "The second debate concerned deletion method and carried equal weight for what the procedure actually measures."
 - After: "Taylor developed the cloze procedure within the Gestalt tradition."
 - **Exception:** Very short, clearly non-restrictive appositives ("Oller, a linguist, argued...") are acceptable if the phrase is two or three words and doesn't bury the verb. When in doubt, restructure.
+
+### No invented academic noun phrases (added 2026-03-21)
+- **Ban:** Noun phrases that sound scholarly but don't appear in actual field literature. LLMs routinely mint these: "LLM-derived predictability," "semantic retrieval interference," "distributional alignment pressure," "cloze-norming divergence."
+- **Test:** Would a researcher in the relevant field use this phrase in their own writing? If not, don't coin it. Use the terms that appear in the literature you're actually citing.
+- **Fix:** Name the specific process or construct using the field's existing vocabulary. If no standard term exists, describe the thing with a verb: "LLMs generate better regression predictors for reading-time data than offline cloze norms do" rather than "LLM-derived predictability outperforms cloze norming."
+
+### Authors do the research, not findings (added 2026-03-21)
+- **Rule:** Put researchers in the grammatical subject position for sentences describing studies. Don't nominalize their work into "the finding that X" or "the result that Y."
+- **Bad:** "The finding that LLM-derived predictability outperforms cloze norming for fitting eye-movement data doesn't contradict the paper's argument."
+- **Good:** "Curiously, in their 2024 study, Veldre et al. found LLM-enabled inference outperformed humans in conducting cloze procedures related to eye-movement data."
+- **Fix:** Identify the verb the researchers actually performed (found, showed, measured, reported, demonstrated) and put the author names as the grammatical subject doing that verb.
+
+### No false dilemmas in contrastive citation (added 2026-03-21)
+- **Ban:** Framing two studies as competing answers to the same question when they address different domains, measures, or populations.
+- **The submarine rule:** A submarine doesn't outperform Michael Phelps at swimming. It does something else. Claiming one study "contradicts" or "doesn't contradict" another is only valid when they actually ask the same question with comparable methods. A study of eye-movement regression predictors and a study of offline behavioral responses are not in the same contest.
+- **Fix:** Present each study for what it shows, in its own domain. If they're genuinely in tension, name precisely what the tension is. If they're not, don't manufacture one to justify a contrastive sentence.
 
 ### Tricolon abuse (added 2026-03-19)
 - **Ban:** Overuse of the rule-of-three pattern, especially when extended to four or five items, or when multiple tricolons appear back-to-back.
