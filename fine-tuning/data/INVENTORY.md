@@ -1,13 +1,23 @@
 # Dataset Inventory
-_Updated: 2026-03-19 17:00 ET_
+_Updated: 2026-03-21 17:10 ET_
 
 ## Active Superset (use this for training)
 
 | File | Rows | Notes |
 |------|------|-------|
-| `toefl_superset8_merged_20260320.jsonl` | 46,943 | **Canonical superset as of 2026-03-20.** Superset7 + batch_20260319, deduped. 0 parse errors. |
+| `toefl_superset9_merged_20260321.jsonl` | 45,555 | **Canonical superset as of 2026-03-21.** Superset8 + batch_20260321, deduped. 0 parse errors. |
+| `toefl_superset8_merged_20260320.jsonl` | 46,943 | Superseded by superset9. 0 parse errors. |
 | `toefl_superset7_merged_20260317.jsonl` | 39,133 | Superseded by superset8. 0 parse errors. |
-| `toefl_batch_20260319.jsonl` | 10,000 | **New batch (2026-03-19).** Off-day generation. 26 error categories: SV agreement, tense base-form, present perfect aux, articles, prepositions, adj/adv, modals, gerund/inf, emotion adj, pronouns, mass noun plurals, double negatives, word order, comparatives, language context, travel context, irregular past, was/were, make/do, since+duration, conditionals, reported speech, question formation, passive voice, relative clauses, purpose infinitives. 0 parse errors. Deduplicated against superset7. **Merge into superset8 before training.** |
+| `toefl_batch_20260321.jsonl` | 10,000 | **New batch (2026-03-21).** Off-day generation. 10 new error categories: stative verb progressive (AA), countable/uncountable (AB), verb complementation (AC), quantifier errors (AD), definite article overuse (AE), reflexive pronoun misuse (AF), negative inversion (AG), discourse connector errors (AH), causative verb errors (AI), possession construction (AJ). Plus expanded academic sub-patterns across SV agreement, tense, present perfect, articles, prepositions, word order, conditionals, reported speech, question formation, purpose infinitives, was/were, since+duration, gerund/inf. 0 parse errors. Deduped against superset8 (11,388 dupes removed from 56,943 raw). |
+| `toefl_batch_20260319.jsonl` | 10,000 | Off-day generation 2026-03-19. 26 error categories. Merged into superset8. |
+
+## Superset9 (completed 2026-03-21)
+
+| Action | Status |
+|--------|--------|
+| Merge superset8 + toefl_batch_20260321 → `toefl_superset9_merged_20260321.jsonl` | **Done** |
+| Rows (post-dedup) | 45,555 (11,388 dupes removed from 56,943 raw) |
+| Parse errors | 0 |
 
 ## Superset8 (completed 2026-03-20)
 

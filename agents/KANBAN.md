@@ -1,9 +1,9 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-20 19:00 ET_
+_Last synced: 2026-03-21 19:00 ET_
 
 ## In Progress
-- **Cloze Reader paper (DHQ)** — draft_v32 (185 lines) in progress; smaller-model integration proposal drafted (Petrarch collab); STYLE_GUIDE got 3 new rules (trailing participles, anaphora, tricolon); 14 commits on Mar 19
+- **Cloze Reader paper (DHQ)** — draft_v35 live; v33 grafted first-person narrator (8 points), v34 logical-prepositions pass + milwrite correction, v35 Harris/Firth/Mikolov/Peters/Devlin genealogy expanded + intro thesis restored; style guide gained 4 new rules (abstract-subject stubs, invented noun phrases, false dilemma ban, submarine rule); disaggregated `writing/style/` system with SKILL.md router; 10 commits on Mar 21
 - **creative-clawing site** — 67+ artifacts; ITP-lab mobile scrollability fix (starfield, spectrum) landed Mar 19
 - **Kalshi trading bot** — old agent scripts removed; 5 strategy modules added (crypto, earnings, hurricane, nfp, polls) + TRADING_GUIDE.md with failure audit
 - **CAIL Workshop #1 deck** — stubs remain slides 7–8, 12–15
@@ -20,6 +20,9 @@ _Last synced: 2026-03-20 19:00 ET_
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
+- Cloze paper v33–v35: first-person narrator, logical prepositions, Harris/Firth/Mikolov genealogy, intro thesis restored; disaggregated style/ system; `examples.md` placeholder slots flagged (2026-03-21, 10 commits)
+- Validated superset8_20260320 (46,943 lines, 0 parse errors); fixed broken a11y-checker submodule ref blocking Pages (2026-03-21)
+- Microblog #21: DLA Crystal published; draft_v32 committed (was untracked) (2026-03-20 late)
 - Superset8 merged: 46,943 rows (superset7 + batch_20260319, 2,190 dupes removed), 0 parse errors (2026-03-20)
 - Writing hub page + cloze-reader browser editor + ai-detection v4 update + nav/CSS fixes (2026-03-20, 8 commits)
 - Cloze-reader Session 2b verification results committed (2026-03-20)

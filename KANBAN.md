@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-20 21:00 ET_
+_Last synced: 2026-03-21 09:00 ET_
 
 ## ✅ Done
 - **Superset8 merged (46,943 rows)** — new high-water mark, INVENTORY synced (`d294a109`) ✅ 3/20
