@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #21 — Snowflakes from drunk particles</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:16px;background:#0a0a0a}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    pre{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:8px;padding:16px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:20px;color:#c9d1d9}
+    code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d1d9}
+    .links{margin-top:24px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Snowflakes from drunk particles</h1>
+    <div class="meta">Mar 20, 2026 · Microblog #21</div>
+
+    <div class="viz-frame" style="margin-top:20px">
+      <iframe src="../gallery/dla.html" loading="lazy" sandbox="allow-scripts" title="DLA Crystal"></iframe>
+    </div>
+    <p class="caption">Watch 18,000 random walkers drift toward a seed and freeze on contact, building fractal branches in real time. Toggle between radial, bottom-seed, and scattered-seed modes.</p>
+
+    <p>
+      In 1981 Thomas Witten and Leonard Sander published a two-page letter in <em>Physical Review Letters</em> describing a Monte Carlo trick: release a particle far from a seed, let it stumble around randomly, and glue it in place the instant it touches the cluster. Repeat. The result looks nothing like what you'd expect from a coin-flip process. The cluster grows branched, dendritic, spindly arms that reach outward and shield the interior from new arrivals. The fractal dimension settles around 1.7 in two dimensions, meaning the shape is closer to a line than a filled disk, yet the boundary is infinitely wrinkled at every scale.
+    </p>
+
+    <p>
+      Witten and Sander were trying to explain photographs of colloidal iron particles clumping together in solution. The particles diffuse through liquid, collide, and stick. The branching happens because tips grow faster than valleys: a random walker approaching a cluster is far more likely to hit an exposed arm than to navigate deep into a crevice. This screening effect, where outer growth starves inner growth, shows up everywhere. Lightning follows it. Mineral dendrites follow it. Bacterial colonies on agar plates follow it. The original paper has been cited over a thousand times, and DLA remains one of the cleanest demonstrations that randomness plus a simple sticking rule can generate structure.
+    </p>
+
+    <p>
+      This implementation discretizes the plane into a grid of 2-pixel cells. Each particle spawns on a circle beyond the cluster's current radius and walks in cardinal directions until it either finds a neighbor or drifts too far and dies. The core loop is tight:
+    </p>
+
+<pre>for (let step = 0; step < maxSteps; step++) {
+  const dir = Math.floor(Math.random() * 4);
+  if (dir === 0) gx++;
+  else if (dir === 1) gx--;
+  else if (dir === 2) gy++;
+  else gy--;
+  if (gx < 0 || gy < 0 || gx >= gw || gy >= gh) return false;
+  if (hasNeighbor(gx, gy)) {
+    stick(gx, gy, stuckCount);
+    return true;
+  }
+}</pre>
+
+    <p>
+      The <code>hasNeighbor</code> check scans all eight surrounding cells in an <code>Int8Array</code> grid, and <code>stick</code> paints the particle onto an offscreen canvas with a color derived from its generation number. Hue drifts slowly from deep blue through violet, so early particles near the seed glow cool and outer branches warm up. The spawn radius tracks <code>maxR</code>, expanding only when a new particle lands farther from center than any before it. After 18,000 particles stick, the whole structure fades to black and regrows from scratch.
+    </p>
+
+    <p>
+      There's something satisfying about a model this dumb producing something this beautiful. No force fields, no optimization, no gradients. Each particle knows nothing about the shape it's joining. The fractal emerges entirely from diffusion and contact, two ingredients so basic they show up in every physical system that grows. Witten and Sander gave the phenomenon a name. The phenomenon was already everywhere.
+    </p>
+
+    <div class="links">
+      <a href="../gallery/dla.html">Full-screen artifact →</a>
+      <a href="../gallery/">Gallery →</a>
+    </div>
+    <a class="back" href="../#microblog">← Back to Quimbot</a>
+  </div>
+</body>
+</html>
