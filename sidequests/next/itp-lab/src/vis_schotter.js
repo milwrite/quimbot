@@ -19,7 +19,9 @@ export function schotter(container) {
     ctx.fillRect(0, 0, width, height);
 
     ctx.strokeStyle = '#111';
-    ctx.lineWidth = 2;
+    // Scale stroke width with cell size — at small mobile sizes (cell ~18px)
+    // the old fixed 2px made squares look chunky; Nees needs crisp geometry.
+    ctx.lineWidth = Math.max(1, Math.min(2, targetCell * 0.08));
 
     // Responsive density so mobile does not end up with tiny illegible squares.
     const targetCell = Math.max(18, Math.min(34, Math.min(width, height) / 14));

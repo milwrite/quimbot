@@ -39,9 +39,11 @@ export function tenPrint(container) {
   clear(true);
 
   // Set initial stroke style (will be re-applied after any resize).
+  // Scale lineWidth with cell size so lines stay crisp on small mobile screens
+  // (at cell=10 the old fixed 2px ate 20% of each cell, muddying the pattern).
   function applyStrokeStyle() {
     ctx.strokeStyle = '#00FF41';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = Math.max(1, Math.min(2, cell * 0.12));
     ctx.lineCap = 'square';
   }
   applyStrokeStyle();
