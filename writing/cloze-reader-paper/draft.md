@@ -3,6 +3,7 @@
 **Zach Muhlbauer**
 The Graduate Center, CUNY
 <https://reader.inference-arcade.com>
+Site deployment: <https://milwrite.github.io/quimbot/cloze-reader-draft/>
 
 ---
 
