@@ -83,9 +83,9 @@
 - Session 2 is unblocked with above constraints
 
 ## Added Role (2026-03-12)
-- Excerptor role added for rewrite support: `writing/cloze-reader-paper/ROLE_EXCERPTOR.md`
-- Excerpt log: `writing/cloze-reader-paper/EXCERPTS.md`
-- Suggested-edits Word file with track changes: `writing/cloze-reader-paper/docx_versions/cloze_reader_intro_suggested-edits_v02_trackchanges.docx`
+- Excerptor role added for rewrite support: `tools/ROLE_EXCERPTOR.md`
+- Excerpt log: `EXCERPTS.md`
+- Suggested-edits Word file with track changes: `docx_versions/cloze_reader_intro_suggested-edits_v02_trackchanges.docx`
 
 ## Current Session Deliverable
 **Session 2 — Literature Expansion**
@@ -93,7 +93,7 @@ Due: 2026-03-14 17:00 ET
 Notes: session2_lit_notes.md produced. Six Petrarch tasks queued. Citation repairs drafted for Oller 1979, ELMo, self-supervised learning source. Two PMC/arXiv stubs require Petrarch author/method verification before body can use them. No prose committed until approval.
 
 ## Open Items — Next Session
-- [ ] Para 18 (hint system): scaffolding citations already in draft_intro.txt — confirm merge into docx v04
+- [ ] Para 18 (hint system): scaffolding citations already in drafts/draft_intro.txt — confirm merge into docx v04
 - [ ] EX-04: replace "something else entirely" with specific claim language the body sections can inherit
 - [ ] Citation chain integration: v03 docx produced 2026-03-18, track changes on
 
