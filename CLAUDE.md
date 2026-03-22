@@ -10,6 +10,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-03-22)
+- **Cloze paper at v39** — 4 overnight drafts: paragraph bridging (v36), colon sweep eliminating 11 colons (v37), verb audit replacing generic 'NLP researchers' with names (v38), genealogy condensed and turgid phrases cut (v39)
+- **Writing system expanded** — CHECKLIST_COPY, CHECKLIST_REVISE, PROCESS_GUIDE added for phase-decomposed style with conditional routing
+- **Single draft.md canonical** — versioned filenames eliminated, git handles history; writing/ directory reorganized with subdirectories
+- **Cloze reader site synced** to v37 prose; 'discourse knowledge' → 'pragmatics' terminology fix
+
+## Key Decisions Log (2026-03-21)
+- **Cloze paper at v35** — 4 draft versions in one day; first-person narrator grafted at 8 points (v33); logical prepositions pass (v34); Harris/Firth/Mikolov/Peters/Devlin genealogy expanded and thesis restored to intro (v35)
+- **Style system disaggregated** — monolithic STYLE_GUIDE.md split into 6 modular files (anti-patterns, diction, paragraphs, sentences, structure, voice) with SKILL.md router in `style/`
+- **Superset9 merged at 45,555 rows** — row count lower than superset8 (46,943) due to dedup/filtering variance
+- **Pages build fix** — broken a11y-checker submodule ref removed and gitignored
+
 ## Key Decisions Log (2026-03-20)
 - **Superset8 merged at 46,943 rows** — new dataset high-water mark
 - **Writing hub page shipped** — `/writing/` with card layout + commit metadata on creative-clawing

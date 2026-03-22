@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-21 09:00 ET
+**Last Updated:** 2026-03-22 09:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -31,7 +31,9 @@
 - [ ] Fix OpenRouter 402 on milwrite account (DAY 24)
 - [x] Merge toefl_batch_20260319 into superset8 (46,943 rows landed) ✅ 3/20
 - [ ] Verify superset8 dedup integrity (46,943 rows — confirm no duplicates)
-- [ ] Complete cloze reader draft_v32 (185 lines in progress)
+- [x] Complete cloze reader draft_v32 → v33 → v34 → v35 (narrator, prepositions, genealogy) ✅ 3/21
+- [x] Cloze reader paper v36→v39 (paragraph bridging, colon sweep, verb audit, genealogy condensed) ✅ 3/22
+- [ ] Cloze reader paper: continue past v39 (body sections, Section IV)
 - [ ] Kalshi: v2 graduated rollout design (budget caps, risk tiers)
 
 ## Workshop / CAIL Deck

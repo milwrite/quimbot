@@ -1,8 +1,20 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-21 09:00 ET_
+_Last synced: 2026-03-22 09:00 ET_
+
+## 🔜 Backlog
+
+- **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **Cloze paper v36→v39 (overnight)** — paragraph bridging, colon sweep (11 eliminated), verb audit, genealogy condensed (`bde14873`..`0f0c671e`) ✅ 3/22
+- **Writing system expanded** — CHECKLIST_COPY, CHECKLIST_REVISE, PROCESS_GUIDE added (`708b38d7`) ✅ 3/22
+- **Cloze reader site synced** to draft.md v37 prose + pragmatics fix (`1d5773a2`) ✅ 3/22
+- **Repo cleanup** — consolidated to single draft.md, reorganized writing/ directory, deleted stale files ✅ 3/22
+- **Cloze paper v32→v35 (4 drafts)** — first-person narrator grafted, logical prepositions pass, Harris/Firth/Mikolov/Peters/Devlin genealogy expanded, thesis restored to intro (`31d69e93`..`fccb75d1`) ✅ 3/21
+- **Style system disaggregated** — 6 modular files + SKILL.md router in `style/` (`4b171d45`) ✅ 3/21
+- **Superset9 merged (45,555 rows)** + new toefl_batch_20260321 (10k rows) ✅ 3/21
+- **Pages build fix** — broken a11y-checker submodule removed (`0634f05d`) ✅ 3/21
 - **Superset8 merged (46,943 rows)** — new high-water mark, INVENTORY synced (`d294a109`) ✅ 3/20
 - **Writing hub page** — `/writing/` landing with card layout + commit metadata, nav tab updated (`a251aa54`, `c1792b07`) ✅ 3/20
 - **Cloze reader browser editor** — password-gated, highlight + commit to GitHub (`b945c771`) ✅ 3/20
@@ -113,6 +125,8 @@ _Last synced: 2026-03-21 09:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning review 3/22 09:00:** 14 overnight commits. Writing lane dominant again: cloze paper v36→v39 (paragraph bridging, colon sweep, verb audit, genealogy condensed). Writing system expanded with phase-decomposed checklists. Repo cleanup: consolidated to single draft.md, reorganized writing/ subdirectories. Mobile fix for schotter/tenprint. OpenRouter 402 day 25.
+- **Evening review 3/21 21:00:** 11 commits today. Writing lane dominant: cloze paper v32→v35 (4 drafts — narrator voice, prepositions pass, genealogy expansion). Style system disaggregated into 6 modular files. Data: superset9 merged (45,555 rows) + 10k new batch. Pages build fix (submodule). OpenRouter 402 day 24.
 - **Evening review 3/20 21:00:** 10 commits today across 3 lanes: (1) Data: superset8 merged to 46,943 rows. (2) Writing/site: writing hub page, AI detection v4, cloze reader browser editor, Session 2b verification. (3) Bug fixes: light mode cascade, nav-tab external link guard. OpenRouter 402 day 23.
 - **Evening review 3/19 21:00:** 14 quimbot commits + 2 creative-clawing + 3 kalshi. Three lanes: (1) Cloze reader paper v29→v31 + smaller-model proposal + draft_v32 started. (2) Kalshi cleanup + 5 strategy modules + TRADING_GUIDE + failure audit. (3) Data: toefl_batch_20260319 validated (7,870/10k clean), superset8 merge plan ready. creative-clawing: Burning Ship + Cyclic CA + mobile fixes. OpenRouter 402 day 22.
 - **Morning review 3/18 09:00:** 2 overnight commits: cloze reader citation chain upgrades (Bommasani, Oller, Bachman, Peters, Gao/Pile, Carlini, Vygotsky/Wood/Pea). Cron jobs back online after 3-day pause (milwrite halted all jobs 3/15, Wednesday lift now in effect). OpenRouter 402 day 21. Tasked Petrarch with billing fix, superset7 verification, cloze paper Section IV, cron notifier fix.

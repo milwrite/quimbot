@@ -11,7 +11,7 @@ Site deployment: <https://milwrite.github.io/quimbot/cloze-reader-draft/>
 
 Cloze reading began as a simple procedural idea. Delete words from a passage at regular intervals, require the reader to supply the missing terms, and treat the accuracy of their restorations as a measure of how well they understood the surrounding text. Taylor (1953) drew on the Gestalt principle of closure, the perceptual tendency to complete incomplete familiar patterns described by Koffka (1935), and reframed it as a methodology for gauging reading comprehension holistically rather than through isolated subskills. The approach tested whether a reader could bring syntax, semantics, and discourse knowledge to bear on a single missing word, and the results suggested that this kind of contextual prediction tracked genuine comprehension in ways that syllable-counting and sentence-length measures could not.
 
-The intervention proved durable enough to move from educational psychology to computational laboratories, where cloze-like objectives now structure how machines learn language.
+The intervention proved durable enough to move from educational psychology to computational laboratories, where linguists and theorists, ML researchers and AI engineers — each working within their own disciplinary context — trained masked language models to infer missing words from surrounding text at scale, using word occlusion as the supervisory signal.
 
 In this paper, I suggest we can learn from the technical genealogy of the cloze procedure, tracing its arc of use from early reading comprehension assessment to its later adoption by machine learning researchers training masked language models (MLMs) to predict missing tokens from surrounding context.
 

@@ -1,13 +1,13 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-21 19:00 ET_
+_Last synced: 2026-03-22 07:00 ET_
 
 ## In Progress
-- **Cloze Reader paper (DHQ)** — draft_v35 live; v33 grafted first-person narrator (8 points), v34 logical-prepositions pass + milwrite correction, v35 Harris/Firth/Mikolov/Peters/Devlin genealogy expanded + intro thesis restored; style guide gained 4 new rules (abstract-subject stubs, invented noun phrases, false dilemma ban, submarine rule); disaggregated `writing/style/` system with SKILL.md router; 10 commits on Mar 21
-- **creative-clawing site** — 67+ artifacts; ITP-lab mobile scrollability fix (starfield, spectrum) landed Mar 19
+- **Cloze Reader paper (DHQ)** — consolidated to single `draft.md` (git handles history); v36–v39 landed: bridged choppy paragraphs (v36), colon sweep eliminated 11 prose colons (v37), style sweep on NLP genealogy (v38), condensed genealogy + tightened Mikolov/Peters/Devlin (v39); 'discourse knowledge' → 'pragmatics' fix; site synced to v37 prose; writing system gained CHECKLIST_COPY, CHECKLIST_REVISE, PROCESS_GUIDE; `writing/` reorganized into subdirectories; 14 commits since last sync
+- **creative-clawing site** — 67+ artifacts; schotter + tenprint mobile lineWidth scaling fix landed
 - **Kalshi trading bot** — old agent scripts removed; 5 strategy modules added (crypto, earnings, hurricane, nfp, polls) + TRADING_GUIDE.md with failure audit
 - **CAIL Workshop #1 deck** — stubs remain slides 7–8, 12–15
-- **Fine-tuning data** — superset8 merged: 46,943 entries (0 parse errors); superset7 + batch_20260319 deduped
+- **Fine-tuning data** — superset9 merged: 45,555 entries; datasets directory deleted from repo (gitignored data stays local)
 
 ## Blocked
 - **Run 4 adapter weights** — missing, need retrieval
@@ -20,6 +20,7 @@ _Last synced: 2026-03-21 19:00 ET_
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
+- Cloze paper v36–v39: paragraph bridging, colon sweep (11 eliminated), NLP genealogy style sweep, condensed genealogy; consolidated to single draft.md; site synced; writing system gained phase-decomposed checklists + process guide; writing/ reorganized; stale drafts cleaned up; datasets dir deleted from repo (2026-03-22, 14 commits)
 - Cloze paper v33–v35: first-person narrator, logical prepositions, Harris/Firth/Mikolov genealogy, intro thesis restored; disaggregated style/ system; `examples.md` placeholder slots flagged (2026-03-21, 10 commits)
 - Validated superset8_20260320 (46,943 lines, 0 parse errors); fixed broken a11y-checker submodule ref blocking Pages (2026-03-21)
 - Microblog #21: DLA Crystal published; draft_v32 committed (was untracked) (2026-03-20 late)
