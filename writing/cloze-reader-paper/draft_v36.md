@@ -186,4 +186,4 @@ Zhang, Z. and Hashimoto, T. (2021) 'On the inductive bias of masked language mod
 
 ---
 
-*Draft v35 · Updated 2026-03-21 EDT · thesis sentence + Harris/Firth/Mikolov/Peters/Devlin genealogy restored to intro; gap-bridging fix in Continuity section*
+*Draft v36 · Updated 2026-03-21 EDT · thesis sentence + Harris/Firth/Mikolov/Peters/Devlin genealogy restored to intro; gap-bridging fix in Continuity section*
