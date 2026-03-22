@@ -124,12 +124,6 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - **The test:** Can the quotation be removed and the surrounding prose still parse as complete sentences? If removing the quote leaves nothing, the quote is hanging. Embed it as an appositive, a direct object, or a named formula.
 - **Variant ban:** A standalone quoted sentence used as a paragraph break or transition. Always integrate.
 
-### Precision on what LLMs cannot do (added 2026-03-22)
-- **Rule:** Do not attribute diminished or partial versions of human capacities to LLMs when the accurate claim is total absence. LLMs do not read "slowly" — they do not read at all. The hedge ("or better yet") softens a claim that should be stated flatly.
-- **Bad:** "It cannot read. Or better yet, it cannot read slowly."
-- **Good:** "It cannot read at all."
-- **Scope:** Applies to any framing that implies a model does something but less well than humans. If the model genuinely does not perform the operation, say so without qualification.
-
 ### Logical prepositions over conjunctive ones (added 2026-03-21)
 - **Rule:** When a preposition relates two elements, prefer a logical connector (showing cause, consequence, contrast, or purpose) over a conjunctive one (showing mere addition or temporal sequence).
 - **Test:** Can the relationship made by "and," "while," or "as well as" be expressed as a logical relationship — "to," "so that," "because," "which reveals," "since"? If yes, make that the preposition.

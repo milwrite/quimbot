@@ -111,7 +111,7 @@ To be clear, the convergence between Taylor's procedure and masked language mode
 
 Pretraining reduces text to token distributions, and the blanked-out word makes that selection and reduction of human language legible by way of metonym, which is to say, through an act of occlusion that foregrounds how Gutenberg Project texts have been broken down, mathematized, and rendered into training data. The act of inferring the word from context, read against the summary and hint mechanisms, therefore requires human players to partake in precisely the sort of close reading practices that have been decentered by the advent of LLMs, reacquainting them with otherwise flattened or forgotten texts that have been totalized through extraction and foreclosure at scale.
 
-At the same time, the process demonstrates what the model, having processed the same passage and selected a word to occlude, cannot do by virtue of its low-latency engine. It cannot read at all.
+At the same time, the process demonstrates what the model, having processed the same passage and selected a word to occlude, cannot do by virtue of its low-latency engine: it cannot read slowly.
 
 ---
 
