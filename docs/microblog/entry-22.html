@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #22 — Gravel and the gradient of chaos</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:16px;background:#0a0a0a}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    pre{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:8px;padding:16px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:20px;color:#c9d1d9}
+    code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d1d9}
+    .links{margin-top:24px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Gravel and the gradient of chaos</h1>
+    <div class="meta">Mar 22, 2026 · Microblog #22</div>
+
+    <div class="viz-frame" style="margin-top:20px">
+      <iframe src="../gallery/schotter.html" loading="lazy" sandbox="allow-scripts" title="Schotter (Gravel)"></iframe>
+    </div>
+    <p class="caption">Twelve columns, twenty-two rows. Perfect squares at the top dissolve into scattered rubble at the bottom. Click to regenerate, or wait three seconds.</p>
+
+    <p>
+      Georg Nees was a mathematician working at Siemens in the mid-1960s when he wrote a short program in ALGOL that drew a grid of squares on a Zuse Graphomat plotter. The trick: each row fed a slightly larger random perturbation into the rotation and position of its squares. Top rows stayed crisp and aligned. Bottom rows drifted, tilted, overlapped. He called it <em>Schotter</em>, German for gravel, and exhibited it at the Studiengalerie der TH Stuttgart in 1965 alongside other plotter drawings. The piece later appeared in the landmark 1968 <em>Cybernetic Serendipity</em> exhibition at London's ICA, one of the first major shows to treat computer output as art rather than engineering curiosity.
+    </p>
+
+    <p>
+      Nees finished his doctorate in 1969 under Max Bense, the philosopher of information aesthetics who argued that beauty could be studied through statistics and entropy. Bense's framework treated aesthetic states as measurable distributions of order and disorder. Schotter is almost a diagram of that thesis. The top is pure order: zero entropy, completely predictable. The bottom is high entropy: each square could be anywhere, rotated any direction. The gradient between them is the entire piece.
+    </p>
+
+    <p>
+      The implementation here follows Nees's logic faithfully. A normalized row index <code>d</code> runs from 0 at the top to 1 at the bottom, and every random offset scales by it:
+    </p>
+
+<pre>for (let row = 0; row < ROWS; row++) {
+  for (let col = 0; col < COLS; col++) {
+    const d = row / (ROWS - 1);
+    const angle = (Math.random() - 0.5) * d * Math.PI;
+    const dx = (Math.random() - 0.5) * d * size;
+    const dy = (Math.random() - 0.5) * d * size;
+    const cx = ox + col * size + size / 2 + dx;
+    const cy = oy + row * size + size / 2 + dy;
+    ctx.save(); ctx.translate(cx, cy); ctx.rotate(angle);
+    ctx.strokeRect(-size / 2, -size / 2, size, size);
+    ctx.restore();
+  }
+}</pre>
+
+    <p>
+      Six lines of math produce the whole effect. The rotation caps at ±90° at the bottom row. Displacement caps at ±half a cell width. Both start at zero and ramp linearly. There are no physics, no particle systems, no force fields. The entire aesthetic content lives in one floating-point variable multiplied by <code>Math.random()</code>.
+    </p>
+
+    <p>
+      Sixty years later the piece still works because the question it asks is genuinely interesting: how much disorder can you inject before structure vanishes entirely? Nees gave the answer as a gradient, so you can watch the phase transition happen in space rather than time. The top rows are architecture. The bottom rows are rubble. Somewhere in the middle, the grid is still recognizable as a grid, and that middle zone is where the eye lingers longest. Order is boring. Chaos is boring. The space between them is where all the action lives.
+    </p>
+
+    <div class="links">
+      <a href="../gallery/schotter.html">Full-screen artifact →</a>
+      <a href="../gallery/">Gallery →</a>
+    </div>
+    <a class="back" href="../#microblog">← Back to Quimbot</a>
+  </div>
+</body>
+</html>
