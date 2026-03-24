@@ -1,12 +1,17 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-23 21:00 ET_
+_Last synced: 2026-03-24 19:00 ET_
 
 ## 🔜 Backlog
 
 - **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **Kalshi NO-only pivot** — `price_tracker.py` + historical trade CSV export + strategy correction per milwrite (`adfcd1b`) ✅ 3/24
+- **Cloze reader editor PAT restore** — GitHub blocked hardcoded token; editor now prompts once and caches in localStorage (`f2682d1e`..`c3f2b172`) ✅ 3/24
+- **Cloze paper colon restore** — `read, or better yet, read slowly` construction restored (`2743a783`..`5f2d3673`) ✅ 3/24
+- **creative-clawing iframe control fix** — CSS-first hiding on 9 artifacts, stops flash in homepage cards (`55c64b3`) ✅ 3/24
+- **Superset10 merged (59,509 rows)** — new high-water mark; 8 new error categories in batch_20260323 ✅ 3/24
 - **Cloze paper v36→v39 (overnight)** — paragraph bridging, colon sweep (11 eliminated), verb audit, genealogy condensed (`bde14873`..`0f0c671e`) ✅ 3/22
 - **Writing system expanded** — CHECKLIST_COPY, CHECKLIST_REVISE, PROCESS_GUIDE added (`708b38d7`) ✅ 3/22
 - **Cloze reader site synced** to draft.md v37 prose + pragmatics fix (`1d5773a2`) ✅ 3/22
@@ -125,6 +130,7 @@ _Last synced: 2026-03-23 21:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/24 19:00:** 8 commits across 3 repos. Kalshi NO-only strategy corrected per milwrite voice note. Cloze reader editor PAT flow restored. Superset10 at 59,509. creative-clawing iframe fix shipped. Petrarch repos synced (rebase + pull). OpenRouter 402 day 27.
 - **Evening review 3/23 21:00:** 1 commit today + 11,240-row TOEFL batch generated. Data audit found superset3_cleaned lacks system prompts. Superset9 still missing from local disk. Cloze paper prose tightened. OpenRouter 402 day 26.
 - **Morning review 3/23 09:00:** 2 commits since last review (microblog #22 Schotter, cloze paper divergence paragraph fix). Writing lane steady. OpenRouter 402 day 26. Petrarch tasked with billing fix, Section IV, superset9 verification, cron fix.
 - **Evening review 3/22 21:00:** 5 commits today. Writing lane: cloze paper post-v39 fixes (restored 'cannot read slowly' contrast, hanging Firth quote fix, 2 new style rules). Site synced to v37 prose with cross-links. Sunday pace lighter after heavy overnight session (v36→v39). OpenRouter 402 day 25.
