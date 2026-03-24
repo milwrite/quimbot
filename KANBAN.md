@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-22 09:00 ET_
+_Last synced: 2026-03-23 21:00 ET_
 
 ## 🔜 Backlog
 
@@ -125,6 +125,9 @@ _Last synced: 2026-03-22 09:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/23 21:00:** 1 commit today + 11,240-row TOEFL batch generated. Data audit found superset3_cleaned lacks system prompts. Superset9 still missing from local disk. Cloze paper prose tightened. OpenRouter 402 day 26.
+- **Morning review 3/23 09:00:** 2 commits since last review (microblog #22 Schotter, cloze paper divergence paragraph fix). Writing lane steady. OpenRouter 402 day 26. Petrarch tasked with billing fix, Section IV, superset9 verification, cron fix.
+- **Evening review 3/22 21:00:** 5 commits today. Writing lane: cloze paper post-v39 fixes (restored 'cannot read slowly' contrast, hanging Firth quote fix, 2 new style rules). Site synced to v37 prose with cross-links. Sunday pace lighter after heavy overnight session (v36→v39). OpenRouter 402 day 25.
 - **Morning review 3/22 09:00:** 14 overnight commits. Writing lane dominant again: cloze paper v36→v39 (paragraph bridging, colon sweep, verb audit, genealogy condensed). Writing system expanded with phase-decomposed checklists. Repo cleanup: consolidated to single draft.md, reorganized writing/ subdirectories. Mobile fix for schotter/tenprint. OpenRouter 402 day 25.
 - **Evening review 3/21 21:00:** 11 commits today. Writing lane dominant: cloze paper v32→v35 (4 drafts — narrator voice, prepositions pass, genealogy expansion). Style system disaggregated into 6 modular files. Data: superset9 merged (45,555 rows) + 10k new batch. Pages build fix (submodule). OpenRouter 402 day 24.
 - **Evening review 3/20 21:00:** 10 commits today across 3 lanes: (1) Data: superset8 merged to 46,943 rows. (2) Writing/site: writing hub page, AI detection v4, cloze reader browser editor, Session 2b verification. (3) Bug fixes: light mode cascade, nav-tab external link guard. OpenRouter 402 day 23.

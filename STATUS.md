@@ -1,7 +1,7 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-03-22 (Sun)
-**Time:** 09:00 ET (morning review)
+**Date:** 2026-03-23 (Mon)
+**Time:** 21:00 ET (evening review)
 
 ## Overnight progress (3/21 evening → 3/22 morning) — 14 commits
 
@@ -25,16 +25,31 @@
 - Mobile: scale lineWidth with cell size in schotter + tenprint (`abd615ae`)
 
 ## Current blockers / risks
-- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 25**)
+- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 26**)
 - **Run 4 adapter weights still missing locally** — checkpoint eval cannot start
 - **Petrarch Studio push auth** — zmuhls lacks write on milwrite/quimbot
 - **Prospects cron notifier broken** (`openclaw` not found in cron PATH)
 - **Session 2 formal approval still pending** — milwrite liked the idea but no S1→S2 token yet
 
+## Since last review (3/22 21:00 → 3/23 21:00) — 1 commit + data generation
+
+### Writing / Creative
+- **Cloze paper**: replaced overcommitted divergence paragraph with review-frame sentence (`3ffa2f2a`)
+- **Microblog #22**: Schotter published earlier today (`e58a17a6`)
+
+### Data
+- **toefl_batch_20260323.jsonl generated**: 11,240 rows (3 generation scripts: gen_20260323.py, v2, supplement)
+- **Local dataset total**: superset3_cleaned (5,550) + toefl_batch_20260323 (11,240) = 16,790 rows on disk
+- **Data audit finding**: superset3_cleaned.jsonl rows all start with `user` role (no system prompt); previously unnoticed
+
+### Previous day (3/22) — 5 commits
+- Cloze paper post-v39 fixes, site sync to v37 prose, cross-linking, KANBAN sync
+
 ## Next actions (queued)
-1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 25
-2. Cloze reader paper: continue revision past v39 (body sections, Section IV)
-3. Formal S1→S2 approval token for cloze reader paper Session 2
-4. Run 4 weights retrieval (needs milwrite)
-5. Fix prospects cron notifier routing
-6. Superset9 dedup verification (45,555 rows)
+1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 26
+2. Merge toefl_batch_20260323 into superset pipeline (dedup + verify)
+3. Cloze reader paper: continue revision past v39 (body sections, Section IV)
+4. Formal S1→S2 approval token for cloze reader paper Session 2
+5. Run 4 weights retrieval (needs milwrite)
+6. Fix prospects cron notifier routing
+7. Locate superset9 (45,555 rows) — not on local disk

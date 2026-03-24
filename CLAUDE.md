@@ -10,11 +10,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-03-23)
+- **toefl_batch_20260323 generated**: 11,240 rows via 3 local generation scripts (gen_20260323.py, v2, supplement)
+- **Data audit**: superset3_cleaned.jsonl rows lack system prompts (all start with `user` role); needs fix before merge
+- **Superset9 (45,555 rows) confirmed missing from local disk** — only superset3_cleaned + today's batch on Legion
+- **Microblog #22 shipped**: Schotter (Georg Nees, 1968) — gravel and the gradient of chaos (`e58a17a6`)
+- **Cloze paper prose fix**: overcommitted divergence paragraph replaced with review-frame sentence (`3ffa2f2a`)
+- **OpenRouter 402 day 26** — still blocking cloud generation
+
 ## Key Decisions Log (2026-03-22)
-- **Cloze paper at v39** — 4 overnight drafts: paragraph bridging (v36), colon sweep eliminating 11 colons (v37), verb audit replacing generic 'NLP researchers' with names (v38), genealogy condensed and turgid phrases cut (v39)
+- **Cloze paper post-v39 fixes** — 'cannot read slowly' contrast restored (with humans, not total absence); hanging Firth quote fixed; bad style rule reverted; 2 new style rules added (`03df4b73`, `ac987799`)
+- **Site synced to v37** with cross-links between site deployment and draft.md (`1d5773a2`, `25e84602`)
+- **Overnight v36→v39** — paragraph bridging, colon sweep (11 eliminated), verb audit, genealogy condensed
 - **Writing system expanded** — CHECKLIST_COPY, CHECKLIST_REVISE, PROCESS_GUIDE added for phase-decomposed style with conditional routing
 - **Single draft.md canonical** — versioned filenames eliminated, git handles history; writing/ directory reorganized with subdirectories
-- **Cloze reader site synced** to v37 prose; 'discourse knowledge' → 'pragmatics' terminology fix
 
 ## Key Decisions Log (2026-03-21)
 - **Cloze paper at v35** — 4 draft versions in one day; first-person narrator grafted at 8 points (v33); logical prepositions pass (v34); Harris/Firth/Mikolov/Peters/Devlin genealogy expanded and thesis restored to intro (v35)

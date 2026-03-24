@@ -1,13 +1,14 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-22 07:00 ET_
+_Last synced: 2026-03-23 19:00 ET_
 
 ## In Progress
-- **Cloze Reader paper (DHQ)** — consolidated to single `draft.md` (git handles history); v36–v39 landed: bridged choppy paragraphs (v36), colon sweep eliminated 11 prose colons (v37), style sweep on NLP genealogy (v38), condensed genealogy + tightened Mikolov/Peters/Devlin (v39); 'discourse knowledge' → 'pragmatics' fix; site synced to v37 prose; writing system gained CHECKLIST_COPY, CHECKLIST_REVISE, PROCESS_GUIDE; `writing/` reorganized into subdirectories; 14 commits since last sync
+- **Cloze Reader paper (DHQ)** — consolidated to single `draft.md`; v36–v39 + post-v39 fixes; replaced overcommitted divergence paragraph with review-frame sentence; site synced to v37 prose; writing system gained phase-decomposed checklists + process guide; `writing/` reorganized
+- **Microblog #22: Schotter** — Georg Nees (1968), gravel and the gradient of chaos; published
 - **creative-clawing site** — 67+ artifacts; schotter + tenprint mobile lineWidth scaling fix landed
 - **Kalshi trading bot** — old agent scripts removed; 5 strategy modules added (crypto, earnings, hurricane, nfp, polls) + TRADING_GUIDE.md with failure audit
 - **CAIL Workshop #1 deck** — stubs remain slides 7–8, 12–15
-- **Fine-tuning data** — superset9 merged: 45,555 entries; datasets directory deleted from repo (gitignored data stays local)
+- **Fine-tuning data** — superset9 merged: 45,555 entries; datasets directory deleted from repo (gitignored data stays local); superset3_cleaned audit found all 5,550 rows start with `user` role (no `system` prefix); superset9 not on local disk (only superset3_cleaned remains locally)
 
 ## Blocked
 - **Run 4 adapter weights** — missing, need retrieval
@@ -20,7 +21,11 @@ _Last synced: 2026-03-22 07:00 ET_
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
-- Cloze paper v36–v39: paragraph bridging, colon sweep (11 eliminated), NLP genealogy style sweep, condensed genealogy; consolidated to single draft.md; site synced; writing system gained phase-decomposed checklists + process guide; writing/ reorganized; stale drafts cleaned up; datasets dir deleted from repo (2026-03-22, 14 commits)
+- Data audit: superset3_cleaned.jsonl 5,550 rows all start `user` (no system prompt); flagged for review (2026-03-23)
+- Cloze paper: replaced overcommitted divergence paragraph with review-frame sentence (2026-03-23, `3ffa2f2a`)
+- Microblog #22: Schotter (Georg Nees, 1968) published (2026-03-23, `e58a17a6`)
+- Superset9 re-validated: 45,555 lines, 0 parse errors (2026-03-23)
+- Cloze paper v36–v39 + post-v39 fixes: paragraph bridging, colon sweep (11 eliminated), NLP genealogy style sweep, condensed genealogy, restored 'cannot read slowly' contrast, fixed hanging Firth quote; consolidated to single draft.md; site synced; writing system gained phase-decomposed checklists + process guide; writing/ reorganized; stale drafts cleaned up; datasets dir deleted from repo; nightly workspace sync (2026-03-22, 16 commits)
 - Cloze paper v33–v35: first-person narrator, logical prepositions, Harris/Firth/Mikolov genealogy, intro thesis restored; disaggregated style/ system; `examples.md` placeholder slots flagged (2026-03-21, 10 commits)
 - Validated superset8_20260320 (46,943 lines, 0 parse errors); fixed broken a11y-checker submodule ref blocking Pages (2026-03-21)
 - Microblog #21: DLA Crystal published; draft_v32 committed (was untracked) (2026-03-20 late)
