@@ -352,9 +352,8 @@ CRITICAL RULES:
     if (editMode) { exitEdit(); return; }
     const pw = prompt('Password:');
     if (pw !== PASS) { alert('Wrong password.'); return; }
-    let pat = localStorage.getItem(LS_PAT);
-    if (!pat) {
-      pat = prompt('GitHub PAT (stored in localStorage — never sent elsewhere):');
+    if (!localStorage.getItem(LS_PAT)) {
+      const pat = prompt('GitHub token (one-time setup):');
       if (!pat) return;
       localStorage.setItem(LS_PAT, pat.trim());
     }
@@ -422,7 +421,7 @@ CRITICAL RULES:
   /* ── commit ── */
   cbtn.addEventListener('click', async () => {
     const pat = localStorage.getItem(LS_PAT);
-    if (!pat) { cstatus.textContent = 'No PAT stored.'; return; }
+
     cbtn.disabled = true;
     cstatus.textContent = 'Fetching SHA…';
 
