@@ -82,6 +82,11 @@ export function starfield(container) {
   let { width, height } = resize();
   reset(width, height);
 
+  // On Android (and desktop), DeviceOrientationEvent does not need a permission
+  // prompt. Register immediately so tilt-to-parallax works on first load without
+  // waiting for a tap.  iOS 13+ still gates on user gesture — handled in onDown.
+  requestOrientPermission();
+
   const stop = rafLoop(() => {
     ({ width, height } = resize());
 
