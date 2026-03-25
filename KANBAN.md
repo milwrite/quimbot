@@ -1,12 +1,16 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-24 19:00 ET_
+_Last synced: 2026-03-25 09:00 ET_
 
 ## 🔜 Backlog
 
 - **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **creative-clawing iframe + mobile pass** — 19 artifacts fixed (.panel/.controls hidden), hatmonotile/gradient/astar mobile responsive, astar auto-demo, nav submenu unclipped, lotkavolterra mobile layout (`9d80ae0`..`8f1801a`) ✅ 3/25
+- **Microblogs #30 + #31** — Lotka-Volterra phase orbits + Mandelbrot smooth coloring (`dbcbf57`, `b62bc75`) ✅ 3/25
+- **Microblog #23** — Langton's Ant, the ant that builds a highway (`a8f3fe17`) ✅ 3/25
+- **Kalshi config update** — $5 fixed bets, 10 trades/run, 10% edge threshold per milwrite (`a655047`) ✅ 3/24
 - **Kalshi NO-only pivot** — `price_tracker.py` + historical trade CSV export + strategy correction per milwrite (`adfcd1b`) ✅ 3/24
 - **Cloze reader editor PAT restore** — GitHub blocked hardcoded token; editor now prompts once and caches in localStorage (`f2682d1e`..`c3f2b172`) ✅ 3/24
 - **Cloze paper colon restore** — `read, or better yet, read slowly` construction restored (`2743a783`..`5f2d3673`) ✅ 3/24
@@ -130,6 +134,7 @@ _Last synced: 2026-03-24 19:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning review 3/25 09:00:** ~18 commits since last review. Overnight gallery push: 19 iframe fixes, 3 mobile layouts, 2 microblogs (#30 Lotka-Volterra, #31 Mandelbrot). Nav submenu + astar auto-demo + artifact quality standards. Kalshi config finalized ($5/10%). OpenRouter 402 day 28. Cloze paper Section IV still queued.
 - **Evening review 3/24 21:00:** 10 commits across 3 repos. Cloze paper citation fix (Veldre/Jacobs). Kalshi NO-only pivot. Editor PAT restore. Superset10 at 59,509. creative-clawing: microblog #29 Truchet + iframe fix on 9 artifacts. OpenRouter 402 day 27.
 - **Evening review 3/24 19:00:** 8 commits across 3 repos. Kalshi NO-only strategy corrected per milwrite voice note. Cloze reader editor PAT flow restored. Superset10 at 59,509. creative-clawing iframe fix shipped. Petrarch repos synced (rebase + pull). OpenRouter 402 day 27.
 - **Evening review 3/23 21:00:** 1 commit today + 11,240-row TOEFL batch generated. Data audit found superset3_cleaned lacks system prompts. Superset9 still missing from local disk. Cloze paper prose tightened. OpenRouter 402 day 26.

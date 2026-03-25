@@ -10,6 +10,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-03-25)
+- **Morning review 3/25**: ~18 commits overnight across 3 repos
+- **creative-clawing iframe + mobile sweep**: 19 artifacts had .panel/.controls hidden for clean iframe embeds; hatmonotile/gradient/astar got mobile responsive fixes; astar auto-demo loop added; nav submenu overflow:hidden removed; lotkavolterra mobile layout fixed
+- **Microblogs #30 + #31**: Lotka-Volterra (phase orbits, Adriatic fish) + Mandelbrot (smooth coloring, Julia/Fatou/Mandelbrot history)
+- **Kalshi config finalized**: $5 fixed bets, 10 trades/run, 10% edge threshold (`a655047`)
+- **OpenRouter 402 day 28**
+
 ## Key Decisions Log (2026-03-24)
 - **Superset10 merged (59,509 rows)**: new high-water mark; 8 new error categories from batch_20260323 (subjunctive, cleft sentences, ellipsis/substitution)
 - **Kalshi NO-only pivot**: milwrite clarified via voice note: trade NO when threshold is absurdly out of reach; removed YES branch from `evaluate_signal()`; added `price_tracker.py` + historical CSV export (`adfcd1b`)

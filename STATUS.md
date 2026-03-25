@@ -1,44 +1,39 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-03-24 (Tue)
-**Time:** 21:00 ET (evening review)
+**Date:** 2026-03-25 (Wed)
+**Time:** 09:00 ET (morning review)
 
-## Since last review (3/23 21:00 → 3/24 21:00) — 10 commits across 3 repos
+## Since last review (3/24 21:00 → 3/25 09:00) — ~18 commits across 3 repos
 
-### Quimbot (5 commits)
-- **Cloze reader editor PAT restore**: GitHub blocked hardcoded token; editor now prompts once and caches in localStorage (`ab156332`, `c3f2b172`)
-- **Cloze paper colon restore**: `read, or better yet, read slowly` construction restored (`5f2d3673`)
-- **Cloze paper citation fix**: replaced generic PMC/arXiv citations with proper author refs (Veldre et al., Jacobs et al.) (`f140cba0`)
-- **KANBAN sync** (`40098e06`)
+### Quimbot (2 commits)
+- **Microblog #23**: Langton's Ant, the ant that builds a highway (`a8f3fe17`)
+- **Evening review sync** (`af741399`)
 
-### creative-clawing (4 commits)
-- **Microblog #29**: Truchet tiles, the combinatorics of a split square (`394a6e5`)
-- **Manifest sync**: 27 microblogs, 85 artifacts (`cf27803`, `3726662`)
-- **CSS-first iframe control hiding**: 9 artifacts fixed, stops flash in homepage cards (`55c64b3`)
+### creative-clawing (~15 commits)
+- **Microblogs #30 + #31**: Lotka-Volterra phase orbits + Mandelbrot smooth coloring (`dbcbf57`, `b62bc75`)
+- **Iframe control hiding**: .panel/.controls hidden in 19 gallery iframes (`9d80ae0`)
+- **Mobile responsive fixes**: hatmonotile, gradient, astar layouts (`94ffeff`)
+- **Nav fix**: overflow:hidden removed from .nav-inner, unclipping Contributors submenu (`4a51182`)
+- **astar iframe**: auto-demo loop added (was dead static grid) (`b8bbee8`)
+- **iframe sandbox**: allow-same-origin for top-frame check (`c65a47b`)
+- **lotkavolterra mobile**: controls no longer overlay canvases on narrow viewport (`8e1a2cb`)
+- **Artifact quality standards** added to CLAUDE.md (`8f1801a`)
+- **submit-artifact.yml**: duplicate const + env bugs fixed (`94ffeff`)
 
 ### Kalshi (1 commit)
-- **NO-only strategy pivot**: `price_tracker.py` + historical trade CSV export per milwrite voice note (`adfcd1b`)
-
-### Data
-- **Superset10 merged**: 59,509 unique entries (new high-water mark)
-  - batch_20260322 (2,722 unique) + batch_20260323 (11,232 unique) merged into superset9 base
-  - 8 new error categories: BD so/such, BE too/enough, BF subjunctive, BG cleft sentences, BH ellipsis/substitution
-
-### Coordination
-- **Petrarch repo sync**: creative-clawing pulled clean; quimbot rebased (conflicts in CLAUDE/KANBAN/STATUS/TODO resolved)
-- **Kalshi strategy corrected** per milwrite audio: NO-only, trade when outcome is physically determined
+- **Config update**: $5 fixed bets, 10 trades/run, 10% edge threshold per milwrite (`a655047`)
 
 ## Current blockers / risks
-- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 27**)
+- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 28**)
 - **Run 4 adapter weights still missing locally** — checkpoint eval cannot start
 - **Petrarch push auth** — cisco-petrarch still lacks write on milwrite/quimbot
 - **Prospects cron notifier broken** (`openclaw` not found in cron PATH)
 - **Cloze paper Session 3** gated on `APPROVED S2→S3` from milwrite
 
 ## Next actions (queued)
-1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 27
+1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 28
 2. Cloze reader paper: continue revision, draft Section IV
 3. Superset10 quality spot-check (59,509 rows)
 4. Run 4 weights retrieval (needs milwrite)
 5. Fix prospects cron notifier routing
-6. Kalshi: monitor LAX bet settlement + validate NO-only pipeline
+6. Kalshi: monitor NO-only pipeline with new $5/10% config
