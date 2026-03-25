@@ -206,10 +206,11 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - **Fix:** Fold the claim back into the person, method, or action it belongs to. "Harris set meaning aside entirely, arguing that..." keeps the researcher as subject and absorbs the conceptual point as a subordinate clause.
 - **Test:** If a short sentence has an abstraction (meaning, distribution, context, prediction, structure) as its subject and the verb is just "is/was/played/remained," it probably needs to be folded into the surrounding prose with a human or method as the grammatical agent.
 
-### No invented academic noun phrases (added 2026-03-21)
+### No invented academic noun phrases (added 2026-03-21, revised 2026-03-25)
 - **Ban:** Noun phrases that sound scholarly but don't appear in actual field literature. LLMs routinely mint these: "LLM-derived predictability," "semantic retrieval interference," "distributional alignment pressure," "cloze-norming divergence."
 - **Test:** Would a researcher in the relevant field use this phrase in their own writing? If not, don't coin it. Use the terms that appear in the literature you're actually citing.
 - **Fix:** Name the specific process or construct using the field's existing vocabulary. If no standard term exists, describe the thing with a verb: "LLMs generate better regression predictors for reading-time data than offline cloze norms do" rather than "LLM-derived predictability outperforms cloze norming."
+- **Critical theory exception:** Terms of art with established theoretical grounding are not "invented" even when they look like abstract compound phrases. "Extraction" (Marxist political economy, AI studies), "foreclosure" (Derrida, platform studies), "totalization" (Sartre, Adorno), "articulation" (Hall), "interpellation" (Althusser) are deployed vocabulary, not coined jargon. Before flagging a phrase, check whether its component terms have independent theoretical history in the paper's relevant fields (critical theory, DH, media archaeology, political economy). If they do, the phrase is legitimate and the question is whether it is used precisely, not whether it exists.
 
 ### Authors do the research, not findings (added 2026-03-21)
 - **Rule:** Put researchers in the grammatical subject position for sentences describing studies. Don't nominalize their work into "the finding that X" or "the result that Y."
@@ -221,6 +222,13 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - **Ban:** Framing two studies as competing answers to the same question when they address different domains, measures, or populations.
 - **The submarine rule:** A submarine doesn't outperform Michael Phelps at swimming. It does something else. Claiming one study "contradicts" or "doesn't contradict" another is only valid when they actually ask the same question with comparable methods. A study of eye-movement regression predictors and a study of offline behavioral responses are not in the same contest.
 - **Fix:** Present each study for what it shows, in its own domain. If they're genuinely in tension, name precisely what the tension is. If they're not, don't manufacture one to justify a contrastive sentence.
+
+### LLM-as-judge gate for edits (added 2026-03-25)
+- **Rule:** All proposed edits to the paper must be cleared by a second LLM before committing. Neither Quimbot nor Petrarch can be sole judge of their own suggestions.
+- **Rationale:** The "totalized through extraction and foreclosure at scale" incident — Quimbot flagged legitimate critical theory vocabulary as an invented noun phrase by pattern-matching on surface form alone. A second LLM with the context would have caught this.
+- **Process:** Before committing any edit flagged as a style violation, surface it to a second model with: (1) the original sentence, (2) the proposed edit, (3) the rule being applied, (4) the paper's field and register. The second model must confirm the violation is genuine. If it disagrees or flags ambiguity, hold for milwrite.
+- **Scope:** Applies to style/prose edits. Citation verification and structural proposals are exempt from this gate but still require milwrite approval before integration.
+- **Who holds the gate:** Whichever bot did not generate the edit. If both bots contributed, escalate to milwrite.
 
 ### Tricolon abuse (added 2026-03-19)
 - **Ban:** Overuse of the rule-of-three pattern, especially when extended to four or five items, or when multiple tricolons appear back-to-back.
