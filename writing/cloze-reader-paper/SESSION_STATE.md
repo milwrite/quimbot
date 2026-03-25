@@ -115,3 +115,22 @@ Notes: session2_lit_notes.md produced. Six Petrarch tasks queued. Citation repai
 ### Gate status
 - Session 2 complete pending `APPROVED S2->S3` from milwrite
 - One open decision: Veldre et al. — retain as reframe or drop?
+
+## Wednesday Para-Level Pass (Petrarch, 2026-03-25) — v37→v38
+
+### Closing block rewrite (Continuity and Asymmetry section)
+Final two paragraphs condensed into one. Five violations cleared:
+- "by way of metonym, which is to say" — colon-bypass circumlocution, cut
+- "an act of occlusion that foregrounds" — setup phrase disguised as participle, cut
+- "decentered by the advent of LLMs" — melodramatic banned construction, cut
+- "totalized through extraction and foreclosure at scale" — invented academic noun phrase, cut
+- "by virtue of its low-latency engine" — factually wrong (LLMs are not low-latency), whole final paragraph deleted
+
+### New closing paragraph (v38):
+> Pretraining reduces text to token distributions. The blank makes that reduction visible: one word absent from a passage the model was trained on, now requiring a reader to supply what statistical weighting cannot. Filling it demands close reading: attending to what the surrounding sentence contributes before committing to an answer. The model selected that word through the same regularities by which it was trained. It cannot return to the passage and read it. The game asks players to do exactly that.
+
+### Structural proposals (HOLD for milwrite):
+- **PROP-01:** "Cloze Reader returns a practice..." paragraph — second-abstract problem: mid-body paragraph describes what the paper does without advancing a claim. Candidate for cut or rewrite as a genuine claim.
+- **PROP-02:** Floating citation paragraph ("Recent work on cloze, predictability...") — one sentence, three citations, no synthesis. Integrate into surrounding argument or cut.
+
+Both held. No action until milwrite approves.
