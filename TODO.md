@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-23 21:00 ET
+**Last Updated:** 2026-03-24 21:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -13,9 +13,11 @@
 - [x] Run removal script → superset3 cleaned to 5550 rows (`0faa7767`) ✅ 3/10
 
 ## Medium Priority
-- [ ] Merge toefl_batch_20260323 (11,240 rows) into superset pipeline + dedup
+- [x] Merge toefl_batch_20260323 (11,240 rows) into superset pipeline → superset10 (59,509) ✅ 3/24
 - [ ] Fix superset3_cleaned system prompt gap (rows start with `user`, no system message)
-- [ ] Locate superset9 (45,555 rows) — confirmed missing from Legion disk; check Petrarch/remote
+- [ ] Spot-check superset10 quality (59,509 rows — verify dedup integrity, role structure)
+- [x] Kalshi NO-only strategy pivot per milwrite voice note (`adfcd1b`) ✅ 3/24
+- [x] Cloze reader editor PAT restore (GitHub blocked hardcoded token) ✅ 3/24
 - [x] Refresh `fine-tuning/data/INVENTORY.md` after merge/dedup and recount totals ✅ 3/17
 - [x] Cloze reader paper: citation chain upgrades (words 1000-2000) ✅ 3/18
 - [x] Cloze reader paper: v15-v29 revision marathon (Gutenberg, stochasticity, Figure 1, closing, Gitelman, inference-engine) ✅ 3/18

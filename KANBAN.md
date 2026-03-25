@@ -130,6 +130,7 @@ _Last synced: 2026-03-24 19:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/24 21:00:** 10 commits across 3 repos. Cloze paper citation fix (Veldre/Jacobs). Kalshi NO-only pivot. Editor PAT restore. Superset10 at 59,509. creative-clawing: microblog #29 Truchet + iframe fix on 9 artifacts. OpenRouter 402 day 27.
 - **Evening review 3/24 19:00:** 8 commits across 3 repos. Kalshi NO-only strategy corrected per milwrite voice note. Cloze reader editor PAT flow restored. Superset10 at 59,509. creative-clawing iframe fix shipped. Petrarch repos synced (rebase + pull). OpenRouter 402 day 27.
 - **Evening review 3/23 21:00:** 1 commit today + 11,240-row TOEFL batch generated. Data audit found superset3_cleaned lacks system prompts. Superset9 still missing from local disk. Cloze paper prose tightened. OpenRouter 402 day 26.
 - **Morning review 3/23 09:00:** 2 commits since last review (microblog #22 Schotter, cloze paper divergence paragraph fix). Writing lane steady. OpenRouter 402 day 26. Petrarch tasked with billing fix, Section IV, superset9 verification, cron fix.

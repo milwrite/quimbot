@@ -10,6 +10,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-03-24)
+- **Superset10 merged (59,509 rows)**: new high-water mark; 8 new error categories from batch_20260323 (subjunctive, cleft sentences, ellipsis/substitution)
+- **Kalshi NO-only pivot**: milwrite clarified via voice note: trade NO when threshold is absurdly out of reach; removed YES branch from `evaluate_signal()`; added `price_tracker.py` + historical CSV export (`adfcd1b`)
+- **Cloze reader editor PAT restore**: GitHub blocked hardcoded token; now prompts once, caches in localStorage (`c3f2b172`)
+- **Cloze paper citation fix**: replaced generic PMC/arXiv refs with proper author citations (Veldre et al., Jacobs et al.) (`f140cba0`)
+- **creative-clawing iframe fix**: CSS-first control hiding on 9 artifacts; stops flash in homepage card previews (`55c64b3`)
+- **Microblog #29**: Truchet tiles published (`394a6e5`)
+- **OpenRouter 402 day 27**
+
 ## Key Decisions Log (2026-03-23)
 - **toefl_batch_20260323 generated**: 11,240 rows via 3 local generation scripts (gen_20260323.py, v2, supplement)
 - **Data audit**: superset3_cleaned.jsonl rows lack system prompts (all start with `user` role); needs fix before merge

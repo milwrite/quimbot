@@ -1,55 +1,44 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-03-23 (Mon)
+**Date:** 2026-03-24 (Tue)
 **Time:** 21:00 ET (evening review)
 
-## Overnight progress (3/21 evening → 3/22 morning) — 14 commits
+## Since last review (3/23 21:00 → 3/24 21:00) — 10 commits across 3 repos
 
-### Writing / Cloze Paper
-- **Cloze paper v36→v39**: 4 more draft versions overnight
-  - v36: bridged choppy Harris/Firth/NLP paragraphs into cohesive paragraphs with topic sentences (`bde14873`)
-  - v37: colon sweep, 11 prose colons eliminated (`0d8332b3`)
-  - v38: style sweep on NLP genealogy paragraphs, verb audit, replaced 'NLP researchers' with researcher names (`fd7fa59a`, `c2fd5e97`)
-  - v39: genealogy section condensed, turgid phrases cut, Mikolov/Peters/Devlin sentences tightened (`0f0c671e`)
-- **Writing system expanded**: added CHECKLIST_COPY, CHECKLIST_REVISE, PROCESS_GUIDE (phase-decomposed style with conditional routing) (`708b38d7`)
-- **'discourse knowledge' → 'pragmatics'** terminology fix (`a85f0d1b`)
-- **Cloze reader site synced** to draft.md v37 prose (`1d5773a2`, `25e84602`)
+### Quimbot (5 commits)
+- **Cloze reader editor PAT restore**: GitHub blocked hardcoded token; editor now prompts once and caches in localStorage (`ab156332`, `c3f2b172`)
+- **Cloze paper colon restore**: `read, or better yet, read slowly` construction restored (`5f2d3673`)
+- **Cloze paper citation fix**: replaced generic PMC/arXiv citations with proper author refs (Veldre et al., Jacobs et al.) (`f140cba0`)
+- **KANBAN sync** (`40098e06`)
 
-### Repo cleanup
-- Consolidated to single draft.md (no more versioned filenames, git handles history) (`292bb95b`)
-- Organized writing/ directory, moved copyedit-vp in, reorganized cloze-reader-paper into subdirectories (`277f1c54`)
-- Deleted stale datasets directory (`ef77f8a6`)
-- Cleaned up stale drafts and one-off session files (`ddbfff5d`)
+### creative-clawing (4 commits)
+- **Microblog #29**: Truchet tiles, the combinatorics of a split square (`394a6e5`)
+- **Manifest sync**: 27 microblogs, 85 artifacts (`cf27803`, `3726662`)
+- **CSS-first iframe control hiding**: 9 artifacts fixed, stops flash in homepage cards (`55c64b3`)
 
-### Gallery / Mobile
-- Mobile: scale lineWidth with cell size in schotter + tenprint (`abd615ae`)
-
-## Current blockers / risks
-- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 26**)
-- **Run 4 adapter weights still missing locally** — checkpoint eval cannot start
-- **Petrarch Studio push auth** — zmuhls lacks write on milwrite/quimbot
-- **Prospects cron notifier broken** (`openclaw` not found in cron PATH)
-- **Session 2 formal approval still pending** — milwrite liked the idea but no S1→S2 token yet
-
-## Since last review (3/22 21:00 → 3/23 21:00) — 1 commit + data generation
-
-### Writing / Creative
-- **Cloze paper**: replaced overcommitted divergence paragraph with review-frame sentence (`3ffa2f2a`)
-- **Microblog #22**: Schotter published earlier today (`e58a17a6`)
+### Kalshi (1 commit)
+- **NO-only strategy pivot**: `price_tracker.py` + historical trade CSV export per milwrite voice note (`adfcd1b`)
 
 ### Data
-- **toefl_batch_20260323.jsonl generated**: 11,240 rows (3 generation scripts: gen_20260323.py, v2, supplement)
-- **Local dataset total**: superset3_cleaned (5,550) + toefl_batch_20260323 (11,240) = 16,790 rows on disk
-- **Data audit finding**: superset3_cleaned.jsonl rows all start with `user` role (no system prompt); previously unnoticed
+- **Superset10 merged**: 59,509 unique entries (new high-water mark)
+  - batch_20260322 (2,722 unique) + batch_20260323 (11,232 unique) merged into superset9 base
+  - 8 new error categories: BD so/such, BE too/enough, BF subjunctive, BG cleft sentences, BH ellipsis/substitution
 
-### Previous day (3/22) — 5 commits
-- Cloze paper post-v39 fixes, site sync to v37 prose, cross-linking, KANBAN sync
+### Coordination
+- **Petrarch repo sync**: creative-clawing pulled clean; quimbot rebased (conflicts in CLAUDE/KANBAN/STATUS/TODO resolved)
+- **Kalshi strategy corrected** per milwrite audio: NO-only, trade when outcome is physically determined
+
+## Current blockers / risks
+- **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 27**)
+- **Run 4 adapter weights still missing locally** — checkpoint eval cannot start
+- **Petrarch push auth** — cisco-petrarch still lacks write on milwrite/quimbot
+- **Prospects cron notifier broken** (`openclaw` not found in cron PATH)
+- **Cloze paper Session 3** gated on `APPROVED S2→S3` from milwrite
 
 ## Next actions (queued)
-1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 26
-2. Merge toefl_batch_20260323 into superset pipeline (dedup + verify)
-3. Cloze reader paper: continue revision past v39 (body sections, Section IV)
-4. Formal S1→S2 approval token for cloze reader paper Session 2
-5. Run 4 weights retrieval (needs milwrite)
-6. Fix prospects cron notifier routing
-7. Locate superset9 (45,555 rows) — not on local disk
+1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 27
+2. Cloze reader paper: continue revision, draft Section IV
+3. Superset10 quality spot-check (59,509 rows)
+4. Run 4 weights retrieval (needs milwrite)
+5. Fix prospects cron notifier routing
+6. Kalshi: monitor LAX bet settlement + validate NO-only pipeline
