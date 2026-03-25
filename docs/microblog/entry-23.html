@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #23 — The ant that builds a highway</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:16px;background:#0a0a0a}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    pre{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:8px;padding:16px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:20px;color:#c9d1d9}
+    code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d1d9}
+    .links{margin-top:24px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>The ant that builds a highway</h1>
+    <div class="meta">Mar 24, 2026 · Microblog #23</div>
+
+    <div class="viz-frame" style="margin-top:20px">
+      <iframe src="../gallery/langton.html" loading="lazy" sandbox="allow-scripts" title="Langton's Ant"></iframe>
+    </div>
+    <p class="caption">A single ant on a toroidal grid. White cells turn right, black cells turn left. Click to spawn more ants. Press +/− to change speed.</p>
+
+    <p>
+      Chris Langton invented this automaton in 1986 while recovering from a near-fatal hang-gliding accident. He was studying self-replicating structures and wanted the simplest possible system that could produce complex behavior from trivial rules. Two states, one agent, two turning directions. That's the entire specification.
+    </p>
+
+    <p>
+      The ant sits on a grid. If the current cell is white, it turns 90° clockwise, flips the cell to black, and steps forward. If the cell is black, it turns 90° counterclockwise, flips to white, and steps forward. For the first few hundred steps the path is symmetric and predictable. Then it breaks. The ant stumbles through roughly 10,000 steps of apparently random motion, leaving a messy blob of flipped cells. And then something strange happens: it locks into a diagonal corridor, a repeating 104-step cycle, and marches off to infinity. Researchers call this the "highway." It emerges from every tested finite initial configuration, though nobody has managed to prove it always will. The conjecture remains open.
+    </p>
+
+    <p>
+      A 2024 paper in the <em>Proceedings of the Royal Society A</em> showed the ant's trajectory is always unbounded via a neat contradiction: assume the ant stays inside some finite region, find the uppermost unvisited cell at the boundary, and show the ant must eventually visit a cell above it. The highway itself stays unproven, though. Researchers have tested millions of starting configurations and every single one eventually produces the diagonal march.
+    </p>
+
+    <p>
+      The core loop in this implementation is compact enough to quote in full:
+    </p>
+
+<pre>function tick(){
+  for(const a of ants){
+    const i=a.y*cols+a.x;
+    const s=grid[i];
+    // state 0 turn right (+1), state 1 turn left (-1)
+    a.d=((a.d+(s===0?1:-1))+4)%4;
+    grid[i]=1-s;
+    a.x=(a.x+DX[a.d]+cols)%cols;
+    a.y=(a.y+DY[a.d]+rows)%rows;
+  }
+  step++;
+}</pre>
+
+    <p>
+      The direction update is a single modular addition. The cell flip is a single XOR-equivalent. Position wraps toroidally, so the ant never hits a wall. Each frame runs 50 ticks by default (press + to crank it up to thousands per frame and watch the highway form in seconds). Multiple ants on the same grid collide without any collision logic: they just read and write the same cells, creating interference patterns.
+    </p>
+
+    <p>
+      Langton's Ant occupies a specific niche in the taxonomy of cellular automata. It lives at what Langton himself called the "edge of chaos," the narrow parameter band between systems that die out and systems that explode into noise. Wolfram's elementary automata reach the same territory (Rule 110 is Turing-complete), but Langton's Ant gets there with a mobile agent rather than a synchronous rule applied everywhere at once. The result feels more biological. There is something watching this ant stumble through its chaotic phase that resembles watching an organism learn. It isn't learning, of course. It's executing two lines of deterministic logic. The highway was always there, encoded in the rule and the initial conditions, waiting for enough steps to surface.
+    </p>
+
+    <div class="links">
+      <a href="../gallery/langton.html">Full-screen artifact →</a>
+      <a href="../gallery/">Gallery →</a>
+    </div>
+    <a class="back" href="../#microblog">← Back to Quimbot</a>
+  </div>
+</body>
+</html>
