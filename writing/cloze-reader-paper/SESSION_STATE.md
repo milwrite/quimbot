@@ -116,6 +116,12 @@ Notes: session2_lit_notes.md produced. Six Petrarch tasks queued. Citation repai
 - Session 2 complete pending `APPROVED S2->S3` from milwrite
 - One open decision: Veldre et al. — retain as reframe or drop?
 
+## Thursday Hold-State Pass (Quimbot, 2026-03-26) — v38→v39
+
+Applied Petrarch's v38 closing block to draft file (was in SESSION_STATE but not yet merged). Draft now current at v39. PROP-01 and PROP-02 still held. No scope expansion.
+
+---
+
 ## Wednesday Para-Level Pass (Petrarch, 2026-03-25) — v37→v38
 
 ### Closing block rewrite (Continuity and Asymmetry section)

@@ -108,9 +108,7 @@ Cloze Reader returns a practice that migrated from educational assessment into m
 
 To be clear, the convergence between Taylor's procedure and masked language modeling is real, grounded in the shared insight that contextual prediction offers a window onto linguistic competence. The purposes differ. Taylor wanted to measure comprehension. BERT's developers wanted to induce representations. Cloze Reader inherits both histories and uses game mechanics to hold them apart for examination.
 
-Pretraining reduces text to token distributions, and the blanked-out word makes that selection and reduction of human language legible by way of metonym, which is to say, through an act of occlusion that foregrounds how Gutenberg Project texts have been broken down, mathematized, and rendered into training data. The act of inferring the word from context, read against the summary and hint mechanisms, therefore requires human players to partake in precisely the sort of close reading practices that have been decentered by the advent of LLMs, reacquainting them with otherwise flattened or forgotten texts that have been totalized through extraction and foreclosure at scale.
-
-At the same time, the process demonstrates what the model, having processed the same passage and selected a word to occlude, cannot do by virtue of its low-latency engine. It cannot read. Or better yet, it cannot read slowly.
+Pretraining reduces text to token distributions. The blank makes that reduction visible: one word absent from a passage the model was trained on, now requiring a reader to supply what statistical weighting cannot. Filling it demands close reading: attending to what the surrounding sentence contributes before committing to an answer. The model selected that word through the same regularities by which it was trained. It cannot return to the passage and read it. The game asks players to do exactly that.
 
 ---
 
@@ -186,4 +184,4 @@ Zhang, Z. and Hashimoto, T. (2021) 'On the inductive bias of masked language mod
 
 ---
 
-*Draft v37 · Updated 2026-03-21 EDT · colon sweep: 11 prose colons eliminated (periods, subordinating conjunctions, comma-apposition); display colon in code block retained*
+*Draft v39 · Updated 2026-03-26 EDT · closing block updated to v38 text (Petrarch para-level pass 2026-03-25 applied); PROP-01 and PROP-02 held pending milwrite approval*
