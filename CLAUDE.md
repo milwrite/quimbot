@@ -11,6 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Never commit datasets or large artifacts to Git
 
 ## Key Decisions Log (2026-03-25)
+- **Night review 3/25 21:00**: ~23 commits full day. Writing: cloze paper v37→v38 + STYLE_GUIDE LLM-as-judge gate. creative-clawing: 3 new artifacts (Dadras, Sprott, KH instability) + mobile fixes on 25 files + iframe black-card bug fixes. Kalshi config v2. Data: 8,177/10k clean from toefl_batch_20260325. OpenRouter 402 day 28.
 - **Morning review 3/25**: ~18 commits overnight across 3 repos
 - **creative-clawing iframe + mobile sweep**: 19 artifacts had .panel/.controls hidden for clean iframe embeds; hatmonotile/gradient/astar got mobile responsive fixes; astar auto-demo loop added; nav submenu overflow:hidden removed; lotkavolterra mobile layout fixed
 - **Microblogs #30 + #31**: Lotka-Volterra (phase orbits, Adriatic fish) + Mandelbrot (smooth coloring, Julia/Fatou/Mandelbrot history)

@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-24 21:00 ET
+**Last Updated:** 2026-03-25 21:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -33,7 +33,7 @@
 - [ ] Cloze reader paper: draft Section IV
 - [ ] Validate `generate_toefl_ollama_10k.py` with a small reproducible smoke command in docs
 - [ ] Decide Stage 2 dataset composition (Spanish SFT candidates from latam-gpt)
-- [ ] Fix OpenRouter 402 on milwrite account (DAY 24)
+- [ ] Fix OpenRouter 402 on milwrite account (DAY 28, 4 weeks)
 - [x] Merge toefl_batch_20260319 into superset8 (46,943 rows landed) ✅ 3/20
 - [ ] Verify superset8 dedup integrity (46,943 rows — confirm no duplicates)
 - [x] Complete cloze reader draft_v32 → v33 → v34 → v35 (narrator, prepositions, genealogy) ✅ 3/21
