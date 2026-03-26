@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-26 09:00 ET_
+_Last synced: 2026-03-26 19:00 ET_
 
 ## 🔜 Backlog
 
@@ -141,6 +141,7 @@ _Last synced: 2026-03-26 09:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/26 19:00:** 7 commits since morning (2 Quimbot, 5 creative-clawing). Quimbot: cloze paper genealogy pass + narrator line restore per milwrite. creative-clawing: homepage perf (shared rAF, iframe cap 32), dadras mobile scope fix, astar iframe timing + service worker offline cache. OpenRouter 402 day 29. Superset11 at 66,006.
 - **Morning review 3/26 09:00:** 5 commits overnight (1 Quimbot, 4 creative-clawing). Gallery: PageRank + Snowflake artifacts, thumbnail placeholders, rossler/schelling normalize. Quimbot: starfield gyro + flowfield fade fix. OpenRouter 402 day 29. Superset11 at 66,006.
 - **Evening review 3/25 19:00:** 4 Quimbot commits + ~10 creative-clawing + 1 kalshi since morning. Writing: cloze paper v37→v38 + STYLE_GUIDE LLM-as-judge gate. creative-clawing: Dadras attractor + Sprott + KH instability + mobile fixes on 25 files. Kalshi config v2. Data: toefl_batch_20260325 validated (8,177/10k clean). Superset10 still at 59,509. OpenRouter 402 day 28.
 - **Morning review 3/25 09:00:** ~18 commits since last review. Overnight gallery push: 19 iframe fixes, 3 mobile layouts, 2 microblogs (#30 Lotka-Volterra, #31 Mandelbrot). Nav submenu + astar auto-demo + artifact quality standards. Kalshi config finalized ($5/10%). OpenRouter 402 day 28. Cloze paper Section IV still queued.
