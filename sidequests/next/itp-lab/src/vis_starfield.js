@@ -10,6 +10,9 @@ export function starfield(container) {
   container.style.touchAction = 'manipulation';
 
   let mouse = { x: 0.5, y: 0.5 };
+  // Smoothed orientation target — raw gyro data is jittery on mobile.
+  // Store the target separately and lerp mouse toward it each frame.
+  let orientTarget = { x: 0.5, y: 0.5 };
   let touching = false;
 
   function updateMouse(e) {
@@ -22,7 +25,7 @@ export function starfield(container) {
   const onUp = () => {
     touching = false;
     // Drift back to center so the field settles.
-    mouse.x = 0.5; mouse.y = 0.5;
+    orientTarget.x = 0.5; orientTarget.y = 0.5;
   };
   container.addEventListener('pointermove', onMove);
   container.addEventListener('pointerdown', onDown);
@@ -37,8 +40,9 @@ export function starfield(container) {
     if (touching) return; // touch takes priority
     const gamma = (e.gamma || 0) / 45; // left-right tilt, [-1, 1]
     const beta = ((e.beta || 0) - 45) / 45; // front-back tilt, [-1, 1]
-    mouse.x = 0.5 + Math.max(-0.5, Math.min(0.5, gamma));
-    mouse.y = 0.5 + Math.max(-0.5, Math.min(0.5, beta));
+    // Write to target; the render loop lerps mouse toward this for smooth parallax.
+    orientTarget.x = 0.5 + Math.max(-0.5, Math.min(0.5, gamma));
+    orientTarget.y = 0.5 + Math.max(-0.5, Math.min(0.5, beta));
   };
 
   function requestOrientPermission() {
@@ -93,6 +97,14 @@ export function starfield(container) {
     // Redistribute stars on orientation change or resize — avoids sparse/clustered fields.
     if (Math.floor(width) !== lastW || Math.floor(height) !== lastH) {
       reset(width, height);
+    }
+
+    // Smooth gyroscope input: lerp mouse toward orientTarget each frame.
+    // Factor 0.08 gives ~120 ms settling time at 60 fps — fast enough to feel
+    // responsive, slow enough to filter gyro jitter on mobile.
+    if (!touching) {
+      mouse.x += (orientTarget.x - mouse.x) * 0.08;
+      mouse.y += (orientTarget.y - mouse.y) * 0.08;
     }
 
     ctx.fillStyle = 'rgba(0,0,0,0.25)';

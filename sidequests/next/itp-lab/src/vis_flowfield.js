@@ -97,8 +97,12 @@ export function flowField(container) {
     const dt = Math.min(32, t - t0);
     t0 = t;
 
-    // Gentle fade to keep trails without infinite buildup.
-    ctx.fillStyle = 'rgba(5,7,11,0.06)';
+    // Frame-rate-independent fade: target the same visual decay at any refresh
+    // rate (60 Hz, 90 Hz, 120 Hz ProMotion, etc.).  We want the equivalent of
+    // alpha 0.06 at 60 fps (~16.67 ms).  Using exponential decay:
+    //   alpha = 1 - (1 - 0.06)^(dt / 16.667)
+    const fadeAlpha = 1 - Math.pow(0.94, dt / 16.667);
+    ctx.fillStyle = `rgba(5,7,11,${fadeAlpha.toFixed(4)})`;
     ctx.fillRect(0, 0, W, H);
 
     const scale = 0.008; // field frequency
