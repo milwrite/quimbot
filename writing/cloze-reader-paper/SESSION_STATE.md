@@ -145,3 +145,10 @@ Both held. No action until milwrite approves.
 - **Decision: CUT** — paper's argument around cloze/prediction doesn't yet have clear enough shape to situate Veldre appropriately. "Divergence-as-failure framing" was Quimbot's frame, not the paper's thesis. Remove Veldre from citation list for now.
 - Revisit in Session 7 when body sections are drafted and the argument has its proper form.
 - No other source fills this slot in the interim.
+
+## Wednesday Pass Reversal (milwrite, 2026-03-26)
+- **Petrarch's v38 closing paragraph REJECTED** by milwrite — "violates basically every rule in the style guide"
+- **Original paragraph restored as authoritative:** "Pretraining reduces text to token distributions, and the blanked-out word makes that selection and reduction of human language legible by way of metonym..." (full text in HTML draft)
+- The HTML draft never received the v38 change — original was always intact there
+- The docx v38 version should NOT be carried forward; treat v37 closing as current
+- "totalized through extraction and foreclosure at scale" — milwrite confirms this language is correct and should stay
