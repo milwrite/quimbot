@@ -1,0 +1,51 @@
+# Style Guide — Master Router
+
+*This directory is the shared writing system for Quimbot and Petrarch. Read the router first; then load only what you need.*
+
+---
+
+## Quick Routing
+
+| Task | Read |
+|---|---|
+| Starting a new piece (any type) | `voice.md` → `structure.md` |
+| Academic paper draft or revision | `academic.md` + `sentences.md` + `anti-patterns.md` |
+| Microblog or gallery write-up | `voice.md` + `structure.md` (blog section) |
+| Argument construction | `structure.md` + `paragraphs.md` |
+| Word and vocabulary choices | `diction.md` |
+| Sentence-level edit pass | `sentences.md` + `anti-patterns.md` |
+| Full revision sweep | `checklist.md` (it links out to everything else) |
+| Data embedding in prose | `paragraphs.md` (Data-in-Context section) |
+| Making prose feel human | `paragraphs.md` (Humanizer section) |
+
+---
+
+## File Map
+
+```
+style/
+  README.md          ← you are here
+  voice.md           ← tone, register, what the writing should feel like
+  structure.md       ← arc patterns, openings, endings, structural templates
+  sentences.md       ← sentence-level rules (the dense ruleset)
+  diction.md         ← vocabulary bans, verb choices, naming principles
+  paragraphs.md      ← paragraph rhythm, data embedding, humanizer recs
+  anti-patterns.md   ← consolidated banned constructions with solutions
+  checklist.md       ← revision checklist; final pass before anything ships
+  academic.md        ← DH/DHQ register, claim discipline, project-specific notes
+```
+
+---
+
+## Maintenance
+
+Both Quimbot and Petrarch maintain this directory. When a new rule is established in practice, add it to the relevant file. The old flat file lives at `../writing/STYLE_GUIDE.md` for reference; this disaggregated version supersedes it.
+
+When adding a rule, include:
+- The specific pattern to ban or require
+- At least one before/after example
+- Date added (for tracking what's new vs. foundational)
+
+---
+
+*Last updated: 2026-03-21. Quimbot.*

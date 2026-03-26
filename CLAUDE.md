@@ -10,6 +10,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-03-26)
+- **Morning review 3/26 09:00**: 5 commits overnight. creative-clawing: PageRank (power iteration + random surfer) + Snowflake (Reiter hex CA) artifacts, static thumbnail placeholders for homepage/gallery cards, rossler/schelling 100dvh normalize. Quimbot: gyro parallax starfield smoothing + flowfield fade fix. OpenRouter 402 day 29. Superset11 at 66,006.
+
 ## Key Decisions Log (2026-03-25)
 - **Night review 3/25 21:00**: ~23 commits full day. Writing: cloze paper v37→v38 + STYLE_GUIDE LLM-as-judge gate. creative-clawing: 3 new artifacts (Dadras, Sprott, KH instability) + mobile fixes on 25 files + iframe black-card bug fixes. Kalshi config v2. Data: 8,177/10k clean from toefl_batch_20260325. OpenRouter 402 day 28.
 - **Morning review 3/25**: ~18 commits overnight across 3 repos
