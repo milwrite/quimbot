@@ -140,3 +140,8 @@ Final two paragraphs condensed into one. Five violations cleared:
 - **PROP-02:** Floating citation paragraph ("Recent work on cloze, predictability...") — one sentence, three citations, no synthesis. Integrate into surrounding argument or cut.
 
 Both held. No action until milwrite approves.
+
+## Veldre et al. Ruling (milwrite, 2026-03-26)
+- **Decision: CUT** — paper's argument around cloze/prediction doesn't yet have clear enough shape to situate Veldre appropriately. "Divergence-as-failure framing" was Quimbot's frame, not the paper's thesis. Remove Veldre from citation list for now.
+- Revisit in Session 7 when body sections are drafted and the argument has its proper form.
+- No other source fills this slot in the interim.
