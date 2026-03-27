@@ -11,6 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Never commit datasets or large artifacts to Git
 
 ## Key Decisions Log (2026-03-26)
+- **Evening review 3/26 21:00**: 17 commits full day (10 Quimbot, 7 creative-clawing). Writing: cloze paper genealogy framing pass + narrator line restore + Veldre et al. cut per milwrite ruling + v38 closing rejection. Pages build: 3 commits fixing nested-repo dirs, dangling submodule, knowledge-collections-repo. creative-clawing: homepage perf (shared rAF, iframe cap 32, unified lifecycle), dadras mobile scope fix, astar iframe timing + service worker offline cache. OpenRouter 402 day 29. Superset11 at 66,006.
 - **Morning review 3/26 09:00**: 5 commits overnight. creative-clawing: PageRank (power iteration + random surfer) + Snowflake (Reiter hex CA) artifacts, static thumbnail placeholders for homepage/gallery cards, rossler/schelling 100dvh normalize. Quimbot: gyro parallax starfield smoothing + flowfield fade fix. OpenRouter 402 day 29. Superset11 at 66,006.
 
 ## Key Decisions Log (2026-03-25)

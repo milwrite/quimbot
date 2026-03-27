@@ -7,6 +7,10 @@ _Last synced: 2026-03-26 19:00 ET_
 - **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **Pages build fixes** — gitignore nested-repo dirs, remove dangling sidequests submodule, convert knowledge-collections-repo (`90fd0380`..`59a871bb`) ✅ 3/26
+- **Cloze paper: Veldre cut + narrator restore** — Veldre et al. removed per milwrite ruling; v38 closing rejected, original stands; narrator line restored (`3bb2c445`, `d4883dca`, `c641bbe9`) ✅ 3/26
+- **creative-clawing homepage perf** — shared rAF, unified iframe lifecycle, 32 max cap, astar timing fix, service worker offline cache (`6f26cd8`..`41a1771`) ✅ 3/26
+- **Dadras mobile scope fix** — layout rules scoped to html.standalone, prevents iframe canvas breakage (`46e8a6d`) ✅ 3/26
 - **creative-clawing: PageRank + Snowflake** — 2 new artifacts + thumbnail placeholders + rossler/schelling normalize (`4983233`..`46e2176`) ✅ 3/26
 - **Quimbot mobile fixes** — gyro parallax starfield + flowfield fade fix (`cd206dd7`) ✅ 3/26
 - **toefl_batch_20260325 validated** — 10k generated, 8,177 clean entries after short-reply filter ✅ 3/25
@@ -141,6 +145,7 @@ _Last synced: 2026-03-26 19:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/26 21:00:** 17 commits full day (10 Quimbot, 7 creative-clawing). Quimbot: 3 Pages build fixes (nested-repo dirs, dangling submodule, knowledge-collections-repo) + cloze paper (Veldre cut, v38 rejection, narrator restore, genealogy pass) + nightly stocktake. creative-clawing: homepage perf (shared rAF, iframe cap 32, unified lifecycle), dadras mobile scope, astar timing + offline cache. OpenRouter 402 day 29. Superset11 at 66,006.
 - **Evening review 3/26 19:00:** 7 commits since morning (2 Quimbot, 5 creative-clawing). Quimbot: cloze paper genealogy pass + narrator line restore per milwrite. creative-clawing: homepage perf (shared rAF, iframe cap 32), dadras mobile scope fix, astar iframe timing + service worker offline cache. OpenRouter 402 day 29. Superset11 at 66,006.
 - **Morning review 3/26 09:00:** 5 commits overnight (1 Quimbot, 4 creative-clawing). Gallery: PageRank + Snowflake artifacts, thumbnail placeholders, rossler/schelling normalize. Quimbot: starfield gyro + flowfield fade fix. OpenRouter 402 day 29. Superset11 at 66,006.
 - **Evening review 3/25 19:00:** 4 Quimbot commits + ~10 creative-clawing + 1 kalshi since morning. Writing: cloze paper v37→v38 + STYLE_GUIDE LLM-as-judge gate. creative-clawing: Dadras attractor + Sprott + KH instability + mobile fixes on 25 files. Kalshi config v2. Data: toefl_batch_20260325 validated (8,177/10k clean). Superset10 still at 59,509. OpenRouter 402 day 28.

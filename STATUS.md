@@ -1,24 +1,31 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
 **Date:** 2026-03-26 (Thu)
-**Time:** 09:00 ET (morning review)
+**Time:** 21:00 ET (evening review)
 
-## Since last review (3/25 21:00)
+## Since last review (3/26 09:00)
 
-### Quimbot (1 commit)
-- **Mobile fixes**: smooth gyro parallax in starfield, frame-rate-dependent fade fix in flowfield (`cd206dd7`)
+### Quimbot (7 commits)
+- **Pages build fixes (3 commits)**: gitignore nested-repo dirs (`90fd0380`), remove dangling sidequests submodule ref (`721117b2`), convert knowledge-collections-repo to plain dir (`59a871bb`)
+- **Cloze paper**: v38 closing rejected by milwrite, original stands (`d4883dca`); Veldre et al. cut per milwrite ruling (`3bb2c445`); narrator line restored (`c641bbe9`); daily genealogy framing pass (`5a46739d`)
+- **Nightly stocktake**: draft_v39 cleanup + session state sync (`4f8c23f6`)
 
-### creative-clawing (4 commits)
-- **PageRank**: power iteration + random surfer visualization (`5e6d469`)
-- **Snowflake**: Reiter hex CA for dendritic ice crystal growth (`4983233`)
-- **Static thumbnail placeholders**: homepage + gallery cards (`c5d811f`)
-- **Rossler/Schelling normalize**: 100dvh + legacy iframe inline-hide cleanup (`46e2176`)
+### creative-clawing (5 commits)
+- **Homepage perf**: shared rAF for lane scrolls, unified iframe lifecycle, 32 max iframe cap (`6f26cd8`, `62f404d`)
+- **astar fix + offline**: iframe init timing fix + service worker shell cache (`41a1771`)
+- **dadras mobile scope**: layout rules scoped to html.standalone to prevent iframe breakage (`46e8a6d`)
+- **Auto-update**: manifest + feed synced (2 chore commits)
 
 ### Kalshi
 - No new commits
 
 ### Data
-- **Superset11 canonical**: 66,006 unique entries (since 3/25)
+- **Superset11 canonical**: 66,006 unique entries (unchanged today)
+
+## Full day totals (3/26)
+- **Quimbot**: 10 commits (3 Pages build fixes, 5 cloze paper, 2 review/sync)
+- **creative-clawing**: 7 commits (3 perf/optimization, 1 mobile fix, 1 offline support, 2 chore)
+- **Kalshi**: 0 commits
 
 ## Current blockers / risks
 - **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 29**, 4+ weeks)
@@ -26,13 +33,12 @@
 - **Petrarch push auth** — cisco-petrarch still lacks write on milwrite/quimbot
 - **Prospects cron notifier broken** (`openclaw` not found in cron PATH)
 - **Cloze paper Session 3** gated on `APPROVED S2→S3` from milwrite
-- **6 artifacts need mobile iframe validation**: dadras, sprott, rossler, stablefluid, schelling, astar
+- **PROP-01 + PROP-02** on hold for milwrite review
 
 ## Next actions (queued)
 1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 29
-2. Cloze reader paper: continue revision, draft Section IV
+2. Cloze reader paper: await S2→S3 gate, continue revision
 3. Superset11 quality spot-check (66,006 rows)
-4. Validate 6 artifacts on mobile iframe (rossler/schelling sweep may have fixed some)
-5. Run 4 weights retrieval (needs milwrite)
-6. Fix prospects cron notifier routing
-7. Kalshi: monitor NO-only pipeline
+4. Run 4 weights retrieval (needs milwrite)
+5. Fix prospects cron notifier routing
+6. Kalshi: monitor NO-only pipeline
