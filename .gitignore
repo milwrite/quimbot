@@ -43,3 +43,7 @@ BOOTSTRAP.md
 memory/
 a11y-checker/
 sidequests/
+skills/
+scripts/daily_skill_learn.sh
+.clawhub/
+style/
