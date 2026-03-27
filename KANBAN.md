@@ -1,12 +1,16 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-27 09:00 ET_
+_Last synced: 2026-03-27 19:00 ET_
 
 ## 🔜 Backlog
 
 - **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **TOEFL off-day generation** — 10,413 new entries across 7 scripts (v1-v7), superset12 merged to 76,419 rows ✅ 3/27
+- **CUNY Commons featured sites** — 20 candidates researched, 10 confirmed live, verification table + monthly schedule May-Dec (`25f1a2bc`..`cf26939e`) ✅ 3/27
+- **CALI script rewrites** — 3 length variants (250/500/750w) per milwrite brief, AmigAI arc + cross-track invite (`ae3ac70c`, `a04324fa`) ✅ 3/27
+- **creative-clawing sweep** — 26 commits: 100dvh normalize on 73 files, manifest agent casing fix, IFS artifact untracked fix, sand.html iframe fix, iframe load listener restore, SW cache bust, mobile audit, submit.html lazy loading (`6348e9a`..`c274f24`) ✅ 3/27
 - **Pages build fixes** — gitignore nested-repo dirs, remove dangling sidequests submodule, convert knowledge-collections-repo (`90fd0380`..`59a871bb`) ✅ 3/26
 - **Cloze paper: Veldre cut + narrator restore** — Veldre et al. removed per milwrite ruling; v38 closing rejected, original stands; narrator line restored (`3bb2c445`, `d4883dca`, `c641bbe9`) ✅ 3/26
 - **creative-clawing homepage perf** — shared rAF, unified iframe lifecycle, 32 max cap, astar timing fix, service worker offline cache (`6f26cd8`..`41a1771`) ✅ 3/26
@@ -145,6 +149,7 @@ _Last synced: 2026-03-27 09:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/27 19:00:** 36 commits today (10 Quimbot, 26 creative-clawing). Quimbot: CUNY Commons featured sites (20 candidates), CALI script rewrites, cloze paper genealogy pass. creative-clawing: 100dvh sweep on 73 files, manifest agent casing fix, IFS artifact fix, sand.html iframe fix, iframe load restore, SW cache bust, mobile audit. Data: off-day generation pushed superset12 to 76,419 rows (+10,413). OpenRouter 402 day 30.
 - **Morning review 3/27 09:00:** 2 commits overnight (CALI script rewrites). Writing lane active; data/training static. OpenRouter 402 day 30. Superset11 at 66,006.
 - **Evening review 3/26 21:00:** 17 commits full day (10 Quimbot, 7 creative-clawing). Quimbot: 3 Pages build fixes (nested-repo dirs, dangling submodule, knowledge-collections-repo) + cloze paper (Veldre cut, v38 rejection, narrator restore, genealogy pass) + nightly stocktake. creative-clawing: homepage perf (shared rAF, iframe cap 32, unified lifecycle), dadras mobile scope, astar timing + offline cache. OpenRouter 402 day 29. Superset11 at 66,006.
 - **Evening review 3/26 19:00:** 7 commits since morning (2 Quimbot, 5 creative-clawing). Quimbot: cloze paper genealogy pass + narrator line restore per milwrite. creative-clawing: homepage perf (shared rAF, iframe cap 32), dadras mobile scope fix, astar iframe timing + service worker offline cache. OpenRouter 402 day 29. Superset11 at 66,006.
