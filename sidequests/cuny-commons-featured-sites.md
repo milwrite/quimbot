@@ -45,7 +45,7 @@ From available sources, these sites have appeared as featured or prominently hig
 | 12 | **OER COIL Starter Kit** | [commons.gc.cuny.edu](https://commons.gc.cuny.edu) *(verify)* | Supports Collaborative Online International Learning — connects classrooms across institutions and countries |
 | 13 | **BMCC Open Pedagogy Seminar** | [bmcc.commons.gc.cuny.edu](https://bmcc.commons.gc.cuny.edu) *(verify)* | Faculty professional development in open pedagogy — model for Commons-supported structured learning communities |
 | 14 | **Natural Sciences OER (LaGuardia CC)** | [lagcc.commons.gc.cuny.edu](https://lagcc.commons.gc.cuny.edu) *(verify)* | Zero-textbook-cost science materials for biology, chemistry, physics — strong equity and access angle |
-| 15 | **AmigAI** | [ailab.gc.cuny.edu](https://ailab.gc.cuny.edu) *(verify Commons URL)* | Heritage Spanish AI conversation partner developed through CUNY AI Lab — directly relevant to CALI work; active in 4+ classes |
+| 15 | **GC Digital Fellows Blog** | [digitalfellows.commons.gc.cuny.edu](https://digitalfellows.commons.gc.cuny.edu) | GC Digital Fellows' public-facing blog covering workshops, tutorials, and digital methods — bridges professional development and public scholarship |
 
 ### Institutional Voices & Scholarly Communication
 
@@ -65,17 +65,17 @@ One swap per month. Assumes 2–3 slots rotate simultaneously on the homepage (v
 
 | Month | Featured Slot 1 | Featured Slot 2 | Featured Slot 3 |
 |-------|----------------|----------------|----------------|
-| **May** | [NESRI](https://nesri.commons.gc.cuny.edu) | [AmigAI](https://ailab.gc.cuny.edu) | [LAWI](https://lawi.commons.gc.cuny.edu) |
+| **May** | [NESRI](https://nesri.commons.gc.cuny.edu) | [GC Digital Fellows](https://digitalfellows.commons.gc.cuny.edu) | [LAWI](https://lawi.commons.gc.cuny.edu) |
 | **June** | [GC Digital Research Institute](https://gcdri.commons.gc.cuny.edu) | [TLC Assignment Library](https://commons.gc.cuny.edu/group/teaching-and-learning-center) | [Le Hub](https://french.commons.gc.cuny.edu) |
 | **July** | [BC Library Art Collection](https://bclibraryart.commons.gc.cuny.edu) | [Collaborative Seeing Studio](https://collaborativeseeingstudio.commons.gc.cuny.edu) | [BMCC Open Pedagogy Seminar](https://bmcc.commons.gc.cuny.edu) |
 | **August** | [Looking for Whitman](https://lookingforwhitman.org) | [Natural Sciences OER](https://lagcc.commons.gc.cuny.edu) | [GC English Students](https://gcenglish.commons.gc.cuny.edu) |
 | **September** | [PRISM URC](https://prismurc.commons.gc.cuny.edu) | [OER COIL Starter Kit](https://commons.gc.cuny.edu) | [GC Marxist Reading Group](https://capital.commons.gc.cuny.edu) |
 | **October** | [Brooklyn Waterfront Research Center](https://citytech.commons.gc.cuny.edu) | [GC Mina Rees Library](https://commons.gc.cuny.edu/group/mina-rees-library) | [Zines at BC Library](https://brooklyncollegezines.commons.gc.cuny.edu) |
-| **November** | [AmigAI](https://ailab.gc.cuny.edu) | [NESRI](https://nesri.commons.gc.cuny.edu) | [TLC Assignment Library](https://commons.gc.cuny.edu/group/teaching-and-learning-center) |
+| **November** | [GC Digital Fellows](https://digitalfellows.commons.gc.cuny.edu) | [NESRI](https://nesri.commons.gc.cuny.edu) | [TLC Assignment Library](https://commons.gc.cuny.edu/group/teaching-and-learning-center) |
 | **December** | [GC Students of Anthropology](https://anthropology.commons.gc.cuny.edu) | [GCDRI](https://gcdri.commons.gc.cuny.edu) | [CUNY Academic Commons News](https://news.commons.gc.cuny.edu) |
 
 **Notes on the schedule:**
-- AmigAI appears twice (May, November) — direct CUNY AI Lab connection, timely for CALI audiences
+- GC Digital Fellows appears twice (May, November) — bridges research methods and public scholarship across both semesters
 - NESRI appears twice — high-impact research with broad institutional visibility
 - September rotates in student and reading group sites to coincide with fall semester start
 - December closes with the platform's institutional infrastructure
@@ -101,7 +101,7 @@ One swap per month. Assumes 2–3 slots rotate simultaneously on the homepage (v
 | GC Mina Rees Library | commons.gc.cuny.edu/group/mina-rees-library | ✅ confirmed (group page) |
 | CUNY Commons News | news.commons.gc.cuny.edu | ✅ confirmed |
 | TLC Assignment Library | commons.gc.cuny.edu/group/teaching-and-learning-center | ⚠️ verify exact group slug |
-| AmigAI | ailab.gc.cuny.edu | ⚠️ no dedicated Commons page found — may live at tools.ailab.gc.cuny.edu |
+| GC Digital Fellows Blog | digitalfellows.commons.gc.cuny.edu | ✅ confirmed |
 | OER COIL Starter Kit | — | ⚠️ no direct URL found — may live within the Commons OER Showcase |
 | BMCC Open Pedagogy Seminar | bmcc.commons.gc.cuny.edu | ⚠️ verify — cited in Commons docs but URL not confirmed |
 | Natural Sciences OER (LaGuardia) | lagcc.commons.gc.cuny.edu | ⚠️ verify — project confirmed, Commons URL inferred |
