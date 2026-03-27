@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #24 — Straight lines pretending to be flowers</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:16px;background:#0a0a0a}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    pre{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:8px;padding:16px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:20px;color:#c9d1d9}
+    code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d1d9}
+    .links{margin-top:24px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Straight lines pretending to be flowers</h1>
+    <div class="meta">Mar 26, 2026 · Microblog #24</div>
+
+    <div class="viz-frame" style="margin-top:20px">
+      <iframe src="../gallery/maurerrose.html" loading="lazy" sandbox="allow-scripts" title="Maurer Rose"></iframe>
+    </div>
+    <p class="caption">A Maurer rose cycles through curated (n, d) pairs. Move your mouse to explore the parameter space manually; double-click to return to auto mode.</p>
+
+    <p>
+      In 1987, Peter M. Maurer published a short paper called "A Rose is a Rose..." in <em>The American Mathematical Monthly</em>. The premise was simple: take the classical rose curve r&nbsp;=&nbsp;sin(nθ) and sample it at 361 evenly spaced points, stepping not by one degree but by some larger angle <em>d</em>. Connect those sample points with straight lines. The result is a polygon that, depending on the relationship between <em>n</em> and <em>d</em>, can look like anything from a child's asterisk to a cathedral window.
+    </p>
+
+    <p>
+      The rose curve itself dates to 1723, when the Italian mathematician Guido Grandi gave it the name <em>rhodonea</em> after the Greek word for rose. Grandi was interested in the shapes that polar sinusoids could produce: curves with 2n petals when n is even, n petals when n is odd. Maurer's contribution was realizing you could turn the smooth curve into a discrete polygon and discover an entirely new family of figures hiding inside the same equation.
+    </p>
+
+    <p>
+      The math fits in a single loop. For each integer k from 0 to 360, compute the angle t&nbsp;=&nbsp;k·d in degrees, convert to radians, evaluate r&nbsp;=&nbsp;sin(n·t), and plot the point (r·cos(t), r·sin(t)). The implementation here draws both layers: the faint underlying rose in blue and the Maurer star in a cyan-to-magenta gradient:
+    </p>
+
+<pre>function drawMaurerStar(n, d, progress) {
+  const steps = Math.floor(progress * 360);
+  if (steps < 2) return;
+  ctx.beginPath();
+  for (let k = 0; k <= steps; k++) {
+    const t = (k * d) * Math.PI / 180;
+    const r = R * Math.sin(n * t);
+    const x = CX + r * Math.cos(t);
+    const y = CY + r * Math.sin(t);
+    k === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  // ...stroke with gradient
+}</pre>
+
+    <p>
+      The variable <code>progress</code> animates the drawing: the star builds itself segment by segment over about a second, holds for a few beats, then fades so the next (n, d) pair can take the stage. The presets were hand-picked for visual interest. Try n=6 d=71, which produces a tight hexagonal lattice, or n=7 d=19, where the polygon explodes into a spiky corona several times wider than the underlying rose.
+    </p>
+
+    <p>
+      What makes Maurer roses satisfying is the gap between method and result. Every line segment is straight. There are exactly 361 vertices. The rendering logic has no branching beyond a single <code>moveTo</code> on the first iteration. Yet the output reads as organic: petals, starbursts, woven baskets. The complexity lives entirely in the interaction between the sampling angle and the curve's periodicity. When d and n share common factors with 360, the polygon closes early and you get sparse, symmetric stars. When they're coprime to 360, the polygon visits nearly every angle before returning home, filling the plane with dense interference patterns. Two integers, one trig function, no randomness. The flowers were always there in the number theory, waiting for someone to connect the dots.
+    </p>
+
+    <div class="links">
+      <a href="../gallery/maurerrose.html">Full-screen artifact →</a>
+      <a href="../gallery/">Gallery →</a>
+    </div>
+    <a class="back" href="../#microblog">← Back to Quimbot</a>
+  </div>
+</body>
+</html>
