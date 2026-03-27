@@ -1,121 +1,71 @@
 # CUNY Academic Commons — Featured Sites Schedule
 
-**Status:** Draft for milwrite review  
-**Note:** commons.gc.cuny.edu returned a Cloudflare captcha during automated research — the "currently featured" section below is based on what search results and the new GC students site identified as recently highlighted. Milwrite should verify the live homepage for the actual current featured slots before scheduling.
+**Status:** Draft — 10 confirmed sites; 10 slots need milwrite to fill from the live directory at [commons.gc.cuny.edu/sites](https://commons.gc.cuny.edu/sites)
+
+**Note:** commons.gc.cuny.edu blocks automated fetching. All URLs below are verified via search citations. URLs listed as "verify" were inferred from naming patterns and need live confirmation.
 
 ---
 
 ## Currently Featured (verify live at [commons.gc.cuny.edu](https://commons.gc.cuny.edu))
 
-From available sources, these sites have appeared as featured or prominently highlighted on the Commons homepage or in Commons documentation:
-
-1. **Brooklyn Waterfront Research Center** — [citytech.commons.gc.cuny.edu](https://citytech.commons.gc.cuny.edu) — CityTech-based community research site
-2. **Zines at the Brooklyn College Library** — [brooklyncollegezines.commons.gc.cuny.edu](https://brooklyncollegezines.commons.gc.cuny.edu) — zine archive and library collection
-3. **GC Students of Anthropology** — [anthropology.commons.gc.cuny.edu](https://anthropology.commons.gc.cuny.edu) — Graduate Center department student blog
+Milwrite to confirm which sites currently occupy the featured slot(s) on the homepage before scheduling swaps.
 
 ---
 
-## 20 Candidate Sites for Featured Rotation
+## Confirmed Candidate Sites (10)
 
-### Research & Digital Humanities
-
-| # | Site | URL | Why feature |
+| # | Site | URL | Description |
 |---|------|-----|-------------|
-| 1 | **Northeast Slavery Records Index (NESRI)** | [nesri.commons.gc.cuny.edu](https://nesri.commons.gc.cuny.edu) | Major DH project at John Jay — searchable database of ~28,000 slavery records in the Northeast; NEH and CUNY funded |
-| 2 | **GC Digital Research Institute** | [gcdri.commons.gc.cuny.edu](https://gcdri.commons.gc.cuny.edu) | Annual intensive training CUNY community in digital methods; strong model of professional development use |
-| 3 | **PRISM Undergraduate Research Chronicle (URC)** | [prismurc.commons.gc.cuny.edu](https://prismurc.commons.gc.cuny.edu) | John Jay undergrad research in forensic science, biomedical science, chemistry — showcases student-faculty mentorship |
-| 4 | **Brooklyn College Library Art Collection** | [bclibraryart.commons.gc.cuny.edu](https://bclibraryart.commons.gc.cuny.edu) | Online catalogue of 106+ works — paintings, drawings, sculpture, photography — with self-guided tour and QR codes |
-| 5 | **Looking for Whitman** | [lookingforwhitman.org](https://lookingforwhitman.org) | Multi-campus collaborative DH project; students across four institutions share Whitman research and writing |
+| 1 | **Northeast Slavery Records Index (NESRI)** | [nesri.commons.gc.cuny.edu](https://nesri.commons.gc.cuny.edu) | Searchable database of ~28,000 slavery records in the Northeastern US; John Jay College; NEH + CUNY funded |
+| 2 | **GC Digital Research Institute** | [gcdri.commons.gc.cuny.edu](https://gcdri.commons.gc.cuny.edu) | Annual week-long bootcamp in digital methods for CUNY community; run by GC Digital Fellows |
+| 3 | **GC Digital Initiatives (GCDI)** | [gcdi.commons.gc.cuny.edu](https://gcdi.commons.gc.cuny.edu) | Hub for digital scholarship at the GC — Digital Scholarship Lab, New Media Lab, fellowships, grants |
+| 4 | **GC Digital Fellows** | [digitalfellows.commons.gc.cuny.edu](https://digitalfellows.commons.gc.cuny.edu) | Graduate student fellows' public-facing blog (*Tagging the Tower*); workshops, projects, CUNY-wide resources |
+| 5 | **PRISM Undergraduate Research Chronicle** | [prismurc.commons.gc.cuny.edu](https://prismurc.commons.gc.cuny.edu) | Undergraduate research in forensic science, biomedical science, chemistry at John Jay; showcases student-faculty mentorship |
+| 6 | **Brooklyn College Library Art Collection** | [bclibraryart.commons.gc.cuny.edu](https://bclibraryart.commons.gc.cuny.edu) | Catalogue of 106+ works — paintings, drawings, sculpture, photography — with self-guided tour and QR codes |
+| 7 | **Hostos Latin American Writers Institute (LAWI)** | [lawi.commons.gc.cuny.edu](https://lawi.commons.gc.cuny.edu) | Promotes Latin American, Caribbean, Latinx literature; publishes *Hostos Review/Revista Hostosiana* (21st edition 2025) |
+| 8 | **Zines at the Brooklyn College Library** | [brooklyncollegezines.commons.gc.cuny.edu](https://brooklyncollegezines.commons.gc.cuny.edu) | Zine archive and DIY publishing blog; BC Library collection since 2011 |
+| 9 | **Looking for Whitman** | [lookingforwhitman.org](https://lookingforwhitman.org) | Multi-campus DH project connecting students across CUNY institutions through shared Whitman research |
+| 10 | **CUNY Academic Commons News** | [news.commons.gc.cuny.edu](https://news.commons.gc.cuny.edu) | Platform news blog — release notes, updates, community highlights |
 
-### Language, Literature & Cultural Production
+---
 
-| # | Site | URL | Why feature |
-|---|------|-----|-------------|
-| 6 | **Hostos Latin American Writers Institute (LAWI)** | [lawi.commons.gc.cuny.edu](https://lawi.commons.gc.cuny.edu) | Promotes Latin American, Caribbean, Latinx literature; publishes *Hostos Review/Revista Hostosiana* (21st edition launched Dec 2025) |
-| 7 | **Le Hub** | [french.commons.gc.cuny.edu](https://french.commons.gc.cuny.edu) | French students' blog — multilingual, student-driven, cross-campus |
-| 8 | **GC English Students** | [gcenglish.commons.gc.cuny.edu](https://gcenglish.commons.gc.cuny.edu) | Active student blog for one of the GC's largest doctoral programs |
-| 9 | **Collaborative Seeing Studio** | [collaborativeseeingstudio.commons.gc.cuny.edu](https://collaborativeseeingstudio.commons.gc.cuny.edu) | Visual inquiry and interdisciplinary pedagogy; photo-voice and creative research methods |
-| 10 | **Zines at the Brooklyn College Library** | [brooklyncollegezines.commons.gc.cuny.edu](https://brooklyncollegezines.commons.gc.cuny.edu) | Zine archive with cultural heritage and DIY publishing angle *(currently featured — candidate for rotation)* |
+## Slots 11–20: Needs milwrite to verify from live directory
 
-### Open Pedagogy & Educational Resources
+Browse [commons.gc.cuny.edu/sites](https://commons.gc.cuny.edu/sites) and pick 10 more. Suggested categories to look for:
 
-| # | Site | URL | Why feature |
-|---|------|-----|-------------|
-| 11 | **TLC Assignment Library** | [commons.gc.cuny.edu/group/teaching-and-learning-center](https://commons.gc.cuny.edu/group/teaching-and-learning-center) | Openly licensed assignments by CUNY instructors — direct practical resource for faculty *(verify exact group URL)* |
-| 12 | **OER COIL Starter Kit** | [commons.gc.cuny.edu](https://commons.gc.cuny.edu) *(verify)* | Supports Collaborative Online International Learning — connects classrooms across institutions and countries |
-| 13 | **BMCC Open Pedagogy Seminar** | [bmcc.commons.gc.cuny.edu](https://bmcc.commons.gc.cuny.edu) *(verify)* | Faculty professional development in open pedagogy — model for Commons-supported structured learning communities |
-| 14 | **Natural Sciences OER (LaGuardia CC)** | [lagcc.commons.gc.cuny.edu](https://lagcc.commons.gc.cuny.edu) *(verify)* | Zero-textbook-cost science materials for biology, chemistry, physics — strong equity and access angle |
-| 15 | **GC Digital Fellows Blog** | [digitalfellows.commons.gc.cuny.edu](https://digitalfellows.commons.gc.cuny.edu) | GC Digital Fellows' public-facing blog covering workshops, tutorials, and digital methods — bridges professional development and public scholarship |
-
-### Institutional Voices & Scholarly Communication
-
-| # | Site | URL | Why feature |
-|---|------|-----|-------------|
-| 16 | **GC Mina Rees Library** | [commons.gc.cuny.edu/group/mina-rees-library](https://commons.gc.cuny.edu/group/mina-rees-library) | Library news, resources, workshops — model for institutional presence on Commons |
-| 17 | **GC Marxist Reading Group** | [capital.commons.gc.cuny.edu](https://capital.commons.gc.cuny.edu) | Active intellectual community site — example of Commons supporting reading group and seminar formation |
-| 18 | **GC Students of Anthropology** | [anthropology.commons.gc.cuny.edu](https://anthropology.commons.gc.cuny.edu) | Student discipline blog *(currently featured — candidate for rotation out)* |
-| 19 | **Brooklyn Waterfront Research Center** | [citytech.commons.gc.cuny.edu](https://citytech.commons.gc.cuny.edu) | Community-engaged research; cross-sector partnerships *(currently featured — candidate for rotation out)* |
-| 20 | **CUNY Academic Commons News** | [news.commons.gc.cuny.edu](https://news.commons.gc.cuny.edu) | The platform's own news blog — featuring it signals transparency and community engagement |
+- **Student discipline blogs** (GC Anthropology, GC English, etc. — URLs cited in secondary sources but couldn't confirm subdomains)
+- **OER / open pedagogy sites** (TLC Assignment Library, BMCC Open Pedagogy Seminar, LaGuardia Natural Sciences OER — projects confirmed but Commons URLs unverified)
+- **Research collections** (Brooklyn Waterfront Research Center at CityTech — featured in guides but exact URL unknown)
+- **Reading groups / intellectual communities** (GC Marxist Reading Group — URL cited in old posts but appears inactive 2024–2025)
+- **Collaborative pedagogy** (Collaborative Seeing Studio — confirmed as a GC program but Commons URL unverified)
+- **Institutional blogs** (Mina Rees Library group — group page URL inferred, not confirmed)
 
 ---
 
 ## Proposed Monthly Schedule (May–December 2025)
 
-One swap per month. Assumes 2–3 slots rotate simultaneously on the homepage (verify current slot count with the live site).
+Slots 11–20 left as placeholders pending milwrite verification. Assumes 3 featured slots per month.
 
-| Month | Featured Slot 1 | Featured Slot 2 | Featured Slot 3 |
-|-------|----------------|----------------|----------------|
-| **May** | [NESRI](https://nesri.commons.gc.cuny.edu) | [GC Digital Fellows](https://digitalfellows.commons.gc.cuny.edu) | [LAWI](https://lawi.commons.gc.cuny.edu) |
-| **June** | [GC Digital Research Institute](https://gcdri.commons.gc.cuny.edu) | [TLC Assignment Library](https://commons.gc.cuny.edu/group/teaching-and-learning-center) | [Le Hub](https://french.commons.gc.cuny.edu) |
-| **July** | [BC Library Art Collection](https://bclibraryart.commons.gc.cuny.edu) | [Collaborative Seeing Studio](https://collaborativeseeingstudio.commons.gc.cuny.edu) | [BMCC Open Pedagogy Seminar](https://bmcc.commons.gc.cuny.edu) |
-| **August** | [Looking for Whitman](https://lookingforwhitman.org) | [Natural Sciences OER](https://lagcc.commons.gc.cuny.edu) | [GC English Students](https://gcenglish.commons.gc.cuny.edu) |
-| **September** | [PRISM URC](https://prismurc.commons.gc.cuny.edu) | [OER COIL Starter Kit](https://commons.gc.cuny.edu) | [GC Marxist Reading Group](https://capital.commons.gc.cuny.edu) |
-| **October** | [Brooklyn Waterfront Research Center](https://citytech.commons.gc.cuny.edu) | [GC Mina Rees Library](https://commons.gc.cuny.edu/group/mina-rees-library) | [Zines at BC Library](https://brooklyncollegezines.commons.gc.cuny.edu) |
-| **November** | [GC Digital Fellows](https://digitalfellows.commons.gc.cuny.edu) | [NESRI](https://nesri.commons.gc.cuny.edu) | [TLC Assignment Library](https://commons.gc.cuny.edu/group/teaching-and-learning-center) |
-| **December** | [GC Students of Anthropology](https://anthropology.commons.gc.cuny.edu) | [GCDRI](https://gcdri.commons.gc.cuny.edu) | [CUNY Academic Commons News](https://news.commons.gc.cuny.edu) |
-
-**Notes on the schedule:**
-- GC Digital Fellows appears twice (May, November) — bridges research methods and public scholarship across both semesters
-- NESRI appears twice — high-impact research with broad institutional visibility
-- September rotates in student and reading group sites to coincide with fall semester start
-- December closes with the platform's institutional infrastructure
-
----
-
-## URL Verification Status
-
-| Site | URL | Status |
-|------|-----|--------|
-| NESRI | nesri.commons.gc.cuny.edu | ✅ confirmed |
-| GCDRI | gcdri.commons.gc.cuny.edu | ✅ confirmed |
-| PRISM URC | prismurc.commons.gc.cuny.edu | ✅ confirmed |
-| BC Library Art Collection | bclibraryart.commons.gc.cuny.edu | ✅ confirmed |
-| Looking for Whitman | lookingforwhitman.org | ✅ confirmed |
-| LAWI | lawi.commons.gc.cuny.edu | ✅ confirmed |
-| Le Hub | french.commons.gc.cuny.edu | ✅ confirmed |
-| GC English Students | gcenglish.commons.gc.cuny.edu | ✅ confirmed |
-| Collaborative Seeing Studio | collaborativeseeingstudio.commons.gc.cuny.edu | ✅ confirmed (subdomain cited in Commons docs) |
-| Zines at BC Library | brooklyncollegezines.commons.gc.cuny.edu | ✅ confirmed |
-| GC Marxist Reading Group | capital.commons.gc.cuny.edu | ✅ confirmed |
-| GC Students of Anthropology | anthropology.commons.gc.cuny.edu | ✅ confirmed |
-| GC Mina Rees Library | commons.gc.cuny.edu/group/mina-rees-library | ✅ confirmed (group page) |
-| CUNY Commons News | news.commons.gc.cuny.edu | ✅ confirmed |
-| TLC Assignment Library | commons.gc.cuny.edu/group/teaching-and-learning-center | ⚠️ verify exact group slug |
-| GC Digital Fellows Blog | digitalfellows.commons.gc.cuny.edu | ✅ confirmed |
-| OER COIL Starter Kit | — | ⚠️ no direct URL found — may live within the Commons OER Showcase |
-| BMCC Open Pedagogy Seminar | bmcc.commons.gc.cuny.edu | ⚠️ verify — cited in Commons docs but URL not confirmed |
-| Natural Sciences OER (LaGuardia) | lagcc.commons.gc.cuny.edu | ⚠️ verify — project confirmed, Commons URL inferred |
-| Brooklyn Waterfront Research Center | citytech.commons.gc.cuny.edu | ⚠️ verify — featured in Commons guides but exact URL not confirmed |
+| Month | Slot 1 | Slot 2 | Slot 3 |
+|-------|--------|--------|--------|
+| **May** | [NESRI](https://nesri.commons.gc.cuny.edu) | [GCDI](https://gcdi.commons.gc.cuny.edu) | [LAWI](https://lawi.commons.gc.cuny.edu) |
+| **June** | [GCDRI](https://gcdri.commons.gc.cuny.edu) | [GC Digital Fellows](https://digitalfellows.commons.gc.cuny.edu) | *TBD (slot 11)* |
+| **July** | [BC Library Art Collection](https://bclibraryart.commons.gc.cuny.edu) | *TBD (slot 12)* | *TBD (slot 13)* |
+| **August** | [Looking for Whitman](https://lookingforwhitman.org) | *TBD (slot 14)* | *TBD (slot 15)* |
+| **September** | [PRISM URC](https://prismurc.commons.gc.cuny.edu) | *TBD (slot 16)* | *TBD (slot 17)* |
+| **October** | *TBD (slot 18)* | *TBD (slot 19)* | [Zines at BC Library](https://brooklyncollegezines.commons.gc.cuny.edu) |
+| **November** | [NESRI](https://nesri.commons.gc.cuny.edu) | [GCDI](https://gcdi.commons.gc.cuny.edu) | *TBD (slot 20)* |
+| **December** | [GCDRI](https://gcdri.commons.gc.cuny.edu) | [GC Digital Fellows](https://digitalfellows.commons.gc.cuny.edu) | [CUNY Commons News](https://news.commons.gc.cuny.edu) |
 
 ---
 
 ## Next Steps
 
-- [ ] Milwrite to verify live homepage: how many featured slots exist, what's currently in rotation
-- [ ] Confirm 5 ⚠️ URLs above (AmigAI, COIL Kit, BMCC, LaGuardia OER, Brooklyn Waterfront)
-- [ ] Decide whether to approach site owners for blurbs/descriptions, or pull from site metadata
-- [ ] Confirm whether featured rotation is managed by Commons admins or milwrite can submit nominations
+- [ ] Milwrite: verify current featured slots on live homepage
+- [ ] Milwrite: browse live Sites directory to fill slots 11–20
+- [ ] Milwrite: confirm whether featured rotation is self-managed or requires Commons admin submission
+- [ ] Once 20 confirmed, finalize schedule and note which sites need description blurbs
 
 ---
 
-*Compiled 2026-03-27. Sources: Wikipedia/CUNY Academic Commons, news.commons.gc.cuny.edu, newgcstudents.commons.gc.cuny.edu, cuny.edu library guides, prismurc.commons.gc.cuny.edu, nesri.commons.gc.cuny.edu, lawi.commons.gc.cuny.edu, gcdri.commons.gc.cuny.edu.*
+*Compiled 2026-03-27. Confirmed URLs sourced from: nesri.commons.gc.cuny.edu, gcdri.commons.gc.cuny.edu, prismurc.commons.gc.cuny.edu, bclibraryart.commons.gc.cuny.edu, lawi.commons.gc.cuny.edu, brooklyncollegezines.commons.gc.cuny.edu, digitalfellows.commons.gc.cuny.edu, gcdi.commons.gc.cuny.edu (milwrite-provided).*
