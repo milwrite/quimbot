@@ -1,6 +1,6 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-26 07:00 ET_
+_Last synced: 2026-03-27 07:00 ET_
 
 ## In Progress
 - **Cloze Reader paper (DHQ)** — Session 2 complete; Session 3 gated on milwrite `APPROVED S2->S3`; fixed generic PMC/arXiv citations with proper author refs (Veldre et al., Jacobs et al.)
@@ -23,6 +23,10 @@ _Last synced: 2026-03-26 07:00 ET_
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
+- CALI scripts 250/500/750w final rewrite per milwrite brief (2026-03-26, `a04324fa`)
+- Microblog #24: Maurer rose — straight lines pretending to be flowers (2026-03-26, `fa9ed1fe`)
+- Pages build fixes: nested-repo dirs, dangling submodule (`90fd0380`, `721117b2`, `59a871bb`)
+- Cloze paper: Veldre et al. cut per milwrite ruling; v38 closing rejected, original stands (2026-03-26)
 - PageRank visualization: power iteration + random surfer (2026-03-26, `5e6d469`) — Petrarch
 - Snowflake: Reiter hex CA for dendritic ice crystal growth (2026-03-26, `4983233`) — Petrarch
 - Gyro parallax in starfield + frame-rate fade fix in flowfield (2026-03-25, `cd206dd7`)
@@ -30,5 +34,3 @@ _Last synced: 2026-03-26 07:00 ET_
 - toefl_batch_20260325 validated: 8,177 clean from 10k generated (2026-03-25)
 - Cloze paper v37→v38 + STYLE_GUIDE LLM-as-judge gate (2026-03-25)
 - Microblog #23: Langton's Ant published (2026-03-25, `a8f3fe17`)
-- deck-templates repo created and aligned with cuny-ai-intro style (2026-03-24, `020554b`)
-- Kalshi strategy corrected to NO-only per milwrite (2026-03-24)
