@@ -1,13 +1,11 @@
 # CALI T(h)inkering Track — 250-word version
 
-This is one of three tracks in year two of the Critical AI Literacy Institute, alongside Critical Foundations and Ecological Implications. It connects most directly to the CUNY AI Lab.
+The third track is T(h)inkering — tinkering with an "h" — a frame for treating building and thinking as the same act. The question it poses: what do you learn about a technology by making something with it, and what can that making do for your pedagogy and your discipline?
 
-The name is t(h)inkering — tinkering with an "h" — because tinkering and thinking work together. One side asks: where do these tools break, how do they work, and on whose terms? The other side responds by building. Reading a paper about bias in large language models is not the same as sitting down with a model, watching it flatten language into a standardized register, and iterating until it meets your pedagogical goals. That hands-on encounter is where critical insight took root in our work with faculty.
+This is not abstract. In year one, instructors teaching heritage and non-native Spanish classes came to us with a problem: consumer AI tools flatten dialect-specific Spanish. Out of the box, a model corrects toward a standardized register and away from what their students actually speak. Working with those instructors, we built AmigAI — a conversation partner that holds space for the Spanish their students bring into the classroom. That project is the clearest example we have of what discipline-specific AI tools can do: they don't just accommodate a pedagogical need, they push back against the technology's defaults.
 
-In year one, faculty wrote system prompts, adjusted parameters like temperature, and prototyped tools — AmigAI, a conversation partner for heritage Spanish learners, came out of that cycle. Building and breaking with faculty outgrew the Institute and required dedicated infrastructure.
+AmigAI also pushed us to build dedicated infrastructure. The CUNY AI Lab is a standalone extension of the Institute, providing shared access to open-weight language models, media processing tools (transcription, image description, OCR), and agentic studios for critical making with AI as a coding scaffold.
 
-**The Sandbox** is an Open WebUI instance we host ourselves. Faculty and students access open-weight models through a single interface, compare them side by side, write system prompts, and share preset configurations like open educational resources. Consumer platforms hide those design decisions. The Sandbox makes them available for collective scrutiny.
+I'd like to welcome the participants who applied to this track and their projects: Katharine Chen (Research Writing Scaffold), Chantale Damas (Laboratory Workflow Tool), Agustina Checa (Deep Listening Tool), Virginia Thompson (Interdisciplinary Math Connections), and Maria Mavrides Calderon (Systems and Assets Mapping Tool).
 
-**The tools suite** at tools.ailab.gc.cuny.edu covers image description, audio transcription, OCR, Agent Studio, and Site Studio. Each tool does one thing and keeps your data on our servers.
-
-Five projects run this year across Interdisciplinary, Physics, Ethnomusicology, Precalculus, and Sociology. Welcome. Reach out anytime.
+For everyone else: if any of these tools could support your work in the Ecological or Foundations track, reach out.

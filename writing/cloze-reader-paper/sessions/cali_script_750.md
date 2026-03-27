@@ -1,31 +1,31 @@
 # CALI T(h)inkering Track — 750-word version
 
-This is one of three tracks in year two of the Critical AI Literacy Institute, alongside Critical Foundations and Ecological Implications. This track connects most directly to the research and development work of the CUNY AI Lab.
+The third track is T(h)inkering. The name carries a parenthetical "h" because tinkering and thinking are, for us, the same act approached from different angles. One side poses a question: where do these tools break, how do they work, and on whose terms do they operate? The other side responds by building — translating a scholarly or pedagogical question into something you can test, configure, and iterate on. Critical making, not critique alone.
 
-The name is t(h)inkering — tinkering with an "h" — because tinkering and thinking work together as a method. One side poses a question: where do these tools break, how do they work, and on whose terms do they operate? The other side responds: critical making, translating scholarly and pedagogical questions into acts of building. Reading a paper about bias in large language models is not the same as sitting down with a model, watching it flatten language into a standardized register, and iterating over the task until it aligns with your pedagogical goals. That hands-on encounter with the technology's limits is where critical insight took root in our collaborations with faculty, and it's what led to the creation of the CUNY AI Lab.
+This track invites you to consider what a discipline-specific AI tool could do for your teaching, and what the act of building one might teach you about the technology itself. That pairing of inquiry and construction is what distinguishes t(h)inkering from general AI literacy: you don't stop at analysis. You make something, and the making becomes a form of knowing.
 
-In year one, we ran technical sessions where faculty wrote system prompts, adjusted parameters like temperature, and watched firsthand how a single setting changes what a language model produces. Several took that further and designed small-scale technical interventions. AmigAI, a conversation partner for heritage Spanish learners, came out of that cycle. The whole process — building, breaking, and iterating in close collaboration with instructors — outgrew the Institute and pushed us to build dedicated infrastructure.
+The clearest illustration of this is AmigAI. In year one of the Institute, instructors teaching heritage and non-native Spanish classes came to us with a concrete problem. Consumer AI tools — including the most widely used commercial platforms — flatten dialect-specific Spanish. Out of the box, a model corrects toward a standardized register and away from the specific varieties of Spanish that their students actually speak and write, often the very varieties those instructors are trying to affirm and build on. This isn't incidental. It reflects the composition of the training data, the defaults of the system prompts, and decisions made by developers who weren't designing for multilingual communities at CUNY.
 
-**The Sandbox**
+Working directly with those instructors over the course of the year, we built AmigAI: a conversation partner configured to hold space for the Spanish students bring into the classroom. That project required the instructors to get technically specific — not just to say "the model is biased" but to trace where the flattening happens, what parameters control it, and what it takes to push back. Building AmigAI was a form of critical analysis that produced something usable. It is now in active use across several CUNY courses, and it remains a running collaboration between the Lab and the instructors who continue to shape it.
 
-We leverage Open WebUI as a dedicated platform for safe, critical engagement with generative AI. It's free and open-source software we host and configure ourselves, giving students and faculty access to a range of open-weight language models — from small models running locally on our own infrastructure to larger frontier models hosted externally — all within a single interface.
+AmigAI also pushed us to build dedicated infrastructure. The CUNY AI Lab is a standalone extension of the Institute, providing safe and secure shared access to large language models and the tools built on and around them.
 
-You can compare models side by side, write system prompts, adjust parameters, export transcripts for reflection and documentation, and share preset AI configurations in much the same way you might share an open educational resource.
+**The Sandbox** is an Open WebUI instance we host and configure ourselves. Faculty and students access a range of open-weight models — small ones on our own hardware, larger frontier models hosted externally — through a single interface. You can compare models side by side, write system prompts, adjust parameters, export transcripts for documentation, and share preset configurations the way you'd share an open educational resource. Consumer platforms hide those design decisions. The Sandbox makes them visible and available for collective scrutiny.
 
-When you use ChatGPT or a similar consumer platform, no one sees your prompt, and there's little infrastructure for a community to emerge around evaluating AI models together. The Sandbox makes those design decisions visible and available for the kind of collective scrutiny that CUNY faculty and students need to negotiate the role of this technology in their teaching and research.
+**The tools suite** at tools.ailab.gc.cuny.edu covers audio transcription (Whisper, running locally — nothing leaves our servers), image description, OCR for scanned and handwritten documents, Agent Studio (describe what you want in plain language; an agent writes and executes visible Python code to analyze your data), and Site Studio for building and publishing project websites directly from the platform. Each tool does one thing, runs on open models, and keeps your data on our infrastructure.
 
-To date the Sandbox has supported five classes across the CUNY system, four of which involve AmigAI, where instructors teaching heritage and non-native Spanish classes customize open-weight language models to address specific pedagogical needs. We work directly with these instructors to surface the technology's tendencies — the way it tends to flatten dialect-specific Spanish in practice — and to identify where guardrails are needed so AI can be deployed responsibly and improved iteratively over time.
+Together these resources support critical making: using AI as a coding scaffold, a research assistant, and an object of study simultaneously. The infrastructure is there to be configured, tested against, and pushed.
 
-**The Tools Suite**
+---
 
-We've also built a suite of open-source tools at tools.ailab.gc.cuny.edu: image description (a vision-language model generates alt text or detailed visual summaries), audio transcription (OpenAI's Whisper running locally, so nothing gets sent to a third-party service), OCR for scanned and handwritten documents, Agent Studio (upload a dataset, describe what you want in plain language, and an AI agent writes and executes visible Python code to analyze your data), and Site Studio for building and publishing project websites directly from the platform.
+I'd like to give a warm welcome to the participants who applied to this track and to the projects they're bringing into it:
 
-These tools share a common design philosophy: each does one thing well, runs on open models, and keeps your data on our infrastructure.
+- **Katharine Chen** — Research Writing Scaffold
+- **Chantale Damas** — Laboratory Workflow Tool
+- **Agustina Checa** — Deep Listening Tool
+- **Virginia Thompson** — Interdisciplinary Math Connections
+- **Maria Mavrides Calderon** — Systems and Assets Mapping Tool
 
-**This Year**
+These projects each begin where good disciplinary work begins: with a problem that the existing tools don't solve, and a question about whether a purpose-built tool might. We'll work through that together over the course of the year.
 
-Five projects run through the T(h)inkering track this year: Concept Mapping (Interdisciplinary), Laboratory Workflows (Physics), Deep Listening (Ethnomusicology), Interdisciplinary Math Connections (Precalculus), and Research Writing Scaffold (Sociology). Each starts by identifying a pedagogical challenge faculty face in their classes, translates domain-specific methods into technical control over AI tools, and prototypes something purpose-built for classroom application.
-
-Some of you may be skeptical of AI, some curious, maybe both at once. That tension is a productive starting point for the kind of critical work the Lab is designed to support. Getting technical traction on how these tools work — what they optimize, what they flatten, what they can be configured to do — puts you in a better position to ask informed questions and make deliberate choices about the AI tools you use in your disciplines and your pedagogies.
-
-Welcome. Reach out anytime.
+For everyone else in the room: this infrastructure isn't exclusive to this track. If you're working in Ecological Implications or Critical Foundations and there's a dataset you want to analyze, a transcription workflow you need, a model you'd like to test against your syllabi or your students' writing — reach out. Give me a holler. The Lab is here for all of it.
