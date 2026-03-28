@@ -75,6 +75,9 @@ Gitelman and Jackson (2013) *Raw Data Is an Oxymoron* added to support "mytholog
 | Avoid vague intensifiers ("clearly," "obviously," "fundamentally") | SOUL.md | ongoing |
 | Evidence before interpretation | SOUL.md | ongoing |
 | No listicles — write in paragraphs | project standard | ongoing |
+| **Invented noun phrases**: cut compounds that sound scholarly but have no disciplinary grounding ("LLM-derived predictability," "semantic inbetweenness"). Do not cut established terms of art — "extraction," "foreclosure," "totalization" have real critical theory genealogies. Check peer-reviewed literature before cutting. | milwrite | 2026-03-25 |
+| **Factual accuracy before style**: do not cut a phrase on stylistic grounds if it carries a factual error. Identify the error, correct the mechanism, preserve the argumentative function. | milwrite | 2026-03-25 |
+| **"which is to say"**: permitted when it genuinely glosses a term or unpacks a compressed claim. Cut it when it merely restates what the previous clause already said. | milwrite | 2026-03-28 |
 
 ---
 
