@@ -60,7 +60,7 @@ The current line is evocative but underspecified for structural carry-through.
 
 **Text:**
 
-> When a player supplies the right word, they have recovered an author's specific lexical choice by attending to tone, syntax, the pressure of the sentence. When BERT's training objective lands on the same word, the model has updated weights so that the token's context raises its probability in the output distribution. Same answer, different operations. The player read the sentence. The model processed it as one instance among millions, without reading it as such.
+> When a player supplies the right word, they have recovered an author's specific lexical choice by attending to tone, syntax, the pressure of the sentence. When BERT's training objective lands on the same word, the model has updated weights so that the token's context raises its probability in the output distribution. These are not two performances of the same task. One produces a reading; the other produces a parameter update.
 
 **RATIONALE:**
 The *Continuity and Asymmetry* section currently names the Taylor/BERT asymmetry without giving it a concrete location. This paragraph supplies one: the moment of correct completion, where the same answer emerges from operations that differ in kind. It bridges the structural claim ("selection and interpretation stay separate") to the empirical section that follows. Style compliance: no em-dashes outside enclosing use, no contrastive pivots, no trailing significance clauses, no invented noun phrases. "Without reading it as such" is a finite clause, not a dangling absolute.

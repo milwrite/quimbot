@@ -80,6 +80,7 @@ Gitelman and Jackson (2013) *Raw Data Is an Oxymoron* added to support "mytholog
 | **"which is to say"**: permitted when it genuinely glosses a term or unpacks a compressed claim. Cut it when it merely restates what the previous clause already said. | milwrite | 2026-03-28 |
 | **Vacuous openers**: never open a sentence with an assertion that the paragraph hasn't yet earned ("The difference is concrete," "This is significant," "The point is clear"). Start with the evidence or the mechanism, not a meta-claim about it. | milwrite | 2026-03-28 |
 | **Stacked punctuation marks**: do not combine a colon and a semicolon in the same clause sequence. Choose one separator; split into two sentences if both are needed. | milwrite | 2026-03-28 |
+| **False dilemma / submarine rule**: do not frame two things as competing performances of the same task when they are categorically different operations. A model updating weights and a reader recovering an author's word choice are not doing the same thing at different levels of success. State the difference in kind, not the shortfall. | milwrite | 2026-03-28 |
 
 ---
 
