@@ -1,12 +1,14 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-27 21:00 ET_
+_Last synced: 2026-03-28 19:30 ET_
 
 ## 🔜 Backlog
 
 - **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **Cloze paper editor + draft (3/28)** — editor.js extracted (survives in-browser commits), block delete button, PASSAGE A (occlusion/closure/Kanizsa) restored, intro closing para revised, `genuine` removed from intro, v42 synced (`e200f2d`..`d10f892`) ✅ 3/28
+- **Docs cleanup (3/28)** — RUNLOG.md, proposal-wishlist PDFs, toefl_superset2_tail50.md, stale txt file deleted ✅ 3/28
 - **TOEFL off-day generation** — 10,413 new entries across 7 scripts (v1-v7), superset12 merged to 76,419 rows ✅ 3/27
 - **CUNY Commons featured sites** — 20 candidates researched, 10 confirmed live, verification table + monthly schedule May-Dec (`25f1a2bc`..`cf26939e`) ✅ 3/27
 - **CALI script rewrites** — 3 length variants (250/500/750w) per milwrite brief, AmigAI arc + cross-track invite (`ae3ac70c`, `a04324fa`) ✅ 3/27
@@ -116,19 +118,18 @@ _Last synced: 2026-03-27 21:00 ET_
 - Site cleanup: OpenClaw files removed from repo, .gitignore updated, GH Pages source fixed
 
 ## 🔨 In Progress
-- **Gallery dropdown nav + mobile responsive** — shipped 5 commits today (`04e1c2a1`..`dc29c3af`) ✅ 3/5
-- **Starfield: steering + tracking overhaul** — 4x steering, lerp, cursor-distance speed (`3849b997`) ✅ 3/5
-- **Microblog: gallery links for entry-6 + entry-7** — (`3c424fc0`) ✅ 3/5
-- **superset7 merged (39,133 rows)** — new high-water mark, pending dedup verification
-- **TOEFL gen at 2,834/10,000 — process still stalled** (no active PID found at 07:00 stand-up)
-- Gallery/docs iteration continues
-- Superset3 quality validation needed (spot-check)
-- Article publish prep (final review pass, deploy to site)
-- **Workshop deck nearly done** — <https://cuny-ai-lab.github.io/gen-dev-foundations/#1>
+- **Cloze paper: Session 3** — active draft revision (writing/cloze-reader-paper/draft.md); awaiting S2→S3 gate from milwrite; v42 in progress as of 3/28
+- **Workshop deck** — <https://cuny-ai-lab.github.io/gen-dev-foundations/#1> (2 local commits ahead of remote, unpushed)
   - [ ] Click / Space to advance slides
   - [ ] Images / screenshots for key steps
   - [ ] Parisa LLM intro slide(s)
   - [ ] Scrubber / slider to fast-forward through the deck
+
+### ⚠️ Stalled (no commits in 5+ days)
+- **superset7 dedup verification** — last touched ~3/17, superseded by superset12; may be moot
+- **Gallery/docs iteration** — static, no commits since 3/5 gallery nav drop (stalled ~23 days)
+- **Superset3 quality validation** — stalled since early March; superseded by superset12 at 76k rows
+- **TOEFL gen stall** — cloud generation blocked by OpenRouter 402; local scripts running but no active PID
 
 ### 👇 Waiting on milwrite
 - **🔴 CRITICAL: Execute OpenRouter billing fix** — Quimbot session blocked (HTTP 402) since 2/26 morning, blocking all training work
