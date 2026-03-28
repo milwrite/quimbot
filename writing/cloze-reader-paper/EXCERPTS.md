@@ -49,3 +49,35 @@ Replace this closing flourish in later pass with explicit claim language that bo
 
 **RATIONALE**
 The current line is evocative but underspecified for structural carry-through.
+
+---
+
+## EX-05 — Functional asymmetry paragraph (for insertion after "visible side by side through play")
+
+**PROPOSED INSERTION — for milwrite approval**
+
+**Placement:** After "Cloze Reader makes those two operations visible side by side through play." in the *Continuity and Asymmetry* section, before the empirical citation paragraph.
+
+**Text:**
+
+> The difference is concrete at the moment of correct completion. When a player supplies the right word, they have recovered an author's specific lexical choice by reading that author's prose — attending to tone, syntax, the pressure of the sentence. When BERT's training objective lands on the same word, the model updates weights so that the token's context raises its probability in the output distribution. The two operations produce the same answer by different means: the player read the sentence; the model processed it as one instance among millions, without reading it as such.
+
+**RATIONALE:**
+The *Continuity and Asymmetry* section currently names the Taylor/BERT asymmetry without giving it a concrete location. This paragraph supplies one: the moment of correct completion, where the same answer emerges from operations that differ in kind. It bridges the structural claim ("selection and interpretation stay separate") to the empirical section that follows. Style compliance: no em-dashes outside enclosing use, no contrastive pivots, no trailing significance clauses, no invented noun phrases. "Without reading it as such" is a finite clause, not a dangling absolute.
+
+**Status:** AWAITING MILWRITE APPROVAL
+
+---
+
+## EX-06 — "decentered" passage (restore or revise)
+
+**SOURCE EXCERPT (pre-v43)**
+"...the kind of close reading practices that have been decentered by the advent of LLMs, reacquainting them with otherwise flattened or forgotten texts that have been totalized through extraction and foreclosure at scale."
+
+**CURRENT STATE (v43+)**
+"...the kind of slow reading that large language model pretraining renders unnecessary, reacquainting players with texts that have been totalized through extraction and foreclosure at scale."
+
+**NOTE:**
+"decentered by the advent of LLMs" was cut as melodramatic. "renders unnecessary" is more precise about the mechanism (pretraining, not LLMs generally). "totalized through extraction and foreclosure at scale" retained as established critical theory vocabulary. If milwrite prefers to restore "decentered," can do so — the cut was a judgment call, not a hard rule violation.
+
+**Status:** AWAITING MILWRITE REVIEW — restore or keep current?
