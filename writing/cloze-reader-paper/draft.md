@@ -107,9 +107,9 @@ Recent work on cloze, predictability, and language modeling has similarly compli
 
 Cloze Reader returns a practice that migrated from educational assessment into machine learning infrastructure back to human readers as an invitation to read slowly and contextually. The convergence between Taylor's procedure and masked language modeling is real, grounded in the shared insight that contextual prediction offers a window onto linguistic competence. The purposes differ. Taylor wanted to measure comprehension. BERT's developers wanted to induce representations. Cloze Reader inherits both histories and uses game mechanics to hold them apart for examination.
 
-Pretraining reduces text to token distributions, and the blanked-out word makes that selection and reduction of human language legible by way of metonym, which is to say, through an act of occlusion that foregrounds how Gutenberg Project texts have been broken down, mathematized, and rendered into training data. The act of inferring the word from context, read against the summary and hint mechanisms, therefore requires human players to partake in precisely the sort of close reading practices that have been decentered by the advent of LLMs, reacquainting them with otherwise flattened or forgotten texts that have been totalized through extraction and foreclosure at scale.
+Pretraining reduces text to token distributions. The blanked-out word makes that reduction legible: it marks a position where a literary text has been broken down, mathematized, and absorbed into training data — flattened into parameter weights, unattributed in the model's outputs. Inferring the word from context requires the kind of slow reading that large language model pretraining renders unnecessary, reacquainting players with texts that have been totalized through extraction and foreclosure at scale.
 
-At the same time, the process demonstrates what the model, having processed the same passage and selected a word to occlude, cannot do by virtue of its low-latency engine: read, or better yet, read slowly.
+The process demonstrates what the model, having processed the same passage and selected a word to occlude, cannot do: read it.
 
 ---
 
