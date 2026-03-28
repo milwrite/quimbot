@@ -151,11 +151,13 @@ export function boids(container) {
       }
 
       // Pointer: mild attraction.
+      // Scale influence radius to viewport so the effect is proportional on any screen.
       if (px != null && py != null) {
         const dx = px - b.x;
         const dy = py - b.y;
         const d = Math.hypot(dx, dy) || 1;
-        const pull = Math.min(1, 180 / d) * 0.015;
+        const influenceR = Math.max(80, Math.min(W, H) * 0.35);
+        const pull = Math.min(1, influenceR / d) * 0.015;
         fx += (dx / d) * pull;
         fy += (dy / d) * pull;
       }
@@ -190,11 +192,12 @@ export function boids(container) {
       ctx.stroke();
     }
 
-    // Caption — responsive font size so it reads on small/mobile screens.
+    // Caption — bottom-aligned, consistent with other vis files. Top position
+    // can clash with status bars / notch safe areas on mobile.
     const captionPx = Math.max(11, Math.min(14, Math.floor(Math.min(W, H) * 0.032)));
     ctx.fillStyle = 'rgba(255,255,255,0.55)';
     ctx.font = `${captionPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-    ctx.fillText('Boids (Reynolds, 1986) • tap to reseed', 14, captionPx + 6);
+    ctx.fillText('Boids (Reynolds, 1986) • tap to reseed', 14, H - Math.max(14, captionPx + 4));
   });
 
   return () => {

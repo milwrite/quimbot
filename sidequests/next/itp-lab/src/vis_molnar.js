@@ -28,8 +28,12 @@ export function molnarInterruptions(container) {
 
   container.addEventListener('pointerdown', onDown);
   container.addEventListener('pointermove', onMove);
-  window.addEventListener('pointerup', onUp);
-  window.addEventListener('pointercancel', onUp); // mobile: cancel releases drag
+  // pointerup/cancel on the container (not window) — setPointerCapture above
+  // routes these events to the capturing element even when the finger drifts
+  // outside, so window-level listeners are unnecessary and can cross-talk when
+  // multiple vis canvases are active on the same page.
+  container.addEventListener('pointerup', onUp);
+  container.addEventListener('pointercancel', onUp); // mobile: cancel releases drag
 
   const stop = rafLoop((t) => {
     const { width, height } = resize();
@@ -90,8 +94,8 @@ export function molnarInterruptions(container) {
     stop();
     container.removeEventListener('pointerdown', onDown);
     container.removeEventListener('pointermove', onMove);
-    window.removeEventListener('pointerup', onUp);
-    window.removeEventListener('pointercancel', onUp);
+    container.removeEventListener('pointerup', onUp);
+    container.removeEventListener('pointercancel', onUp);
     destroy();
   };
 }
