@@ -78,6 +78,8 @@ Gitelman and Jackson (2013) *Raw Data Is an Oxymoron* added to support "mytholog
 | **Invented noun phrases**: cut compounds that sound scholarly but have no disciplinary grounding ("LLM-derived predictability," "semantic inbetweenness"). Do not cut established terms of art — "extraction," "foreclosure," "totalization" have real critical theory genealogies. Check peer-reviewed literature before cutting. | milwrite | 2026-03-25 |
 | **Factual accuracy before style**: do not cut a phrase on stylistic grounds if it carries a factual error. Identify the error, correct the mechanism, preserve the argumentative function. | milwrite | 2026-03-25 |
 | **"which is to say"**: permitted when it genuinely glosses a term or unpacks a compressed claim. Cut it when it merely restates what the previous clause already said. | milwrite | 2026-03-28 |
+| **Vacuous openers**: never open a sentence with an assertion that the paragraph hasn't yet earned ("The difference is concrete," "This is significant," "The point is clear"). Start with the evidence or the mechanism, not a meta-claim about it. | milwrite | 2026-03-28 |
+| **Stacked punctuation marks**: do not combine a colon and a semicolon in the same clause sequence. Choose one separator; split into two sentences if both are needed. | milwrite | 2026-03-28 |
 
 ---
 
