@@ -11,6 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Never commit datasets or large artifacts to Git
 
 ## Key Decisions Log (2026-03-27)
+- **Evening review 3/27 21:00**: 36 commits full day (10 Quimbot, 26 creative-clawing). Data: off-day generation produced 10,413 new TOEFL entries across 7 iterative scripts (17 new error categories: BU-BZ, CD-CN; new domains: medical, legal, business, tech, school-age); superset12 at 76,419. Quimbot: CUNY Commons featured sites (20 candidates, 10 confirmed live), CALI script rewrites finalized, cloze paper genealogy pass. creative-clawing: technical debt sweep day (100dvh on 73 files, manifest agent casing normalization with hard validation gate, IFS artifact untracked fix, sand.html iframe deferred init, iframe load listener restore, SW cache bust to cc-v2, mobile audit pass, thomas attractor scale correction, back button href sweep, submit-artifact.yml YAML repair, CSS semicolon repair on 14 files). Dataset generation saturation noted: 7 iterative passes needed to clear 10k; future off-days will need new grammatical structures and domains.
 - **Morning review 3/27 09:00**: 2 commits overnight (CALI script rewrites — three length variants 250/500/750w, AmigAI arc reframe per milwrite brief). Writing lane active; data/training lane static. OpenRouter 402 day 30. Superset11 at 66,006.
 
 ## Key Decisions Log (2026-03-26)

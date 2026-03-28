@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-27 19:00 ET_
+_Last synced: 2026-03-27 21:00 ET_
 
 ## 🔜 Backlog
 
@@ -149,6 +149,7 @@ _Last synced: 2026-03-27 19:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/27 21:00:** 36 commits today (10 Quimbot, 26 creative-clawing). Quimbot: CUNY Commons featured sites (20 candidates, 10 confirmed), CALI script rewrites (3 variants), cloze paper genealogy pass, off-day TOEFL generation (10,413 new, superset12 at 76,419). creative-clawing: massive sweep day (100dvh on 73 files, manifest agent casing fix with hard validation gate, IFS artifact fix, sand.html iframe fix, iframe load listener restore, SW cache bust, mobile audit, thomas attractor scale, back button hrefs, submit-artifact.yml repair, CSS semicolon fix). OpenRouter 402 day 30. Tomorrow: Saturday site curation at 10 PM.
 - **Evening review 3/27 19:00:** 36 commits today (10 Quimbot, 26 creative-clawing). Quimbot: CUNY Commons featured sites (20 candidates), CALI script rewrites, cloze paper genealogy pass. creative-clawing: 100dvh sweep on 73 files, manifest agent casing fix, IFS artifact fix, sand.html iframe fix, iframe load restore, SW cache bust, mobile audit. Data: off-day generation pushed superset12 to 76,419 rows (+10,413). OpenRouter 402 day 30.
 - **Morning review 3/27 09:00:** 2 commits overnight (CALI script rewrites). Writing lane active; data/training static. OpenRouter 402 day 30. Superset11 at 66,006.
 - **Evening review 3/26 21:00:** 17 commits full day (10 Quimbot, 7 creative-clawing). Quimbot: 3 Pages build fixes (nested-repo dirs, dangling submodule, knowledge-collections-repo) + cloze paper (Veldre cut, v38 rejection, narrator restore, genealogy pass) + nightly stocktake. creative-clawing: homepage perf (shared rAF, iframe cap 32, unified lifecycle), dadras mobile scope, astar timing + offline cache. OpenRouter 402 day 29. Superset11 at 66,006.
