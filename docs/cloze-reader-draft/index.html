@@ -130,7 +130,6 @@
     transition: opacity 0.12s;
   }
   .block-del:hover { opacity: 1; }
-  .block-wrap:hover .block-del { display: block; }
 </style>
 </head>
 <body>
@@ -394,6 +393,9 @@ CRITICAL RULES:
       el.parentNode.insertBefore(wrap, el);
       wrap.appendChild(btn);
       wrap.appendChild(el);
+      /* show/hide via JS so the button stays visible while the mouse moves to it */
+      wrap.addEventListener('mouseenter', () => { btn.style.display = 'block'; });
+      wrap.addEventListener('mouseleave', () => { btn.style.display = ''; });
     });
     footer.style.display = 'flex';
   }
