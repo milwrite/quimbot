@@ -152,3 +152,25 @@ Both held. No action until milwrite approves.
 - The HTML draft never received the v38 change — original was always intact there
 - The docx v38 version should NOT be carried forward; treat v37 closing as current
 - "totalized through extraction and foreclosure at scale" — milwrite confirms this language is correct and should stay
+
+## Saturday Expansion Pass (Petrarch, 2026-03-28) — v40→v41
+
+### Edit 1 — Dangling referent fix (Intro, para 4)
+- BEFORE: "All three researchers inherited both accounts..."
+- AFTER: "Both accounts raised the same computable question..."
+- Rationale: Only Harris and Firth were named at that point; "all three researchers" had no referent.
+
+### Edit 2 — Expansion paragraph, Continuity and Asymmetry
+- BEFORE: [not present — section stated asymmetry abstractly without concrete grounding]
+- AFTER:
+
+> The asymmetry is sharpest at the moment of correct completion. When a player supplies the right word, they have recovered an author's specific lexical choice by reading that author's prose — attending to tone, syntax, the pressure of nearby words, whatever the surrounding passage exerts. When BERT's training objective lands on the same word during pretraining, it has updated parameters so that the token's surrounding context raises its probability in the model's distribution. Both answers are "correct." They are produced by different operations on different objects. The player read the sentence. The model adjusted weights across millions of similar contexts, this sentence among them, unread as such.
+
+- Style compliance confirmed: no em dashes outside enclosing use, no contrastive pivots, no trailing significance participles, no invented noun phrases.
+
+### Open items carried forward
+- **Fillenbaum et al. (1963)** — unverifiable citation; Petrarch recommends Rayner et al. (2012) as replacement, or drop and back claim on Taylor + Luke & Christianson alone. Awaiting milwrite decision.
+- **Hofmann et al. (2021)** — article number unconfirmed; verify before publication.
+- **PROP-01** — second-abstract paragraph; structural decision held for milwrite.
+- **PROP-02** — floating citation paragraph; held for milwrite.
+- **Veldre et al.** — reframe still pending milwrite decision (cut per 2026-03-26 ruling; revisit at Session 7).
