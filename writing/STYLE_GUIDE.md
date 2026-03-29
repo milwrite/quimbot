@@ -1,7 +1,7 @@
 # Writing Style Guide
 ## Running Record — milwrite projects
 
-Last updated: 2026-03-15 (gap-bridging constructions banned)
+Last updated: 2026-03-29 (earned assertion gate + lazy punctuation cue rule added)
 
 ---
 
@@ -229,6 +229,22 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - **Process:** Before committing any edit flagged as a style violation, surface it to a second model with: (1) the original sentence, (2) the proposed edit, (3) the rule being applied, (4) the paper's field and register. The second model must confirm the violation is genuine. If it disagrees or flags ambiguity, hold for milwrite.
 - **Scope:** Applies to style/prose edits. Citation verification and structural proposals are exempt from this gate but still require milwrite approval before integration.
 - **Who holds the gate:** Whichever bot did not generate the edit. If both bots contributed, escalate to milwrite.
+
+### Earned assertion gate (added 2026-03-29)
+- **Rule:** Before a sentence asserts a claim, the surrounding prose must have earned it. Diagnostic: has the prose laid out the evidence, distinction, or mechanism that makes this claim follow? If not, the assertion is premature.
+- **Consolidates:** the vacuous-opener ban, the "which is to say" overuse rule, and the submarine rule — all three are instances of the same failure: claiming before earning.
+- **Short declarative corollary:** Any short declarative used for contrast must be absorbed into a longer construction — it cannot stand alone as a sentence. Two short declaratives stacked before an escalating claim do not earn the rhythm; they borrow it.
+- **Bad:** "The difference is concrete. A language model updates weights during pretraining. A reader recovers a word choice."
+- **Good:** "A language model updates weights during pretraining; a reader recovers a word choice — these are not two performances of the same operation at different skill levels but categorically different activities."
+- **Test:** Remove the asserting sentence. Does the prose before it lead you to expect exactly that claim? If not, either build to it or cut it.
+
+### Earned punctuation — no lazy cues (added 2026-03-29)
+- **Rule:** Em dashes, semicolons, and colons are rhetorical claims, not formatting shortcuts. Each must earn its place. The default should be restructuring the sentence so no special punctuation is needed.
+- **Em dash:** Only when a genuine interruption, amplification, or pivot requires the pause and no other construction serves. Not as a substitute for a comma, a colon, or a period. Not for stylistic energy.
+- **Semicolon:** Only when two clauses are in explicit logical tension that cannot be expressed by a subordinating conjunction — and the rhythm of the pause is part of the meaning. When a connector ("because," "since," "so that," "while") would work, use the connector.
+- **Colon:** Only for genuine restatement or genuine list introduction. Not as an em-dash replacement. Not as a dramatic pause before an elaboration that could just be a clause.
+- **The test:** If you can replace the punctuation mark with an explicit logical connector and the sentence is clearer, do it. If you can restructure so neither the punctuation nor the connector is needed, do that instead.
+- **Relationship to colon/semicolon audit rule (2026-03-18):** This rule supersedes it in scope — it applies to em dashes as well, and the default disposition is restructuring rather than substitution.
 
 ### Tricolon abuse (added 2026-03-19)
 - **Ban:** Overuse of the rule-of-three pattern, especially when extended to four or five items, or when multiple tricolons appear back-to-back.
