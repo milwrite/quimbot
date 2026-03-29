@@ -63,6 +63,43 @@ Gitelman and Jackson (2013) *Raw Data Is an Oxymoron* added to support "mytholog
 
 ---
 
+## 2026-03-29 — Sunday Synthesis (Petrarch)
+
+**Focus:** Week review, SESSION_STATE update, CLOZE_ROADMAP update
+
+**Week summary (2026-03-23 through 2026-03-29):**
+
+The week's net effect on draft.md was nearly zero. The dominant editorial event was Petrarch's v38 closing paragraph rewrite, rejected by milwrite on 2026-03-26. Original v37 closing restored. The rejection clarified two rules that are now in STYLE_GUIDE: "which is to say" is permitted for genuine glosses, not for restating what the prior clause already said; "totalized through extraction and foreclosure at scale" is established critical theory vocabulary, not an invented noun phrase.
+
+**Changes that held:**
+
+BEFORE: "...the kind of close reading practices that have been decentered by the advent of LLMs, reacquainting them with otherwise flattened or forgotten texts..."
+AFTER: "...the kind of slow reading that large language model pretraining renders unnecessary, reacquainting players with texts that have been totalized through extraction and foreclosure at scale."
+
+Rationale: "Renders unnecessary" names the mechanism (pretraining, not LLMs generically). "Players" fixes the pronoun referent. This change preceded the v38 reversal and survived it.
+
+**Proposed, held for milwrite:**
+
+- **EX-05** (expansion paragraph, Continuity and Asymmetry): Grounds the asymmetry at the moment of correct completion. Text is in EXCERPTS.md. AWAITING milwrite approval.
+- **Saturday Edit 1** (dangling referent): SESSION_STATE BEFORE text does not match exact draft language; edit held pending verification. Draft currently reads "Mikolov, Peters, and Devlin each inherited both accounts and merged them into a single computable question."
+- **PROP-01** and **PROP-02**: Second-abstract paragraph and floating citation paragraph; structural decisions held for milwrite.
+
+**Style rules added to STYLE_GUIDE.md this week:**
+- Vacuous openers ban ("The difference is concrete," "The point is clear")
+- Stacked punctuation ban (colon + semicolon in same clause sequence)
+- "Which is to say" precision rule (gloss only, not restatement)
+- False dilemma / submarine rule re-articulated in JOURNAL.md running table
+
+**Version reconciliation note:** SESSION_STATE records v41 as current; draft.md footer reads v37. Version numbers in SESSION_STATE have been running ahead of the file. No prose change will be committed without reconciling the footer. Treating draft.md as authoritative for current state.
+
+**Open questions:**
+- Fillenbaum et al. (1963): Petrarch recommends Rayner et al. 2012 or drop; awaiting milwrite decision
+- Hofmann et al. (2021): article number unconfirmed; verify before publication
+- EX-05: awaiting milwrite approval
+- EX-06 "decentered" passage: retained per current draft; AWAITING milwrite review on whether to restore
+
+---
+
 ## Style Rules (running record)
 
 | Rule | Source | Date |

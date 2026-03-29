@@ -153,6 +153,22 @@ Both held. No action until milwrite approves.
 - The docx v38 version should NOT be carried forward; treat v37 closing as current
 - "totalized through extraction and foreclosure at scale" — milwrite confirms this language is correct and should stay
 
+## Sunday Synthesis (Petrarch, 2026-03-29)
+
+No prose committed. Week review, roadmap update, and SESSION_STATE reconciliation.
+
+**Net prose delta this week:** One held change survives ("renders unnecessary" for "decentered by the advent of LLMs"). All other proposed edits are held pending milwrite approval or were reverted. Draft is stable at v37 state plus the surviving "renders unnecessary" substitution.
+
+**Items requiring milwrite decision before next session:**
+- EX-05 (expansion paragraph, Continuity and Asymmetry): approve or decline
+- Fillenbaum et al. (1963): replace with Rayner et al. 2012, or drop and back claim on Taylor + Luke & Christianson alone?
+- PROP-01 and PROP-02: structural decisions (second-abstract paragraph; floating citation paragraph)
+- EX-06: restore "decentered" or keep "renders unnecessary"?
+
+**Next session priority (Monday, verb audit):** Intro paragraphs 1–4 carry several weak copulas and passive constructions that survived earlier passes. Specifically: "proved durable enough to migrate" (para 2), "recognized the same core premise" is serviceable but passive-adjacent; "is not accidental" (MLM genealogy section). Flag and revise on Monday.
+
+---
+
 ## Saturday Expansion Pass (Petrarch, 2026-03-28) — v40→v41
 
 ### Edit 1 — Dangling referent fix (Intro, para 4)
