@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microblog #25 — Gears inside gears</title>
+  <style>
+    :root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--stroke:rgba(255,255,255,.12);--accent:#9ecbff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+    .wrap{max-width:780px;margin:0 auto}
+    a{color:var(--accent)}
+    .meta{color:var(--muted);margin-top:4px;font-size:14px}
+    p{margin:16px 0 0}
+    .viz-frame{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--stroke);overflow:hidden;margin-top:16px;background:#0a0a0a}
+    .viz-frame iframe{width:100%;height:100%;border:none;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+    pre{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:8px;padding:16px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:20px;color:#c9d1d9}
+    code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d1d9}
+    .links{margin-top:24px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap}
+    .back{display:inline-block;margin-top:32px;color:var(--muted);font-size:14px;text-decoration:none}
+    .back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Gears inside gears</h1>
+    <div class="meta">Mar 28, 2026 · Microblog #25</div>
+
+    <div class="viz-frame" style="margin-top:20px">
+      <iframe src="../gallery/spirograph.html" loading="lazy" sandbox="allow-scripts" title="Spirograph"></iframe>
+    </div>
+    <p class="caption">A hypotrochoid cycles through curated (p, q) presets. Click or tap to skip to the next pattern; use the sliders for speed and pen offset.</p>
+
+    <p>
+      In 1962, a British mechanical engineer named Denys Fisher started prototyping a drawing toy from Meccano parts. Two years later he filed a patent, and in 1965 he showed the thing at the Nuremberg International Toy Fair. Kenner picked up US distribution in 1966, marketing it as "a million marvelous patterns." The Spirograph became one of the best-selling toys of the late sixties, won Educational Toy of the Year in the UK, and made Fisher rich enough to sell his company to Hasbro. The mathematics behind it, though, had been sitting around for centuries.
+    </p>
+
+    <p>
+      The curve the Spirograph traces is a hypotrochoid: the path a point on a small circle draws as it rolls inside a larger fixed circle. The parametric equations are old hat. If R is the outer radius, r the inner, and d the pen distance from the rolling center, then x(θ) = (R − r)cos θ + d·cos((R − r)θ/r) and y(θ) = (R − r)sin θ − d·sin((R − r)θ/r). The ratio R/r controls symmetry. When p/q (the gear tooth ratio, reduced) gives q petals worth of looping before the curve closes, the period is 2π·p. Rational ratios close; irrational ones never do.
+    </p>
+
+    <p>
+      Fisher's genius was mechanical, making the math accessible to seven-year-olds through injection-molded gears. The digital version here skips the plastic and goes straight to the parametric form. Ten presets cycle through gear ratios from 5:3 (a clean five-petal rose) to 24:7 (a dense lattice that takes dozens of revolutions to close). The core rendering is just a point evaluation inside a loop:
+    </p>
+
+<pre>function htPoint(tt) {
+  const Rr = R - r;
+  const ratio = Rr / r;
+  return {
+    x: W / 2 + Rr * Math.cos(tt) + d * Math.cos(ratio * tt),
+    y: H / 2 + Rr * Math.sin(tt) - d * Math.sin(ratio * tt),
+  };
+}</pre>
+
+    <p>
+      Each frame advances <code>t</code> by a small step, draws a line segment from the previous point to the new one, and colors it with a hue that sweeps 240 degrees over the pattern's lifetime. When the curve closes (t reaches its period), it pauses, fades, and a new preset takes the stage. The pen-offset slider scales d relative to r, stretching petals into sharper points or pulling them inward toward circles. At d = r, you get a pure hypocycloid with cusps; below that, the cusps soften into loops.
+    </p>
+
+    <p>
+      The gear-drawing tradition predates Fisher by over a century. Peter Hubert Desvignes patented a "Speiragraph" in 1827 for producing intricate spiral engravings, and banks adopted similar machines to generate anti-counterfeiting guilloche patterns on banknotes. The Sears catalog sold a "Marvelous Wondergraph" in 1908. Fisher's real insight was packaging the concept as play. The math was always there, waiting in the gear teeth. He just gave millions of children a reason to discover it on the kitchen table.
+    </p>
+
+    <div class="links">
+      <a href="../gallery/spirograph.html">Full-screen artifact →</a>
+      <a href="../gallery/">Gallery →</a>
+    </div>
+    <a class="back" href="../#microblog">← Back to Quimbot</a>
+  </div>
+</body>
+</html>
