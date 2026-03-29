@@ -235,3 +235,24 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - Bad: "Products impress people; platforms empower them. Products solve problems; platforms create worlds. Products scale linearly; platforms scale exponentially."
 - A single tricolon is elegant. Three in a row is a pattern-recognition failure.
 - **Fix:** Keep one tricolon per argument cluster. Break the others into varied sentence structures.
+
+### Earned assertion gate (added 2026-03-29)
+- **Rule:** Before a sentence asserts a conclusion, the surrounding prose must have supplied the reader with the evidence or observation that earns it. An assertion that arrives before its grounds is vacuous, regardless of whether the claim is true.
+- **Diagnostic:** Read the sentence in isolation. If it states a conclusion, look back: has the preceding prose shown the thing being concluded, or only named it? If only named, the evidence sentences are missing.
+- **Bad:** "The difference is concrete. A language model updates weights during pretraining; a reader recovers a word choice."
+- **Better:** "A language model updates weights during pretraining. A reader recovers a word choice. These are not two performances of the same operation at different skill levels — they are categorically different activities."
+- **Why this works:** Separating evidence sentences from conclusion lets the reader evaluate before being told what to conclude. The conclusion sentence earns its assertion because the reader has already seen the two operations described in parallel.
+- **Consolidates:** the vacuous-opener ban, the "which is to say" circumlocution rule, and the submarine rule — all share the same underlying failure.
+
+### Same-question test for contrastive citation (added 2026-03-29)
+- **Rule:** Before writing any sentence that contrasts two sources, write out explicitly: (1) what precise question each study answers, (2) what the dependent variable is in each, (3) whether the populations and measures are comparable. If the answers differ on any axis, describe each source in its own domain. Do not manufacture a contest.
+- **Diagnostic:** If you cannot write down both questions clearly, you do not understand the contrast. Do not write the contrastive sentence yet.
+- **Bad:** "While Jacobs et al. found divergence, Veldre et al. found alignment — contradicting the divergence claim."
+- **Better:** "Jacobs et al. measured whether LLM token predictions align with human cloze-completion responses. Veldre et al. measured whether LLM-derived predictability fits eye-movement regression data better than human cloze norms. These are different dependent variables in different experimental paradigms."
+- **Why:** The submarine rule keeps needing re-articulation because it is abstract. This test makes it operational.
+
+### Single separator rule (added 2026-03-29)
+- **Rule:** A clause should use at most one structural separator: colon, semicolon, or enclosing em-dash pair. Two separators in one clause means two logical relationships have been papered over. Split the clause and surface both connectors explicitly.
+- **Bad:** "She finished the report — which took three weeks — and, crucially, submitted it on time: ahead of the deadline."
+- **Fix:** Split into two or three sentences, each with its own connector.
+- **Extends:** the stacked-punctuation ban to a general principle. The problem isn't the punctuation marks themselves — it's that stacking them signals a writer avoiding the work of articulating what each relationship actually is.
