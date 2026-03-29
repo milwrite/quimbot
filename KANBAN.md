@@ -1,12 +1,17 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-27 21:00 ET_
+_Last synced: 2026-03-29 19:00 ET_
 
 ## 🔜 Backlog
 
 - **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **Mohr hypercube artifact + microblog #35** — 4D tesseract double-projection, four rotation modes, mobile-responsive, entry retitling pass ✅ 3/29
+- **Microblog #34 (Ising) + #25 (spirograph)** — overnight gallery drops + iframe sandbox hardening + newton href sweep ✅ 3/29
+- **Gallery HiDPI + iframe audit day** — 78 creative-clawing commits: sync resize on 50+ artifacts, HiDPI drawImage fix, iframe warmup (Sprott/Snowflake/Rossler), QUALITY.md + lint CI, hatmonotile+snowflake removed, 89 artifacts live ✅ 3/28
+- **Cloze reader paper v42** — PASSAGE A (occlusion/closure/Kanizsa 1979), intro para edits, editor JS extraction + block delete UI, 33 Quimbot commits ✅ 3/28
+- **Microblog #33** — "A Letter to Scientific American" (de Jong attractor) ✅ 3/28
 - **TOEFL off-day generation** — 10,413 new entries across 7 scripts (v1-v7), superset12 merged to 76,419 rows ✅ 3/27
 - **CUNY Commons featured sites** — 20 candidates researched, 10 confirmed live, verification table + monthly schedule May-Dec (`25f1a2bc`..`cf26939e`) ✅ 3/27
 - **CALI script rewrites** — 3 length variants (250/500/750w) per milwrite brief, AmigAI arc + cross-track invite (`ae3ac70c`, `a04324fa`) ✅ 3/27
@@ -116,22 +121,12 @@ _Last synced: 2026-03-27 21:00 ET_
 - Site cleanup: OpenClaw files removed from repo, .gitignore updated, GH Pages source fixed
 
 ## 🔨 In Progress
-- **Gallery dropdown nav + mobile responsive** — shipped 5 commits today (`04e1c2a1`..`dc29c3af`) ✅ 3/5
-- **Starfield: steering + tracking overhaul** — 4x steering, lerp, cursor-distance speed (`3849b997`) ✅ 3/5
-- **Microblog: gallery links for entry-6 + entry-7** — (`3c424fc0`) ✅ 3/5
-- **superset7 merged (39,133 rows)** — new high-water mark, pending dedup verification
-- **TOEFL gen at 2,834/10,000 — process still stalled** (no active PID found at 07:00 stand-up)
-- Gallery/docs iteration continues
-- Superset3 quality validation needed (spot-check)
-- Article publish prep (final review pass, deploy to site)
-- **Workshop deck nearly done** — <https://cuny-ai-lab.github.io/gen-dev-foundations/#1>
-  - [ ] Click / Space to advance slides
-  - [ ] Images / screenshots for key steps
-  - [ ] Parisa LLM intro slide(s)
-  - [ ] Scrubber / slider to fast-forward through the deck
+- **creative-clawing gallery** — 91 artifacts, 33 microblogs live; ongoing curation + new drops
+- **Cloze reader paper** — v42 current; genealogy framing pass landed today
+- **TOEFL dataset** — superset13 at 86,419 rows; generation paused (OpenRouter 402)
 
 ### 👇 Waiting on milwrite
-- **🔴 CRITICAL: Execute OpenRouter billing fix** — Quimbot session blocked (HTTP 402) since 2/26 morning, blocking all training work
+- **🔴 CRITICAL: Execute OpenRouter billing fix** — Quimbot session blocked (HTTP 402) since 2/26 (day 32), blocking all training work
   - Option 1: Top up OpenRouter account
   - Option 2: Execute config.patch to rotate to funded API key (command ready from 2/26 AM stand-up)
 - Stage 1 Run 4 eval blocker: Provide adapter weights location/transfer path (step 350 + final checkpoint)
@@ -149,6 +144,9 @@ _Last synced: 2026-03-27 21:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening review 3/29 19:00:** 14 commits today (2 Quimbot, 12 creative-clawing). Quimbot: cloze paper genealogy pass, STYLE_GUIDE rules (Petrarch). creative-clawing: Mohr hypercube artifact + microblog #35, entry retitling pass (4 entries), mobile-responsive fix, newton back-btn sweep (16 artifacts), iframe sandbox hardening. 91 artifacts, 33 microblogs live. Data static (superset13 at 86,419). OpenRouter 402 day 32. KANBAN cleaned (stale in-progress items moved to done).
+- **Morning review 3/29 09:00:** 7 commits overnight (2 Quimbot, 5 creative-clawing). Quimbot: microblog #25 spirograph, STYLE_GUIDE update (Petrarch). creative-clawing: microblog #34 Ising, iframe sandbox hardening (allow-scripts only), newton back-btn sweep. Data static (superset13 at 86,419). OpenRouter 402 day 32. Sunday pace.
+- **Evening review 3/28 21:00:** 115 commits today (33 Quimbot, 82 creative-clawing). Biggest single-day push ever. Quimbot: cloze paper v42 (PASSAGE A, intro edits, transition per milwrite), editor JS extraction + block delete UI, 5 stale files deleted, 3 new style rules (submarine false-dilemma, vacuous openers, stacked punctuation), favicon on all docs pages. creative-clawing: full gallery HiDPI + iframe audit (sync resize deferred on 50+, HiDPI drawImage fix, MAX_LIVE caps raised, canvas text/layout hidden in iframe, warmup for Sprott/Snowflake/Rossler, hatmonotile+snowflake removed, 16 files min-height→height, lazy loading fix, mondrian/antcolony/boids/ising/pendulum/dadras individual fixes, microblog #33 de Jong, QUALITY.md + lint CI). 89 artifacts live. OpenRouter 402 day 31. Site curation meeting at 10 PM.
 - **Evening review 3/27 21:00:** 36 commits today (10 Quimbot, 26 creative-clawing). Quimbot: CUNY Commons featured sites (20 candidates, 10 confirmed), CALI script rewrites (3 variants), cloze paper genealogy pass, off-day TOEFL generation (10,413 new, superset12 at 76,419). creative-clawing: massive sweep day (100dvh on 73 files, manifest agent casing fix with hard validation gate, IFS artifact fix, sand.html iframe fix, iframe load listener restore, SW cache bust, mobile audit, thomas attractor scale, back button hrefs, submit-artifact.yml repair, CSS semicolon fix). OpenRouter 402 day 30. Tomorrow: Saturday site curation at 10 PM.
 - **Evening review 3/27 19:00:** 36 commits today (10 Quimbot, 26 creative-clawing). Quimbot: CUNY Commons featured sites (20 candidates), CALI script rewrites, cloze paper genealogy pass. creative-clawing: 100dvh sweep on 73 files, manifest agent casing fix, IFS artifact fix, sand.html iframe fix, iframe load restore, SW cache bust, mobile audit. Data: off-day generation pushed superset12 to 76,419 rows (+10,413). OpenRouter 402 day 30.
 - **Morning review 3/27 09:00:** 2 commits overnight (CALI script rewrites). Writing lane active; data/training static. OpenRouter 402 day 30. Superset11 at 66,006.
