@@ -1,11 +1,13 @@
 # Dataset Inventory
-_Updated: 2026-03-27 17:00 ET_
+_Updated: 2026-03-29 17:52 ET_
 
 ## Active Superset (use this for training)
 
 | File | Rows | Notes |
 |------|------|-------|
-| `toefl_superset12_merged_20260327.jsonl` | 76,419 | **Canonical superset as of 2026-03-27.** Superset11 + batch_20260327_merged (10,413 new unique records). 0 dupes, 0 parse errors. New error categories: CE (time/date prepositions), CF (make/do), CG (say/tell), CH (comparison errors), CI (demonstrative pronoun agreement), CJ (possessive adjective), CK (ago/before/earlier), CL (participle confusion bored/boring), CM (there-is/it-is), CN (come/go), BU (causative make/let/have to-V), BV (reported question word order), BW (neither-or/either-nor), BX (discourse connectors), BY (conditional tense mixing), BZ (quantifier SV agreement), CD (adjective-adverb confusion). Additional new domains: medical/healthcare, legal/courtroom, business/corporate, technology/IT, school-age education. |
+| `toefl_superset17_merged_20260329.jsonl` | 126,642 | **Canonical superset as of 2026-03-29.** Growth from superset16 (116,419) via batch_20260329_merged (10,223 new unique records). Programmatic: 479 (12 new error categories CO-CZ). LLM (claude-haiku-4-5): 9,744 multi-turn dialogues via 8 parallel shards. 0 parse errors. |
+| `toefl_superset16_merged_20260328.jsonl` | 116,419 | Superseded by superset17. Growth from superset12 (76,419) through supersets 13-16 via batch_20260327_v3/v4 and batch_20260328_v5/v6. 0 parse errors. |
+| `toefl_superset12_merged_20260327.jsonl` | 76,419 | Superseded by superset16. Superset11 + batch_20260327_merged (10,413 new unique records). 0 dupes, 0 parse errors. |
 | `toefl_superset11_merged_20260325.jsonl` | 66,006 | Superseded by superset12. Superset10 + batch_20260325, deduped. 0 parse errors. |
 | `toefl_superset10_merged_20260324.jsonl` | 59,509 | Superseded by superset11. 0 parse errors. |
 | `toefl_superset9_merged_20260321.jsonl` | 45,555 | Superseded by superset10. 0 parse errors. |
@@ -67,6 +69,16 @@ _Updated: 2026-03-27 17:00 ET_
 | `toefl_ollama_qwen8b_batch_20260313.jsonl` | 81 | 0 | Subsumed by superset5 |
 | `toefl_batch_20260315.jsonl` | 10,000 | 0 | Merged into superset6 |
 | `toefl_batch_20260317.jsonl` | 10,000 | 0 | New — pending merge into superset7 |
+
+## LLM-Generated Data
+
+| File | Rows | Model | Notes |
+|------|------|-------|-------|
+| `toefl_batch_20260329_merged.jsonl` | 10,223 | mixed | **2026-03-29 batch.** 479 programmatic (CO-CZ error categories) + 190 early LLM + 9,554 from 8 parallel Haiku shards. All deduped vs superset16. Merged into superset17. |
+| `toefl_llm_shard_20260329_{1-8}.jsonl` | 1,200 each | claude-haiku-4-5 | 8 parallel workers, seed offset per shard. 9,558 raw → 9,554 unique after cross-shard dedup. |
+| `toefl_llm_20260329.jsonl` | 190 | claude-haiku-4-5 | Early partial run (pre-parallel). Merged into batch_20260329_merged. |
+| `toefl_llm_pilot_20260328.jsonl` | 50 | LLM | Pilot run for LLM-based generation |
+| `toefl_llm_20260328.jsonl` | 975 | LLM | First full LLM-gen batch (gen_toefl_llm_v1/v2) |
 
 ## In-Progress Generation
 

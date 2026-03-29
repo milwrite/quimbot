@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-27 21:00 ET
+**Last Updated:** 2026-03-29 09:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -37,7 +37,13 @@
 - [x] TOEFL off-day generation: 10,413 entries, superset12 at 76,419 ✅ 3/27
 - [x] CUNY Commons featured sites: 20 candidates, 10 confirmed, schedule built ✅ 3/27
 - [x] creative-clawing 100dvh sweep + manifest agent casing + IFS fix + mobile audit ✅ 3/27
-- [ ] Saturday site curation meeting (10 PM ET 3/28) — coordinate with Petrarch
+- [x] Saturday site curation meeting (10 PM ET 3/28) — coordinate with Petrarch ✅ 3/28
+- [x] Gallery HiDPI + iframe audit day: 82 creative-clawing commits, 50+ artifacts fixed ✅ 3/28
+- [x] Cloze reader paper v42: PASSAGE A, intro edits, editor JS + block delete ✅ 3/28
+- [x] Microblog #33: "A Letter to Scientific American" (de Jong) ✅ 3/28
+- [x] QUALITY.md + lint_gallery.py CI added to creative-clawing ✅ 3/28
+- [ ] Spot-check superset13 quality (86,419 rows)
+- [ ] Verify Kalshi bot status (kalshi dir missing from this machine)
 - [ ] Spot-check superset12 quality (76,419 rows — verify dedup, new categories)
 - [x] Merge toefl_batch_20260319 into superset8 (46,943 rows landed) ✅ 3/20
 - [ ] Verify superset8 dedup integrity (46,943 rows — confirm no duplicates)
