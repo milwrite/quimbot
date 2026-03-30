@@ -1,6 +1,6 @@
 # TODO
 
-**Last Updated:** 2026-03-27 21:00 ET
+**Last Updated:** 2026-03-29 20:00 ET
 
 ## High Priority
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
@@ -37,14 +37,17 @@
 - [x] TOEFL off-day generation: 10,413 entries, superset12 at 76,419 ✅ 3/27
 - [x] CUNY Commons featured sites: 20 candidates, 10 confirmed, schedule built ✅ 3/27
 - [x] creative-clawing 100dvh sweep + manifest agent casing + IFS fix + mobile audit ✅ 3/27
-- [ ] Saturday site curation meeting (10 PM ET 3/28) — coordinate with Petrarch
+- [x] Saturday site curation meeting (10 PM ET 3/28) — creative-clawing bug sweep ✅ 3/28
 - [ ] Spot-check superset12 quality (76,419 rows — verify dedup, new categories)
 - [x] Merge toefl_batch_20260319 into superset8 (46,943 rows landed) ✅ 3/20
 - [ ] Verify superset8 dedup integrity (46,943 rows — confirm no duplicates)
 - [x] Complete cloze reader draft_v32 → v33 → v34 → v35 (narrator, prepositions, genealogy) ✅ 3/21
 - [x] Cloze reader paper v36→v39 (paragraph bridging, colon sweep, verb audit, genealogy condensed) ✅ 3/22
-- [ ] Cloze reader paper: continue past v39 (body sections, Section IV)
+- [x] Cloze reader paper: continue past v39 — draft at v42 (PASSAGE A, dangling referent fix, expansion para) ✅ 3/28–29
+- [ ] Cloze reader paper: milwrite decisions needed — EX-05, EX-06, Fillenbaum vs. Rayner, PROP-01, PROP-02
+- [ ] Cloze reader paper: body sections (Section IV) — blocked on milwrite approval of structural proposals
 - [ ] Kalshi: v2 graduated rollout design (budget caps, risk tiers)
+- [ ] Cloze Paper Session (Petrarch) cron job (5 PM daily, id: 2cf17af0): 8 consecutive timeouts — decide: bump timeout, narrow scope, or disable (1 PM revision pass covers similar ground)
 
 ## Workshop / CAIL Deck
 - [ ] Unpack VSC-IDE setup steps more concretely (slide 9):
@@ -57,6 +60,17 @@
 - [ ] Reorganize `fine-tuning/prospects/` into main `fine-tuning/` workflow layout
 - [ ] Review and prune gallery visualizations (26 pages, stale check)
 - [ ] Document Slidev ConfigPanel integration patterns
+
+## Done (week of 2026-03-23 through 2026-03-29)
+- [x] creative-clawing major bug sweep: short-lane dup, tiny canvas rAF defer, blank iframe previews, gallery MAX_LIVE cap, lint CI added ✅ 3/28
+- [x] TOEFL master file: `toefl_master_20260328.jsonl` (52,164 unique rows, deduped across 3 sources) ✅ 3/28
+- [x] Invalid GH_TOKEN removed from openclaw.json (milwrite keyring OAuth in use) ✅ 3/29
+- [x] Cloze paper: PASSAGE A added (occlusion/closure, Kanizsa 1979); v42 current ✅ 3/28
+- [x] Cloze paper: earned assertion gate + lazy punctuation cue rules added to STYLE_GUIDE ✅ 3/28
+- [x] Cloze paper: Veldre et al. CUT per milwrite ruling ✅ 3/26
+- [x] Sunday synthesis: SESSION_STATE reconciled, CLOZE_ROADMAP updated ✅ 3/29
+- [x] Skills installed: academic-research, abstract-searcher, arxiv-search-collector, dev-chronicle, zotero ✅ 3/23–29
+- [x] CUNY Commons featured sites: 20 candidates, 10 confirmed, monthly schedule ✅ 3/27
 
 ## Done (Feb 26)
 - [x] Morning review completed from live evidence (git, generated docs files, cron logs)

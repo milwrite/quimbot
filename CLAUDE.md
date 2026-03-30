@@ -43,39 +43,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Cloze paper prose fix**: overcommitted divergence paragraph replaced with review-frame sentence (`3ffa2f2a`)
 - **OpenRouter 402 day 26** — still blocking cloud generation
 
+## Key Decisions Log (2026-03-28–29)
+- **Cloze paper draft at v42**: PASSAGE A (occlusion/closure, Kanizsa 1979) added; intro closing restored to v37 (v38 close rejected by milwrite — "violates basically every rule in the style guide"); dangling referent fix (para 4: "All three researchers" → "Both accounts"); expansion paragraph (Continuity and Asymmetry) added at v41; Sunday synthesis logged, roadmap updated.
+- **New style rules (milwrite rulings)**: vacuous openers banned; stacked punctuation (colon + semicolon same clause) banned; earned assertion gate added; lazy punctuation cue rule added.
+- **Veldre et al. cut**: milwrite ruled CUT on 2026-03-26; revisit at Session 7 when body has its proper form.
+- **creative-clawing.com major bug fix sweep** (2026-03-28): short-lane dup bug (pad groups <8); Recently Added grid columns; upper-left tiny canvas (rAF defer); blank iframe previews (Turing, Sand, Stable Fluids, PageRank); gallery MAX_LIVE cap raised to 60 with pending queue. `tests/lint_gallery.py` + CI workflow added.
+- **TOEFL master file built** (2026-03-28): `toefl_master_20260328.jsonl` at 52,164 unique records (superset8 base + synth_10k + superset3_cleaned deduped). Superset12 at 76,419 per Quimbot.
+- **Invalid GH_TOKEN removed** from `openclaw.json`; milwrite keyring OAuth handles `gh` auth going forward.
+- **OpenRouter 402 day 30+** — cloud generation still blocked.
+
 ## Key Decisions Log (2026-03-22)
 - **Cloze paper post-v39 fixes** — 'cannot read slowly' contrast restored (with humans, not total absence); hanging Firth quote fixed; bad style rule reverted; 2 new style rules added (`03df4b73`, `ac987799`)
 - **Site synced to v37** with cross-links between site deployment and draft.md (`1d5773a2`, `25e84602`)
 - **Overnight v36→v39** — paragraph bridging, colon sweep (11 eliminated), verb audit, genealogy condensed
 - **Writing system expanded** — CHECKLIST_COPY, CHECKLIST_REVISE, PROCESS_GUIDE added for phase-decomposed style with conditional routing
 - **Single draft.md canonical** — versioned filenames eliminated, git handles history; writing/ directory reorganized with subdirectories
-
-## Key Decisions Log (2026-03-21)
-- **Cloze paper at v35** — 4 draft versions in one day; first-person narrator grafted at 8 points (v33); logical prepositions pass (v34); Harris/Firth/Mikolov/Peters/Devlin genealogy expanded and thesis restored to intro (v35)
-- **Style system disaggregated** — monolithic STYLE_GUIDE.md split into 6 modular files (anti-patterns, diction, paragraphs, sentences, structure, voice) with SKILL.md router in `style/`
-- **Superset9 merged at 45,555 rows** — row count lower than superset8 (46,943) due to dedup/filtering variance
-- **Pages build fix** — broken a11y-checker submodule ref removed and gitignored
-
-## Key Decisions Log (2026-03-20)
-- **Superset8 merged at 46,943 rows** — new dataset high-water mark
-- **Writing hub page shipped** — `/writing/` with card layout + commit metadata on creative-clawing
-- **Cloze reader browser editor added** — password-gated, highlight + commit to GitHub (major tooling for milwrite)
-- **AI detection essay updated to v4** on live site
-- **Session 2b verification results documented** in SESSION_STATE
-
-## Key Decisions Log (2026-03-19)
-- **Paper title finalized**: "Fill in the Blank: Cloze Reader and the Twin Histories of Occlusion"
-- **Colon/semicolon audit rule** added to STYLE_GUIDE (Petrarch's connector-surfacing principle)
-- **3 more style rules**: trailing participle phrases ban, anaphora abuse ban, tricolon abuse ban
-- **Draft at v31**: ~2,800+ words, Zhang & Hashimoto 2021 + Ondov 2024 in bibliography
-- **Closing sentence inverts training signal framing** — "inductive bias" pushed to body
-
-## Key Decisions Log (2026-03-18)
-- **Cloze reader live draft is additive-only** — never rewrite existing v14 prose; only insert new sentences or extend. milwrite preserves voice.
-- **JOURNAL.md is the canonical shared record** for cloze-reader paper (both bots maintain it)
-- **Style guide now has 3 new rules**: bridging constructions ban, nominalization ban, em-dash enclosure rule
-- **Kalshi sidequest**: weather + CPI only (trimmed from broader scope)
-- **Session 2 requires formal S1→S2 token** from milwrite before scope opens
 
 ## Agent Documentation
 
@@ -151,46 +133,24 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
   - `fine-tuning/audit_toefl_followups.py` (deeper audit; issue + dupe counts)
 - Required env vars for training: `TINKER_API_KEY`, `TINKER_API_BASE`, `HF_TOKEN`
 
-## 2026-02-16 notes (recent decisions / state)
-- Synth followups audit triage (see `agents/KANBAN.md`): TOEFL concat issues appear filterable:
-  - 30 rows with empty assistant content
-  - 2 role alternation violations
-  - JSON parse errors = 0
-- OpenRouter generation scaling currently blocked by HTTP 402; do not assume generation scripts will run until billing/key routing is fixed.
-- Stage 1 mix decision pending: whether to hard-dedup synth followups or keep duplicates as implicit weighting.
-- Repo hygiene: sidequest microlearning scripts exist under `sidequests/microlearning/`; do not commit `sidequests/microlearning/data/` artifacts (treat like datasets/output).
+---
 
-## 2026-02-24 notes (nightly review)
-- Nightly stocktake completed and committed (`4efefe28`): added `fine-tuning/data/INVENTORY.md` with per-file row counts and dedup status.
-- Dataset state re-confirmed at 33,834 rows across 7 tracked JSONL files in `fine-tuning/data/`.
-- Evaluation scripts were syntax-validated (`evaluation/qwen-eval.py`, `evaluation/qwen-eval-v2.py`) and are execution-ready once weights land.
-- New generation utility scaffold added: `fine-tuning/scripts/generation/generate_toefl_ollama_10k.py` for local Ollama batch synthesis.
-- Hard blocker remains unchanged: Stage 1 Run 4 adapter weights are not on local disk (day 2 blocked).
-- Secondary blocker remains: OpenRouter HTTP 402 prevents scale-out synthetic generation.
+## Archived Decisions (pre-2026-03-22)
 
-## 2026-02-25 notes (morning review)
-- Overnight local generation added three fresh outputs with +156 rows total (`92 + 51 + 13`).
-- Quick validation pass confirmed `toefl_ollama_batch_20260224_2130_clean.jsonl` at 21/21 valid rows.
-- Working total reported in stand-up context is now 34,011 rows before dedup merge finalization.
-- Immediate next data task: merge new outputs into a staging JSONL, dedup against current superset, then refresh `fine-tuning/data/INVENTORY.md`.
-- Highest-priority execution path is unchanged: Run 4 checkpoint eval starts as soon as adapter weights (step 350 + final) are available locally.
+### Key Decisions (2026-03-19 through 2026-03-21)
+- **Paper title finalized** (3/19): "Fill in the Blank: Cloze Reader and the Twin Histories of Occlusion"
+- **Colon/semicolon audit rule** added to STYLE_GUIDE (3/19); 3 more rules: trailing participle ban, anaphora abuse ban, tricolon abuse ban
+- **Style system disaggregated** (3/21): monolithic STYLE_GUIDE.md split into 6 modular files with SKILL.md router in `style/`
+- **Superset9 merged** (3/21) at 45,555 rows; Pages build fix (broken a11y-checker submodule removed)
+- **Superset8 merged** (3/20) at 46,943 rows; writing hub page shipped; cloze reader browser editor added (password-gated, commit to GitHub)
+- **Cloze reader live draft is additive-only** (3/18): never rewrite existing v14 prose without milwrite approval
+- **JOURNAL.md is the canonical shared record** for cloze-reader paper; both bots maintain it
+- **Kalshi sidequest** trimmed to weather + CPI only (3/18)
 
-## 2026-02-25 notes (evening review)
-- No additional commits landed during daytime; progress concentrated on coordination, status hygiene, and handoff prep.
-- Nightly trend artifact added at `reports/nightly/stocktake-2026-02-25.md` (branch, delta, dataset location snapshot).
-- The execution queue for next cycle is explicit: merge + dedup + recount first, then immediate eval trigger once weights are provided.
-- Blocking conditions are unchanged: missing local adapter weights for Run 4 eval and OpenRouter HTTP 402 for scale-out generation.
-
-## 2026-03-18 notes (morning review)
-- Cron jobs back online after 3-day pause (milwrite halted all 9 jobs on 3/15, Wednesday lift now in effect).
-- 2 overnight commits: cloze reader citation chain upgrades — Bommasani, Oller, Bachman, Peters, Gao/Pile, Carlini, Vygotsky/Wood/Pea (`4f672690`, `2e65b8ed`).
-- OpenRouter 402 now day 21 — still blocking cloud generation.
-- Superset7 at 39,133 rows, verification pending.
-- Petrarch push auth still blocked (zmuhls lacks write on milwrite/quimbot).
-
-## 2026-02-26 notes (morning review)
-- Morning commit stream is active: stand-up sync + doc/microblog tightening + gallery visualization additions (`d14cb717` latest).
-- Site generation artifacts updated today under `docs/gallery/` and `docs/index.html`; this lane is shipping while training/eval remains blocked.
-- `fine-tuning/prospects/cron.log` shows repeated Discord notifier failures caused by shell call to missing `openclaw` binary (`/bin/sh: 1: openclaw: not found`).
-- Keep OpenClaw-native messaging for status posts (message tool / API path), do not rely on local CLI availability in cron environments.
-- Core blockers are still the same: missing Run 4 adapter weights locally and OpenRouter HTTP 402.
+### Notes (2026-02 through 2026-03-18)
+- OpenRouter HTTP 402 blocked cloud generation from day 21 (3/18) onward; do not assume generation scripts run until billing resolved.
+- `fine-tuning/prospects/cron.log` shows Discord notifier failures from missing `openclaw` binary — use OpenClaw-native messaging (message tool / API path) in cron environments, not local CLI.
+- Run 4 adapter weights (step 350 + final) remain missing from local disk; eval blocked until they arrive.
+- Petrarch push auth still blocked (zmuhls lacks write on milwrite/quimbot) as of 3/18.
+- Synth followups audit: 30 rows empty assistant content, 2 role alternation violations, 0 JSON parse errors.
+- Stage 1 mix decision pending: hard-dedup vs. implicit weighting via duplicates.
