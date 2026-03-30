@@ -1,12 +1,17 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-29 21:00 ET_
+_Last synced: 2026-03-30 19:00 ET_
 
 ## 🔜 Backlog
 
 - **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **TOEFL superset18 merged (139,364 rows)** — Petrarch master_20260328 integrated in 2 passes (+12,079 then +12,722 unique), new high-water mark ✅ 3/30
+- **EDITS.md kanban + protocol** — writing process guide updated, EDITS.md moved to cloze-reader-paper/ ✅ 3/30
+- **Cloze paper v42 genealogy framing pass** — daily auto pass landed ✅ 3/30
+- **STYLE_GUIDE 4-rule expansion** — em dash, nominalized subjects, pseudo-cleft ban, macro ID taxonomy ✅ 3/30
+- **creative-clawing style sweep** — entry-34 Ising rewrite, safe-area insets on crystal+voronoi, Petrarch audio reader on entry-33 ✅ 3/30
 - **Mohr hypercube artifact + microblog #35** — 4D tesseract double-projection, four rotation modes, mobile-responsive, entry retitling pass ✅ 3/29
 - **Microblog #34 (Ising) + #25 (spirograph)** — overnight gallery drops + iframe sandbox hardening + newton href sweep ✅ 3/29
 - **Gallery HiDPI + iframe audit day** — 78 creative-clawing commits: sync resize on 50+ artifacts, HiDPI drawImage fix, iframe warmup (Sprott/Snowflake/Rossler), QUALITY.md + lint CI, hatmonotile+snowflake removed, 89 artifacts live ✅ 3/28
@@ -123,7 +128,7 @@ _Last synced: 2026-03-29 21:00 ET_
 ## 🔨 In Progress
 - **creative-clawing gallery** — 91 artifacts, 33 microblogs live; ongoing curation + new drops
 - **Cloze reader paper** — v42 current; genealogy framing pass landed today
-- **TOEFL dataset** — superset13 at 86,419 rows; generation paused (OpenRouter 402)
+- **TOEFL dataset** — superset18 at 139,364 rows; Petrarch master batch integrated (+52,945 since superset13); generation paused (OpenRouter 402)
 
 ### 👇 Waiting on milwrite
 - **🔴 CRITICAL: Execute OpenRouter billing fix** — Quimbot session blocked (HTTP 402) since 2/26 (day 32), blocking all training work
@@ -144,6 +149,7 @@ _Last synced: 2026-03-29 21:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Evening stand-up 3/30 19:00:** 10 Quimbot commits + 8 creative-clawing today. Big data move: superset18 merged to 139,364 rows (Petrarch's master batch, +52,945 since superset13). Writing: EDITS.md kanban + cloze paper genealogy pass. Style: 4 new rules landed. creative-clawing: style sweep + safe-area insets. OpenRouter 402 day 33. Week started strong on data integration.
 - **Morning review 3/30 09:00:** 16 commits overnight (9 Quimbot, 7 creative-clawing). Style system expansion: 4 STYLE_GUIDE commits (em dash, nominalized subjects, pseudo-cleft ban, macro ID taxonomy), cloze paper v42 HTML sync + argument fix, mobile flowfield/spectrum fix. creative-clawing: microblog style sweep, entry-34 Ising rewrite, Petrarch audio reader on entry-33, crystal+voronoi safe-area insets. Data static (superset13 at 86,419). OpenRouter 402 day 33. Start of week — style system maturing, paper lane steady.
 - **Evening review 3/29 21:00:** 16 commits full day (4 Quimbot, 12 creative-clawing). Quimbot: cloze paper genealogy pass, STYLE_GUIDE rules (Petrarch), nightly sync, KANBAN cleanup. creative-clawing: Mohr hypercube artifact + microblog #35, entry retitling (4 entries), mobile responsive fixes, newton back-btn sweep (16 artifacts), iframe sandbox hardening. 91 artifacts, 33 microblogs live. Data static (superset13 at 86,419). OpenRouter 402 day 32.
 - **Evening review 3/29 19:00:** 14 commits today (2 Quimbot, 12 creative-clawing). Quimbot: cloze paper genealogy pass, STYLE_GUIDE rules (Petrarch). creative-clawing: Mohr hypercube artifact + microblog #35, entry retitling pass (4 entries), mobile-responsive fix, newton back-btn sweep (16 artifacts), iframe sandbox hardening. 91 artifacts, 33 microblogs live. Data static (superset13 at 86,419). OpenRouter 402 day 32. KANBAN cleaned (stale in-progress items moved to done).
