@@ -145,11 +145,12 @@ export function flowField(container) {
     }
     ctx.stroke();
 
-    // Caption — responsive font size so it reads on small/mobile screens.
+    // Caption — bottom-aligned, consistent with other vis files. Top position
+    // can clash with status bars / notch safe areas on mobile.
     const captionPx = Math.max(11, Math.min(14, Math.floor(Math.min(W, H) * 0.032)));
     ctx.fillStyle = 'rgba(255,255,255,0.45)';
     ctx.font = `${captionPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-    ctx.fillText('Flow field • tap to reseed', 14, captionPx + 6);
+    ctx.fillText('Flow field • tap to reseed', 14, H - Math.max(14, captionPx + 4));
   });
 
   return () => {

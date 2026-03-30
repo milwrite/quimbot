@@ -3,12 +3,14 @@ import { makeCanvas, rafLoop } from './util_canvas.js';
 // Slide 8 artifact: Vibe ↔ Deliberate spectrum slider with shifting visuals.
 export function spectrum(container) {
   container.innerHTML = '';
+  // Allow vertical scrolling past the spectrum canvas on mobile; the slider
+  // itself sets touch-action: none so drags stay on the thumb.
+  container.style.touchAction = 'pan-y';
+
   const root = document.createElement('div');
   root.style.position = 'relative';
   root.style.width = '100%';
   root.style.height = '100%';
-  // Allow vertical scrolling past the canvas; only the slider itself needs
-  // touch-action: none (set below on the range input).
   root.style.touchAction = 'pan-y';
   container.appendChild(root);
 
