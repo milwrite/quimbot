@@ -8,7 +8,7 @@ Last updated: 2026-03-30 (colon pivots, consecutive clauses, sentence ceiling)
 ## Hard Rules (always on)
 
 ### Banned constructions
-- **No em dashes** — use periods, commas, semicolons, or parentheses; never em dashes or en dashes as punctuation
+- **No em dashes as syntactic patches** — an em dash earns its place only as a genuine aside (information parenthetical to the main clause); never use it as a connector, pivot, or substitute for a period or comma; when in doubt, restructure the sentence so the syntax carries the relationship
 - **No colon pivots** — colons introduce lists and formal definitions only; never use a colon as a structural hinge, rhetorical pause, or em-dash replacement; if a colon precedes a single clause rather than a list or named term, restructure the sentence so the syntax carries the relationship instead
 - **No contrastive pivots:** kill "not X but Y", "not just X", "more than X", "beyond that", "not merely X but Y", "not only X but also Y", "less about X more about Y" — state the point directly
 - **No melodramatic overclaims** — no "restructured the conditions under which", no "transformed how we", no sweeping systemic claims from single events; bound claims to what the evidence shows
@@ -20,6 +20,7 @@ Last updated: 2026-03-30 (colon pivots, consecutive clauses, sentence ceiling)
 - **No gap-bridging constructions:** ban "the gap between X and Y", "bridges the gap", "this paper bridges", "fills the gap between" — these announce the paper's contribution instead of making it. State what the paper does; don't describe the distance it crosses.
 - **No consecutive simple independent clauses:** three or more short sentences in a row with simple subject-verb structure reads as a list, not prose. Restructure by subordinating, embedding, or combining. "X did Y. Y led to Z. Z was important." is always rewritable as one sentence with syntactic complexity doing that work.
 - **Sentence ceiling: 5 lines.** No sentence exceeds roughly 60–75 words (five lines of a word-processed document). Earn sentence length through subordinate clauses, participial phrases, embedded qualifications — not through coordination ("and... and... and"). When a sentence runs long on conjunctions, split or restructure.
+- **No weak expletive openers.** Ban "There is/are/was/were" as sentence openers. Name the thing instead. "There is no long-range interaction" → "The model has no long-range interaction."
 
 ### Required habits
 - **Simple subjects** — lead with people, things, or actions; no noun-phrase pileups

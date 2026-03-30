@@ -11,7 +11,10 @@
 - Use fragments for emphasis. Sparingly.
 - **No consecutive simple independent clauses.** Three or more short sentences in a row with simple subject-verb structure reads as a list, not prose. After two short sentences, the third must subordinate, embed, or extend — not simply add another clause. Restructure by finding the logical relationship (cause, consequence, contrast, qualification) and encoding it syntactically.
 - **Sentence ceiling: 5 lines (~60–75 words).** Earn length through subordination and embedding, not coordination. When a sentence runs long on "and," split it or find a subordinator.
-- **Meaningful verbs, concrete subjects.** The subject should be a person, thing, or action. The verb should carry descriptive weight. Weak copula + adjective ("was important") almost always has a stronger replacement — find the verb that does that work.
+- **Meaningful verbs, concrete subjects.** The subject should be a person, thing, or action. The verb carries the sentence's commitment; weak verbs defer it. Weak copula + adjective ("was important") almost always has a stronger replacement. Find the verb that does the work directly.
+- **No weak expletive openers.** Ban "There is/are/was/were" as sentence openers. Name the thing instead.  
+  **Bad:** "There is no long-range interaction in the Ising model."  
+  **Good:** "The Ising model has no long-range interaction."
 
 ## Subject Rules
 
