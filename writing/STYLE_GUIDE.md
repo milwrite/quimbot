@@ -21,6 +21,9 @@ Last updated: 2026-03-30 (colon pivots, consecutive clauses, sentence ceiling)
 - **No consecutive simple independent clauses:** three or more short sentences in a row with simple subject-verb structure reads as a list, not prose. Restructure by subordinating, embedding, or combining. "X did Y. Y led to Z. Z was important." is always rewritable as one sentence with syntactic complexity doing that work.
 - **Sentence ceiling: 5 lines.** No sentence exceeds roughly 60–75 words (five lines of a word-processed document). Earn sentence length through subordinate clauses, participial phrases, embedded qualifications — not through coordination ("and... and... and"). When a sentence runs long on conjunctions, split or restructure.
 - **No weak expletive openers.** Ban "There is/are/was/were" as sentence openers. Name the thing instead. "There is no long-range interaction" → "The model has no long-range interaction."
+- **No nominalized subjects.** Do not begin a sentence with a nominalization (a verb or adjective turned into a noun phrase as the grammatical subject). "The optimization of the model" → "The model optimizes." "The application of these rules" → "These rules apply." Exception: technical terms of art where the nominalization is the standard name in the field.
+- **No sentences beginning with "What" or "That".** "What X does is Y" and "That X happened means Y" defer the real subject. Find the agent or claim and lead with it directly.
+- **"This" requires a clarifying noun.** Never let "This" stand alone as a subject. Always follow it with the noun it names: "This approach," "This constraint," "This result." Bare "This" as subject signals the writer hasn't named what they're pointing at.
 
 ### Required habits
 - **Simple subjects** — lead with people, things, or actions; no noun-phrase pileups
