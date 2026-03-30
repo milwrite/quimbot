@@ -48,4 +48,21 @@ When adding a rule, include:
 
 ---
 
-*Last updated: 2026-03-21. Quimbot.*
+## Macro System
+
+For context-window injection, use `macros/`:
+
+```
+style/macros/
+  TAXONOMY.md        ← full ID index (SX/VB/PX/CL/CT/DC/PR/AK/NL prefixes)
+  INJECT.md          ← injection template + toggle commands
+  scope/             ← per-task profiles (cloze-paper, sentence-revision, etc.)
+  rules/             ← individual rule cards (e.g. CL-01.md, CT-02.md)
+```
+
+**To activate:** load `macros/INJECT.md` + the relevant scope file from `macros/scope/`.  
+Toggle with: "style macros on/off" or "style macros: [profile]".
+
+---
+
+*Last updated: 2026-03-29. Quimbot.*
