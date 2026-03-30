@@ -9,6 +9,9 @@
 - Mix short and long sentences. After a long clause-heavy sentence, drop a short one. It lands harder and reads like thought.
 - Vary openers. Don't start three sentences in a row with "The." Use time markers, verbs, prepositional phrases, names.
 - Use fragments for emphasis. Sparingly.
+- **No consecutive simple independent clauses.** Three or more short sentences in a row with simple subject-verb structure reads as a list, not prose. After two short sentences, the third must subordinate, embed, or extend — not simply add another clause. Restructure by finding the logical relationship (cause, consequence, contrast, qualification) and encoding it syntactically.
+- **Sentence ceiling: 5 lines (~60–75 words).** Earn length through subordination and embedding, not coordination. When a sentence runs long on "and," split it or find a subordinator.
+- **Meaningful verbs, concrete subjects.** The subject should be a person, thing, or action. The verb should carry descriptive weight. Weak copula + adjective ("was important") almost always has a stronger replacement — find the verb that does that work.
 
 ## Subject Rules
 
@@ -42,6 +45,12 @@ State the point directly.
 Kill: "What makes this interesting is...," "Here's the thing:," "The key insight is...," "What this shows is..."  
 Make the point. Skip the announcement.
 
+**No pseudo-cleft subjects.**  
+Kill: "What connects X to Y is...," "What made X distinct was...," "What separates X from Y is..."  
+These defer the real subject behind a nominalized construction. Identify the actual agent or action and lead with it.  
+**Bad:** "What connects the Ising model to the other artifacts on this site is the argument embedded in its construction."  
+**Good:** "Every artifact on this site encodes the same premise, with local rules applied uniformly generating structure no individual element was instructed to produce."
+
 **No bridging constructions.**  
 Kill: "is what," "is this:," "What X is Y"  
 **Test:** If you can delete "is what" or "is this:" and the sentence parses, delete it.
@@ -74,6 +83,10 @@ Colons and semicolons in body prose are usually hiding an explicit logical conne
 | Result | Use "so that" before the result clause |
 | Parallel elaboration | Use "with-phrase" or "where...while" contrast |
 | Causal / justification | Use "since" or "because" as subordinator |
+
+**No colon pivots.** A colon that precedes a single clause rather than a list or named definition is a structural hinge — it's doing work the syntax should do itself. Restructure.  
+**Bad:** "The difficulty was making those numbers visible: how do you draw a four-dimensional object on two-dimensional paper."  
+**Good:** "The difficulty was pictorial — specifically, how to make those counts visible without reducing them to a table." (wait, no em dash) → "The difficulty was pictorial, a question of how to make those counts visible without reducing them to a table."
 
 **The one legitimate colon:** Colon + restatement. General claim [colon] named specifics. "Educational cloze tests assess the capacity that constitutes reading comprehension: the synthesis of linguistic knowledge, world knowledge, and inferential skill."
 
