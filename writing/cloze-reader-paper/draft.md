@@ -89,7 +89,7 @@ This difficulty architecture points toward a deeper pedagogical design. The hint
 
 The embedded chat panel runs on the same Gemma-3-27B endpoint and offers preset prompts about part of speech, sentence role, word category, and synonymy rather than a free-form explanatory tutor (Cloze Reader 2026b; 2026d). When a player consults it, they see one way of parsing the passage's contextual constraints, which may clarify their own thinking or feel beside the point. That variability is itself instructive, surfacing the difference between machine-generated guidance and human interpretive judgment.
 
-Returning to origins clarifies what the game's design ultimately asks of its players. When Wilson Taylor introduced the cloze procedure in 1953, he described it as a measurement instrument, a tool for gauging readability by deleting every nth word and observing how much of the text readers could reconstruct from contextual probability. What Taylor was measuring was also a description of ordinary cognition, since reading research from Fillenbaum et al. (1963) onward has shown that fluent readers continuously generate anticipatory completions during comprehension, producing probabilistic expectations about upcoming words well before each word arrives.
+Returning to origins clarifies what the game's design ultimately asks of its players. When Wilson Taylor introduced the cloze procedure in 1953, he described it as a measurement instrument, a tool for gauging readability by deleting every nth word and observing how much of the text readers could reconstruct from contextual probability. What Taylor was measuring was also a description of ordinary cognition, since reading research has shown that fluent readers continuously generate anticipatory completions during comprehension, producing probabilistic expectations about upcoming words well before each word arrives (Rayner et al. 2012).
 
 Subsequent reading research formalized this as a quantifiable variable, using cloze completion rates, the proportion of readers who supply a given word when asked to fill a blank, as the standard measure of word predictability; computational models of reading then use those rates to simulate how a reader's gaze accelerates or slows depending on how expected the next word is (Snell et al. 2018; Rego, Snell, and Meeter 2024). Schema theory maps the same phenomenon from the reader's side, treating comprehension as active anticipation, supplementation, and selection driven by prior knowledge structures the reader brings to the text (Rumelhart 1980).
 
@@ -103,9 +103,7 @@ Both histories share a structural premise, that contextual prediction is a meani
 
 Cloze Reader addresses this tension structurally. I divided the cloze task between model and player so that selection and interpretation stay separate. Masked language modeling treats them as one. The model identifies where context matters. The reader decides what context means. That division stages the asymmetry rather than resolving it. Taylor's procedure assessed comprehension as a holistic capacity. BERT's objective optimized prediction as a training signal. Cloze Reader makes those two operations visible side by side through play.
 
-Recent work on cloze, predictability, and language modeling has similarly complicated any simple relationship between human completion and model prediction tasks (Rego, Snell, and Meeter 2024; Jacobs, Grobol, and Tsang 2024; Xie et al. 2018).
-
-Cloze Reader returns a practice that migrated from educational assessment into machine learning infrastructure back to human readers as an invitation to read slowly and contextually. The convergence between Taylor's procedure and masked language modeling is real, grounded in the shared insight that contextual prediction offers a window onto linguistic competence. The purposes differ. Taylor wanted to measure comprehension. BERT's developers wanted to induce representations. Cloze Reader inherits both histories and uses game mechanics to hold them apart for examination.
+The convergence between Taylor's procedure and masked language modeling is real, grounded in the shared insight that contextual prediction offers a window onto linguistic competence. The purposes differ. Taylor wanted to measure comprehension. BERT's developers wanted to induce representations. I built Cloze Reader to hold both histories in view — and recent work on cloze, predictability, and language modeling confirms that the relationship between human completion and model prediction tasks is not simple (Rego, Snell, and Meeter 2024; Jacobs, Grobol, and Tsang 2024; Xie et al. 2018). Game mechanics make that complexity available for examination.
 
 Pretraining reduces text to token distributions. The blanked-out word makes that reduction legible, which is to say, it marks a position where a literary text has been broken down, mathematized, and absorbed into training data — flattened into parameter weights, unattributed in the model's outputs. Inferring the word from context requires the kind of slow reading that large language model pretraining does not perform, reacquainting players with texts that have been totalized through extraction and foreclosure at scale.
 
@@ -132,8 +130,6 @@ Cloze Reader (2026c) 'clozeGameEngine.js'. Available at: <https://reader.inferen
 Cloze Reader (2026d) 'conversationManager.js'. Available at: <https://reader.inference-arcade.com/src/conversationManager.js> (Accessed: 18 March 2026).
 
 Devlin, J. et al. (2019) 'BERT: Pre-training of deep bidirectional transformers for language understanding,' in *Proceedings of NAACL-HLT 2019*. Minneapolis, MN: Association for Computational Linguistics, pp. 4171–4186.
-
-Fillenbaum, S., Jones, L.V. and Rapoport, A. (1963) 'The predictability of words and their associations,' *Journal of General Psychology*, 69(2), pp. 227–238.
 
 Firth, J.R. (1957) 'A synopsis of linguistic theory, 1930–1955,' in *Studies in Linguistic Analysis*. Oxford: Philological Society, pp. 1–32.
 
@@ -167,6 +163,8 @@ Peters, M.E. et al. (2018) 'Deep contextualized word representations,' in *Proce
 
 Project Gutenberg (2026) *Project Gutenberg*. Available at: <https://www.gutenberg.org/> (Accessed: 18 March 2026).
 
+Rayner, K. et al. (2012) *Psychology of Reading* (2nd edn). New York: Psychology Press.
+
 Rego, A.T.L., Snell, J. and Meeter, M. (2024) 'Language models outperform cloze predictability in a cognitive model of reading,' *PLOS Computational Biology*, 20(9), e1012117. Available at: <https://doi.org/10.1371/journal.pcbi.1012117>
 
 Rumelhart, D.E. (1980) 'Schemata: The building blocks of cognition,' in Spiro, R.J., Bruce, B.C. and Brewer, W.F. (eds.) *Theoretical Issues in Reading Comprehension*. Hillsdale, NJ: Erlbaum, pp. 33–58.
@@ -185,4 +183,4 @@ Zhang, Z. and Hashimoto, T. (2021) 'On the inductive bias of masked language mod
 
 ---
 
-*Draft v37 · Updated 2026-03-21 EDT · colon sweep: 11 prose colons eliminated (periods, subordinating conjunctions, comma-apposition); display colon in code block retained*
+*Draft v42 · Updated 2026-03-29 EDT · Fillenbaum→Rayner swap; PROP-01 light revision (first person retained, opening sentence removed); PROP-02 citations integrated into surrounding paragraph*
