@@ -2,7 +2,7 @@
 ## Writing Process Routing Guide
 *For agents (Quimbot, Petrarch) working on milwrite projects. Load the file that matches the current task.*
 
-> **EDITS.md protocol:** All suggested edits and revision marks go in `writing/EDITS.md` as a Kanban (Proposed → Staged → Approved). Log every proposed change there — do not suggest edits only in chat.
+> **EDITS.md protocol:** All suggested edits and revision marks go in `writing/cloze-reader-paper/EDITS.md` as a Kanban (Proposed → Staged → Approved). Log every proposed change there — do not suggest edits only in chat. For other projects, create a project-level EDITS.md in the same directory.
 
 ---
 
