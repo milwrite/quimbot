@@ -54,6 +54,20 @@ These defer the real subject behind a nominalized construction. Identify the act
 **Bad:** "What connects the Ising model to the other artifacts on this site is the argument embedded in its construction."  
 **Good:** "Every artifact on this site encodes the same premise, with local rules applied uniformly generating structure no individual element was instructed to produce."
 
+**No sentences beginning with "What" or "That".**  
+"What X does is Y" and "That X happened means Y" are structural deferrals — the sentence announces it has a point before making it. Find the agent and lead with it.
+
+**No nominalized subjects.**  
+Do not open a sentence with a verb or adjective turned into a noun phrase as the grammatical subject. The nominalization buries the action.  
+**Bad:** "The application of these rules produces..." → **Good:** "These rules produce..."  
+**Bad:** "The emergence of structure from local interaction..." → **Good:** "Structure emerges from local interaction..."  
+Exception: technical terms where the nominalization is the standard field name ("The Metropolis algorithm...").
+
+**"This" requires a clarifying noun.**  
+Bare "This" as subject means the writer hasn't named what they're pointing at. Always follow with the noun: "This constraint," "This result," "This approach."  
+**Bad:** "This is what makes the model useful."  
+**Good:** "This constraint is what makes the model tractable." (But also kill the "what makes" — "This constraint makes the model tractable.")
+
 **No bridging constructions.**  
 Kill: "is what," "is this:," "What X is Y"  
 **Test:** If you can delete "is what" or "is this:" and the sentence parses, delete it.

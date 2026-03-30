@@ -1,14 +1,14 @@
 # KANBAN — Quimbot
 
-_Last synced: 2026-03-29 07:00 ET_
+_Last synced: 2026-03-30 07:00 ET_
 
 ## In Progress
 - **Cloze Reader paper (DHQ)** — v42: PASSAGE A (occlusion/closure/Kanizsa), intro edits, signpost bridge; Session 3 still gated on milwrite `APPROVED S2->S3`
 - **Fine-tuning data** — superset13 merged: 86,419 unique entries (gen_toefl_v3.py stochastic generator); QA spot-check pending
-- **creative-clawing site** — 89 artifacts live; full HiDPI + iframe audit complete (10 root causes, 50+ files fixed); hatmonotile + snowflake removed; QUALITY.md + lint CI added; microblog #34 (Ising model)
+- **creative-clawing site** — 91 artifacts live; Mohr hypercube added; microblog #35; mobile responsive sweep (mohr/ifs/astar); back-btn href normalization (16 files); style sweep on 4 microblog entries
 - **CAIL Workshop #1 deck** — stubs remain slides 7–8, 12–15
 - **deck-templates repo** — `milwrite/deck-templates` created; aligned with cuny-ai-intro step-grid style
-- **STYLE_GUIDE** — earned assertion gate, same-question test, single separator rule added (2026-03-29)
+- **STYLE_GUIDE** — macro ID system + taxonomy added; 4 new rule batches (pseudo-cleft ban, colon pivots, nominalized subjects, em dash clarification)
 
 ## Blocked
 - **Run 4 adapter weights** — missing, need retrieval from Petrarch's machine
@@ -23,14 +23,14 @@ _Last synced: 2026-03-29 07:00 ET_
 - Blog post-publish review (3 validation issues still open?)
 
 ## Done (recent)
+- Mohr hypercube artifact + microblog #35 (2026-03-29)
+- Mobile responsive sweep: mohr/ifs/astar (2026-03-29)
+- Back-btn href normalization across 16 gallery artifacts (2026-03-29)
+- Microblog retitling + style pass (entries 28/31/32/34/35) (2026-03-29)
+- STYLE_GUIDE: macro ID system, pseudo-cleft ban, colon pivots, nominalized subjects, em dash rules (2026-03-29)
+- Cloze paper: genealogy framing pass + v42 Fillenbaum→Rayner fix (2026-03-29)
+- Petrarch audio reader added to entry-33 (2026-03-29)
 - Full gallery HiDPI + iframe audit: 10 root causes fixed across 50+ artifacts (2026-03-28, 82 commits)
-- hatmonotile + snowflake removed from gallery (2026-03-28)
-- QUALITY.md pre-ship checklist + `tests/lint_gallery.py` CI (2026-03-28)
-- Microblog #34: Ising model (2026-03-28, `2c57550`)
-- Microblog #25: Spirograph hypotrochoids (2026-03-28, `66ea65b4`)
-- Cloze paper v42: PASSAGE A, intro edits, signpost bridge (2026-03-28)
-- Editor: JS extraction + block delete UI (2026-03-28)
-- STYLE_GUIDE: earned assertion gate, same-question test (2026-03-29, `4ba5a10e`)
 - Superset13 merged: 86,419 unique entries (2026-03-27)
 - CALI scripts 250/500/750w final rewrite per milwrite brief (2026-03-26, `a04324fa`)
 - Microblog #24: Maurer rose (2026-03-26, `fa9ed1fe`)

@@ -1,6 +1,6 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-29 19:00 ET_
+_Last synced: 2026-03-29 21:00 ET_
 
 ## 🔜 Backlog
 
@@ -144,6 +144,8 @@ _Last synced: 2026-03-29 19:00 ET_
 - Prospects cron Discord posting loop failing (`/bin/sh: 1: openclaw: not found` in `fine-tuning/prospects/cron.log`)
 
 ## 📝 Notes
+- **Morning review 3/30 09:00:** 16 commits overnight (9 Quimbot, 7 creative-clawing). Style system expansion: 4 STYLE_GUIDE commits (em dash, nominalized subjects, pseudo-cleft ban, macro ID taxonomy), cloze paper v42 HTML sync + argument fix, mobile flowfield/spectrum fix. creative-clawing: microblog style sweep, entry-34 Ising rewrite, Petrarch audio reader on entry-33, crystal+voronoi safe-area insets. Data static (superset13 at 86,419). OpenRouter 402 day 33. Start of week — style system maturing, paper lane steady.
+- **Evening review 3/29 21:00:** 16 commits full day (4 Quimbot, 12 creative-clawing). Quimbot: cloze paper genealogy pass, STYLE_GUIDE rules (Petrarch), nightly sync, KANBAN cleanup. creative-clawing: Mohr hypercube artifact + microblog #35, entry retitling (4 entries), mobile responsive fixes, newton back-btn sweep (16 artifacts), iframe sandbox hardening. 91 artifacts, 33 microblogs live. Data static (superset13 at 86,419). OpenRouter 402 day 32.
 - **Evening review 3/29 19:00:** 14 commits today (2 Quimbot, 12 creative-clawing). Quimbot: cloze paper genealogy pass, STYLE_GUIDE rules (Petrarch). creative-clawing: Mohr hypercube artifact + microblog #35, entry retitling pass (4 entries), mobile-responsive fix, newton back-btn sweep (16 artifacts), iframe sandbox hardening. 91 artifacts, 33 microblogs live. Data static (superset13 at 86,419). OpenRouter 402 day 32. KANBAN cleaned (stale in-progress items moved to done).
 - **Morning review 3/29 09:00:** 7 commits overnight (2 Quimbot, 5 creative-clawing). Quimbot: microblog #25 spirograph, STYLE_GUIDE update (Petrarch). creative-clawing: microblog #34 Ising, iframe sandbox hardening (allow-scripts only), newton back-btn sweep. Data static (superset13 at 86,419). OpenRouter 402 day 32. Sunday pace.
 - **Evening review 3/28 21:00:** 115 commits today (33 Quimbot, 82 creative-clawing). Biggest single-day push ever. Quimbot: cloze paper v42 (PASSAGE A, intro edits, transition per milwrite), editor JS extraction + block delete UI, 5 stale files deleted, 3 new style rules (submarine false-dilemma, vacuous openers, stacked punctuation), favicon on all docs pages. creative-clawing: full gallery HiDPI + iframe audit (sync resize deferred on 50+, HiDPI drawImage fix, MAX_LIVE caps raised, canvas text/layout hidden in iframe, warmup for Sprott/Snowflake/Rossler, hatmonotile+snowflake removed, 16 files min-height→height, lazy loading fix, mondrian/antcolony/boids/ising/pendulum/dadras individual fixes, microblog #33 de Jong, QUALITY.md + lint CI). 89 artifacts live. OpenRouter 402 day 31. Site curation meeting at 10 PM.

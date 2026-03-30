@@ -10,7 +10,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always include commit hash **and** direct GitHub file link in Discord updates
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-03-30)
+- **Morning review 3/30 09:00**: 16 commits overnight (9 Quimbot, 7 creative-clawing). Style system expansion dominant: em dash paired-aside rule, nominalized subjects ban, What/That opener ban, This+noun rule, pseudo-cleft ban, colon pivots, consecutive clauses, sentence ceiling, macro ID taxonomy with scope profiles. Cloze paper v42 synced to HTML site (Fillenbaum→Rayner, PROP-01/02) + argument fix (pretraining ≠ slow reading). creative-clawing: microblog style sweep, entry-34 Ising closer rewrite, Petrarch audio reader on entry-33 (Daniel/British), crystal+voronoi safe-area insets. Data static (superset13 at 86,419). OpenRouter 402 day 33.
+
 ## Key Decisions Log (2026-03-29)
+- **Evening review 3/29 21:00**: 16 commits full day (4 Quimbot, 12 creative-clawing). Gallery: Mohr hypercube (4D tesseract, double stereographic projection, four rotation modes) + microblog #35 ("A Figure That Requires Four Axes"). Entry retitling pass across 4 entries. Mobile responsive fixes on mohr/ifs/astar. Newton back-btn href normalization across 16 artifacts. Writing: cloze paper genealogy framing pass. Petrarch contributed 3 STYLE_GUIDE rules. Artifact count: 91 gallery + 33 microblogs. Data static (superset13 at 86,419). OpenRouter 402 day 32. Sunday pace: steady curation day.
 - **Morning review 3/29 09:00**: 7 commits overnight (2 Quimbot, 5 creative-clawing). Quiet Sunday after 115-commit Saturday. Quimbot: microblog #25 (spirograph hypotrochoids), STYLE_GUIDE update from Petrarch (earned assertion gate, same-question test, single separator). creative-clawing: microblog #34 (Ising model), iframe sandbox hardened to allow-scripts only (dropped allow-same-origin), newton back-btn href normalization. Data static (superset13 at 86,419). OpenRouter 402 day 32. Tasked Petrarch: Section IV draft, superset13 spot-check, billing fix push.
 
 ## Key Decisions Log (2026-03-28)
