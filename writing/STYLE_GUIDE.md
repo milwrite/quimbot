@@ -8,7 +8,7 @@ Last updated: 2026-03-30 (colon pivots, consecutive clauses, sentence ceiling)
 ## Hard Rules (always on)
 
 ### Banned constructions
-- **No em dashes as syntactic patches** — an em dash earns its place only as a genuine aside (information parenthetical to the main clause); never use it as a connector, pivot, or substitute for a period or comma; when in doubt, restructure the sentence so the syntax carries the relationship
+- **Em dashes: parenthetical asides only.** A paired em dash — like this — is permitted to wrap a genuine aside. A lone em dash as a pivot, connector, or sentence-closer is banned. Test: close the dash pair and restore the sentence — if the main clause still holds, the aside is legitimate; if not, restructure.
 - **No colon pivots** — colons introduce lists and formal definitions only; never use a colon as a structural hinge, rhetorical pause, or em-dash replacement; if a colon precedes a single clause rather than a list or named term, restructure the sentence so the syntax carries the relationship instead
 - **No contrastive pivots:** kill "not X but Y", "not just X", "more than X", "beyond that", "not merely X but Y", "not only X but also Y", "less about X more about Y" — state the point directly
 - **No melodramatic overclaims** — no "restructured the conditions under which", no "transformed how we", no sweeping systemic claims from single events; bound claims to what the evidence shows
