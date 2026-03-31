@@ -1,0 +1,19 @@
+{
+  "name": "cloze-reader",
+  "version": "1.0.0",
+  "description": "Interactive cloze reading comprehension game — Cloudflare Workers edition",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.7.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250313.0",
+    "typescript": "^5.8.0",
+    "wrangler": "^4.0.0"
+  }
+}
