@@ -47,3 +47,10 @@ skills/
 scripts/daily_skill_learn.sh
 .clawhub/
 style/
+
+# Dangling submodule directories (no .gitmodules)
+agent-studio/
+creative-clawing/
+kalshi/
+site-studio/
+slide-maker/
