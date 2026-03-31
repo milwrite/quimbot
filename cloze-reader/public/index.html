@@ -124,10 +124,10 @@
 
         btn.addEventListener('click', () => {
           if (atAbout) {
-            // Scroll back to top — always reversible
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            atAbout = false;
+            btn.classList.remove('flipped');
           } else {
-            // Reveal if needed, then scroll down
             if (!about.classList.contains('revealed')) {
               about.classList.add('revealed');
               about.addEventListener('transitionend', function onEnd(e) {
@@ -138,6 +138,8 @@
             } else {
               about.scrollIntoView({ behavior: 'smooth' });
             }
+            atAbout = true;
+            btn.classList.add('flipped');
           }
         });
 
