@@ -1,0 +1,178 @@
+{
+  "cuny_data": {
+    "metadata": {
+      "total_unique_users": 24857,
+      "total_contributions": 274950,
+      "databases": 8
+    },
+    "contribution_distribution": {
+      "labels": [
+        "One-time (1)",
+        "Light (2-4)",
+        "Moderate (5-10)",
+        "Regular (11-50)",
+        "Heavy (51-100)",
+        "Super (100+)"
+      ],
+      "counts": [
+        8535,
+        7177,
+        4023,
+        4054,
+        652,
+        416
+      ],
+      "percentages": [
+        34.3,
+        28.9,
+        16.2,
+        16.3,
+        2.6,
+        1.7
+      ],
+      "colors": [
+        "#94a3b8",
+        "#64748b",
+        "#2563eb",
+        "#10b981",
+        "#f59e0b",
+        "#ef4444"
+      ]
+    },
+    "post_vs_comment": {
+      "labels": [
+        "Comment Only",
+        "Both",
+        "Post Only"
+      ],
+      "counts": [
+        11039,
+        9409,
+        4409
+      ],
+      "percentages": [
+        44.4,
+        37.9,
+        17.7
+      ],
+      "colors": [
+        "#2563eb",
+        "#10b981",
+        "#f59e0b"
+      ]
+    },
+    "cross_subreddit": {
+      "labels": [
+        "1 Subreddit",
+        "2 Subreddits",
+        "3+ Subreddits"
+      ],
+      "counts": [
+        21794,
+        2675,
+        388
+      ],
+      "percentages": [
+        87.7,
+        10.8,
+        1.6
+      ],
+      "colors": [
+        "#94a3b8",
+        "#2563eb",
+        "#10b981"
+      ]
+    },
+    "per_subreddit": [
+      {
+        "name": "Baruch",
+        "users": 9265,
+        "avg": 12.76,
+        "color": "#f59e0b"
+      },
+      {
+        "name": "CUNY",
+        "users": 10967,
+        "avg": 8.75,
+        "color": "#2563eb"
+      },
+      {
+        "name": "Queens",
+        "users": 2930,
+        "avg": 8.66,
+        "color": "#10b981"
+      },
+      {
+        "name": "Hunter",
+        "users": 3222,
+        "avg": 7.66,
+        "color": "#ef4444"
+      },
+      {
+        "name": "CCNY",
+        "users": 1445,
+        "avg": 6.4,
+        "color": "#7c3aed"
+      },
+      {
+        "name": "Brooklyn",
+        "users": 424,
+        "avg": 2.6,
+        "color": "#ec4899"
+      },
+      {
+        "name": "JohnJay",
+        "users": 87,
+        "avg": 2.33,
+        "color": "#06b6d4"
+      }
+    ]
+  },
+  "reddit_baselines": {
+    "classic_90_9_1": {
+      "lurkers": 90,
+      "contributors": 9,
+      "creators": 1
+    },
+    "current_estimates": {
+      "lurker_rate": 98,
+      "active_rate": 2,
+      "power_user_rate": 0.1
+    },
+    "higher_logic_2024": {
+      "small_community_active": 33,
+      "medium_community_active": 20,
+      "large_community_active": 10
+    }
+  },
+  "key_comparisons": {
+    "lurker_rate": {
+      "reddit": 90,
+      "cuny": 34.3,
+      "multiplier": "2.6x fewer lurkers"
+    },
+    "regular_contributors": {
+      "reddit": 2.5,
+      "cuny": 18.9,
+      "multiplier": "7.6x more regulars"
+    },
+    "power_users": {
+      "reddit": 0.1,
+      "cuny": 1.7,
+      "multiplier": "17x more power users"
+    },
+    "avg_contributions": {
+      "reddit": 7,
+      "cuny_overall": 11.06,
+      "cuny_baruch": 12.76,
+      "multiplier": "1.6-1.8x higher"
+    }
+  },
+  "sources": [
+    "Nielsen, J. (2006). Participation Inequality: The 90-9-1 Rule - NN/G",
+    "Higher Logic (2024). How We Know the 90-9-1 Rule is Officially Outdated",
+    "Science Advances (2025). Reddit field experiment: lurkers vs power users",
+    "CUNY Database Analysis (Feb 2026): 24,857 users, 274,950 contributions"
+  ],
+  "generated": "February 2026"
+}

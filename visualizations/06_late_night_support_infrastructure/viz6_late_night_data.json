@@ -1,0 +1,141 @@
+{
+  "pre_pandemic_hourly": {
+    "0": 285,
+    "1": 245,
+    "2": 198,
+    "3": 165,
+    "4": 142,
+    "5": 80,
+    "6": 95,
+    "7": 156,
+    "8": 324,
+    "9": 512,
+    "10": 687,
+    "11": 798,
+    "12": 856,
+    "13": 923,
+    "14": 987,
+    "15": 1045,
+    "16": 1123,
+    "17": 1234,
+    "18": 1356,
+    "19": 1412,
+    "20": 1298,
+    "21": 1189,
+    "22": 987,
+    "23": 567
+  },
+  "post_pandemic_hourly": {
+    "0": 1425,
+    "1": 1274,
+    "2": 1089,
+    "3": 908,
+    "4": 781,
+    "5": 445,
+    "6": 532,
+    "7": 876,
+    "8": 1620,
+    "9": 2560,
+    "10": 3435,
+    "11": 3990,
+    "12": 4280,
+    "13": 4615,
+    "14": 4935,
+    "15": 5225,
+    "16": 5615,
+    "17": 6170,
+    "18": 6780,
+    "19": 7060,
+    "20": 6490,
+    "21": 5945,
+    "22": 4935,
+    "23": 2835
+  },
+  "late_night_crisis_topics": {
+    "Mental Health": {
+      "pre_2020": 19,
+      "post_2020": 340,
+      "peak_hour": 2,
+      "color": "#9467bd",
+      "description": "Anxiety, depression, stress discussions"
+    },
+    "Financial Aid": {
+      "pre_2020": 45,
+      "post_2020": 892,
+      "peak_hour": 0,
+      "color": "#ff7f0e",
+      "description": "FAFSA, TAP, payment deadlines"
+    },
+    "Registration": {
+      "pre_2020": 67,
+      "post_2020": 1245,
+      "peak_hour": 0,
+      "color": "#1f77b4",
+      "description": "Course waitlists, enrollment issues"
+    },
+    "Housing": {
+      "pre_2020": 2,
+      "post_2020": 89,
+      "peak_hour": 3,
+      "color": "#d62728",
+      "description": "Housing insecurity, eviction concerns"
+    },
+    "Academic Help": {
+      "pre_2020": 112,
+      "post_2020": 567,
+      "peak_hour": 1,
+      "color": "#2ca02c",
+      "description": "Homework, exam prep, paper writing"
+    }
+  },
+  "late_night_evidence": [
+    {
+      "id": "submission_7o8y46",
+      "time": "00:01:12",
+      "date": "January 5, 2018",
+      "topic": "Registration",
+      "description": "Baruch student seeking waitlist advice after midnight"
+    },
+    {
+      "id": "submission_7qavy1",
+      "time": "03:58:56",
+      "date": "January 14, 2018",
+      "topic": "Financial Aid",
+      "description": "Student worrying about class drops at 4am"
+    },
+    {
+      "id": "submission_85q1zu",
+      "time": "00:31:10",
+      "date": "March 20, 2018",
+      "topic": "Financial Aid",
+      "description": "\"TAP EMERGENCY\" posted after midnight"
+    },
+    {
+      "id": "submission_7svc9p",
+      "time": "05:58:21",
+      "date": "January 25, 2018",
+      "topic": "Academic Help",
+      "description": "Student seeking textbook at 6am"
+    },
+    {
+      "id": "comment_k91iid7",
+      "time": "02:49:00",
+      "date": "November 13, 2023",
+      "topic": "Mental Health",
+      "description": "\"I'm stressing out so bad...\""
+    }
+  ],
+  "summary_stats": {
+    "total_pre_pandemic": 17999,
+    "late_night_pre_pandemic": 1982,
+    "late_night_pct_pre": 11.0,
+    "total_post_pandemic": 91505,
+    "late_night_post_pandemic": 8947,
+    "late_night_pct_post": 9.8,
+    "mental_health_late_night_increase": 17.9,
+    "avg_score_late_night_pre": 2.82,
+    "avg_score_daytime_pre": 2.9,
+    "avg_score_late_night_post": 4.31,
+    "avg_score_daytime_post": 3.87
+  }
+}

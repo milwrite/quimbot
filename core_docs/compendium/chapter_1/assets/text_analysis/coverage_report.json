@@ -1,0 +1,102 @@
+{
+  "timestamp": "2025-08-25T16:02:52.461106",
+  "subreddits_analyzed": 8,
+  "subreddit_details": {
+    "CUNY": {
+      "submissions": 16735,
+      "comments": 75699,
+      "orphaned_comments": 508,
+      "orphaned_percentage": 0.6710788781886154,
+      "unique_submission_authors": 5151,
+      "unique_comment_authors": 6839,
+      "text_entries_analyzed": 107937,
+      "unique_tokens": 28652,
+      "total_tokens": 1263679
+    },
+    "Baruch": {
+      "submissions": 19081,
+      "comments": 54519,
+      "orphaned_comments": 278,
+      "orphaned_percentage": 0.5099139749445147,
+      "unique_submission_authors": 3867,
+      "unique_comment_authors": 4059,
+      "text_entries_analyzed": 91482,
+      "unique_tokens": 26865,
+      "total_tokens": 851144
+    },
+    "HunterCollege": {
+      "submissions": 5576,
+      "comments": 21771,
+      "orphaned_comments": 236,
+      "orphaned_percentage": 1.084010840108401,
+      "unique_submission_authors": 1760,
+      "unique_comment_authors": 2686,
+      "text_entries_analyzed": 32332,
+      "unique_tokens": 17171,
+      "total_tokens": 361328
+    },
+    "QueensCollege": {
+      "submissions": 6483,
+      "comments": 22717,
+      "orphaned_comments": 229,
+      "orphaned_percentage": 1.0080556411497996,
+      "unique_submission_authors": 1592,
+      "unique_comment_authors": 2481,
+      "text_entries_analyzed": 34959,
+      "unique_tokens": 18573,
+      "total_tokens": 384621
+    },
+    "CCNY": {
+      "submissions": 2199,
+      "comments": 8106,
+      "orphaned_comments": 216,
+      "orphaned_percentage": 2.6646928201332347,
+      "unique_submission_authors": 788,
+      "unique_comment_authors": 1182,
+      "text_entries_analyzed": 12340,
+      "unique_tokens": 10558,
+      "total_tokens": 137803
+    },
+    "BrooklynCollege": {
+      "submissions": 477,
+      "comments": 822,
+      "orphaned_comments": 2,
+      "orphaned_percentage": 0.24330900243309003,
+      "unique_submission_authors": 234,
+      "unique_comment_authors": 297,
+      "text_entries_analyzed": 1737,
+      "unique_tokens": 4278,
+      "total_tokens": 19142
+    },
+    "CUNYuncensored": {
+      "submissions": 59,
+      "comments": 89,
+      "orphaned_comments": 0,
+      "orphaned_percentage": 0.0,
+      "unique_submission_authors": 38,
+      "unique_comment_authors": 45,
+      "text_entries_analyzed": 206,
+      "unique_tokens": 1764,
+      "total_tokens": 4376
+    },
+    "JohnJay": {
+      "submissions": 65,
+      "comments": 172,
+      "orphaned_comments": 0,
+      "orphaned_percentage": 0.0,
+      "unique_submission_authors": 45,
+      "unique_comment_authors": 56,
+      "text_entries_analyzed": 295,
+      "unique_tokens": 1455,
+      "total_tokens": 4062
+    }
+  },
+  "aggregate_stats": {
+    "total_submissions": 50675,
+    "total_comments": 183895,
+    "total_orphaned": 1469,
+    "total_unique_tokens": 157,
+    "total_text_entries": 281288,
+    "overall_orphaned_percentage": 0.7988254166779957
+  }
+}

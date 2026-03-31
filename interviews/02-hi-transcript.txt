@@ -1,0 +1,1032 @@
+[Zach Muhlbauer] 16:34:46
+Hey, hell. I give you a moment to get situated and I'm just going to put something in the chat here.
+
+[Zach Muhlbauer] 16:34:58
+Looks like you're connecting your audio.
+
+[Zach Muhlbauer] 16:35:13
+Connected. Great. Hey, I can hear you.
+
+[Hal (they/them)] 16:35:16
+Hello? Hi, do you require video for this thingy or do you Okay, awesome. As long as the voice is just necessary, it should be okay.
+
+[Zach Muhlbauer] 16:35:21
+I just need your voice.
+
+[Zach Muhlbauer] 16:35:27
+Yeah, yeah. And if you feel more comfortable that way, I know that Zoom can be, it's fatiguing just having to speak alone. So no worries.
+
+[Zach Muhlbauer] 16:35:36
+So I put a… Interview menu is what it's called. Or interview question menu in the chat.
+
+[Zach Muhlbauer] 16:35:47
+And I figure we'll just get down to brass tacks Because I don't want to take up too much of your time. And I know that this is like extra work on top of the semester. So it's
+
+[Hal (they/them)] 16:35:57
+No, it's okay. I don't mind. I know it's like for your kind of homework stuff so I don't mind helping you out.
+
+[Zach Muhlbauer] 16:36:02
+Yeah. I appreciate it. I appreciate that. And I just know, I mean, I actually, I interviewed another member of our class and it was a really great conversation. So I'm excited to hear what you have to say, Hal. And so if you see the, if you see the interview question menu in the chat, that basically is an alternative approach to these kinds of interviews where Unlike a traditional interview where I would ask predetermined questions, this kind of gives you an opportunity
+
+[Zach Muhlbauer] 16:36:29
+Pick and choose which questions you feel most comfortable to answer, as well as ones that are just most relevant to your experience engaging with Reddit or Discord for educational or semi educational purposes.
+
+[Zach Muhlbauer] 16:36:46
+And this is really just like a starting point for the interview. I think the best case scenario is that we just have a kind of honest and forthright conversation. That's where the real truths come out more or less.
+
+[Hal (they/them)] 16:36:59
+Okay.
+
+[Zach Muhlbauer] 16:36:59
+And just to get started, Hal, anything you'd like to say about yourself?
+
+[Zach Muhlbauer] 16:37:06
+Your experience at CCNY, where you're from, who you are, anything that you feel might be relevant to framing your positionality, I think.
+
+[Hal (they/them)] 16:37:17
+I guess the only thing I can think about mentioning is that I really hate math.
+
+[Hal (they/them)] 16:37:23
+I'm glad that Python is that kind of thing that can do the math for you.
+
+[Hal (they/them)] 16:37:28
+Thanks, Neat. I didn't expect myself to do code related things again.
+
+[Hal (they/them)] 16:37:35
+My first introduction was back in high school when we did like this scratch thing and whatnot like beginnings of HTML and CSS and stuff And I don't really remember those things anymore, but I didn't think I was going to do anything of that sort again.
+
+[Zach Muhlbauer] 16:37:51
+Well, you know, it's always that's always best kind of learning is when you pick up on something that you previously learned but didn't expect you were going to do again.
+
+[Hal (they/them)] 16:38:01
+Yeah.
+
+[Zach Muhlbauer] 16:38:01
+I guess just to give a little framing, what year at CCNY are you? And, you know, how did you how did you end up in the CUNY system, you know, like, uh.
+
+[Zach Muhlbauer] 16:38:11
+I think that just getting a sense of how you got here today might be useful to me down the line. And it's actually things I don't know about you because That's something that we don't always talk about in the classroom.
+
+[Hal (they/them)] 16:38:25
+Yeah, sure. I'm in my junior year. I think in my late junior year And I got to CCNY because one of my teachers went to City College and I admired her a lot. So I wanted to follow in her footsteps.
+
+[Zach Muhlbauer] 16:38:40
+That's lovely. I love it. Simply put. Okay, Hal. So just kind of, I'm scrolling down now.
+
+[Zach Muhlbauer] 16:38:48
+And I'm looking at platform experiences. And I noticed you're on Discord quite often and you're always very communicative on Discord. I guess more than anything, if you want to choose any of these questions or if you want me to choose one, which do you prefer?
+
+[Hal (they/them)] 16:39:07
+I could answer the first one, but I don't think I'd be able to give a relevancy for… No, that's not true. I can give relevancy for CUNY students.
+
+[Hal (they/them)] 16:39:17
+So as Discord itself, I discovered it back in 2016 or so i was um I wouldn't say exile it's the right word I migrated from Skype to discord Skype always was a frustrating thing. And as a resource for CUNY students specifically
+
+[Hal (they/them)] 16:39:38
+I think it was a few years ago when someone made a class server and I was like, oh man, I didn't think about doing that kind of thing but Ever since then, people make class servers We can talk.
+
+[Hal (they/them)] 16:39:54
+And or allegedly or allegedly violate school policies of sorts.
+
+[Zach Muhlbauer] 16:40:00
+I'm serious. Yeah, no, go ahead. Go ahead.
+
+[Hal (they/them)] 16:40:01
+But um Yeah, but… school servers are very useful. I just wish that I can tell that some people don't actually use Discord on their off time like I do.
+
+[Hal (they/them)] 16:40:14
+So sometimes it's very hard to get a hold of your classmates in the class. I feel like some of them use Instagram or something.
+
+[Hal (they/them)] 16:40:19
+And I think I would be caught dead before using an Instagram group chat so
+
+[Zach Muhlbauer] 16:40:24
+I could agree with you there. Yeah. So do you think it's a common experience nowadays that uh there be a kind of back channel or Discord server that serves as a companion to the course for students to communicate privately.
+
+[Zach Muhlbauer] 16:40:41
+Or is that your most common kind of educational experience of the platform?
+
+[Hal (they/them)] 16:40:46
+I think it's very useful on Discord using forum using school purposes is really good because you can if someone knows more stuff than you do in the course you can like look to them for advice Or you can solve a problem together if you have any.
+
+[Hal (they/them)] 16:41:02
+Or just things as simple as studying for tests and whatnot together is something that I've noticed is very useful.
+
+[Hal (they/them)] 16:41:10
+Like back then, I don't really I don't think we're in that time period or era where we just ask each other for phone numbers or emails.
+
+[Hal (they/them)] 16:41:20
+It's really awkward to like set connections into between you and your fellow students. But if you have a server, you have a singular link thing that you can just go to You can talk and access all of your classmates as long as they're available on Discord, of course.
+
+[Zach Muhlbauer] 16:41:37
+Yeah, I mean, that was very much like a lot of the thinking that went into my use of it for our class. And I'm interested in this uh not only because of, I think, the back channels or the kind of student-led servers that accompany courses, but also these like giant servers that have been set up as de facto
+
+[Zach Muhlbauer] 16:41:59
+Institutional spaces for students. I'm not sure, have you ever encountered some of these larger Discord servers that are kind of house the entire CCNY Discord server.
+
+[Hal (they/them)] 16:42:12
+Oh, yeah. I've seen those. That's crazy. I think I remember a time when that wasn't a thing just yet. So I made my own server like years ago with just my friends from freshman year.
+
+[Zach Muhlbauer] 16:42:13
+I mean…
+
+[Hal (they/them)] 16:42:25
+Oh, it's a… huge, huge space, the amount of servers that are available from the school connected things.
+
+[Hal (they/them)] 16:42:32
+Though I will say that in terms of like having using it for class, it probably isn't the best in terms of organizing all the things that you need to do because it gets buried in the chat and whatnot sometimes.
+
+[Hal (they/them)] 16:42:46
+But it's still useful though because you have like two ways to verify what you need to do.
+
+[Zach Muhlbauer] 16:42:52
+Yeah. So are you part of the CCNY Discord? By any chance?
+
+[Hal (they/them)] 16:42:57
+Oh, no, I do not like talking to other people unless I have to.
+
+[Zach Muhlbauer] 16:43:02
+Yeah, I understand that. But do you find yourself kind of in, I mean, I know that some folks will join those servers just to kind of to lurk. And that's the common vernacular used here is that, you know, you have lurkers, you have
+
+[Zach Muhlbauer] 16:43:18
+Contributors infrequently, perhaps. And then you have more um kind of everyday contributors. And then there's like the moderators and the moderators present a really interesting kind of case study, I think, for this particular space, these giant servers that are dedicated to student engagement beyond the classroom and more at the campus level and uh
+
+[Zach Muhlbauer] 16:43:44
+So you may not have encountered the CCNY one. I know the CUNY one is also pretty prominent. And then all the other major senior colleges across the CUNY system seem to have these Discord servers set up. So do you have any experience in those ones or do you, does it kind of give you anxiety? Is it that kind of thing?
+
+[Hal (they/them)] 16:44:04
+I think I like joined one of them once, but I didn't really see the point of being in it if I'm not going to contribute or talk to anybody. So I just left for the sake of clearing out the amount of icons I have my side.
+
+[Zach Muhlbauer] 16:44:15
+Yeah. Well, that's an interesting point. So you feel that if you're not going to contribute, it's not necessarily worth it to be in the space.
+
+[Hal (they/them)] 16:44:23
+Yeah, if I can't, not just if I can't contribute, but also if I can't like get anything from it.
+
+[Hal (they/them)] 16:44:30
+Like information wise, maybe I learned something I just don't really see much of a reason to be there.
+
+[Zach Muhlbauer] 16:44:36
+Yeah. Yeah. I understand that. I don't think that me personally, I get all that much information from the the CUNY server or the Kuni Discord servers, but I do get a lot of information, I think, from the Kuni reddits and like the CCNY subreddit, for instance.
+
+[Hal (they/them)] 16:44:52
+We have a Reddit.
+
+[Zach Muhlbauer] 16:44:53
+Yeah, there's a CCNY subreddit. I'm surprised you didn't know that, Hal.
+
+[Hal (they/them)] 16:44:58
+Listen, I've seen like on Instagram, CCNY confessions and like all kinds of weird CCNY drama and stuff, but I didn't consider the reality of that we have our own Reddit. That's awesome.
+
+[Hal (they/them)] 16:45:11
+I didn't know that my town, not town, but I guess like my area had read it until like a few years ago.
+
+[Zach Muhlbauer] 16:45:12
+I'll link it in the…
+
+[Zach Muhlbauer] 16:45:19
+Yeah, and this is, I think, what I'm more interested in than anything. As much as I love Discord and I love teaching with it, I think it's these kind of digital town squares that students set up.
+
+[Zach Muhlbauer] 16:45:30
+In large part because of institutional shortcomings, which I'm sure you're familiar with.
+
+[Zach Muhlbauer] 16:45:35
+Vis-a-vis the escalator or is it the escalator at TCMY, which is a common trope that appears in the CCNY subreddit.
+
+[Hal (they/them)] 16:45:41
+Yeah, it's really funny.
+
+[Zach Muhlbauer] 16:45:44
+Yeah, like all these interpreters have their own little tropes. And so I was… Yeah, whatever, you know, whatever thoughts you have on this, you know, because it's an unusual phenomenon and it kind of, it spurned out of the uh
+
+[Hal (they/them)] 16:45:47
+I got to join this subreddit later sorry
+
+[Zach Muhlbauer] 16:45:58
+The pandemic in part because students had no means of communicating and the CUNY institutions are not particularly adept at reaching students through normal communication channels, or at least I hypothesize. And I'm wondering If you, in your experience as a CUNY student, do you feel that
+
+[Zach Muhlbauer] 16:46:18
+Cuny's preferred channels of communication, whether that be through email or their websites. Do you feel that there's a kind of, in your experience, failure to communicate on the part of the institution?
+
+[Hal (they/them)] 16:46:32
+I feel like the way that they like the user interface that they provide for people isn't exactly palatable.
+
+[Hal (they/them)] 16:46:39
+Or appealing to people that are of a newer generation compared to older people. It might be functional for like the older teachers to like be able to use things like bright space or black space, but it's not something that's like
+
+[Hal (they/them)] 16:46:53
+Alluring to students particularly
+
+[Zach Muhlbauer] 16:46:56
+Lowering is a good word. Yeah, students can't Google information about, say, a professor and reach a subreddit or lived information about it.
+
+[Zach Muhlbauer] 16:47:08
+Do you think that… Let me see. I'm going to go back to the questions because I get unmoored from the questions.
+
+[Zach Muhlbauer] 16:47:17
+So have you seen the Kuni subreddit by chance?
+
+[Hal (they/them)] 16:47:21
+I have not. Again, I didn't think because for to me reddit is like the place that you look up, ah man i have a weird scratch or bump on my arm. What does that mean? It's like WebMD, but for um
+
+[Hal (they/them)] 16:47:33
+Anybody online And things like fandoms, like maybe it's like a TV show or a book or something, people that have read it or watched it. And so I didn't think that it could be like a very local thing.
+
+[Hal (they/them)] 16:47:44
+Like I figured that there would be geological places like for example there's a subreddit for Everett washington state But I didn't think about colleges having their own little subreddits.
+
+[Hal (they/them)] 16:47:56
+That's awesome.
+
+[Zach Muhlbauer] 16:47:58
+Yeah, I mean, I would encourage you to check it out after the meeting. I think there's a lot of interesting kind of rhetoric and social relations that students develop in these spaces. And then you have professors and staff members of the university who seem to kind of lurk in the background and sometimes will contribute posts or comments. If it's a post, they tend not to get a lot of responses. But professors will jump at the comments, but in large part, it's a space for students and students, at least alumni, run the subreddits. And for the most part, students and alumni run the discord servers too.
+
+[Zach Muhlbauer] 16:48:35
+So it seems as though it's almost like an underground communication channel for students. And yet it's also so much more accessible.
+
+[Zach Muhlbauer] 16:48:46
+And these are the kind of questions I think I'm most interested in.
+
+[Zach Muhlbauer] 16:48:50
+And I guess going back to the question of institutional communication, I mean, do you find that you get all of the information you need to do the work you need to get done for your courses through these conventional communication channels? Because even if you do and And you're a kind of edge case here for, I think, for, I mean, not an edge case so much as a student who knows how to
+
+[Zach Muhlbauer] 16:49:15
+Find the information they need. Do you think that the development of these subreddits, these Discord servers have anything to do with um failures on the part of the institution to uh to not only update their communication, their mode of communication, but to actually meet students where they are.
+
+[Zach Muhlbauer] 16:49:37
+I mean, that's the question that I'm really mulling over. Sorry, that was a long little… Spiel.
+
+[Hal (they/them)] 16:49:40
+You know, it's okay um where the institution fails, I think that Discord and reddit does fill in.
+
+[Hal (they/them)] 16:49:50
+Properly. Um… Yeah, it's okay.
+
+[Zach Muhlbauer] 16:49:54
+Yeah. I'll give you time to think. Sorry, I like to interrupt.
+
+[Hal (they/them)] 16:50:02
+Discord is and discord and Reddit actually are more structured as social media type sites And that's something that a lot of people have like experience with.
+
+[Hal (they/them)] 16:50:11
+It's like this layer of anonymity It's this um ability to have whatever picture you want there to be.
+
+[Hal (they/them)] 16:50:19
+I'm sorry about my picture for GitHub. It is in fact gosspring on the floor.
+
+[Hal (they/them)] 16:50:24
+Crying.
+
+[Zach Muhlbauer] 16:50:25
+That's okay. Yeah, I think that's proper. I love your username here.
+
+[Zach Muhlbauer] 16:50:30
+On Discord. You've always had really great social media style, which is one of the reasons I wanted to interview you here. I guess on the subject of anonymity, because I do have a question here about anonymity.
+
+[Zach Muhlbauer] 16:50:42
+Do you think that students are more likely to speak their truth because they have this layer of anonymity on Reddit and on Discord. And do you think anonymity is equivalent across those two platforms.
+
+[Hal (they/them)] 16:50:59
+Oh. Well, one of them is a messaging thing and the other one's more like a forum so i guess Discord would be a slightly bit more personal than Reddit would be
+
+[Zach Muhlbauer] 16:51:01
+I guess…
+
+[Hal (they/them)] 16:51:13
+I feel that people will feel that people will be able to talk more and straightforwardly about things that they feel with anonymity.
+
+[Zach Muhlbauer] 16:51:26
+Yeah. Yeah, I mean, I think… It seems it's an interesting question because I think… your generation and my generation.
+
+[Zach Muhlbauer] 16:51:37
+I've grown up with uh grown up with these usernames, these monikers as a kind of split identity for us. And I think that um For students, there's almost an expectation among some that you need that anonymity in order to
+
+[Zach Muhlbauer] 16:51:53
+To tell your lived experience as you lived it. And that there are so little or so few venues for you to express those feelings and experiences.
+
+[Zach Muhlbauer] 16:52:04
+And I've talked to a few students who really go to the CUNY Reddit because they want to figure out if a certain experience is worth their while, if an event or an internship, for instance, is meaningful or whether it's kind of setting them up to fail.
+
+[Zach Muhlbauer] 16:52:23
+And I mean, you may not have experience with the CUNY Reddit and you may have the closed server experience with the classes, but maybe not with the larger You know, KUNI servers and uh I guess one question that I have for you is, so do you contribute to Reddit more broadly? Do you have a good karma on reddit?
+
+[Hal (they/them)] 16:52:47
+I think so.
+
+[Zach Muhlbauer] 16:52:52
+Do you have kind of things?
+
+[Hal (they/them)] 16:52:52
+I see. I don't upload lots of things. I don't even talk really Sometimes I just look at, let's see These are the communities I'm part of.
+
+[Hal (they/them)] 16:53:03
+On Reddit. So I have read r slash historian that's my That's the place I live in. R slash Ace Attorney. I like that game series.
+
+[Zach Muhlbauer] 16:53:09
+I love it.
+
+[Hal (they/them)] 16:53:14
+R slash are the straights okay.
+
+[Hal (they/them)] 16:53:19
+Sometimes heterosexual couples act a little silly so That's what that's for.
+
+[Hal (they/them)] 16:53:25
+Um r slash butch lesbians you know um Or slash cats.
+
+[Hal (they/them)] 16:53:34
+And then I just have a bunch of games and then other games series that I enjoy.
+
+[Hal (they/them)] 16:53:42
+Oh, and software. I'm particularly a fan of voice synthesis software
+
+[Zach Muhlbauer] 16:53:44
+Yeah.
+
+[Zach Muhlbauer] 16:53:49
+Hmm. And you find information about that in that subreddit in particular. Is that like a place where you go to find, you know.
+
+[Zach Muhlbauer] 16:54:00
+Specific information or do you just kind of browse?
+
+[Hal (they/them)] 16:54:03
+I kind of browse. I'm also part of r slash king crimson So sometimes I like to see people's takes on music I also enjoy We're like, ah, this album is the best album ever hot take and everyone's like, yeah, we agree with you. No one said no
+
+[Zach Muhlbauer] 16:54:19
+I love that. Yeah, King Crimson's the bomb. Is so good.
+
+[Hal (they/them)] 16:54:23
+I love King Crimson, yeah.
+
+[Zach Muhlbauer] 16:54:25
+And so looking back at some of the subreddits that you are part of, some of them are kind of explicitly associated with LGBQT identity. And I know that there is there's lots of scholarship that's been written on, for instance, like Black Twitter. And, you know, these kinds of subreddits or even I'm not sure this is the case so much with Discord as it is with
+
+[Zach Muhlbauer] 16:54:50
+With Reddit, do you feel that Reddit gives you the opportunity to find your people outside of the university? And do you feel like it has, that it serves as a space where you can kind of build power with people who are like yourself?
+
+[Zach Muhlbauer] 16:55:08
+Or do you, there's like a recognition and uh you know kind of seeing what other people, like what's going on in the world, for instance
+
+[Hal (they/them)] 16:55:09
+Oh.
+
+[Hal (they/them)] 16:55:17
+For me, red is kind of like interacting with making friendly bystanders with people more than like making friendships particularly I… feel like nowadays for people like me particularly, Tumblr is more of a place where people like mingle and talk and stuff.
+
+[Zach Muhlbauer] 16:55:28
+Bye.
+
+[Hal (they/them)] 16:55:40
+I'm sure there are people who preferred Reddit and it does have a chat function, but I don't I've never made a friend off of Reddit.
+
+[Hal (they/them)] 16:55:48
+I've only used reddit to like make ads and stuff.
+
+[Zach Muhlbauer] 16:55:53
+Yeah. So tell me a little bit more about Tumblr because I'm more interested in your social media activity and behavior, particularly as it pertains to your identity as a community student And maybe more broadly, but how does Tumblr figure into uh
+
+[Zach Muhlbauer] 16:56:10
+Your kind of relationality with folks that you're looking to connect with online.
+
+[Hal (they/them)] 16:56:17
+Well, sometimes if I ask some of my classmates or college mates for their Tumb Because usually you put like funny posts on Tumblr and like interesting posts on Tumblr so just it like lets me have a window into like what what they like
+
+[Hal (they/them)] 16:56:32
+What goes on?
+
+[Zach Muhlbauer] 16:56:34
+Yeah. And you don't really get that with Discord or Reddit, I think perhaps because it's more community oriented or based around topics or interests, less so that kind of connection with a particular person. On Tumblr it's kind of user, like the identity of the user organizes the platform where on
+
+[Zach Muhlbauer] 16:56:56
+Whereas on Reddit and Discord, you have the community or the topic or the collective seems to organize the way that people gather. Do you find yourself uh kind of leaning in one direction. I mean, you were talking about Instagram earlier that you wouldn't be caught dead in an Instagram
+
+[Hal (they/them)] 16:57:15
+Yeah, it's just not my kind of platform. You know, you got to put pictures and stuff. The only way you can post is to put pictures.
+
+[Zach Muhlbauer] 16:57:16
+With your…
+
+[Hal (they/them)] 16:57:22
+What if I don't want to put a picture, you know?
+
+[Hal (they/them)] 16:57:25
+My girlfriend is better at that kind of stuff
+
+[Zach Muhlbauer] 16:57:26
+So… Yeah. So do you post on tumbler?
+
+[Hal (they/them)] 16:57:32
+We met on Tumblr, actually.
+
+[Zach Muhlbauer] 16:57:34
+Oh, you did? Okay. Well, what do you know? Um So you have an experience with fandom. I mean, you literally met your girlfriend on fandom.
+
+[Hal (they/them)] 16:57:38
+Yeah, we met on the Castlevania Tumblr fandom
+
+[Zach Muhlbauer] 16:57:49
+On a fandom in a fandom space. And I mean, that's fascinating to me because I think that a lot of these CUNY subreddits seem to adopt a model similar to The way that fandom communities convene and come together.
+
+[Zach Muhlbauer] 16:58:01
+To negotiate particular issues, but also to like share information and you know it's it's about the fandom, but it's also about so much more.
+
+[Zach Muhlbauer] 16:58:10
+Do you have any thoughts on that in like participatory culture more broadly?
+
+[Zach Muhlbauer] 16:58:17
+That's okay if you don't.
+
+[Hal (they/them)] 16:58:20
+Can I get a condensed version of that? I'm so sorry.
+
+[Zach Muhlbauer] 16:58:23
+No, I'm still getting, I'm still developing my question asking skills.
+
+[Zach Muhlbauer] 16:58:29
+Here, let's keep going because that wasn't exactly a clear question.
+
+[Hal (they/them)] 16:58:34
+What section should we go to?
+
+[Zach Muhlbauer] 16:58:37
+I'm trying to look for one that, so do you find a sense of digital community on Tumblr? Do you think that you find that sense of community in that space more than, say, on Discord or Reddit?
+
+[Hal (they/them)] 16:58:51
+Um… But for my girlfriend, yes. After I feel like I've migrated to Discord because that's how we mostly communicate.
+
+[Hal (they/them)] 16:59:03
+Like if we didn't have Discord, I would probably be talking to some of my closest friends on Tumblr but since I have like they're direct communication line that is Discord i just talk there all the time.
+
+[Zach Muhlbauer] 16:59:15
+Yeah. So it's kind of like your de facto communication space um
+
+[Hal (they/them)] 16:59:20
+Yeah, like what Instagram is to other people, Discord is to me. It's like the direct communication line.
+
+[Zach Muhlbauer] 16:59:27
+I see. And so you find yourself not only communicating within the servers, but through those direct messages to kind of like how we have in the past.
+
+[Hal (they/them)] 16:59:36
+Yeah.
+
+[Zach Muhlbauer] 16:59:36
+Fair enough. Yeah. So let's stick with, I mean, let's stick with Discord more because I think that that's where it seems most of your experience comes from.
+
+[Zach Muhlbauer] 16:59:46
+Do you ever find yourself kind of exploring community servers beyond, of course, the CUNY subreddit?
+
+[Hal (they/them)] 16:59:56
+On Discord?
+
+[Zach Muhlbauer] 16:59:57
+Cuny server, I mean. I mean, so I'm kind of focusing in my dissertation on the CUNY servers, but I'm also curious how CUNY students find a sense of community in these spaces beyond the servers and subreddits.
+
+[Zach Muhlbauer] 17:00:11
+And I'm wondering Yeah.
+
+[Hal (they/them)] 17:00:12
+Well, of the Sorry, of the servers that I have joined of the CUNY type.
+
+[Hal (they/them)] 17:00:17
+Because the whole thing that they put in recently where you can connect to your school email and you can get get access to this place. I did join the CUNY LGBT server as far as I was aware, but I think I left afterwards because, again, I wasn't like
+
+[Hal (they/them)] 17:00:32
+Doing much. It was just kind of an icon rotting my sidebar so
+
+[Zach Muhlbauer] 17:00:37
+So you feel like you need to get some good use out of the servers that you're actively a part of. Otherwise, you want to make sure that your cyber is nice and cleanly.
+
+[Hal (they/them)] 17:00:47
+Yes.
+
+[Zach Muhlbauer] 17:00:48
+Yeah, I get that. I get that. And so while you were part of that, because I didn't even know that that subreddit existed or God, I keep mixing them up, that server.
+
+[Hal (they/them)] 17:00:58
+Okay.
+
+[Zach Muhlbauer] 17:00:59
+What did you see while you were there? I mean, did you find it to be, you know, a special space in any way or did you just feel that uh You know, it was, I mean, what was like subjects of conversation? Do you think that it's valuable that students from the LGBTQ
+
+[Zach Muhlbauer] 17:01:15
+Lgbqt community have that, especially within the CUNY system?
+
+[Hal (they/them)] 17:01:23
+Sorry, can you repeat the question?
+
+[Zach Muhlbauer] 17:01:25
+Yeah. Do you feel like that the CUNY LGBT server uh gives CUNY students, you know, particular value that like what value does it did you feel that it served for them?
+
+[Zach Muhlbauer] 17:01:39
+To have that sub that server.
+
+[Hal (they/them)] 17:01:42
+It's interesting because I feel like the LGBT community in City College specifically thrives more on Instagram.
+
+[Hal (they/them)] 17:01:50
+It's like these different places have like their different types of places um methods.
+
+[Hal (they/them)] 17:01:59
+Software apps caters to what that specific fandom needs Like, for example, I noticed that the like the one the lgbt Service appeared in the CUNY.
+
+[Zach Muhlbauer] 17:02:07
+Yeah.
+
+[Hal (they/them)] 17:02:16
+Selection thing was kind of a dead server. It wasn't really active And people more like joined than actually participating at all. So it was kind of like empty but for the LGBT, for example, pages that they have Instagram, it is more of an active thing for more people
+
+[Zach Muhlbauer] 17:02:28
+Yeah.
+
+[Hal (they/them)] 17:02:37
+The only thing that I have closest to like an LGBT server from CUNY is just a small like kind of So at CCNY, we have a place called the center where we usually just sit around, do homework study Eat, chat, etc.
+
+[Hal (they/them)] 17:02:55
+And… I have like a relatively medium-sized friend group there that we joined a mutual Discord server, which basically works as like you know i guess a group chat of sorts
+
+[Zach Muhlbauer] 17:03:09
+Yeah. And so you, I mean, that's not the same server as the one you were talking about earlier. That's one like that's specifically… designed for your friends.
+
+[Hal (they/them)] 17:03:21
+Yes.
+
+[Zach Muhlbauer] 17:03:21
+And I think that's fascinating because you go to like a common space and you've made and sustained your friends in that common space. And then the Discord serves as almost an extension of that common space because we live so
+
+[Hal (they/them)] 17:03:34
+Yeah, no, that's exactly how I describe it.
+
+[Zach Muhlbauer] 17:03:37
+Yeah, I mean, that right there is what I'm, I think, more interested in than anything. I think there's a lack of space and a lack of common space in the CUNY system. I mean, I taught at Baruch for a little bit and it's really hard to find common spaces where people can gather and mingle and enjoy themselves and make friends and sustain their friends. So I was wondering if you just wanted to talk about that even a little bit more, like how does that server kind of give you a sense of, you know, sustain your sense of community, but also
+
+[Hal (they/them)] 17:04:06
+I think, again, it's the anonymity.
+
+[Zach Muhlbauer] 17:04:08
+Yeah. Yeah. I mean, say more about that.
+
+[Hal (they/them)] 17:04:12
+Because in person, I feel like it has a lot to do with the way that us as New Yorkers, we typically are, especially the ones that live in the boroughs.
+
+[Hal (they/them)] 17:04:19
+We are very closed off to our neighbors. There's none of that suburban. Hey, neighbor kind of thing. So it's really hard to talk to other people.
+
+[Hal (they/them)] 17:04:27
+So with the layer of anonymity, it's easier for people to communicate, befriend.
+
+[Hal (they/them)] 17:04:33
+Share opinions with the layer of anonymity that places like instagram Discord.
+
+[Hal (they/them)] 17:04:41
+Reddit have to offer?
+
+[Zach Muhlbauer] 17:04:43
+Yeah, I think that's a really great point. A really smart point. Yeah. And so, I mean, do you think that this has anything to do, the need to kind of cultivate a sense of community in these almost third spaces. Do you think that has to do with the fact that we're kind of living in this post-pandemic age and we have almost
+
+[Zach Muhlbauer] 17:05:04
+Hangover from the pandemic or do you think this was coming like one way or another or it was already here?
+
+[Hal (they/them)] 17:05:10
+I think this is coming one way or another. If anything, I'd say that we were already on the way here before the pandemic even started.
+
+[Zach Muhlbauer] 17:05:14
+Yeah.
+
+[Zach Muhlbauer] 17:05:19
+Would you say that the pandemic seemed to accelerate it?
+
+[Hal (they/them)] 17:05:23
+Yeah, I would say that.
+
+[Zach Muhlbauer] 17:05:25
+It's interesting. I mean, these are because the Kuni subreddit, if you do kind of analysis on how it's grown over the years, it was right during the time period where students had been forced online during the educational recess. And I'm not sure if you were here in
+
+[Zach Muhlbauer] 17:05:45
+2020, I guess you weren't. But it was messy Sure. Okay.
+
+[Hal (they/them)] 17:05:49
+Actually was… Yeah, sorry. I needed to clarify a few things.
+
+[Hal (they/them)] 17:05:54
+I have been going through college since like 2018, which isn't very good, but it's because I'm mentally ill. So I have to like take my time with certain classes and stuff.
+
+[Hal (they/them)] 17:06:03
+But I've been going through it for a while. I think it was just 19 that I had a break coincidentally.
+
+[Hal (they/them)] 17:06:09
+But I was there when they were doing the transition from like physical to digital classes. It was a lot to handle.
+
+[Hal (they/them)] 17:06:16
+I must say that the one thing that Blackboard can't offer.
+
+[Hal (they/them)] 17:06:21
+That I've seen some professors use Twitch to stream their classes during that time.
+
+[Zach Muhlbauer] 17:06:27
+Yeah.
+
+[Hal (they/them)] 17:06:28
+And what Twitch offers is anonymity so people can say whatever they want but Blackboard, you have your legal freaking name right there on the screen. Every time you say something, it's like, ah, this person's saying something.
+
+[Hal (they/them)] 17:06:40
+And it's nerve wracking to a certain extent.
+
+[Zach Muhlbauer] 17:06:43
+Yeah, I mean, I think that's a really fascinating point. And I'm interested in Twitch for similar reasons as I'm interested in Discord is because it's kind of predicated around the community of gamers that, you know, find interest and a sense of
+
+[Zach Muhlbauer] 17:07:00
+Connection with other people by virtue of the games they played together or the games they like to watch other people play.
+
+[Zach Muhlbauer] 17:07:06
+Not terribly familiar with Twitch, but do you want to say more about like, so how did professors in your experience who use Twitch, how did they reach students in ways different from professors who seem to rely exclusively on institutional technology?
+
+[Hal (they/them)] 17:07:23
+Let's see. Well, I guess when you use Twitch actively as a user, you have more of a customize personalized account that has like your flair on it, something that you can never freaking do with blackboard I've only seen one professor use Twitch once, and I believe that he was a math
+
+[Hal (they/them)] 17:07:44
+Teacher or software kind of guy It wasn't even my class i was just My friends were just exchanging links from their courses like hey don't make class.
+
+[Hal (they/them)] 17:07:56
+And so I did join one of their classes once just for like one session, I didn't really follow along It's a format that people are familiar with and know how to navigate people aren't that familiar with Blackboard per se i mean
+
+[Hal (they/them)] 17:08:15
+There's a lot of options that you can do on Blackboard and it's useful. But if you don't need those many options, you really don't have to go through all of that. I mean, you can highlight and have a whiteboard And share your screen and have a video, but you can also do that on Twitch, but it requires extra work though.
+
+[Hal (they/them)] 17:08:31
+Um but it's some more Again, it's the user interface problem that happens again and again.
+
+[Hal (they/them)] 17:08:38
+But Twitch has a more friendly user interface than I'd say Blackboard has.
+
+[Zach Muhlbauer] 17:08:44
+Yeah, and that compounded with the fact that students appear to have, for the most part, some familiarity with it going into the class. And I think what's interesting there too, Hal, is this idea that Anybody can kind of drop into the class. Normally, classrooms are kind of like four walled
+
+[Zach Muhlbauer] 17:09:02
+Siloed spaces, especially on Blackboard. You can only access a certain class if you've been assigned to it so Do you think that this move toward Twitch almost as uh i mean you could say Twitch or, you know, maybe the CUNY subreddits seem to represent this?
+
+[Hal (they/them)] 17:09:08
+Yeah.
+
+[Zach Muhlbauer] 17:09:20
+Do you think these moves toward more public facing education, even among students.
+
+[Zach Muhlbauer] 17:09:28
+Do you think that that's like a shift from the practices that kind of, let me rephrase this because I'm making up questions as I go along.
+
+[Zach Muhlbauer] 17:09:38
+Do you feel like, what do you think about that sense of publicness that comes with a class that's maybe streamed on Twitch or the publicness that comes with posting on a subreddit, you know, rate my schedule and having students who you'll never meet I mean, that's one of them. That's one of those tropes. It's a great my schedule. Am I cooked?
+
+[Zach Muhlbauer] 17:09:59
+You know, all of these kind of conventions that students develop.
+
+[Zach Muhlbauer] 17:10:03
+Gives students who don't have all of the experience and all of the coursework behind them a sense of what it's actually like to be a CUNY student, I think. I was wondering if you had any thoughts on that.
+
+[Zach Muhlbauer] 17:10:17
+Okay. I know. I apologize.
+
+[Hal (they/them)] 17:10:17
+I'm trying to think, I'm sorry, it was a really long question It's okay. Let's see.
+
+[Hal (they/them)] 17:10:26
+Because I had a few thoughts, but I didn't want to interrupt you while you were talking.
+
+[Zach Muhlbauer] 17:10:30
+Yeah, and next time, just interrupt me. You have full, you know, you know.
+
+[Hal (they/them)] 17:10:32
+Okay, okay.
+
+[Zach Muhlbauer] 17:10:37
+Permission interrupt. I guess going back to the pandemic um So you had to navigate that. You said, you know, you suffer from mental illness and that was a particularly difficult time for folks who uh require certain accommodations or accessibility. And professors, I think during that time
+
+[Zach Muhlbauer] 17:11:00
+Really kind of laid on the work for lack of a classroom, lack of a common space.
+
+[Zach Muhlbauer] 17:11:05
+And do you think that, I mean, I just kind of curious about the messiness of that experience for you, the chaos of it, because you know in 10 years, Cooney will look back and try to signify it as a great success, how we shifted to online learning and it was
+
+[Zach Muhlbauer] 17:11:20
+It was so fluent and seamless. And I'm just curious, you know, about your experience during that time, just to get a sense of why students would want to develop these subreddits in these Discord servers and why it's valuable for instructors and administrators to think about this stuff in the first place.
+
+[Hal (they/them)] 17:11:39
+I guess because the class is on Blackboard and like the streams that professors have on blackboard rely on the professor being there for it to exist in the first place.
+
+[Hal (they/them)] 17:11:49
+These other spaces like And well, I guess not Twitch because you need the person to actually be streaming to access the chat.
+
+[Hal (they/them)] 17:11:56
+But places like Reddit and Discord don't rely on the professor being there to be active. It's like a 24-hour deli where you can just go in at any moment and just grab a snack or chat you know
+
+[Zach Muhlbauer] 17:12:07
+I love that. That one's going to be that one's going to end up in the dissertation. Yeah, and I think… I think that's a really great point, right? Like that the professor doesn't need to be there first and foremost.
+
+[Zach Muhlbauer] 17:12:22
+For students to learn and for students to learn from one another. And that peer to peer model was really interesting to me.
+
+[Zach Muhlbauer] 17:12:30
+Do you find that you do a lot of your learning? I think you said in the center. When you go there, do you share gossip around classes, information about like how to navigate like the meta of CUNY or the meta of CCNY?
+
+[Zach Muhlbauer] 17:12:45
+Or do you just kind of, you know not worry about that when you're with your friends.
+
+[Hal (they/them)] 17:12:50
+I try not to worry too much about it, but I have seen someone take a midterm for someone else before.
+
+[Zach Muhlbauer] 17:12:58
+Well, those cases I'm most interested in.
+
+[Hal (they/them)] 17:12:58
+Um… I've also seen people helping each other, like actually tutoring rather than just taking a test for each other.
+
+[Hal (they/them)] 17:13:07
+But it's a good spot to like It's like, I guess, a mini Reddit or a mini discord in the sense where you can talk to people, but it's that sense that people can't see your face And we'll remember who you are.
+
+[Hal (they/them)] 17:13:20
+That makes it more difficult to be honest and talk about stuff because if i want I feel more comfortable asking for help.
+
+[Hal (they/them)] 17:13:27
+For example, when I was in your class, I felt more comfortable asking for help on an online space like discord rather than ask somebody in the center that potentially knows python.
+
+[Hal (they/them)] 17:13:41
+And that kind of thing.
+
+[Zach Muhlbauer] 17:13:44
+Why do you think that is? Because of the distance and the sense of anonymity that comes with the platform that you feel safer
+
+[Hal (they/them)] 17:13:53
+Yeah, I mean, like that one phrase that goes um Or metaphor, I don't know what it qualifies as, something, something cats away, the mice play or something.
+
+[Zach Muhlbauer] 17:14:03
+Yeah, yeah, yeah. That's i think Let's played.
+
+[Hal (they/them)] 17:14:06
+So I guess the removal of the removal an authority.
+
+[Hal (they/them)] 17:14:12
+In places like between Blackboard and places like um reddit and discord lets people express themselves more freely.
+
+[Hal (they/them)] 17:14:20
+And openly?
+
+[Zach Muhlbauer] 17:14:22
+Yeah, I think authority is essential there. Right. And almost ironically, it seems as though the professors and the CUNY staffers and the people who that space is not meant for.
+
+[Zach Muhlbauer] 17:14:35
+They're kind of relegated to a position that is under the students, like the students have the most ethos and the most power and their voice really matters the most in those spaces, yet their identity is redacted.
+
+[Zach Muhlbauer] 17:14:47
+That's something I'm just trying to figure out, right? I think that I get it to an extent. I think when I go to post on a subreddit.
+
+[Zach Muhlbauer] 17:14:57
+Or in a discord, apart from our classes that i uh I don't always feel that separation between my sense of identity and my username because I idiotically put my last name in docs myself, you know, in usernames.
+
+[Zach Muhlbauer] 17:15:12
+And that's like, that's a violation of like convention, right? And I think it's such a fascinating point, you know, that you can be more public and less public almost simultaneously.
+
+[Hal (they/them)] 17:15:27
+Yeah, it's difficult because it's difficult because I guess for the professor, it could be potentially difficult, but if you give out your discord this is why I think that when professors should have like personal discord and a work discord.
+
+[Hal (they/them)] 17:15:43
+So that people don't joke around or send too much Because I liked while I was in your discord that I was able to contact you directly. It's a bit of a hassle to send emails. Honestly, nobody wants to write emails, but sometimes you just have to.
+
+[Zach Muhlbauer] 17:15:49
+Yeah.
+
+[Hal (they/them)] 17:16:01
+But it was nice to just have to leave a message there when you have the time and to get back, you just write back and it was It was good.
+
+[Zach Muhlbauer] 17:16:09
+Yeah, I think it breaks down some of those barriers that otherwise disincentivize students from asking the questions they need to ask.
+
+[Hal (they/them)] 17:16:18
+Just emails are a bit like scary you know you have to write a header or like leave a signature and have to make sure that you're asking politely. It's a lot of formality that goes behind things like email that
+
+[Hal (they/them)] 17:16:32
+Makes it less makes it less fair and honest.
+
+[Zach Muhlbauer] 17:16:36
+Yeah, I want to almost sit with that, right? Because that's the central form of communication for universities apart from like.
+
+[Zach Muhlbauer] 17:16:44
+Academic social network like the CUNY Academic Commons, which I'm not even sure you're familiar with. I'm not sure if you've ever taken a class where you have a site on the commons apart from, actually, no, mine was on a GitHub, but…
+
+[Zach Muhlbauer] 17:16:57
+Yeah, and I think that's fascinating here let me catch my bearings here um right like Email is scary. It's anxiety ridden. And so do you find that you're far more likely to ask the question you need answered if it's in a direct message space as opposed to this kind of formal email communication space.
+
+[Hal (they/them)] 17:17:24
+Yeah, I mean, there have been times where i was like hey I'm a little stuck here.
+
+[Hal (they/them)] 17:17:29
+And sometimes you weren't sometimes you weren't you wouldn't answer like immediately. So I just kept doing my work. And then I'm like, ah, never mind i figured it out Or sometimes you would sometimes you would provide me with like a section of Melanie Walsh's stuff so i can like read
+
+[Hal (they/them)] 17:17:45
+It's just useful. So it was a good, easy way to find communication between the professor and the student.
+
+[Zach Muhlbauer] 17:17:52
+Yeah. Well, thank you for saying that. I think that's my sense is I hate to send emails. I have to send them all day.
+
+[Zach Muhlbauer] 17:18:00
+I'd rather communicate with students honestly and forthrightly. So by extension, do you feel, and I'm looking at the time because I know that we're over at this point, but do you that you can communicate more honestly and forthrightly in a space where you're allowed that anonymity, at least like for educational purposes for like a classroom such as ours.
+
+[Hal (they/them)] 17:18:24
+Yeah.
+
+[Zach Muhlbauer] 17:18:26
+Yeah. You've already unpacked that plenty.
+
+[Hal (they/them)] 17:18:30
+Sorry.
+
+[Zach Muhlbauer] 17:18:31
+No, it's okay. Interviews are tough. And I, you know, I just… want you to know that this was really useful. And while I expected your Reddit, sorry, I'm freezing, your Reddit reached to involve the CUNY subreddits. I'm not at all disappointed by the fact that it doesn't because I think that getting a wide range of student experiences about this is really what's going to
+
+[Zach Muhlbauer] 17:18:55
+Make for the best kind of dissertation. Do you have any…
+
+[Hal (they/them)] 17:18:59
+I see one of your questions and impact and reflection that I feel like I could answer. That's good with you.
+
+[Zach Muhlbauer] 17:19:04
+Yeah, yeah. I mean, however, whichever one you want.
+
+[Hal (they/them)] 17:19:08
+It's the question that says, what do you think university administrators could learn from observing these student created digital spaces?
+
+[Hal (they/them)] 17:19:14
+And I think like because they are like little communities, what they could learn is that kind of like have an equal balance of Basic.
+
+[Hal (they/them)] 17:19:26
+Respect and respect ways that you communicate with other people and also like freedom to be able to be yourself at the same place.
+
+[Hal (they/them)] 17:19:35
+Like a place that lacks formalities yet asks for the basics.
+
+[Hal (they/them)] 17:19:42
+And they could give enough like control of the space in the space in a way that there's some student moderators And yet it doesn't like feel like too authoritarian. You know what I mean?
+
+[Zach Muhlbauer] 17:19:58
+Yeah, I know exactly what you mean. Do you think that students would take to that or they would be skeptical?
+
+[Hal (they/them)] 17:20:05
+I think they might be a little bit skeptical there's bound to be some that are skeptical, but I feel like if they do it right, it's going to feel a bit more natural because i like i mentioned before if professors can make
+
+[Hal (they/them)] 17:20:21
+Their own like private discord and in the public discord i'm pretty sure students will also be able to do the same especially with Discord's option to be able to switch users very quickly on desktop that should be another layer of anonymity that would be very useful.
+
+[Hal (they/them)] 17:20:36
+I just happened to use my private Discord for it though so it's just much easier for me but i'm I'm sure there's got to be somebody out there who like has separate accounts
+
+[Zach Muhlbauer] 17:20:46
+Yeah, yeah, I imagine so. Yeah, and I think it's a great point that uh I think if that infrastructure were there, students, if they are already using You know, Reddit and discord for these purposes then why not would they, why wouldn't they do it in the context of the university? I guess my question is like, how could CUNY ever pull that off? But I guess that's a question of priorities.
+
+[Zach Muhlbauer] 17:21:15
+And a question of how do we dispense of the past for the sake of the present, for the sake of the future.
+
+[Zach Muhlbauer] 17:21:21
+And the learners that are coming through the CUNY system with completely different understandings of how to communicate digitally than say their professors who've been teaching for 40 50 years doing it through very similar means. So that's really useful. Are there any other questions, Hal, that you want to pick out?
+
+[Zach Muhlbauer] 17:21:43
+I gave you the menu and then I kind of just went with it. But if there's another question here that you find is particularly relevant to your experience or you have like a perspective on that, I'd love to hear it before we part ways.
+
+[Hal (they/them)] 17:21:56
+I have thoughts about how CUNY could possibly not maybe like replace that kind of like community but have something like an equivalent if they could let Hmm.
+
+[Hal (they/them)] 17:22:13
+If they could let the students have some form of anonymity in black space.
+
+[Zach Muhlbauer] 17:22:13
+Give me a ticket.
+
+[Hal (they/them)] 17:22:18
+Instead of having their full legal name just pop there, I think it might be a little bit more friendly and less aggressive for students to participate in.
+
+[Hal (they/them)] 17:22:27
+I don't think it's just for people that are, for example.
+
+[Hal (they/them)] 17:22:31
+Students that have students that have of certain like names on their thing like if they're trans they maybe they feel a little bit nervous about having their name displayed there. You can change that, by the way which i'm very i'm very grateful for but
+
+[Hal (they/them)] 17:22:43
+If unable to do that, I feel like that would be a very difficult thing to manage.
+
+[Hal (they/them)] 17:22:47
+Anonymity does make things more comfortable for people, especially in this era.
+
+[Zach Muhlbauer] 17:22:53
+Yeah. So, and I think that's a really great suggestion because it's so simple, right? You know, that's not something that's beyond the technology of Blackboard.
+
+[Zach Muhlbauer] 17:23:01
+Or Brightspace or whatever learning management system you're using. But I think it's a concept that's largely foreign to a lot of instructors. You know, the idea that what you say and how you learn could be separate from your formal
+
+[Zach Muhlbauer] 17:23:17
+Name. But I think that often, you know, often those two things are separate. Learnings about failure and trial and error trying to figure it out as you go along. And I think that having your name always associated with your failures can be a barrier to learning. So I think that's a great point.
+
+[Zach Muhlbauer] 17:23:35
+Any last thoughts?
+
+[Hal (they/them)] 17:23:37
+Um… It would be cool if professors were more like knowing how to use these spaces because it does make them more accessible.
+
+[Zach Muhlbauer] 17:23:41
+And figures out.
+
+[Hal (they/them)] 17:23:47
+Like these are pretty huge, huge pages. I've never before heard of a black space and or sorry blackboard or bright space before this is like the first time that I've been hearing about this so like you're going to have experience beforehand maybe with Reddit or Discord, but I don't think that if you were a high school student before you would have any experience with Blackboard or Brightspace beforehand.
+
+[Hal (they/them)] 17:24:10
+Because there's a whole bunch of sites that schools can use for that kind of thing. And I'm sure not everyone uses like the same exact thing. It's going to be a little tough to learn how to use.
+
+[Zach Muhlbauer] 17:24:23
+Yeah, yeah, I agree. And they're so different. I mean, all like these They're called LMSs, and they're so different across the board that I think you have to relearn how to use them every single time You learn how to use them. Whereas
+
+[Hal (they/them)] 17:24:38
+Yeah.
+
+[Zach Muhlbauer] 17:24:39
+Reddit is the classic, you know, kind of internet discussion forum. It kind of takes that internet of old and attempts to reinvent it for a contemporary audience. And that's one thing that's interesting about reddit is just it's stuck around
+
+[Zach Muhlbauer] 17:24:53
+With a very similar design and structure. Over all these years where so many platforms have changed so dramatically, such as Instagram and, you know, um.
+
+[Zach Muhlbauer] 17:25:03
+And I think that seems to me something that instructors and administrators and the folks who do kind of govern the way that our institutions work.
+
+[Hal (they/them)] 17:25:13
+It's funny because I feel like reddit is structured as As we may have noticed.
+
+[Hal (they/them)] 17:25:20
+The PlayStation controller has a very certain format that we don't really deviate from.
+
+[Hal (they/them)] 17:25:26
+And similar to that, Reddit has like the basic building blocks of what a social media slash forum can be.
+
+[Hal (they/them)] 17:25:32
+Those two things can be synonymous. And make it accessible.
+
+[Zach Muhlbauer] 17:25:41
+It's another, sorry, I'm like, I never know when you're, if you're done talking. That's like zoom syndrome.
+
+[Zach Muhlbauer] 17:25:48
+But yeah, I mean, there's a term for it, actually. It's called the internal design grammar of, you know, like a video game, all of that.
+
+[Hal (they/them)] 17:25:59
+Mm-hmm.
+
+[Zach Muhlbauer] 17:25:59
+Features that are built into it. And like the controller, for instance, they don't change it because everybody is so ignored into that design.
+
+[Zach Muhlbauer] 17:26:06
+And it even spans different companies. I think that's a really, really wonderful example. And Reddit harnesses that to reach people who understand how these discussion forums work. And I think that they've done a really good job of making it
+
+[Zach Muhlbauer] 17:26:21
+So that it's moderated not by as algorithms as much as community leaders. And that seems to me
+
+[Hal (they/them)] 17:26:28
+I'd say that red is kind of like Oblivion remastered Where it has like the basic building blocks of how it works, but it looks pretty. So it's accessible for new people.
+
+[Zach Muhlbauer] 17:26:40
+I love that explanation. I mean, can you believe that I actually got that reference?
+
+[Hal (they/them)] 17:26:47
+Yay.
+
+[Zach Muhlbauer] 17:26:48
+My nephew loves oblivion. I used to battle in the arena, the gladiatorial arena. I remember back in the day they had that in Elder Scrolls. It was always fun.
+
+[Hal (they/them)] 17:27:00
+Awesome.
+
+[Zach Muhlbauer] 17:27:01
+Okay, so I held you over and that was only because you were starting to make some really interesting observations right there at the end. I couldn't resist. But if you don't have anything else that you want to share or if something happens, something occurs to you down the line.
+
+[Zach Muhlbauer] 17:27:19
+Feel free to just reach out. And I just want to thank you a thousand times over, Hal, for sharing your opinion and your perspective.
+
+[Zach Muhlbauer] 17:27:30
+It's invaluable to me and I'll be sure to let you know how this all kind of comes together into my research project.
+
+[Hal (they/them)] 17:27:39
+All right. Thank you, Professor.
+
+[Zach Muhlbauer] 17:27:41
+Yeah, and I'll send you that gift card too. Do you have a preferred email?
+
+[Hal (they/them)] 17:27:45
+Yes, I want to write it down.
+
+[Hal (they/them)] 17:27:51
+And I'll double check just so you know that's the right thing. Let's see.
+
+[Hal (they/them)] 17:27:55
+Yep. That's my email.
+
+[Zach Muhlbauer] 17:27:58
+Awesome. Okay. I will send that gift card to you. Use it wisely.
+
+[Zach Muhlbauer] 17:28:05
+Reach out anytime. It was really great talking to you today.
+
+[Hal (they/them)] 17:28:08
+All right. Thank you, Professor. Bye-bye.
+

@@ -1,0 +1,37 @@
+{
+  "Housing Crisis": {
+    "pre_2020": 11,
+    "post_2020": 323,
+    "ratio": 29.4,
+    "color": "#d62728",
+    "finding": "Urgency markers appeared only post-2020 (0\u219219 instances)"
+  },
+  "Financial Aid": {
+    "pre_2020": 992,
+    "post_2020": 23498,
+    "ratio": 23.7,
+    "color": "#ff7f0e",
+    "finding": "FAFSA 30.3x, TAP 27.4x, Excelsior 23.1x increase"
+  },
+  "Mental Health": {
+    "pre_2020": 170,
+    "post_2020": 2879,
+    "ratio": 16.9,
+    "color": "#9467bd",
+    "finding": "Late-night crisis posts (midnight-6am) 17.9x increase"
+  },
+  "CUNYfirst Systems": {
+    "pre_2020": 457,
+    "post_2020": 6350,
+    "ratio": 13.9,
+    "color": "#1f77b4",
+    "finding": "Help-seeking increased from 16.2% to 21.6%"
+  },
+  "Food Insecurity": {
+    "pre_2020": 7,
+    "post_2020": 90,
+    "ratio": 12.9,
+    "color": "#2ca02c",
+    "finding": "Baruch 30x; Hunter went from 0 to 20 mentions"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "total_users": {
+    "all_datasets": 55277,
+    "cuny_affiliated": 22067,
+    "comparative": 33210
+  },
+  "participation_tiers": {
+    "1 post": {
+      "users": 11458,
+      "pct": 51.9,
+      "posts_contributed": 11458,
+      "color": "#d62728",
+      "description": "One-time posters: asked question, got answer, left"
+    },
+    "2-4 posts": {
+      "users": 8107,
+      "pct": 36.7,
+      "posts_contributed": 24321,
+      "color": "#ff7f0e",
+      "description": "Light participants: occasional questions/answers"
+    },
+    "5-10 posts": {
+      "users": 1545,
+      "pct": 7.0,
+      "posts_contributed": 10815,
+      "color": "#2ca02c",
+      "description": "Regular participants: semester-long engagement"
+    },
+    "11-50 posts": {
+      "users": 772,
+      "pct": 3.5,
+      "posts_contributed": 19300,
+      "color": "#1f77b4",
+      "description": "Active contributors: multi-year engagement"
+    },
+    "51-100 posts": {
+      "users": 132,
+      "pct": 0.6,
+      "posts_contributed": 9240,
+      "color": "#9467bd",
+      "description": "Power users: community backbone"
+    },
+    "100+ posts": {
+      "users": 53,
+      "pct": 0.24,
+      "posts_contributed": 16568,
+      "color": "#17becf",
+      "description": "Super users: de facto community managers"
+    }
+  },
+  "super_user_stats": {
+    "top_1_user_posts": 6193,
+    "top_1_user_pct": 37.0,
+    "top_5_users_posts": 12986,
+    "top_5_users_pct": 52.3,
+    "top_10_users_posts": 18432,
+    "top_10_users_pct": 63.1,
+    "top_1_pct_users": 0.045
+  },
+  "subreddit_concentration": {
+    "r/CUNY": {
+      "total_users": 5472,
+      "total_posts": 16735,
+      "top_1_user_pct": 37.0,
+      "top_10_users_pct": 58.2,
+      "gini_coefficient": 0.78
+    },
+    "r/Baruch": {
+      "total_users": 6765,
+      "total_posts": 19081,
+      "top_1_user_pct": 12.4,
+      "top_10_users_pct": 34.6,
+      "gini_coefficient": 0.65
+    },
+    "r/Hunter": {
+      "total_users": 3074,
+      "total_posts": 5576,
+      "top_1_user_pct": 8.9,
+      "top_10_users_pct": 31.2,
+      "gini_coefficient": 0.62
+    },
+    "r/Queens": {
+      "total_users": 2758,
+      "total_posts": 6483,
+      "top_1_user_pct": 11.2,
+      "top_10_users_pct": 35.8,
+      "gini_coefficient": 0.64
+    },
+    "r/CCNY": {
+      "total_users": 1484,
+      "total_posts": 2199,
+      "top_1_user_pct": 9.7,
+      "top_10_users_pct": 38.4,
+      "gini_coefficient": 0.66
+    }
+  },
+  "participation_evolution": {
+    "2011-2014": {
+      "light_users_pct": 92.3,
+      "active_users_pct": 6.1,
+      "super_users_pct": 1.6
+    },
+    "2015-2017": {
+      "light_users_pct": 90.1,
+      "active_users_pct": 7.8,
+      "super_users_pct": 2.1
+    },
+    "2018-2019": {
+      "light_users_pct": 88.6,
+      "active_users_pct": 9.2,
+      "super_users_pct": 2.2
+    },
+    "2020-2022": {
+      "light_users_pct": 85.4,
+      "active_users_pct": 11.8,
+      "super_users_pct": 2.8
+    },
+    "2023-2024": {
+      "light_users_pct": 86.9,
+      "active_users_pct": 10.5,
+      "super_users_pct": 2.6
+    }
+  },
+  "key_evidence": [
+    {
+      "id": "user_stats",
+      "finding": "88.6% contributed 1-4 posts",
+      "implication": "Majority are information seekers, not providers"
+    },
+    {
+      "id": "super_user",
+      "finding": "One user = 37% of r/CUNY content",
+      "implication": "Community depends on single individual"
+    },
+    {
+      "id": "top_10",
+      "finding": "Top 10 users = 63% of content",
+      "implication": "Power-law distribution creates fragility"
+    },
+    {
+      "id": "reading_majority",
+      "finding": "Most users read, few write",
+      "implication": "Information extraction > contribution"
+    }
+  ]
+}

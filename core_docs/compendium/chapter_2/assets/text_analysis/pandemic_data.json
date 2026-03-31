@@ -1,0 +1,584 @@
+{
+  "monthly_stats": {
+    "2020-03": {
+      "CUNY": {
+        "submissions": 89,
+        "comments": 185
+      },
+      "Baruch": {
+        "submissions": 250,
+        "comments": 489
+      },
+      "HunterCollege": {
+        "submissions": 8,
+        "comments": 12
+      },
+      "QueensCollege": {
+        "submissions": 153,
+        "comments": 469
+      },
+      "CCNY": {
+        "submissions": 6,
+        "comments": 10
+      },
+      "BrooklynCollege": {
+        "submissions": 6,
+        "comments": 8
+      },
+      "CUNYuncensored": {
+        "submissions": 26,
+        "comments": 28
+      },
+      "JohnJay": {
+        "submissions": 4,
+        "comments": 3
+      }
+    },
+    "2020-04": {
+      "CUNY": {
+        "submissions": 87,
+        "comments": 182
+      },
+      "Baruch": {
+        "submissions": 133,
+        "comments": 314
+      },
+      "HunterCollege": {
+        "submissions": 39,
+        "comments": 117
+      },
+      "QueensCollege": {
+        "submissions": 93,
+        "comments": 318
+      },
+      "CCNY": {
+        "submissions": 9,
+        "comments": 13
+      },
+      "BrooklynCollege": {
+        "submissions": 9,
+        "comments": 9
+      },
+      "JohnJay": {
+        "submissions": 2,
+        "comments": 4
+      }
+    },
+    "2020-05": {
+      "CUNY": {
+        "submissions": 112,
+        "comments": 266
+      },
+      "Baruch": {
+        "submissions": 267,
+        "comments": 665
+      },
+      "HunterCollege": {
+        "submissions": 49,
+        "comments": 170
+      },
+      "QueensCollege": {
+        "submissions": 165,
+        "comments": 620
+      },
+      "CCNY": {
+        "submissions": 16,
+        "comments": 47
+      },
+      "BrooklynCollege": {
+        "submissions": 5,
+        "comments": 13
+      },
+      "CUNYuncensored": {
+        "submissions": 4,
+        "comments": 1
+      },
+      "JohnJay": {
+        "submissions": 2,
+        "comments": 2
+      }
+    },
+    "2020-06": {
+      "CUNY": {
+        "submissions": 108,
+        "comments": 218
+      },
+      "Baruch": {
+        "submissions": 209,
+        "comments": 533
+      },
+      "HunterCollege": {
+        "submissions": 21,
+        "comments": 58
+      },
+      "QueensCollege": {
+        "submissions": 110,
+        "comments": 392
+      },
+      "CCNY": {
+        "submissions": 7,
+        "comments": 19
+      },
+      "BrooklynCollege": {
+        "submissions": 5,
+        "comments": 9
+      },
+      "JohnJay": {
+        "submissions": 1,
+        "comments": 4
+      }
+    },
+    "2020-07": {
+      "CUNY": {
+        "submissions": 146,
+        "comments": 349
+      },
+      "Baruch": {
+        "submissions": 250,
+        "comments": 572
+      },
+      "HunterCollege": {
+        "submissions": 32,
+        "comments": 79
+      },
+      "QueensCollege": {
+        "submissions": 76,
+        "comments": 272
+      },
+      "CCNY": {
+        "submissions": 10,
+        "comments": 17
+      },
+      "BrooklynCollege": {
+        "submissions": 9,
+        "comments": 11
+      },
+      "JohnJay": {
+        "submissions": 1,
+        "comments": 0
+      }
+    },
+    "2020-08": {
+      "CUNY": {
+        "submissions": 142,
+        "comments": 326
+      },
+      "Baruch": {
+        "submissions": 358,
+        "comments": 790
+      },
+      "HunterCollege": {
+        "submissions": 56,
+        "comments": 116
+      },
+      "QueensCollege": {
+        "submissions": 111,
+        "comments": 317
+      },
+      "CCNY": {
+        "submissions": 28,
+        "comments": 71
+      },
+      "BrooklynCollege": {
+        "submissions": 7,
+        "comments": 11
+      },
+      "CUNYuncensored": {
+        "submissions": 2,
+        "comments": 11
+      },
+      "JohnJay": {
+        "submissions": 6,
+        "comments": 2
+      }
+    },
+    "2020-09": {
+      "CUNY": {
+        "submissions": 115,
+        "comments": 272
+      },
+      "Baruch": {
+        "submissions": 201,
+        "comments": 445
+      },
+      "HunterCollege": {
+        "submissions": 28,
+        "comments": 69
+      },
+      "QueensCollege": {
+        "submissions": 96,
+        "comments": 287
+      },
+      "CCNY": {
+        "submissions": 6,
+        "comments": 5
+      },
+      "BrooklynCollege": {
+        "submissions": 4,
+        "comments": 4
+      },
+      "CUNYuncensored": {
+        "submissions": 3,
+        "comments": 6
+      },
+      "JohnJay": {
+        "submissions": 3,
+        "comments": 8
+      }
+    },
+    "2020-10": {
+      "CUNY": {
+        "submissions": 104,
+        "comments": 250
+      },
+      "Baruch": {
+        "submissions": 422,
+        "comments": 872
+      },
+      "HunterCollege": {
+        "submissions": 21,
+        "comments": 29
+      },
+      "QueensCollege": {
+        "submissions": 109,
+        "comments": 276
+      },
+      "CCNY": {
+        "submissions": 7,
+        "comments": 26
+      },
+      "BrooklynCollege": {
+        "submissions": 3,
+        "comments": 4
+      },
+      "CUNYuncensored": {
+        "submissions": 0,
+        "comments": 2
+      },
+      "JohnJay": {
+        "submissions": 4,
+        "comments": 16
+      }
+    },
+    "2020-11": {
+      "CUNY": {
+        "submissions": 120,
+        "comments": 275
+      },
+      "Baruch": {
+        "submissions": 196,
+        "comments": 447
+      },
+      "HunterCollege": {
+        "submissions": 19,
+        "comments": 62
+      },
+      "QueensCollege": {
+        "submissions": 93,
+        "comments": 305
+      },
+      "CCNY": {
+        "submissions": 11,
+        "comments": 29
+      },
+      "BrooklynCollege": {
+        "submissions": 2,
+        "comments": 4
+      },
+      "CUNYuncensored": {
+        "submissions": 2,
+        "comments": 4
+      },
+      "JohnJay": {
+        "submissions": 4,
+        "comments": 7
+      }
+    },
+    "2020-12": {
+      "CUNY": {
+        "submissions": 110,
+        "comments": 214
+      },
+      "Baruch": {
+        "submissions": 351,
+        "comments": 991
+      },
+      "HunterCollege": {
+        "submissions": 44,
+        "comments": 135
+      },
+      "QueensCollege": {
+        "submissions": 141,
+        "comments": 488
+      },
+      "CCNY": {
+        "submissions": 16,
+        "comments": 42
+      },
+      "BrooklynCollege": {
+        "submissions": 5,
+        "comments": 19
+      },
+      "JohnJay": {
+        "submissions": 8,
+        "comments": 33
+      }
+    },
+    "2021-01": {
+      "CUNY": {
+        "submissions": 140,
+        "comments": 320
+      },
+      "Baruch": {
+        "submissions": 310,
+        "comments": 765
+      },
+      "HunterCollege": {
+        "submissions": 37,
+        "comments": 97
+      },
+      "QueensCollege": {
+        "submissions": 114,
+        "comments": 370
+      },
+      "CCNY": {
+        "submissions": 11,
+        "comments": 17
+      },
+      "BrooklynCollege": {
+        "submissions": 10,
+        "comments": 16
+      },
+      "JohnJay": {
+        "submissions": 10,
+        "comments": 26
+      }
+    },
+    "2021-02": {
+      "CUNY": {
+        "submissions": 130,
+        "comments": 399
+      },
+      "Baruch": {
+        "submissions": 212,
+        "comments": 575
+      },
+      "HunterCollege": {
+        "submissions": 21,
+        "comments": 66
+      },
+      "QueensCollege": {
+        "submissions": 91,
+        "comments": 244
+      },
+      "CCNY": {
+        "submissions": 4,
+        "comments": 6
+      },
+      "BrooklynCollege": {
+        "submissions": 7,
+        "comments": 7
+      },
+      "CUNYuncensored": {
+        "submissions": 1,
+        "comments": 0
+      },
+      "JohnJay": {
+        "submissions": 5,
+        "comments": 22
+      }
+    },
+    "2021-03": {
+      "CUNY": {
+        "submissions": 96,
+        "comments": 236
+      },
+      "Baruch": {
+        "submissions": 219,
+        "comments": 441
+      },
+      "HunterCollege": {
+        "submissions": 25,
+        "comments": 78
+      },
+      "QueensCollege": {
+        "submissions": 69,
+        "comments": 236
+      },
+      "CCNY": {
+        "submissions": 9,
+        "comments": 47
+      },
+      "BrooklynCollege": {
+        "submissions": 5,
+        "comments": 1
+      },
+      "JohnJay": {
+        "submissions": 2,
+        "comments": 3
+      }
+    }
+  },
+  "topic_trends": {
+    "2020-03": {
+      "financial": 112,
+      "communication": 433,
+      "grading": 120,
+      "remote_learning": 283,
+      "health_safety": 172,
+      "campus_closure": 210,
+      "technology": 74,
+      "academic_stress": 94
+    },
+    "2020-04": {
+      "remote_learning": 170,
+      "communication": 296,
+      "campus_closure": 99,
+      "financial": 102,
+      "grading": 200,
+      "health_safety": 50,
+      "technology": 44,
+      "academic_stress": 118
+    },
+    "2020-05": {
+      "communication": 557,
+      "financial": 306,
+      "grading": 504,
+      "remote_learning": 267,
+      "health_safety": 89,
+      "campus_closure": 167,
+      "academic_stress": 161,
+      "technology": 98
+    },
+    "2020-06": {
+      "remote_learning": 231,
+      "communication": 352,
+      "grading": 139,
+      "health_safety": 77,
+      "financial": 209,
+      "campus_closure": 122,
+      "academic_stress": 97,
+      "technology": 60
+    },
+    "2020-07": {
+      "remote_learning": 359,
+      "communication": 485,
+      "financial": 364,
+      "academic_stress": 91,
+      "grading": 109,
+      "campus_closure": 205,
+      "health_safety": 62,
+      "technology": 69
+    },
+    "2020-08": {
+      "technology": 95,
+      "financial": 347,
+      "communication": 634,
+      "grading": 137,
+      "campus_closure": 217,
+      "academic_stress": 146,
+      "remote_learning": 350,
+      "health_safety": 64
+    },
+    "2020-09": {
+      "financial": 289,
+      "communication": 362,
+      "campus_closure": 115,
+      "grading": 120,
+      "remote_learning": 213,
+      "academic_stress": 124,
+      "health_safety": 55,
+      "technology": 50
+    },
+    "2020-10": {
+      "remote_learning": 208,
+      "campus_closure": 118,
+      "financial": 238,
+      "health_safety": 60,
+      "communication": 424,
+      "grading": 130,
+      "technology": 56,
+      "academic_stress": 177
+    },
+    "2020-11": {
+      "remote_learning": 138,
+      "financial": 194,
+      "grading": 138,
+      "campus_closure": 124,
+      "communication": 362,
+      "technology": 77,
+      "health_safety": 64,
+      "academic_stress": 129
+    },
+    "2020-12": {
+      "technology": 76,
+      "grading": 497,
+      "remote_learning": 218,
+      "academic_stress": 222,
+      "communication": 709,
+      "financial": 181,
+      "health_safety": 91,
+      "campus_closure": 147
+    },
+    "2021-01": {
+      "grading": 235,
+      "communication": 554,
+      "remote_learning": 252,
+      "technology": 77,
+      "campus_closure": 163,
+      "health_safety": 72,
+      "financial": 267,
+      "academic_stress": 148
+    },
+    "2021-02": {
+      "campus_closure": 198,
+      "remote_learning": 152,
+      "health_safety": 61,
+      "communication": 380,
+      "financial": 222,
+      "grading": 162,
+      "technology": 58,
+      "academic_stress": 105
+    },
+    "2021-03": {
+      "financial": 167,
+      "technology": 32,
+      "communication": 358,
+      "remote_learning": 115,
+      "academic_stress": 91,
+      "grading": 120,
+      "campus_closure": 63,
+      "health_safety": 28
+    }
+  },
+  "insights": {
+    "pre_pandemic_activity": 1746,
+    "peak_month": "2020-12",
+    "peak_activity": 2597,
+    "growth_rate": 48.73997709049255,
+    "top_pandemic_topics": [
+      [
+        "communication",
+        5906
+      ],
+      [
+        "financial",
+        2998
+      ],
+      [
+        "remote_learning",
+        2956
+      ],
+      [
+        "grading",
+        2611
+      ],
+      [
+        "campus_closure",
+        1948
+      ]
+    ],
+    "total_months_analyzed": 13
+  },
+  "generated": "2025-08-25T16:56:49.442206"
+}

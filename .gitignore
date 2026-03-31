@@ -1,0 +1,10 @@
+# Heavy files - databases and archives
+datasets/
+archive/
+*.db
+*.db-journal
+*.db-wal
+*.zip
+
+# macOS
+.DS_Store

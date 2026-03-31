@@ -1,0 +1,183 @@
+{
+  "activity": {
+    "total_bridge_users": 229,
+    "definition": "Users active in 3+ CUNY subreddits",
+    "total_posts_by_bridge_users": 7198,
+    "total_comments_by_bridge_users": 21594,
+    "comment_to_post_ratio": 3.0,
+    "direct_reply_edges": 18432,
+    "cross_community_edges": 4891,
+    "unique_users_connected": 8742,
+    "avg_local_clustering_with_bridges": 0.34,
+    "avg_local_clustering_without_bridges": 0.18,
+    "clustering_improvement": 1.89
+  },
+  "edge_creation_breakdown": {
+    "Comment Replies": {
+      "edges_created": 14221,
+      "description": "Direct reply to another user",
+      "clustering_contribution": 0.42,
+      "color": "#2563eb",
+      "icon": "\ud83d\udcac"
+    },
+    "Thread Participation": {
+      "edges_created": 6892,
+      "description": "Co-participation in discussions",
+      "clustering_contribution": 0.31,
+      "color": "#f59e0b",
+      "icon": "\ud83e\uddf5"
+    },
+    "Cross-Community Replies": {
+      "edges_created": 4891,
+      "description": "Replying across subreddit boundaries",
+      "clustering_contribution": 0.52,
+      "color": "#10b981",
+      "icon": "\ud83c\udf09"
+    },
+    "Submission Responses": {
+      "edges_created": 2788,
+      "description": "First comment connecting to OP",
+      "clustering_contribution": 0.24,
+      "color": "#ef4444",
+      "icon": "\ud83d\udcdd"
+    }
+  },
+  "clustering_by_community": {
+    "r/CUNY": {
+      "with_bridge_users": 0.38,
+      "without_bridge_users": 0.19,
+      "improvement": "2.0x",
+      "bridge_edges": 1847,
+      "total_edges": 12450,
+      "bridge_edge_pct": 14.8,
+      "bridge_posts": 2156,
+      "bridge_comments": 6468,
+      "color": "#2563eb"
+    },
+    "r/Baruch": {
+      "with_bridge_users": 0.36,
+      "without_bridge_users": 0.21,
+      "improvement": "1.7x",
+      "bridge_edges": 1623,
+      "total_edges": 9870,
+      "bridge_edge_pct": 16.4,
+      "bridge_posts": 1892,
+      "bridge_comments": 5676,
+      "color": "#f59e0b"
+    },
+    "r/HunterCollege": {
+      "with_bridge_users": 0.33,
+      "without_bridge_users": 0.18,
+      "improvement": "1.8x",
+      "bridge_edges": 1234,
+      "total_edges": 6540,
+      "bridge_edge_pct": 18.9,
+      "bridge_posts": 1287,
+      "bridge_comments": 3861,
+      "color": "#ef4444"
+    },
+    "r/QueensCollege": {
+      "with_bridge_users": 0.31,
+      "without_bridge_users": 0.17,
+      "improvement": "1.8x",
+      "bridge_edges": 987,
+      "total_edges": 5230,
+      "bridge_edge_pct": 18.9,
+      "bridge_posts": 1024,
+      "bridge_comments": 3072,
+      "color": "#10b981"
+    },
+    "r/CCNY": {
+      "with_bridge_users": 0.29,
+      "without_bridge_users": 0.15,
+      "improvement": "1.9x",
+      "bridge_edges": 654,
+      "total_edges": 3120,
+      "bridge_edge_pct": 21.0,
+      "bridge_posts": 839,
+      "bridge_comments": 2517,
+      "color": "#7c3aed"
+    }
+  },
+  "inter_community_edges": {
+    "r/CUNY_r/Baruch": {
+      "edges": 892,
+      "comments": 743,
+      "posts": 149
+    },
+    "r/CUNY_r/HunterCollege": {
+      "edges": 756,
+      "comments": 621,
+      "posts": 135
+    },
+    "r/CUNY_r/QueensCollege": {
+      "edges": 684,
+      "comments": 572,
+      "posts": 112
+    },
+    "r/CUNY_r/CCNY": {
+      "edges": 543,
+      "comments": 467,
+      "posts": 76
+    },
+    "r/Baruch_r/HunterCollege": {
+      "edges": 456,
+      "comments": 398,
+      "posts": 58
+    },
+    "r/Baruch_r/QueensCollege": {
+      "edges": 387,
+      "comments": 341,
+      "posts": 46
+    },
+    "r/Baruch_r/CCNY": {
+      "edges": 298,
+      "comments": 264,
+      "posts": 34
+    },
+    "r/HunterCollege_r/QueensCollege": {
+      "edges": 412,
+      "comments": 367,
+      "posts": 45
+    },
+    "r/HunterCollege_r/CCNY": {
+      "edges": 321,
+      "comments": 289,
+      "posts": 32
+    },
+    "r/QueensCollege_r/CCNY": {
+      "edges": 287,
+      "comments": 256,
+      "posts": 31
+    },
+    "r/CUNY_r/BrooklynCollege": {
+      "edges": 234,
+      "comments": 198,
+      "posts": 36
+    },
+    "r/CUNY_r/JohnJay": {
+      "edges": 156,
+      "comments": 134,
+      "posts": 22
+    },
+    "r/CUNY_r/CUNYuncensored": {
+      "edges": 123,
+      "comments": 112,
+      "posts": 11
+    }
+  },
+  "reddit_baselines": {
+    "cross_subreddit_participation": 0.177,
+    "meaningful_dual_participation": 0.012,
+    "co_comment_clustering": 0.365,
+    "comments_per_active_user": 7,
+    "lurker_ratio": 0.9
+  },
+  "cuny_metrics": {
+    "cross_subreddit_participation": 0.0884,
+    "meaningful_multi_participation": 0.028,
+    "clustering_coefficient": 0.34,
+    "comments_per_active_user": 23.5,
+    "lurker_ratio": 0.65
+  }
+}

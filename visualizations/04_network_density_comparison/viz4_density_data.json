@@ -1,0 +1,59 @@
+{
+  "density_data": {
+    "CUNY (Federated)": {
+      "density": 0.34,
+      "color": "#1f77b4",
+      "architecture": "Federated (8 subreddits)",
+      "total_users": 20178,
+      "total_posts": 234570,
+      "explanation": "Distributed load across specialized communities",
+      "theoretical_link": "Enables Warner's \"reflexive circulation\"",
+      "crisis_implication": "94.6% response rate maintained during pandemic"
+    },
+    "NYU (Centralized)": {
+      "density": 0.18,
+      "color": "#17becf",
+      "architecture": "Centralized (1 subreddit)",
+      "total_users": 19391,
+      "total_posts": 54753,
+      "explanation": "Single point of coordination",
+      "theoretical_link": "Limited reflexive circulation pathways",
+      "crisis_implication": "84.7% response rate during pandemic"
+    },
+    "Columbia (Centralized)": {
+      "density": 0.15,
+      "color": "#bcbd22",
+      "architecture": "Centralized (1 subreddit)",
+      "total_users": 9769,
+      "total_posts": 97797,
+      "explanation": "High volume, lower interconnection",
+      "theoretical_link": "Broadcast model vs. peer exchange",
+      "crisis_implication": "92.7% response rate during pandemic"
+    }
+  },
+  "context": {
+    "Reddit Baseline": 0.11,
+    "High-Support Community": 0.25,
+    "CUNY Advantage": "3x Reddit baseline, 2x centralized peers"
+  },
+  "implications": [
+    {
+      "metric": "Peer Response Time",
+      "low_density": "Hours to days",
+      "high_density": "Minutes to hours",
+      "cuny_evidence": "Academic crisis queries: 100% response rate"
+    },
+    {
+      "metric": "Information Redundancy",
+      "low_density": "Single source, prone to gaps",
+      "high_density": "Multiple paths, robust coverage",
+      "cuny_evidence": "229 bridge users ensure cross-pollination"
+    },
+    {
+      "metric": "Load Distribution",
+      "low_density": "Central bottleneck under stress",
+      "high_density": "Distributed across specialized nodes",
+      "cuny_evidence": "March 2020: 27x surge handled without collapse"
+    }
+  ]
+}

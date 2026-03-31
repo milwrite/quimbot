@@ -1,0 +1,767 @@
+{
+  "Baruch": {
+    "database_info": {
+      "subreddit": "Baruch",
+      "file_size_mb": 36.47265625,
+      "users_count": 6571,
+      "submissions_count": 13098,
+      "comments_count": 84007,
+      "user_activity_count": 6194,
+      "submission_date_range": {
+        "earliest": "2011-11-05T00:28:56+00:00",
+        "latest": "2025-07-23T03:28:32+00:00"
+      }
+    },
+    "user_completeness": {
+      "total_users": 6571,
+      "users_with_submissions": 2925,
+      "users_with_comments": 5700,
+      "users_with_both": 2618,
+      "orphaned_users": 564,
+      "processing_status": {
+        "completed": 6194,
+        "failed": 376,
+        "pending": 1
+      },
+      "completeness_ratio": 0.9141683153249125
+    },
+    "interaction_mapping": {
+      "total_interactions": 54444,
+      "submission_to_comment": 32044,
+      "comment_to_comment": 22400,
+      "unique_interaction_pairs": 37221,
+      "interaction_density": 0.0010008066467693797,
+      "top_interactors": [
+        {
+          "user": "Effective_Pitch_2974",
+          "interactions": 526
+        },
+        {
+          "user": "Living_Leading79797",
+          "interactions": 507
+        },
+        {
+          "user": "mrhobby",
+          "interactions": 302
+        },
+        {
+          "user": "shortstraight",
+          "interactions": 299
+        },
+        {
+          "user": "KO944994",
+          "interactions": 290
+        },
+        {
+          "user": "Dawn101Dusk",
+          "interactions": 290
+        },
+        {
+          "user": "galaxys10pluse",
+          "interactions": 284
+        },
+        {
+          "user": "Matrix900",
+          "interactions": 282
+        },
+        {
+          "user": "Skylinerkay",
+          "interactions": 279
+        },
+        {
+          "user": "JohnPaulJoeJack",
+          "interactions": 252
+        }
+      ],
+      "interaction_distribution": {}
+    },
+    "comment_submission_linkage": {
+      "total_comments": 84007,
+      "linked_comments": 44809,
+      "orphaned_comments": 39198,
+      "linkage_rate": 0.5333960265215993,
+      "missing_submissions": [
+        {
+          "submission_id": "x3nh4s",
+          "orphaned_comments": 144
+        },
+        {
+          "submission_id": "1jll60u",
+          "orphaned_comments": 71
+        },
+        {
+          "submission_id": "yjlf4z",
+          "orphaned_comments": 59
+        },
+        {
+          "submission_id": "1am5u84",
+          "orphaned_comments": 57
+        },
+        {
+          "submission_id": "1g5ecrl",
+          "orphaned_comments": 46
+        },
+        {
+          "submission_id": "zq085o",
+          "orphaned_comments": 43
+        },
+        {
+          "submission_id": "af5u8n",
+          "orphaned_comments": 42
+        },
+        {
+          "submission_id": "1hyfjvl",
+          "orphaned_comments": 42
+        },
+        {
+          "submission_id": "1hdg1tv",
+          "orphaned_comments": 42
+        },
+        {
+          "submission_id": "1b98m9p",
+          "orphaned_comments": 41
+        }
+      ],
+      "comment_depth_distribution": {
+        "reply": 40005,
+        "top_level": 44002
+      }
+    },
+    "temporal_consistency": {
+      "timestamp_issues": [],
+      "future_timestamps": 0,
+      "null_timestamps": 0,
+      "temporal_gaps": [
+        {
+          "after_date": "2013-01-30",
+          "before_date": "2013-08-30",
+          "gap_days": 212.0
+        },
+        {
+          "after_date": "2013-11-15",
+          "before_date": "2014-05-03",
+          "gap_days": 169.0
+        },
+        {
+          "after_date": "2014-12-02",
+          "before_date": "2015-03-20",
+          "gap_days": 108.0
+        },
+        {
+          "after_date": "2012-05-15",
+          "before_date": "2012-08-28",
+          "gap_days": 105.0
+        },
+        {
+          "after_date": "2015-04-13",
+          "before_date": "2015-07-17",
+          "gap_days": 95.0
+        }
+      ],
+      "timezone_consistency": true,
+      "date_distribution": {
+        "2025-07": 634,
+        "2025-06": 1063,
+        "2025-05": 2506,
+        "2025-04": 2326,
+        "2025-03": 2286,
+        "2025-02": 1685,
+        "2025-01": 1882,
+        "2024-12": 1457,
+        "2024-11": 1415,
+        "2024-10": 2211,
+        "2024-09": 1523,
+        "2024-08": 1659
+      }
+    },
+    "network_metrics": {
+      "node_count": 6007,
+      "edge_count": 37221,
+      "avg_degree": 12.392542034293324,
+      "connected_components_estimate": 0,
+      "community_detection_feasible": true,
+      "influence_metrics_feasible": true
+    },
+    "data_quality_score": 63.26,
+    "network_readiness_score": 92.65,
+    "issues": [
+      "564 orphaned users with no content",
+      "39198 orphaned comments",
+      "5 significant temporal gaps (>30 days)"
+    ],
+    "recommendations": [
+      "Run process_pending_users.sh to capture missing user content",
+      "Investigate missing submissions and consider re-scraping affected threads",
+      "Review scraping history for completeness during gap periods"
+    ]
+  },
+  "CCNY": {
+    "database_info": {
+      "subreddit": "CCNY",
+      "file_size_mb": 3.640625,
+      "users_count": 1351,
+      "submissions_count": 1463,
+      "comments_count": 6983,
+      "user_activity_count": 1319,
+      "submission_date_range": {
+        "earliest": "2011-10-17T05:19:48+00:00",
+        "latest": "2025-07-24T21:48:18+00:00"
+      }
+    },
+    "user_completeness": {
+      "total_users": 1351,
+      "users_with_submissions": 715,
+      "users_with_comments": 1040,
+      "users_with_both": 483,
+      "orphaned_users": 79,
+      "processing_status": {
+        "completed": 1320,
+        "failed": 31
+      },
+      "completeness_ratio": 0.9415247964470762
+    },
+    "interaction_mapping": {
+      "total_interactions": 6441,
+      "submission_to_comment": 3802,
+      "comment_to_comment": 2639,
+      "unique_interaction_pairs": 3793,
+      "interaction_density": 0.002464371221497789,
+      "top_interactors": [
+        {
+          "user": "futuretechftw2",
+          "interactions": 351
+        },
+        {
+          "user": "mentallydepressedme",
+          "interactions": 187
+        },
+        {
+          "user": "Cute-Ad-8673",
+          "interactions": 127
+        },
+        {
+          "user": "MayaTheDreamGirl",
+          "interactions": 108
+        },
+        {
+          "user": "Youre_cute",
+          "interactions": 89
+        },
+        {
+          "user": "Kittyyy314",
+          "interactions": 84
+        },
+        {
+          "user": "Full_Newt9714",
+          "interactions": 82
+        },
+        {
+          "user": "JSFS2019",
+          "interactions": 70
+        },
+        {
+          "user": "Plus_Guitar_526",
+          "interactions": 68
+        },
+        {
+          "user": "Excellent-Hippo9835",
+          "interactions": 65
+        }
+      ],
+      "interaction_distribution": {}
+    },
+    "comment_submission_linkage": {
+      "total_comments": 6983,
+      "linked_comments": 5268,
+      "orphaned_comments": 1715,
+      "linkage_rate": 0.754403551482171,
+      "missing_submissions": [
+        {
+          "submission_id": "1g52vrz",
+          "orphaned_comments": 20
+        },
+        {
+          "submission_id": "1e96urd",
+          "orphaned_comments": 18
+        },
+        {
+          "submission_id": "1gcb2ro",
+          "orphaned_comments": 16
+        },
+        {
+          "submission_id": "15xcn3p",
+          "orphaned_comments": 16
+        },
+        {
+          "submission_id": "1ivnmu3",
+          "orphaned_comments": 14
+        },
+        {
+          "submission_id": "1ib2hmn",
+          "orphaned_comments": 14
+        },
+        {
+          "submission_id": "1ecat5c",
+          "orphaned_comments": 14
+        },
+        {
+          "submission_id": "1jxkcw7",
+          "orphaned_comments": 13
+        },
+        {
+          "submission_id": "1euk4dx",
+          "orphaned_comments": 13
+        },
+        {
+          "submission_id": "1ilnlwb",
+          "orphaned_comments": 12
+        }
+      ],
+      "comment_depth_distribution": {
+        "reply": 3680,
+        "top_level": 3303
+      }
+    },
+    "temporal_consistency": {
+      "timestamp_issues": [],
+      "future_timestamps": 0,
+      "null_timestamps": 0,
+      "temporal_gaps": [
+        {
+          "after_date": "2015-01-27",
+          "before_date": "2017-03-14",
+          "gap_days": 777.0
+        },
+        {
+          "after_date": "2012-03-31",
+          "before_date": "2012-11-23",
+          "gap_days": 237.0
+        },
+        {
+          "after_date": "2014-02-18",
+          "before_date": "2014-08-11",
+          "gap_days": 174.0
+        },
+        {
+          "after_date": "2013-04-19",
+          "before_date": "2013-09-27",
+          "gap_days": 161.0
+        },
+        {
+          "after_date": "2014-08-23",
+          "before_date": "2015-01-27",
+          "gap_days": 157.0
+        }
+      ],
+      "timezone_consistency": true,
+      "date_distribution": {
+        "2025-07": 313,
+        "2025-06": 295,
+        "2025-05": 609,
+        "2025-04": 447,
+        "2025-03": 446,
+        "2025-02": 348,
+        "2025-01": 582,
+        "2024-12": 415,
+        "2024-11": 424,
+        "2024-10": 618,
+        "2024-09": 432,
+        "2024-08": 575
+      }
+    },
+    "network_metrics": {
+      "node_count": 1272,
+      "edge_count": 3793,
+      "avg_degree": 5.963836477987422,
+      "connected_components_estimate": 0,
+      "community_detection_feasible": true,
+      "influence_metrics_feasible": true
+    },
+    "data_quality_score": 73.27,
+    "network_readiness_score": 84.56,
+    "issues": [
+      "79 orphaned users with no content",
+      "1715 orphaned comments",
+      "5 significant temporal gaps (>30 days)"
+    ],
+    "recommendations": [
+      "Run process_pending_users.sh to capture missing user content",
+      "Investigate missing submissions and consider re-scraping affected threads",
+      "Review scraping history for completeness during gap periods"
+    ]
+  },
+  "QueensCollege": {
+    "database_info": {
+      "subreddit": "QueensCollege",
+      "file_size_mb": 10.24609375,
+      "users_count": 2576,
+      "submissions_count": 3802,
+      "comments_count": 19265,
+      "user_activity_count": 2502,
+      "submission_date_range": {
+        "earliest": "2011-08-06T18:31:42+00:00",
+        "latest": "2025-07-25T04:45:53+00:00"
+      }
+    },
+    "user_completeness": {
+      "total_users": 2576,
+      "users_with_submissions": 1270,
+      "users_with_comments": 2137,
+      "users_with_both": 997,
+      "orphaned_users": 166,
+      "processing_status": {
+        "completed": 2502,
+        "failed": 74
+      },
+      "completeness_ratio": 0.9355590062111802
+    },
+    "interaction_mapping": {
+      "total_interactions": 14376,
+      "submission_to_comment": 8930,
+      "comment_to_comment": 5446,
+      "unique_interaction_pairs": 9752,
+      "interaction_density": 0.0016807646720914645,
+      "top_interactors": [
+        {
+          "user": "Salty_Bag1852",
+          "interactions": 208
+        },
+        {
+          "user": "theboyIT",
+          "interactions": 130
+        },
+        {
+          "user": "Mikeythewho",
+          "interactions": 121
+        },
+        {
+          "user": "not-so-stupid-idiot",
+          "interactions": 115
+        },
+        {
+          "user": "Positive_Pianist9239",
+          "interactions": 115
+        },
+        {
+          "user": "Zealousideal-Dare345",
+          "interactions": 112
+        },
+        {
+          "user": "OgScz",
+          "interactions": 109
+        },
+        {
+          "user": "Codebreaker1995",
+          "interactions": 101
+        },
+        {
+          "user": "sexylassy",
+          "interactions": 99
+        },
+        {
+          "user": "axxabear",
+          "interactions": 98
+        }
+      ],
+      "interaction_distribution": {}
+    },
+    "comment_submission_linkage": {
+      "total_comments": 19265,
+      "linked_comments": 12256,
+      "orphaned_comments": 7009,
+      "linkage_rate": 0.6361796003114456,
+      "missing_submissions": [
+        {
+          "submission_id": "1hwtvoj",
+          "orphaned_comments": 23
+        },
+        {
+          "submission_id": "1fzux3f",
+          "orphaned_comments": 21
+        },
+        {
+          "submission_id": "1dhp2md",
+          "orphaned_comments": 20
+        },
+        {
+          "submission_id": "16g4gg0",
+          "orphaned_comments": 20
+        },
+        {
+          "submission_id": "hi3gjh",
+          "orphaned_comments": 19
+        },
+        {
+          "submission_id": "1id23p9",
+          "orphaned_comments": 19
+        },
+        {
+          "submission_id": "1hhnkwg",
+          "orphaned_comments": 19
+        },
+        {
+          "submission_id": "1emq761",
+          "orphaned_comments": 19
+        },
+        {
+          "submission_id": "1i127bx",
+          "orphaned_comments": 18
+        },
+        {
+          "submission_id": "bslzwj",
+          "orphaned_comments": 17
+        }
+      ],
+      "comment_depth_distribution": {
+        "reply": 8935,
+        "top_level": 10330
+      }
+    },
+    "temporal_consistency": {
+      "timestamp_issues": [],
+      "future_timestamps": 0,
+      "null_timestamps": 0,
+      "temporal_gaps": [
+        {
+          "after_date": "2014-01-17",
+          "before_date": "2014-06-30",
+          "gap_days": 164.0
+        },
+        {
+          "after_date": "2016-08-27",
+          "before_date": "2017-01-11",
+          "gap_days": 137.0
+        },
+        {
+          "after_date": "2013-04-10",
+          "before_date": "2013-07-26",
+          "gap_days": 107.0
+        },
+        {
+          "after_date": "2014-10-16",
+          "before_date": "2015-01-20",
+          "gap_days": 96.0
+        },
+        {
+          "after_date": "2015-05-16",
+          "before_date": "2015-07-31",
+          "gap_days": 76.0
+        }
+      ],
+      "timezone_consistency": true,
+      "date_distribution": {
+        "2025-07": 360,
+        "2025-06": 444,
+        "2025-05": 596,
+        "2025-04": 347,
+        "2025-03": 430,
+        "2025-02": 492,
+        "2025-01": 527,
+        "2024-12": 626,
+        "2024-11": 395,
+        "2024-10": 506,
+        "2024-09": 375,
+        "2024-08": 508
+      }
+    },
+    "network_metrics": {
+      "node_count": 2410,
+      "edge_count": 9752,
+      "avg_degree": 8.092946058091286,
+      "connected_components_estimate": 0,
+      "community_detection_feasible": true,
+      "influence_metrics_feasible": true
+    },
+    "data_quality_score": 68.17,
+    "network_readiness_score": 88.87,
+    "issues": [
+      "166 orphaned users with no content",
+      "7009 orphaned comments",
+      "5 significant temporal gaps (>30 days)"
+    ],
+    "recommendations": [
+      "Run process_pending_users.sh to capture missing user content",
+      "Investigate missing submissions and consider re-scraping affected threads",
+      "Review scraping history for completeness during gap periods"
+    ]
+  },
+  "cross_subreddit": {
+    "total_unique_users": 10251,
+    "users_in_multiple": 229,
+    "subreddit_overlap": {},
+    "most_connected_users": [
+      [
+        "Adventurous-Value-82",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "Any-Emu-4546",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "CUNY_Survey",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "DatGuyKilo",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "Excellent-Hippo9835",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "Glum-Abies5904",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "Master-Margarita222",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "c0kefairy",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "cheeseydevil183",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "cunystartups",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "exclaim_bot",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "futuretechftw2",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "lepidio",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "monstermac77",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "movement_33",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "priviledgednews",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "rosieareposie",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "tracystraussI",
+        [
+          "Baruch",
+          "QueensCollege",
+          "CCNY"
+        ]
+      ],
+      [
+        "137thaccount",
+        [
+          "Baruch",
+          "QueensCollege"
+        ]
+      ],
+      [
+        "43NTAI",
+        [
+          "Baruch",
+          "QueensCollege"
+        ]
+      ]
+    ],
+    "connection_matrix": {
+      "Baruch": {
+        "QueensCollege": 134,
+        "CCNY": 87
+      },
+      "QueensCollege": {
+        "Baruch": 134,
+        "CCNY": 44
+      },
+      "CCNY": {
+        "Baruch": 87,
+        "QueensCollege": 44
+      }
+    }
+  }
+}
