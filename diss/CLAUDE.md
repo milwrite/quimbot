@@ -6,6 +6,44 @@ This is the writing bundle — no scripts, no venv, no scraping infrastructure. 
 
 ---
 
+## Working Mode in This Bundle
+
+Keep each pass small. Finish one discrete task, record the result, then stop.
+
+Start with `reference/TODO.md`. The `DISS-BUNDLE-*` items define bundle-safe maintenance work such as file cleanup, indexes, source maps, document crosswalks, and formatting-only passes.
+
+When working here:
+
+- complete exactly one atomic task per pass
+- update `reference/TODO.md` when the task is done
+- if a task depends on missing databases, scripts, or external context, write the blocker down and stop
+- prefer edits that improve orientation, consistency, and traceability over broad prose rewrites
+
+## Bundle-Safe Contributions
+
+Good tasks in this repo include:
+
+- removing confirmed duplicate files
+- creating inventories, indexes, and file maps
+- mapping markdown files to generated `.docx` outputs
+- building chapter source maps and evidence allocation scaffolds
+- light formatting cleanup on existing notes and progress documents
+- clarifying which files are canonical and which are exports or derived artifacts
+
+## Bundle Limits
+
+This repo cannot support full-pipeline work. Do not treat it like the main research environment.
+
+Avoid or defer these tasks unless the required materials are present:
+
+- database validation against live SQLite files
+- rerunning analysis scripts or scrapers
+- regenerating findings from missing code or data
+- heavy revision of generated findings without checking provenance
+- direct edits to `core_docs/CURRENT.docx` unless explicitly requested
+
+---
+
 ## Structure
 
 ```

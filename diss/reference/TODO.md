@@ -38,6 +38,22 @@ This file tracks ongoing tasks across the dissertation project. Reference this a
 
 ---
 
+## 📦 PORTABLE BUNDLE MAINTENANCE (Atomic / Bundle-Safe)
+
+These tasks are intentionally small, local to this writing bundle, and safe to complete without access to the full research repo, live databases, or analysis scripts.
+
+**Execution rule**: complete **one task per pass**. Update this checklist when finished. If a task depends on external data, stop and note the blocker rather than improvising.
+
+- [x] **DISS-BUNDLE-01** — Compared `addendum/methodological_addendum_ai_scaffold 2.md` against `addendum/methodological_addendum_ai_scaffold.md`; files were identical, so the duplicate copy was removed. Completed 2026-03-31.
+- [ ] **DISS-BUNDLE-02** — Create `reference/EVIDENCE_MASTER_ALLOCATION.md` as a scaffold for evidence ownership, chapter placement, conflict notes, and status tracking.
+- [ ] **DISS-BUNDLE-03** — Create `reference/DOC_PAIRS.md` mapping editable Markdown files to their generated `.docx` counterparts, with a clear note on which file is canonical.
+- [ ] **DISS-BUNDLE-04** — Create `visualizations/INDEX.md` listing visualization number, topic, dissertation chapter, and files present in this bundle.
+- [ ] **DISS-BUNDLE-05** — Normalize `drafts.md` entry structure so each item has consistent placement, source, and status fields while preserving the drafted prose.
+- [ ] **DISS-BUNDLE-06** — Create `chapter_drafts/ch1_source_map.md` mapping reusable Chapter 1 prose blocks to target sections in the dissertation.
+- [ ] **DISS-BUNDLE-07** — Create `chapter_drafts/bridge-users/README.md` identifying canonical files, supporting files, and recommended reading order for Chapter 3 bridge-user work.
+- [ ] **DISS-BUNDLE-08** — Do a light formatting-only cleanup pass on `core_docs/progress_reports.md` for headings, spelling, and list consistency without changing substantive claims.
+- [ ] **DISS-BUNDLE-09** — Add a short “bundle limitations” note to `README.md` and/or `CLAUDE.md` explaining which tasks require the full research repo.
+
 ## 📝 ACTIVE WRITING TASKS
 
 ### Chapter 1: Introduction & Context
