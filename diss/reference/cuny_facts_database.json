@@ -1,0 +1,215 @@
+{
+  "campuses": {
+    "Baruch": {
+      "official_name": "Baruch College",
+      "location": "Manhattan",
+      "neighborhood": "Gramercy Park",
+      "address": "One Bernard Baruch Way, New York, NY 10010",
+      "enrollment": 19000,
+      "founded": 1919,
+      "type": "senior_college",
+      "notable_programs": ["Business", "Public Affairs", "Arts and Sciences"],
+      "undergraduate_schools": ["Zicklin School of Business", "Weissman School of Arts and Sciences", "School of Public Affairs"]
+    },
+    "Hunter": {
+      "official_name": "Hunter College",
+      "location": "Manhattan",
+      "neighborhood": "Upper East Side",
+      "address": "695 Park Ave, New York, NY 10065",
+      "enrollment": 23000,
+      "founded": 1870,
+      "type": "senior_college",
+      "notable_programs": ["Nursing", "Social Work", "Education", "Arts"],
+      "undergraduate_schools": ["Hunter College"]
+    },
+    "CCNY": {
+      "official_name": "City College of New York",
+      "location": "Manhattan",
+      "neighborhood": "Hamilton Heights",
+      "address": "160 Convent Ave, New York, NY 10031",
+      "enrollment": 16000,
+      "founded": 1847,
+      "type": "senior_college",
+      "notable_programs": ["Engineering", "Architecture", "Liberal Arts"],
+      "undergraduate_schools": ["Grove School of Engineering", "School of Architecture"]
+    },
+    "Brooklyn": {
+      "official_name": "Brooklyn College",
+      "location": "Brooklyn",
+      "neighborhood": "Midwood",
+      "address": "2900 Bedford Ave, Brooklyn, NY 11210",
+      "enrollment": 18000,
+      "founded": 1930,
+      "type": "senior_college",
+      "notable_programs": ["Film", "Conservatory of Music", "Education"],
+      "undergraduate_schools": ["Brooklyn College"]
+    },
+    "Queens": {
+      "official_name": "Queens College",
+      "location": "Queens",
+      "neighborhood": "Flushing",
+      "address": "65-30 Kissena Blvd, Queens, NY 11367",
+      "enrollment": 20000,
+      "founded": 1937,
+      "type": "senior_college",
+      "notable_programs": ["Arts", "Sciences", "Education"],
+      "undergraduate_schools": ["Queens College"]
+    },
+    "JohnJay": {
+      "official_name": "John Jay College of Criminal Justice",
+      "location": "Manhattan",
+      "neighborhood": "Hell's Kitchen",
+      "address": "524 W 59th St, New York, NY 10019",
+      "enrollment": 15000,
+      "founded": 1964,
+      "type": "senior_college",
+      "notable_programs": ["Criminal Justice", "Law", "Public Service"],
+      "undergraduate_schools": ["John Jay College"]
+    }
+  },
+  "financial_aid": {
+    "tuition": {
+      "in_state_undergrad": 7070,
+      "out_of_state_undergrad": 14880,
+      "in_state_grad": 11550,
+      "out_of_state_grad": 20460,
+      "last_updated": "2023-2024"
+    },
+    "programs": {
+      "TAP": {
+        "name": "Tuition Assistance Program",
+        "type": "state_grant",
+        "max_award": 5665,
+        "requirements": ["NY resident", "Full-time enrollment", "Income eligibility"]
+      },
+      "Pell": {
+        "name": "Pell Grant",
+        "type": "federal_grant",
+        "max_award": 7395,
+        "requirements": ["FAFSA", "Financial need", "Undergrad only"]
+      },
+      "Excelsior": {
+        "name": "Excelsior Scholarship",
+        "type": "state_scholarship",
+        "coverage": "Full tuition for eligible students",
+        "requirements": ["NY resident 2+ years", "Income < $125,000", "Stay in NY post-grad"]
+      },
+      "SEEK": {
+        "name": "Search for Education, Elevation, and Knowledge",
+        "type": "support_program",
+        "coverage": "Financial aid + academic support",
+        "requirements": ["Academic and financial need", "Underrepresented students"]
+      }
+    },
+    "resources": {
+      "food_pantry": "Available at most campuses",
+      "emergency_funds": "Available through financial aid office",
+      "metro_card": "Reduced fare programs available"
+    }
+  },
+  "academic_calendar": {
+    "semesters": ["Fall", "Spring", "Summer"],
+    "fall": {
+      "start": "Late August/Early September",
+      "end": "Mid-December",
+      "finals": "December"
+    },
+    "spring": {
+      "start": "Late January/Early February",
+      "end": "Late May",
+      "finals": "May"
+    },
+    "summer": {
+      "sessions": ["Summer I", "Summer II"],
+      "start": "Late May",
+      "end": "August"
+    },
+    "winter": {
+      "available": true,
+      "duration": "3 weeks in January"
+    }
+  },
+  "graduation_requirements": {
+    "credits": {
+      "undergraduate": 120,
+      "typical_course_credits": 3,
+      "full_time_minimum": 12,
+      "part_time_maximum": 11
+    },
+    "general_education": {
+      "pathways": "Required",
+      "categories": [
+        "English Composition",
+        "Mathematical and Quantitative Reasoning",
+        "Life and Physical Sciences",
+        "World Cultures and Global Issues",
+        "US Experience in its Diversity",
+        "Creative Expression",
+        "Individual and Society",
+        "Scientific World"
+      ]
+    }
+  },
+  "support_services": {
+    "counseling": {
+      "available": true,
+      "free": true,
+      "types": ["Mental health", "Academic", "Career"]
+    },
+    "tutoring": {
+      "available": true,
+      "free": true,
+      "subjects": "Most undergraduate courses"
+    },
+    "writing_center": {
+      "available": true,
+      "free": true
+    },
+    "career_services": {
+      "available": true,
+      "services": ["Resume review", "Interview prep", "Job search", "Networking"]
+    },
+    "disability_services": {
+      "available": true,
+      "accommodations": ["Testing", "Note-taking", "Accessible materials"]
+    }
+  },
+  "covid_policies": {
+    "2020": {
+      "spring": {
+        "transition_date": "March 12, 2020",
+        "mode": "Remote",
+        "notes": "Emergency transition to online learning"
+      },
+      "fall": {
+        "mode": "Mostly remote",
+        "some_in_person": "Limited labs and clinical"
+      }
+    },
+    "2021": {
+      "spring": {
+        "mode": "Hybrid",
+        "notes": "Increased in-person options"
+      },
+      "fall": {
+        "mode": "Mostly in-person",
+        "vaccine_requirement": true
+      }
+    },
+    "2022": {
+      "mode": "Fully in-person",
+      "mask_policy": "Optional"
+    }
+  },
+  "verification_sources": {
+    "cuny_website": "https://www.cuny.edu",
+    "baruch_website": "https://www.baruch.cuny.edu",
+    "hunter_website": "https://www.hunter.cuny.edu",
+    "ccny_website": "https://www.ccny.cuny.edu",
+    "brooklyn_website": "https://www.brooklyn.cuny.edu",
+    "queens_website": "https://www.qc.cuny.edu",
+    "johnjay_website": "https://www.jjay.cuny.edu",
+    "financial_aid": "https://www.cuny.edu/financial-aid/",
+    "last_verified": "2025-09-28"
+  }
+}

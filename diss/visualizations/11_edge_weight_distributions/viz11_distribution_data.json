@@ -1,0 +1,15 @@
+{
+  "total_edges": 115433,
+  "weight_stats": {
+    "mean": 1.3157589250907453,
+    "median": 1.0,
+    "std": 1.0852174212108123,
+    "max": 135,
+    "p90": 2.0,
+    "p99": 5.0
+  },
+  "weak_ties_pct": 97.40195611306991,
+  "strong_ties_pct": 0.138608543484099,
+  "cross_community_median_weight": 1.0,
+  "intra_community_median_weight": 1.0
+}

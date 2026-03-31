@@ -1,0 +1,12 @@
+{
+  "total_edges": 115433,
+  "cross_community_edges": 17551,
+  "intra_community_edges": 97882,
+  "date_range": {
+    "start": "2012-01-01 00:00:00",
+    "end": "2024-12-01 00:00:00"
+  },
+  "pandemic_month_edges": 938,
+  "pre_pandemic_monthly_avg": 89.16161616161617,
+  "post_pandemic_monthly_avg": 1729.3508771929824
+}

@@ -1,0 +1,5368 @@
+{
+  "metadata": {
+    "analysis_date": "2026-02-06T16:20:16.421836",
+    "user_mode": "union",
+    "flow_window_days": 30,
+    "total_users": 23,
+    "total_flow_events": 22782
+  },
+  "users": {
+    "43NTAI": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 128,
+          "total_words": 5426,
+          "mean_length_words": 42.3906,
+          "mean_length_chars": 260.5078,
+          "median_length_words": 29.5,
+          "mattr": 0.7483,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.1875,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 13.3645,
+          "hedging_rate": 0.2109,
+          "authority_rate": 0.0391,
+          "directive_rate": 0.0781,
+          "advisory_rate": 0.1641,
+          "citation_rate": 0.1641,
+          "question_rate": 0.0345,
+          "empathy_rate": 0.0078,
+          "markdown_rate": 0.0938,
+          "exclamation_rate": 0.0,
+          "mean_score": 3.3047,
+          "median_score": 2.0,
+          "max_score": 29,
+          "score_per_word": 0.078
+        },
+        "QueensCollege": {
+          "comment_count": 1,
+          "total_words": 144,
+          "mean_length_words": 144.0,
+          "mean_length_chars": 823.0,
+          "median_length_words": 144.0,
+          "mattr": 0.7151,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 18.0,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 1.0,
+          "markdown_rate": 1.0,
+          "exclamation_rate": 0.25,
+          "mean_score": 3.0,
+          "median_score": 3.0,
+          "max_score": 3,
+          "score_per_word": 0.0208
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0,
+        "length_cv": 0,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.2093,
+          "authority": 0.0388,
+          "directive": 0.0775,
+          "advisory": 0.1628,
+          "citation": 0.1628,
+          "empathy": 0.0155
+        },
+        "subreddits_active": 2
+      },
+      "corpus_stats": {
+        "total_comments": 129,
+        "total_submissions": 20,
+        "subreddits_with_comments": [
+          "CUNY",
+          "QueensCollege"
+        ],
+        "activity_period": "2022-04 to 2025-06"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "mhsljrc",
+            "body": "I reccomend prove it through google docs, assuming that is what you wrote it with. Because they have a checking history thing, make it evident that you didn't use AI.",
+            "score": 29,
+            "created_utc": 1741978260
+          },
+          {
+            "id": "mckdaj4",
+            "body": "Most people go to law school or graduate school of any kind really.",
+            "score": 27,
+            "created_utc": 1739461607
+          },
+          {
+            "id": "m3ha7x4",
+            "body": "Honestly, none. That said, each schools has their pros vs cons. The best schools for most students are the ones without specialization in my opinion, similarity to how Ivy League schools operate. For example, Queens College, Brookyln College, and etc.\n\nSpecialization refers to how and where is resources are allocated to. Making the school, specialist in one field, novice in the rest. For example, art schools cater most of their resources to art-students, not non-art students. Business schools...",
+            "score": 26,
+            "created_utc": 1734981406
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "m91b0j4",
+            "body": "I'm really sorry to hear you're stressed out! It sounds like you did everything right by submitting your work on time. Since the delay is with the chairperson, you might need to ***follow up with them directly***, explaining the situation and how everything on your end was submitted on time. When you reach out, it may be helpful to keep your tone polite but firm, emphasizing that you met all your deadlines and that the delay isn\u2019t your fault.\n\nOnce you talk to an advisor on Monday, they'll li...",
+            "score": 3,
+            "created_utc": 1737776548
+          }
+        ]
+      }
+    },
+    "Adventurous-Value-82": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 201,
+          "total_words": 6568,
+          "mean_length_words": 32.6766,
+          "mean_length_chars": 184.8607,
+          "median_length_words": 23.0,
+          "mattr": 0.7308,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.005,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 14.7265,
+          "hedging_rate": 0.1144,
+          "authority_rate": 0.0398,
+          "directive_rate": 0.0299,
+          "advisory_rate": 0.199,
+          "citation_rate": 0.1294,
+          "question_rate": 0.1256,
+          "empathy_rate": 0.005,
+          "markdown_rate": 0.0398,
+          "exclamation_rate": 0.0,
+          "mean_score": 2.398,
+          "median_score": 1.0,
+          "max_score": 52,
+          "score_per_word": 0.0734
+        },
+        "QueensCollege": {
+          "comment_count": 14,
+          "total_words": 443,
+          "mean_length_words": 31.6429,
+          "mean_length_chars": 192.1429,
+          "median_length_words": 23.5,
+          "mattr": 0.7093,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 15.8214,
+          "hedging_rate": 0.0714,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.1429,
+          "citation_rate": 0.2857,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.1429,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.5714,
+          "median_score": 1.0,
+          "max_score": 5,
+          "score_per_word": 0.0497
+        },
+        "CCNY": {
+          "comment_count": 6,
+          "total_words": 170,
+          "mean_length_words": 28.3333,
+          "mean_length_chars": 147.8333,
+          "median_length_words": 21.5,
+          "mattr": 0.6734,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 12.1429,
+          "hedging_rate": 0.3333,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.3333,
+          "citation_rate": 0.0,
+          "question_rate": 0.1429,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.1667,
+          "median_score": 1.0,
+          "max_score": 2,
+          "score_per_word": 0.0412
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.4714045207910317,
+        "length_cv": 0.059981908174963225,
+        "dominant_strategy": "advisory",
+        "strategy_means": {
+          "hedging": 0.1176,
+          "authority": 0.0362,
+          "directive": 0.0271,
+          "advisory": 0.1991,
+          "citation": 0.1357,
+          "empathy": 0.0045
+        },
+        "subreddits_active": 3
+      },
+      "corpus_stats": {
+        "total_comments": 221,
+        "total_submissions": 4,
+        "subreddits_with_comments": [
+          "CUNY",
+          "QueensCollege",
+          "CCNY"
+        ],
+        "activity_period": "2024-02 to 2025-10"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "n87fzcp",
+            "body": "I started college since 2020 and still haven\u2019t finished my associates degree.",
+            "score": 52,
+            "created_utc": 1754958528
+          },
+          {
+            "id": "nbhtnsp",
+            "body": "if it\u2019s repetitive leave 30 minutes once a day every week, I would consider dropping the class because it\u2019s better for you to take the WD rather than a WU, that way you would get a refund but still be responsible to pay for the difference.",
+            "score": 23,
+            "created_utc": 1756563350
+          },
+          {
+            "id": "n0cqd07",
+            "body": "maintenance it\u2019ll be up tomorrow",
+            "score": 14,
+            "created_utc": 1751169038
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "n1la52n",
+            "body": "The system would automatically enroll students to the class who are from the waitlist would be in the order of its received.\u00a0",
+            "score": 5,
+            "created_utc": 1751780523
+          },
+          {
+            "id": "mziqcat",
+            "body": "Drop a course for 100% refund is August 25\n\nDrop a course for 75% refund is September 1\n\nDrop a course for 50% refund is September 8\n\nDrop A course for 25% refund is September 15\n\nA grade of W is assigned beginning September 16\n\nLast day to withdraw with a grade of W is November 6\n\nAll dates listed you have until 11:59 pm eastern time to do it. \n\n[https://www.queensgssp.com/life/calendar/](https://www.queensgssp.com/life/calendar/)\n\n[https://www.cuny.edu/academics/academic-calendars/](https:/...",
+            "score": 2,
+            "created_utc": 1750775950
+          },
+          {
+            "id": "n12qbo6",
+            "body": "it\u2019s for queens college students",
+            "score": 2,
+            "created_utc": 1751518962
+          }
+        ],
+        "CCNY": [
+          {
+            "id": "myyc6qe",
+            "body": "I believe you\u2019re the same person that said that same thing on CUNY Reddit. I have already answered that question.",
+            "score": 2,
+            "created_utc": 1750492479
+          },
+          {
+            "id": "mwr5yrr",
+            "body": "to answer about the Friday 12 am one for MATH 19000 is the online asynchronous class while Monday and Wednesday is in-person class.\n\n\\*\n\n||\n||\n|This class meets in person on Mondays and Wednesdays. On Fridays, it is online asynchronous. Your instructor will explain what work needs to be done for the Friday component of the class.|",
+            "score": 1,
+            "created_utc": 1749431423
+          },
+          {
+            "id": "myycp7r",
+            "body": "did you choose the course yet? If you did and that pops up then you need to click agree.",
+            "score": 1,
+            "created_utc": 1750492793
+          }
+        ]
+      }
+    },
+    "Brilliant_Shelter983": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 27,
+          "total_words": 603,
+          "mean_length_words": 22.3333,
+          "mean_length_chars": 117.2593,
+          "median_length_words": 22.0,
+          "mattr": 0.7919,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.2963,
+          "mean_words_per_sentence": 10.2203,
+          "hedging_rate": 0.037,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0741,
+          "citation_rate": 0.0,
+          "question_rate": 0.0169,
+          "empathy_rate": 0.037,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0169,
+          "mean_score": 1.1852,
+          "median_score": 1.0,
+          "max_score": 2,
+          "score_per_word": 0.0531
+        },
+        "HunterCollege": {
+          "comment_count": 7,
+          "total_words": 163,
+          "mean_length_words": 23.2857,
+          "mean_length_chars": 113.0,
+          "median_length_words": 23.0,
+          "mattr": 0.7489,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.2857,
+          "mean_words_per_sentence": 13.5833,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.7143,
+          "median_score": 1.0,
+          "max_score": 5,
+          "score_per_word": 0.0736
+        },
+        "QueensCollege": {
+          "comment_count": 1,
+          "total_words": 10,
+          "mean_length_words": 10.0,
+          "mean_length_chars": 50.0,
+          "median_length_words": 10.0,
+          "mattr": 1.0,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 5.0,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 2.0,
+          "median_score": 2.0,
+          "max_score": 2,
+          "score_per_word": 0.2
+        },
+        "CCNY": {
+          "comment_count": 10,
+          "total_words": 169,
+          "mean_length_words": 16.9,
+          "mean_length_chars": 82.9,
+          "median_length_words": 19.0,
+          "mattr": 0.6774,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.2,
+          "mean_words_per_sentence": 10.5625,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0625,
+          "mean_score": 1.0,
+          "median_score": 1.0,
+          "max_score": 1,
+          "score_per_word": 0.0592
+        },
+        "BrooklynCollege": {
+          "comment_count": 3,
+          "total_words": 83,
+          "mean_length_words": 27.6667,
+          "mean_length_chars": 135.6667,
+          "median_length_words": 23.0,
+          "mattr": 0.7711,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 1.3333,
+          "mean_words_per_sentence": 16.6,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.0,
+          "median_score": 1.0,
+          "max_score": 1,
+          "score_per_word": 0.0361
+        },
+        "CUNYuncensored": {
+          "comment_count": 4,
+          "total_words": 123,
+          "mean_length_words": 30.75,
+          "mean_length_chars": 155.75,
+          "median_length_words": 25.5,
+          "mattr": 0.7842,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.25,
+          "mean_words_per_sentence": 15.375,
+          "hedging_rate": 0.25,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.0,
+          "median_score": 1.0,
+          "max_score": 1,
+          "score_per_word": 0.0325
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.0,
+        "length_cv": 0.19613912284662807,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.0385,
+          "authority": 0.0,
+          "directive": 0.0,
+          "advisory": 0.0385,
+          "citation": 0.0,
+          "empathy": 0.0192
+        },
+        "subreddits_active": 6
+      },
+      "corpus_stats": {
+        "total_comments": 52,
+        "total_submissions": 6,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege",
+          "QueensCollege",
+          "CCNY",
+          "BrooklynCollege",
+          "CUNYuncensored"
+        ],
+        "activity_period": "2025-05 to 2025-05"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "mtcvliv",
+            "body": "Facts, I\u2019ve done retail and food service too, but the hours can get hard with school. Lately I\u2019ve been donating plasma on the side. It\u2019s not a job-job but it pays decent and the appointments are quick. I\u2019m surprised more students aren\u2019t doing it tbh.",
+            "score": 2,
+            "created_utc": 1747772652
+          },
+          {
+            "id": "mthbf8e",
+            "body": "np :). making money and being in school is a struggle. we all gotta support each other.",
+            "score": 2,
+            "created_utc": 1747838380
+          },
+          {
+            "id": "mtq7fej",
+            "body": "donate plasma! it takes like an hour each time and I make 60 per donation plus there r a bunchof places around here",
+            "score": 2,
+            "created_utc": 1747949217
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "muybzo5",
+            "body": "Ooo thanks for the tip, gonna rab something then go to that plasma place to pay for the rest of my groceries hah.",
+            "score": 5,
+            "created_utc": 1748552377
+          },
+          {
+            "id": "mtqfcxr",
+            "body": "it depends but usaully like 60. i literally just do hw or call someone when I'm there, it slays",
+            "score": 2,
+            "created_utc": 1747951789
+          },
+          {
+            "id": "mtqhy9y",
+            "body": "like once to twice a week, depending on my schedule",
+            "score": 1,
+            "created_utc": 1747952657
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "t1_mtwm06w",
+            "body": "About 60 per donation. its like two hours of work.",
+            "score": 2,
+            "created_utc": 1748034974
+          }
+        ],
+        "CCNY": [
+          {
+            "id": "mtwicia",
+            "body": "its not a job, more of a side hustle, but start donating plasma. olgam got some nice places around here",
+            "score": 1,
+            "created_utc": 1748033821
+          },
+          {
+            "id": "mtwik9k",
+            "body": "its not an on campus job, but donating plasma is easy and there r a bunch of olggam places near school. u should def check it out",
+            "score": 1,
+            "created_utc": 1748033887
+          },
+          {
+            "id": "mtwipew",
+            "body": "if ur looking for quick side money, I highly recommend donating plasma.",
+            "score": 1,
+            "created_utc": 1748033932
+          }
+        ],
+        "BrooklynCollege": [
+          {
+            "id": "mthb4wv",
+            "body": "sometimes i just cant keep a whole ass job with school, ad my friend told me about this place, olgam, where u can donate plasma. i started doing it a few times a month and it has really helped keep me from going under.",
+            "score": 1,
+            "created_utc": 1747838295
+          },
+          {
+            "id": "mthbtv5",
+            "body": "u should just give some plasma while u wait. the place in harlem is nice and I leave with like 60 each time.",
+            "score": 1,
+            "created_utc": 1747838502
+          },
+          {
+            "id": "mthc775",
+            "body": "You can also donate plasma, its easy and lifesaving but u make some money from it",
+            "score": 1,
+            "created_utc": 1747838613
+          }
+        ],
+        "CUNYuncensored": [
+          {
+            "id": "mtjt9d3",
+            "body": "I'm so sorry, i hope ur doing better now. \n\nwhen im really struggling to pa the bills I usually turn to olgam to donate plasma. they have a really nice location in flatbush and harlem, plus some others I think.\n\nI hope life has been looking better, an I'm sending you the best of wishes",
+            "score": 1,
+            "created_utc": 1747864083
+          },
+          {
+            "id": "mtju83b",
+            "body": "I dont have a pacage, if you get my drift haha, but I do donate plasma sometimes and make around 60 per donation at olgam. honestly a life saver",
+            "score": 1,
+            "created_utc": 1747864379
+          },
+          {
+            "id": "mtqabpq",
+            "body": "Yeah i agree, its crazy we can donate part of our body, but hey, I'm making money and people are getting help.",
+            "score": 1,
+            "created_utc": 1747950178
+          }
+        ]
+      }
+    },
+    "DocumentLeft832": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 335,
+          "total_words": 18228,
+          "mean_length_words": 54.4119,
+          "mean_length_chars": 293.9791,
+          "median_length_words": 44.0,
+          "mattr": 0.7618,
+          "formality_index": 0.069,
+          "formal_marker_rate": 0.0537,
+          "informal_marker_rate": 0.7254,
+          "mean_words_per_sentence": 19.3915,
+          "hedging_rate": 0.5343,
+          "authority_rate": 0.0836,
+          "directive_rate": 0.0746,
+          "advisory_rate": 0.1672,
+          "citation_rate": 0.1254,
+          "question_rate": 0.0883,
+          "empathy_rate": 0.1403,
+          "markdown_rate": 0.0149,
+          "exclamation_rate": 0.1138,
+          "mean_score": 2.2,
+          "median_score": 1.0,
+          "max_score": 36,
+          "score_per_word": 0.0404
+        },
+        "QueensCollege": {
+          "comment_count": 2,
+          "total_words": 127,
+          "mean_length_words": 63.5,
+          "mean_length_chars": 375.5,
+          "median_length_words": 63.5,
+          "mattr": 0.8279,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.5,
+          "mean_words_per_sentence": 42.3333,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.5,
+          "citation_rate": 0.5,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.5,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.5,
+          "median_score": 1.5,
+          "max_score": 2,
+          "score_per_word": 0.0236
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0,
+        "length_cv": 0,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.5312,
+          "authority": 0.0831,
+          "directive": 0.0742,
+          "advisory": 0.1691,
+          "citation": 0.1276,
+          "empathy": 0.1395
+        },
+        "subreddits_active": 2
+      },
+      "corpus_stats": {
+        "total_comments": 337,
+        "total_submissions": 6,
+        "subreddits_with_comments": [
+          "CUNY",
+          "QueensCollege"
+        ],
+        "activity_period": "2024-04 to 2025-07"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "m44j6u2",
+            "body": "i do think that in lots of situations i read about, the students are to be blamed too. \n\nthey are complaining about not getting grades whole semester and now worrying about it, or they don\u2019t attend classes and not give excuse to professors & not put in the effort & expect A..if they don\u2019t get grades, they have to go to prof\u2019s office hours/email/after class and try to talk to prof..some profs are like that and could care less and i am not excusing their behavior bc sometimes they are really ha...",
+            "score": 36,
+            "created_utc": 1735349031
+          },
+          {
+            "id": "m3il6oh",
+            "body": "i think highest chance truly depends on how well you\u2019ll do on pre req courses. every cuny nursing is very competitive cos it\u2019s affordable. try to get close to 4.0 gpa and high teas/hesi score. if you have those, you should b able to get into any cuny nursing programs. \n\nin lagcc, i feel like the pre req courses are harder..but they got an award in 2022 for most students who passed the NCLEX license exam in new york state!! so that could mayb the best cuny chool for nursing. i personally recom...",
+            "score": 13,
+            "created_utc": 1734997916
+          },
+          {
+            "id": "m8xliak",
+            "body": "Hey, have you tried parchment? U can get ur official transcript electronically..I emailed it to myself n got it within like 30mins ..",
+            "score": 13,
+            "created_utc": 1737735853
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "m45ch17",
+            "body": "i\u2019m not sure since every student\u2019s situation is different\u2026wen i planned my e-permit, i spoke to my advisor about my plan, then i emailed registrar n informed them about my situation and then requested my e-permit n it got accepted.",
+            "score": 2,
+            "created_utc": 1735360988
+          },
+          {
+            "id": "m44pjol",
+            "body": "to request e-permit, go to cunyfirst> student center >select academic records>the last button should say \u201cePermit\u201d>click on that & select \u201cadd epermit with equiv courses\u201d.. you should b able to look up courses at college you\u2019re interested in doing permit at ..from there u can click on the course & put in request ..it took me about a week to hear back(email) from both colleges that my request was approved\u2026but since it\u2019s holiday season, it may take longer ..if you\u2019re still confused, try contact...",
+            "score": 1,
+            "created_utc": 1735351474
+          }
+        ]
+      }
+    },
+    "Excellent-Hippo9835": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 647,
+          "total_words": 5172,
+          "mean_length_words": 7.9938,
+          "mean_length_chars": 40.0093,
+          "median_length_words": 6.0,
+          "mattr": 0.7386,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.4343,
+          "mean_words_per_sentence": 7.9569,
+          "hedging_rate": 0.0448,
+          "authority_rate": 0.0046,
+          "directive_rate": 0.0232,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0062,
+          "question_rate": 0.0354,
+          "empathy_rate": 0.0031,
+          "markdown_rate": 0.0015,
+          "exclamation_rate": 0.0,
+          "mean_score": 2.2102,
+          "median_score": 1.0,
+          "max_score": 38,
+          "score_per_word": 0.2765
+        },
+        "HunterCollege": {
+          "comment_count": 16,
+          "total_words": 120,
+          "mean_length_words": 7.5,
+          "mean_length_chars": 35.5625,
+          "median_length_words": 6.0,
+          "mattr": 0.6829,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.625,
+          "mean_words_per_sentence": 7.5,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.1875,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.125,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 2.3125,
+          "median_score": 2.0,
+          "max_score": 5,
+          "score_per_word": 0.3083
+        },
+        "QueensCollege": {
+          "comment_count": 11,
+          "total_words": 56,
+          "mean_length_words": 5.0909,
+          "mean_length_chars": 26.0,
+          "median_length_words": 4.0,
+          "mattr": 0.9107,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.1818,
+          "mean_words_per_sentence": 5.0909,
+          "hedging_rate": 0.0909,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0909,
+          "question_rate": 0.0909,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 3.8182,
+          "median_score": 1.0,
+          "max_score": 15,
+          "score_per_word": 0.75
+        },
+        "CCNY": {
+          "comment_count": 58,
+          "total_words": 489,
+          "mean_length_words": 8.431,
+          "mean_length_chars": 40.7069,
+          "median_length_words": 6.0,
+          "mattr": 0.7448,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.5517,
+          "mean_words_per_sentence": 8.431,
+          "hedging_rate": 0.1379,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0172,
+          "question_rate": 0.1034,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.3966,
+          "median_score": 1.0,
+          "max_score": 6,
+          "score_per_word": 0.1656
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.0,
+        "length_cv": 0.17804556456494164,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.0519,
+          "authority": 0.0041,
+          "directive": 0.0246,
+          "advisory": 0.0,
+          "citation": 0.0109,
+          "empathy": 0.0027
+        },
+        "subreddits_active": 4
+      },
+      "corpus_stats": {
+        "total_comments": 732,
+        "total_submissions": 31,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege",
+          "QueensCollege",
+          "CCNY"
+        ],
+        "activity_period": "2023-06 to 2025-10"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "mnyxzhq",
+            "body": "City tech computer systems system admin 86k",
+            "score": 38,
+            "created_utc": 1745088861
+          },
+          {
+            "id": "lxvxl69",
+            "body": "U can get into any cuny tbh",
+            "score": 37,
+            "created_utc": 1731995881
+          },
+          {
+            "id": "mograpk",
+            "body": "If u accepted don\u2019t care about ur current grades",
+            "score": 37,
+            "created_utc": 1745343092
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "lz21aqp",
+            "body": "Take 5 if u wanna speed up the process",
+            "score": 5,
+            "created_utc": 1732618021
+          },
+          {
+            "id": "lwspbuj",
+            "body": "I mean if u wanna transfer there schools that have it city college or city tech",
+            "score": 4,
+            "created_utc": 1731439978
+          },
+          {
+            "id": "m191mgn",
+            "body": "Try to take to him",
+            "score": 4,
+            "created_utc": 1733776733
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "mdfx9f6",
+            "body": "That every cuny college",
+            "score": 15,
+            "created_utc": 1739892461
+          },
+          {
+            "id": "mdg2lqm",
+            "body": "It\u2019s commuter school pool just go to class then leave",
+            "score": 13,
+            "created_utc": 1739894044
+          },
+          {
+            "id": "lxctn0f",
+            "body": "Dec 1",
+            "score": 5,
+            "created_utc": 1731716489
+          }
+        ],
+        "CCNY": [
+          {
+            "id": "mnhmqvd",
+            "body": "I think u answered u own question",
+            "score": 6,
+            "created_utc": 1744843026
+          },
+          {
+            "id": "lx4ulv6",
+            "body": "The only school I got declined from they so strict for no reason \ud83d\ude2d\ud83d\ude2d",
+            "score": 5,
+            "created_utc": 1731612206
+          },
+          {
+            "id": "mnhmpfo",
+            "body": "Ccny\ud83d\ude02",
+            "score": 5,
+            "created_utc": 1744843012
+          }
+        ]
+      }
+    },
+    "Koran21": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 355,
+          "total_words": 3171,
+          "mean_length_words": 8.9324,
+          "mean_length_chars": 45.7944,
+          "median_length_words": 7.0,
+          "mattr": 0.7004,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0254,
+          "mean_words_per_sentence": 8.5013,
+          "hedging_rate": 0.0254,
+          "authority_rate": 0.0197,
+          "directive_rate": 0.0282,
+          "advisory_rate": 0.0085,
+          "citation_rate": 0.0451,
+          "question_rate": 0.1367,
+          "empathy_rate": 0.0028,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0027,
+          "mean_score": 1.4338,
+          "median_score": 1.0,
+          "max_score": 59,
+          "score_per_word": 0.1605
+        },
+        "HunterCollege": {
+          "comment_count": 30,
+          "total_words": 356,
+          "mean_length_words": 11.8667,
+          "mean_length_chars": 59.8667,
+          "median_length_words": 8.5,
+          "mattr": 0.7318,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.1,
+          "mean_words_per_sentence": 10.1714,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0333,
+          "directive_rate": 0.0333,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.1429,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.1,
+          "median_score": 1.0,
+          "max_score": 13,
+          "score_per_word": 0.0927
+        },
+        "BrooklynCollege": {
+          "comment_count": 1,
+          "total_words": 24,
+          "mean_length_words": 24.0,
+          "mean_length_chars": 129.0,
+          "median_length_words": 24.0,
+          "mattr": 0.875,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 24.0,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.0,
+          "median_score": 1.0,
+          "max_score": 1,
+          "score_per_word": 0.0417
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.0,
+        "length_cv": 0.1410771522730351,
+        "dominant_strategy": "citation",
+        "strategy_means": {
+          "hedging": 0.0233,
+          "authority": 0.0207,
+          "directive": 0.0285,
+          "advisory": 0.0078,
+          "citation": 0.0415,
+          "empathy": 0.0026
+        },
+        "subreddits_active": 3
+      },
+      "corpus_stats": {
+        "total_comments": 386,
+        "total_submissions": 138,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege",
+          "BrooklynCollege"
+        ],
+        "activity_period": "2022-12 to 2025-03"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "mefnhua",
+            "body": "The notification are awful",
+            "score": 59,
+            "created_utc": 1740356143
+          },
+          {
+            "id": "kjfl89b",
+            "body": "Don't think about graduating early but on time because college is all about learning.",
+            "score": 28,
+            "created_utc": 1706143640
+          },
+          {
+            "id": "ktho1sh",
+            "body": "300 dollars isn't worth it it's literally the same",
+            "score": 27,
+            "created_utc": 1709664296
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "k0i5lfp",
+            "body": "Bro really? this Subreddit isn't for this",
+            "score": 13,
+            "created_utc": 1694662410
+          },
+          {
+            "id": "k8bzitt",
+            "body": "Its the same thing Lol",
+            "score": 3,
+            "created_utc": 1699431456
+          },
+          {
+            "id": "jciqqyq",
+            "body": "Was there like a estimated month you recieved Net ID info and logins",
+            "score": 2,
+            "created_utc": 1679021781
+          }
+        ],
+        "BrooklynCollege": [
+          {
+            "id": "jgrkifx",
+            "body": "Yes I am but I had a Brooklyn college email since last year because I take college classes with my highschool and dual enrollment",
+            "score": 1,
+            "created_utc": 1681836674
+          }
+        ]
+      }
+    },
+    "LeonZheng646": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 261,
+          "total_words": 9233,
+          "mean_length_words": 35.3755,
+          "mean_length_chars": 198.6552,
+          "median_length_words": 28.0,
+          "mattr": 0.751,
+          "formality_index": 0.7273,
+          "formal_marker_rate": 0.1226,
+          "informal_marker_rate": 0.046,
+          "mean_words_per_sentence": 13.7192,
+          "hedging_rate": 0.0996,
+          "authority_rate": 0.0575,
+          "directive_rate": 0.0805,
+          "advisory_rate": 0.1111,
+          "citation_rate": 0.1073,
+          "question_rate": 0.0535,
+          "empathy_rate": 0.1303,
+          "markdown_rate": 0.0192,
+          "exclamation_rate": 0.1248,
+          "mean_score": 4.1111,
+          "median_score": 2.0,
+          "max_score": 103,
+          "score_per_word": 0.1162
+        },
+        "HunterCollege": {
+          "comment_count": 314,
+          "total_words": 10819,
+          "mean_length_words": 34.4554,
+          "mean_length_chars": 191.4586,
+          "median_length_words": 25.0,
+          "mattr": 0.7651,
+          "formality_index": 0.7547,
+          "formal_marker_rate": 0.1274,
+          "informal_marker_rate": 0.0414,
+          "mean_words_per_sentence": 12.6984,
+          "hedging_rate": 0.1083,
+          "authority_rate": 0.0605,
+          "directive_rate": 0.0573,
+          "advisory_rate": 0.1019,
+          "citation_rate": 0.0892,
+          "question_rate": 0.0317,
+          "empathy_rate": 0.1465,
+          "markdown_rate": 0.0159,
+          "exclamation_rate": 0.142,
+          "mean_score": 2.8408,
+          "median_score": 2.0,
+          "max_score": 34,
+          "score_per_word": 0.0824
+        },
+        "CCNY": {
+          "comment_count": 1,
+          "total_words": 52,
+          "mean_length_words": 52.0,
+          "mean_length_chars": 270.0,
+          "median_length_words": 52.0,
+          "mattr": 0.8462,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 10.4,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.4,
+          "mean_score": 2.0,
+          "median_score": 2.0,
+          "max_score": 2,
+          "score_per_word": 0.0385
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.013722126929674117,
+        "length_cv": 0.013175614340998157,
+        "dominant_strategy": "empathy",
+        "strategy_means": {
+          "hedging": 0.1042,
+          "authority": 0.059,
+          "directive": 0.0677,
+          "advisory": 0.1059,
+          "citation": 0.0972,
+          "empathy": 0.1389
+        },
+        "subreddits_active": 3
+      },
+      "corpus_stats": {
+        "total_comments": 576,
+        "total_submissions": 6,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege",
+          "CCNY"
+        ],
+        "activity_period": "2022-05 to 2025-07"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "llm6mon",
+            "body": "Hunter looks like a prison from the outside and the inside is very much like a high school set up. Professors are a hit or miss",
+            "score": 103,
+            "created_utc": 1725537632
+          },
+          {
+            "id": "mxdlere",
+            "body": "TAP, PELL, and Excelsior isn\u2019t up to the CUNY. It\u2019s up to the state and federal government to decide if you get any aid based on how much your parents earn for that reported year. Even if you go to another CUNY, it might\u2019ve been the same case.",
+            "score": 65,
+            "created_utc": 1749734727
+          },
+          {
+            "id": "m3v0nvb",
+            "body": "They have the deadline of the 27th-29th to input all their grades. Some started their break early by having to travel for the holidays and couldn\u2019t put in the grades. Since Christmas Eve and Christmas has just passed, it\u2019s likely professors are just starting to put in grades or finishing up grading the assignments and such. Good luck!",
+            "score": 38,
+            "created_utc": 1735211837
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "mh2iytf",
+            "body": "Sometimes you just have to sit randomly and not find a \u201ctraditional\u201d place to eat. For example, anywhere in the bldg, you can just sit on the floor and eat without a chair or table. What you\u2019re looking for are areas that have all these, so it would make sense they\u2019re all packed. I generally just sit anywhere to eat. If I\u2019m hungry and need to eat, I\u2019m going to eat no matter the location or place.",
+            "score": 34,
+            "created_utc": 1741633054
+          },
+          {
+            "id": "mcxzt3r",
+            "body": "\u201cNo one likes to have fun or socialize\u201d who doesn\u2019t like to have fun? Lol. I\u2019m sure students would love to have fun; however, many students are focused on academics and don\u2019t put themselves out there to socialize or have fun. But if you do and meet the right group of people, you\u2019ll have lots of fun and lots of opportunities to socialize. Goes with every school, not just at Hunter or CUNY.",
+            "score": 30,
+            "created_utc": 1739645580
+          },
+          {
+            "id": "mcbhcdc",
+            "body": "Especially emails from @myhunter.cuny.edu and the amount of errors in the email\u2026",
+            "score": 21,
+            "created_utc": 1739336934
+          }
+        ],
+        "CCNY": [
+          {
+            "id": "mtjxizz",
+            "body": "Not sure if you could do this at CCNY, but talk with security. If there\u2019re cameras, they should be open to showing you. As a future precaution, have a lock on your locker if you haven\u2019t already. So sorry this happened to you, though!! I hope you can find all your stuff!",
+            "score": 2,
+            "created_utc": 1747865427
+          }
+        ]
+      }
+    },
+    "Lovely_fartz": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 40,
+          "total_words": 1130,
+          "mean_length_words": 28.25,
+          "mean_length_chars": 155.175,
+          "median_length_words": 20.0,
+          "mattr": 0.7344,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.025,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 13.2941,
+          "hedging_rate": 0.075,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.25,
+          "citation_rate": 0.0,
+          "question_rate": 0.1412,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0824,
+          "mean_score": 2.35,
+          "median_score": 1.0,
+          "max_score": 15,
+          "score_per_word": 0.0832
+        },
+        "HunterCollege": {
+          "comment_count": 101,
+          "total_words": 3257,
+          "mean_length_words": 32.2475,
+          "mean_length_chars": 166.7921,
+          "median_length_words": 28.0,
+          "mattr": 0.7452,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.0099,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 13.9785,
+          "hedging_rate": 0.0693,
+          "authority_rate": 0.0891,
+          "directive_rate": 0.0099,
+          "advisory_rate": 0.0693,
+          "citation_rate": 0.0198,
+          "question_rate": 0.2575,
+          "empathy_rate": 0.0099,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.133,
+          "mean_score": 2.0693,
+          "median_score": 1.0,
+          "max_score": 18,
+          "score_per_word": 0.0642
+        },
+        "CCNY": {
+          "comment_count": 3,
+          "total_words": 99,
+          "mean_length_words": 33.0,
+          "mean_length_chars": 170.3333,
+          "median_length_words": 24.0,
+          "mattr": 0.7677,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 16.5,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.3333,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 2.0,
+          "median_score": 2.0,
+          "max_score": 2,
+          "score_per_word": 0.0606
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.4714045207910317,
+        "length_cv": 0.06688639902905359,
+        "dominant_strategy": "advisory",
+        "strategy_means": {
+          "hedging": 0.0694,
+          "authority": 0.0625,
+          "directive": 0.0069,
+          "advisory": 0.125,
+          "citation": 0.0139,
+          "empathy": 0.0069
+        },
+        "subreddits_active": 3
+      },
+      "corpus_stats": {
+        "total_comments": 144,
+        "total_submissions": 66,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege",
+          "CCNY"
+        ],
+        "activity_period": "2023-02 to 2025-07"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "kq423ka",
+            "body": "They didn\u2019t even cancel classes when we had the flood a couple months ago \ud83d\udc80 I think it depends on your teachers. But I\u2019m hoping they just do remote instead cause so many bus and trains will be delayed \ud83e\udd72",
+            "score": 15,
+            "created_utc": 1707761026
+          },
+          {
+            "id": "kq41t64",
+            "body": "He could probably do remote \ud83d\ude2d I\u2019m really hoping they cancel classes cause I literally have one class tm. I don\u2019t want to deal with the train and bus \ud83d\ude2d",
+            "score": 10,
+            "created_utc": 1707760927
+          },
+          {
+            "id": "luqbhgx",
+            "body": "THANK YOUUU AHHHHHHH",
+            "score": 5,
+            "created_utc": 1730397074
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "ltrfs0h",
+            "body": "You should be fine, apply to hunter. Anything could happen. I know someone who got rejected from hunter but accepted to upenn \ud83d\ude2c don\u2019t listen to your counselor",
+            "score": 18,
+            "created_utc": 1729896599
+          },
+          {
+            "id": "mrir3qh",
+            "body": "Don\u2019t give up!! One thing I learned from taking bio and chem together is to NEVER take two science classes together",
+            "score": 17,
+            "created_utc": 1746841391
+          },
+          {
+            "id": "lo51u4b",
+            "body": "I\u2019m talking about Armin (bio prof) \ud83d\udc80 that man is ignoring every single student emailing him about it. Students have been emailing him about it the second week school started \ud83e\udd72",
+            "score": 10,
+            "created_utc": 1726879689
+          }
+        ],
+        "CCNY": [
+          {
+            "id": "jiiedyk",
+            "body": "Everyone takes the exam, it\u2019s a placement exam to know what level you are in. It\u2019ll let the school know how much of the subject you know, and it\u2019ll also help you register for classes since you won\u2019t accidentally register for a harder or easier math class. It won\u2019t affect you at all.",
+            "score": 2,
+            "created_utc": 1682992118
+          },
+          {
+            "id": "jiihmkp",
+            "body": "Ignore what I said earlier, I would recommend that you study \ud83d\ude2d you will end up in a remedial class if you score low",
+            "score": 2,
+            "created_utc": 1682993538
+          },
+          {
+            "id": "jiip2lv",
+            "body": "Every CUNY, my friend who\u2019s attending Baruch had to take it. You\u2019ll receive an email about it in a couple of days",
+            "score": 2,
+            "created_utc": 1682997071
+          }
+        ]
+      }
+    },
+    "Ok-Blacksmith5436": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 279,
+          "total_words": 3562,
+          "mean_length_words": 12.767,
+          "mean_length_chars": 61.5627,
+          "median_length_words": 7.0,
+          "mattr": 0.7624,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.5125,
+          "mean_words_per_sentence": 9.6011,
+          "hedging_rate": 0.0538,
+          "authority_rate": 0.0072,
+          "directive_rate": 0.0323,
+          "advisory_rate": 0.0072,
+          "citation_rate": 0.0,
+          "question_rate": 0.2075,
+          "empathy_rate": 0.0036,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 2.7133,
+          "median_score": 2.0,
+          "max_score": 28,
+          "score_per_word": 0.2125
+        },
+        "HunterCollege": {
+          "comment_count": 292,
+          "total_words": 2524,
+          "mean_length_words": 8.6438,
+          "mean_length_chars": 39.7568,
+          "median_length_words": 6.0,
+          "mattr": 0.7759,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.4007,
+          "mean_words_per_sentence": 7.4896,
+          "hedging_rate": 0.024,
+          "authority_rate": 0.0034,
+          "directive_rate": 0.0103,
+          "advisory_rate": 0.0137,
+          "citation_rate": 0.0,
+          "question_rate": 0.2404,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0034,
+          "exclamation_rate": 0.0089,
+          "mean_score": 2.4075,
+          "median_score": 1.0,
+          "max_score": 60,
+          "score_per_word": 0.2785
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.0,
+        "length_cv": 0.19257467178810986,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.0385,
+          "authority": 0.0053,
+          "directive": 0.021,
+          "advisory": 0.0105,
+          "citation": 0.0,
+          "empathy": 0.0018
+        },
+        "subreddits_active": 2
+      },
+      "corpus_stats": {
+        "total_comments": 571,
+        "total_submissions": 20,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege"
+        ],
+        "activity_period": "2022-07 to 2025-07"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "lmgdnhv",
+            "body": "Dont drop one day u will look back at this and laugh",
+            "score": 28,
+            "created_utc": 1725983427
+          },
+          {
+            "id": "j70vb1g",
+            "body": "It is the design \ud83d\ude2d\ud83d\ude2d\ud83e\udd23",
+            "score": 22,
+            "created_utc": 1675407662
+          },
+          {
+            "id": "lfe1kau",
+            "body": "Almost 3 hours of math \ud83d\udc80",
+            "score": 16,
+            "created_utc": 1722199102
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "ltq7vyg",
+            "body": "Transfer",
+            "score": 60,
+            "created_utc": 1729882113
+          },
+          {
+            "id": "lc6yaye",
+            "body": "Skill issue",
+            "score": 36,
+            "created_utc": 1720447220
+          },
+          {
+            "id": "l9urjom",
+            "body": "When the funeral?",
+            "score": 27,
+            "created_utc": 1719112378
+          }
+        ]
+      }
+    },
+    "Recent-Sky3311": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 21,
+          "total_words": 768,
+          "mean_length_words": 36.5714,
+          "mean_length_chars": 185.2857,
+          "median_length_words": 30.0,
+          "mattr": 0.6606,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.0952,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 14.7692,
+          "hedging_rate": 0.0952,
+          "authority_rate": 0.0476,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0476,
+          "citation_rate": 0.0476,
+          "question_rate": 0.6346,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.381,
+          "median_score": 1.0,
+          "max_score": 2,
+          "score_per_word": 0.0378
+        },
+        "Baruch": {
+          "comment_count": 16,
+          "total_words": 340,
+          "mean_length_words": 21.25,
+          "mean_length_chars": 117.1875,
+          "median_length_words": 16.0,
+          "mattr": 0.6974,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0625,
+          "mean_words_per_sentence": 12.1429,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.6786,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0357,
+          "mean_score": 1.4375,
+          "median_score": 1.0,
+          "max_score": 5,
+          "score_per_word": 0.0676
+        },
+        "HunterCollege": {
+          "comment_count": 27,
+          "total_words": 973,
+          "mean_length_words": 36.037,
+          "mean_length_chars": 191.2222,
+          "median_length_words": 31.0,
+          "mattr": 0.6994,
+          "formality_index": 0.25,
+          "formal_marker_rate": 0.037,
+          "informal_marker_rate": 0.1111,
+          "mean_words_per_sentence": 12.9733,
+          "hedging_rate": 0.0741,
+          "authority_rate": 0.0741,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.6667,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0267,
+          "mean_score": 1.1111,
+          "median_score": 1.0,
+          "max_score": 2,
+          "score_per_word": 0.0308
+        },
+        "QueensCollege": {
+          "comment_count": 14,
+          "total_words": 636,
+          "mean_length_words": 45.4286,
+          "mean_length_chars": 237.2143,
+          "median_length_words": 34.0,
+          "mattr": 0.7339,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.2143,
+          "mean_words_per_sentence": 13.25,
+          "hedging_rate": 0.0714,
+          "authority_rate": 0.0714,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0714,
+          "citation_rate": 0.0,
+          "question_rate": 0.5833,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0833,
+          "mean_score": 1.2857,
+          "median_score": 1.0,
+          "max_score": 2,
+          "score_per_word": 0.0283
+        },
+        "BrooklynCollege": {
+          "comment_count": 2,
+          "total_words": 102,
+          "mean_length_words": 51.0,
+          "mean_length_chars": 294.5,
+          "median_length_words": 51.0,
+          "mattr": 0.6467,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 11.3333,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.6667,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.1111,
+          "mean_score": 1.5,
+          "median_score": 1.5,
+          "max_score": 2,
+          "score_per_word": 0.0294
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.409839907768875,
+        "length_cv": 0.24921390360752543,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.0625,
+          "authority": 0.05,
+          "directive": 0.0,
+          "advisory": 0.025,
+          "citation": 0.0125,
+          "empathy": 0.0
+        },
+        "subreddits_active": 5
+      },
+      "corpus_stats": {
+        "total_comments": 80,
+        "total_submissions": 48,
+        "subreddits_with_comments": [
+          "CUNY",
+          "Baruch",
+          "HunterCollege",
+          "QueensCollege",
+          "BrooklynCollege"
+        ],
+        "activity_period": "2021-01 to 2025-07"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "iw7ekqn",
+            "body": "Therefore, is it better to just fail the class instead of dropping it? Back in 2019, I was in a similar situation (taking 13 credits) and I failed a 4 credit class. I got an F grade but luckily I got good good grades in my other classes, so it didn\u2019t mess my gpa that badly. I didn\u2019t have to pay financial aid back. When I re-took the class the following semester, the new grade just replaced it. I didn\u2019t have to pay back financial aid for the failed class.",
+            "score": 2,
+            "created_utc": 1668352685
+          },
+          {
+            "id": "iwix8ax",
+            "body": "Did you have to pay for that summer class out of pocket? Or did pell cover the summer class for you?",
+            "score": 2,
+            "created_utc": 1668555387
+          },
+          {
+            "id": "iz3a542",
+            "body": "Do you think it makes any difference if I withdraw from only one course or if I withdraw from two courses in regards to how it might affect my financial aid? Like is it better to just withdraw from one course and get an F grade in the other? Or should I just might as well withdraw from both if I\u2019m already withdrawing from one? Either way I will go down to part time regardless.",
+            "score": 2,
+            "created_utc": 1670297522
+          }
+        ],
+        "Baruch": [
+          {
+            "id": "hbj53xg",
+            "body": "I took macro first before I took micro and I was completely fine.",
+            "score": 5,
+            "created_utc": 1630728128
+          },
+          {
+            "id": "gz86rxq",
+            "body": "Can you further explain this? Lol. You can\u2019t be an accountant with a bba from Baruch?",
+            "score": 2,
+            "created_utc": 1621820417
+          },
+          {
+            "id": "hfni2ak",
+            "body": "So in your opinion would you say you think it\u2019s better to get a finance degree from baruch? Or an accounting degree from another cuny instead? since Baruch makes the accounting major so hard",
+            "score": 2,
+            "created_utc": 1633555007
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "il2n2zc",
+            "body": "Hii, I\u2019m also a transfer student that was exempted from taking Spanish. I am also going to do concentrated study, were you able to speak to an advisor? I am wondering if I can really take any subject at all lol",
+            "score": 2,
+            "created_utc": 1661007272
+          },
+          {
+            "id": "iyx833y",
+            "body": "Hii, do you know how to submit the p/nc request? I saw online that the deadline is tomorrow but idk where to submit the request. I searched it up online and it took me to fill out a form, however I heard elsewhere that I\u2019m also required to get the professor\u2019s signature? Is this true? Or can I just submit the form and that is enough?",
+            "score": 2,
+            "created_utc": 1670189134
+          },
+          {
+            "id": "jynxrm3",
+            "body": "Thank you!!",
+            "score": 2,
+            "created_utc": 1693575001
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "hhocujs",
+            "body": "Ohh you attended baruch previously? But wow seems like you were a top performing student but yet you still got a B grade. So how is someone supposed to get an A grade in an accounting class at baruch? What does that depend on? Are the top performing students selected at random for the A grade? Or does the A grade first go to whoever got a 99%, then a 98%, then a 97%, etc etc. \nSo you went to baruch and then transferred to qc?",
+            "score": 2,
+            "created_utc": 1634941184
+          },
+          {
+            "id": "hhofvch",
+            "body": "Damn, you\u2019re saying that you didn\u2019t make the gpa requirement even though you did mostly well in your classes? How\u2019s accounting at queens college though? Did all your credits transfer and is it less stressful",
+            "score": 2,
+            "created_utc": 1634942650
+          },
+          {
+            "id": "hmojk4q",
+            "body": "Thank you so much for the information! I was wondering if you could also give me some advice about the major because I\u2019m also coming in as an accounting major, transferring in from bmcc so my first accounting classes at qc will be intermediate 1 and cost I think. Any tips? Did you do any internships during your time at qc? How can I go about finding an internship soon? Do firms recruit at queens college? Also, what type of jobs have you had after graduating with an accounting degree from qc? ...",
+            "score": 2,
+            "created_utc": 1638291197
+          }
+        ],
+        "BrooklynCollege": [
+          {
+            "id": "gl5kf7v",
+            "body": "Thank you for the information! So you\u2019re saying that at bk I also have a chance at possibly working or interning for a big4? Or is Baruch better for that? And How did you get the internship? Also would you say baruch or brooklyn college makes such a difference in regards to future employment in this field?",
+            "score": 2,
+            "created_utc": 1611871693
+          },
+          {
+            "id": "gl2ibj5",
+            "body": "I want to hopefully work as an accountant in a firm. Would you say the accounting professors at brooklyn are good? And is the accounting program really rigorous at brooklyn college? Are there any internship opportunities and overall would you recommend brooklyn for accounting major",
+            "score": 1,
+            "created_utc": 1611826874
+          }
+        ]
+      }
+    },
+    "ScallionWall": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 588,
+          "total_words": 29060,
+          "mean_length_words": 49.4218,
+          "mean_length_chars": 290.4762,
+          "median_length_words": 41.0,
+          "mattr": 0.7496,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.0578,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 12.1134,
+          "hedging_rate": 0.068,
+          "authority_rate": 0.0102,
+          "directive_rate": 0.1412,
+          "advisory_rate": 0.1735,
+          "citation_rate": 0.3163,
+          "question_rate": 0.04,
+          "empathy_rate": 0.0119,
+          "markdown_rate": 0.0272,
+          "exclamation_rate": 0.0004,
+          "mean_score": 3.3214,
+          "median_score": 2.0,
+          "max_score": 88,
+          "score_per_word": 0.0672
+        },
+        "QueensCollege": {
+          "comment_count": 7,
+          "total_words": 187,
+          "mean_length_words": 26.7143,
+          "mean_length_chars": 155.1429,
+          "median_length_words": 16.0,
+          "mattr": 0.7048,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 10.3889,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.2857,
+          "advisory_rate": 0.1429,
+          "citation_rate": 0.2857,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.1429,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.8571,
+          "median_score": 2.0,
+          "max_score": 3,
+          "score_per_word": 0.0695
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.5,
+        "length_cv": 0.2982487491065046,
+        "dominant_strategy": "citation",
+        "strategy_means": {
+          "hedging": 0.0672,
+          "authority": 0.0101,
+          "directive": 0.1429,
+          "advisory": 0.1731,
+          "citation": 0.316,
+          "empathy": 0.0118
+        },
+        "subreddits_active": 2
+      },
+      "corpus_stats": {
+        "total_comments": 595,
+        "total_submissions": 1,
+        "subreddits_with_comments": [
+          "CUNY",
+          "QueensCollege"
+        ],
+        "activity_period": "2024-11 to 2025-10"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "mz3uy41",
+            "body": "Your school should have an emergency fund, look for it first. They may also have a food pantry and connections to further resources.\n\nThen connect with other resources that NYC and nonprofits may offer regarding work and housing assistance.",
+            "score": 88,
+            "created_utc": 1750569595
+          },
+          {
+            "id": "m1f7p56",
+            "body": "As much as schools hate it, the website definitely helped me choose the right classes... after you filter out the angry comments.\n\nAs with any review-based system, hopefully users are smart enough to analyze reviews for content.\n\nIf specific reviews are angry with all caps and nonsensical, you shouldn't give them much weight. When there's actual criticism that's detailed in a rational tone, you factor that into your decision making.",
+            "score": 68,
+            "created_utc": 1733865597
+          },
+          {
+            "id": "my0xw5b",
+            "body": "Problem is, transfer credits don't affect your GPA. Your Hunter GPA is still waiting for you if you were to be approved for readmission.\n\nIf you are somehow approved on your appeal for readmission, using the CUNY F grade repeat policy would help boost your GPA... If you haven't already taken those courses at your new school. \n\nBut, realistically, this would be an uphill battle to get readmitted back, and then to meet the major requirements for entry. You may need to consider some other school...",
+            "score": 47,
+            "created_utc": 1750046943
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "mulj98w",
+            "body": "Check the academic calendar.\nCUNYfirst updates immediately.\nDegreeworks takes up to 48 hours to update.",
+            "score": 3,
+            "created_utc": 1748384843
+          },
+          {
+            "id": "n4yl38a",
+            "body": "If you took a college level course while in HS, you will need to order the official college transcript and have it sent directly to admissions. They will then review the transcript and award transfer credits.",
+            "score": 3,
+            "created_utc": 1753386817
+          },
+          {
+            "id": "mzgl2z8",
+            "body": "Consult with the academic calendar, which has important dates and deadlines for each semester.",
+            "score": 2,
+            "created_utc": 1750740678
+          }
+        ]
+      }
+    },
+    "Zealousideal-Dare345": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 180,
+          "total_words": 5292,
+          "mean_length_words": 29.4,
+          "mean_length_chars": 170.9,
+          "median_length_words": 23.0,
+          "mattr": 0.7406,
+          "formality_index": 0.1176,
+          "formal_marker_rate": 0.0222,
+          "informal_marker_rate": 0.1667,
+          "mean_words_per_sentence": 12.3934,
+          "hedging_rate": 0.0833,
+          "authority_rate": 0.0167,
+          "directive_rate": 0.1111,
+          "advisory_rate": 0.1167,
+          "citation_rate": 0.2389,
+          "question_rate": 0.082,
+          "empathy_rate": 0.0056,
+          "markdown_rate": 0.05,
+          "exclamation_rate": 0.007,
+          "mean_score": 2.5611,
+          "median_score": 1.0,
+          "max_score": 32,
+          "score_per_word": 0.0871
+        },
+        "QueensCollege": {
+          "comment_count": 101,
+          "total_words": 3436,
+          "mean_length_words": 34.0198,
+          "mean_length_chars": 192.6337,
+          "median_length_words": 22.0,
+          "mattr": 0.7126,
+          "formality_index": 0.25,
+          "formal_marker_rate": 0.0396,
+          "informal_marker_rate": 0.1188,
+          "mean_words_per_sentence": 13.8548,
+          "hedging_rate": 0.0792,
+          "authority_rate": 0.0099,
+          "directive_rate": 0.0792,
+          "advisory_rate": 0.2079,
+          "citation_rate": 0.1584,
+          "question_rate": 0.0806,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0297,
+          "exclamation_rate": 0.004,
+          "mean_score": 1.5149,
+          "median_score": 1.0,
+          "max_score": 6,
+          "score_per_word": 0.0445
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.0661764705882353,
+        "length_cv": 0.07284478721079089,
+        "dominant_strategy": "citation",
+        "strategy_means": {
+          "hedging": 0.0819,
+          "authority": 0.0142,
+          "directive": 0.0996,
+          "advisory": 0.1495,
+          "citation": 0.21,
+          "empathy": 0.0036
+        },
+        "subreddits_active": 2
+      },
+      "corpus_stats": {
+        "total_comments": 281,
+        "total_submissions": 6,
+        "subreddits_with_comments": [
+          "CUNY",
+          "QueensCollege"
+        ],
+        "activity_period": "2024-10 to 2025-08"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "n17po2h",
+            "body": "The PELL Grant cuts are gonna go into effect next year; July 2026. Also the 15 credits for full time status and the max PELL Grant slash was gutted from the final bill the House passed, so no worries. Full time status will still be 12 and max PELL stays the same.",
+            "score": 32,
+            "created_utc": 1751584180
+          },
+          {
+            "id": "n1ztg1q",
+            "body": "When ur on academic probation u can only take 13 credits, or else you will have issues later. I suggest you take 4 classes; 12 credits, that are not too difficult to pass, as the goal for the Fall semester is to bring ur GPA up as high as possible, and regain ur financial aid. Also, please look at your college\u2019s probation policy as it varies depending on your college and how many credits you are allowed to take while on probation.",
+            "score": 25,
+            "created_utc": 1751986137
+          },
+          {
+            "id": "mvgd8fd",
+            "body": "Poor academic performance is the reason why u would be dismissed.",
+            "score": 24,
+            "created_utc": 1748801394
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "m7dqt6g",
+            "body": "This lecture class is only for SEEK students. If you\u2019re not a part of the program, you can\u2019t take the class.",
+            "score": 6,
+            "created_utc": 1736992849
+          },
+          {
+            "id": "mw1odgv",
+            "body": "The students on the waitlist have priority and have to enroll in the class first. You will be put on the waitlist once the class is full.",
+            "score": 5,
+            "created_utc": 1749081050
+          },
+          {
+            "id": "my69emo",
+            "body": "https://support.qc.cuny.edu/support/solutions/articles/15000100852-Setting-Up-CUNY-Login-MFA\n\nFollow the steps.",
+            "score": 5,
+            "created_utc": 1750117562
+          }
+        ]
+      }
+    },
+    "andrea_dee_": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 820,
+          "total_words": 30093,
+          "mean_length_words": 36.6988,
+          "mean_length_chars": 218.8293,
+          "median_length_words": 27.5,
+          "mattr": 0.7557,
+          "formality_index": 0.5571,
+          "formal_marker_rate": 0.0476,
+          "informal_marker_rate": 0.0378,
+          "mean_words_per_sentence": 14.2351,
+          "hedging_rate": 0.0902,
+          "authority_rate": 0.0415,
+          "directive_rate": 0.0598,
+          "advisory_rate": 0.1537,
+          "citation_rate": 0.2159,
+          "question_rate": 0.0535,
+          "empathy_rate": 0.0122,
+          "markdown_rate": 0.061,
+          "exclamation_rate": 0.0303,
+          "mean_score": 4.078,
+          "median_score": 2.0,
+          "max_score": 67,
+          "score_per_word": 0.1111
+        },
+        "BrooklynCollege": {
+          "comment_count": 29,
+          "total_words": 1509,
+          "mean_length_words": 52.0345,
+          "mean_length_chars": 300.6897,
+          "median_length_words": 37.0,
+          "mattr": 0.7928,
+          "formality_index": 0.3333,
+          "formal_marker_rate": 0.0345,
+          "informal_marker_rate": 0.069,
+          "mean_words_per_sentence": 16.0532,
+          "hedging_rate": 0.2759,
+          "authority_rate": 0.1724,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.2069,
+          "citation_rate": 0.4138,
+          "question_rate": 0.0319,
+          "empathy_rate": 0.069,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.1915,
+          "mean_score": 1.5517,
+          "median_score": 1.0,
+          "max_score": 5,
+          "score_per_word": 0.0298
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.11190476190476192,
+        "length_cv": 0.17282923798515415,
+        "dominant_strategy": "citation",
+        "strategy_means": {
+          "hedging": 0.0966,
+          "authority": 0.0459,
+          "directive": 0.0577,
+          "advisory": 0.1555,
+          "citation": 0.2226,
+          "empathy": 0.0141
+        },
+        "subreddits_active": 2
+      },
+      "corpus_stats": {
+        "total_comments": 849,
+        "total_submissions": 0,
+        "subreddits_with_comments": [
+          "CUNY",
+          "BrooklynCollege"
+        ],
+        "activity_period": "2022-04 to 2025-07"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "mmgf2o4",
+            "body": "It\u2019s usually aligned with Passover.",
+            "score": 67,
+            "created_utc": 1744318927
+          },
+          {
+            "id": "mqwiazx",
+            "body": "This screams scam.",
+            "score": 57,
+            "created_utc": 1746546456
+          },
+          {
+            "id": "lwoakv3",
+            "body": "My brother in christ, have you considered an ePermit? \ud83d\ude10",
+            "score": 54,
+            "created_utc": 1731372780
+          }
+        ],
+        "BrooklynCollege": [
+          {
+            "id": "ijo4teq",
+            "body": "Yeah I can confirm this. I was an undergrad pre-COVID and there wasn\u2019t much socialization outside of the classroom. I would imagine it\u2019s going to be even less now, now that things are just going back in person this coming fall. \n\nI made a couple of casual friends, no parties or anything. Students don\u2019t live on campus like private schools or SUNYs, so they come for class and dip pretty much immediately to go home or go to work. There\u2019s also a pretty large population of undergrads who are 25 an...",
+            "score": 5,
+            "created_utc": 1660100278
+          },
+          {
+            "id": "jxw94zg",
+            "body": "Also the Library Cafe on the first floor of Whitehead",
+            "score": 4,
+            "created_utc": 1693094455
+          },
+          {
+            "id": "ilrvk7c",
+            "body": "For every building at BC, the floor that the room is on is always indicated by the first number. So 3410 would be on the 3rd floor. If you see a room number that starts with 0, then the room is in the basement.",
+            "score": 3,
+            "created_utc": 1661455752
+          }
+        ]
+      }
+    },
+    "custychronicles": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 201,
+          "total_words": 5408,
+          "mean_length_words": 26.9055,
+          "mean_length_chars": 143.8806,
+          "median_length_words": 13.0,
+          "mattr": 0.7659,
+          "formality_index": 0.08,
+          "formal_marker_rate": 0.01,
+          "informal_marker_rate": 0.1144,
+          "mean_words_per_sentence": 13.52,
+          "hedging_rate": 0.0945,
+          "authority_rate": 0.0597,
+          "directive_rate": 0.0398,
+          "advisory_rate": 0.0846,
+          "citation_rate": 0.0299,
+          "question_rate": 0.0425,
+          "empathy_rate": 0.01,
+          "markdown_rate": 0.005,
+          "exclamation_rate": 0.015,
+          "mean_score": 6.5124,
+          "median_score": 3.0,
+          "max_score": 162,
+          "score_per_word": 0.242
+        },
+        "HunterCollege": {
+          "comment_count": 179,
+          "total_words": 6093,
+          "mean_length_words": 34.0391,
+          "mean_length_chars": 182.5531,
+          "median_length_words": 25.0,
+          "mattr": 0.7666,
+          "formality_index": 0.1765,
+          "formal_marker_rate": 0.0168,
+          "informal_marker_rate": 0.0782,
+          "mean_words_per_sentence": 14.4384,
+          "hedging_rate": 0.0838,
+          "authority_rate": 0.0559,
+          "directive_rate": 0.0447,
+          "advisory_rate": 0.1788,
+          "citation_rate": 0.0503,
+          "question_rate": 0.0379,
+          "empathy_rate": 0.0279,
+          "markdown_rate": 0.0168,
+          "exclamation_rate": 0.019,
+          "mean_score": 4.4804,
+          "median_score": 3.0,
+          "max_score": 59,
+          "score_per_word": 0.1316
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.04823529411764706,
+        "length_cv": 0.11705115780592644,
+        "dominant_strategy": "advisory",
+        "strategy_means": {
+          "hedging": 0.0895,
+          "authority": 0.0579,
+          "directive": 0.0421,
+          "advisory": 0.1289,
+          "citation": 0.0395,
+          "empathy": 0.0184
+        },
+        "subreddits_active": 2
+      },
+      "corpus_stats": {
+        "total_comments": 380,
+        "total_submissions": 7,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege"
+        ],
+        "activity_period": "2022-04 to 2025-08"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "mf7amca",
+            "body": "LMFAOOOOOOOO im crying\ud83d\ude2d\ud83d\ude2d\ud83d\ude2d you aint shit",
+            "score": 162,
+            "created_utc": 1740718470
+          },
+          {
+            "id": "l25v9lf",
+            "body": "Depression",
+            "score": 68,
+            "created_utc": 1714603330
+          },
+          {
+            "id": "mf5mrog",
+            "body": "Shi be greatful mine was $0\ud83d\ude2d fuck a refund I OWE hunter money",
+            "score": 54,
+            "created_utc": 1740697269
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "lfg2rv9",
+            "body": "Ma\u2019am this is a wendys",
+            "score": 59,
+            "created_utc": 1722230492
+          },
+          {
+            "id": "lovzh9z",
+            "body": "FA office is pretty much the same across all cunys\ud83d\ude2d  I just stick to emailing them so I dont have to deal with the attitude",
+            "score": 38,
+            "created_utc": 1727285964
+          },
+          {
+            "id": "mfvnlhl",
+            "body": "MY SHAYLAAAA\ud83d\udc94\ud83d\udc94\ud83d\udc94\ud83d\udc94",
+            "score": 32,
+            "created_utc": 1741048873
+          }
+        ]
+      }
+    },
+    "futuretechftw2": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 840,
+          "total_words": 25661,
+          "mean_length_words": 30.5488,
+          "mean_length_chars": 165.2238,
+          "median_length_words": 25.0,
+          "mattr": 0.7461,
+          "formality_index": 0.5579,
+          "formal_marker_rate": 0.0631,
+          "informal_marker_rate": 0.05,
+          "mean_words_per_sentence": 15.0328,
+          "hedging_rate": 0.2631,
+          "authority_rate": 0.0679,
+          "directive_rate": 0.0321,
+          "advisory_rate": 0.144,
+          "citation_rate": 0.0917,
+          "question_rate": 0.0773,
+          "empathy_rate": 0.0095,
+          "markdown_rate": 0.019,
+          "exclamation_rate": 0.007,
+          "mean_score": 3.6476,
+          "median_score": 2.0,
+          "max_score": 76,
+          "score_per_word": 0.1194
+        },
+        "QueensCollege": {
+          "comment_count": 5,
+          "total_words": 90,
+          "mean_length_words": 18.0,
+          "mean_length_chars": 92.8,
+          "median_length_words": 19.0,
+          "mattr": 0.8556,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 11.25,
+          "hedging_rate": 0.2,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.2,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.6,
+          "median_score": 1.0,
+          "max_score": 3,
+          "score_per_word": 0.0889
+        },
+        "CCNY": {
+          "comment_count": 499,
+          "total_words": 16326,
+          "mean_length_words": 32.7174,
+          "mean_length_chars": 177.7655,
+          "median_length_words": 26.0,
+          "mattr": 0.7398,
+          "formality_index": 0.4754,
+          "formal_marker_rate": 0.0581,
+          "informal_marker_rate": 0.0641,
+          "mean_words_per_sentence": 15.3008,
+          "hedging_rate": 0.2465,
+          "authority_rate": 0.0721,
+          "directive_rate": 0.0321,
+          "advisory_rate": 0.1924,
+          "citation_rate": 0.1102,
+          "question_rate": 0.045,
+          "empathy_rate": 0.01,
+          "markdown_rate": 0.012,
+          "exclamation_rate": 0.0037,
+          "mean_score": 2.1303,
+          "median_score": 2.0,
+          "max_score": 13,
+          "score_per_word": 0.0651
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.24586916314715293,
+        "length_cv": 0.23948727300290185,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.2567,
+          "authority": 0.0692,
+          "directive": 0.032,
+          "advisory": 0.1615,
+          "citation": 0.099,
+          "empathy": 0.0097
+        },
+        "subreddits_active": 3
+      },
+      "corpus_stats": {
+        "total_comments": 1344,
+        "total_submissions": 2,
+        "subreddits_with_comments": [
+          "CUNY",
+          "QueensCollege",
+          "CCNY"
+        ],
+        "activity_period": "2023-12 to 2025-10"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "m2vhxd4",
+            "body": "Acceptance rate doesn\u2019t affect your chance like that. Different college different admission. They most likely are focusing on different subjects",
+            "score": 76,
+            "created_utc": 1734639401
+          },
+          {
+            "id": "m9e4dij",
+            "body": "Very unfortunate. Please do send an email out again to the professor and notify them about this. If the professor doesn\u2019t budge, you can email the dean of the department instead",
+            "score": 76,
+            "created_utc": 1737947900
+          },
+          {
+            "id": "metoat3",
+            "body": "If you\u2019re almost done with college, it\u2019s better to just push though it. \n\nIf you decide to transfer, the credit transfer gets iffy and you may end up not transferring some credits over",
+            "score": 67,
+            "created_utc": 1740539743
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "musaho1",
+            "body": "im seeing 2 different schedule. I'm assuming one is the lecture and one is the recitation TA",
+            "score": 3,
+            "created_utc": 1748472731
+          },
+          {
+            "id": "mrxyvjg",
+            "body": "Not from QC but it looks like you are unable to log onto discord with the WiFi here either",
+            "score": 2,
+            "created_utc": 1747069650
+          },
+          {
+            "id": "mvh6e07",
+            "body": "it covers 1 class in the summer so I don\u2019t see why not. It\u2019ll be less than normal since you\u2019re not full time tho",
+            "score": 1,
+            "created_utc": 1748810241
+          }
+        ],
+        "CCNY": [
+          {
+            "id": "mm1e8xm",
+            "body": "Definitely one of the better looking campus out there \n\nDon\u2019t know how the math department is now but when I took classes a few semesters ago, it\u2019s fine",
+            "score": 13,
+            "created_utc": 1744122070
+          },
+          {
+            "id": "mh9398f",
+            "body": "Depends on you. If engineering is really your passion then you gotta push through it. You can try epermit calc 3 somewhere else if you really have to. \n\nBut yes, it\u2019s a tough class. The biggest problem with that class is visualization. Once you get the idea of that, it\u2019s all memorization at that point",
+            "score": 12,
+            "created_utc": 1741719668
+          },
+          {
+            "id": "mg82tlu",
+            "body": "Crows? I don\u2019t remember seeing any. But then again I didn\u2019t really pay attention to that.\n\nSo far today I\u2019ve seen 0 though \n\nI remember seeing many on some days but rarely I think",
+            "score": 11,
+            "created_utc": 1741211782
+          }
+        ]
+      }
+    },
+    "galaxys10pluse": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 8,
+          "total_words": 195,
+          "mean_length_words": 24.375,
+          "mean_length_chars": 133.875,
+          "median_length_words": 25.5,
+          "mattr": 0.7876,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.125,
+          "mean_words_per_sentence": 10.2632,
+          "hedging_rate": 0.125,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.1579,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.2105,
+          "mean_score": 1.5,
+          "median_score": 1.5,
+          "max_score": 2,
+          "score_per_word": 0.0615
+        },
+        "Baruch": {
+          "comment_count": 470,
+          "total_words": 11850,
+          "mean_length_words": 25.2128,
+          "mean_length_chars": 138.083,
+          "median_length_words": 20.0,
+          "mattr": 0.7887,
+          "formality_index": 0.1881,
+          "formal_marker_rate": 0.0404,
+          "informal_marker_rate": 0.1745,
+          "mean_words_per_sentence": 11.1582,
+          "hedging_rate": 0.1532,
+          "authority_rate": 0.0553,
+          "directive_rate": 0.0447,
+          "advisory_rate": 0.0851,
+          "citation_rate": 0.0489,
+          "question_rate": 0.0829,
+          "empathy_rate": 0.0277,
+          "markdown_rate": 0.0255,
+          "exclamation_rate": 0.0565,
+          "mean_score": 1.9468,
+          "median_score": 1.0,
+          "max_score": 31,
+          "score_per_word": 0.0772
+        },
+        "QueensCollege": {
+          "comment_count": 1,
+          "total_words": 9,
+          "mean_length_words": 9.0,
+          "mean_length_chars": 45.0,
+          "median_length_words": 9.0,
+          "mattr": 1.0,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 3.0,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.6667,
+          "mean_score": 2.0,
+          "median_score": 2.0,
+          "max_score": 2,
+          "score_per_word": 0.2222
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.09405940594059406,
+        "length_cv": 0.01689460981496381,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.1524,
+          "authority": 0.0543,
+          "directive": 0.0438,
+          "advisory": 0.0835,
+          "citation": 0.048,
+          "empathy": 0.0271
+        },
+        "subreddits_active": 3
+      },
+      "corpus_stats": {
+        "total_comments": 479,
+        "total_submissions": 69,
+        "subreddits_with_comments": [
+          "CUNY",
+          "Baruch",
+          "QueensCollege"
+        ],
+        "activity_period": "2019-11 to 2022-04"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "fsuydeu",
+            "body": "3-5 months? Wow. So Would you be able to start grad school before that period or nah? I'm assuming a letter of commencement and transcript would be sufficient?",
+            "score": 2,
+            "created_utc": 1591278472
+          },
+          {
+            "id": "fsv8sbz",
+            "body": "Great to hear! Thanks!",
+            "score": 2,
+            "created_utc": 1591283765
+          },
+          {
+            "id": "ge3wx89",
+            "body": " I did try to register like you said and it gave me an error(related to  prereq which I have). Contacting the department, they put me in the class today itself(which is shocking since its sunday and they replied within an hour.).  TLDR: Thanks so much!",
+            "score": 2,
+            "created_utc": 1606702973
+          }
+        ],
+        "Baruch": [
+          {
+            "id": "fvuuaf7",
+            "body": "Let's discuss this when an official decision is made on july 1st shall we?",
+            "score": 31,
+            "created_utc": 1593010385
+          },
+          {
+            "id": "ga4fwwa",
+            "body": "Not lots of ppl take summer classes. This scope is higher",
+            "score": 13,
+            "created_utc": 1603674600
+          },
+          {
+            "id": "gh7bvng",
+            "body": "Lol same reason why there is no cr/no cr available for zicklin. There is no reason for any of baruchs useless rules.",
+            "score": 12,
+            "created_utc": 1609091864
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "gfc7o01",
+            "body": "Awesome! I hope he is as good online. Thanks!",
+            "score": 2,
+            "created_utc": 1607646329
+          }
+        ]
+      }
+    },
+    "lepidio": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 157,
+          "total_words": 14126,
+          "mean_length_words": 89.9745,
+          "mean_length_chars": 517.4076,
+          "median_length_words": 67.0,
+          "mattr": 0.7442,
+          "formality_index": 0.6,
+          "formal_marker_rate": 0.0191,
+          "informal_marker_rate": 0.0127,
+          "mean_words_per_sentence": 13.2888,
+          "hedging_rate": 0.4204,
+          "authority_rate": 0.2739,
+          "directive_rate": 0.0828,
+          "advisory_rate": 0.2675,
+          "citation_rate": 0.121,
+          "question_rate": 0.0282,
+          "empathy_rate": 0.0637,
+          "markdown_rate": 0.0255,
+          "exclamation_rate": 0.0405,
+          "mean_score": 4.6879,
+          "median_score": 3.0,
+          "max_score": 27,
+          "score_per_word": 0.0521
+        },
+        "Baruch": {
+          "comment_count": 14,
+          "total_words": 1171,
+          "mean_length_words": 83.6429,
+          "mean_length_chars": 484.2143,
+          "median_length_words": 32.5,
+          "mattr": 0.7328,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 12.5914,
+          "hedging_rate": 0.2857,
+          "authority_rate": 0.1429,
+          "directive_rate": 0.2143,
+          "advisory_rate": 0.2143,
+          "citation_rate": 0.2143,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0215,
+          "mean_score": 6.0,
+          "median_score": 3.0,
+          "max_score": 32,
+          "score_per_word": 0.0717
+        },
+        "HunterCollege": {
+          "comment_count": 6,
+          "total_words": 567,
+          "mean_length_words": 94.5,
+          "mean_length_chars": 644.6667,
+          "median_length_words": 20.0,
+          "mattr": 0.7995,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.1667,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 18.2903,
+          "hedging_rate": 0.1667,
+          "authority_rate": 0.1667,
+          "directive_rate": 0.1667,
+          "advisory_rate": 0.1667,
+          "citation_rate": 0.1667,
+          "question_rate": 0.0323,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.3333,
+          "exclamation_rate": 0.0,
+          "mean_score": 7.0,
+          "median_score": 2.0,
+          "max_score": 29,
+          "score_per_word": 0.0741
+        },
+        "QueensCollege": {
+          "comment_count": 5,
+          "total_words": 583,
+          "mean_length_words": 116.6,
+          "mean_length_chars": 700.2,
+          "median_length_words": 117.0,
+          "mattr": 0.7163,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.4,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 22.4231,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.2,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.2,
+          "citation_rate": 0.4,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0385,
+          "mean_score": 2.6,
+          "median_score": 3.0,
+          "max_score": 5,
+          "score_per_word": 0.0223
+        },
+        "CCNY": {
+          "comment_count": 7,
+          "total_words": 586,
+          "mean_length_words": 83.7143,
+          "mean_length_chars": 468.7143,
+          "median_length_words": 41.0,
+          "mattr": 0.727,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 14.65,
+          "hedging_rate": 0.4286,
+          "authority_rate": 0.2857,
+          "directive_rate": 0.1429,
+          "advisory_rate": 0.4286,
+          "citation_rate": 0.0,
+          "question_rate": 0.125,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.1,
+          "mean_score": 3.2857,
+          "median_score": 3.0,
+          "max_score": 9,
+          "score_per_word": 0.0392
+        },
+        "BrooklynCollege": {
+          "comment_count": 2,
+          "total_words": 132,
+          "mean_length_words": 66.0,
+          "mean_length_chars": 362.5,
+          "median_length_words": 66.0,
+          "mattr": 0.7455,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 14.6667,
+          "hedging_rate": 1.0,
+          "authority_rate": 0.5,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.5,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.1111,
+          "mean_score": 1.0,
+          "median_score": 1.0,
+          "max_score": 1,
+          "score_per_word": 0.0152
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.44899888641287294,
+        "length_cv": 0.12983525988785824,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.3979,
+          "authority": 0.2618,
+          "directive": 0.0942,
+          "advisory": 0.267,
+          "citation": 0.1309,
+          "empathy": 0.0524
+        },
+        "subreddits_active": 6
+      },
+      "corpus_stats": {
+        "total_comments": 191,
+        "total_submissions": 0,
+        "subreddits_with_comments": [
+          "CUNY",
+          "Baruch",
+          "HunterCollege",
+          "QueensCollege",
+          "CCNY",
+          "BrooklynCollege"
+        ],
+        "activity_period": "2020-10 to 2025-07"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "huzxsbw",
+            "body": "You got information about what you needed to do, and clear warnings of the consequences for failing to do it. You ignored everything (because? Rules don\u2019t apply to you? You\u2019re too cool for school?). Now you\u2019re going to face the consequence that is exactly what you should have expected.\n\n You did the wrong thing and now the *school* is the \u201ctrashcan\u201d?  Seems like you\u2019ve got a lot to learn, bud.",
+            "score": 27,
+            "created_utc": 1643640212
+          },
+          {
+            "id": "k2ankfa",
+            "body": "Yeah if you missed six classes in a class that meets once a week\u2026the semester is 15 weeks total. You missed 6 out of 15. That\u2019s FORTY PERCENT of the semester. You deserve the WN. Take it and learn from it.",
+            "score": 26,
+            "created_utc": 1695742442
+          },
+          {
+            "id": "kdwshlb",
+            "body": "Seems like a very good time for this proposal to make NYU and Columbia pay property taxes to fund CUNY!\n\nhttps://www.nytimes.com/2023/12/10/nyregion/columbia-nyu-property-tax-exemptions-legislation.html",
+            "score": 25,
+            "created_utc": 1702917980
+          }
+        ],
+        "Baruch": [
+          {
+            "id": "hvatczj",
+            "body": "Zulay is a mysterious masked stranger who roams the darkened city after midnight, giving voice to the hopes and fears of all who are caught in CUNY\u2019s nefarious web of confusion and despair.",
+            "score": 32,
+            "created_utc": 1643822450
+          },
+          {
+            "id": "ia8522d",
+            "body": "The exact opposite. Every day counts for more, so you really have to be there.",
+            "score": 21,
+            "created_utc": 1653677346
+          },
+          {
+            "id": "hytbo7m",
+            "body": "Just get it. There is absolutely no good reason not to. The mandate may change and you may be able to get away without it but it\u2019s a foolish choice.",
+            "score": 5,
+            "created_utc": 1646075665
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "mcaht02",
+            "body": "100% scam. Complete scam.  That email has achieved maximum scamminess. Delete it with extreme prejudice.",
+            "score": 29,
+            "created_utc": 1739323606
+          },
+          {
+            "id": "gaup20r",
+            "body": "Short answer is no. Absolutely not. \n\nYou can NOT be required to turn on your camera in class or in an exam unless there is a real and compelling pedagogical reason for the requirement (the professor\u2019s desire to catch cheaters or prevent cheaters is NOT a good enough reason. \n\nThe longer policy answer is on this page [https://www.cuny.edu/coronavirus/academic-continuity/guidance-on-academic-continuity-to-campuses/](https://www.cuny.edu/coronavirus/academic-continuity/guidance-on-academic-cont...",
+            "score": 8,
+            "created_utc": 1604279855
+          },
+          {
+            "id": "gwkz2fq",
+            "body": "Just go ahead and get vaccinated. Why in the world would you wait?",
+            "score": 3,
+            "created_utc": 1619900977
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "hzrls86",
+            "body": "When you get notified you have one week to get the random test. During that week you have full access to campus, no problem. \n\nYou can get the test at any cuny campus, anywhere in the city. You walk in and do it and you\u2019re out in five minutes. Usually no waiting at all. Results usually take about 24-48 hours (in most cases closer to 24). \n\nIf you don\u2019t go for the test and get a negative result, THEN (a full week after you were notified) you are blocked from campus. \n\nSo if you got notified, a...",
+            "score": 5,
+            "created_utc": 1646694102
+          },
+          {
+            "id": "g7bdwip",
+            "body": "Professors can not require that you keep your cameras on for tests or during class. \n\nSee this page\n\nhttps://www.cuny.edu/coronavirus/academic-continuity/guidance-on-academic-continuity-to-campuses/\n\nWhere you will find this:\n\u2014\nNote: It is important to recognize that students may not be compelled to (1) turn on their cameras during test-taking in web conferencing digital technology platforms like Zoom or 2) agree to the terms and conditions of proctoring solutions procured by the University, ...",
+            "score": 3,
+            "created_utc": 1601578151
+          },
+          {
+            "id": "hw8p44c",
+            "body": "It would be incredibly stupid, but it's not true.  That does NOT happen.  \n\n\nThey notify you that you need to be randomly tested, and they give you a week, 7 days, to get the test.  During those 7 days, you are free to come on campus and not locked out.   \n\n\nThe only way you'll miss your midterm is if you ignore the notice, wait until the very last minute, and get your test on day 6 or 7.  If you're that stupid, you deserve a 0 for your exam.\n\nIf you belong in college (meaning, you know how t...",
+            "score": 3,
+            "created_utc": 1644423848
+          }
+        ],
+        "CCNY": [
+          {
+            "id": "jyd3wlg",
+            "body": "That\u2019s the Rose Reading Room at the NY Public Library on 42nd and 5th. It\u2019s not at CCNY. But it is a fantastic spot to sit and read or study!",
+            "score": 9,
+            "created_utc": 1693397242
+          },
+          {
+            "id": "idao84u",
+            "body": "You could always brag on CCNY\u2019s 10 Nobel Prize winners (so far). Depending how you count them, that\u2019s more than any other public university.",
+            "score": 4,
+            "created_utc": 1655900298
+          },
+          {
+            "id": "j8hsikc",
+            "body": "Darwin\u2019s birthday (it was Sunday, but observed on Monday). Lincoln\u2019s birthday is the same day, but that\u2019s just a coincidence.",
+            "score": 3,
+            "created_utc": 1676377388
+          }
+        ],
+        "BrooklynCollege": [
+          {
+            "id": "i38a5ui",
+            "body": "Colleges don\u2019t charge for commencement tickets. No cost to you. Each student can request up to four tickets at Brooklyn\u2019s commencement this year.",
+            "score": 1,
+            "created_utc": 1648998006
+          },
+          {
+            "id": "jvfkwh0",
+            "body": "The parking lot at Target is quite close to campus and not too expensive. Always has space in my experience although you might have to go up to the top level in busy shopping season. Bonus is that there\u2019s a Starbucks in the Target and you can pick up some other things you need while you\u2019re there. \n\nTwo hours parking is only $3, but it jumps up to $10 for three hours and $20 for eight hours. Still probably cheaper than LIRR plus subway (maybe?). \n\nYou can find street or metered parking sometim...",
+            "score": 1,
+            "created_utc": 1691583472
+          }
+        ]
+      }
+    },
+    "lexalogue": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 141,
+          "total_words": 13938,
+          "mean_length_words": 98.8511,
+          "mean_length_chars": 604.2766,
+          "median_length_words": 79.0,
+          "mattr": 0.7109,
+          "formality_index": 0.8889,
+          "formal_marker_rate": 0.0567,
+          "informal_marker_rate": 0.0071,
+          "mean_words_per_sentence": 24.5387,
+          "hedging_rate": 0.0922,
+          "authority_rate": 0.0567,
+          "directive_rate": 0.1135,
+          "advisory_rate": 0.4397,
+          "citation_rate": 1.2553,
+          "question_rate": 0.0194,
+          "empathy_rate": 0.1206,
+          "markdown_rate": 0.5319,
+          "exclamation_rate": 0.0282,
+          "mean_score": 2.1915,
+          "median_score": 1.0,
+          "max_score": 11,
+          "score_per_word": 0.0222
+        },
+        "Baruch": {
+          "comment_count": 25,
+          "total_words": 1557,
+          "mean_length_words": 62.28,
+          "mean_length_chars": 394.12,
+          "median_length_words": 43.0,
+          "mattr": 0.6847,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 25.1129,
+          "hedging_rate": 0.08,
+          "authority_rate": 0.04,
+          "directive_rate": 0.08,
+          "advisory_rate": 0.24,
+          "citation_rate": 1.48,
+          "question_rate": 0.0,
+          "empathy_rate": 0.08,
+          "markdown_rate": 0.6,
+          "exclamation_rate": 0.0161,
+          "mean_score": 1.84,
+          "median_score": 1.0,
+          "max_score": 5,
+          "score_per_word": 0.0295
+        },
+        "HunterCollege": {
+          "comment_count": 22,
+          "total_words": 1344,
+          "mean_length_words": 61.0909,
+          "mean_length_chars": 381.8636,
+          "median_length_words": 37.5,
+          "mattr": 0.7353,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 19.4783,
+          "hedging_rate": 0.1364,
+          "authority_rate": 0.0455,
+          "directive_rate": 0.0455,
+          "advisory_rate": 0.3182,
+          "citation_rate": 0.9545,
+          "question_rate": 0.0145,
+          "empathy_rate": 0.0909,
+          "markdown_rate": 0.4091,
+          "exclamation_rate": 0.029,
+          "mean_score": 1.9091,
+          "median_score": 2.0,
+          "max_score": 5,
+          "score_per_word": 0.0312
+        },
+        "QueensCollege": {
+          "comment_count": 10,
+          "total_words": 1216,
+          "mean_length_words": 121.6,
+          "mean_length_chars": 768.6,
+          "median_length_words": 72.0,
+          "mattr": 0.7305,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.2,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 27.6364,
+          "hedging_rate": 0.3,
+          "authority_rate": 0.1,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.5,
+          "citation_rate": 1.6,
+          "question_rate": 0.0227,
+          "empathy_rate": 0.1,
+          "markdown_rate": 0.7,
+          "exclamation_rate": 0.0227,
+          "mean_score": 1.7,
+          "median_score": 2.0,
+          "max_score": 3,
+          "score_per_word": 0.014
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.4738533919231106,
+        "length_cv": 0.29749679520702993,
+        "dominant_strategy": "citation",
+        "strategy_means": {
+          "hedging": 0.1061,
+          "authority": 0.0556,
+          "directive": 0.096,
+          "advisory": 0.404,
+          "citation": 1.2677,
+          "empathy": 0.1111
+        },
+        "subreddits_active": 4
+      },
+      "corpus_stats": {
+        "total_comments": 198,
+        "total_submissions": 3,
+        "subreddits_with_comments": [
+          "CUNY",
+          "Baruch",
+          "HunterCollege",
+          "QueensCollege"
+        ],
+        "activity_period": "2020-07 to 2025-05"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "gqr2bp6",
+            "body": "Another place to consider is Baruch (yes, Baruch).  They don't get a lot of Biology majors (most of the students major in business) so the faculty cherish each one.  Their premeds get a lot of individual attention, & Baruch has a great record of getting their students into good health professions graduate schools.",
+            "score": 11,
+            "created_utc": 1615595997
+          },
+          {
+            "id": "fz7k3eh",
+            "body": "Anyone thinking of transferring to Hunter should watch and think carefully about how their credits will transfer.  This tool, [Transfer Explorer](https://explorer.lehman.edu/), will tell you how any CUNY course is supposed transfer to any other CUNY college.  Hunter has a long list of types of courses for which it will not give transfer credit (see link on [this page](http://www.hunter.cuny.edu/admissions/admissions-information/transfer-1/transfer#credit-transfer)) but know that it is CUNY po...",
+            "score": 8,
+            "created_utc": 1595695502
+          },
+          {
+            "id": "hhou4wr",
+            "body": "Baruch has few premeds and so give extensive individual support to them. They have an excellent record of sending their students on to graduate schools in the health professions.",
+            "score": 8,
+            "created_utc": 1634949916
+          }
+        ],
+        "Baruch": [
+          {
+            "id": "hk0uh30",
+            "body": "Baruch has major course requirements and also prerequisite course requirements for those major courses and courses required just to be admitted to the business school (over and beyond what is required to be admitted to Baruch). It also has extra requirements for general education courses, and has a history of not being generous in giving out transfer credit (compared to some other CUNY colleges). All of which could result in your needing *significant* extra time to finish your bachelor's. Thi...",
+            "score": 5,
+            "created_utc": 1636513887
+          },
+          {
+            "id": "gadj34r",
+            "body": "A follow up to my earlier comment:  See bookmark link below from Transfer Explorer for all courses across CUNY that transfer as ACC 2203 (those that are recently or currently being offered).\n\n[https://explorer.lehman.edu/bookmarks/ILh4tjpZTl](https://explorer.lehman.edu/bookmarks/ILh4tjpZTl)",
+            "score": 4,
+            "created_utc": 1603889518
+          },
+          {
+            "id": "hkws04w",
+            "body": "Any course taken at any CUNY college is supposed to give you at least elective credit at any other CUNY college. The specific kind of credit you will get is shown in the [Transfer Explorer](https://explorer.cuny.edu/) tool. If a CUNY college will not give at least elective credit for a credit-bearing course taught at another CUNY college, then you have the right to appeal (and you will win that appeal). The appeals process is [here.](https://www.cuny.edu/about/administration/offices/undergrad...",
+            "score": 4,
+            "created_utc": 1637100796
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "jlf1bjz",
+            "body": "Students should consider CUNY's Baruch College for prehealth undergrad. Yes, Baruch is primarily a business school, but they have a great Bio major and a great record of getting students into graduate health programs. There aren't many prehealth major students at Baruch, so the faculty cherish all of them and give them lots of support.",
+            "score": 5,
+            "created_utc": 1684931087
+          },
+          {
+            "id": "l74dgum",
+            "body": "Macaulay Honors College at Hunter is extremely prestigious and difficult to get into, students are extremely well supported in all ways, and students have outstanding peers with whom to interact.",
+            "score": 4,
+            "created_utc": 1717534163
+          },
+          {
+            "id": "hj83tzh",
+            "body": "Your situation sounds unusual so this may not apply to you, but Hunter takes virtually no transfer students into nursing. I strongly suggest you check with the Nursing Department about this before you go any further.",
+            "score": 3,
+            "created_utc": 1635987275
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "hqu67ya",
+            "body": "The [Transfer Explorer](https://explorer.cuny.edu/) tool can tell you how a nonQueens course will transfer to Queens in terms of the credit it will get, but I believe that, even if Transfer Explorer tells you that you will get the sort of credit you need for your Queens major, the department can still not allow you to count the e-permitted course for your major, so check with the department.",
+            "score": 3,
+            "created_utc": 1641064594
+          },
+          {
+            "id": "ggmd0vz",
+            "body": "Getting your AP classes to count for college credit is essentially a transfer credit process (i.e., it's similar to when you transfer from one college to another and want the second college to count your credits from the first college).  If you aren't satisfied with how your AP credits are being counted (or not) towards your degree requirements in college, you can appeal that decision.  Here is the procedure for appealing transfer credit decisions at CUNY:  [https://www.cuny.edu/about/adminis...",
+            "score": 2,
+            "created_utc": 1608582798
+          },
+          {
+            "id": "h6zawp5",
+            "body": "I'm not understanding what you're saying.  A 3-credit course should be no problem because 42 is divisible by 3.  So you can do the 42 credits by taking 14 3-credit courses.",
+            "score": 2,
+            "created_utc": 1627580098
+          }
+        ]
+      }
+    },
+    "nygdan": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 407,
+          "total_words": 18481,
+          "mean_length_words": 45.4079,
+          "mean_length_chars": 256.4963,
+          "median_length_words": 34.0,
+          "mattr": 0.7474,
+          "formality_index": 0.2727,
+          "formal_marker_rate": 0.0074,
+          "informal_marker_rate": 0.0197,
+          "mean_words_per_sentence": 15.5433,
+          "hedging_rate": 0.1622,
+          "authority_rate": 0.0467,
+          "directive_rate": 0.0688,
+          "advisory_rate": 0.2162,
+          "citation_rate": 0.0737,
+          "question_rate": 0.0648,
+          "empathy_rate": 0.0074,
+          "markdown_rate": 0.0147,
+          "exclamation_rate": 0.0025,
+          "mean_score": 4.4668,
+          "median_score": 2.0,
+          "max_score": 109,
+          "score_per_word": 0.0984
+        },
+        "HunterCollege": {
+          "comment_count": 58,
+          "total_words": 2683,
+          "mean_length_words": 46.2586,
+          "mean_length_chars": 267.3621,
+          "median_length_words": 30.5,
+          "mattr": 0.7505,
+          "formality_index": 0.3333,
+          "formal_marker_rate": 0.0345,
+          "informal_marker_rate": 0.069,
+          "mean_words_per_sentence": 17.1987,
+          "hedging_rate": 0.1724,
+          "authority_rate": 0.1034,
+          "directive_rate": 0.0862,
+          "advisory_rate": 0.2586,
+          "citation_rate": 0.1379,
+          "question_rate": 0.0513,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0862,
+          "exclamation_rate": 0.0,
+          "mean_score": 3.2759,
+          "median_score": 2.0,
+          "max_score": 30,
+          "score_per_word": 0.0708
+        },
+        "QueensCollege": {
+          "comment_count": 56,
+          "total_words": 2272,
+          "mean_length_words": 40.5714,
+          "mean_length_chars": 231.4107,
+          "median_length_words": 35.0,
+          "mattr": 0.7681,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 14.1118,
+          "hedging_rate": 0.1964,
+          "authority_rate": 0.0714,
+          "directive_rate": 0.0536,
+          "advisory_rate": 0.2143,
+          "citation_rate": 0.0893,
+          "question_rate": 0.0745,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0179,
+          "exclamation_rate": 0.0,
+          "mean_score": 3.3036,
+          "median_score": 2.5,
+          "max_score": 13,
+          "score_per_word": 0.0814
+        },
+        "CUNYuncensored": {
+          "comment_count": 6,
+          "total_words": 626,
+          "mean_length_words": 104.3333,
+          "mean_length_chars": 628.8333,
+          "median_length_words": 41.5,
+          "mattr": 0.7466,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 15.65,
+          "hedging_rate": 0.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.8333,
+          "advisory_rate": 0.3333,
+          "citation_rate": 0.5,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.1667,
+          "exclamation_rate": 0.0,
+          "mean_score": 2.8333,
+          "median_score": 2.0,
+          "max_score": 6,
+          "score_per_word": 0.0272
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.1530228020963951,
+        "length_cv": 0.4426703559966943,
+        "dominant_strategy": "advisory",
+        "strategy_means": {
+          "hedging": 0.1651,
+          "authority": 0.055,
+          "directive": 0.0778,
+          "advisory": 0.222,
+          "citation": 0.0873,
+          "empathy": 0.0057
+        },
+        "subreddits_active": 4
+      },
+      "corpus_stats": {
+        "total_comments": 527,
+        "total_submissions": 48,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege",
+          "QueensCollege",
+          "CUNYuncensored"
+        ],
+        "activity_period": "2019-07 to 2025-10"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "mlutyxp",
+            "body": "You can not fix this sort of stuff by talking to the prof, the prof is obviously unreasonable and nuts.\n\n  \nYou have to reply to the correspondence and include their departmental chair. The department chair does not want to be bothered by this sort of nonsense and will push the prof to 'just use brightspace damnit ok?\".",
+            "score": 109,
+            "created_utc": 1744030659
+          },
+          {
+            "id": "m9qyh8a",
+            "body": "This will wreck cuny. they already lost 200K at the Grad Center alone because of the NIH cuts.\nThis will end research by instructors.\nThis will end programs that provide support to students. The busgets werw already straimed, tbis will collapse them.\nif this is more than a temporary pause they will have to shutter  many departments and they might even close somes campuses.\n\nit is insane that people voted for this.",
+            "score": 75,
+            "created_utc": 1738115234
+          },
+          {
+            "id": "n6ycypr",
+            "body": "High school is over, IEPs are done, these are just accommodations in general for people with disabilities, it\u2019s not going to work like HS or be as involved and extensive. You likely have to meet with each prof too to get accommodations.\n\nOne thing that is the same tho is they are NOT supposed to be asking what the disabilities are (beyond the registration process)",
+            "score": 51,
+            "created_utc": 1754347048
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "mvs9w8m",
+            "body": "Man, this is really foolish.\n\n\n\nThe campus was hacked. The hackers obtained lists of emails and their passwords. If you don't change your password, your email and everything you use it to login with is owned by the hackers.\n\n  \nCUNY isn't admitting much but it should be really obvious from the tons of practically screaming emails that this is an emergency, this isn't a normal 'please change your emails' issue.",
+            "score": 30,
+            "created_utc": 1748964331
+          },
+          {
+            "id": "lpwlhc0",
+            "body": "It's crazy that you can't use CUNYFirst to search for classes based on their credits.",
+            "score": 15,
+            "created_utc": 1727830692
+          },
+          {
+            "id": "lx3adxt",
+            "body": "What exactly did you expect, lol.",
+            "score": 14,
+            "created_utc": 1731594649
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "foiaa23",
+            "body": "The professor is wrong. The CUNY central mandated policy is here:  [https://www.cuny.edu/coronavirus/credit-no-credit-policy/](https://www.cuny.edu/coronavirus/credit-no-credit-policy/) \n\n&#x200B;\n\nThe relevant section is here: \n\n> if a student chooses to exercise this option, a passing letter grade (A, B, C, or D) will convert to \u2018CR\u2019 with credit for the class being awarded, while a failing grade (F) will convert to \u2018NC\u2019, with no credit awarded. Credit/No Credit grades will not impact the st...",
+            "score": 13,
+            "created_utc": 1587782048
+          },
+          {
+            "id": "gm21sby",
+            "body": "It's fake. An important indicator here is that the email address is name.nameNUMBER, faculty and staff emails don't use the number. Of course before any of that it's also a pretty obvious fake from the content.",
+            "score": 13,
+            "created_utc": 1612484489
+          },
+          {
+            "id": "god5lsq",
+            "body": "Federal law requires that all colleges, including CUNY, disclose textbook and other paid requirements (like having to pay for Cengage) for each course section, so students aren't surprised by fees after signing up. \nCUNYFirst has a slot in each section display that is there for listing textbooks. But most departments have stopped filling it out and CUNY Administration doesn't do any follow up on it.\n\nCUNY is badly out of compliance. The fact that you needed to make this worthy website is proo...",
+            "score": 13,
+            "created_utc": 1614017230
+          }
+        ],
+        "CUNYuncensored": [
+          {
+            "id": "i6f8ds8",
+            "body": "There's a lot going on there and I can't address all of it.\n\nBUT, CUNY is aware that some students are going through homelessness.\n\nDo not let a professor give you a problem, you can always go above them. Do not let everything you invested into this semester get thrown away by giving up. It will be even harder to start over.  Contact their departmental chairperson if they give you a problem, or contact a dean of students, that's what those people are there for. Lots of profs make up rules tha...",
+            "score": 6,
+            "created_utc": 1651078942
+          },
+          {
+            "id": "fk7s264",
+            "body": "Yep. Not really sure what the process for mod selections are but doubtful it'd get changed. The guy seems to have a bug up his ass.",
+            "score": 5,
+            "created_utc": 1583942545
+          },
+          {
+            "id": "i6g2ubq",
+            "body": "Yes dorms, they can be expensive but on the other hand it can mean taking out a bigger loan than what you have already.",
+            "score": 2,
+            "created_utc": 1651090976
+          }
+        ]
+      }
+    },
+    "rosieareposie": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 117,
+          "total_words": 5227,
+          "mean_length_words": 44.6752,
+          "mean_length_chars": 245.6838,
+          "median_length_words": 37.0,
+          "mattr": 0.7397,
+          "formality_index": 0.2941,
+          "formal_marker_rate": 0.0427,
+          "informal_marker_rate": 0.1026,
+          "mean_words_per_sentence": 14.8494,
+          "hedging_rate": 0.3333,
+          "authority_rate": 0.0427,
+          "directive_rate": 0.0171,
+          "advisory_rate": 0.0769,
+          "citation_rate": 0.094,
+          "question_rate": 0.0881,
+          "empathy_rate": 0.0513,
+          "markdown_rate": 0.0171,
+          "exclamation_rate": 0.0284,
+          "mean_score": 4.2821,
+          "median_score": 3.0,
+          "max_score": 27,
+          "score_per_word": 0.0958
+        },
+        "Baruch": {
+          "comment_count": 31,
+          "total_words": 1271,
+          "mean_length_words": 41.0,
+          "mean_length_chars": 226.2258,
+          "median_length_words": 32.0,
+          "mattr": 0.7207,
+          "formality_index": 0.25,
+          "formal_marker_rate": 0.0323,
+          "informal_marker_rate": 0.0968,
+          "mean_words_per_sentence": 16.2949,
+          "hedging_rate": 0.129,
+          "authority_rate": 0.0645,
+          "directive_rate": 0.0645,
+          "advisory_rate": 0.0645,
+          "citation_rate": 0.1613,
+          "question_rate": 0.0641,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0323,
+          "exclamation_rate": 0.0385,
+          "mean_score": 3.2581,
+          "median_score": 1.0,
+          "max_score": 31,
+          "score_per_word": 0.0795
+        },
+        "HunterCollege": {
+          "comment_count": 44,
+          "total_words": 1736,
+          "mean_length_words": 39.4545,
+          "mean_length_chars": 218.1818,
+          "median_length_words": 31.0,
+          "mattr": 0.7413,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.2955,
+          "mean_words_per_sentence": 12.6715,
+          "hedging_rate": 0.4091,
+          "authority_rate": 0.0227,
+          "directive_rate": 0.0455,
+          "advisory_rate": 0.0455,
+          "citation_rate": 0.1591,
+          "question_rate": 0.0511,
+          "empathy_rate": 0.1364,
+          "markdown_rate": 0.0455,
+          "exclamation_rate": 0.1533,
+          "mean_score": 2.0909,
+          "median_score": 1.5,
+          "max_score": 10,
+          "score_per_word": 0.053
+        },
+        "QueensCollege": {
+          "comment_count": 10,
+          "total_words": 540,
+          "mean_length_words": 54.0,
+          "mean_length_chars": 292.5,
+          "median_length_words": 39.0,
+          "mattr": 0.7137,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 13.8462,
+          "hedging_rate": 0.3,
+          "authority_rate": 0.1,
+          "directive_rate": 0.1,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.1,
+          "question_rate": 0.1026,
+          "empathy_rate": 0.1,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0256,
+          "mean_score": 2.5,
+          "median_score": 2.0,
+          "max_score": 4,
+          "score_per_word": 0.0463
+        },
+        "CCNY": {
+          "comment_count": 1,
+          "total_words": 25,
+          "mean_length_words": 25.0,
+          "mean_length_chars": 127.0,
+          "median_length_words": 25.0,
+          "mattr": 0.84,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 12.5,
+          "hedging_rate": 1.0,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.0,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.0,
+          "median_score": 1.0,
+          "max_score": 1,
+          "score_per_word": 0.04
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.13692076801129466,
+        "length_cv": 0.12615476520146665,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.3202,
+          "authority": 0.0443,
+          "directive": 0.0345,
+          "advisory": 0.064,
+          "citation": 0.1182,
+          "empathy": 0.064
+        },
+        "subreddits_active": 5
+      },
+      "corpus_stats": {
+        "total_comments": 203,
+        "total_submissions": 14,
+        "subreddits_with_comments": [
+          "CUNY",
+          "Baruch",
+          "HunterCollege",
+          "QueensCollege",
+          "CCNY"
+        ],
+        "activity_period": "2020-07 to 2025-07"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "huhtcnj",
+            "body": "agreed. if nyc public schools (elementary-high school) get a day off for lunar new year's, so should cuny schools.",
+            "score": 27,
+            "created_utc": 1643318917
+          },
+          {
+            "id": "hni2dv5",
+            "body": "Yea I definitely think this is not fair. If students are forced to get vaccinated, so does cuny faculty and professors.",
+            "score": 22,
+            "created_utc": 1638821720
+          },
+          {
+            "id": "hp666e7",
+            "body": "It's hard to say because usually cuny waits until the last minute to decide. If I remember correctly, in 2020, they didn't close down until the NY Governor announced a lockdown. \n\nThey might force students to get booster shots instead. \n\nI can't really predict what CUNY will do but they sent out an email saying they are aiming for 70% in person.",
+            "score": 21,
+            "created_utc": 1639924547
+          }
+        ],
+        "Baruch": [
+          {
+            "id": "hl6a05t",
+            "body": "People are not reading and spreading false information assuming that if we don't fill out this form, we don't get the grant at all. That is not true whatsoever, people really need to learn how to read.\n\nThis form is completely OPTIONAL, if you don't fill out the form, you will just have the grant be refunded to you. BUT if you do fill out the form, you are GRANTING CUNY PERMISSION to use your heerf funds towards your balance/charges that are on your cunyfirst account. \n\n&#x200B;\n\nTo everyone:...",
+            "score": 31,
+            "created_utc": 1637271847
+          },
+          {
+            "id": "hiew6zz",
+            "body": "a lot of people are like that in group chats unfortunately. which is why i mute them all the time. many of them ask extremely dumb questions that can either be found on the syllabus, on blackboard, or on the academic calendar. \n\nmakes me wonder why are they in college if they are asking all these dumb questions lol",
+            "score": 19,
+            "created_utc": 1635446058
+          },
+          {
+            "id": "hla407p",
+            "body": "Omg i know!!! It's honestly ridiculous how a bunch of college students can be so dumb and ask stupid questions ; like why are you in college then? all these answers can all be found on the syllabus. \n\nIt's so sad, I don't even know how they will get through life in the future when they start working. Are they going to start asking their boss stupid questions \ud83e\udd26\ud83c\udffb\u200d\u2640\ufe0f",
+            "score": 16,
+            "created_utc": 1637344098
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "hacdiqw",
+            "body": "if your vaccine was approved on cunyfirst, you can just use your id to scan and no line. there is a really long line for those who don't have id, don\u2019t have their vaccine approved and/or are not vaccinated yet. \n\nthey didn't check the vaxpass since our onecards are already updated once we are approved on cunyfirst.",
+            "score": 10,
+            "created_utc": 1629926280
+          },
+          {
+            "id": "hqgntu7",
+            "body": "I think they offer media 180 in the winter! If you need to retake it, I recommend taking it in the winter semester. I took it last winter and it was an Easy A for me.",
+            "score": 6,
+            "created_utc": 1640813815
+          },
+          {
+            "id": "ht6nd6f",
+            "body": "If you are approved on cunyfirst, your hunter one card ID will update and you can easily enter campus.",
+            "score": 5,
+            "created_utc": 1642518719
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "h9u76j5",
+            "body": "Check FACTS, it will tell you if you are eligible or ineligible for TAP.",
+            "score": 4,
+            "created_utc": 1629583646
+          },
+          {
+            "id": "hlta3wp",
+            "body": "Are you on academic probation right now? If you are not, you can apply for federal loans that can help pay your tuition (no interest until after 5 months you graduate). \n\nBut if you are, then all grants and financial aid are suspended until your gpa goes back up to 2.0+. I would try speaking out to your family members to see if they can help. I would not advise private loans, but if that is the only option you have, then try looking into Discovery or Navient.",
+            "score": 3,
+            "created_utc": 1637699699
+          },
+          {
+            "id": "hltn6he",
+            "body": "I recommend looking into federal loans provided from fafsa. those are much better than private student loans as well. \n\nyou can also speak to financial aid in person, i feel in person is the best option, and there should be someone out there in the dept willing to help. :(",
+            "score": 3,
+            "created_utc": 1637704841
+          }
+        ],
+        "CCNY": [
+          {
+            "id": "lz2yflu",
+            "body": "i think you can get this changed.. i remember something similar happened to me, i just had to ask my academic advisor to fix it",
+            "score": 1,
+            "created_utc": 1732632767
+          }
+        ]
+      }
+    },
+    "stayinschoolchirren": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 90,
+          "total_words": 1680,
+          "mean_length_words": 18.6667,
+          "mean_length_chars": 96.0889,
+          "median_length_words": 10.5,
+          "mattr": 0.7696,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.4333,
+          "mean_words_per_sentence": 17.8723,
+          "hedging_rate": 0.0444,
+          "authority_rate": 0.0111,
+          "directive_rate": 0.0333,
+          "advisory_rate": 0.0111,
+          "citation_rate": 0.0222,
+          "question_rate": 0.0319,
+          "empathy_rate": 0.0222,
+          "markdown_rate": 0.0111,
+          "exclamation_rate": 0.0,
+          "mean_score": 3.1,
+          "median_score": 2.0,
+          "max_score": 23,
+          "score_per_word": 0.1661
+        },
+        "Baruch": {
+          "comment_count": 4,
+          "total_words": 95,
+          "mean_length_words": 23.75,
+          "mean_length_chars": 110.0,
+          "median_length_words": 26.0,
+          "mattr": 0.8211,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.75,
+          "mean_words_per_sentence": 23.75,
+          "hedging_rate": 0.25,
+          "authority_rate": 0.0,
+          "directive_rate": 0.25,
+          "advisory_rate": 0.0,
+          "citation_rate": 0.0,
+          "question_rate": 0.25,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 1.25,
+          "median_score": 1.0,
+          "max_score": 2,
+          "score_per_word": 0.0526
+        },
+        "HunterCollege": {
+          "comment_count": 99,
+          "total_words": 1923,
+          "mean_length_words": 19.4242,
+          "mean_length_chars": 97.4646,
+          "median_length_words": 15.0,
+          "mattr": 0.7681,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.4747,
+          "mean_words_per_sentence": 19.4242,
+          "hedging_rate": 0.0808,
+          "authority_rate": 0.0,
+          "directive_rate": 0.0303,
+          "advisory_rate": 0.0303,
+          "citation_rate": 0.0101,
+          "question_rate": 0.0101,
+          "empathy_rate": 0.0303,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0,
+          "mean_score": 3.3434,
+          "median_score": 2.0,
+          "max_score": 26,
+          "score_per_word": 0.1721
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.0,
+        "length_cv": 0.10862739637985999,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.0674,
+          "authority": 0.0052,
+          "directive": 0.0363,
+          "advisory": 0.0207,
+          "citation": 0.0155,
+          "empathy": 0.0259
+        },
+        "subreddits_active": 3
+      },
+      "corpus_stats": {
+        "total_comments": 193,
+        "total_submissions": 26,
+        "subreddits_with_comments": [
+          "CUNY",
+          "Baruch",
+          "HunterCollege"
+        ],
+        "activity_period": "2020-01 to 2025-07"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "miap1tl",
+            "body": "Shitty tech is so funny please",
+            "score": 23,
+            "created_utc": 1742234106
+          },
+          {
+            "id": "lsy9he4",
+            "body": "Just write ur name",
+            "score": 18,
+            "created_utc": 1729480475
+          },
+          {
+            "id": "hb20jr8",
+            "body": "$127for 30-day metro card , but cant use express bus with it, may not be best option if majority of classes are hybrid or online (just heads up)",
+            "score": 14,
+            "created_utc": 1630417053
+          }
+        ],
+        "Baruch": [
+          {
+            "id": "g2gr56g",
+            "body": "This sounds like a dumb question, but can we actually use hs recs for transfer apps?",
+            "score": 2,
+            "created_utc": 1598103290
+          },
+          {
+            "id": "gcgz85b",
+            "body": "I think ur odds are good, but I would retake the ACT if u can, try to get it up to at least a 30 so ur chance are better (u do u ofc :)) gl",
+            "score": 1,
+            "created_utc": 1605507236
+          },
+          {
+            "id": "ge2q04z",
+            "body": "I go to hunter, but I\u2019ve heard people have similar problems and end up getting money back I recomend contacting the fin aid office there, it may be a lil too late cause the semester is almost done",
+            "score": 1,
+            "created_utc": 1606680905
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "msx2oxj",
+            "body": "No they\u2019ll get you if you do",
+            "score": 26,
+            "created_utc": 1747551869
+          },
+          {
+            "id": "my4ucvu",
+            "body": "Yes, all online, no in person or proctored exams but be warned Aleks isn\u2019t for the weak coming from personal experience, don\u2019t do hw last minute by any means cause it\u2019s built to keep adding questions if you get something wrong",
+            "score": 23,
+            "created_utc": 1750101998
+          },
+          {
+            "id": "lw55dca",
+            "body": "This is a lot of carts unfortunately, the garages the carts are stored in attracts all kinds of critters",
+            "score": 17,
+            "created_utc": 1731099154
+          }
+        ]
+      }
+    },
+    "stopsakura10": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 321,
+          "total_words": 4113,
+          "mean_length_words": 12.8131,
+          "mean_length_chars": 73.6106,
+          "median_length_words": 10.0,
+          "mattr": 0.7923,
+          "formality_index": 0.0385,
+          "formal_marker_rate": 0.0062,
+          "informal_marker_rate": 0.1558,
+          "mean_words_per_sentence": 9.3904,
+          "hedging_rate": 0.0966,
+          "authority_rate": 0.0249,
+          "directive_rate": 0.0467,
+          "advisory_rate": 0.0405,
+          "citation_rate": 0.0717,
+          "question_rate": 0.1073,
+          "empathy_rate": 0.0093,
+          "markdown_rate": 0.0031,
+          "exclamation_rate": 0.0868,
+          "mean_score": 3.2773,
+          "median_score": 2.0,
+          "max_score": 44,
+          "score_per_word": 0.2558
+        },
+        "HunterCollege": {
+          "comment_count": 525,
+          "total_words": 7213,
+          "mean_length_words": 13.739,
+          "mean_length_chars": 79.9371,
+          "median_length_words": 11.0,
+          "mattr": 0.7969,
+          "formality_index": 0.0,
+          "formal_marker_rate": 0.0,
+          "informal_marker_rate": 0.179,
+          "mean_words_per_sentence": 9.3191,
+          "hedging_rate": 0.1105,
+          "authority_rate": 0.0267,
+          "directive_rate": 0.019,
+          "advisory_rate": 0.0571,
+          "citation_rate": 0.101,
+          "question_rate": 0.1072,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0827,
+          "mean_score": 2.8648,
+          "median_score": 2.0,
+          "max_score": 43,
+          "score_per_word": 0.2085
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.019230769230769232,
+        "length_cv": 0.034873414920962305,
+        "dominant_strategy": "hedging",
+        "strategy_means": {
+          "hedging": 0.1052,
+          "authority": 0.026,
+          "directive": 0.0296,
+          "advisory": 0.0508,
+          "citation": 0.0898,
+          "empathy": 0.0035
+        },
+        "subreddits_active": 2
+      },
+      "corpus_stats": {
+        "total_comments": 846,
+        "total_submissions": 0,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege"
+        ],
+        "activity_period": "2023-04 to 2025-11"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "l2598oa",
+            "body": "Free admission to art institutions in NYC!",
+            "score": 44,
+            "created_utc": 1714595373
+          },
+          {
+            "id": "mx42qg3",
+            "body": "those are two very different degrees",
+            "score": 34,
+            "created_utc": 1749599993
+          },
+          {
+            "id": "ll0u3bo",
+            "body": "do whatever the hell you want with it \n\ni haven\u2019t gotten taxed for the refund so",
+            "score": 32,
+            "created_utc": 1725213615
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "lpolqq3",
+            "body": "wait till u hear two students went to the hospital cause they ate the tuna salad sandwich \n\nhope she feels better tho!",
+            "score": 43,
+            "created_utc": 1727718712
+          },
+          {
+            "id": "l7bcms5",
+            "body": "it\u2019s new york.",
+            "score": 24,
+            "created_utc": 1717640569
+          },
+          {
+            "id": "lg2vla0",
+            "body": "12 credits = 4 classes in sequential order.\n\nif you\u2019re not chinese don\u2019t do chinese.",
+            "score": 18,
+            "created_utc": 1722565825
+          }
+        ]
+      }
+    },
+    "xlrak": {
+      "subreddits": {
+        "CUNY": {
+          "comment_count": 439,
+          "total_words": 13875,
+          "mean_length_words": 31.6059,
+          "mean_length_chars": 185.6241,
+          "median_length_words": 24.0,
+          "mattr": 0.7689,
+          "formality_index": 0.8889,
+          "formal_marker_rate": 0.1093,
+          "informal_marker_rate": 0.0137,
+          "mean_words_per_sentence": 13.8473,
+          "hedging_rate": 0.0661,
+          "authority_rate": 0.0137,
+          "directive_rate": 0.0433,
+          "advisory_rate": 0.1002,
+          "citation_rate": 0.1344,
+          "question_rate": 0.0719,
+          "empathy_rate": 0.0205,
+          "markdown_rate": 0.0182,
+          "exclamation_rate": 0.019,
+          "mean_score": 3.5763,
+          "median_score": 2.0,
+          "max_score": 44,
+          "score_per_word": 0.1132
+        },
+        "HunterCollege": {
+          "comment_count": 106,
+          "total_words": 3220,
+          "mean_length_words": 30.3774,
+          "mean_length_chars": 184.3585,
+          "median_length_words": 23.5,
+          "mattr": 0.7781,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.0472,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 13.6441,
+          "hedging_rate": 0.0849,
+          "authority_rate": 0.0189,
+          "directive_rate": 0.0377,
+          "advisory_rate": 0.1132,
+          "citation_rate": 0.2075,
+          "question_rate": 0.0763,
+          "empathy_rate": 0.0189,
+          "markdown_rate": 0.0566,
+          "exclamation_rate": 0.0297,
+          "mean_score": 2.7925,
+          "median_score": 2.0,
+          "max_score": 14,
+          "score_per_word": 0.0919
+        },
+        "QueensCollege": {
+          "comment_count": 29,
+          "total_words": 988,
+          "mean_length_words": 34.069,
+          "mean_length_chars": 196.3448,
+          "median_length_words": 27.0,
+          "mattr": 0.7627,
+          "formality_index": 1.0,
+          "formal_marker_rate": 0.1379,
+          "informal_marker_rate": 0.0,
+          "mean_words_per_sentence": 14.5294,
+          "hedging_rate": 0.0345,
+          "authority_rate": 0.0345,
+          "directive_rate": 0.1034,
+          "advisory_rate": 0.1379,
+          "citation_rate": 0.1034,
+          "question_rate": 0.1324,
+          "empathy_rate": 0.0,
+          "markdown_rate": 0.0,
+          "exclamation_rate": 0.0441,
+          "mean_score": 3.7586,
+          "median_score": 3.0,
+          "max_score": 22,
+          "score_per_word": 0.1103
+        }
+      },
+      "cross_subreddit": {
+        "register_shift_magnitude": 0.05237828008789243,
+        "length_cv": 0.0479402701693478,
+        "dominant_strategy": "citation",
+        "strategy_means": {
+          "hedging": 0.0679,
+          "authority": 0.0157,
+          "directive": 0.0453,
+          "advisory": 0.1045,
+          "citation": 0.1463,
+          "empathy": 0.0192
+        },
+        "subreddits_active": 3
+      },
+      "corpus_stats": {
+        "total_comments": 574,
+        "total_submissions": 1,
+        "subreddits_with_comments": [
+          "CUNY",
+          "HunterCollege",
+          "QueensCollege"
+        ],
+        "activity_period": "2020-07 to 2025-10"
+      },
+      "top_quotes": {
+        "CUNY": [
+          {
+            "id": "mcsz7zn",
+            "body": "So it sounds like it has nothing to do with you being an applicant. These pages just follow everyone who follows them.",
+            "score": 44,
+            "created_utc": 1739570392
+          },
+          {
+            "id": "jhdj61c",
+            "body": "Don\u2019t underestimate how difficult it is for many students to show up, pay attention and listen - not to mention staying on schedule with assignments.",
+            "score": 32,
+            "created_utc": 1682243454
+          },
+          {
+            "id": "m29kllz",
+            "body": "Reputation is dependent on the individual college. Baruch, City, and Hunter are well respected in the areas of study they are known for.",
+            "score": 32,
+            "created_utc": 1734314331
+          }
+        ],
+        "HunterCollege": [
+          {
+            "id": "l7lfims",
+            "body": "It rocks!\n\n(Sorry, I couldn\u2019t resist.)",
+            "score": 14,
+            "created_utc": 1717798232
+          },
+          {
+            "id": "ke1pya9",
+            "body": "Yes, if clearly stated in the syllabus.",
+            "score": 10,
+            "created_utc": 1703000464
+          },
+          {
+            "id": "mpma5kw",
+            "body": "It\u2019s a perfectly fine midrange college for psychology. You likely are already aware that Hunter, as a CUNY school, primarily serves NYC commuter students. That means that there\u2019s not much campus life. Most students just go to classes and then head home or to work. Also, you\u2019ll likely pay considerably more as an out of state student. Whether it\u2019s \u201cright\u201d for you will depend in large part why you want to be in NYC.",
+            "score": 10,
+            "created_utc": 1745908576
+          }
+        ],
+        "QueensCollege": [
+          {
+            "id": "j4uvt7k",
+            "body": "Looks like a phishing attempt.",
+            "score": 22,
+            "created_utc": 1674046016
+          },
+          {
+            "id": "geoj3fo",
+            "body": "Announced several weeks ago that it will be the same as this semester, with the vast majority of classes online.",
+            "score": 9,
+            "created_utc": 1607153581
+          },
+          {
+            "id": "grur03y",
+            "body": "Sorry to hear about the midterm - that\u2019s an awful feeling.  Regarding CR/NC option, we just don\u2019t know yet. On one hand, they created a precedent last semester in offering the option because all courses were online. On the flip side, there is going to be pressure not to offer it for a third semester in a row, as it would have long term academic impacts for students and the institution. (Interestingly, they didn\u2019t offer it for the Summer & Winter sessions between.) If they decide to offer it, ...",
+            "score": 9,
+            "created_utc": 1616446017
+          }
+        ]
+      }
+    }
+  },
+  "information_flows": {
+    "total_events": 22782,
+    "flow_matrix": {
+      "course_academic": {
+        "CUNY": {
+          "QueensCollege": 768,
+          "CCNY": 6513,
+          "HunterCollege": 2037,
+          "BrooklynCollege": 35,
+          "Baruch": 141,
+          "CUNYuncensored": 2
+        },
+        "QueensCollege": {
+          "CUNY": 623,
+          "CCNY": 25,
+          "HunterCollege": 54,
+          "Baruch": 27,
+          "CUNYuncensored": 2
+        },
+        "CCNY": {
+          "CUNY": 5767,
+          "QueensCollege": 91,
+          "HunterCollege": 16
+        },
+        "HunterCollege": {
+          "CUNY": 1769,
+          "CCNY": 6,
+          "Baruch": 17,
+          "QueensCollege": 26
+        },
+        "BrooklynCollege": {
+          "CUNY": 45,
+          "CCNY": 2
+        },
+        "Baruch": {
+          "BrooklynCollege": 1,
+          "QueensCollege": 22,
+          "HunterCollege": 30,
+          "CUNY": 181
+        },
+        "CUNYuncensored": {
+          "CUNY": 6,
+          "QueensCollege": 2
+        }
+      },
+      "registration": {
+        "CUNY": {
+          "CCNY": 381,
+          "QueensCollege": 162,
+          "HunterCollege": 159,
+          "Baruch": 10,
+          "CUNYuncensored": 2
+        },
+        "CCNY": {
+          "CUNY": 383,
+          "QueensCollege": 8
+        },
+        "QueensCollege": {
+          "CUNY": 113,
+          "CCNY": 3,
+          "HunterCollege": 1
+        },
+        "HunterCollege": {
+          "CUNY": 100,
+          "Baruch": 4,
+          "QueensCollege": 3
+        },
+        "Baruch": {
+          "CUNY": 21,
+          "HunterCollege": 5,
+          "QueensCollege": 3
+        }
+      },
+      "financial_aid": {
+        "CUNY": {
+          "QueensCollege": 104,
+          "HunterCollege": 87,
+          "CCNY": 145,
+          "Baruch": 12
+        },
+        "QueensCollege": {
+          "CUNY": 177,
+          "Baruch": 10
+        },
+        "HunterCollege": {
+          "CUNY": 65
+        },
+        "CCNY": {
+          "CUNY": 153
+        },
+        "Baruch": {
+          "QueensCollege": 12,
+          "CUNY": 28
+        }
+      },
+      "institutional_comparison": {
+        "CUNY": {
+          "QueensCollege": 20,
+          "CCNY": 76,
+          "HunterCollege": 60,
+          "Baruch": 18
+        },
+        "QueensCollege": {
+          "CUNY": 33,
+          "HunterCollege": 6
+        },
+        "HunterCollege": {
+          "CUNY": 59,
+          "Baruch": 3,
+          "QueensCollege": 1
+        },
+        "CCNY": {
+          "HunterCollege": 3,
+          "CUNY": 66
+        },
+        "Baruch": {
+          "QueensCollege": 4,
+          "HunterCollege": 5,
+          "CUNY": 13
+        },
+        "BrooklynCollege": {
+          "CUNY": 1
+        }
+      },
+      "transfer_credit": {
+        "CUNY": {
+          "QueensCollege": 134,
+          "CCNY": 518,
+          "HunterCollege": 226,
+          "Baruch": 76
+        },
+        "QueensCollege": {
+          "CUNY": 107,
+          "Baruch": 7,
+          "HunterCollege": 6
+        },
+        "CCNY": {
+          "CUNY": 511,
+          "HunterCollege": 3
+        },
+        "HunterCollege": {
+          "CUNY": 188,
+          "CCNY": 2,
+          "Baruch": 14,
+          "QueensCollege": 10
+        },
+        "Baruch": {
+          "QueensCollege": 5,
+          "CUNY": 72,
+          "HunterCollege": 9
+        }
+      },
+      "policy": {
+        "CUNY": {
+          "HunterCollege": 10,
+          "QueensCollege": 9,
+          "CCNY": 57,
+          "Baruch": 6
+        },
+        "HunterCollege": {
+          "CUNY": 14,
+          "Baruch": 1
+        },
+        "CCNY": {
+          "CUNY": 47
+        },
+        "Baruch": {
+          "CUNY": 11
+        },
+        "QueensCollege": {
+          "CUNY": 3,
+          "HunterCollege": 6
+        }
+      },
+      "crisis_resources": {
+        "CUNY": {
+          "HunterCollege": 1
+        },
+        "QueensCollege": {
+          "HunterCollege": 1
+        },
+        "HunterCollege": {
+          "QueensCollege": 1
+        }
+      }
+    },
+    "user_profiles": {
+      "43NTAI": {
+        "course_academic": {
+          "flow_events": 16,
+          "primary_direction": "exporter"
+        }
+      },
+      "Adventurous-Value-82": {
+        "course_academic": {
+          "flow_events": 338,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 59,
+          "primary_direction": "exporter"
+        },
+        "financial_aid": {
+          "flow_events": 13,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 6,
+          "primary_direction": "exporter"
+        }
+      },
+      "DocumentLeft832": {
+        "transfer_credit": {
+          "flow_events": 56,
+          "primary_direction": "exporter"
+        },
+        "course_academic": {
+          "flow_events": 77,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 12,
+          "primary_direction": "exporter"
+        }
+      },
+      "Excellent-Hippo9835": {
+        "course_academic": {
+          "flow_events": 221,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 83,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 9,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 1,
+          "primary_direction": "exporter"
+        }
+      },
+      "Koran21": {
+        "financial_aid": {
+          "flow_events": 4,
+          "primary_direction": "exporter"
+        },
+        "course_academic": {
+          "flow_events": 48,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 2,
+          "primary_direction": "exporter"
+        }
+      },
+      "LeonZheng646": {
+        "registration": {
+          "flow_events": 108,
+          "primary_direction": "exporter"
+        },
+        "financial_aid": {
+          "flow_events": 32,
+          "primary_direction": "exporter"
+        },
+        "course_academic": {
+          "flow_events": 1714,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 28,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 72,
+          "primary_direction": "exporter"
+        },
+        "policy": {
+          "flow_events": 11,
+          "primary_direction": "exporter"
+        },
+        "crisis_resources": {
+          "flow_events": 1,
+          "primary_direction": "exporter"
+        }
+      },
+      "Lovely_fartz": {
+        "course_academic": {
+          "flow_events": 33,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 14,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 3,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 4,
+          "primary_direction": "exporter"
+        },
+        "financial_aid": {
+          "flow_events": 3,
+          "primary_direction": "exporter"
+        }
+      },
+      "Ok-Blacksmith5436": {
+        "course_academic": {
+          "flow_events": 142,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 4,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 1,
+          "primary_direction": "exporter"
+        },
+        "financial_aid": {
+          "flow_events": 4,
+          "primary_direction": "exporter"
+        }
+      },
+      "Recent-Sky3311": {
+        "course_academic": {
+          "flow_events": 97,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 15,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 5,
+          "primary_direction": "exporter"
+        }
+      },
+      "ScallionWall": {
+        "course_academic": {
+          "flow_events": 166,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 51,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 3,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 29,
+          "primary_direction": "exporter"
+        }
+      },
+      "Zealousideal-Dare345": {
+        "financial_aid": {
+          "flow_events": 227,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 163,
+          "primary_direction": "exporter"
+        },
+        "course_academic": {
+          "flow_events": 569,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 60,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 40,
+          "primary_direction": "exporter"
+        },
+        "policy": {
+          "flow_events": 1,
+          "primary_direction": "exporter"
+        }
+      },
+      "andrea_dee_": {
+        "course_academic": {
+          "flow_events": 78,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 1,
+          "primary_direction": "exporter"
+        }
+      },
+      "custychronicles": {
+        "course_academic": {
+          "flow_events": 571,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 26,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 8,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 3,
+          "primary_direction": "exporter"
+        },
+        "financial_aid": {
+          "flow_events": 9,
+          "primary_direction": "exporter"
+        },
+        "policy": {
+          "flow_events": 1,
+          "primary_direction": "exporter"
+        }
+      },
+      "futuretechftw2": {
+        "course_academic": {
+          "flow_events": 12234,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 969,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 766,
+          "primary_direction": "exporter"
+        },
+        "policy": {
+          "flow_events": 104,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 141,
+          "primary_direction": "exporter"
+        },
+        "financial_aid": {
+          "flow_events": 298,
+          "primary_direction": "exporter"
+        }
+      },
+      "galaxys10pluse": {
+        "course_academic": {
+          "flow_events": 89,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 13,
+          "primary_direction": "exporter"
+        }
+      },
+      "lepidio": {
+        "course_academic": {
+          "flow_events": 46,
+          "primary_direction": "exporter"
+        },
+        "policy": {
+          "flow_events": 13,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 3,
+          "primary_direction": "exporter"
+        }
+      },
+      "lexalogue": {
+        "transfer_credit": {
+          "flow_events": 278,
+          "primary_direction": "exporter"
+        },
+        "course_academic": {
+          "flow_events": 197,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 43,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 24,
+          "primary_direction": "exporter"
+        },
+        "policy": {
+          "flow_events": 3,
+          "primary_direction": "exporter"
+        },
+        "financial_aid": {
+          "flow_events": 2,
+          "primary_direction": "exporter"
+        }
+      },
+      "nygdan": {
+        "policy": {
+          "flow_events": 14,
+          "primary_direction": "exporter"
+        },
+        "course_academic": {
+          "flow_events": 375,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 20,
+          "primary_direction": "exporter"
+        },
+        "crisis_resources": {
+          "flow_events": 2,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 19,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 4,
+          "primary_direction": "exporter"
+        }
+      },
+      "rosieareposie": {
+        "financial_aid": {
+          "flow_events": 101,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 58,
+          "primary_direction": "exporter"
+        },
+        "course_academic": {
+          "flow_events": 392,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 34,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 3,
+          "primary_direction": "exporter"
+        },
+        "policy": {
+          "flow_events": 8,
+          "primary_direction": "exporter"
+        }
+      },
+      "stayinschoolchirren": {
+        "transfer_credit": {
+          "flow_events": 5,
+          "primary_direction": "exporter"
+        },
+        "course_academic": {
+          "flow_events": 38,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 1,
+          "primary_direction": "exporter"
+        }
+      },
+      "stopsakura10": {
+        "institutional_comparison": {
+          "flow_events": 55,
+          "primary_direction": "exporter"
+        },
+        "course_academic": {
+          "flow_events": 198,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 30,
+          "primary_direction": "exporter"
+        },
+        "financial_aid": {
+          "flow_events": 97,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 68,
+          "primary_direction": "exporter"
+        }
+      },
+      "xlrak": {
+        "course_academic": {
+          "flow_events": 569,
+          "primary_direction": "exporter"
+        },
+        "registration": {
+          "flow_events": 34,
+          "primary_direction": "exporter"
+        },
+        "institutional_comparison": {
+          "flow_events": 14,
+          "primary_direction": "exporter"
+        },
+        "transfer_credit": {
+          "flow_events": 166,
+          "primary_direction": "exporter"
+        },
+        "policy": {
+          "flow_events": 9,
+          "primary_direction": "exporter"
+        },
+        "financial_aid": {
+          "flow_events": 3,
+          "primary_direction": "exporter"
+        }
+      }
+    },
+    "temporal_distribution": {
+      "course_academic": {
+        "2025-01": 2958,
+        "2025-05": 2652,
+        "2025-06": 1331,
+        "2025-07": 428,
+        "2024-12": 3126,
+        "2024-08": 343,
+        "2024-09": 117,
+        "2024-10": 141,
+        "2024-11": 192,
+        "2025-02": 832,
+        "2025-03": 1960,
+        "2025-04": 1483,
+        "2023-04": 96,
+        "2023-08": 151,
+        "2023-11": 13,
+        "2023-12": 87,
+        "2022-07": 19,
+        "2022-08": 3,
+        "2022-10": 5,
+        "2023-03": 30,
+        "2023-06": 9,
+        "2023-07": 75,
+        "2024-01": 129,
+        "2024-05": 141,
+        "2024-06": 114,
+        "2024-07": 341,
+        "2023-05": 55,
+        "2024-02": 68,
+        "2022-11": 13,
+        "2022-12": 48,
+        "2024-04": 190,
+        "2021-01": 2,
+        "2021-10": 64,
+        "2021-11": 107,
+        "2021-12": 210,
+        "2023-09": 25,
+        "2024-03": 83,
+        "2020-05": 25,
+        "2020-06": 17,
+        "2020-07": 8,
+        "2020-10": 3,
+        "2020-11": 48,
+        "2021-03": 11,
+        "2021-04": 18,
+        "2021-05": 16,
+        "2022-01": 207,
+        "2022-02": 13,
+        "2022-03": 8,
+        "2020-12": 10,
+        "2021-09": 13,
+        "2022-04": 5,
+        "2022-05": 15,
+        "2020-03": 1,
+        "2020-04": 4,
+        "2020-08": 13,
+        "2021-02": 4,
+        "2021-06": 8,
+        "2021-07": 2,
+        "2022-06": 1,
+        "2023-01": 105,
+        "2023-02": 10,
+        "2023-10": 2
+      },
+      "registration": {
+        "2025-05": 92,
+        "2025-06": 167,
+        "2025-07": 42,
+        "2024-12": 204,
+        "2024-11": 8,
+        "2023-10": 1,
+        "2023-11": 2,
+        "2022-07": 4,
+        "2023-07": 7,
+        "2024-07": 7,
+        "2024-08": 18,
+        "2025-01": 389,
+        "2025-04": 61,
+        "2023-04": 10,
+        "2023-06": 8,
+        "2024-09": 6,
+        "2025-02": 71,
+        "2025-03": 77,
+        "2024-05": 3,
+        "2024-06": 16,
+        "2024-01": 12,
+        "2024-02": 7,
+        "2024-10": 35,
+        "2020-11": 3,
+        "2020-12": 1,
+        "2021-12": 23,
+        "2022-01": 41,
+        "2022-04": 4,
+        "2022-05": 10,
+        "2020-08": 2,
+        "2021-02": 7,
+        "2021-08": 2,
+        "2022-12": 1,
+        "2024-04": 1,
+        "2021-03": 1,
+        "2021-04": 1,
+        "2023-01": 7,
+        "2023-02": 5,
+        "2023-05": 2
+      },
+      "financial_aid": {
+        "2025-06": 50,
+        "2025-07": 43,
+        "2023-02": 4,
+        "2022-07": 4,
+        "2023-07": 4,
+        "2023-12": 1,
+        "2024-05": 9,
+        "2024-07": 6,
+        "2024-08": 10,
+        "2024-10": 17,
+        "2024-11": 12,
+        "2024-12": 74,
+        "2025-01": 198,
+        "2025-05": 106,
+        "2024-04": 1,
+        "2025-03": 66,
+        "2025-04": 25,
+        "2025-02": 51,
+        "2024-06": 3,
+        "2022-04": 1,
+        "2022-05": 1,
+        "2021-08": 6,
+        "2021-11": 34,
+        "2021-12": 29,
+        "2022-01": 32,
+        "2024-09": 3,
+        "2024-01": 2,
+        "2024-03": 1
+      },
+      "institutional_comparison": {
+        "2025-06": 62,
+        "2025-07": 32,
+        "2024-12": 42,
+        "2022-07": 4,
+        "2022-08": 1,
+        "2023-08": 5,
+        "2024-07": 2,
+        "2025-01": 27,
+        "2025-02": 12,
+        "2025-05": 32,
+        "2023-05": 3,
+        "2021-10": 12,
+        "2021-11": 21,
+        "2021-12": 2,
+        "2025-03": 21,
+        "2025-04": 29,
+        "2023-11": 1,
+        "2024-06": 9,
+        "2024-09": 2,
+        "2024-02": 2,
+        "2024-03": 2,
+        "2024-04": 2,
+        "2021-04": 2,
+        "2022-02": 2,
+        "2020-07": 1,
+        "2020-11": 4,
+        "2021-09": 6,
+        "2022-01": 7,
+        "2022-04": 1,
+        "2022-05": 3,
+        "2023-04": 4,
+        "2023-07": 2,
+        "2024-08": 2,
+        "2021-02": 1,
+        "2021-05": 1,
+        "2023-01": 7
+      },
+      "transfer_credit": {
+        "2024-12": 363,
+        "2024-09": 15,
+        "2024-10": 44,
+        "2024-11": 48,
+        "2025-01": 292,
+        "2025-02": 79,
+        "2025-03": 137,
+        "2025-05": 126,
+        "2023-07": 3,
+        "2023-08": 6,
+        "2024-07": 26,
+        "2024-08": 25,
+        "2025-04": 158,
+        "2025-06": 38,
+        "2024-04": 5,
+        "2021-10": 30,
+        "2025-07": 50,
+        "2024-06": 9,
+        "2023-12": 3,
+        "2024-01": 19,
+        "2024-02": 1,
+        "2024-03": 4,
+        "2024-05": 9,
+        "2020-06": 1,
+        "2020-07": 3,
+        "2020-11": 18,
+        "2020-12": 5,
+        "2021-03": 1,
+        "2021-09": 24,
+        "2021-11": 55,
+        "2021-12": 49,
+        "2022-01": 57,
+        "2022-04": 2,
+        "2022-05": 17,
+        "2023-02": 5,
+        "2023-03": 17,
+        "2023-04": 63,
+        "2023-05": 20,
+        "2023-06": 13,
+        "2023-09": 3,
+        "2020-04": 4,
+        "2020-05": 1,
+        "2021-02": 3,
+        "2020-08": 2,
+        "2022-06": 1,
+        "2022-12": 8,
+        "2023-01": 26
+      },
+      "policy": {
+        "2023-12": 1,
+        "2024-12": 10,
+        "2025-01": 9,
+        "2025-07": 1,
+        "2025-03": 16,
+        "2024-01": 3,
+        "2024-02": 1,
+        "2024-04": 8,
+        "2025-02": 18,
+        "2025-04": 18,
+        "2025-05": 28,
+        "2025-06": 4,
+        "2021-04": 3,
+        "2021-05": 5,
+        "2022-02": 5,
+        "2021-11": 1,
+        "2022-04": 1,
+        "2022-05": 3,
+        "2020-03": 2,
+        "2020-04": 4,
+        "2021-09": 5,
+        "2021-10": 3,
+        "2021-12": 1,
+        "2022-01": 7,
+        "2021-03": 1,
+        "2023-01": 4,
+        "2023-04": 2
+      },
+      "crisis_resources": {
+        "2024-08": 1,
+        "2020-04": 2
+      }
+    },
+    "sample_events": [
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1735931308,
+        "target_ts": 1737776548,
+        "delta_days": 21.4,
+        "source_id": "m587tw4",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1735932752,
+        "target_ts": 1737776548,
+        "delta_days": 21.3,
+        "source_id": "m58copl",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1736174868,
+        "target_ts": 1737776548,
+        "delta_days": 18.5,
+        "source_id": "m5pb0mo",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1736176126,
+        "target_ts": 1737776548,
+        "delta_days": 18.5,
+        "source_id": "m5peni9",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1736299060,
+        "target_ts": 1737776548,
+        "delta_days": 17.1,
+        "source_id": "m5z3m5x",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1736730375,
+        "target_ts": 1737776548,
+        "delta_days": 12.1,
+        "source_id": "m6ufvxg",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1737162478,
+        "target_ts": 1737776548,
+        "delta_days": 7.1,
+        "source_id": "m7q97rq",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1737297033,
+        "target_ts": 1737776548,
+        "delta_days": 5.5,
+        "source_id": "m7zgml4",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1737601659,
+        "target_ts": 1737776548,
+        "delta_days": 2.0,
+        "source_id": "m8ntqb8",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1737736603,
+        "target_ts": 1737776548,
+        "delta_days": 0.5,
+        "source_id": "m8xo8yo",
+        "target_id": "m91b0j4"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "QueensCollege",
+        "target_sub": "CUNY",
+        "source_ts": 1737776548,
+        "target_ts": 1737812390,
+        "delta_days": 0.4,
+        "source_id": "m91b0j4",
+        "target_id": "m936cxk"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "QueensCollege",
+        "target_sub": "CUNY",
+        "source_ts": 1737776548,
+        "target_ts": 1737849577,
+        "delta_days": 0.8,
+        "source_id": "m91b0j4",
+        "target_id": "m96ifr2"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "QueensCollege",
+        "target_sub": "CUNY",
+        "source_ts": 1737776548,
+        "target_ts": 1738720276,
+        "delta_days": 10.9,
+        "source_id": "m91b0j4",
+        "target_id": "mb16905"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "QueensCollege",
+        "target_sub": "CUNY",
+        "source_ts": 1737776548,
+        "target_ts": 1738844304,
+        "delta_days": 12.4,
+        "source_id": "m91b0j4",
+        "target_id": "mba3n8h"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "QueensCollege",
+        "target_sub": "CUNY",
+        "source_ts": 1737776548,
+        "target_ts": 1738844560,
+        "delta_days": 12.4,
+        "source_id": "m91b0j4",
+        "target_id": "mba47hq"
+      },
+      {
+        "user": "43NTAI",
+        "topic": "course_academic",
+        "source_sub": "QueensCollege",
+        "target_sub": "CUNY",
+        "source_ts": 1737776548,
+        "target_ts": 1739845215,
+        "delta_days": 23.9,
+        "source_id": "m91b0j4",
+        "target_id": "mdd1btj"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1747965945,
+        "target_ts": 1749431423,
+        "delta_days": 17.0,
+        "source_id": "mtrjrao",
+        "target_id": "mwr5yrr"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1747965945,
+        "target_ts": 1750492793,
+        "delta_days": 29.2,
+        "source_id": "mtrjrao",
+        "target_id": "myycp7r"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1747965945,
+        "target_ts": 1750493436,
+        "delta_days": 29.3,
+        "source_id": "mtrjrao",
+        "target_id": "myydrdn"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1748067279,
+        "target_ts": 1749431423,
+        "delta_days": 15.8,
+        "source_id": "mtyufdh",
+        "target_id": "mwr5yrr"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1748067279,
+        "target_ts": 1750492793,
+        "delta_days": 28.1,
+        "source_id": "mtyufdh",
+        "target_id": "myycp7r"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1748067279,
+        "target_ts": 1750493436,
+        "delta_days": 28.1,
+        "source_id": "mtyufdh",
+        "target_id": "myydrdn"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1748067279,
+        "target_ts": 1750493436,
+        "delta_days": 28.1,
+        "source_id": "mtyufdh",
+        "target_id": "myydrdn"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749016623,
+        "target_ts": 1750493436,
+        "delta_days": 17.1,
+        "source_id": "mvwm083",
+        "target_id": "myydrdn"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749016623,
+        "target_ts": 1751169192,
+        "delta_days": 24.9,
+        "source_id": "mvwm083",
+        "target_id": "n0cqq3d"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749016623,
+        "target_ts": 1751583870,
+        "delta_days": 29.7,
+        "source_id": "mvwm083",
+        "target_id": "n17or4p"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749145559,
+        "target_ts": 1750493436,
+        "delta_days": 15.6,
+        "source_id": "mw68c4p",
+        "target_id": "myydrdn"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749145559,
+        "target_ts": 1751169192,
+        "delta_days": 23.4,
+        "source_id": "mw68c4p",
+        "target_id": "n0cqq3d"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749145559,
+        "target_ts": 1751583870,
+        "delta_days": 28.2,
+        "source_id": "mw68c4p",
+        "target_id": "n17or4p"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749153035,
+        "target_ts": 1750493436,
+        "delta_days": 15.5,
+        "source_id": "mw6yjxn",
+        "target_id": "myydrdn"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749153035,
+        "target_ts": 1751169192,
+        "delta_days": 23.3,
+        "source_id": "mw6yjxn",
+        "target_id": "n0cqq3d"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749153035,
+        "target_ts": 1751583870,
+        "delta_days": 28.1,
+        "source_id": "mw6yjxn",
+        "target_id": "n17or4p"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749249564,
+        "target_ts": 1749431423,
+        "delta_days": 2.1,
+        "source_id": "mwebpjb",
+        "target_id": "mwr5yrr"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749249564,
+        "target_ts": 1750492793,
+        "delta_days": 14.4,
+        "source_id": "mwebpjb",
+        "target_id": "myycp7r"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749249564,
+        "target_ts": 1750493436,
+        "delta_days": 14.4,
+        "source_id": "mwebpjb",
+        "target_id": "myydrdn"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749249564,
+        "target_ts": 1750493436,
+        "delta_days": 14.4,
+        "source_id": "mwebpjb",
+        "target_id": "myydrdn"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749249564,
+        "target_ts": 1750775950,
+        "delta_days": 17.7,
+        "source_id": "mwebpjb",
+        "target_id": "mziqcat"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749249564,
+        "target_ts": 1751169192,
+        "delta_days": 22.2,
+        "source_id": "mwebpjb",
+        "target_id": "n0cqq3d"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749249564,
+        "target_ts": 1751583870,
+        "delta_days": 27.0,
+        "source_id": "mwebpjb",
+        "target_id": "n17or4p"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749249564,
+        "target_ts": 1751588009,
+        "delta_days": 27.1,
+        "source_id": "mwebpjb",
+        "target_id": "n180k63"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749249564,
+        "target_ts": 1751588400,
+        "delta_days": 27.1,
+        "source_id": "mwebpjb",
+        "target_id": "n181lxx"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749249564,
+        "target_ts": 1751588711,
+        "delta_days": 27.1,
+        "source_id": "mwebpjb",
+        "target_id": "n182fy2"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749249564,
+        "target_ts": 1751780523,
+        "delta_days": 29.3,
+        "source_id": "mwebpjb",
+        "target_id": "n1la52n"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749249564,
+        "target_ts": 1751780523,
+        "delta_days": 29.3,
+        "source_id": "mwebpjb",
+        "target_id": "n1la52n"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "registration",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749249564,
+        "target_ts": 1751832623,
+        "delta_days": 29.9,
+        "source_id": "mwebpjb",
+        "target_id": "n1ow64x"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749249564,
+        "target_ts": 1751832623,
+        "delta_days": 29.9,
+        "source_id": "mwebpjb",
+        "target_id": "n1ow64x"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749249703,
+        "target_ts": 1749431423,
+        "delta_days": 2.1,
+        "source_id": "mwec3rs",
+        "target_id": "mwr5yrr"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749249703,
+        "target_ts": 1750492793,
+        "delta_days": 14.4,
+        "source_id": "mwec3rs",
+        "target_id": "myycp7r"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "CCNY",
+        "source_ts": 1749249703,
+        "target_ts": 1750493436,
+        "delta_days": 14.4,
+        "source_id": "mwec3rs",
+        "target_id": "myydrdn"
+      },
+      {
+        "user": "Adventurous-Value-82",
+        "topic": "course_academic",
+        "source_sub": "CUNY",
+        "target_sub": "QueensCollege",
+        "source_ts": 1749249703,
+        "target_ts": 1750775950,
+        "delta_days": 17.7,
+        "source_id": "mwec3rs",
+        "target_id": "mziqcat"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "nodes": 300,
+  "edges": 3622,
+  "cross_community_edges": 803,
+  "intra_community_edges": 2819,
+  "cross_pct": 22.170071783545005,
+  "subreddit_node_counts": {
+    "CUNY": 103,
+    "Baruch": 151,
+    "HunterCollege": 24,
+    "QueensCollege": 17,
+    "CCNY": 5,
+    "BrooklynCollege": 0,
+    "JohnJay": 0,
+    "CUNYuncensored": 0
+  }
+}

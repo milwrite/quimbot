@@ -1,0 +1,242 @@
+[
+  {
+    "label": "Bridge User 1",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 4,
+    "total_weight": 1691,
+    "total_outgoing": 536,
+    "total_incoming": 354,
+    "reciprocity": 0.6604477611940298,
+    "subreddit_distribution": {
+      "CCNY": 294,
+      "CUNY": 217,
+      "Baruch": 22,
+      "QueensCollege": 9
+    }
+  },
+  {
+    "label": "Bridge User 2",
+    "primary_subreddit": "HunterCollege",
+    "communities_reached": 3,
+    "total_weight": 1136,
+    "total_outgoing": 397,
+    "total_incoming": 238,
+    "reciprocity": 0.5994962216624685,
+    "subreddit_distribution": {
+      "CUNY": 83,
+      "HunterCollege": 357,
+      "CCNY": 9
+    }
+  },
+  {
+    "label": "Bridge User 3",
+    "primary_subreddit": "HunterCollege",
+    "communities_reached": 4,
+    "total_weight": 940,
+    "total_outgoing": 332,
+    "total_incoming": 310,
+    "reciprocity": 0.9337349397590361,
+    "subreddit_distribution": {
+      "CUNY": 85,
+      "HunterCollege": 159,
+      "QueensCollege": 6,
+      "Baruch": 12
+    }
+  },
+  {
+    "label": "Bridge User 4",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 5,
+    "total_weight": 879,
+    "total_outgoing": 398,
+    "total_incoming": 192,
+    "reciprocity": 0.4824120603015075,
+    "subreddit_distribution": {
+      "CUNY": 226,
+      "HunterCollege": 6,
+      "QueensCollege": 6,
+      "BrooklynCollege": 5,
+      "CCNY": 5
+    }
+  },
+  {
+    "label": "Bridge User 5",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 4,
+    "total_weight": 824,
+    "total_outgoing": 326,
+    "total_incoming": 166,
+    "reciprocity": 0.50920245398773,
+    "subreddit_distribution": {
+      "CUNY": 255,
+      "CCNY": 29,
+      "Baruch": 11,
+      "HunterCollege": 5
+    }
+  },
+  {
+    "label": "Bridge User 6",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 5,
+    "total_weight": 731,
+    "total_outgoing": 383,
+    "total_incoming": 168,
+    "reciprocity": 0.4386422976501306,
+    "subreddit_distribution": {
+      "Baruch": 29,
+      "QueensCollege": 3,
+      "CUNY": 149,
+      "CCNY": 10,
+      "HunterCollege": 11
+    }
+  },
+  {
+    "label": "Bridge User 7",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 4,
+    "total_weight": 716,
+    "total_outgoing": 236,
+    "total_incoming": 242,
+    "reciprocity": 0.9752066115702479,
+    "subreddit_distribution": {
+      "HunterCollege": 34,
+      "CUNY": 171,
+      "QueensCollege": 38,
+      "Baruch": 6
+    }
+  },
+  {
+    "label": "Bridge User 8",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 3,
+    "total_weight": 690,
+    "total_outgoing": 140,
+    "total_incoming": 200,
+    "reciprocity": 0.7,
+    "subreddit_distribution": {
+      "HunterCollege": 100,
+      "CUNY": 241,
+      "Baruch": 22
+    }
+  },
+  {
+    "label": "Bridge User 9",
+    "primary_subreddit": "HunterCollege",
+    "communities_reached": 4,
+    "total_weight": 665,
+    "total_outgoing": 255,
+    "total_incoming": 148,
+    "reciprocity": 0.5803921568627451,
+    "subreddit_distribution": {
+      "CUNY": 83,
+      "HunterCollege": 202,
+      "CCNY": 4,
+      "Baruch": 12
+    }
+  },
+  {
+    "label": "Bridge User 10",
+    "primary_subreddit": "Baruch",
+    "communities_reached": 3,
+    "total_weight": 604,
+    "total_outgoing": 288,
+    "total_incoming": 144,
+    "reciprocity": 0.5,
+    "subreddit_distribution": {
+      "CUNY": 57,
+      "Baruch": 163,
+      "QueensCollege": 3
+    }
+  },
+  {
+    "label": "Bridge User 11",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 5,
+    "total_weight": 508,
+    "total_outgoing": 279,
+    "total_incoming": 132,
+    "reciprocity": 0.4731182795698925,
+    "subreddit_distribution": {
+      "HunterCollege": 40,
+      "CUNY": 100,
+      "QueensCollege": 8,
+      "Baruch": 6,
+      "CCNY": 4
+    }
+  },
+  {
+    "label": "Bridge User 12",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 4,
+    "total_weight": 467,
+    "total_outgoing": 205,
+    "total_incoming": 134,
+    "reciprocity": 0.6536585365853659,
+    "subreddit_distribution": {
+      "HunterCollege": 145,
+      "CUNY": 38,
+      "Baruch": 5,
+      "CCNY": 3
+    }
+  },
+  {
+    "label": "Bridge User 13",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 5,
+    "total_weight": 430,
+    "total_outgoing": 154,
+    "total_incoming": 103,
+    "reciprocity": 0.6688311688311688,
+    "subreddit_distribution": {
+      "CUNY": 129,
+      "Baruch": 39,
+      "CCNY": 3,
+      "QueensCollege": 59,
+      "HunterCollege": 11
+    }
+  },
+  {
+    "label": "Bridge User 14",
+    "primary_subreddit": "CUNY",
+    "communities_reached": 4,
+    "total_weight": 417,
+    "total_outgoing": 173,
+    "total_incoming": 103,
+    "reciprocity": 0.5953757225433526,
+    "subreddit_distribution": {
+      "CUNY": 173,
+      "HunterCollege": 13,
+      "QueensCollege": 3,
+      "Baruch": 7
+    }
+  },
+  {
+    "label": "Bridge User 15",
+    "primary_subreddit": "HunterCollege",
+    "communities_reached": 3,
+    "total_weight": 412,
+    "total_outgoing": 62,
+    "total_incoming": 171,
+    "reciprocity": 0.36257309941520466,
+    "subreddit_distribution": {
+      "HunterCollege": 189,
+      "CUNY": 46,
+      "CCNY": 3
+    }
+  },
+  {
+    "label": "Bridge User 16",
+    "primary_subreddit": "HunterCollege",
+    "communities_reached": 4,
+    "total_weight": 380,
+    "total_outgoing": 140,
+    "total_incoming": 111,
+    "reciprocity": 0.7928571428571428,
+    "subreddit_distribution": {
+      "CCNY": 20,
+      "CUNY": 68,
+      "Baruch": 14,
+      "HunterCollege": 95
+    }
+  }
+]

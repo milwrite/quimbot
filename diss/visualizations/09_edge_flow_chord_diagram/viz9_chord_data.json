@@ -1,0 +1,95 @@
+{
+  "matrix": {
+    "Baruch": {
+      "Baruch": 57091,
+      "BrooklynCollege": 38,
+      "CCNY": 155,
+      "CUNY": 3339,
+      "CUNYuncensored": 1,
+      "HunterCollege": 388,
+      "JohnJay": 3,
+      "QueensCollege": 304
+    },
+    "BrooklynCollege": {
+      "Baruch": 25,
+      "BrooklynCollege": 257,
+      "CCNY": 7,
+      "CUNY": 97,
+      "CUNYuncensored": 0,
+      "HunterCollege": 8,
+      "JohnJay": 1,
+      "QueensCollege": 9
+    },
+    "CCNY": {
+      "Baruch": 122,
+      "BrooklynCollege": 6,
+      "CCNY": 3228,
+      "CUNY": 1907,
+      "CUNYuncensored": 2,
+      "HunterCollege": 114,
+      "JohnJay": 0,
+      "QueensCollege": 48
+    },
+    "CUNY": {
+      "Baruch": 3067,
+      "BrooklynCollege": 68,
+      "CCNY": 1572,
+      "CUNY": 43459,
+      "CUNYuncensored": 17,
+      "HunterCollege": 3161,
+      "JohnJay": 12,
+      "QueensCollege": 2108
+    },
+    "CUNYuncensored": {
+      "Baruch": 2,
+      "BrooklynCollege": 1,
+      "CCNY": 2,
+      "CUNY": 13,
+      "CUNYuncensored": 11,
+      "HunterCollege": 3,
+      "JohnJay": 1,
+      "QueensCollege": 6
+    },
+    "HunterCollege": {
+      "Baruch": 382,
+      "BrooklynCollege": 6,
+      "CCNY": 84,
+      "CUNY": 3027,
+      "CUNYuncensored": 3,
+      "HunterCollege": 13350,
+      "JohnJay": 0,
+      "QueensCollege": 159
+    },
+    "JohnJay": {
+      "Baruch": 3,
+      "BrooklynCollege": 0,
+      "CCNY": 0,
+      "CUNY": 8,
+      "CUNYuncensored": 0,
+      "HunterCollege": 0,
+      "JohnJay": 72,
+      "QueensCollege": 0
+    },
+    "QueensCollege": {
+      "Baruch": 264,
+      "BrooklynCollege": 10,
+      "CCNY": 40,
+      "CUNY": 2084,
+      "CUNYuncensored": 4,
+      "HunterCollege": 120,
+      "JohnJay": 0,
+      "QueensCollege": 11613
+    }
+  },
+  "total_cross_community": 17551,
+  "subreddit_totals": {
+    "Baruch": 122275,
+    "BrooklynCollege": 790,
+    "CCNY": 10515,
+    "CUNY": 107398,
+    "CUNYuncensored": 77,
+    "HunterCollege": 34155,
+    "JohnJay": 172,
+    "QueensCollege": 28382
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "cuny_architecture": {
+    "r/CUNY": {
+      "type": "hub",
+      "posts": 92434,
+      "users": 5472,
+      "expertise": "System-wide coordination",
+      "color": "#1f77b4",
+      "size": 50
+    },
+    "r/Baruch": {
+      "type": "campus",
+      "posts": 73600,
+      "users": 6765,
+      "expertise": "Finance/Business",
+      "color": "#ff7f0e",
+      "size": 45
+    },
+    "r/QueensCollege": {
+      "type": "campus",
+      "posts": 29200,
+      "users": 2758,
+      "expertise": "General academics",
+      "color": "#2ca02c",
+      "size": 30
+    },
+    "r/HunterCollege": {
+      "type": "campus",
+      "posts": 27347,
+      "users": 3074,
+      "expertise": "Nursing/Sciences",
+      "color": "#d62728",
+      "size": 30
+    },
+    "r/CCNY": {
+      "type": "campus",
+      "posts": 10305,
+      "users": 1484,
+      "expertise": "Engineering",
+      "color": "#9467bd",
+      "size": 22
+    },
+    "r/BrooklynCollege": {
+      "type": "campus",
+      "posts": 1299,
+      "users": 447,
+      "expertise": "Arts/Education",
+      "color": "#8c564b",
+      "size": 15
+    },
+    "r/JohnJay": {
+      "type": "campus",
+      "posts": 237,
+      "users": 99,
+      "expertise": "Criminal Justice",
+      "color": "#e377c2",
+      "size": 12
+    },
+    "r/CUNYuncensored": {
+      "type": "counterpublic",
+      "posts": 148,
+      "users": 79,
+      "expertise": "Alternative discourse",
+      "color": "#7f7f7f",
+      "size": 12
+    }
+  },
+  "centralized_systems": {
+    "r/NYU": {
+      "posts": 54753,
+      "users": 19391,
+      "color": "#17becf"
+    },
+    "r/Columbia": {
+      "posts": 97797,
+      "users": 9769,
+      "color": "#bcbd22"
+    }
+  },
+  "metrics": {
+    "Network Density": {
+      "CUNY": 0.34,
+      "NYU": 0.18,
+      "Columbia": 0.15
+    },
+    "Response Rate (Crisis)": {
+      "CUNY": 94.6,
+      "NYU": 84.7,
+      "Columbia": 92.7
+    },
+    "Academic Crisis Response": {
+      "CUNY": 100,
+      "NYU": null,
+      "Columbia": null
+    },
+    "Bridge Users": {
+      "CUNY": 229,
+      "NYU": "N/A",
+      "Columbia": "N/A"
+    },
+    "Pandemic Surge (x)": {
+      "CUNY": 27,
+      "NYU": 3.2,
+      "Columbia": null
+    }
+  },
+  "connections": [
+    [
+      "r/CUNY",
+      "r/Baruch",
+      45
+    ],
+    [
+      "r/CUNY",
+      "r/QueensCollege",
+      32
+    ],
+    [
+      "r/CUNY",
+      "r/HunterCollege",
+      38
+    ],
+    [
+      "r/CUNY",
+      "r/CCNY",
+      28
+    ],
+    [
+      "r/CUNY",
+      "r/BrooklynCollege",
+      15
+    ],
+    [
+      "r/CUNY",
+      "r/JohnJay",
+      8
+    ],
+    [
+      "r/CUNY",
+      "r/CUNYuncensored",
+      12
+    ],
+    [
+      "r/Baruch",
+      "r/HunterCollege",
+      18
+    ],
+    [
+      "r/Baruch",
+      "r/QueensCollege",
+      15
+    ],
+    [
+      "r/QueensCollege",
+      "r/CCNY",
+      12
+    ],
+    [
+      "r/HunterCollege",
+      "r/CCNY",
+      10
+    ]
+  ]
+}

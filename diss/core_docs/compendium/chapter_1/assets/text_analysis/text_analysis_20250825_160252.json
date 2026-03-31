@@ -1,0 +1,422 @@
+{
+  "subreddit": "BrooklynCollege",
+  "stats": {
+    "total_submissions": 477,
+    "total_comments": 822,
+    "unique_submission_authors": 234,
+    "unique_comment_authors": 297,
+    "earliest_submission": 1312683392,
+    "latest_submission": 1752069927,
+    "orphaned_comments": 2
+  },
+  "total_text_entries": 1737,
+  "total_tokens": 19142,
+  "unique_tokens": 4278,
+  "top_words": [
+    [
+      "brooklyn",
+      303
+    ],
+    [
+      "school",
+      160
+    ],
+    [
+      "program",
+      153
+    ],
+    [
+      "film",
+      105
+    ],
+    [
+      "major",
+      98
+    ],
+    [
+      "make",
+      83
+    ],
+    [
+      "thank",
+      82
+    ],
+    [
+      "professors",
+      74
+    ],
+    [
+      "much",
+      70
+    ],
+    [
+      "please",
+      70
+    ],
+    [
+      "looking",
+      70
+    ],
+    [
+      "work",
+      65
+    ],
+    [
+      "got",
+      65
+    ],
+    [
+      "user",
+      65
+    ],
+    [
+      "experience",
+      63
+    ],
+    [
+      "could",
+      59
+    ],
+    [
+      "fall",
+      58
+    ],
+    [
+      "find",
+      57
+    ],
+    [
+      "hey",
+      57
+    ],
+    [
+      "email",
+      57
+    ],
+    [
+      "baruch",
+      56
+    ],
+    [
+      "accounting",
+      55
+    ],
+    [
+      "courses",
+      54
+    ],
+    [
+      "lot",
+      54
+    ],
+    [
+      "free",
+      52
+    ],
+    [
+      "still",
+      51
+    ],
+    [
+      "survey",
+      50
+    ],
+    [
+      "sure",
+      50
+    ],
+    [
+      "may",
+      49
+    ],
+    [
+      "friends",
+      48
+    ],
+    [
+      "since",
+      48
+    ],
+    [
+      "first",
+      48
+    ],
+    [
+      "online",
+      47
+    ],
+    [
+      "transfer",
+      47
+    ],
+    [
+      "see",
+      46
+    ],
+    [
+      "join",
+      46
+    ],
+    [
+      "person",
+      46
+    ],
+    [
+      "study",
+      45
+    ],
+    [
+      "well",
+      45
+    ],
+    [
+      "credits",
+      45
+    ],
+    [
+      "say",
+      45
+    ],
+    [
+      "thing",
+      44
+    ],
+    [
+      "education",
+      44
+    ],
+    [
+      "best",
+      44
+    ],
+    [
+      "apply",
+      44
+    ],
+    [
+      "feel",
+      43
+    ],
+    [
+      "currently",
+      42
+    ],
+    [
+      "pretty",
+      42
+    ],
+    [
+      "information",
+      42
+    ],
+    [
+      "interested",
+      42
+    ]
+  ],
+  "top_bigrams": [
+    [
+      "financial aid",
+      27
+    ],
+    [
+      "computer science",
+      26
+    ],
+    [
+      "make friends",
+      17
+    ],
+    [
+      "thank much",
+      16
+    ],
+    [
+      "film program",
+      16
+    ],
+    [
+      "feel free",
+      15
+    ],
+    [
+      "make sure",
+      15
+    ],
+    [
+      "brooklyn edu",
+      13
+    ],
+    [
+      "accepted brooklyn",
+      11
+    ],
+    [
+      "accounting program",
+      10
+    ],
+    [
+      "film production",
+      10
+    ],
+    [
+      "high school",
+      10
+    ],
+    [
+      "mental health",
+      10
+    ],
+    [
+      "learn apply",
+      10
+    ],
+    [
+      "hey guys",
+      9
+    ],
+    [
+      "cap gown",
+      9
+    ],
+    [
+      "commuter school",
+      9
+    ],
+    [
+      "extra tickets",
+      9
+    ],
+    [
+      "pre med",
+      9
+    ],
+    [
+      "york city",
+      8
+    ],
+    [
+      "pretty much",
+      8
+    ],
+    [
+      "please let",
+      8
+    ],
+    [
+      "venture accelerator",
+      8
+    ],
+    [
+      "demo day",
+      8
+    ],
+    [
+      "biology major",
+      8
+    ],
+    [
+      "lab manual",
+      8
+    ],
+    [
+      "program brooklyn",
+      8
+    ],
+    [
+      "got accepted",
+      7
+    ],
+    [
+      "film major",
+      7
+    ],
+    [
+      "discord server",
+      7
+    ]
+  ],
+  "top_trigrams": [
+    [
+      "thinking transferring brooklyn",
+      5
+    ],
+    [
+      "got accepted brooklyn",
+      4
+    ],
+    [
+      "accounting business management",
+      4
+    ],
+    [
+      "feel free reach",
+      4
+    ],
+    [
+      "magner career center",
+      4
+    ],
+    [
+      "forgot order mine",
+      4
+    ],
+    [
+      "please fill survey",
+      3
+    ],
+    [
+      "amazon gift card",
+      3
+    ],
+    [
+      "please feel free",
+      3
+    ],
+    [
+      "venture accelerator nva",
+      3
+    ],
+    [
+      "eligibility requirement must",
+      3
+    ],
+    [
+      "requirement must current",
+      3
+    ],
+    [
+      "brooklyn urban sustainability",
+      3
+    ],
+    [
+      "please sign petition",
+      3
+    ],
+    [
+      "computer science major",
+      3
+    ],
+    [
+      "way make friends",
+      3
+    ],
+    [
+      "search feedback reports",
+      3
+    ],
+    [
+      "join discord made",
+      3
+    ],
+    [
+      "recently got accepted",
+      2
+    ],
+    [
+      "participate research study",
+      2
+    ]
+  ],
+  "timestamp": "2025-08-25T16:02:52.442601"
+}
