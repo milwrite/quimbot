@@ -1,28 +1,37 @@
 # CLAUDE.md
 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 Portable dissertation writing workspace for PhD research on Reddit discourse across CUNY communities during the COVID-19 transition (2010-2025).
 
-This is the writing bundle — no scripts, no venv, no scraping infrastructure. The full research repo lives elsewhere. See `reference/CLAUDE.md` for the complete project architecture.
+This is the writing bundle — no scripts, no venv, no scraping infrastructure. The full research repo lives elsewhere. `_meta/CLAUDE.md` documents the complete project architecture (databases, scripts, analysis pipelines, tools) — consult it when you need context about anything outside this bundle.
 
 ---
 
-## Working Mode in This Bundle
+## Working Mode
 
 Keep each pass small. Finish one discrete task, record the result, then stop.
 
-Start with `reference/TODO.md`. The `DISS-BUNDLE-*` items define bundle-safe maintenance work such as file cleanup, indexes, source maps, document crosswalks, and formatting-only passes.
+Start with `_meta/TODO.md`. The **DISS-BUNDLE-NN** items (numbered sequentially) define bundle-safe maintenance work: file cleanup, indexes, source maps, document crosswalks, and formatting-only passes. Complete one per pass, then update the checklist.
 
 When working here:
 
 - complete exactly one atomic task per pass
-- update `reference/TODO.md` when the task is done
+- update `_meta/TODO.md` when the task is done
 - if a task depends on missing databases, scripts, or external context, write the blocker down and stop
 - prefer edits that improve orientation, consistency, and traceability over broad prose rewrites
-- respect task ownership in `reference/TODO.md`; Quimbot works `Owner: Quimbot` items, while `Owner: Open` items remain available for Petrarch to claim by changing the owner field
 
-## Bundle-Safe Contributions
+### Multi-Agent Ownership
 
-Good tasks in this repo include:
+Two agents operate in this bundle — **Quimbot** and **Petrarch**. Task ownership in `_meta/TODO.md` governs who works what:
+
+- `Owner: Quimbot` — reserved for Quimbot; Petrarch does not touch these
+- `Owner: Open` — available for Petrarch to claim by editing the line to `Owner: Petrarch`
+- once a task is marked `Owner: Petrarch`, Quimbot leaves it alone unless explicitly asked
+
+### Bundle-Safe Contributions
+
+Good tasks in this repo:
 
 - removing confirmed duplicate files
 - creating inventories, indexes, and file maps
@@ -31,59 +40,31 @@ Good tasks in this repo include:
 - light formatting cleanup on existing notes and progress documents
 - clarifying which files are canonical and which are exports or derived artifacts
 
-## Bundle Limits
+### Bundle Limits
 
 This repo cannot support full-pipeline work. Do not treat it like the main research environment.
 
-Avoid or defer these tasks unless the required materials are present:
+Avoid or defer unless the required materials are present:
 
 - database validation against live SQLite files
 - rerunning analysis scripts or scrapers
 - regenerating findings from missing code or data
 - heavy revision of generated findings without checking provenance
-- direct edits to `core_docs/CURRENT.docx` unless explicitly requested
+- direct edits to `writing/CURRENT.docx` unless explicitly requested
 
 ---
 
-## Structure
+## Four-Domain Structure
 
-```
-diss/
-├── core_docs/
-│   ├── CURRENT.docx              main dissertation document
-│   ├── refannbib.json            master bibliography (3.7 MB)
-│   ├── chapters/                 chapter organization
-│   ├── compendium/               per-chapter evidence aggregation
-│   │   ├── chapter_1/
-│   │   ├── chapter_2/            text analysis, bibliography
-│   │   └── chapter_3/
-│   ├── proposal.md               dissertation proposal
-│   └── progress_reports.md       monthly progress
-│
-├── chapter_drafts/
-│   ├── outlines.docx             proposal-aligned outlines
-│   ├── chapter-1-iteration-a1.md chapter 1 draft
-│   ├── chapter_3_bridge_users_rewritten.docx
-│   └── bridge-users/             ch3 drafts + lit review
-│
-├── dissertation/
-│   ├── findings/                 generated analysis findings
-│   │   ├── bridge_users/         md, docx, pdf, json
-│   │   ├── transfer_barriers/
-│   │   └── baseline_participation/
-│   ├── narratives/               student voice evidence docs
-│   └── databases/data/           database report
-│
-├── visualizations/               13 numbered interactive viz suites (01-13)
-├── interviews/                   4 transcripts + protocol
-├── reviews/refannbib.md          annotated bibliography
-├── addendum/                     methodological AI scaffold addendum
-├── reference/                    DOCS.md, TODO.md, CLAUDE.md, proposals/
-│
-├── drafts.md                     draft tracking
-├── quotes.md                     collected quotes
-└── vp_post_ai_detection.md
-```
+The bundle is organized into four domains plus a metadata directory:
+
+| Domain | Path | Contains |
+|--------|------|----------|
+| **Writing** | `writing/` | Your prose — drafts, chapters, proposals, advisement, addendum |
+| **Research** | `research/` | Other people's words — bibliographies, lit reviews, reading lists |
+| **Evidence** | `evidence/` | The data speaking — findings, narratives, interviews, database exports, text analysis, network validation |
+| **Visualizations** | `visualizations/` | The data shown — 13 numbered suites (Viz 01-13) with PDF/PNG/SVG/HTML |
+| **Meta** | `_meta/` | Reference docs — TODO, DOCS chronicle, dashboard plan, OUTPUT_CATALOG, Drive manifest |
 
 ---
 
@@ -91,18 +72,60 @@ diss/
 
 | File | Purpose |
 |------|---------|
-| `core_docs/CURRENT.docx` | Main dissertation document — the canonical draft |
-| `core_docs/refannbib.json` | Master bibliography (structured JSON) |
-| `reviews/refannbib.md` | Annotated bibliography (readable markdown) |
-| `core_docs/proposal.md` | Dissertation proposal |
-| `reference/TODO.md` | Research priorities and evidence protocols |
-| `reference/DOCS.md` | Month-by-month document generation chronicle |
+| `writing/CURRENT.docx` | **Canonical dissertation draft** — do not edit unless explicitly requested |
+| `writing/proposal.md` | Dissertation proposal |
+| `writing/drafts.md` | Draft tracking across all chapters |
+| `research/bibliography/refannbib.json` | Master bibliography (structured JSON) |
+| `research/bibliography/reviews_refannbib.md` | Annotated bibliography (readable markdown) |
+| `_meta/TODO.md` | Task list, DISS-BUNDLE items, evidence protocols |
+| `_meta/DOCS.md` | Month-by-month document generation chronicle |
+| `_meta/CLAUDE.md` | Full research repo architecture (databases, scripts, tools) |
+| `_meta/OUTPUT_CATALOG.json` | Index of pre-aggregated chapter evidence |
 
 ---
 
-## Evidence ID System
+## Database Context
 
-Format: `submission_XXXXX` or `comment_XXXXX` (Reddit post/comment IDs). All dissertation claims are grounded in these evidence IDs. The compendium files in `core_docs/compendium/` contain pre-aggregated evidence per chapter.
+The SQLite databases (300 MB, 12 subreddits, 574K+ posts) live in the main repo at `data/databases/current/`, not here. But this bundle contains **exported database artifacts** and evidence that reference the database schema:
+
+- `evidence/databases/CUNY_DATABASE_REPORT_2026-02-08.md` — corpus composition, integrity scores, temporal distribution
+- `evidence/databases/baseline_participation/` — participation typology data and visualizations
+- `evidence/databases/*.xlsx`, `*.csv` — exported data tables (subreddit posts, CUNY contributors)
+
+### Schema (all databases share this)
+
+Evidence IDs map to these tables:
+
+- `submissions` — Reddit posts (id, title, selftext, score, created_utc, author, subreddit)
+- `comments` — Reddit comments (id, body, score, created_utc, author, parent_id)
+- `users` — User accounts and processing status
+
+Format: `submission_XXXXX` or `comment_XXXXX` (the XXXXX is the Reddit post/comment ID from the `id` column). All dissertation claims are grounded in these evidence IDs.
+
+### Corpus Summary
+
+- **8 CUNY subreddits** (core): 60K submissions, 245K comments, ~22K authors, 94-100% integrity
+- **4 comparative** (NYU, Columbia, Fordham, St. John's): 57K submissions, 254K comments, 57-74% integrity
+- **COVID-19 signal**: 3-5x activity spike during March 2020 emergency remote transition
+
+---
+
+## Evidence Structure
+
+```
+evidence/
+├── findings/
+│   ├── bridge_users/              bridge user discourse (md, docx, pdf, json)
+│   ├── transfer_barriers/         CUNY transfer barriers + enrollment data
+│   └── baseline_participation/    participation typology data
+├── narratives/                    student voice evidence documents
+├── databases/                     exported db reports, data tables, participation analysis
+├── interviews/                    4 transcripts + protocol + candidate list + audio
+├── text_analysis_ch1/             Ch1 text analysis outputs (JSON)
+├── text_analysis_ch2/             Ch2 text analysis + user activity data
+├── networks_ch1/                  Ch1 network validation
+└── networks_ch2/                  Ch2 networks (EXCLUDED.md — 16 GB excluded from bundle)
+```
 
 ---
 
@@ -116,7 +139,7 @@ Format: `submission_XXXXX` or `comment_XXXXX` (Reddit post/comment IDs). All dis
 
 ## Visualizations
 
-13 numbered suites in `visualizations/` (01-13). Each contains interactive HTML (Plotly), summary markdown, and exports.
+13 numbered suites in `visualizations/` (01-13). Each contains PDF/PNG/SVG static exports and data JSON. Interactive HTML where applicable.
 
 | Viz | Topic | Ch |
 |-----|-------|----|
@@ -142,17 +165,17 @@ Format: `submission_XXXXX` or `comment_XXXXX` (Reddit post/comment IDs). All dis
 # markdown to docx
 pandoc INPUT.md -o OUTPUT.docx
 
-# with dissertation formatting template
+# with dissertation formatting template (TNR, 1" margins, double spacing)
 pandoc INPUT.md -o OUTPUT.docx --reference-doc=templates/reference_base.docx
 ```
-
-Findings output: `dissertation/findings/` as both `.md` and `.docx`.
 
 ---
 
 ## Commit Convention
 
 - lowercase, short, no sign-offs
+- no "Co-Authored-By: Claude" signatures
+- descriptive but concise (max 100 chars)
 
 ---
 
@@ -164,4 +187,4 @@ Findings output: `dissertation/findings/` as both `.md` and `.docx`.
 - Jekyll site — `tools/jekyll-site/` (753 evidence pages)
 - Query results — `data/output/queries/`
 
-For database queries, analysis pipelines, or scraping: use the main research repo.
+For database queries, analysis pipelines, or scraping: use the main research repo. See `_meta/CLAUDE.md` for commands and architecture.
