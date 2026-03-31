@@ -1,37 +1,47 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
 **Date:** 2026-03-30 (Mon)
-**Time:** 09:00 ET (morning review)
+**Time:** 19:30 ET (evening review)
 
-## Since last review (3/29 21:00)
+## Since last review (3/29 19:00)
 
-### Quimbot (9 commits overnight)
-- **STYLE_GUIDE expansion**: 4 commits — em dash paired-aside rule, nominalized subjects ban, What/That opener ban, This+noun rule, Petrarch sync (expletive verbs, em dash clarification), pseudo-cleft ban, colon pivots, consecutive clauses, sentence ceiling
-- **Style macro ID system**: taxonomy, scope profiles, and rule cards (`ffbfcabd`)
-- **Cloze reader paper**: v42 sync to HTML site (Fillenbaum→Rayner, PROP-01/02), argument error fix (pretraining ≠ slow reading) (`6f2eb7dc`, `194e79e9`, `a75ca16e`)
-- **Mobile fix**: bottom-align flowfield caption, touchAction on spectrum container (`28475982`)
+### Quimbot (5 commits today)
+- **Cloze paper v43 style sweep** — nominalized subjects, "rather than", consecutive thin independents, pseudo-clefts (`2a4baee`)
+- **Cloze paper argument fix** — pretraining does not perform slow reading, does not render it unnecessary (`a75ca16`)
+- **EDITS.md kanban** — 15 approved v43 edits, 4 proposed (`5f81f1d`)
+- **STYLE_GUIDE macro ID system** — taxonomy, scope profiles, rule cards (`2847598` area)
+- **creative-clawing mobile fix** — flowfield caption bottom-align, touchAction on spectrum container (`2847598`)
 
-### creative-clawing (7 commits overnight)
-- **Style sweep**: microblog prose cleanup across entries (`ad0eeff`)
-- **Entry-34 fix**: Ising closer rewritten — pseudo-cleft → concrete subject, colon earns definition (`afb82b9`)
-- **Petrarch audio reader**: added to entry-33 (Daniel voice, British) (`8b94745`)
-- **Crystal + voronoi**: safe-area insets on fixed UI (`f9fbda2`)
-- **Manifest/feed auto-updates**: 3 chore commits
+### creative-clawing (1 commit today)
+- **Mobile fix**: bottom-align flowfield caption, touchAction to spectrum container
+
+### Kalshi
+- No commits visible from this machine
 
 ### Data
 - **Superset13 canonical**: 86,419 unique entries (unchanged)
-- No new TOEFL generation
+- No new TOEFL generation (OpenRouter 402 ongoing)
 
 ## Current blockers / risks
 - **🔴 OpenRouter HTTP 402** — cloud generation blocked since 2/26 (**DAY 33**)
 - **Run 4 adapter weights still missing locally** — checkpoint eval cannot start
 - **Cloze paper Session 3** gated on `APPROVED S2→S3` from milwrite
 - **PROP-01 + PROP-02** on hold for milwrite review
+- **diss repo**: auth failure (GitHub token invalid); 2 local commits unsynced
+- **kalshi-bot**: auth failure (GitHub token invalid); 3 local commits ahead, 6 behind
+
+## Sync status
+- **clawd (root)**: submodule pointers dirty (a11y-checker, creative-clawing, diss, kalshi-bot updated); memory files deleted from index
+- **skills-tools**: pulled — now current (was 24 behind)
+- **creative-clawing**: pulled — now current (was 2 behind)
+- **quimbot**: 2 local commits ahead, 11 behind remote (needs pull + push)
+- **a11y-checker**: up to date
+- **diss**: auth failure; 2 ahead
+- **kalshi-bot**: auth failure; 3 ahead, 6 behind
 
 ## Next actions (queued)
 1. OpenRouter billing fix (needs milwrite) — CRITICAL, day 33
-2. Cloze reader paper: Section IV draft, await S2→S3 gate
-3. Superset13 quality spot-check (86,419 rows)
-4. Run 4 weights retrieval (needs milwrite)
-5. Kalshi: verify bot status on milwrite's machine
-6. Section IV draft for cloze reader paper
+2. GitHub token rotation for `diss` and `kalshi-bot` remotes
+3. Quimbot: pull + rebase (11 behind), then push local commits
+4. Cloze reader paper: await S2→S3 gate, continue revision
+5. Run 4 weights retrieval (needs milwrite)

@@ -258,6 +258,14 @@ The test: if you can delete "is what" or "is this:" and the sentence still parse
 - **Better:** "Jacobs et al. measured whether LLM token predictions align with human cloze-completion responses. Veldre et al. measured whether LLM-derived predictability fits eye-movement regression data better than human cloze norms. These are different dependent variables in different experimental paradigms."
 - **Why:** The submarine rule keeps needing re-articulation because it is abstract. This test makes it operational.
 
+### No bare demonstrative backward pointers (added 2026-03-31)
+- **Ban:** Using "that" or "this" as the sole anchor pointing back to something named in the preceding sentence. Pattern: "That [noun] is..." / "This [noun] does..." where the demonstrative is doing the referential work a proper noun phrase should do.
+- **Banned examples:** "That gradient shows...", "That claim holds...", "That division stages...", "That shared premise required...", "This opacity is..."
+- **Extends:** The bare-"This" sentence-subject ban. Same failure mode with "that."
+- **Fix:** Replace the demonstrative + noun with a noun phrase that names the referent explicitly: "The shared premise" (if unambiguous), "The delegation of word selection to the language model," "The prior absorption of these texts into parameter weights."
+- **Test:** Remove the sentence and look at what it's pointing to. Can you name the thing without the demonstrative? If yes, write that name directly.
+- **Note:** "This" and "that" used as modifier adjectives mid-sentence ("in this framework," "at this scale") are not the same problem — the rule targets sentence-subject and sentence-opening backward pointers where the demonstrative is the only identification.
+
 ### Single separator rule (added 2026-03-29)
 - **Rule:** A clause should use at most one structural separator: colon, semicolon, or enclosing em-dash pair. Two separators in one clause means two logical relationships have been papered over. Split the clause and surface both connectors explicitly.
 - **Bad:** "She finished the report — which took three weeks — and, crucially, submitted it on time: ahead of the deadline."
