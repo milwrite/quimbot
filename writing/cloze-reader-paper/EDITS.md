@@ -138,4 +138,45 @@
 
 ---
 
-*Last updated: 2026-03-30 · Petrarch*
+## 📚 ED-020 through ED-024 — Educational Genealogy additions (2026-03-31)
+*Source: sportello research report, <https://bot.inference-arcade.com/src/search/cloze-test-reading-comprehension-assessment-2026-03.html>*
+
+### ED-020 — Educational Genealogy: entropy and deletion rate
+- **Location:** Educational Genealogy section, Bachman / rational deletion paragraph (line 35)
+- **Issue:** Current text notes that fixed-ratio deletion "flattens the difficulty gradient" but gives no mechanism. The research documents that entropy is the mechanism: gaps following high-predictability contexts (low entropy) are easier; gaps in semantically ambiguous contexts (high entropy) are harder. Maltaev et al. (2019) formalized this computationally. The paper currently names the asymmetry but not its information-theoretic ground.
+- **Addition candidate:** One sentence after the Bachman rational-deletion claim:
+  > The information-theoretic basis for this variation in gap difficulty was not formalized until Maltaev and colleagues (2019), who demonstrated that Shannon entropy — a measure of how many plausible completions a given context admits — predicts which positions are easy and which resist completion: gaps following highly constrained contexts yield few alternatives; gaps in ambiguous contexts yield many.
+- **Revision note:** "that gradient" replaced. The issue is the bare demonstrative "that" as backward pointer ("that gradient," "that claim," "that distinction") — same family as the bare "This" rule. Replace with a noun phrase that names what it refers to.
+- **Why it matters:** Bridges the Educational Genealogy directly to the ML Genealogy (Harris/Shannon thread) and gives the Bachman claim empirical teeth without disrupting milwrite's existing sentence rhythm.
+- **Status:** Proposed
+
+### ED-021 — Educational Genealogy: exact-word vs. synonym scoring — what the correlation reveals
+- **Location:** Scoring debate paragraph (line 33), after the Jongsma sentence
+- **Issue:** The draft notes the dispute but stops before the more interesting inference. Research reports Laing's finding that exact and acceptable scoring correlate at 0.92 for full test scores — which implies readers are relying on part-of-speech information and broad semantic appropriateness rather than author-specific lexical choice. The paper attributes the exact/synonym tension to design ambiguity; the correlation evidence suggests a deeper interpretive consequence.
+- **Addition candidate:** One sentence after the Jongsma sentence:
+  > That the two methods correlate at 0.92 across full test scores (Laing, cited in Brown 1980) suggests readers are operating on part-of-speech and semantic-category information rather than recovering the author's specific word choice — a finding that clarifies rather than resolves the ambiguity.
+- **Why it matters:** Sharpens the existing paragraph's claim from "dispute surfaces an ambiguity" to "the evidence clarifies what the procedure actually samples." More argumentatively useful.
+- **Status:** Proposed
+
+### ED-022 — Educational Genealogy: second-language institutionalization and the TOEFL
+- **Location:** After the Abraham and Chapelle sentence (line 31), or as a third paragraph before the scoring debate
+- **Issue:** The draft moves from Oller to the scoring dispute without noting that the procedure was institutionalized into standardized testing — particularly TOEFL — as a consequence of the integration thesis. The research documents that multiple-choice cloze variants were adopted in TOEFL, that research comparing free-response and MC formats produced mixed findings, and that the adoption happened before validity questions were resolved. The current genealogy implies a clean theoretical arc; the institutional history reveals adoption outran evidence.
+- **Addition candidate:** New paragraph after the Abraham and Chapelle sentence:
+  > The adoption of cloze variants in the Test of English as a Foreign Language demonstrated how quickly Oller's integration thesis moved from theory to practice. Multiple-choice cloze items appeared in standardized testing before construct validity questions were settled, and subsequent research comparing free-response and multiple-choice formats produced mixed findings: moderate correlations between the two variants suggested they sampled similar but not identical constructs, with free-response formats more sensitive to syntactic pattern recognition and multiple-choice more sensitive to lexical knowledge (Brown 1980).
+- **Why it matters:** Gives the genealogy institutional texture and anticipates the paper's argument that theoretical and practical uses of cloze have always diverged — relevant to the Cloze Reader design premise.
+- **Status:** Proposed
+
+### ED-023 — Educational Genealogy: Saito (2003) and the sentential-level finding
+- **Location:** Currently absent. Could follow the Bachman sentence or begin a fourth paragraph
+- **Issue:** The draft mentions Bachman's rational-deletion argument but does not note that structural equation modeling — Saito (2003) applying it to the ECPE — found that cloze measures "form and meaning of grammar" at sentential and suprasentential levels, not overall language proficiency. This is the most direct empirical challenge to Oller's integration thesis and it is currently missing from the genealogy.
+- **Addition candidate:** New paragraph (fourth, before or replacing the transition to scoring debate):
+  > The most direct challenge to Oller's integration thesis arrived from structural equation modeling. Saito (2003), analyzing data from the Examination for the Certificate of Proficiency in English, found that cloze performance indexed grammatical form and meaning at the sentence level rather than the broad pragmatic competence Oller had theorized. The procedure measured what local context made predictable, not what the text as a whole required comprehenders to know.
+- **Why it matters:** Closes the theoretical loop: Taylor's procedure → Oller's integration thesis → empirical deflation → what the procedure actually samples. This is the real argument the paper inherits.
+- **Status:** Proposed
+
+### ~~ED-024 — Educational Genealogy: cloze probability as psycholinguistic index (N400 bridge)~~
+- **Status:** Withdrawn — milwrite: out of scope for this paper. The eye-movement/N400/surprisal lineage is fascinating but not a thread this intro pulls.
+
+---
+
+*Last updated: 2026-03-31 · Petrarch*
