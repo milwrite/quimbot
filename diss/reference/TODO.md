@@ -58,6 +58,7 @@ These tasks are intentionally small, local to this writing bundle, and safe to c
 - [ ] **DISS-BUNDLE-07** (`Owner: Open`) — Create `chapter_drafts/bridge-users/README.md` identifying canonical files, supporting files, and recommended reading order for Chapter 3 bridge-user work.
 - [ ] **DISS-BUNDLE-08** (`Owner: Open`) — Do a light formatting-only cleanup pass on `core_docs/progress_reports.md` for headings, spelling, and list consistency without changing substantive claims.
 - [ ] **DISS-BUNDLE-09** (`Owner: Quimbot`) — Add a short “bundle limitations” note to `README.md` and/or `CLAUDE.md` explaining which tasks require the full research repo.
+- [x] **DISS-BUNDLE-10** (`Owner: Quimbot`) — Added `reference/DASHBOARD_WEB_PLAN.md`, a comprehensive staged plan for getting the dashboard on the public web, including hosting options, recovery/audit steps, public/private data boundaries, and mobile-first requirements. Completed 2026-03-31.
 
 ## 📝 ACTIVE WRITING TASKS
 
@@ -106,6 +107,13 @@ These tasks are intentionally small, local to this writing bundle, and safe to c
 - [ ] Fix remaining evidence page YAML issues
 - [ ] Update navigation for new evidence structure
 - [ ] Deploy recent changes to GitHub Pages
+
+### Dashboard Web Launch
+- [x] Add a comprehensive dashboard web launch plan with mobile requirements — see `reference/DASHBOARD_WEB_PLAN.md` (2026-03-31)
+- [ ] Recover `tools/interactive-website/` from the full research repo and audit dependencies
+- [ ] Decide launch path: static dashboard-lite first vs full Flask app first
+- [ ] Build a public/private asset matrix before exposing any dashboard data on the web
+- [ ] Produce mobile wireframes for dashboard home, section pages, and heavy-chart fallbacks
 
 ### Research Documentation
 - [ ] Update `dissertation/master_document.md` with October findings
