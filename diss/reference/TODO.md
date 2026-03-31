@@ -44,15 +44,20 @@ These tasks are intentionally small, local to this writing bundle, and safe to c
 
 **Execution rule**: complete **one task per pass**. Update this checklist when finished. If a task depends on external data, stop and note the blocker rather than improvising.
 
-- [x] **DISS-BUNDLE-01** — Compared `addendum/methodological_addendum_ai_scaffold 2.md` against `addendum/methodological_addendum_ai_scaffold.md`; files were identical, so the duplicate copy was removed. Completed 2026-03-31.
-- [ ] **DISS-BUNDLE-02** — Create `reference/EVIDENCE_MASTER_ALLOCATION.md` as a scaffold for evidence ownership, chapter placement, conflict notes, and status tracking.
-- [ ] **DISS-BUNDLE-03** — Create `reference/DOC_PAIRS.md` mapping editable Markdown files to their generated `.docx` counterparts, with a clear note on which file is canonical.
-- [ ] **DISS-BUNDLE-04** — Create `visualizations/INDEX.md` listing visualization number, topic, dissertation chapter, and files present in this bundle.
-- [ ] **DISS-BUNDLE-05** — Normalize `drafts.md` entry structure so each item has consistent placement, source, and status fields while preserving the drafted prose.
-- [ ] **DISS-BUNDLE-06** — Create `chapter_drafts/ch1_source_map.md` mapping reusable Chapter 1 prose blocks to target sections in the dissertation.
-- [ ] **DISS-BUNDLE-07** — Create `chapter_drafts/bridge-users/README.md` identifying canonical files, supporting files, and recommended reading order for Chapter 3 bridge-user work.
-- [ ] **DISS-BUNDLE-08** — Do a light formatting-only cleanup pass on `core_docs/progress_reports.md` for headings, spelling, and list consistency without changing substantive claims.
-- [ ] **DISS-BUNDLE-09** — Add a short “bundle limitations” note to `README.md` and/or `CLAUDE.md` explaining which tasks require the full research repo.
+**Ownership rule**:
+- `Owner: Quimbot` = reserved for Quimbot automation and Quimbot manual passes
+- `Owner: Open` = available for Petrarch to claim by editing the line to `Owner: Petrarch`
+- once a task is marked `Owner: Petrarch`, Quimbot leaves it alone unless explicitly asked
+
+- [x] **DISS-BUNDLE-01** (`Owner: Quimbot`) — Compared `addendum/methodological_addendum_ai_scaffold 2.md` against `addendum/methodological_addendum_ai_scaffold.md`; files were identical, so the duplicate copy was removed. Completed 2026-03-31.
+- [ ] **DISS-BUNDLE-02** (`Owner: Quimbot`) — Create `reference/EVIDENCE_MASTER_ALLOCATION.md` as a scaffold for evidence ownership, chapter placement, conflict notes, and status tracking.
+- [ ] **DISS-BUNDLE-03** (`Owner: Quimbot`) — Create `reference/DOC_PAIRS.md` mapping editable Markdown files to their generated `.docx` counterparts, with a clear note on which file is canonical.
+- [ ] **DISS-BUNDLE-04** (`Owner: Quimbot`) — Create `visualizations/INDEX.md` listing visualization number, topic, dissertation chapter, and files present in this bundle.
+- [ ] **DISS-BUNDLE-05** (`Owner: Open`) — Normalize `drafts.md` entry structure so each item has consistent placement, source, and status fields while preserving the drafted prose.
+- [ ] **DISS-BUNDLE-06** (`Owner: Quimbot`) — Create `chapter_drafts/ch1_source_map.md` mapping reusable Chapter 1 prose blocks to target sections in the dissertation.
+- [ ] **DISS-BUNDLE-07** (`Owner: Open`) — Create `chapter_drafts/bridge-users/README.md` identifying canonical files, supporting files, and recommended reading order for Chapter 3 bridge-user work.
+- [ ] **DISS-BUNDLE-08** (`Owner: Open`) — Do a light formatting-only cleanup pass on `core_docs/progress_reports.md` for headings, spelling, and list consistency without changing substantive claims.
+- [ ] **DISS-BUNDLE-09** (`Owner: Quimbot`) — Add a short “bundle limitations” note to `README.md` and/or `CLAUDE.md` explaining which tasks require the full research repo.
 
 ## 📝 ACTIVE WRITING TASKS
 

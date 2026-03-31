@@ -18,6 +18,7 @@ When working here:
 - update `reference/TODO.md` when the task is done
 - if a task depends on missing databases, scripts, or external context, write the blocker down and stop
 - prefer edits that improve orientation, consistency, and traceability over broad prose rewrites
+- respect task ownership in `reference/TODO.md`; Quimbot works `Owner: Quimbot` items, while `Owner: Open` items remain available for Petrarch to claim by changing the owner field
 
 ## Bundle-Safe Contributions
 
