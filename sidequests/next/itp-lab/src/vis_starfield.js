@@ -69,6 +69,7 @@ export function starfield(container) {
 
   let stars = [];
   let lastW = 0, lastH = 0;
+  let prevT = 0;
 
   function reset(width, height) {
     lastW = Math.floor(width);
@@ -91,7 +92,7 @@ export function starfield(container) {
   // waiting for a tap.  iOS 13+ still gates on user gesture — handled in onDown.
   requestOrientPermission();
 
-  const stop = rafLoop(() => {
+  const stop = rafLoop((t) => {
     ({ width, height } = resize());
 
     // Redistribute stars on orientation change or resize — avoids sparse/clustered fields.
@@ -107,7 +108,14 @@ export function starfield(container) {
       mouse.y += (orientTarget.y - mouse.y) * 0.08;
     }
 
-    ctx.fillStyle = 'rgba(0,0,0,0.25)';
+    // Frame-rate-independent fade: target the same visual trail length at any
+    // refresh rate (60 Hz, 90 Hz, 120 Hz ProMotion, etc.).  We want the
+    // equivalent of alpha 0.25 at 60 fps (~16.67 ms).  Using exponential decay:
+    //   alpha = 1 - (1 - 0.25)^(dt / 16.667)
+    const dt = Math.min(50, t - prevT) || 16.667;
+    prevT = t;
+    const fadeAlpha = 1 - Math.pow(0.75, dt / 16.667);
+    ctx.fillStyle = `rgba(0,0,0,${fadeAlpha.toFixed(4)})`;
     ctx.fillRect(0, 0, width, height);
 
     const mx = (mouse.x - 0.5) * width;
