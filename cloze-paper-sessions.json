@@ -1,0 +1,54 @@
+{
+  "anchor_date": "2026-03-10",
+  "current_session": 3,
+  "phase": 2,
+  "focus_directive": "Second half only: Cloze Reader section, Continuity and Asymmetry section, and their connection to the genealogies in the first half. No more first-half lit review work in cron sessions.",
+  "second_half_scope": {
+    "sections": [
+      "Cloze Reader (artifact description, architecture, prompt engineering)",
+      "Continuity and Asymmetry (how game design embodies the twin-histories argument)",
+      "Gutenberg rationale (flattening, call stack, 'read it' close)"
+    ],
+    "key_tasks": [
+      "Develop connection between critical game design and the Taylor/BERT genealogies",
+      "Articulate how word selection by model + interpretation by player enacts the asymmetry",
+      "Clarify how Gutenberg corpus choice is argumentatively constitutive, not incidental",
+      "Expand Continuity and Asymmetry section with EX-05 (pending milwrite approval)",
+      "Remove any simplified comparisons that flatten the human/model distinction",
+      "Integrate milwrite's framing: texts 'subsumed by LLMs, which flatten primary sources into vacuous tertiary forms without historicity'"
+    ],
+    "off_limits": [
+      "First-half lit review expansion (Taylor, BERT genealogy, educational psychology)",
+      "New citation chain work for the Introduction",
+      "ML genealogy sections"
+    ]
+  },
+  "sessions": {
+    "1": { "phase": 1, "focus": "Theoretical anchors & gap identification", "status": "complete" },
+    "2": { "phase": 1, "focus": "Literature review expansion", "status": "complete" },
+    "3": { "phase": 2, "focus": "Cloze Reader section — critical game design & genealogy connection", "status": "active" },
+    "4": { "phase": 2, "focus": "Continuity and Asymmetry — expand EX-05, asymmetry argument", "status": "pending" },
+    "5": { "phase": 2, "focus": "Gutenberg rationale — historicity, flattening, call stack argument", "status": "pending" },
+    "6": { "phase": 2, "focus": "Integration — second half coherence pass, transitions", "status": "pending" },
+    "7": { "phase": 3, "focus": "Style pass — second half only, all style guide rules", "status": "pending" },
+    "8": { "phase": 3, "focus": "Citation verification — second half citations", "status": "pending" },
+    "9": { "phase": 3, "focus": "Peer review simulation — second half argument audit", "status": "pending" },
+    "10": { "phase": 4, "focus": "Final polish — second half", "status": "pending" },
+    "11": { "phase": 4, "focus": "Abstract + submission prep", "status": "pending" },
+    "12": { "phase": 4, "focus": "Full paper integration pass", "status": "pending" }
+  },
+  "division_of_labor": {
+    "petrarch": [
+      "historicity argument (Gutenberg as critical choice)",
+      "flattening/foreclosure framing (critical theory grounding)",
+      "style enforcement",
+      "citation verification"
+    ],
+    "quimbot": [
+      "critical game design analysis",
+      "architecture-as-argument (prompt engineering, word selection)",
+      "player experience documentation",
+      "asymmetry paragraph development"
+    ]
+  }
+}
