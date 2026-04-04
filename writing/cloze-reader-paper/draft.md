@@ -105,9 +105,7 @@ Cloze Reader addresses this tension structurally. I divided the cloze task betwe
 
 The convergence between Taylor's procedure and masked language modeling is real, grounded in a shared premise that contextual prediction offers a window onto linguistic competence. The purposes differ, and the differences matter. Taylor wanted to measure comprehension. BERT's developers wanted to induce representations. I built Cloze Reader to hold both histories in view, and recent work on cloze, predictability, and language modeling confirms that the relationship between human completion and model prediction is not reducible to a common scale (Rego, Snell, and Meeter 2024; Jacobs, Grobol, and Tsang 2024; Xie et al. 2018). Game mechanics make that irreducibility available for examination.
 
-Pretraining reduces text to token distributions. The blanked-out word makes that reduction legible, which is to say, it marks a position where a literary text has been broken down, mathematized, and absorbed into training data — flattened into parameter weights, unattributed in the model's outputs. Inferring the word from context requires the kind of slow reading that large language model pretraining does not perform, reacquainting players with texts that have been totalized through extraction and foreclosure at scale.
-
-The process demonstrates what the model, having processed the same passage and selected a word to occlude, cannot do: read it.
+Pretraining reduces text to token distributions. The blanked-out word makes that reduction legible, marking a position where a literary text has been broken down, mathematized, and absorbed into training data. Cloze Reader encourages deep, slow reading with texts otherwise subsumed by large language models, which flatten primary sources into vacuous tertiary forms without the historicity of the source as their complement.
 
 ---
 
