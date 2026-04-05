@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Muhlbauer Labs — Billing Flow</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -68,6 +68,7 @@
   .flow-page {
     padding: 40px 48px 60px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .flow-section {
@@ -481,6 +482,138 @@
     align-self: stretch;
     margin: 4px 0;
   }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .page-header {
+      padding: 20px 16px 16px;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .flow-page {
+      padding: 24px 16px 48px;
+    }
+
+    /* KPI strip: wrap to 2-col grid on mobile */
+    .kpi-strip {
+      padding: 16px;
+      gap: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 14px;
+      column-gap: 0;
+    }
+
+    .kpi-divider { display: none; }
+
+    /* Flow tracks: stack vertically with down arrows */
+    .flow-track {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .flow-track .conn {
+      flex-direction: row;
+      align-items: center;
+      padding: 4px 0 4px 16px;
+    }
+
+    .flow-track .conn .conn-line {
+      width: 2px;
+      height: 20px;
+    }
+
+    .flow-track .conn .conn-line::after {
+      content: '▼';
+      right: auto;
+      bottom: -6px;
+      top: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .flow-indent,
+    .flow-indent-2 {
+      padding-left: 16px;
+    }
+
+    .node-pill {
+      min-width: 80px;
+      padding: 8px 14px;
+    }
+
+    /* Denial table: stack code + action below desc */
+    .denial-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      padding: 12px 0;
+    }
+
+    .denial-row:first-child { display: none; }
+
+    .d-action-flow { flex-wrap: wrap; margin-top: 4px; }
+
+    /* Timeline: vertical on mobile */
+    .timeline {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .tl-step {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 16px;
+    }
+
+    .tl-dot { margin-top: 4px; flex-shrink: 0; }
+
+    .tl-body {
+      text-align: left;
+      padding: 0;
+      margin-top: 0;
+    }
+
+    .tl-body .tl-title { white-space: normal; }
+    .tl-body .tl-note { max-width: none; }
+
+    .tl-connector {
+      width: 2px;
+      height: 20px;
+      min-width: unset;
+      flex: none;
+      margin-top: 0;
+      margin-left: 4px;
+    }
+
+    .tl-connector::after {
+      content: '▼';
+      right: auto;
+      bottom: -5px;
+      top: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* CPT table: hide component + risk cols, scroll */
+    .cpt-flow { display: block; overflow-x: auto; }
+    .cpt-flow .hide-mobile { display: none; }
+
+    /* Gap list: stack to 1 col */
+    .gap-item {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+
+  /* Safe area insets for notched phones */
+  @supports (padding: env(safe-area-inset-bottom)) {
+    body { padding-bottom: env(safe-area-inset-bottom); }
+    .page-header { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+  }
 </style>
 </head>
 <body>
@@ -801,7 +934,7 @@
           <th>CPT</th>
           <th>Description</th>
           <th>Fee Schedule</th>
-          <th>Component</th>
+          <th class="hide-mobile">Component</th>
           <th>Risk</th>
         </tr>
       </thead>
@@ -810,42 +943,42 @@
           <td class="cpt-code-cell">88305</td>
           <td>Level IV — skin, other</td>
           <td style="color:var(--muted)">— per contract</td>
-          <td>TC / PC</td>
+          <td class="hide-mobile">TC / PC</td>
           <td><span class="risk-tag risk-warn">⚠ Payer-dependent stacking</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88307</td>
           <td>Level V — skin, complex</td>
           <td style="color:var(--muted)">— per contract</td>
-          <td>TC / PC</td>
+          <td class="hide-mobile">TC / PC</td>
           <td><span class="risk-tag risk-ok">Low</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88309</td>
           <td>Level VI — resection, extensive</td>
           <td style="color:var(--muted)">— per contract</td>
-          <td>TC / PC</td>
+          <td class="hide-mobile">TC / PC</td>
           <td><span class="risk-tag risk-ok">Low</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88331</td>
           <td>Intraoperative consultation, first block</td>
           <td style="color:var(--muted)">— per contract</td>
-          <td>PC only</td>
+          <td class="hide-mobile">PC only</td>
           <td><span class="risk-tag risk-ok">Low</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88342</td>
           <td>IHC per specimen — manual</td>
           <td style="color:var(--muted)">— per contract</td>
-          <td>TC / PC</td>
+          <td class="hide-mobile">TC / PC</td>
           <td><span class="risk-tag risk-warn">⚠ CO-97 bundling</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88360</td>
           <td>Morphometric analysis — IHC</td>
           <td style="color:var(--muted)">— per contract</td>
-          <td>TC / PC</td>
+          <td class="hide-mobile">TC / PC</td>
           <td><span class="risk-tag risk-lcd">LCD required</span></td>
         </tr>
       </tbody>
