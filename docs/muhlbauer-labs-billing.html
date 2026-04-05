@@ -3,622 +3,1020 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhlbauer Labs — Billing Dashboard</title>
+<title>Muhlbauer Labs — Revenue Cycle Dashboard</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #f4f6f9;
+    --surface:   #ffffff;
+    --border:    #e2e8f0;
+    --text-primary:   #0f172a;
+    --text-secondary: #475569;
+    --text-muted:     #94a3b8;
+    --blue:      #2563eb;
+    --blue-light:#eff6ff;
+    --green:     #16a34a;
+    --green-light:#f0fdf4;
+    --yellow:    #d97706;
+    --yellow-light:#fffbeb;
+    --red:       #dc2626;
+    --red-light: #fef2f2;
+    --purple:    #7c3aed;
+    --purple-light:#faf5ff;
+    --orange:    #ea580c;
+    --orange-light:#fff7ed;
+    --gray:      #64748b;
+    --gray-light:#f8fafc;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow:    0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+    --radius:    10px;
+  }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #0f1117;
-    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
     min-height: 100vh;
-    padding: 24px;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
-  header {
+  /* ── Sidebar ── */
+  .layout { display: flex; min-height: 100vh; }
+
+  .sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: var(--text-primary);
+    color: #e2e8f0;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 28px;
+    flex-direction: column;
+    padding: 0;
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    z-index: 50;
   }
 
-  header h1 {
-    font-size: 1.4rem;
+  .sidebar-logo {
+    padding: 22px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .sidebar-logo .org {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-logo .name {
+    font-size: 1rem;
     font-weight: 700;
     color: #f8fafc;
     letter-spacing: -0.02em;
   }
 
-  header span {
-    font-size: 0.75rem;
-    color: #64748b;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 14px;
-    margin-bottom: 28px;
-  }
-
-  .stat-card {
-    background: #1e2330;
-    border: 1px solid #2d3748;
-    border-radius: 10px;
-    padding: 18px;
-  }
-
-  .stat-card .label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #64748b;
-    margin-bottom: 8px;
-  }
-
-  .stat-card .value {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .stat-card .sub {
-    font-size: 0.72rem;
-    color: #64748b;
+  .sidebar-logo .badge {
+    display: inline-block;
     margin-top: 6px;
-  }
-
-  .c-blue   { color: #60a5fa; }
-  .c-green  { color: #34d399; }
-  .c-yellow { color: #fbbf24; }
-  .c-red    { color: #f87171; }
-  .c-purple { color: #a78bfa; }
-
-  .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 28px;
-  }
-
-  @media (max-width: 700px) { .row { grid-template-columns: 1fr; } }
-
-  .panel {
-    background: #1e2330;
-    border: 1px solid #2d3748;
-    border-radius: 10px;
-    padding: 20px;
-  }
-
-  .panel h2 {
-    font-size: 0.85rem;
+    font-size: 0.6rem;
     font-weight: 600;
-    color: #94a3b8;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 16px;
+    padding: 2px 7px;
+    border-radius: 20px;
+    background: rgba(37,99,235,0.3);
+    color: #93c5fd;
   }
 
-  /* Claim state flow */
-  .flow {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  .sidebar-nav { padding: 12px 0; flex: 1; }
 
-  .flow-node {
-    background: #0f1117;
-    border: 1.5px solid;
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 0.78rem;
+  .nav-section {
+    font-size: 0.6rem;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    position: relative;
-  }
-
-  .flow-node:hover { transform: translateY(-1px); filter: brightness(1.15); }
-
-  .flow-node .count {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-
-  .flow-node.submitted  { border-color: #60a5fa; color: #60a5fa; }
-  .flow-node.adjudicated { border-color: #94a3b8; color: #94a3b8; }
-  .flow-node.paid       { border-color: #34d399; color: #34d399; }
-  .flow-node.partial    { border-color: #fbbf24; color: #fbbf24; }
-  .flow-node.denied     { border-color: #f87171; color: #f87171; }
-  .flow-node.resubmit   { border-color: #a78bfa; color: #a78bfa; }
-  .flow-node.collections { border-color: #fb923c; color: #fb923c; }
-  .flow-node.writeoff   { border-color: #64748b; color: #64748b; }
-
-  .arrow {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: #475569;
-    font-size: 1.1rem;
-    user-select: none;
+    padding: 14px 20px 6px;
   }
 
-  /* Aging bar chart */
-  .aging-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .bar-row {
+  .nav-item {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  .bar-label {
-    font-size: 0.72rem;
+    padding: 8px 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
     color: #94a3b8;
-    width: 55px;
-    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.12s;
+    border-left: 2px solid transparent;
   }
 
-  .bar-track {
-    flex: 1;
-    background: #0f1117;
-    border-radius: 4px;
-    height: 20px;
-    overflow: hidden;
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #e2e8f0; }
+  .nav-item.active { background: rgba(37,99,235,0.12); color: #93c5fd; border-left-color: #2563eb; }
+  .nav-item .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+  .sidebar-footer {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.68rem;
+    color: #475569;
   }
 
-  .bar-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 0.6s ease;
-  }
+  /* ── Main ── */
+  .main { margin-left: 220px; flex: 1; display: flex; flex-direction: column; }
 
-  .bar-val {
-    font-size: 0.72rem;
-    color: #94a3b8;
-    width: 38px;
-    text-align: right;
-    flex-shrink: 0;
-  }
-
-  /* Denial breakdown */
-  .denial-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .denial-row {
+  .topbar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 12px;
-    background: #0f1117;
-    border-radius: 6px;
-    font-size: 0.78rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
   }
 
-  .denial-row .code {
-    font-family: monospace;
-    color: #f87171;
+  .topbar-left h1 {
+    font-size: 1rem;
     font-weight: 600;
-    width: 55px;
+    color: var(--text-primary);
   }
 
-  .denial-row .desc {
-    flex: 1;
-    color: #94a3b8;
-    padding: 0 10px;
+  .topbar-left p {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 1px;
   }
 
-  .denial-row .action {
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 7px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.12s;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  .btn-outline:hover { background: var(--bg); }
+
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+  }
+
+  .btn-primary:hover { background: #1d4ed8; }
+
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── Content ── */
+  .content { padding: 24px 28px; flex: 1; }
+
+  /* ── KPI Grid ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .kpi-card .kpi-label {
     font-size: 0.68rem;
-    padding: 2px 8px;
-    border-radius: 4px;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
   }
 
-  .action-auto    { background: #14532d; color: #4ade80; }
-  .action-manual  { background: #1e3a5f; color: #60a5fa; }
-  .action-patient { background: #3b1f0e; color: #fb923c; }
-  .action-appeal  { background: #2d1f5e; color: #a78bfa; }
+  .kpi-card .kpi-value {
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
 
-  /* Collections pipeline */
-  .pipeline {
+  .kpi-card .kpi-sub {
+    margin-top: 8px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .kpi-card .kpi-sub .trend {
+    font-weight: 600;
+    font-size: 0.68rem;
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  .trend-up   { background: var(--green-light); color: var(--green); }
+  .trend-down { background: var(--red-light); color: var(--red); }
+  .trend-warn { background: var(--yellow-light); color: var(--yellow); }
+
+  /* ── Section header ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .section-header h2 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .section-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: var(--blue-light);
+    color: var(--blue);
+  }
+
+  /* ── Two-col layout ── */
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .row-3 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ── Claim flow ── */
+  .flow-container {
     display: flex;
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .flow-row {
+    display: flex;
+    align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .flow-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1.5px solid;
+    min-width: 90px;
+    cursor: default;
+    transition: box-shadow 0.12s;
+  }
+
+  .flow-node:hover { box-shadow: var(--shadow); }
+
+  .flow-node .fn-count { font-size: 1.1rem; font-weight: 700; line-height: 1; }
+  .flow-node .fn-label { font-size: 0.65rem; font-weight: 600; margin-top: 3px; letter-spacing: 0.03em; }
+
+  .fn-submitted   { border-color: #bfdbfe; background: #eff6ff; color: var(--blue); }
+  .fn-adjudicated { border-color: #e2e8f0; background: #f8fafc; color: var(--gray); }
+  .fn-paid        { border-color: #bbf7d0; background: var(--green-light); color: var(--green); }
+  .fn-partial     { border-color: #fde68a; background: var(--yellow-light); color: var(--yellow); }
+  .fn-denied      { border-color: #fecaca; background: var(--red-light); color: var(--red); }
+  .fn-resubmit    { border-color: #ddd6fe; background: var(--purple-light); color: var(--purple); }
+  .fn-collections { border-color: #fed7aa; background: var(--orange-light); color: var(--orange); }
+  .fn-writeoff    { border-color: #e2e8f0; background: #f8fafc; color: var(--text-muted); }
+
+  .flow-arrow {
+    color: var(--text-muted);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .flow-sub-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-left: 4px;
+    align-self: center;
+  }
+
+  /* ── Aging chart ── */
+  .aging-table { display: flex; flex-direction: column; gap: 10px; }
+
+  .aging-row { display: flex; align-items: center; gap: 12px; }
+
+  .aging-label {
+    width: 56px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+  }
+
+  .aging-bar-track {
+    flex: 1;
+    height: 22px;
+    background: var(--bg);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .aging-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.8s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .aging-val {
+    width: 56px;
+    text-align: right;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+  }
+
+  /* ── Denial table ── */
+  .denial-table { display: flex; flex-direction: column; gap: 4px; }
+
+  .denial-row-item {
+    display: grid;
+    grid-template-columns: 64px 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 7px;
+    background: var(--bg);
+    border: 1px solid transparent;
+    transition: border-color 0.12s;
+  }
+
+  .denial-row-item:hover { border-color: var(--border); background: var(--surface); }
+
+  .denial-code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--red);
+  }
+
+  .denial-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  .denial-count {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: right;
+  }
+
+  .action-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .ab-auto    { background: var(--green-light); color: var(--green); }
+  .ab-appeal  { background: var(--purple-light); color: var(--purple); }
+  .ab-manual  { background: var(--blue-light); color: var(--blue); }
+  .ab-patient { background: var(--orange-light); color: var(--orange); }
+
+  /* ── Collections pipeline ── */
+  .pipeline { display: flex; flex-direction: column; gap: 0; }
+
+  .pipeline-track-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 10px 0 6px;
   }
 
   .pipeline-step {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
-    padding: 10px 14px;
-    background: #0f1117;
-    border-radius: 6px;
-    border-left: 3px solid;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
   }
 
-  .pipeline-step .step-num {
+  .pipeline-step:last-of-type { border-bottom: none; }
+
+  .step-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 0.65rem;
     font-weight: 700;
-    width: 20px;
-    color: #64748b;
+    flex-shrink: 0;
+    margin-top: 1px;
   }
 
-  .pipeline-step .step-text {
-    flex: 1;
+  .icon-ins { background: var(--blue-light); color: var(--blue); }
+  .icon-pat { background: var(--orange-light); color: var(--orange); }
+
+  .step-body { flex: 1; }
+  .step-body .step-title { font-size: 0.78rem; font-weight: 600; color: var(--text-primary); }
+  .step-body .step-note  { font-size: 0.68rem; color: var(--text-muted); margin-top: 2px; }
+
+  .step-timer {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+    padding: 2px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-top: 3px;
+  }
+
+  /* ── CPT table ── */
+  .cpt-table { width: 100%; border-collapse: collapse; }
+
+  .cpt-table th {
+    text-align: left;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--border);
+    background: var(--bg);
+  }
+
+  .cpt-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    vertical-align: middle;
+  }
+
+  .cpt-table tr:last-child td { border-bottom: none; }
+  .cpt-table tr:hover td { background: var(--gray-light); }
+
+  .cpt-code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-weight: 700;
+    color: var(--blue);
     font-size: 0.78rem;
   }
 
-  .pipeline-step .step-timer {
-    font-size: 0.68rem;
-    color: #64748b;
+  .risk-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
   }
 
-  .s-ins  { border-color: #60a5fa; }
-  .s-pat  { border-color: #fb923c; }
+  .risk-high   { background: var(--yellow-light); color: var(--yellow); }
+  .risk-low    { background: var(--green-light); color: var(--green); }
+  .risk-lcd    { background: var(--red-light); color: var(--red); }
 
-  .section-label {
-    font-size: 0.65rem;
+  /* ── Gaps panel ── */
+  .gaps-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+
+  .gap-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    border-top: 3px solid var(--yellow);
+    padding: 14px;
+  }
+
+  .gap-card .gap-num {
+    font-size: 0.6rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #475569;
+    color: var(--yellow);
     margin-bottom: 6px;
-    margin-top: 14px;
-  }
-  .section-label:first-child { margin-top: 0; }
-
-  /* CPT table */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.75rem;
   }
 
-  th {
-    text-align: left;
-    padding: 6px 10px;
-    color: #64748b;
+  .gap-card .gap-title {
+    font-size: 0.78rem;
     font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .gap-card .gap-desc {
     font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    border-bottom: 1px solid #2d3748;
+    color: var(--text-muted);
+    line-height: 1.5;
   }
 
-  td {
-    padding: 8px 10px;
-    border-bottom: 1px solid #1a2234;
-    color: #cbd5e1;
+  /* ── Responsive ── */
+  @media (max-width: 1100px) {
+    .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+    .gaps-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #0f1117; }
-
-  td.cpt { font-family: monospace; color: #60a5fa; font-weight: 600; }
-  td.flag { color: #fbbf24; font-size: 0.7rem; }
-
-  /* Tooltip */
-  .tooltip-wrap { position: relative; display: inline-block; }
-  .tooltip {
-    display: none;
-    position: absolute;
-    bottom: 110%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #334155;
-    color: #f1f5f9;
-    font-size: 0.7rem;
-    padding: 6px 10px;
-    border-radius: 6px;
-    white-space: nowrap;
-    z-index: 10;
-    pointer-events: none;
+  @media (max-width: 800px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; }
+    .row, .row-3 { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .gaps-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  .tooltip-wrap:hover .tooltip { display: block; }
+
+  /* ── Print ── */
+  @media print {
+    .sidebar { display: none; }
+    .main { margin-left: 0; }
+    .topbar { position: static; }
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>🔬 Muhlbauer Labs — Billing Dashboard</h1>
-  <span>Dermpath POC · April 2026</span>
-</header>
+<div class="layout">
 
-<!-- KPI strip -->
-<div class="grid">
-  <div class="stat-card">
-    <div class="label">Active Claims</div>
-    <div class="value c-blue">247</div>
-    <div class="sub">↑ 14 this week</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Paid (30d)</div>
-    <div class="value c-green">$84,320</div>
-    <div class="sub">68% collection rate</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Pending Resubmit</div>
-    <div class="value c-yellow">31</div>
-    <div class="sub">Avg 12d since denial</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Denial Rate</div>
-    <div class="value c-red">18%</div>
-    <div class="sub">Industry avg: 9–12%</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">In Collections</div>
-    <div class="value c-purple">$12,440</div>
-    <div class="sub">19 accounts</div>
-  </div>
-</div>
-
-<!-- Claim flow + Aging -->
-<div class="row">
-
-  <div class="panel">
-    <h2>Claim State Flow</h2>
-    <div class="flow">
-      <div class="tooltip-wrap flow-node submitted">
-        <span class="count">247</span>Submitted
-        <div class="tooltip">New claims sent to payer</div>
-      </div>
-      <span class="arrow">→</span>
-      <div class="tooltip-wrap flow-node adjudicated">
-        <span class="count">198</span>Adjudicated
-        <div class="tooltip">Payer returned decision</div>
-      </div>
-      <span class="arrow">→</span>
-      <div class="tooltip-wrap flow-node paid">
-        <span class="count">134</span>Paid
-        <div class="tooltip">Fully paid, ledger closed</div>
-      </div>
-      <br style="width:100%">
-      <span class="arrow" style="opacity:0">→</span>
-      <span class="arrow" style="opacity:0">→</span>
-      <div class="tooltip-wrap flow-node partial">
-        <span class="count">29</span>Partial
-        <div class="tooltip">Underpayment flagged, appeal timer running</div>
-      </div>
-      <span class="arrow">→</span>
-      <div class="tooltip-wrap flow-node resubmit">
-        <span class="count">31</span>Resubmit
-        <div class="tooltip">Corrected & resubmitted (&lt;2 attempts)</div>
-      </div>
-      <br style="width:100%">
-      <span class="arrow" style="opacity:0">→</span>
-      <span class="arrow" style="opacity:0">→</span>
-      <div class="tooltip-wrap flow-node denied">
-        <span class="count">35</span>Denied
-        <div class="tooltip">Denial reason parsed, action queued</div>
-      </div>
-      <span class="arrow">→</span>
-      <div class="tooltip-wrap flow-node collections">
-        <span class="count">19</span>Collections
-        <div class="tooltip">Balance &gt; threshold, 90+ days inactive</div>
-      </div>
-      <span class="arrow">→</span>
-      <div class="tooltip-wrap flow-node writeoff">
-        <span class="count">5</span>Write-off
-        <div class="tooltip">Below threshold or appeal exhausted</div>
-      </div>
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="org">Muhlbauer Labs</div>
+      <div class="name">Revenue Cycle</div>
+      <span class="badge">Dermpath · POC</span>
     </div>
-  </div>
 
-  <div class="panel">
-    <h2>Aging Buckets (AR)</h2>
-    <div class="aging-bars">
-      <div class="bar-row">
-        <div class="bar-label">0–30d</div>
-        <div class="bar-track"><div class="bar-fill" style="width:72%; background:#34d399;"></div></div>
-        <div class="bar-val">$42,100</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">31–60d</div>
-        <div class="bar-track"><div class="bar-fill" style="width:45%; background:#fbbf24;"></div></div>
-        <div class="bar-val">$26,800</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">61–90d</div>
-        <div class="bar-track"><div class="bar-fill" style="width:28%; background:#fb923c;"></div></div>
-        <div class="bar-val">$16,200</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">90+d</div>
-        <div class="bar-track"><div class="bar-fill" style="width:20%; background:#f87171;"></div></div>
-        <div class="bar-val">$12,440</div>
-      </div>
+    <div class="sidebar-nav">
+      <div class="nav-section">Overview</div>
+      <div class="nav-item active"><span class="dot"></span> Dashboard</div>
+      <div class="nav-item"><span class="dot"></span> Claim Queue</div>
+      <div class="nav-item"><span class="dot"></span> Aging Report</div>
+
+      <div class="nav-section">Workflows</div>
+      <div class="nav-item"><span class="dot"></span> Denials</div>
+      <div class="nav-item"><span class="dot"></span> Collections</div>
+      <div class="nav-item"><span class="dot"></span> Resubmissions</div>
+
+      <div class="nav-section">Reference</div>
+      <div class="nav-item"><span class="dot"></span> CPT Codes</div>
+      <div class="nav-item"><span class="dot"></span> Payer Matrix</div>
+      <div class="nav-item"><span class="dot"></span> Fee Schedule</div>
     </div>
-  </div>
 
-</div>
-
-<!-- Denial codes + Collections pipeline -->
-<div class="row">
-
-  <div class="panel">
-    <h2>Denial Codes → Actions</h2>
-    <div class="denial-list">
-      <div class="denial-row">
-        <div class="code">CO-4</div>
-        <div class="desc">Missing / invalid modifier</div>
-        <div class="action action-auto">Auto-fix</div>
-      </div>
-      <div class="denial-row">
-        <div class="code">CO-97</div>
-        <div class="desc">Bundled service</div>
-        <div class="action action-appeal">Appeal</div>
-      </div>
-      <div class="denial-row">
-        <div class="code">CO-16</div>
-        <div class="desc">Claim info missing</div>
-        <div class="action action-manual">Manual</div>
-      </div>
-      <div class="denial-row">
-        <div class="code">CO-18</div>
-        <div class="desc">Duplicate claim</div>
-        <div class="action action-manual">Research</div>
-      </div>
-      <div class="denial-row">
-        <div class="code">CO-49</div>
-        <div class="desc">Non-covered service</div>
-        <div class="action action-patient">Bill Patient</div>
-      </div>
-      <div class="denial-row">
-        <div class="code">CO-96</div>
-        <div class="desc">Auth required</div>
-        <div class="action action-manual">Auth Team</div>
-      </div>
+    <div class="sidebar-footer">
+      Last updated: Apr 5, 2026
     </div>
-  </div>
+  </nav>
 
-  <div class="panel">
-    <h2>Collections Pipeline</h2>
+  <!-- Main -->
+  <div class="main">
 
-    <div class="section-label">Insurance</div>
-    <div class="pipeline">
-      <div class="pipeline-step s-ins">
-        <div class="step-num">1</div>
-        <div class="step-text">File formal appeal with payer</div>
-        <div class="step-timer">Day 0</div>
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <h1>Billing &amp; Revenue Cycle Dashboard</h1>
+        <p>Dermatopathology · April 2026 · Proof of Concept</p>
       </div>
-      <div class="pipeline-step s-ins">
-        <div class="step-num">2</div>
-        <div class="step-text">Escalate to state commissioner if denied</div>
-        <div class="step-timer">Day 45</div>
-      </div>
-      <div class="pipeline-step s-ins">
-        <div class="step-num">3</div>
-        <div class="step-text">Write-off vs. small claims threshold check</div>
-        <div class="step-timer">Day 90</div>
+      <div class="topbar-right">
+        <div class="status-dot"></div>
+        <span style="font-size:0.72rem; color:var(--text-muted);">Live</span>
+        <button class="btn btn-outline">Export</button>
+        <button class="btn btn-primary">Run Reconciliation</button>
       </div>
     </div>
 
-    <div class="section-label">Patient</div>
-    <div class="pipeline">
-      <div class="pipeline-step s-pat">
-        <div class="step-num">1</div>
-        <div class="step-text">Send statement</div>
-        <div class="step-timer">+30d</div>
-      </div>
-      <div class="pipeline-step s-pat">
-        <div class="step-num">2</div>
-        <div class="step-text">Final notice</div>
-        <div class="step-timer">+15d</div>
-      </div>
-      <div class="pipeline-step s-pat">
-        <div class="step-num">3</div>
-        <div class="step-text">Internal or 3rd-party agency</div>
-        <div class="step-timer">+15d</div>
-      </div>
-      <div class="pipeline-step s-pat">
-        <div class="step-num">4</div>
-        <div class="step-text">Flag account in LIS/PMS</div>
-        <div class="step-timer">Immediate</div>
-      </div>
-    </div>
-  </div>
+    <!-- Content -->
+    <div class="content">
 
-</div>
+      <!-- KPIs -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Active Claims</div>
+          <div class="kpi-value" style="color:var(--blue)">247</div>
+          <div class="kpi-sub">
+            <span class="trend trend-up">↑ 14</span> this week
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Collected (30d)</div>
+          <div class="kpi-value" style="color:var(--green)">$84,320</div>
+          <div class="kpi-sub">
+            <span class="trend trend-up">68%</span> collection rate
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Pending Resubmit</div>
+          <div class="kpi-value" style="color:var(--yellow)">31</div>
+          <div class="kpi-sub">
+            <span class="trend trend-warn">Avg 12d</span> since denial
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Denial Rate</div>
+          <div class="kpi-value" style="color:var(--red)">18%</div>
+          <div class="kpi-sub">
+            <span class="trend trend-down">↑ 6pp</span> vs. industry avg
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">In Collections</div>
+          <div class="kpi-value" style="color:var(--purple)">$12,440</div>
+          <div class="kpi-sub">
+            <span class="trend trend-warn">19 accts</span> active
+          </div>
+        </div>
+      </div>
 
-<!-- CPT code table -->
-<div class="panel" style="margin-bottom:28px;">
-  <h2>Dermpath CPT Reference</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>CPT</th>
-        <th>Description</th>
-        <th>Typical Bill</th>
-        <th>Split Bill?</th>
-        <th>Stack Risk</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="cpt">88305</td>
-        <td>Level IV — skin, other</td>
-        <td>$120–$160</td>
-        <td>TC/PC</td>
-        <td class="flag">⚠ Payer-dependent</td>
-      </tr>
-      <tr>
-        <td class="cpt">88307</td>
-        <td>Level V — skin, complex</td>
-        <td>$200–$280</td>
-        <td>TC/PC</td>
-        <td>Low</td>
-      </tr>
-      <tr>
-        <td class="cpt">88309</td>
-        <td>Level VI — resection, extensive</td>
-        <td>$320–$450</td>
-        <td>TC/PC</td>
-        <td>Low</td>
-      </tr>
-      <tr>
-        <td class="cpt">88331</td>
-        <td>Intraop consultation, first block</td>
-        <td>$180–$240</td>
-        <td>PC only</td>
-        <td>Low</td>
-      </tr>
-      <tr>
-        <td class="cpt">88342</td>
-        <td>IHC, per specimen (manual)</td>
-        <td>$90–$130</td>
-        <td>TC/PC</td>
-        <td class="flag">⚠ Bundling CO-97</td>
-      </tr>
-      <tr>
-        <td class="cpt">88360</td>
-        <td>Morphometric analysis (IHC)</td>
-        <td>$140–$190</td>
-        <td>TC/PC</td>
-        <td class="flag">⚠ LCD required</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      <!-- Claim Flow + Aging -->
+      <div class="row">
 
-<!-- Gaps / open questions -->
-<div class="panel">
-  <h2>Open Gaps — Need Resolution</h2>
-  <div class="denial-list">
-    <div class="denial-row">
-      <div class="code" style="color:#fbbf24; width:auto; margin-right:12px;">GAP 1</div>
-      <div class="desc">Specimen grouping rule: per cassette vs. per specimen vs. per case?</div>
-      <div class="action" style="background:#2d2000; color:#fbbf24;">TBD</div>
-    </div>
-    <div class="denial-row">
-      <div class="code" style="color:#fbbf24; width:auto; margin-right:12px;">GAP 2</div>
-      <div class="desc">Split billing policy: professional vs. technical component per payer</div>
-      <div class="action" style="background:#2d2000; color:#fbbf24;">TBD</div>
-    </div>
-    <div class="denial-row">
-      <div class="code" style="color:#fbbf24; width:auto; margin-right:12px;">GAP 3</div>
-      <div class="desc">Medicare/TRICARE LCD lookup — which dermpath codes need prior auth?</div>
-      <div class="action" style="background:#2d2000; color:#fbbf24;">TBD</div>
-    </div>
-    <div class="denial-row">
-      <div class="code" style="color:#fbbf24; width:auto; margin-right:12px;">GAP 4</div>
-      <div class="desc">Dollar threshold for write-off vs. collections escalation</div>
-      <div class="action" style="background:#2d2000; color:#fbbf24;">TBD</div>
-    </div>
-    <div class="denial-row">
-      <div class="code" style="color:#fbbf24; width:auto; margin-right:12px;">GAP 5</div>
-      <div class="desc">Referring provider loop: auto-report to dermatologist EHR on close?</div>
-      <div class="action" style="background:#2d2000; color:#fbbf24;">TBD</div>
-    </div>
-  </div>
-</div>
+        <div class="card">
+          <div class="section-header">
+            <h2>Claim State Flow</h2>
+            <span class="section-tag">Automated</span>
+          </div>
+          <div class="flow-container">
+            <div class="flow-row">
+              <div class="flow-node fn-submitted">
+                <span class="fn-count">247</span>
+                <span class="fn-label">Submitted</span>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node fn-adjudicated">
+                <span class="fn-count">198</span>
+                <span class="fn-label">Adjudicated</span>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node fn-paid">
+                <span class="fn-count">134</span>
+                <span class="fn-label">Paid</span>
+              </div>
+            </div>
+            <div class="flow-row" style="padding-left:108px;">
+              <span class="flow-arrow">↓</span>
+            </div>
+            <div class="flow-row">
+              <div class="flow-node fn-denied">
+                <span class="fn-count">35</span>
+                <span class="fn-label">Denied</span>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node fn-resubmit">
+                <span class="fn-count">31</span>
+                <span class="fn-label">Resubmit</span>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node fn-partial">
+                <span class="fn-count">29</span>
+                <span class="fn-label">Partial</span>
+              </div>
+            </div>
+            <div class="flow-row" style="padding-left:0px;">
+              <div class="flow-node fn-collections">
+                <span class="fn-count">19</span>
+                <span class="fn-label">Collections</span>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node fn-writeoff">
+                <span class="fn-count">5</span>
+                <span class="fn-label">Write-off</span>
+              </div>
+              <span class="flow-sub-label">Balance &lt; threshold</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-header">
+            <h2>AR Aging Buckets</h2>
+          </div>
+          <div class="aging-table">
+            <div class="aging-row">
+              <div class="aging-label">0 – 30d</div>
+              <div class="aging-bar-track">
+                <div class="aging-bar-fill" style="width:72%; background: linear-gradient(90deg,#16a34a,#22c55e);">$42,100</div>
+              </div>
+              <div class="aging-val">$42,100</div>
+            </div>
+            <div class="aging-row">
+              <div class="aging-label">31 – 60d</div>
+              <div class="aging-bar-track">
+                <div class="aging-bar-fill" style="width:45%; background: linear-gradient(90deg,#d97706,#fbbf24);">$26,800</div>
+              </div>
+              <div class="aging-val">$26,800</div>
+            </div>
+            <div class="aging-row">
+              <div class="aging-label">61 – 90d</div>
+              <div class="aging-bar-track">
+                <div class="aging-bar-fill" style="width:28%; background: linear-gradient(90deg,#ea580c,#fb923c);">$16,200</div>
+              </div>
+              <div class="aging-val">$16,200</div>
+            </div>
+            <div class="aging-row">
+              <div class="aging-label">90d+</div>
+              <div class="aging-bar-track">
+                <div class="aging-bar-fill" style="width:20%; background: linear-gradient(90deg,#dc2626,#ef4444);">$12,440</div>
+              </div>
+              <div class="aging-val">$12,440</div>
+            </div>
+          </div>
+          <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.7rem; color:var(--text-muted);">Total AR</span>
+            <span style="font-size:1rem; font-weight:700; color:var(--text-primary);">$97,540</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Denial codes + Collections -->
+      <div class="row">
+
+        <div class="card">
+          <div class="section-header">
+            <h2>Denial Reason Codes</h2>
+            <span class="section-tag">35 open</span>
+          </div>
+          <div class="denial-table">
+            <div class="denial-row-item">
+              <span class="denial-code">CO-4</span>
+              <span class="denial-desc">Missing or invalid procedure modifier</span>
+              <span class="denial-count">11</span>
+              <span class="action-badge ab-auto">Auto-fix</span>
+            </div>
+            <div class="denial-row-item">
+              <span class="denial-code">CO-97</span>
+              <span class="denial-desc">Service included in another service billed</span>
+              <span class="denial-count">8</span>
+              <span class="action-badge ab-appeal">Appeal</span>
+            </div>
+            <div class="denial-row-item">
+              <span class="denial-code">CO-16</span>
+              <span class="denial-desc">Claim / service lacks information</span>
+              <span class="denial-count">6</span>
+              <span class="action-badge ab-manual">Manual</span>
+            </div>
+            <div class="denial-row-item">
+              <span class="denial-code">CO-18</span>
+              <span class="denial-desc">Exact duplicate claim / service</span>
+              <span class="denial-count">5</span>
+              <span class="action-badge ab-manual">Research</span>
+            </div>
+            <div class="denial-row-item">
+              <span class="denial-code">CO-49</span>
+              <span class="denial-desc">Non-covered service — patient responsibility</span>
+              <span class="denial-count">3</span>
+              <span class="action-badge ab-patient">Bill Patient</span>
+            </div>
+            <div class="denial-row-item">
+              <span class="denial-code">CO-96</span>
+              <span class="denial-desc">Prior authorization / notification required</span>
+              <span class="denial-count">2</span>
+              <span class="action-badge ab-manual">Auth Team</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-header">
+            <h2>Collections Pipeline</h2>
+          </div>
+          <div class="pipeline">
+            <div class="pipeline-track-label">Insurance Track</div>
+            <div class="pipeline-step">
+              <div class="step-icon icon-ins">1</div>
+              <div class="step-body">
+                <div class="step-title">File formal appeal with payer</div>
+                <div class="step-note">Include denial code, corrected claim, supporting docs</div>
+              </div>
+              <div class="step-timer">Day 0</div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-icon icon-ins">2</div>
+              <div class="step-body">
+                <div class="step-title">Escalate to state insurance commissioner</div>
+                <div class="step-note">If appeal denied within 45 days</div>
+              </div>
+              <div class="step-timer">Day 45</div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-icon icon-ins">3</div>
+              <div class="step-body">
+                <div class="step-title">Write-off vs. small claims threshold</div>
+                <div class="step-note">Decision gate: balance vs. litigation cost</div>
+              </div>
+              <div class="step-timer">Day 90</div>
+            </div>
+
+            <div class="pipeline-track-label">Patient Track</div>
+            <div class="pipeline-step">
+              <div class="step-icon icon-pat">1</div>
+              <div class="step-body">
+                <div class="step-title">Send patient statement</div>
+                <div class="step-note">Mail + portal notification</div>
+              </div>
+              <div class="step-timer">Day 0</div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-icon icon-pat">2</div>
+              <div class="step-body">
+                <div class="step-title">Final notice</div>
+                <div class="step-note">Certified mail + email</div>
+              </div>
+              <div class="step-timer">+30d</div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-icon icon-pat">3</div>
+              <div class="step-body">
+                <div class="step-title">Route to collections agency</div>
+                <div class="step-note">Internal first; 3rd-party if balance &gt; threshold</div>
+              </div>
+              <div class="step-timer">+45d</div>
+            </div>
+            <div class="pipeline-step" style="border:none;">
+              <div class="step-icon icon-pat">4</div>
+              <div class="step-body">
+                <div class="step-title">Flag account in LIS / PMS</div>
+                <div class="step-note">Block new orders until resolved</div>
+              </div>
+              <div class="step-timer">Immediate</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CPT Reference -->
+      <div class="card" style="margin-bottom:16px;">
+        <div class="section-header">
+          <h2>Dermpath CPT Code Reference</h2>
+          <span class="section-tag">TC / PC split required</span>
+        </div>
+        <table class="cpt-table">
+          <thead>
+            <tr>
+              <th>CPT</th>
+              <th>Description</th>
+              <th>Typical Bill</th>
+              <th>Component</th>
+              <th>Stack / Bundling Risk</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cpt-code">88305</td>
+              <td>Level IV — skin, other</td>
+              <td>$120 – $160</td>
+              <td>TC / PC</td>
+              <td><span class="risk-flag risk-high">⚠ Payer-dependent</span></td>
+            </tr>
+            <tr>
+              <td class="cpt-code">88307</td>
+              <td>Level V — skin, complex</td>
+              <td>$200 – $280</td>
+              <td>TC / PC</td>
+              <td><span class="risk-flag risk-low">Low</span></td>
+            </tr>
+            <tr>
+              <td class="cpt-code">88309</td>
+              <td>Level VI — resection, extensive</td>
+              <td>$320 – $450</td>
+              <td>TC / PC</td>
+              <td><span class="risk-flag risk-low">Low</span></td>
+            </tr>
+            <tr>
+              <td class="cpt-code">88331</td>
+              <td>Intraoperative consultation, first block</td>
+              <td>$180 – $240</td>
+              <td>PC only</td>
+              <td><span class="risk-flag risk-low">Low</span></td>
+            </tr>
+            <tr>
+              <td class="cpt-code">88342</td>
+              <td>Immunohistochemistry (IHC), per specimen — manual</td>
+              <td>$90 – $130</td>
+              <td>TC / PC</td>
+              <td><span class="risk-flag risk-high">⚠ CO-97 bundling</span></td>
+            </tr>
+            <tr>
+              <td class="cpt-code">88360</td>
+              <td>Morphometric analysis — IHC</td>
+              <td>$140 – $190</td>
+              <td>TC / PC</td>
+              <td><span class="risk-flag risk-lcd">LCD required</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Open Gaps -->
+      <div class="card">
+        <div class="section-header">
+          <h2>Open Gaps — Resolution Required</h2>
+          <span class="section-tag" style="background:var(--yellow-light); color:var(--yellow);">5 unresolved</span>
+        </div>
+        <div class="gaps-grid">
+          <div class="gap-card">
+            <div class="gap-num">Gap 01</div>
+            <div class="gap-title">Specimen Grouping Rule</div>
+            <div class="gap-desc">Bill per cassette, per specimen, or per case? 88305 stacking varies by payer contract.</div>
+          </div>
+          <div class="gap-card">
+            <div class="gap-num">Gap 02</div>
+            <div class="gap-title">TC / PC Split Policy</div>
+            <div class="gap-desc">Professional vs. technical component billing per payer. Define whether to split or global bill.</div>
+          </div>
+          <div class="gap-card">
+            <div class="gap-num">Gap 03</div>
+            <div class="gap-title">Medicare / TRICARE LCD</div>
+            <div class="gap-desc">Which dermpath codes require prior auth under active LCDs? Need real-time NCD/LCD lookup.</div>
+          </div>
+          <div class="gap-card">
+            <div class="gap-num">Gap 04</div>
+            <div class="gap-title">Write-off Threshold</div>
+            <div class="gap-desc">Dollar floor for write-off vs. collections escalation. Define by payer type and balance band.</div>
+          </div>
+          <div class="gap-card">
+            <div class="gap-num">Gap 05</div>
+            <div class="gap-title">Referring Provider Loop</div>
+            <div class="gap-desc">Auto-report results + billing close to dermatologist EHR on claim resolution?</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /layout -->
 
 </body>
 </html>
