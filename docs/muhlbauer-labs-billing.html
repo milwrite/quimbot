@@ -243,7 +243,7 @@
 
   .denial-row {
     display: grid;
-    grid-template-columns: 70px 260px 100px 1fr;
+    grid-template-columns: 70px 1fr 1fr;
     align-items: center;
     gap: 16px;
     padding: 10px 0;
@@ -486,67 +486,49 @@
 <body>
 
 <!-- Header -->
-<div class="page-header">
+<div class="page-header" style="align-items:flex-start;">
   <div>
     <h1>Muhlbauer Labs — Revenue Cycle Flow</h1>
-    <p>Dermatopathology · Billing Automation · April 2026</p>
+    <p>Dermatopathology · Billing Automation · POC — connect LIS/PMS to populate live data</p>
   </div>
-  <div class="header-meta">
-    <div class="meta-stat">
-      <div class="val" style="color:var(--blue)">247</div>
-      <div class="lbl">Active Claims</div>
-    </div>
-    <div class="meta-stat">
-      <div class="val" style="color:var(--green)">$84,320</div>
-      <div class="lbl">Collected (30d)</div>
-    </div>
-    <div class="meta-stat">
-      <div class="val" style="color:var(--red)">18%</div>
-      <div class="lbl">Denial Rate</div>
-    </div>
-    <div class="meta-stat">
-      <div class="val" style="color:var(--orange)">$12,440</div>
-      <div class="lbl">In Collections</div>
-    </div>
+  <div style="font-size:0.7rem; color:var(--muted); line-height:2; padding-top:4px;">
+    <div><strong style="color:var(--ink)">Active Claims</strong> · source: LIS claim queue</div>
+    <div><strong style="color:var(--ink)">Collected</strong> · source: ERA / clearinghouse remit</div>
+    <div><strong style="color:var(--ink)">Denial Rate</strong> · source: 835 denial loop</div>
+    <div><strong style="color:var(--ink)">AR Aging</strong> · source: PMS ledger export</div>
   </div>
 </div>
 
-<!-- KPI strip -->
+<!-- Claim state strip: labels + data sources only -->
 <div class="kpi-strip">
   <div class="kpi-item">
-    <div class="kv" style="color:var(--green)">134</div>
     <div class="kl">Paid</div>
-    <div class="ks">Closed · ledger posted</div>
+    <div class="ks" style="color:var(--green); font-weight:600;">← ERA / clearinghouse</div>
   </div>
   <div class="kpi-divider"></div>
   <div class="kpi-item">
-    <div class="kv" style="color:var(--yellow)">29</div>
     <div class="kl">Partial</div>
-    <div class="ks">Underpayment · appeal timer</div>
+    <div class="ks" style="color:var(--yellow); font-weight:600;">← ERA remit detail</div>
   </div>
   <div class="kpi-divider"></div>
   <div class="kpi-item">
-    <div class="kv" style="color:var(--red)">35</div>
     <div class="kl">Denied</div>
-    <div class="ks">Reason parsed · action queued</div>
+    <div class="ks" style="color:var(--red); font-weight:600;">← 835 denial loop</div>
   </div>
   <div class="kpi-divider"></div>
   <div class="kpi-item">
-    <div class="kv" style="color:var(--purple)">31</div>
-    <div class="kl">Resubmit</div>
-    <div class="ks">Avg 12d since denial</div>
+    <div class="kl">Resubmit queue</div>
+    <div class="ks" style="color:var(--purple); font-weight:600;">← billing engine</div>
   </div>
   <div class="kpi-divider"></div>
   <div class="kpi-item">
-    <div class="kv" style="color:var(--orange)">19</div>
     <div class="kl">Collections</div>
-    <div class="ks">90+ days inactive</div>
+    <div class="ks" style="color:var(--orange); font-weight:600;">← AR aging 90d+</div>
   </div>
   <div class="kpi-divider"></div>
   <div class="kpi-item">
-    <div class="kv" style="color:var(--muted)">5</div>
     <div class="kl">Write-off</div>
-    <div class="ks">Below threshold</div>
+    <div class="ks" style="font-weight:600;">← GL / write-off log</div>
   </div>
 </div>
 
@@ -560,7 +542,6 @@
     <div class="flow-track">
       <div class="node">
         <div class="node-pill n-submitted">
-          <span class="n-count">247</span>
           <span class="n-label">Submitted</span>
           <span class="n-sub">CPT + NPI attached</span>
         </div>
@@ -573,7 +554,6 @@
 
       <div class="node">
         <div class="node-pill n-adjudicated">
-          <span class="n-count">198</span>
           <span class="n-label">Adjudicated</span>
           <span class="n-sub">Decision returned</span>
         </div>
@@ -586,7 +566,6 @@
 
       <div class="node">
         <div class="node-pill n-paid">
-          <span class="n-count">134</span>
           <span class="n-label">Paid</span>
           <span class="n-sub">Ledger closed</span>
         </div>
@@ -609,7 +588,6 @@
       </div>
       <div class="node">
         <div class="node-pill n-partial">
-          <span class="n-count">29</span>
           <span class="n-label">Partial</span>
           <span class="n-sub">Appeal timer starts</span>
         </div>
@@ -620,7 +598,6 @@
       </div>
       <div class="node">
         <div class="node-pill n-resubmit">
-          <span class="n-count">31</span>
           <span class="n-label">Resubmit</span>
           <span class="n-sub">Corrected + resent</span>
         </div>
@@ -643,7 +620,6 @@
       </div>
       <div class="node">
         <div class="node-pill n-denied">
-          <span class="n-count">35</span>
           <span class="n-label">Denied</span>
           <span class="n-sub">Reason code parsed</span>
         </div>
@@ -654,7 +630,6 @@
       </div>
       <div class="node">
         <div class="node-pill n-collections">
-          <span class="n-count">19</span>
           <span class="n-label">Collections</span>
           <span class="n-sub">90d+ inactive</span>
         </div>
@@ -665,7 +640,6 @@
       </div>
       <div class="node">
         <div class="node-pill n-writeoff">
-          <span class="n-count">5</span>
           <span class="n-label">Write-off</span>
           <span class="n-sub">Balance &lt; floor</span>
         </div>
@@ -686,7 +660,6 @@
       <div class="denial-row">
         <span class="d-code">CO-4</span>
         <span class="d-desc">Missing / invalid modifier</span>
-        <span class="d-count">11</span>
         <div class="d-action-flow">
           <span class="da-arrow">→</span>
           <span class="da-pill da-auto">Auto-fix modifier</span>
@@ -697,7 +670,6 @@
       <div class="denial-row">
         <span class="d-code">CO-97</span>
         <span class="d-desc">Service bundled into another</span>
-        <span class="d-count">8</span>
         <div class="d-action-flow">
           <span class="da-arrow">→</span>
           <span class="da-pill da-appeal">File Appeal</span>
@@ -708,7 +680,6 @@
       <div class="denial-row">
         <span class="d-code">CO-16</span>
         <span class="d-desc">Claim lacks required information</span>
-        <span class="d-count">6</span>
         <div class="d-action-flow">
           <span class="da-arrow">→</span>
           <span class="da-pill da-manual">Manual Review</span>
@@ -719,7 +690,6 @@
       <div class="denial-row">
         <span class="d-code">CO-18</span>
         <span class="d-desc">Exact duplicate claim</span>
-        <span class="d-count">5</span>
         <div class="d-action-flow">
           <span class="da-arrow">→</span>
           <span class="da-pill da-manual">Research</span>
@@ -730,7 +700,6 @@
       <div class="denial-row">
         <span class="d-code">CO-49</span>
         <span class="d-desc">Non-covered service</span>
-        <span class="d-count">3</span>
         <div class="d-action-flow">
           <span class="da-arrow">→</span>
           <span class="da-pill da-patient">Skip Insurance</span>
@@ -741,7 +710,6 @@
       <div class="denial-row">
         <span class="d-code">CO-96</span>
         <span class="d-desc">Prior authorization required</span>
-        <span class="d-count">2</span>
         <div class="d-action-flow">
           <span class="da-arrow">→</span>
           <span class="da-pill da-manual">Route to Auth Team</span>
@@ -832,7 +800,7 @@
         <tr>
           <th>CPT</th>
           <th>Description</th>
-          <th>Typical Billed</th>
+          <th>Fee Schedule</th>
           <th>Component</th>
           <th>Risk</th>
         </tr>
@@ -841,42 +809,42 @@
         <tr>
           <td class="cpt-code-cell">88305</td>
           <td>Level IV — skin, other</td>
-          <td>$120 – $160</td>
+          <td style="color:var(--muted)">— per contract</td>
           <td>TC / PC</td>
           <td><span class="risk-tag risk-warn">⚠ Payer-dependent stacking</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88307</td>
           <td>Level V — skin, complex</td>
-          <td>$200 – $280</td>
+          <td style="color:var(--muted)">— per contract</td>
           <td>TC / PC</td>
           <td><span class="risk-tag risk-ok">Low</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88309</td>
           <td>Level VI — resection, extensive</td>
-          <td>$320 – $450</td>
+          <td style="color:var(--muted)">— per contract</td>
           <td>TC / PC</td>
           <td><span class="risk-tag risk-ok">Low</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88331</td>
           <td>Intraoperative consultation, first block</td>
-          <td>$180 – $240</td>
+          <td style="color:var(--muted)">— per contract</td>
           <td>PC only</td>
           <td><span class="risk-tag risk-ok">Low</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88342</td>
           <td>IHC per specimen — manual</td>
-          <td>$90 – $130</td>
+          <td style="color:var(--muted)">— per contract</td>
           <td>TC / PC</td>
           <td><span class="risk-tag risk-warn">⚠ CO-97 bundling</span></td>
         </tr>
         <tr>
           <td class="cpt-code-cell">88360</td>
           <td>Morphometric analysis — IHC</td>
-          <td>$140 – $190</td>
+          <td style="color:var(--muted)">— per contract</td>
           <td>TC / PC</td>
           <td><span class="risk-tag risk-lcd">LCD required</span></td>
         </tr>
