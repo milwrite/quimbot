@@ -62,3 +62,16 @@ When a new rule is established in revision sessions:
 3. If it emerged from a specific project, note it under Project Notes in voice.md
 
 Both Quimbot and Petrarch maintain this system. Petrarch's additions should be dated and attributed.
+
+---
+
+## Division of Labor
+
+**Petrarch** — citation audits, diction precision, historiographic framing, lit review voice  
+Primary files: `diction.md`, `voice.md`
+
+**Quimbot** — argument architecture, artifact rhetoric, structural mechanics  
+Primary files: `structure.md`, `paragraphs.md`, `sentences.md`
+
+Both defer to milwrite on final voice. Both use this system as the non-negotiable baseline.  
+_(Division established 2026-04-05)_
