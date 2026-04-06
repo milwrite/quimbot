@@ -60,33 +60,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Writing system expanded** — CHECKLIST_COPY, CHECKLIST_REVISE, PROCESS_GUIDE added for phase-decomposed style with conditional routing
 - **Single draft.md canonical** — versioned filenames eliminated, git handles history; writing/ directory reorganized with subdirectories
 
-## Key Decisions Log (2026-03-21)
-- **Cloze paper at v35** — 4 draft versions in one day; first-person narrator grafted at 8 points (v33); logical prepositions pass (v34); Harris/Firth/Mikolov/Peters/Devlin genealogy expanded and thesis restored to intro (v35)
-- **Style system disaggregated** — monolithic STYLE_GUIDE.md split into 6 modular files (anti-patterns, diction, paragraphs, sentences, structure, voice) with SKILL.md router in `style/`
-- **Superset9 merged at 45,555 rows** — row count lower than superset8 (46,943) due to dedup/filtering variance
-- **Pages build fix** — broken a11y-checker submodule ref removed and gitignored
-
-## Key Decisions Log (2026-03-20)
-- **Superset8 merged at 46,943 rows** — new dataset high-water mark
-- **Writing hub page shipped** — `/writing/` with card layout + commit metadata on creative-clawing
-- **Cloze reader browser editor added** — password-gated, highlight + commit to GitHub (major tooling for milwrite)
-- **AI detection essay updated to v4** on live site
-- **Session 2b verification results documented** in SESSION_STATE
-
-## Key Decisions Log (2026-03-19)
-- **Paper title finalized**: "Fill in the Blank: Cloze Reader and the Twin Histories of Occlusion"
-- **Colon/semicolon audit rule** added to STYLE_GUIDE (Petrarch's connector-surfacing principle)
-- **3 more style rules**: trailing participle phrases ban, anaphora abuse ban, tricolon abuse ban
-- **Draft at v31**: ~2,800+ words, Zhang & Hashimoto 2021 + Ondov 2024 in bibliography
-- **Closing sentence inverts training signal framing** — "inductive bias" pushed to body
-
-## Key Decisions Log (2026-03-18)
-- **Cloze reader live draft is additive-only** — never rewrite existing v14 prose; only insert new sentences or extend. milwrite preserves voice.
-- **JOURNAL.md is the canonical shared record** for cloze-reader paper (both bots maintain it)
-- **Style guide now has 3 new rules**: bridging constructions ban, nominalization ban, em-dash enclosure rule
-- **Kalshi sidequest**: weather + CPI only (trimmed from broader scope)
-- **Session 2 requires formal S1→S2 token** from milwrite before scope opens
-
 ## Agent Documentation
 
 Agent coordination files are in the project root:
@@ -204,3 +177,34 @@ A2A_PORT=9000 node a2a-bridge.mjs      # custom port
 - `fine-tuning/prospects/cron.log` shows repeated Discord notifier failures caused by shell call to missing `openclaw` binary (`/bin/sh: 1: openclaw: not found`).
 - Keep OpenClaw-native messaging for status posts (message tool / API path), do not rely on local CLI availability in cron environments.
 - Core blockers are still the same: missing Run 4 adapter weights locally and OpenRouter HTTP 402.
+
+## Archived Decisions
+
+_Entries older than 2 weeks, archived 2026-04-05._
+
+## Key Decisions Log (2026-03-21)
+- **Cloze paper at v35** — 4 draft versions in one day; first-person narrator grafted at 8 points (v33); logical prepositions pass (v34); Harris/Firth/Mikolov/Peters/Devlin genealogy expanded and thesis restored to intro (v35)
+- **Style system disaggregated** — monolithic STYLE_GUIDE.md split into 6 modular files (anti-patterns, diction, paragraphs, sentences, structure, voice) with SKILL.md router in `style/`
+- **Superset9 merged at 45,555 rows** — row count lower than superset8 (46,943) due to dedup/filtering variance
+- **Pages build fix** — broken a11y-checker submodule ref removed and gitignored
+
+## Key Decisions Log (2026-03-20)
+- **Superset8 merged at 46,943 rows** — new dataset high-water mark
+- **Writing hub page shipped** — `/writing/` with card layout + commit metadata on creative-clawing
+- **Cloze reader browser editor added** — password-gated, highlight + commit to GitHub (major tooling for milwrite)
+- **AI detection essay updated to v4** on live site
+- **Session 2b verification results documented** in SESSION_STATE
+
+## Key Decisions Log (2026-03-19)
+- **Paper title finalized**: "Fill in the Blank: Cloze Reader and the Twin Histories of Occlusion"
+- **Colon/semicolon audit rule** added to STYLE_GUIDE (Petrarch's connector-surfacing principle)
+- **3 more style rules**: trailing participle phrases ban, anaphora abuse ban, tricolon abuse ban
+- **Draft at v31**: ~2,800+ words, Zhang & Hashimoto 2021 + Ondov 2024 in bibliography
+- **Closing sentence inverts training signal framing** — "inductive bias" pushed to body
+
+## Key Decisions Log (2026-03-18)
+- **Cloze reader live draft is additive-only** — never rewrite existing v14 prose; only insert new sentences or extend. milwrite preserves voice.
+- **JOURNAL.md is the canonical shared record** for cloze-reader paper (both bots maintain it)
+- **Style guide now has 3 new rules**: bridging constructions ban, nominalization ban, em-dash enclosure rule
+- **Kalshi sidequest**: weather + CPI only (trimmed from broader scope)
+- **Session 2 requires formal S1→S2 token** from milwrite before scope opens
