@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mobile Lab Billing — 5 Questions</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      padding: 40px 24px 64px;
+    }
+
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      line-height: 1.15;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    p.topnote {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    ol {
+      border-top: 1px solid var(--line);
+    }
+
+    li {
+      list-style: none;
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+    }
+
+    .qnum {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .question {
+      font-size: 1.06rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .why {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 24px 16px 48px;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      .question {
+        font-size: 1rem;
+      }
+    }
+
+    @supports (padding: env(safe-area-inset-bottom)) {
+      body {
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+        padding-bottom: max(48px, env(safe-area-inset-bottom));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>5 Questions to Ask the Boss</h1>
+    <p class="topnote">These five questions resolve the biggest unknowns in the current Mobile Lab billing proof of concept.</p>
+
+    <ol>
+      <li>
+        <div class="qnum">Question 1</div>
+        <div class="question">How do you currently count billable units per case — per cassette, per specimen, or per case?</div>
+        <div class="why">This decides how claims are assembled and how CPT stacking works.</div>
+      </li>
+
+      <li>
+        <div class="qnum">Question 2</div>
+        <div class="question">Which payers require split billing for technical and professional components, and which ones allow global billing?</div>
+        <div class="why">This controls claim structure, modifier use, and whether one encounter becomes one claim or two.</div>
+      </li>
+
+      <li>
+        <div class="qnum">Question 3</div>
+        <div class="question">What denial reasons show up most often right now?</div>
+        <div class="why">The most common denial codes tell us which automation pathway to build first.</div>
+      </li>
+
+      <li>
+        <div class="qnum">Question 4</div>
+        <div class="question">At what dollar amount do you stop chasing a claim and write it off, and does that threshold change by payer type?</div>
+        <div class="why">This defines the collections branch and the write-off decision rule.</div>
+      </li>
+
+      <li>
+        <div class="qnum">Question 5</div>
+        <div class="question">Where does adjudication data come from today — clearinghouse, 835 files, manual EOB posting, or an outsourced biller?</div>
+        <div class="why">This tells us what data actually exists to drive automation after submission.</div>
+      </li>
+    </ol>
+  </div>
+</body>
+</html>
