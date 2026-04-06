@@ -14,7 +14,7 @@
 | Argument construction | `structure.md` + `paragraphs.md` |
 | Word and vocabulary choices | `diction.md` |
 | Sentence-level edit pass | `sentences.md` + `anti-patterns.md` |
-| Full revision sweep | `checklist.md` (it links out to everything else) |
+| Full revision sweep | `checklist.md` (canonical checklist — Pre-Post Protocol + all categories) |
 | Data embedding in prose | `paragraphs.md` (Data-in-Context section) |
 | Making prose feel human | `paragraphs.md` (Humanizer section) |
 
@@ -25,14 +25,14 @@
 ```
 style/
   README.md          ← you are here
+  checklist.md       ← canonical revision checklist (Pre-Post Protocol + all categories)
   voice.md           ← tone, register, what the writing should feel like
   structure.md       ← arc patterns, openings, endings, structural templates
   sentences.md       ← sentence-level rules (the dense ruleset)
   diction.md         ← vocabulary bans, verb choices, naming principles
   paragraphs.md      ← paragraph rhythm, data embedding, humanizer recs
   anti-patterns.md   ← consolidated banned constructions with solutions
-  checklist.md       ← revision checklist; final pass before anything ships
-  academic.md        ← DH/DHQ register, claim discipline, project-specific notes
+  macros/            ← macro ID system for context-window injection
 ```
 
 ---

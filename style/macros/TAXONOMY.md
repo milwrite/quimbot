@@ -51,58 +51,56 @@
 | ID | Name | Short rule | Rules file |
 |---|---|---|---|
 | CL-01 | Earned assertion gate | Prose must earn a claim before asserting it | `rules/CL-01.md` |
-| CL-02 | Claim scope | Bound claims to what evidence shows | `rules/CL-02.md` |
-| CL-03 | Negative definition | Don't define by absence; say what IS | `rules/CL-03.md` |
-| CL-04 | Mechanism naming | Name what acts, not its category | `rules/CL-04.md` |
-| CL-05 | Abstract subject ban | No short sentences with abstraction as subject | `rules/CL-05.md` |
+| CL-02 | Bound the claim | Scope claims to what the evidence shows; name the source | `rules/CL-02.md` |
+| CL-03 | No floating assertions | Every non-trivial claim requires traceable evidence | `rules/CL-03.md` |
+| CL-04 | Counterargument slot | One serious rival reading per major claim cluster | `rules/CL-04.md` |
+| CL-05 | Name the mechanism | Name what acts, not its category label | `rules/CL-05.md` |
 
 ### Citation (CT)
 | ID | Name | Short rule | Rules file |
 |---|---|---|---|
 | CT-01 | Submarine rule | Don't pit studies that answer different questions | `rules/CT-01.md` |
 | CT-02 | Same-question test | Write out DV, population, measure before any contrastive sentence | `rules/CT-02.md` |
-| CT-03 | LLM-as-judge gate | All proposed edits cleared by a second LLM first | `rules/CT-03.md` |
-| CT-04 | Citation hygiene | Peer-reviewed sources for key claims; no blog load-bearing | `rules/CT-04.md` |
+| CT-03 | LLM-as-judge gate | Quimbot cannot solo-approve cloze paper style calls | `rules/CT-03.md` |
+| CT-04 | Citation sequence | Phenomenon before scholar; theory explains what reader just saw | `rules/CT-04.md` |
 
 ### Diction (DC)
 | ID | Name | Short rule | Rules file |
 |---|---|---|---|
 | DC-01 | AI slop ban | Full banned word list | `rules/DC-01.md` |
-| DC-02 | Vague intensifiers | Ban "with particular force" and variants | `rules/DC-02.md` |
-| DC-03 | Invented noun phrases | Don't coin fake-scholarly compound nouns | `rules/DC-03.md` |
-| DC-04 | Setup phrase ban | Don't announce the point; make it | `rules/DC-04.md` |
-| DC-05 | Gap-bridging ban | No "bridges the gap", "fills the gap" | `rules/DC-05.md` |
-| DC-06 | Filler cut | "in order to" → "to"; "due to the fact that" → "because" | `rules/DC-06.md` |
-| DC-07 | Contrastive pivots | Kill "not X but Y", "not just X", "less about X more about Y" | `rules/DC-07.md` |
-| DC-08 | Melodrama ban | No sweeping systemic claims from single events | `rules/DC-08.md` |
-| DC-09 | In-this-light ban | Kill "X, in this light, Y" constructions | `rules/DC-09.md` |
+| DC-02 | Contrastive pivots | Kill "not X but Y", "not just X", "less about X more about Y" | `rules/DC-02.md` |
+| DC-03 | Cut filler | "in order to" → "to"; "due to the fact that" → "because" | `rules/DC-03.md` |
+| DC-04 | No setup phrases | Don't announce the point; make it | `rules/DC-04.md` |
+| DC-05 | "This" requires a noun | Never let "This" stand alone as subject | `rules/DC-05.md` |
+| DC-06 | No expletive openers | Ban "There is/are" as sentence openers | `rules/DC-06.md` |
+| DC-07 | Contrastive pivots (non-negotiable) | Kill all contrastive constructions — state the point directly | `rules/DC-07.md` |
+| DC-08 | No gap-bridging | No "bridges the gap", "fills the gap" | `rules/DC-08.md` |
+| DC-09 | No melodramatic overclaims | No sweeping systemic claims from single events | `rules/DC-09.md` |
 
 ### Prose rhythm (PR)
 | ID | Name | Short rule | Rules file |
 |---|---|---|---|
-| PR-01 | Sentence variation | Mix short and long; vary openers | `rules/PR-01.md` |
-| PR-02 | Tricolon limit | One tricolon per argument cluster | `rules/PR-02.md` |
-| PR-03 | Anaphora limit | Don't repeat same opener more than once in succession | `rules/PR-03.md` |
-| PR-04 | Trailing participle ban | No shallow "-ing" tag-ons at sentence end | `rules/PR-04.md` |
-| PR-05 | Hanging quotation ban | Every quotation needs a grammatical host | `rules/PR-05.md` |
-| PR-06 | Logical prepositions | Prefer logical connectors over conjunctive ones | `rules/PR-06.md` |
+| PR-01 | Sentence length variation | Mix short and long; no metronome cadence | `rules/PR-01.md` |
+| PR-02 | Opener variation | Vary sentence openers; no three same-structure openers in a row | `rules/PR-02.md` |
+| PR-03 | Short sentence for emphasis | Short sentence / fragment after long for contrast or landing | `rules/PR-03.md` |
+| PR-04 | Trailing -ing ban | No participial phrase tag-ons at sentence end | `rules/PR-04.md` |
+| PR-05 | No consecutive simple clauses | Three+ short subject-verb sentences = list; restructure | `rules/PR-05.md` |
+| PR-06 | No freestanding echo sentences | No short sentence that restates what the previous sentence said | `rules/PR-06.md` |
 
 ### Academic register (AK)
 | ID | Name | Short rule | Rules file |
 |---|---|---|---|
-| AK-01 | Concrete before abstract | Example first, inference second | `rules/AK-01.md` |
-| AK-02 | Data embedding | Embed data inside prose clauses, not parentheses | `rules/AK-02.md` |
-| AK-03 | Counterargument slot | One serious rival reading per major claim cluster | `rules/AK-03.md` |
-| AK-04 | Frame fit | Check that abstractions fit the actual subject | `rules/AK-04.md` |
-| AK-05 | Critical theory terms | Deployed theoretical vocabulary is not "invented" | `rules/AK-05.md` |
+| AK-01 | Concrete before abstract | Example first, inference second; theory explains what reader just saw | `rules/AK-01.md` |
+| AK-02 | Don't fit the frame to the subject | Use the term that names the subject's actual condition | `rules/AK-02.md` |
+| AK-03 | Citation hygiene | Peer-reviewed sources for key claims; no blog load-bearing | `rules/AK-03.md` |
+| AK-04 | Separate observation/inference/speculation | Signal each epistemic level explicitly | `rules/AK-04.md` |
+| AK-05 | No invented academic noun phrases | Flag unknown phrases; use field terms only | `rules/AK-05.md` |
 
 ### NLG / generation (NL)
 | ID | Name | Short rule | Rules file |
 |---|---|---|---|
-| NL-01 | Cloze paper register | DH/DHQ, peer-reviewed only, structural continuity claim | `rules/NL-01.md` |
-| NL-02 | Reddit/DHS register | Accessible theory, bound claims to subpoena pattern | `rules/NL-02.md` |
-| NL-03 | Humanizer protocol | 8 concrete techniques for making prose feel written | `rules/NL-03.md` |
-| NL-04 | Writing-under-surveillance | Earned assertion + same-question test required on every claim | `rules/NL-04.md` |
+| NL-01 | DHQ register + structural continuity | DHQ register; connect to prior sections; functional asymmetry governs | `rules/NL-01.md` |
+| NL-04 | Reddit/surveillance register | Population-specific terms; bound claims to dataset; mechanisms named | `rules/NL-04.md` |
 
 ---
 
