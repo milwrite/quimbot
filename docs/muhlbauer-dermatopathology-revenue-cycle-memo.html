@@ -6,12 +6,12 @@
   <title>Dr. Jan Muhlbauer Lab Billing Memo — Quimbot</title>
   <style>
     :root {
-      --bg: #f8fafc;
-      --paper: #ffffff;
+      --bg: #f6f5f2;
+      --paper: #fffefb;
       --ink: #0f172a;
-      --muted: #475569;
-      --line: #dbe3ee;
-      --blue: #1d4ed8;
+      --muted: #5f6673;
+      --line: #e7e1d8;
+      --blue: #1f4aa8;
       --blue-soft: #eff6ff;
       --amber: #92400e;
       --amber-soft: #fffbeb;
@@ -25,7 +25,7 @@
 
     body {
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f7fb;
+      background: var(--bg);
       color: var(--ink);
       line-height: 1.58;
       padding: 30px 18px 56px;
@@ -39,15 +39,15 @@
     .memo {
       background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.045);
     }
 
     .header {
       padding: 34px 34px 24px;
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      background: transparent;
     }
 
     .eyebrow {
@@ -60,16 +60,16 @@
     }
 
     h1 {
-      font-size: 2rem;
-      line-height: 1.05;
+      font-size: 2.15rem;
+      line-height: 0.98;
       letter-spacing: -0.03em;
       margin-bottom: 12px;
     }
 
     .sub {
       color: var(--muted);
-      max-width: 740px;
-      font-size: 1rem;
+      max-width: 720px;
+      font-size: 1.02rem;
     }
 
     .meta {
@@ -81,9 +81,9 @@
 
     .meta .cell {
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 10px 12px;
-      background: #fff;
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: transparent;
     }
 
     .meta .label {
@@ -102,17 +102,17 @@
     }
 
     .body {
-      padding: 34px;
+      padding: 38px;
     }
 
     section + section {
-      margin-top: 34px;
-      padding-top: 28px;
+      margin-top: 38px;
+      padding-top: 30px;
       border-top: 1px solid var(--line);
     }
 
     h2 {
-      font-size: 1.12rem;
+      font-size: 1.18rem;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
     }
@@ -128,35 +128,35 @@
     li + li { margin-top: 7px; }
 
     .summary-box {
-      background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
-      border: 1px solid #d7e7ff;
-      border-radius: 14px;
+      background: #f7faff;
+      border: 1px solid #dce7fb;
+      border-radius: 16px;
       padding: 18px 20px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .risk-box {
-      background: linear-gradient(180deg, #fff8f8 0%, #fef1f1 100%);
-      border: 1px solid #ffd7d7;
-      border-radius: 14px;
+      background: #fff8f7;
+      border: 1px solid #f2d7d5;
+      border-radius: 16px;
       padding: 18px 20px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .opportunity-box {
-      background: linear-gradient(180deg, #f8fff9 0%, #eefcf1 100%);
-      border: 1px solid #caefd4;
-      border-radius: 14px;
+      background: #f7fcf7;
+      border: 1px solid #d8ead9;
+      border-radius: 16px;
       padding: 18px 20px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .warning-box {
-      background: linear-gradient(180deg, #fffdf6 0%, #fff8e8 100%);
-      border: 1px solid #f7dfad;
-      border-radius: 14px;
+      background: #fffbf4;
+      border: 1px solid #efe1be;
+      border-radius: 16px;
       padding: 18px 20px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .grid {
@@ -167,10 +167,10 @@
     }
 
     .card {
-      border: 1px solid #e7edf5;
-      border-radius: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
       padding: 18px;
-      background: #fcfdff;
+      background: rgba(255,255,255,0.45);
     }
 
     .card h4 {
@@ -179,9 +179,9 @@
     }
 
     .quote {
-      margin-top: 14px;
-      padding-left: 14px;
-      border-left: 3px solid var(--line);
+      margin-top: 16px;
+      padding-left: 16px;
+      border-left: 2px solid #d8d1c7;
       color: var(--muted);
       font-style: italic;
     }
@@ -193,8 +193,8 @@
     }
 
     @media (max-width: 760px) {
-      .header, .body { padding: 22px 16px; }
-      h1 { font-size: 1.55rem; }
+      .header, .body { padding: 24px 16px; }
+      h1 { font-size: 1.7rem; line-height: 1.02; }
       .sub { font-size: 0.96rem; }
       .meta { grid-template-columns: 1fr 1fr; }
       .grid { grid-template-columns: 1fr; }
