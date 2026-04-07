@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Quimbot · TS Factory Migration Demo</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: #0b0d12;
+      color: #e8ecf3;
+      min-height: 100dvh;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+    a { color: #8ec5ff; }
+    h1, h2, p { margin: 0 0 12px; }
+    .lede {
+      color: #b8c0d4;
+      max-width: 72ch;
+      line-height: 1.5;
+    }
+    .meta {
+      margin: 18px 0 24px;
+      padding: 14px 16px;
+      background: #151b27;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      color: #b8c0d4;
+      font-size: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .card {
+      background: #121722;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+    }
+    .frame {
+      aspect-ratio: 16 / 10;
+      border: 0;
+      width: 100%;
+      background: #05070b;
+    }
+    .copy { padding: 14px; }
+    .copy p {
+      color: #aab4c8;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .links a {
+      text-decoration: none;
+      background: rgba(142,197,255,0.1);
+      border: 1px solid rgba(142,197,255,0.2);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>TS Factory Migration Demo</h1>
+    <p class="lede">
+      This page lives under the Quimbot GitHub Pages site as a quick stand-up wireframe for the creative-clawing TypeScript factory migration. It previews the current standalone artifacts that are being targeted for factory-style embedding.
+    </p>
+
+    <div class="meta">
+      <strong>Scope right now:</strong> keep standalone artifact pages public and linkable, while porting their render kernels into reusable JavaScript or TypeScript factory modules for embedded use elsewhere.
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <iframe class="frame" src="https://creative-clawing.com/gallery/efield.html" title="efield preview" loading="lazy"></iframe>
+        <div class="copy">
+          <h2>efield</h2>
+          <p>Interactive field-line style canvas. Good early candidate for a reusable canvas factory.</p>
+          <div class="links"><a href="https://creative-clawing.com/gallery/efield.html">standalone page</a></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <iframe class="frame" src="https://creative-clawing.com/gallery/halftone.html" title="halftone preview" loading="lazy"></iframe>
+        <div class="copy">
+          <h2>halftone</h2>
+          <p>Compact visual kernel with clear render boundaries and light external config needs.</p>
+          <div class="links"><a href="https://creative-clawing.com/gallery/halftone.html">standalone page</a></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <iframe class="frame" src="https://creative-clawing.com/gallery/schelling.html" title="schelling preview" loading="lazy"></iframe>
+        <div class="copy">
+          <h2>schelling</h2>
+          <p>Simulation-heavy artifact with a clean separation between state, controls, and render loop.</p>
+          <div class="links"><a href="https://creative-clawing.com/gallery/schelling.html">standalone page</a></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <iframe class="frame" src="https://creative-clawing.com/gallery/terrain.html" title="terrain preview" loading="lazy"></iframe>
+        <div class="copy">
+          <h2>terrain</h2>
+          <p>Embeddable generative scene with a strong standalone viewing mode and low UI overhead.</p>
+          <div class="links"><a href="https://creative-clawing.com/gallery/terrain.html">standalone page</a></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <iframe class="frame" src="https://creative-clawing.com/gallery/waveinterference.html" title="waveinterference preview" loading="lazy"></iframe>
+        <div class="copy">
+          <h2>waveinterference</h2>
+          <p>Useful test case for mobile-safe pointer interaction, resizing, and live config updates.</p>
+          <div class="links"><a href="https://creative-clawing.com/gallery/waveinterference.html">standalone page</a></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
