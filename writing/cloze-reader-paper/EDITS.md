@@ -179,4 +179,67 @@
 
 ---
 
-*Last updated: 2026-03-31 · Petrarch*
+---
+
+## ✅ Approved (applied in cloze-paper-session 2026-04-05 17:02 ET)
+
+### ED-025 — ML Genealogy: penultimate sentence nominalization
+- **Location:** ML Genealogy section, penultimate sentence
+- **Before:** "The masked language modeling objective made this feasible as a self-supervised task, since the supervisory signal was already present in unannotated text, and the scale of available text made large-parameter training viable (Liu et al. 2021; Bommasani et al. 2021)."
+- **After:** "Masking was feasible as a self-supervised objective because unannotated text already contained the supervisory signal, and the scale of available text made large-parameter training viable (Liu et al. 2021; Bommasani et al. 2021)."
+- **Rationale:** "made this feasible as a self-supervised task" buries the subject; leading with "Masking" and "because" makes the causal logic explicit.
+- **Status:** Approved · applied 2026-04-05
+
+### ED-026 — ML Genealogy: closing sentence split
+- **Location:** ML Genealogy section, final sentence
+- **Before:** "Devlin's results made masking the dominant pretraining objective, the training regime that Cloze Reader's word-selection step operates within and makes visible to players."
+- **After:** "Devlin's results established masking as the dominant pretraining objective. Cloze Reader's word-selection step operates within that regime and makes it visible to players."
+- **Rationale:** Trailing relative clause doubled two verbs on a single antecedent; splitting gives each claim its own sentence and sharpens the bridge to the next section.
+- **Status:** Approved · applied 2026-04-05
+
+### ED-027 — ML Genealogy: dangling participial opener (–2)
+- **Location:** ML Genealogy, sentence –2 from close
+- **Before:** "Moving from word embeddings to contextualized representations to joint bidirectional masking, each step in that elaboration sharpened the prediction task that Cloze Reader gives back to human players."
+- **After:** "Each step in that elaboration sharpened the prediction task Cloze Reader gives back to human players: word embeddings first, then contextualized representations, then joint bidirectional masking."
+- **Rationale:** Dangling participial opener — "Moving from X, each step" — has no valid subject; restructured with a colon.
+- **Status:** Approved · applied 2026-04-05
+
+### ED-028 — ML Genealogy: encoded → captured (–1)
+- **Location:** Mikolov sentence
+- **Before:** "...encoded semantic and syntactic regularities at scale."
+- **After:** "...captured semantic and syntactic regularities at scale."
+- **Rationale:** "captured" carries more force and avoids technical neutrality.
+- **Status:** Approved · applied 2026-04-05
+
+### ED-029 — ML Genealogy: contextual induction → contextual prediction (+1)
+- **Location:** Sentence immediately following the closing pair
+- **Before:** "...return them to human readers as exercises in contextual induction."
+- **After:** "...return them to human readers as exercises in contextual prediction."
+- **Rationale:** "Contextual prediction" is the paper's term of art; "induction" was a drift.
+- **Status:** Approved · applied 2026-04-05
+
+### ED-030 — ML Genealogy: "for the live application" redundancy (+2)
+- **Location:** Source modules sentence
+- **Before:** "Public source modules for the live application show that..."
+- **After:** "Public source modules show that..."
+- **Rationale:** "for the live application" is redundant; no other application is in scope.
+- **Status:** Approved · applied 2026-04-05
+
+### ED-031 — Critical artifact smoke test split with Petrarch (2026-04-06)
+- **Location:** Cloze Reader section, second half focused on the critical artifact
+- **Issue:** User requested a coordinated smoke test using the dissertation MCP workflow, with Quimbot revising the first two paragraphs of the critical-artifact stretch and Petrarch revising the short incomplete paragraphs that follow.
+- **Scope split:**
+  - **Quimbot:** first two paragraphs beginning `I chose Project Gutenberg as the source archive...` and `The books have, in a precise sense...`
+  - **Petrarch:** the short paragraphs following, beginning `Against this flattening...`, `The difficulty system...`, `The difficulty architecture...`, and adjacent incomplete short units in that stretch
+- **Status:** Staged · coordination split logged before draft edits
+
+### ED-032 — diss-mcp smoke-test paragraph revision (2026-04-07)
+- **Location:** Cloze Reader section, paragraph beginning `Against this flattening, Cloze Reader...`
+- **Issue:** Paragraph stated the restoration claim too generally and did not yet pass through the new mandatory diss-mcp writing path.
+- **Change:** Revised paragraph to make the critical-artifact claim more explicit: the passage returns as an object the reader must work through, while the model becomes one layer in a larger procedure rather than the whole interpretive scene.
+- **diss-mcp result:**
+  - `track_changes` call attempted and failed because the Quimbot draft file does not have a git HEAD in the `diss` project context the server expects
+  - `audit_status(chapter="draft.md", action="get")` succeeded and returned that no audit record exists yet for `draft.md`
+- **Status:** Approved · applied as smoke test, with project-context limitation documented
+
+*Last updated: 2026-04-07 · Quimbot*
