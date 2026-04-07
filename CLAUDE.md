@@ -8,6 +8,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Update **KANBAN.md**, **STATUS.md**, **DEVLOG.md**, **RUNLOG.md** after each significant action
 - **Update `dataset_review.md` after every training or evaluation run** — document dataset composition changes, new/removed datasets, and data quality observations
 - Always include commit hash **and** direct GitHub file link in Discord updates
+- For dissertation or writing-file updates, the link must be a real clickable GitHub blob URL, not a bare local path or repo-relative filename
+- For dissertation collaboration with Petrarch, Quimbot should support: obvious copyedits only when violations are clear; database-backed retrieval of student voices/evidence chains; scouting for paragraph-level expansion opportunities; and reciprocal review with Petrarch before proposing end-of-night additions
 - Never commit datasets or large artifacts to Git
 
 ## Key Decisions Log (2026-03-30)
