@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Muhlbauer Lab Billing Report — Quimbot</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --paper: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --blue: #2563eb;
+      --blue-soft: #eff6ff;
+      --amber: #b45309;
+      --amber-soft: #fffbeb;
+      --red: #b91c1c;
+      --red-soft: #fef2f2;
+      --green: #166534;
+      --green-soft: #f0fdf4;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      padding: 32px 20px 72px;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      margin-bottom: 28px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .meta span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+    }
+
+    .toc, .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .toc h2, .section h2 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .section h3 {
+      font-size: 0.95rem;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    p + p { margin-top: 10px; }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    li + li { margin-top: 8px; }
+
+    .toc ol { margin-top: 0; }
+
+    .callout {
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin: 14px 0;
+      border: 1px solid var(--line);
+    }
+
+    .callout.blue { background: var(--blue-soft); border-color: #bfdbfe; }
+    .callout.amber { background: var(--amber-soft); border-color: #fde68a; }
+    .callout.red { background: var(--red-soft); border-color: #fecaca; }
+    .callout.green { background: var(--green-soft); border-color: #bbf7d0; }
+
+    .callout strong { display: block; margin-bottom: 4px; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .mini {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      background: #fcfdff;
+    }
+
+    .mini h4 {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+
+    .quote {
+      margin: 14px 0;
+      padding-left: 14px;
+      border-left: 3px solid var(--line);
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .matrix {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .row {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: #fff;
+    }
+
+    .row .label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .sources li {
+      font-size: 0.95rem;
+      word-break: break-word;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: #f1f5f9;
+      padding: 1px 5px;
+      border-radius: 6px;
+      font-size: 0.92em;
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 20px 14px 48px; }
+      h1 { font-size: 1.5rem; }
+      .toc, .section { padding: 18px 16px; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    @supports (padding: env(safe-area-inset-bottom)) {
+      body {
+        padding-left: max(14px, env(safe-area-inset-left));
+        padding-right: max(14px, env(safe-area-inset-right));
+        padding-bottom: max(48px, env(safe-area-inset-bottom));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <div class="eyebrow">Quimbot report</div>
+      <h1>Muhlbauer Lab billing operations report</h1>
+      <p class="subtitle">This report synthesizes the interview transcript, maps the current billing-routing problem, compares it to common laboratory and pathology revenue-cycle practices, and identifies both known unknowns and deeper unknown unknowns that matter before automation or restructuring.</p>
+      <div class="meta">
+        <span>Prepared for internal planning</span>
+        <span>Built from transcript + external lab billing research</span>
+        <span>Focus: claim routing, denials, patient responsibility, collections</span>
+      </div>
+    </div>
+
+    <div class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li>Executive summary</li>
+        <li>What the transcript reveals about the current workflow</li>
+        <li>Main operational problems</li>
+        <li>How other labs typically handle claim routing and denials</li>
+        <li>Implications for Muhlbauer Lab</li>
+        <li>Known unknowns</li>
+        <li>Unknown unknowns</li>
+        <li>Recommended next steps</li>
+        <li>Sources</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>1. Executive summary</h2>
+      <p>Muhlbauer Lab’s billing problem is not just a collections problem. It is a routing problem, a documentation problem, and a knowledge-concentration problem. The transcript shows a high-rejection environment in which rejected claims must be manually triaged into one of three destinations: rebill another insurer, move the charge to the patient ledger, or ultimately send it to collections. That decision logic appears to live mostly in one experienced supervisor’s head.</p>
+      <p>The result is operational fragility. Claims are time-sensitive. Rejections arrive in volume. Insurance information is often wrong or stale. High-deductible plans convert many claims into patient balances that recover poorly. Exception handling for large balances is ad hoc. Certain payer classes reimburse so poorly that reimbursement logic starts shaping diagnostic workups.</p>
+      <div class="callout red">
+        <strong>Bottom line</strong>
+        The biggest risk is not merely unpaid claims. The bigger risk is that the lab lacks a fully documented, auditable, reusable decision system for routing rejected and underpaid claims.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. What the transcript reveals about the current workflow</h2>
+      <p>The transcript makes the current-state pipeline much clearer than the earlier proof of concept. A claim is submitted to insurance. If insurance pays, the case closes. If insurance rejects, staff must manually determine what to do next. Jan describes three primary destinations for rejected items:</p>
+      <ul>
+        <li>rebill to a different insurance company</li>
+        <li>move the charge to the patient ledger and bill the patient</li>
+        <li>move the balance toward collections after patient billing fails</li>
+      </ul>
+      <div class="quote">“Those are the main categories that things go to.”</div>
+      <p>Jan also describes a fallback sequence that matters operationally: insurance first, then patient ledger for roughly two to three months, then collections. Insurance does not usually go straight to collections. That means the patient-ledger branch is a major intermediate state, not a minor exception.</p>
+      <div class="grid-2">
+        <div class="mini">
+          <h4>Observed routing spine</h4>
+          <ul>
+            <li>Insurance submitted</li>
+            <li>Rejected or unpaid</li>
+            <li>Manual review</li>
+            <li>Rebill insurer, or patient ledger</li>
+            <li>Collections after aging / nonpayment</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h4>Observed ownership pattern</h4>
+          <ul>
+            <li>Supervisor leads routing decisions</li>
+            <li>Other staff help work rejections</li>
+            <li>Managerial knowledge is concentrated</li>
+            <li>Escalation and exceptions are informal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Main operational problems</h2>
+
+      <h3>3.1 Single-point-of-failure expertise</h3>
+      <p>The transcript repeatedly shows that one person, Lainey, is the routing brain. She does not do every task herself, but she leads the process, reviews the moving pieces, and directs others. This makes the system brittle.</p>
+
+      <h3>3.2 High rejection volume with weak explanation</h3>
+      <p>Jan estimates that rejections are a large share of total claims, around a third. She also says rejections often come back with little useful explanation. That forces manual interpretation and slows every downstream action.</p>
+
+      <h3>3.3 Upstream insurance-data errors create downstream labor</h3>
+      <p>Jan identifies wrong insurance, lapsed insurance, switched insurance, and no insurance as common reasons claims fail. These are front-end data-quality problems that reappear later as back-end denial work.</p>
+
+      <h3>3.4 Patient-responsibility balances recover poorly</h3>
+      <p>High-deductible plans shift large balances to patients. Jan describes these balances as common and hard to collect. Many patients simply do not pay. Collections recovers only a minority of those balances.</p>
+
+      <h3>3.5 Exception handling is inconsistent and person-dependent</h3>
+      <p>Very large patient balances may be reduced, partially written off, or negotiated after complaints come back through the referring doctor. The transcript suggests discretion rather than a formal hardship or settlement policy.</p>
+
+      <h3>3.6 Payer economics distort workup decisions</h3>
+      <p>Jan describes at least one payer class where reimbursement is so poor that additional stains must be limited whenever possible. That means reimbursement constraints are shaping operational behavior at the case level.</p>
+
+      <div class="callout amber">
+        <strong>Operational pattern</strong>
+        Muhlbauer Lab is spending skilled labor after rejection to repair failures that often originate before submission. That is expensive, slow, and hard to scale.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4. How other labs typically handle claim routing and denials</h2>
+      <p>The external pathology and lab-billing literature is noisy and often vendor-driven, but the sources converge on a few stable themes.</p>
+
+      <h3>4.1 Front-end prevention is treated as the highest-leverage move</h3>
+      <p>Lab revenue-cycle guidance consistently emphasizes real-time eligibility verification, benefits verification, prior-authorization checks where required, and diagnosis / coding validation before submission. The basic premise is simple: many denials can be prevented more cheaply than they can be appealed or repaired later.</p>
+
+      <h3>4.2 Clearinghouse scrubbing and rules engines are standard practice</h3>
+      <p>Pathology and laboratory billing vendors commonly describe claim scrubbing before submission, payer-specific edit logic, and routing rules keyed to denial or reason codes. The mature model is not “get a printout and think about it later.” The mature model is “tag the issue, assign ownership, and route it immediately.”</p>
+
+      <h3>4.3 Denial categories are usually formalized</h3>
+      <p>Across the sources, other labs do not treat all rejections as one bucket. They separate eligibility failures, coding failures, authorization failures, medical-necessity denials, duplicate claims, excessive-unit denials, and patient-responsibility cases. That matters because each class has a different owner, deadline, and chance of recovery.</p>
+
+      <h3>4.4 Appeals are increasingly templated and data-driven</h3>
+      <p>XiFin’s pathology-denial materials describe mapping denial reason codes to prebuilt appeal logic, templates, and documentation bundles. That includes automated letter generation, attached pathology reports, and tracking by payer and denial type. Even when manual review remains necessary, mature systems try to standardize the repetitive parts.</p>
+
+      <h3>4.5 Better labs separate true denials from patient-responsibility balances</h3>
+      <p>Lab billing guidance also emphasizes distinguishing claim denials from balances shifted to deductible, co-insurance, or patient-responsibility categories. These are not operationally identical. They require different messaging, follow-up, and forecasting.</p>
+
+      <div class="callout green">
+        <strong>Industry pattern</strong>
+        Better-performing labs appear to do three things earlier than Muhlbauer Lab currently does: verify coverage sooner, categorize rejections formally, and route work by rule instead of by memory alone.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>5. Implications for Muhlbauer Lab</h2>
+      <p>Compared with those best-practice patterns, Muhlbauer Lab appears to have a workable but underformalized system. There is clearly a real process. It is not chaos. But it is heavily human-driven, underdocumented, and vulnerable to delay and inconsistency.</p>
+
+      <div class="matrix">
+        <div class="row">
+          <div class="label">Gap</div>
+          <div>Rejection destinations are known, but routing criteria are not explicitly codified.</div>
+        </div>
+        <div class="row">
+          <div class="label">Gap</div>
+          <div>There is no evidence yet of a formal rejection taxonomy with standard categories and owners.</div>
+        </div>
+        <div class="row">
+          <div class="label">Gap</div>
+          <div>High-deductible balances appear mixed into the same operational burden as denials, even though they behave differently.</div>
+        </div>
+        <div class="row">
+          <div class="label">Gap</div>
+          <div>Large-balance negotiation and settlement policy appear discretionary rather than rule-based.</div>
+        </div>
+        <div class="row">
+          <div class="label">Gap</div>
+          <div>There is no clear evidence yet of a live dashboard showing rejection mix, routing outcomes, aging by branch, or recovery by branch.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>6. Known unknowns</h2>
+      <p>These are the important uncertainties that are already visible from the transcript and must be clarified before any serious automation or redesign.</p>
+      <ul>
+        <li><strong>Routing criteria:</strong> what exact facts tell staff to rebill another insurer rather than move to patient ledger?</li>
+        <li><strong>Rejection taxonomy:</strong> what are the top 10 rejection scenarios by frequency and dollar value?</li>
+        <li><strong>Data availability:</strong> does the system preserve historical resolved rejections in a way that can be analyzed?</li>
+        <li><strong>Aging thresholds:</strong> what exact deadlines govern rebilling, patient billing, and collections handoff?</li>
+        <li><strong>Settlement rules:</strong> when are large patient bills reduced, split, or written off?</li>
+        <li><strong>Payer economics:</strong> which payers or plans produce systematically unprofitable cases?</li>
+        <li><strong>Ownership map:</strong> who owns intake verification, rejection triage, patient communication, collections, and write-off approval?</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. Unknown unknowns</h2>
+      <p>These are the deeper risks implied by the scenario. They are not just missing facts. They are categories of risk that often remain invisible until a system is documented closely.</p>
+
+      <h3>7.1 Shadow policies</h3>
+      <p>There may be important rules the lab follows informally that nobody has named yet. For example, staff may already know that a certain insurer almost never repays after a first rejection, or that certain patient balances are never worth pursuing past one statement. If these rules exist but are unwritten, they will distort any future system design unless surfaced.</p>
+
+      <h3>7.2 Hidden decision variance</h3>
+      <p>Two staff members may handle the same rejection differently. A supervisor may be much more likely than a junior staff member to infer an alternate payer, challenge a denial, or negotiate a patient balance. If so, the process is less consistent than it appears.</p>
+
+      <h3>7.3 Incomplete denominator problem</h3>
+      <p>The lab may know what is rejected, but not what is silently underpaid, miscoded, or never pursued. That means the visible denial pile may be only part of the revenue leakage.</p>
+
+      <h3>7.4 Incentive conflict between recovery and goodwill</h3>
+      <p>For large balances, the lab faces a tradeoff between collecting aggressively and avoiding anger from patients and referring doctors. If that tradeoff is unresolved, operational rules will stay fuzzy.</p>
+
+      <h3>7.5 Clinical-business spillover</h3>
+      <p>The transcript already hints that poor reimbursement can influence testing behavior. That creates a subtle risk: financial routing logic may be shaping clinical operations in ways that deserve explicit oversight.</p>
+
+      <div class="callout blue">
+        <strong>Most important unknown unknown</strong>
+        The lab may be operating multiple billing systems at once: the formal one in software, the informal one in staff memory, and the exception-driven one triggered by physician complaints. If true, any redesign has to reconcile all three.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>8. Recommended next steps</h2>
+      <ol>
+        <li><strong>Document the routing logic with the billing lead.</strong> Sit with the person who actually routes rejections and capture each decision rule in plain language.</li>
+        <li><strong>Create a rejection category list.</strong> Separate wrong insurance, inactive insurance, deductible, missing information, coding issue, payer mismatch, no coverage, duplicate, and other major classes.</li>
+        <li><strong>Map ownership and deadlines.</strong> Every category should have an owner, action, and aging threshold.</li>
+        <li><strong>Separate patient-responsibility balances from true insurance denials.</strong> These should not be treated as the same operational problem.</li>
+        <li><strong>Create a high-balance exception policy.</strong> Define when to escalate, offer payment plans, reduce balances, or write off.</li>
+        <li><strong>Assess whether historical rejection data is queryable.</strong> If yes, use it for pattern analysis. If no, start structured logging immediately.</li>
+        <li><strong>Only after documentation, build tooling.</strong> The right first tool is probably a routing assistant or dashboard, not a full automation platform.</li>
+      </ol>
+    </div>
+
+    <div class="section sources">
+      <h2>9. Sources</h2>
+      <ul>
+        <li>Interview transcript provided in-thread by milwrite on 2026-04-06.</li>
+        <li>XiFin, <em>Pathology Denial Metrics and Implementing a Strategic Appeals Processes</em> — used for patterns around appeals logic, templated responses, denial mapping, and real-time reporting.</li>
+        <li>ADSC, <em>Laboratory Medical Billing: Best Practices for Faster Payments & Fewer Denials</em> — used for front-end verification, CLFS awareness, first-pass resolution, and documentation / coding themes.</li>
+        <li>3Gen Consulting, <em>Pathology Billing Checklist | Optimize Coding & RCM</em> — used for pathology-specific issues such as modifier complexity, splits, underpayment risk, and payer-contract drift.</li>
+        <li>Perplexity web search synthesis across pathology and laboratory revenue-cycle guidance, including denial prevention, claim scrubbing, and denial categorization themes.</li>
+      </ul>
+      <p style="margin-top:14px; color:var(--muted);">Note: external sources here are industry guidance and vendor-facing materials, not peer-reviewed operations research. They are still useful for identifying common workflow patterns, but they should be treated as directional evidence rather than final authority.</p>
+    </div>
+  </div>
+</body>
+</html>
