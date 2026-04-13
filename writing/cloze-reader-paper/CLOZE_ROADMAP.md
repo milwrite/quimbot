@@ -60,4 +60,65 @@
 
 ---
 
-*Last updated: 2026-04-05 · Petrarch*
+## Style Guide Proposals (week of 2026-04-13)
+
+**Source material:** `STYLE_GUIDE.md`; `JOURNAL.md` skimmed for 2026-04-06 through 2026-04-13 (**no entries logged this week**); active patterns inferred from the current `EDITS.md` board and the most recent approved/still-open cloze revisions.
+
+### Pattern 1: Transition sentences still arrive with weak abstract subjects
+
+**Observation:** The recurring problem is not only thin syntax but transitional syntax built on abstract carriers: *the intervention*, *the structure*, *the resemblance*. These sentences move the reader between sections but keep the real historical agent offstage.
+
+**Proposed refinement:** Add a rule banning **abstract transition subjects**. If a sentence is moving from one genealogy to another, it should open on the actor or mechanism doing that movement — Taylor, BERT's developers, masked-language-model training, the scoring procedure — not on an abstract placeholder.
+
+**Before:** "The intervention proved durable enough to move from educational psychology to computational laboratories, where cloze-like objectives now structure how machines learn language."
+**After:** "Cloze testing moved from educational psychology into computational linguistics, where masked-word objectives now structure how language models are trained."
+
+**Recommendation:** Add under Hard Rules: **No abstract transition subjects.** Transitional sentences must open on the historical actor, procedure, or mechanism that actually carries the claim forward.
+
+---
+
+### Pattern 2: Bare demonstratives keep reappearing in longer noun phrases
+
+**Observation:** The existing backward-pointer rule catches sentence-openers like *That asymmetry* or *This difficulty architecture*, but the same habit persists inside otherwise improved sentences: *that gradient*, *that distinction*, *that premise*. The underlying issue is still undernaming.
+
+**Proposed refinement:** Expand the demonstrative rule from sentence openings to **all load-bearing noun phrases**. If the noun phrase carries an argument, it should name the referent directly instead of leaning on *this* or *that*.
+
+**Before:** "The information-theoretic basis for that gradient was not formalized until Maltaev et al. (2019)."
+**After:** "Maltaev et al. (2019) formalized the information-theoretic basis for variation in gap difficulty."
+
+**Recommendation:** Revise the existing rule to read: **No bare demonstrative backward pointers in any load-bearing noun phrase**, not only at sentence start.
+
+---
+
+### Pattern 3: Citation-bearing sentences are doing too much interpretive work at once
+
+**Observation:** Several open edit proposals strengthen the genealogy by adding evidence, but the proposed sentences often bundle source report, interpretation, and argumentative payoff into one long unit. The pressure point is not sentence length alone; it is **citation compression**.
+
+**Proposed addition:** Add a rule for **one interpretive step per citation-bearing sentence**. A sentence can report what a study found, or state what that finding means for the paper's argument, but when it tries to do both plus supply historical transition, clarity drops.
+
+**Before:** "That the two methods correlate at 0.92 across full test scores (Laing, cited in Brown 1980) suggests readers are operating on part-of-speech and semantic-category information rather than recovering the author's specific word choice — a finding that clarifies rather than resolves the ambiguity."
+**After:** "Laing, as cited in Brown (1980), reported a 0.92 correlation between exact and acceptable scoring across full test scores. That result suggests the procedure samples part-of-speech and semantic-category information more readily than author-specific lexical choice."
+
+**Recommendation:** Add under Required Habits: **Split citation report from argumentative gloss when a sentence is carrying evidence, inference, and transition at once.**
+
+## Skill Discovery (week of 2026-04-13)
+
+**Source:** ClawHub (`clawhub.ai`) search on 2026-04-13
+
+1. **Blind Review Sanitizer** — <https://clawhub.ai/googolme/blind-review-sanitizer>
+   - Use case: strips identifying metadata, acknowledgments, and heavy self-citation signals from manuscripts before double-blind review
+   - Why relevant: useful for submission prep and citation hygiene when circulating article drafts
+
+2. **Academic Writing Refiner** — <https://clawhub.ai/skills/academic-writing-refiner>
+   - Use case: polishing, editing, and refining academic prose
+   - Why relevant: potentially useful as a comparison tool for revision passes, though it would need strict style-guide oversight
+
+3. **Word / DOCX** — <https://clawhub.ai/ivangdavila/word-docx>
+   - Use case: edits DOCX files with styles and tracked changes support
+   - Why relevant: promising for round-tripping article drafts into Word review workflows without losing markup structure
+
+**Note:** ClawHub search is still sparse and some listings need closer vetting before adoption. These are plausible leads, not install recommendations yet.
+
+---
+
+*Last updated: 2026-04-13 · Petrarch*
