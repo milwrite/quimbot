@@ -10,14 +10,16 @@
 ## Schedule
 - **Anchor date:** 2026-03-10
 - **Cadence:** Every other day at 5:00 PM ET
-- **Next session:** 2026-03-10 at 17:00 ET (Session 1)
+- **Current session:** Session 3
+- **Next session:** Session 3 remains the active slot; next work block is pending milwrite approval / restart timing
 
 ## Session Log
 
 | # | Date | Focus | Status | Approval |
 |---|------|-------|--------|----------|
 | 1 | 2026-03-10 | Considerations charter + scope lock | COMPLETE | APPROVED by milwrite (thread decision) |
-| 2 | 2026-03-14 | Literature expansion: MLM genealogy, cloze ed research, human/model comparative studies | COMPLETE | AWAITING milwrite |
+| 2 | 2026-03-14 | Literature expansion: MLM genealogy, cloze ed research, human/model comparative studies | COMPLETE | APPROVED / advanced to Session 3 state |
+| 3 | 2026-04-13 | Canonical draft reset from user-supplied Word file; sync live Pages + working draft to newest version | ACTIVE | DIRECTIVE received; this Word draft is now canonical |
 
 ## Labor Division
 - **Quimbot:** artifact/code analysis, argument structure, prose refinement, consistency checks
@@ -80,7 +82,8 @@
 
 ### Session gate status
 - Session 1 approved by decision thread
-- Session 2 is unblocked with above constraints
+- Session 3 is the current active slot
+- Work remains constrained to the second half until milwrite opens new scope
 
 ## Added Role (2026-03-12)
 - Excerptor role added for rewrite support: `tools/ROLE_EXCERPTOR.md`
@@ -88,9 +91,15 @@
 - Suggested-edits Word file with track changes: `docx_versions/cloze_reader_intro_suggested-edits_v02_trackchanges.docx`
 
 ## Current Session Deliverable
-**Session 2 — Literature Expansion**
-Due: 2026-03-14 17:00 ET
-Notes: session2_lit_notes.md produced. Six Petrarch tasks queued. Citation repairs drafted for Oller 1979, ELMo, self-supervised learning source. Two PMC/arXiv stubs require Petrarch author/method verification before body can use them. No prose committed until approval.
+**Session 3 — Canonical draft reset + sync**
+Focus: treat the 2026-04-13 user-supplied Word document as the newest authoritative draft; sync the working markdown, live Pages draft, and local docx snapshot to that version.
+Constraints: this imported Word draft is the source of truth until milwrite says otherwise.
+
+## Canonical Source (updated 2026-04-13)
+- **Authoritative draft source:** `writing/cloze-reader-paper/docx_versions/cloze_reader_v14_2026-04-13_current.docx`
+- **Canonical working markdown:** `writing/cloze-reader-paper/draft.md`
+- **Live Pages source:** `docs/cloze-reader-draft/index.html`
+- **Rule:** Quimbot and Petrarch work from this imported version going forward until superseded by a newer explicit directive.
 
 ## Open Items — Next Session
 - [ ] Para 18 (hint system): scaffolding citations already in drafts/draft_intro.txt — confirm merge into docx v04
@@ -113,8 +122,9 @@ Notes: session2_lit_notes.md produced. Six Petrarch tasks queued. Citation repai
 6. **Oller 1979** → Already integrated in s2_v2 lit review draft. No further action.
 
 ### Gate status
-- Session 2 complete pending `APPROVED S2->S3` from milwrite
-- One open decision: Veldre et al. — retain as reframe or drop?
+- Session 3 is the current active slot
+- Work remains constrained to the paper's second half until milwrite opens new scope
+- Veldre et al. has already been ruled CUT for now (see 2026-03-26 ruling below)
 
 ## Thursday Hold-State Pass (Quimbot, 2026-03-26) — v38→v39
 
@@ -173,4 +183,4 @@ Both held. No action until milwrite approves.
 - **Hofmann et al. (2021)** — article number unconfirmed; verify before publication.
 - **PROP-01** — second-abstract paragraph; structural decision held for milwrite.
 - **PROP-02** — floating citation paragraph; held for milwrite.
-- **Veldre et al.** — reframe still pending milwrite decision (cut per 2026-03-26 ruling; revisit at Session 7).
+- **Veldre et al.** — cut per 2026-03-26 ruling; revisit only if Session 7 body drafting creates a clear fit.

@@ -8,6 +8,17 @@
 
 ---
 
+
+## 2026-04-13 — Canonical Word draft reset (Petrarch)
+
+**Focus:** Replace the prior live draft with the newest user-supplied Word version and make that version canonical for both Quimbot and Petrarch.
+
+Imported the attached Word document as the new source of truth, copied it into `writing/cloze-reader-paper/docx_versions/cloze_reader_v14_2026-04-13_current.docx`, regenerated `writing/cloze-reader-paper/draft.md` from it, and replaced `docs/cloze-reader-draft/index.html` so the GitHub Pages draft matches the imported text. Updated session-state tracking so future work proceeds from this version unless milwrite explicitly supersedes it.
+
+**Directive recorded:** This imported Word file is now the newest, most up-to-date version for ongoing work by Quimbot and Petrarch.
+
+---
+
 ## 2026-03-10 — Session 1 (Petrarch)
 
 **Focus:** Theoretical anchors and citation gap inventory
