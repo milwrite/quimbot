@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academic Router — A Higher-Ed AI Infrastructure Concept Note</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: #111111;
+      --line: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.94);
+      --muted: rgba(255,255,255,0.64);
+      --soft: rgba(255,255,255,0.08);
+      --accent: #f2f2f2;
+      --max: 920px;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); color: var(--text); }
+    body {
+      margin: 0;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      line-height: 1.65;
+      background: linear-gradient(180deg, #080808 0%, #0b0b0b 100%);
+      color: var(--text);
+    }
+    a { color: var(--accent); }
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+    header {
+      padding: 72px 0 36px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 32px;
+    }
+    .eyebrow {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 5vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+      max-width: 12ch;
+    }
+    .subtitle {
+      margin-top: 22px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.45;
+    }
+    .meta {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .meta span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: var(--muted);
+      font-size: 13px;
+      background: var(--soft);
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(10px);
+      background: rgba(10,10,10,0.88);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 14px;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+    nav a:hover { color: var(--text); }
+    main { padding: 24px 0 80px; }
+    section {
+      padding: 30px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    h2 {
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.1;
+      margin: 0 0 18px;
+      letter-spacing: -0.025em;
+      font-weight: 600;
+    }
+    h3 {
+      font-size: 22px;
+      line-height: 1.25;
+      margin: 32px 0 12px;
+      font-weight: 600;
+    }
+    p {
+      margin: 0 0 16px;
+      font-size: 19px;
+      color: var(--text);
+    }
+    .lede {
+      font-size: 22px;
+      color: var(--text);
+      max-width: 48em;
+    }
+    .muted { color: var(--muted); }
+    ul, ol {
+      margin: 0 0 18px 24px;
+      padding: 0;
+      font-size: 18px;
+    }
+    li { margin: 0 0 10px; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 22px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .card h4 {
+      margin: 0 0 8px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .card p {
+      margin: 0;
+      font-size: 17px;
+    }
+    .quote {
+      border-left: 2px solid rgba(255,255,255,0.28);
+      padding-left: 18px;
+      color: var(--muted);
+      margin: 20px 0;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 15px;
+      background: var(--panel);
+    }
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      vertical-align: top;
+      text-align: left;
+    }
+    th { color: var(--muted); font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    .note {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 20px 0;
+    }
+    .sources li {
+      word-break: break-word;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    footer {
+      padding: 28px 0 60px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+    }
+    @media (max-width: 700px) {
+      p, ul, ol { font-size: 17px; }
+      .lede { font-size: 20px; }
+      header { padding-top: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">Concept Note / White Paper</div>
+      <h1>Academic Router</h1>
+      <p class="subtitle">A privacy-first AI routing layer for colleges and universities: one interface, one policy plane, many models, zero-retention defaults, and institution-level governance built for teaching, research, and administration.</p>
+      <div class="meta">
+        <span>Draft v1</span>
+        <span>Minimal interface</span>
+        <span>CUNY demo frame</span>
+        <span>SUNY expansion path</span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <a href="#summary">Summary</a>
+      <a href="#problem">Problem</a>
+      <a href="#proposal">Proposal</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#economics">Economics</a>
+      <a href="#rollout">Rollout</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="summary">
+      <h2>Executive summary</h2>
+      <p class="lede">Academic Router is a proposed AI infrastructure layer for higher education. It takes the most useful part of the OpenRouter pattern — one gateway in front of many model providers — and rebuilds it around the actual requirements of universities: privacy, procurement, identity, role-based access, budget controls, auditability, and pedagogical fit.</p>
+      <p>Universities do not need another generic chatbot. They need a managed system that lets students, faculty, staff, and researchers reach the right models through a common interface, while institutional administrators keep control over privacy posture, approved use, spending, and risk. Academic Router would provide that layer.</p>
+      <p>The initial demonstration should target the City University of New York as a constrained, high-value pilot. From there, the platform can expand to the State University of New York and, in time, to consortium or statewide higher-ed procurement.</p>
+    </section>
+
+    <section id="problem">
+      <h2>The problem universities actually have</h2>
+      <p>Higher education has moved into the model era through a patchwork of consumer subscriptions, ad hoc API keys, department-level experiments, and vendor pilots. This creates scattered access, uneven privacy practices, duplicated spending, and no coherent governance layer. One professor uses a premium individual plan. Another department pays a second vendor. A lab runs local models. Students move between all of them with no unified policy, no common interface, and no institutional memory.</p>
+      <p>Campus IT departments inherit the downside of that patchwork. They face unclear data-retention terms, no consistent zero-retention enforcement, weak visibility into usage, and no way to distinguish routine classroom use from premium research workflows. Procurement offices face the same fragmentation from another angle. They see many subscriptions, many contracts, and little leverage.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>Fragmented access</h4>
+          <p>Different schools, departments, and instructors buy different tools, often without shared standards.</p>
+        </div>
+        <div class="card">
+          <h4>Weak governance</h4>
+          <p>Most institutions cannot enforce one privacy posture across many model vendors and endpoints.</p>
+        </div>
+        <div class="card">
+          <h4>Unclear economics</h4>
+          <p>Consumer plans and API accounts mix together, which makes budgeting, forecasting, and chargeback hard.</p>
+        </div>
+        <div class="card">
+          <h4>Poor pedagogical fit</h4>
+          <p>Generic AI products are not organized around coursework, research workflows, or campus roles.</p>
+        </div>
+      </div>
+      <p>Any serious higher-ed AI platform has to solve all four problems at once. A campus can tolerate a rough interface. It cannot tolerate an incoherent governance model.</p>
+    </section>
+
+    <section id="proposal">
+      <h2>The proposal</h2>
+      <p>Academic Router is a university-only AI routing and policy layer. It exposes a single, OpenAI-compatible API and a clean institutional user interface, then routes requests to approved external or self-hosted models based on policy, privacy, cost, capacity, and role.</p>
+      <p>The user-facing shell should use Open WebUI, which already supports multi-user access, SSO and OIDC, LDAP, SCIM, RBAC, and OpenAI-compatible backends. That allows the product team to focus engineering effort where the institutional value lives: routing, compliance controls, model governance, usage metering, and premium entitlement logic.</p>
+      <h3>Core design principles</h3>
+      <ul>
+        <li><strong>One entry point:</strong> students and staff should not need to understand provider sprawl.</li>
+        <li><strong>Privacy first:</strong> zero-data-retention routing should be the default whenever technically available.</li>
+        <li><strong>No training on user activity:</strong> the institution must be able to state that user content is not used to train downstream models, except where an explicit exception path exists.</li>
+        <li><strong>Identity-driven access:</strong> role, department, course, and campus affiliation should shape what a user can see and use.</li>
+        <li><strong>Budget legibility:</strong> token usage, premium access, and departmental consumption must be measurable and controllable.</li>
+        <li><strong>Academic fit:</strong> the system should present model choices in terms that matter to universities: writing support, research analysis, coding, accessibility, course preparation, and administrative automation.</li>
+      </ul>
+      <div class="quote">The product is not “one more model host.” The product is a governance and procurement layer that turns model access into university infrastructure.</div>
+    </section>
+
+    <section id="architecture">
+      <h2>Reference architecture</h2>
+      <h3>1. Interface layer</h3>
+      <p>Open WebUI should serve as the primary front end. It already supports self-hosted deployment, multi-user administration, single sign-on, role-based access control, and OpenAI-compatible model backends. This reduces time to demo and makes the MVP legible to institutional stakeholders, because they can see a working portal early.</p>
+      <h3>2. Gateway layer</h3>
+      <p>The gateway is the actual product. It should expose normalized endpoints for chat completions and, later, embeddings, image, and audio tasks. Every request should pass through a policy and routing engine that enriches it with user and institutional context before provider selection.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>Auth adapter</h4>
+          <p>Maps campus SSO or API identity into role, campus, department, and entitlement state.</p>
+        </div>
+        <div class="card">
+          <h4>Policy engine</h4>
+          <p>Applies approved-model lists, privacy requirements, budget caps, and role-based restrictions.</p>
+        </div>
+        <div class="card">
+          <h4>Routing engine</h4>
+          <p>Selects the best compliant endpoint based on privacy, cost, latency, and availability.</p>
+        </div>
+        <div class="card">
+          <h4>Provider adapters</h4>
+          <p>Translate normalized requests into OpenAI, Anthropic, Google, Azure, Bedrock, or self-hosted endpoints.</p>
+        </div>
+      </div>
+      <h3>3. Data layer</h3>
+      <p>The data model should separate identity, policy, and usage metadata from content itself. By default, the platform should store no prompt or completion text. It should store enough metadata to support billing, dashboards, budgeting, and incident review, but not enough to create a shadow archive of student work.</p>
+      <ul>
+        <li>Identity store for users, groups, and entitlements</li>
+        <li>Policy store for approved models, privacy modes, quotas, and exception rules</li>
+        <li>Usage ledger for tokens, cost, latency, provider, and route selected</li>
+        <li>Administrative audit log for settings changes and privileged actions</li>
+      </ul>
+      <h3>4. Observability and controls</h3>
+      <p>Administrators need dashboards for spend, uptime, model popularity, route failures, and privacy mode compliance. They also need simple controls for campus-level catalog management, group entitlements, premium seat pools, and procurement reporting.</p>
+      <div class="note">
+        <strong>Important design rule:</strong> when zero-retention is required and no compliant route exists, the system should fail closed. It should never silently drop the user onto a non-compliant endpoint.
+      </div>
+      <h3>5. Provider mix</h3>
+      <p>The gateway should support both external APIs and institution-operated models. External providers supply breadth and fast iteration. Self-hosted open-weight models supply cost control, locality, and long-term bargaining power. The point is not to pick one. The point is to make them all legible under one policy plane.</p>
+    </section>
+
+    <section>
+      <h2>Privacy and policy posture</h2>
+      <p>Higher-ed adoption depends on clear, enforceable privacy guarantees. OpenRouter’s published zero-data-retention design offers a useful reference: requests can be marked so they route only to endpoints that satisfy a ZDR policy. Academic Router should adopt that idea and harden it for university use.</p>
+      <h3>Baseline privacy posture</h3>
+      <ul>
+        <li>Zero-data-retention routing as the institutional default where supported</li>
+        <li>No training on user content or user activity</li>
+        <li>No prompt logging by default</li>
+        <li>Metadata-only observability for normal operations</li>
+        <li>Per-model privacy labels visible in the UI</li>
+        <li>Institutional exception workflows for non-default routes</li>
+      </ul>
+      <p>Each model listing in the interface should display its policy envelope in plain language: whether the endpoint is zero-retention, whether provider-side training is disabled, whether prompts stay in-region, and whether the model is approved for routine coursework, faculty use, research, or administration.</p>
+      <p>This is where the platform creates trust. Universities do not only need a secure architecture. They need a system that makes its security posture visible to non-specialists.</p>
+    </section>
+
+    <section>
+      <h2>Identity, roles, and academic segmentation</h2>
+      <p>Role-based access is not a minor feature in this setting. It is the foundation of sane allocation. A freshman in a writing course, a faculty member preparing lectures, and a digital humanities lab building a custom workflow should not all receive the same model catalog, the same spend profile, or the same privacy exception rights.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>Typical users</th>
+              <th>Model access</th>
+              <th>Controls</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Standard student</td>
+              <td>Most undergraduates and taught-course users</td>
+              <td>Curated general-purpose writing, study, and reasoning models</td>
+              <td>ZDR-only, moderate caps, no premium coding agents</td>
+            </tr>
+            <tr>
+              <td>Faculty and staff</td>
+              <td>Instructors, advisors, administrators</td>
+              <td>Broader catalog, larger contexts, workflow tools</td>
+              <td>Department budgets, workspace controls, reporting</td>
+            </tr>
+            <tr>
+              <td>Research / premium</td>
+              <td>Labs, advanced graduate students, software teams</td>
+              <td>Codex-class, Opus-class, API access, agents</td>
+              <td>Premium allocation, project budgets, exception workflows</td>
+            </tr>
+            <tr>
+              <td>Campus admins</td>
+              <td>IT, AI office, procurement, compliance staff</td>
+              <td>Administrative, not pedagogical, privileges</td>
+              <td>Catalog, policy, and budget management</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>This structure keeps premium costs focused where they create institutional value. It also makes the platform intelligible to deans and CIOs, who need to know why some cohorts receive advanced access and others do not.</p>
+    </section>
+
+    <section id="economics">
+      <h2>Economic model and premium-seat logic</h2>
+      <p>The temptation in AI planning is to imagine universal premium access. That is almost always the wrong framing for higher education. A university-scale system should treat high-end model access as a scarce institutional resource, not a flat entitlement for the whole student population.</p>
+      <p>CUNY’s system-wide population is often described publicly as more than 271,000 when continuing and professional education are included, though more conservative official counts for degree-seeking enrollment are lower. SUNY reported 387,363 students in fall 2025. Together, these systems define an addressable population well above half a million students before faculty and staff are counted.</p>
+      <p>At that scale, blanket $200 premium subscriptions would produce absurd spend. Premium tiers must therefore be pooled, rationed, or translated into API-metered institutional access.</p>
+      <h3>Illustrative CUNY pilot math</h3>
+      <ul>
+        <li>Assume a pilot reaches 3 percent of a 271,000-plus student population: roughly 8,130 active users</li>
+        <li>Assume 10 percent of those active users need premium access: roughly 813 premium users</li>
+        <li>If that premium access were priced at a $200 per-month subscription equivalent, monthly spend would be about $162,600</li>
+        <li>Annualized, that is about $1.95 million before overhead, support, and infrastructure</li>
+      </ul>
+      <p>Those numbers are not insane for a cross-campus innovation initiative, but they are much too high to treat premium access as universal. The right move is to combine lower-cost default models with a carefully governed premium lane for coding, advanced research, and specialized use.</p>
+      <h3>How to treat Codex and Opus</h3>
+      <p>Premium coding and flagship reasoning models should anchor a separate entitlement class. The product should not promise those models to every student. It should expose them to faculty, research groups, advanced courses, digital scholarship centers, and institutional pilots through managed seat pools or departmental budgets.</p>
+      <div class="note">
+        <strong>Planning rule:</strong> use subscription-equivalent math to illustrate value and upper bounds, then run the platform on institutional APIs and pooled access where possible. That gives universities control over spend and lets them route heavy users toward the most appropriate backends.
+      </div>
+    </section>
+
+    <section>
+      <h2>Why a CUNY demo makes sense</h2>
+      <p>CUNY is a compelling first demonstration because it combines scale, public mission, diverse student populations, and many distinct academic contexts under one institutional umbrella. It is large enough to surface real allocation and governance problems, but bounded enough to make a pilot narrative clear.</p>
+      <p>A CUNY demo can show how one platform supports classroom writing, research assistance, software development, student support, and administrative workflows without collapsing them into one undifferentiated model menu. It can also show how a system can enforce privacy and budget rules centrally while still giving individual campuses room to define their own model catalogs and exception pathways.</p>
+      <h3>From CUNY to SUNY</h3>
+      <p>SUNY expands the problem and the opportunity. Its reported fall 2025 enrollment of 387,363 students, along with its multi-campus structure, makes it the natural second-stage proving ground. A successful CUNY pilot would provide a template for a broader system architecture: one policy plane, many campuses, campus-level sub-admin controls, and shared procurement leverage.</p>
+    </section>
+
+    <section id="rollout">
+      <h2>Phased rollout</h2>
+      <h3>Phase 1: demonstration</h3>
+      <ul>
+        <li>Open WebUI front end</li>
+        <li>Academic Router gateway with 6 to 10 curated models</li>
+        <li>Campus SSO mock or real pilot identity integration</li>
+        <li>ZDR-only routing for the initial catalog</li>
+        <li>Student, faculty, and premium-research user tiers</li>
+        <li>Usage dashboard with metadata-only logging</li>
+      </ul>
+      <h3>Phase 2: CUNY pilot</h3>
+      <ul>
+        <li>Department-level budgets and course groups</li>
+        <li>Faculty workspace templates</li>
+        <li>API keys for approved labs and research units</li>
+        <li>Procurement reporting and model-approval workflows</li>
+      </ul>
+      <h3>Phase 3: multi-campus expansion</h3>
+      <ul>
+        <li>Campus-specific model catalogs under one shared platform</li>
+        <li>Federated identity and group sync</li>
+        <li>Chargeback or showback by school, department, and lab</li>
+        <li>Selective self-hosting of open-weight models for cost control</li>
+      </ul>
+      <h3>Phase 4: statewide or consortium model</h3>
+      <ul>
+        <li>Shared procurement and privacy baselines</li>
+        <li>Inter-campus model governance templates</li>
+        <li>Research cloud integrations and HPC adjacencies</li>
+        <li>Long-term path toward a durable public AI utility for higher education</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Risks and constraints</h2>
+      <p>No serious proposal should pretend this is easy. Provider policies change. Premium usage can explode if quotas are vague. Campus identity systems are messy. Faculty often demand access to specific tools. Legal review will slow procurement. Those are all real constraints.</p>
+      <p>Still, those constraints strengthen the case for Academic Router rather than weaken it. A fragmented landscape already contains every one of these risks, only without a common governance layer to manage them. The question is not whether universities will use many models. They already do. The question is whether they will do so through infrastructure they control.</p>
+    </section>
+
+    <section>
+      <h2>Conclusion</h2>
+      <p>Academic Router should be understood as public-interest AI infrastructure for higher education. It adapts the gateway logic of OpenRouter, uses Open WebUI to accelerate the user-facing layer, and reorganizes model access around the needs of institutions rather than the incentives of consumer AI products.</p>
+      <p>The result is not merely a cleaner interface. It is a more durable operating model: one contract surface, one policy surface, one route into many models, and a clear path from experimental pilot to university-scale deployment.</p>
+      <p>If built well, this would let universities adopt frontier and open-weight models without surrendering governance. That is the real opportunity.</p>
+    </section>
+
+    <section id="sources">
+      <h2>Sources and reference points</h2>
+      <ul class="sources">
+        <li><a href="https://openrouter.ai/docs/quickstart">OpenRouter quickstart documentation</a></li>
+        <li><a href="https://openrouter.ai/docs/guides/features/zdr">OpenRouter zero-data-retention documentation</a></li>
+        <li><a href="https://docs.openwebui.com/features/authentication-access/">Open WebUI authentication and access documentation</a></li>
+        <li><a href="https://docs.openwebui.com/features/authentication-access/rbac/">Open WebUI RBAC documentation</a></li>
+        <li><a href="https://www.governor.ny.gov/news/governor-hochul-announces-enrollment-gains-state-university-new-york-third-consecutive-year">Governor Hochul announcement on SUNY enrollment gains</a></li>
+        <li><a href="https://comptroller.nyc.gov/reports/spotlight-cuny-and-the-new-york-city-economy/">NYC Comptroller report discussing CUNY enrollment and economic role</a></li>
+        <li><a href="https://openai.com/api/pricing/">OpenAI API pricing</a></li>
+        <li><a href="https://developers.openai.com/codex/pricing">OpenAI Codex pricing reference</a></li>
+        <li><a href="https://www.anthropic.com/claude/opus">Anthropic Claude Opus product page</a></li>
+        <li><a href="https://platform.claude.com/docs/en/about-claude/pricing">Anthropic API pricing documentation</a></li>
+      </ul>
+      <p class="muted">Note on enrollment: this draft uses public figures suitable for concept framing. Any formal institutional pitch should verify CUNY-wide totals against current official institutional research or central reporting sources.</p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Drafted for iterative development inside the Quimbot repository. Minimal surface, maximum legibility.
+  </footer>
+</body>
+</html>
