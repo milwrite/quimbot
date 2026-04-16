@@ -29,8 +29,7 @@ back again.
 
 # Introduction
 
-Cloze reading began as a procedural test. A passage lost words at fixed
-intervals, and the reader supplied what was missing. Taylor (1953) drew
+Cloze reading began as a procedural test. A passage is redacted of specific words  at fixed intervals, and the reader supplied what was missing. Taylor (1953) drew
 on the Gestalt principle of closure that Koffka (1935) described and
 recast it as a way to gauge comprehension as an integrated act. The
 procedure asked whether a reader could use syntax, semantics, and
