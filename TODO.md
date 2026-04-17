@@ -3,6 +3,8 @@
 **Last Updated:** 2026-03-30 09:00 ET
 
 ## High Priority
+- [ ] JBW eval sidequest: build rigorous InDesign/PDF/vision parity suite under `sidequests/jbw-evals/`, favoring recent issues when style differs; add recurring eval loop + logs
+- [ ] Re-run Tuesday diss cron cycle (recon + atomics) — lost to claude-cli routing bug 4/2
 - [ ] Unblock Run 4 eval: obtain adapter weights locally (step 350 + final)
 - [ ] Run checkpoint eval pass (perplexity + inference samples) immediately after weights arrive
 - [x] Merge fresh Ollama outputs into one staging JSONL and dedup against current superset → superset3 (5,560 unique) ✅ 2/27
