@@ -10,12 +10,12 @@ Last updated: 2026-03-30 (colon pivots, consecutive clauses, sentence ceiling)
 ### Banned constructions
 - **Em dashes: parenthetical asides only.** A paired em dash — like this — is permitted to wrap a genuine aside. A lone em dash as a pivot, connector, or sentence-closer is banned. Test: close the dash pair and restore the sentence — if the main clause still holds, the aside is legitimate; if not, restructure.
 - **No colon pivots** — colons introduce lists and formal definitions only; never use a colon as a structural hinge, rhetorical pause, or em-dash replacement; if a colon precedes a single clause rather than a list or named term, restructure the sentence so the syntax carries the relationship instead
-- **No contrastive pivots:** kill "not X but Y", "not just X", "more than X", "beyond that", "not merely X but Y", "not only X but also Y", "less about X more about Y" — state the point directly
+- **No contrastive pivots:** kill "not X but Y", "not just X", "more than X", "beyond that", "not merely X but Y", "not only X but also Y", "less about X more about Y" — state the point directly. Never use contrastives.
 - **No melodramatic overclaims** — no "restructured the conditions under which", no "transformed how we", no sweeping systemic claims from single events; bound claims to what the evidence shows
 - **No AI slop:** delve, tapestry, vibrant, crucial, comprehensive, meticulous, embark, robust, seamless, groundbreaking, synergy, transformative, paramount, multifaceted, myriad, cornerstone, reimagine, empower, catalyst, invaluable, bustling, nestled, realm
 - **No setup phrases:** "What makes this interesting is...", "Here's the thing:", "The key insight is..." — make the point, skip the announcement
 - **No filler:** "in order to" → "to"; "due to the fact that" → "because"
-- **Never construct the subject of a sentence as a list, especially following another list.** A sentence whose subject is "X, Y, Z, and W" almost always has a better singular subject available. Find it. Two consecutive list-subject sentences is a hard stop — restructure one or both.
+- **Never construct the subject of a sentence as a list, especially following another list.** A sentence whose subject is "X, Y, Z, and W" almost always has a better singular subject available. Find it. Two consecutive list-subject sentences is a hard stop — restructure one or both. Complex list-subjects are prohibited. Do not write subjects like "Porcelain rooms, lacquered surfaces, pagoda motifs, and garden structures..." Lead with a singular agent, object, or process instead.
 - **No mid-sentence transitional interruption with "in this light"** — it stalls the sentence and signals hedging. If the logical connection is real, the verb makes it; if not, restructure. Never: "X, in this light, Y." Either rewrite as two sentences or find the verb that carries the relationship directly.
 - **No gap-bridging constructions:** ban "the gap between X and Y", "bridges the gap", "this paper bridges", "fills the gap between" — these announce the paper's contribution instead of making it. State what the paper does; don't describe the distance it crosses.
 - **No consecutive simple independent clauses:** three or more short sentences in a row with simple subject-verb structure reads as a list, not prose. Restructure by subordinating, embedding, or combining. "X did Y. Y led to Z. Z was important." is always rewritable as one sentence with syntactic complexity doing that work.
@@ -29,7 +29,7 @@ Last updated: 2026-03-30 (colon pivots, consecutive clauses, sentence ceiling)
 - **Simple subjects** — lead with people, things, or actions; no noun-phrase pileups
 - **Strong verbs** — build, cut, show, reveal, compel, generate, push; ban utilize, leverage, facilitate, enhance, optimize
 - **Verb audit on every revision pass** — for each sentence, ask: is the verb the most descriptively precise and rhetorically effective option available? Weak copula constructions ("are X-mediated", "is shaped by") usually have a stronger replacement. Find the verb that carries the meaning rather than outsourcing it to an adjective. Example: "participation trajectories are platform-mediated outcomes" → "participation trajectories encode the pressures of the infrastructure they run through."
-- **Sentence variation** — mix short and long; vary openers; use fragments for emphasis
+- **Sentence variation** — mix short and long; vary openers; use fragments for emphasis. Limit lists of 3 or more items to one per paragraph at most; if a paragraph already contains one 3-item list, rewrite any additional list into prose.
 - **Claim discipline** — every non-trivial claim tied to traceable evidence; no floating assertions
 
 ---

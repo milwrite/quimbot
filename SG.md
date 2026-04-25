@@ -101,7 +101,7 @@ Even if macro files cannot be read, the nine non-negotiables below are embedded 
 
 ### Embedded Non-Negotiables
 
-These nine rules fire on every output, no file load required:
+These ten rules fire on every output, no file load required:
 
 1. **SX-01 Interrupted subject** — banned: `Subject, [interruptive phrase], verb`. Move qualifier after verb or subordinate.
 2. **SX-04 Nominalized subject** — banned: verb or adjective turned into noun phrase as subject. "The optimization of X" → "X optimizes."
@@ -112,6 +112,7 @@ These nine rules fire on every output, no file load required:
 7. **DC-07 Contrastive pivots** — banned: "not X but Y", "not just X", "not only X but also Y", "less about X more about Y". State the point directly.
 8. **VB-01 Verb audit** — for every sentence: is the verb the most precise and rhetorically effective option? Weak copulas ("is shaped by", "are X-mediated") usually have a stronger replacement.
 9. **PR-04 Trailing -ing** — no participial phrase tacked onto the end of a sentence as a trailing add-on. Restructure or make it a separate sentence.
+10. **CX-01 Context window** — never judge or revise a sentence in isolation when paragraph logic is at issue. Read the full surrounding paragraph at minimum, and read adjacent paragraphs when the sentence functions as a bridge, hinge, or transition. If the local context is available, use it; do not ask the user to paste text you can already access.
 
 ---
 

@@ -1,7 +1,7 @@
 # Master TODO
 
-**Last Updated**: 2025-11-08 (November 8, 2025)
-**Previous Update**: 2025-01-28 (9+ months ago)
+**Last Updated**: 2026-04-14 (April 14, 2026)
+**Previous Update**: 2026-04-10 (April 10, 2026)
 
 This file tracks ongoing tasks across the dissertation project. Reference this at the start and end of each session to maintain continuity and ensure systematic progress.
 
@@ -50,15 +50,20 @@ These tasks are intentionally small, local to this writing bundle, and safe to c
 - once a task is marked `Owner: Petrarch`, Quimbot leaves it alone unless explicitly asked
 
 - [x] **DISS-BUNDLE-01** (`Owner: Quimbot`) — Compared `addendum/methodological_addendum_ai_scaffold 2.md` against `addendum/methodological_addendum_ai_scaffold.md`; files were identical, so the duplicate copy was removed. Completed 2026-03-31.
-- [ ] **DISS-BUNDLE-02** (`Owner: Quimbot`) — Create `reference/EVIDENCE_MASTER_ALLOCATION.md` as a scaffold for evidence ownership, chapter placement, conflict notes, and status tracking.
-- [ ] **DISS-BUNDLE-03** (`Owner: Quimbot`) — Create `reference/DOC_PAIRS.md` mapping editable Markdown files to their generated `.docx` counterparts, with a clear note on which file is canonical.
-- [ ] **DISS-BUNDLE-04** (`Owner: Quimbot`) — Create `visualizations/INDEX.md` listing visualization number, topic, dissertation chapter, and files present in this bundle.
+- [x] **DISS-BUNDLE-02** (`Owner: Quimbot`) — Created `reference/EVIDENCE_MASTER_ALLOCATION.md` as a scaffold for evidence ownership, chapter placement, conflict notes, and status tracking. Completed 2026-04-03.
+- [x] **DISS-BUNDLE-03** (`Owner: Quimbot`) — Created `reference/DOC_PAIRS.md` mapping editable Markdown files to visible `.docx` counterparts, flagging ambiguous pairs, standalone exports, and the canonical-file rule. Completed 2026-04-03.
+- [x] **DISS-BUNDLE-04** (`Owner: Quimbot`) — Created `visualizations/INDEX.md` listing visualization number, topic, dissertation chapter, and files present in this bundle, including which suites also contain HTML or Markdown artifacts. Completed 2026-04-03.
 - [ ] **DISS-BUNDLE-05** (`Owner: Open`) — Normalize `drafts.md` entry structure so each item has consistent placement, source, and status fields while preserving the drafted prose.
-- [ ] **DISS-BUNDLE-06** (`Owner: Quimbot`) — Create `chapter_drafts/ch1_source_map.md` mapping reusable Chapter 1 prose blocks to target sections in the dissertation.
+- [x] **DISS-BUNDLE-06** (`Owner: Quimbot`) — Created `chapter_drafts/ch1_source_map.md` mapping reusable Chapter 1 prose blocks in this bundle to target dissertation sections, grounding the map in `writing/chapters/chapter-1-iteration-a1.md` and `writing/drafts.md` and noting the bundle-path mismatch with older `00_ACTIVE/...` references. Completed 2026-04-04.
 - [ ] **DISS-BUNDLE-07** (`Owner: Open`) — Create `chapter_drafts/bridge-users/README.md` identifying canonical files, supporting files, and recommended reading order for Chapter 3 bridge-user work.
 - [ ] **DISS-BUNDLE-08** (`Owner: Open`) — Do a light formatting-only cleanup pass on `core_docs/progress_reports.md` for headings, spelling, and list consistency without changing substantive claims.
-- [ ] **DISS-BUNDLE-09** (`Owner: Quimbot`) — Add a short “bundle limitations” note to `README.md` and/or `CLAUDE.md` explaining which tasks require the full research repo.
+- [x] **DISS-BUNDLE-09** (`Owner: Quimbot`) — Added a short `README.md` bundle-limitations note explaining that this bundle supports writing/inventory work while database queries, validation against live SQLite files, analysis reruns, dashboard recovery, and tasks requiring missing scripts or raw network data belong in the full research repo. Completed 2026-04-08.
 - [x] **DISS-BUNDLE-10** (`Owner: Quimbot`) — Added `reference/DASHBOARD_WEB_PLAN.md`, a comprehensive staged plan for getting the dashboard on the public web, including hosting options, recovery/audit steps, public/private data boundaries, and mobile-first requirements. Completed 2026-03-31.
+
+### Review Cycle Notes
+- 2026-04-14 — Quimbot review-cycle fallback pass: no unfinished `Owner: Quimbot` DISS-BUNDLE items remained, so this file received a light traceability update only. Refreshed the top-level `Last Updated` / `Previous Update` metadata to preserve a clear maintenance sequence and recorded this pass here.
+- 2026-04-12 — Quimbot review-cycle fallback pass: no unfinished `Owner: Quimbot` DISS-BUNDLE items remained, so this file received a light consistency update only. Reconciled the duplicate `EVIDENCE_MASTER_ALLOCATION.md` action in Active Writing with completed DISS-BUNDLE-02 so the checklist no longer shows the scaffold as both done and undone.
+- 2026-04-10 — Quimbot review-cycle fallback pass: no unfinished `Owner: Quimbot` DISS-BUNDLE items remained, so this file received a light orientation update only. Refreshed the header dates and recorded this fallback rule application here for traceability.
 
 ## 📝 ACTIVE WRITING TASKS
 
@@ -77,7 +82,7 @@ These tasks are intentionally small, local to this writing bundle, and safe to c
 - Target: 6,000-8,000 words
 
 ### Evidence Management
-- [ ] Create EVIDENCE_MASTER_ALLOCATION.md to prevent cross-chapter conflicts
+- [x] Create `reference/EVIDENCE_MASTER_ALLOCATION.md` to prevent cross-chapter conflicts — scaffold completed 2026-04-03 via DISS-BUNDLE-02
 - [ ] Resolve 14 identified cross-chapter evidence conflicts
 - [ ] Establish primary ownership for high-impact IDs (submission_1akbu5y, etc.)
 - [ ] Document preview/statistical exception rules
