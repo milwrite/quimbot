@@ -86,6 +86,10 @@ VISUALIZATIONS -- the data shown. 13 numbered suites (Viz 1-13), each with
 - jekyll site: tools/jekyll-site/ (753 evidence pages)
 - query results: data/output/queries/
 
+## bundle limitations
+
+Use this bundle for writing, inventories, crosswalks, source maps, and formatting-safe cleanup. Use the full research repo for database queries, scraper or analysis reruns, validation against live SQLite files, dashboard recovery, and any task that depends on missing scripts, environments, or raw network data.
+
 
 ## document generation
 

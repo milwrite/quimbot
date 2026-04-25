@@ -3,6 +3,17 @@
 ## Goal
 Build a highly rigorous eval suite for parity with established JBW style across InDesign source, exported PDF, and visual renderings, favoring more recent issues when there is unevenness across issues.
 
+## Primary target
+Use the published **JBW 44.1 Reifman article** as the concrete article-level test case.
+Treat article-level parity as distinct from full-issue parity.
+
+### Article-level target reminders
+- target article: **Reifman (P2)**
+- article-level geometry target discussed in coordination:
+  - **32 pages**
+  - **432 × 648 pt**
+- do **not** confuse this with full-issue trim parity
+
 ## Scope
 - Exact page dimensions and exact placement/alignment checks
 - Figure and table structures, conventional placement, and consistency with existing templates
@@ -32,6 +43,8 @@ Build a highly rigorous eval suite for parity with established JBW style across 
 ## Immediate tasks
 - [ ] Mirror or inventory `~/Desktop/JBW/` structure from the current machine that has it
 - [ ] Create a local research inventory of JBW issues, templates, and output examples
+- [ ] Compare candidate PDFs directly against the currently published Reifman article on the JBW site
+- [ ] Avoid redundant re-sourcing of InDesign automation resources already covered by the current MCP / UXP path
 - [ ] Define parity dimensions at three layers:
   - [ ] InDesign structural metadata
   - [ ] PDF extracted geometry/text/layout heuristics
@@ -57,6 +70,64 @@ Build a highly rigorous eval suite for parity with established JBW style across 
 - [ ] `run_jbw_eval_loop.sh` — repeatable runner with logs
 - [ ] `logs/` — timestamped result outputs and summaries
 - [ ] `reports/` — rolling parity summaries and recommendations
+
+## Reifman parity scorecard
+### 1. Geometry match
+- [ ] page count matches target article
+- [ ] page size / trim matches target article
+- [ ] margins match within tolerance
+- [ ] text-block width / height match within tolerance
+- [ ] opener vs body-page geometry is distinct and correct
+- [ ] running head / folio coordinates match within tolerance
+- [ ] frame / object coordinates match within tolerance bands
+
+### 2. Style-system match
+- [ ] paragraph style inventory parity
+- [ ] character style inventory parity
+- [ ] object style inventory parity
+- [ ] font-size ladder parity
+- [ ] leading / line-spacing parity
+- [ ] paragraph spacing before/after parity
+- [ ] bold / italic behavior parity
+- [ ] caps / small-caps behavior parity where applicable
+
+### 3. Structural match
+- [ ] opener page structure matches target
+- [ ] title / author / abstract / keywords treatment matches target
+- [ ] introduction treatment matches target
+- [ ] body-page structure matches target
+- [ ] figure treatment matches target
+- [ ] table treatment matches target
+- [ ] blockquote treatment matches target
+- [ ] references treatment matches target
+- [ ] about-the-author treatment matches target
+
+### 4. Flow / composition match
+- [ ] no overset text
+- [ ] no collapsed spacing
+- [ ] no broken paragraph joins
+- [ ] line endings / reflow broadly stable
+- [ ] figure / table anchoring behaves conventionally
+
+### 5. Visual match
+- [ ] opener page visually matches target strongly
+- [ ] representative body pages visually match target strongly
+- [ ] figure/table pages visually match target strongly
+- [ ] references page visually matches target strongly
+
+### 6. Native-source confidence
+- [ ] native InDesign DOM extraction available
+- [ ] plugin connected
+- [ ] extraction successful against live doc
+- [ ] style / geometry facts logged from actual document
+
+## Completion levels
+- [ ] Level 0 — Scaffold: target named, spec exists, files exist
+- [ ] Level 1 — Operational: loop runs, logs and review packets generate
+- [ ] Level 2 — Structurally matched: all article forms present in correct places
+- [ ] Level 3 — Geometrically matched: page/text-block/frame geometry within tolerance
+- [ ] Level 4 — Style matched: typography/spacing/style behavior materially parallel
+- [ ] Level 5 — Reifman parity pass: geometry + structure + style + visual checks all pass strongly
 
 ## Cron / automation plan
 - [ ] Schedule recurring cron runner to continue:

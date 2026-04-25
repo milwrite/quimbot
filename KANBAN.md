@@ -1,12 +1,15 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-03-30 19:30 ET_
+_Last synced: 2026-04-02 21:00 ET_
 
 ## 🔜 Backlog
 
 - **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **claude-cli routing bug fix** — v2026.4.2 update auto-detected Claude CLI, routed isolated sessions to nonexistent provider; gateway restart fixed it; Tuesday diss cron cycle lost ✅ 4/2
+- **Diss Google Drive sync + four-domain reorg** — 22 files downloaded, subtree merged, writing/research/evidence/visualizations structure, comprosody subtree added ✅ 3/31
+- **Cloze reader site viewport polish** — caret flip bug, ghost button restyle, iPhone SE layout, desktop scaling ✅ 3/31
 - **Cloze paper v43 style sweep + argument fix** — nominalized subjects, "rather than", consecutive thin independents, pseudo-clefts; pretraining/slow-reading argument error corrected; EDITS.md kanban added (15 approved, 4 proposed); macro ID system with taxonomy + scope profiles + rule cards ✅ 3/30
 - **creative-clawing mobile fix** — flowfield caption bottom-align, touchAction on spectrum container ✅ 3/30
 - **Mohr hypercube artifact + microblog #35** — 4D tesseract double-projection, four rotation modes, mobile-responsive, entry retitling pass ✅ 3/29

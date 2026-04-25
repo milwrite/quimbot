@@ -12,6 +12,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - For dissertation collaboration with Petrarch, Quimbot should support: obvious copyedits only when violations are clear; database-backed retrieval of student voices/evidence chains; scouting for paragraph-level expansion opportunities; and reciprocal review with Petrarch before proposing end-of-night additions
 - Never commit datasets or large artifacts to Git
 
+## Key Decisions Log (2026-04-02)
+- **Evening review 4/2 21:00**: Zero-commit day. Primary event: `claude-cli` routing bug. OpenClaw v2026.4.2 update (wizard 00:33 UTC) auto-detected Claude Code CLI at `/home/milwrite/.local/bin/claude` and routed all isolated cron sessions to `claude-cli/*` provider (nonexistent). Every cron job failed with `model_not_found` throughout the day. Tuesday diss cron cycle (recon 12:00, atomics 13/15/17/19) lost entirely. Fixed via gateway restart ~20:55 ET. No new commits, no data generation. Superset18 static at 138,721. OpenRouter 402 day 36.
+
+## Key Decisions Log (2026-03-31)
+- **Diss integration day**: Google Drive sync completed — 22 dissertation files downloaded via `gog`, organized into `diss/` with date prefixes. Four-domain reorg (writing/research/evidence/visualizations). Comprosody subtree merged. Cloze reader viewport polish (caret flip bug, ghost button, iPhone SE layout). CLOZE_READER_TODO.md created. 8 cron jobs updated to reference Drive material. Diss bundle: ownership lanes assigned, dashboard web launch plan added.
+
 ## Key Decisions Log (2026-03-30)
 - **Morning review 3/30 09:00**: 16 commits overnight (9 Quimbot, 7 creative-clawing). Style system expansion dominant: em dash paired-aside rule, nominalized subjects ban, What/That opener ban, This+noun rule, pseudo-cleft ban, colon pivots, consecutive clauses, sentence ceiling, macro ID taxonomy with scope profiles. Cloze paper v42 synced to HTML site (Fillenbaum→Rayner, PROP-01/02) + argument fix (pretraining ≠ slow reading). creative-clawing: microblog style sweep, entry-34 Ising closer rewrite, Petrarch audio reader on entry-33 (Daniel/British), crystal+voronoi safe-area insets. Data static (superset13 at 86,419). OpenRouter 402 day 33.
 

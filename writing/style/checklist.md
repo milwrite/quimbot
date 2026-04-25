@@ -5,6 +5,40 @@
 
 ---
 
+## ⛔ Pre-Post Protocol (mandatory, 2026-04-05)
+
+No revised prose posts back to milwrite without completing this sequence. No exceptions.
+
+**Step 1 — Draft**  
+Produce the revision.
+
+**Step 2 — Mechanical audit (Pass 1)**  
+Run every category below on the draft. For each category, count violations found and fixed. Do not skim — grep-level check.
+
+**Step 3 — Fix all violations**  
+Address every item flagged in Pass 1.
+
+**Step 4 — Re-audit (Pass 2)**  
+Run the checklist again on the fixed draft. Must come back clean before proceeding.
+
+**Step 5 — Post with audit line**  
+Every submission to milwrite includes a one-line audit summary immediately after the prose:
+
+```
+Checklist: [categories checked] | violations found: X | violations fixed: X | clean ✓
+```
+
+Example:
+```
+Checklist: all categories | violations found: 7 | violations fixed: 7 | clean ✓
+```
+
+**Enforcement:** If either Quimbot or Petrarch posts revised prose without the audit line, the other calls it out. milwrite can also call it out at any time.
+
+---
+
+---
+
 ## Voice and Register
 
 - [ ] Does this sound like a person thinking, or a model generating?
