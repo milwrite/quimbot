@@ -242,4 +242,17 @@
   - `audit_status(chapter="draft.md", action="get")` succeeded and returned that no audit record exists yet for `draft.md`
 - **Status:** Approved · applied as smoke test, with project-context limitation documented
 
-*Last updated: 2026-04-07 · Quimbot*
+### ED-033 — Insert fine-tuning subsection in Cloze Reader (2026-05-02)
+- **Location:** `# Cloze Reader`, after the architecture/setup discussion and before the later evaluative/theoretical close
+- **Issue:** Paper needs a new subsection explaining teacher-generated task data, PEFT/Unsloth setup, iterative Gemma→Gemini training cycles, and artifact-native evaluation in prose that stays grounded in the game rather than drifting into generic ML methods narration.
+- **Section title:** `Teacher-Learner Distillation for Pedagogical Modeling`
+- **Insertion progression:**
+  1. opener on why a smaller model was needed for the game's narrow pedagogical repertoire
+  2. PEFT / Unsloth gloss
+  3. teacher/data pipeline: Gemma first, Gemini later
+  4. narrow task-family definition
+  5. evaluation and caveat
+  6. implication: model training as part of pedagogical design
+- **Status:** Staged · ready for integration into canonical draft
+
+*Last updated: 2026-05-02 · Quimbot*

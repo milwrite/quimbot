@@ -29,12 +29,7 @@ back again.
 
 # Introduction
 
-Cloze reading began as a procedural test. A passage is redacted of specific words  at fixed intervals, and the reader supplied what was missing. Taylor (1953) drew
-on the Gestalt principle of closure that Koffka (1935) described and
-recast it as a way to gauge comprehension as an integrated act. The
-procedure asked whether a reader could use syntax, semantics, and
-discourse at once. Its results suggested that contextual prediction
-tracked comprehension more closely than older readability formulas did.
+In 1953, Wilson Taylor borrowed the Gestalt concept of closure and turned it into a readability instrument by deleting words from prose and asking readers to restore them from context. The procedure asked whether a reader could use syntax, semantics, and discourse at once. Its results suggested that contextual prediction tracked comprehension more closely than older readability formulas did.
 
 The premise later reappeared in machine learning, where researchers in
 distributional linguistics and neural language modeling also treated the
@@ -216,6 +211,47 @@ requests. Each call receives only the passage text and the instructions
 for one task (Cloze Reader 2026b). The result is a chain of discrete
 procedures. Gemma does not maintain a conversational memory across the
 puzzle. It answers one bounded question at a time.
+
+## Teacher-Learner Distillation for Pedagogical Modeling
+
+Later on, because I needed a smaller model to learn the game's narrow
+pedagogical repertoire rather than treat each prompt as an instance of
+open-ended assistant behavior, I turned to parameter-efficient
+fine-tuning (PEFT) and adapted Qwen3.5-0.8B on task data generated for
+Cloze Reader's own bounded procedures, first through a filtered corpus
+distilled from Gemma-3-27B and later through additional
+Gemini-generated cycles.
+
+I used parameter-efficient fine-tuning to adapt Qwen3.5-0.8B for Cloze
+Reader's bounded tasks on an NVIDIA GPU through Unsloth, because
+low-rank updates gave me a practical way to train a smaller model
+against the game's own procedures without retraining every weight or
+depending on the larger remote infrastructure that had previously
+powered Gemma-3-27B (Hu et al. 2021; Dettmers et al. 2023).
+
+I began by treating Cloze Reader's live Gemma-3-27B backend as a
+teacher and querying the running game for examples drawn from the same
+bounded tasks that structure play: word selection, batch selection,
+hint generation, and contextualization. I filtered those outputs into a
+training corpus for Qwen3.5-0.8B, then extended that corpus through
+additional Gemini-3.1-Flash-Lite cycles after Gemma had left the loop.
+
+I was not trying to build a smaller all-purpose assistant. I was trying
+to build a smaller model that could choose blanks that fit a passage,
+generate hints that guide without revealing an answer, and produce
+contextualizations that direct attention back to prose.
+
+I evaluated that student on held-out task data drawn from those same
+task families, using artifact-native criteria such as JSON compliance,
+structural correctness, hint safety, and contextualization behavior. On
+several of those criteria, especially structural compliance and
+contextualization, the fine-tuned student matched or exceeded
+Gemma-3-27B. Later stricter evaluation also exposed remaining
+weaknesses, especially in hint leakage and some forms of constraint
+adherence. Those results show that model training itself became part of
+Cloze Reader's pedagogical design, since a smaller model tuned for a
+narrow reading task could serve that task better than a larger untuned
+one.
 
 This design choice also shapes the player's experience. No two runs of
 Cloze Reader are identical because each session draws from a streamed
