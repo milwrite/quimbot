@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="../favicon.png">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>2025 — Tools for Registration and Panic Around the Safety Net · CUNY Social Stories</title>
+<style>
+:root{--bg:#0b0e14;--fg:rgba(255,255,255,.92);--muted:rgba(255,255,255,.6);--card:rgba(255,255,255,.04);--stroke:rgba(255,255,255,.12);--code:#0d1117;--accent:#9ecbff;--year:#c8c8c8;--active:#ffd479}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:24px}
+article,main{max-width:820px;margin:0 auto}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.15;margin:0 0 8px;letter-spacing:-0.02em}
+h2{font-size:clamp(18px,2.5vw,24px);margin:36px 0 12px;font-weight:600;letter-spacing:-0.01em}
+.year-chip{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.18em;font-size:.9rem;color:var(--year);text-transform:uppercase;margin:0 0 4px}
+.meta{color:var(--muted);font-size:14px;margin:8px 0 28px;display:flex;gap:14px;flex-wrap:wrap;align-items:baseline}
+.meta .motif{font-style:italic}
+.meta .subs{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem}
+p{margin:0 0 16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;background:var(--card);padding:2px 6px;border-radius:4px;border:1px solid var(--stroke)}
+pre{background:var(--code);border:1px solid var(--stroke);border-radius:10px;padding:14px 18px;overflow:auto;margin:8px 0 18px;font-size:13px;line-height:1.5}
+pre code{background:none;border:none;padding:0}
+.evidence{border-top:1px solid var(--stroke);margin-top:24px;padding-top:16px;font-size:14px;color:var(--muted)}
+.evidence strong{color:var(--fg);font-weight:600}
+nav.crumbs{font-size:13px;color:var(--muted);margin-bottom:24px}
+nav.pager{display:flex;justify-content:space-between;gap:16px;margin-top:48px;padding-top:24px;border-top:1px solid var(--stroke);font-size:14px}
+nav.pager a{display:block;color:var(--muted);max-width:48%}
+nav.pager a:hover{color:var(--fg)}
+nav.pager .pager-label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--year);margin-bottom:4px}
+nav.pager .pager-next{text-align:right}
+ol.vlist{list-style:none;padding:0;margin:24px 0;border-top:1px solid var(--stroke)}
+ol.vlist li{padding:14px 0;border-bottom:1px solid var(--stroke);display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+ol.vlist a{display:flex;gap:16px;align-items:baseline;color:inherit;flex:1 1 auto;min-width:0;text-decoration:none}
+ol.vlist a:hover .title{text-decoration:underline}
+ol.vlist .yr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:600;color:var(--year);min-width:5ch}
+ol.vlist .title{font-size:1.05rem}
+ol.vlist .subs{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.75rem;color:var(--muted)}
+footer{max-width:820px;margin:64px auto 0;padding-top:24px;border-top:1px solid var(--stroke);font-size:13px;color:var(--muted)}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--fg)}
+
+.read-all-link{display:inline-block;margin-top:16px;padding:10px 18px;border:1px solid var(--stroke);border-radius:8px;color:var(--muted);font-size:14px;text-decoration:none}
+.read-all-link:hover{color:var(--fg);border-color:rgba(255,255,255,.3);text-decoration:none}
+
+/* ===== Single-page (all.html) + timeline ===== */
+body.allpage{padding:0}
+.timeline{position:sticky;top:0;z-index:10;background:rgba(11,14,20,.96);backdrop-filter:saturate(120%) blur(8px);-webkit-backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--stroke);padding:18px 16px 14px}
+.timeline-inner{max-width:980px;margin:0 auto}
+.timeline-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;gap:16px;flex-wrap:wrap}
+.timeline-head h1{font-size:clamp(16px,2vw,20px);margin:0;letter-spacing:-0.01em}
+.timeline-head .crumbs{font-size:12px;color:var(--muted)}
+.timeline-head .crumbs a{color:var(--muted)}
+.timeline-head .crumbs a:hover{color:var(--fg)}
+.timeline-bar{position:relative;height:28px}
+.timeline-rail{position:absolute;left:0;right:0;top:11px;height:2px;background:var(--stroke);border-radius:1px}
+.timeline-fill{position:absolute;left:0;top:11px;height:2px;background:linear-gradient(90deg,var(--accent),var(--active));border-radius:1px;width:0;transition:width .25s ease}
+.timeline-track{position:relative;display:flex;justify-content:space-between;align-items:flex-start;list-style:none;margin:0;padding:0}
+.timeline-track li{position:relative;flex:1 1 0;display:flex;justify-content:center}
+.timeline-track a{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;text-decoration:none;cursor:pointer;padding:2px 4px}
+.timeline-track a:hover{color:var(--fg);text-decoration:none}
+.timeline-track .dot{width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--stroke);box-shadow:0 0 0 3px var(--bg);transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.timeline-track a:hover .dot{border-color:var(--accent)}
+.timeline-track a.active{color:var(--active)}
+.timeline-track a.active .dot{transform:scale(1.4);border-color:var(--active);background:var(--active)}
+.timeline-track a.visited .dot{border-color:var(--accent);background:var(--accent)}
+.allpage main{max-width:820px;margin:0 auto;padding:24px}
+.allpage .preface{max-width:820px;margin:8px auto 0;padding:8px 24px 0}
+.allpage .preface h2{margin-top:24px}
+.year-vignette{padding:48px 0 16px;border-top:1px solid var(--stroke)}
+.year-vignette:first-of-type{border-top:none;padding-top:24px}
+.year-vignette h2{margin:4px 0 0;font-size:clamp(24px,3vw,32px);font-weight:600;letter-spacing:-0.02em}
+.year-vignette .meta{margin:10px 0 22px}
+@media (max-width:680px){
+  .timeline-track a .label{display:none}
+  .timeline-track a.active .label{display:inline}
+  .timeline{padding:14px 12px 10px}
+}
+
+</style>
+</head>
+<body>
+<nav class="crumbs"><a href="index.html">CUNY Social Stories</a> / 2025</nav>
+<article>
+  <p class="year-chip">2025</p>
+  <h1>Tools for Registration and Panic Around the Safety Net</h1>
+  <div class="meta">
+    <span class="motif">Motif: student-made scaffolding</span>
+    <span class="subs">r/CUNY · r/Baruch</span>
+  </div>
+  <p>By 2025, the scaffolding motif is both technical and political. Students continue to need peer-built tools for everyday decisions, but the broader safety net also feels vulnerable. The year&#x27;s CUNY-wide posts include anxieties over federal loans and grants, textbook cost avoidance, community college stigma, loneliness, and professors&#x27; improvised systems.</p>
+<p>In January, a main CUNY post reacts to a federal funding pause and asks whether student loans, Pell grants, or SNAP could be affected. The poster updates the thread as more information appears and expresses relief when student aid seems not to be immediately frozen. The comments show why the question matters: one student says many CUNY peers depend on food assistance and grants to remain enrolled; another reads the article more carefully and urges caution before panic. Reddit becomes a rapid interpretation layer for national policy when the consequences could hit CUNY students directly.</p>
+<p>In May, a Baruch student shares a browser add-on that surfaces professor-rating information inside Schedule Builder. The tool addresses a longstanding CUNY Reddit complaint: registration forces students to move between portals, ratings, syllabi, and rumor while seats disappear. Commenters praise the maker and urge employability recognition for the project. The object itself is a scaffold: student labor welded onto an official system to make it less opaque.</p>
+<p>In August, a main CUNY post returns to textbook costs through an ironic warning format: students are told to avoid a set of online places where free digital books, older scans, articles, or search techniques might appear. The post also notes that homework platforms and lab manuals may still force paid access even when a book can be found elsewhere. A commenter asks for the thread to be pinned, treating the resource list as infrastructure rather than a one-off tip. The post calls back to the August 2020 textbook-source collection but with a sharper genre: the community has learned to encode cost avoidance as a durable, shareable script.</p>
+<p>The year closes the twelve-year arc by showing the motif at several scales. Students still build small hacks for registration, collectively monitor national decisions that could unsettle the affordability CUNY promises, and circulate textbook tactics when course materials strain budgets. It looks back to 2024&#x27;s advising-damage story, Baruch resume-help offer, and alumni salary thread: in all of them, students add tools, numbers, and warnings around official systems. What began in 2014 as finding friends and chasing registration overrides now includes reading policy shocks, writing browser extensions, and preserving cost-saving manuals.</p>
+<p class="evidence"><strong>Evidence:</strong> submission_1ic1a4p (r/CUNY, Score: 315, Date: 2025-01-28); comment_m9mqm92 (Score: 183, Date: 2025-01-28); comment_m9mxlex (Score: 96, Date: 2025-01-28); submission_1kk8if8 (r/Baruch, Score: 224, Date: 2025-05-11); comment_mrtgq70 (Score: 28, Date: 2025-05-11); comment_mrtqcr4 (Score: 22, Date: 2025-05-11); submission_1my4vi6 (r/CUNY, Score: 585, Date: 2025-08-23); comment_na9i0ze (Score: 43, Date: 2025-08-23).</p>
+  <nav class="pager"><a class="pager-prev" href="2024.html"><span class="pager-label">← 2024</span>Advising Damage and Alumni Care Work</a><a class="pager-next" href="index.html"><span class="pager-label">All vignettes →</span>Index</a></nav>
+</article>
+<footer>
+  <p><a href="../index.html">← Quimbot</a> · <a href="index.html">Index</a> · <a href="all.html">Single-page</a> · CUNY Reddit corpus, paraphrased per disguise protocol</p>
+</footer>
+</body>
+</html>
