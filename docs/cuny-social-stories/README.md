@@ -2,6 +2,8 @@
 
 Yearly vignettes from the CUNY Reddit corpus (2014–present). Static site under `quimbot/docs/cuny-social-stories/`, served at `milwrite.github.io/quimbot/cuny-social-stories/`.
 
+For the current work log and content map, see [`RECENT_WORK.md`](RECENT_WORK.md).
+
 ## Layout
 
 ```
@@ -13,7 +15,10 @@ cuny-social-stories/
 │   └── _TEMPLATE.md
 ├── build.py               regenerates HTML from _src/
 ├── index.html             generated landing page
+├── all.html               generated single-page version with timeline
+├── all.md                 consolidated markdown version for review/sync
 ├── 2014.html ... 2025.html   generated per-year pages
+├── RECENT_WORK.md         dated status, content map, and next work
 └── README.md
 ```
 
@@ -29,7 +34,7 @@ cuny-social-stories/
 
 4. Commit `_src/YYYY.md` and the regenerated HTML.
 
-The build script reads every `_src/YYYY.md` whose frontmatter `published` is not `false`, sorts by `year`, and rewrites `index.html` and `YYYY.html` from scratch. Prev/next nav between years is derived from the sort order.
+The build script reads every `_src/YYYY.md` whose frontmatter `published` is not `false`, sorts by `year`, and rewrites `index.html`, `all.html`, and `YYYY.html` from scratch. Prev/next nav between years is derived from the sort order.
 
 ## Source format
 
@@ -43,7 +48,7 @@ evidence_ids:
   - submission_xxxxx
   - comment_yyyyy
 ---
-Body paragraphs. Markdown supported: paragraphs, `code`, **bold**, *italic*, links.
+Body paragraphs. Markdown supported: paragraphs, `code`, **bold**, *italic*, and the special evidence line.
 
 **Evidence**: submission_xxxxx (r/sub, Score: N, Date: YYYY-MM-DD); ...
 ```
