@@ -58,7 +58,7 @@ Body paragraphs. Markdown supported: paragraphs, `code`, **bold**, *italic*, and
 - One vignette per year. Build expects unique `year` values.
 - Evidence IDs follow `submission_XXXXX` / `comment_XXXXX` and link back to the corpus.
 - Paraphrase per Reagle/Bruckman disguise protocol. Never reproduce more than ~5 consecutive original words.
-- The cross-year throughline is currently "CUNY Reddit as student-made infrastructure"; if you change it, update `MOTIF` in `build.py` and the index preface.
+- The cross-year throughline is currently "CUNY Reddit as student-made scaffolding"; if you change it, update `MOTIF` in `build.py` and the index preface.
 
 ## Source of truth
 
