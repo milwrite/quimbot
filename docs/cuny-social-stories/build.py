@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build CUNY Social Stories static site from _src/*.md.
 
-Run: python3 build.py
+Run with python3 build.py.
 """
 
 import html
@@ -11,17 +11,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 SRC = ROOT / "_src"
-MOTIF = "student-made scaffolding"
+MOTIF = "CUNY Reddit as student-made infrastructure"
 SITE_TITLE = "CUNY Social Stories"
 SITE_SUBTITLE = "Yearly vignettes from the CUNY Reddit corpus, 2014–present"
 
 PREFACE_HTML = """\
-<p>The recurring motif is <strong>student-made scaffolding</strong>: CUNY Redditors repeatedly use subreddit space to build the missing supports around an institution they experience as affordable, valuable, and difficult to navigate. Across the years sampled, the register changes, but the pattern holds. Students ask strangers to translate bureaucratic portals, aid rules, degree audits, course sequencing, commuter routines, social norms, campus hazards, and job-market expectations into usable knowledge. Sometimes the scaffold is emotional, as when students admit loneliness, burnout, homelessness, or academic collapse and receive concrete next steps. Sometimes it is tactical, as when users share office-contact workarounds, refund guides, textbook sources, professor-rating tools, syllabi, or resume help. Sometimes it is political, as when students organize petitions or debate university-wide policy shifts.</p>
-<p>Source databases queried (CUNY-only): <code>CUNY</code>, <code>Baruch</code>, <code>QueensCollege</code>, <code>HunterCollege</code>, <code>CCNY</code>, <code>BrooklynCollege</code>, <code>JohnJay</code>, <code>CUNYuncensored</code>. All anchor moments are paraphrased per the dissertation's disguise protocol; evidence IDs preserve traceability.</p>
+<p>Across these yearly vignettes, CUNY Reddit appears as student-made infrastructure around a public university that students describe as affordable, valuable, and difficult to navigate. The register changes by year while the work remains practical. Students ask strangers to translate portals, aid rules, degree audits, course sequencing, commuter routines, social norms, campus hazards, writing software, and job-market expectations into usable knowledge. The support moves through emotional disclosure, tactical procedure, political pressure, and peer-built tools.</p>
+<p>The source databases queried for CUNY-only material were <code>CUNY</code>, <code>Baruch</code>, <code>QueensCollege</code>, <code>HunterCollege</code>, <code>CCNY</code>, <code>BrooklynCollege</code>, <code>JohnJay</code>, and <code>CUNYuncensored</code>. All anchor moments are paraphrased per the dissertation's disguise protocol; evidence IDs preserve traceability.</p>
 """
 
 CODA_HTML = """\
-<p>Across these years, CUNY Reddit shows students building the missing connective tissue around a public university system defined by affordability, commuting, bureaucracy, and uneven support. The motif does not stay fixed in one domain. It starts with belonging and persistence, moves into aid and transfer uncertainty, becomes workaround knowledge for offices and portals, expands into pandemic mutual aid, and later hardens into guides, petitions, alumni networks, and software tools. The arc also shows a changing threshold of expectation. Early posts ask how to survive the campus as it exists, while later posts increasingly assume that students must audit, repair, supplement, or publicly pressure the institution. The strongest throughline is not cynicism but practical solidarity, as strangers turn their own hard-won knowledge into a handrail for the next student trying not to fall through.</p>
+<p>Across these years, CUNY Reddit shows students building connective tissue around a public university system shaped by affordability, commuting, bureaucracy, and uneven support. The work starts with belonging and persistence, moves through aid and transfer uncertainty, becomes workaround knowledge for offices and portals, expands into pandemic mutual aid, and hardens into guides, petitions, alumni networks, and software tools. Early posts ask how to survive campus as it exists, while later posts assume that students must audit, repair, supplement, or publicly pressure the institution. The throughline is practical solidarity, as strangers turn hard-won knowledge into a handrail for the next student trying not to fall through.</p>
 <p>By the later years, the contrast is especially sharp around writing itself. In classes, AI detection pushes students toward defensive version control as drafts, timestamps, histories, screenshots, and explanations become a private audit trail. On CUNY Reddit, those same anxieties become collective composing. Students turn complaints and frustrations into warnings, procedural scripts, resource lists, software tools, and calls to act. The subreddit is therefore not just a record of student life around CUNY, but one of the local discursive arenas where students now practice everyday reading, writing, and institutional literacy together.</p>
 """
 
@@ -166,6 +166,45 @@ def inline_md(text):
     return text
 
 
+def html_fragment_to_md(fragment):
+    text = fragment.strip()
+    text = re.sub(r"</p>\s*<p>", "\n\n", text)
+    text = re.sub(r"^<p>", "", text)
+    text = re.sub(r"</p>$", "", text)
+    text = re.sub(r"<code>(.*?)</code>", r"`\1`", text)
+    text = re.sub(r"<strong>(.*?)</strong>", r"**\1**", text)
+    text = re.sub(r"<[^>]+>", "", text)
+    return html.unescape(text).strip()
+
+
+def render_markdown(vignettes):
+    parts = [
+        "# CUNY Social Stories - Yearly Vignettes 2014-2025",
+        "",
+        SITE_SUBTITLE,
+        "",
+        MOTIF,
+        "",
+        "## Preface",
+        "",
+        html_fragment_to_md(PREFACE_HTML),
+        "",
+    ]
+
+    for v in vignettes:
+        parts.extend(
+            [
+                f"## {v['year']} - {v['title']}",
+                "",
+                v["body"].strip(),
+                "",
+            ]
+        )
+
+    parts.extend(["## Coda", "", html_fragment_to_md(CODA_HTML), ""])
+    return "\n".join(parts)
+
+
 def page_chrome(title, body_html, crumbs_html="", body_class=""):
     body_attr = f' class="{body_class}"' if body_class else ""
     return f"""<!DOCTYPE html>
@@ -227,7 +266,7 @@ def render_year_page(v, prev_v, next_v):
   <p class="year-chip">{v['year']}</p>
   <h1>{html.escape(v['title'])}</h1>
   <div class="meta">
-    <span class="motif">Motif: {MOTIF}</span>
+    <span class="motif">{MOTIF}</span>
     {f'<span class="subs">{subs}</span>' if subs else ''}
   </div>
   {md_to_html(v['body'])}
@@ -249,7 +288,7 @@ def render_index(vignettes):
         )
     body = f"""<main>
   <h1>{SITE_TITLE}</h1>
-  <p class="meta"><span class="motif">Motif: {MOTIF}</span>
+  <p class="meta"><span class="motif">{MOTIF}</span>
   <span>{len(vignettes)} vignettes · {vignettes[0]['year']}–{vignettes[-1]['year']}</span></p>
 
   <p><a class="read-all-link" href="all.html">Read all on one page →</a></p>
@@ -288,7 +327,7 @@ def render_single_page(vignettes):
             f'  <p class="year-chip">{v["year"]}</p>\n'
             f'  <h2>{html.escape(v["title"])}</h2>\n'
             f'  <div class="meta">\n'
-            f'    <span class="motif">Motif: {MOTIF}</span>\n'
+            f'    <span class="motif">{MOTIF}</span>\n'
             + (f'    <span class="subs">{subs}</span>\n' if subs else "")
             + f'  </div>\n  {md_to_html(v["body"])}\n</section>'
         )
@@ -386,7 +425,7 @@ def render_single_page(vignettes):
 </header>
 
 <section class="preface">
-  <p class="meta"><span class="motif">Motif: {MOTIF}</span>
+  <p class="meta"><span class="motif">{MOTIF}</span>
   <span>{len(vignettes)} vignettes · paraphrased per disguise protocol</span></p>
   <h2>Preface</h2>
   {PREFACE_HTML}
@@ -446,6 +485,10 @@ def main():
     all_out = ROOT / "all.html"
     all_out.write_text(render_single_page(vignettes), encoding="utf-8")
     written.append(all_out.name)
+
+    md_out = ROOT / "all.md"
+    md_out.write_text(render_markdown(vignettes), encoding="utf-8")
+    written.append(md_out.name)
 
     print(f"Built {len(vignettes)} vignettes ({vignettes[0]['year']}–{vignettes[-1]['year']})")
     for name in written:

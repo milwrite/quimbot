@@ -4,7 +4,7 @@ Last updated: 2026-05-12
 
 ## Status
 
-The social stories work now exists as a small static presentation package for yearly CUNY Reddit vignettes. It covers 2014 through 2025, uses the cross-year motif of **student-made scaffolding**, and keeps source prose in `_src/YYYY.md` so the presentation can be regenerated from editable research text.
+The social stories work now exists as a small static presentation package for yearly CUNY Reddit vignettes. It covers 2014 through 2025, uses the cross-year throughline of **CUNY Reddit as student-made infrastructure**, and keeps source prose in `_src/YYYY.md` so the presentation can be regenerated from editable research text.
 
 The current package is both a research artifact and a readable site:
 
@@ -19,7 +19,7 @@ The current package is both a research artifact and a readable site:
 
 The current pass built a twelve-year social-story arc from the CUNY-only Reddit corpus. The vignettes are not raw excerpts; they are paraphrased narrative accounts that preserve traceability through evidence IDs while following the dissertation's disguise protocol.
 
-The main interpretive frame is **student-made scaffolding**: students use subreddit space to make CUNY's hidden social, administrative, financial, and professional procedures usable for one another. The arc begins with belonging, registration, and commuter friendship in 2014 and ends in 2025 with peer-built registration tools, textbook-cost workarounds, and rapid interpretation of federal aid uncertainty.
+The main interpretive frame treats CUNY Reddit as **student-made infrastructure** because students use subreddit space to make CUNY's hidden social, administrative, financial, and professional procedures usable for one another. The arc begins with belonging, registration, and commuter friendship in 2014 and ends in 2025 with peer-built registration tools, textbook-cost workarounds, and rapid interpretation of federal aid uncertainty.
 
 Each yearly source file now includes:
 
@@ -43,7 +43,7 @@ Each yearly source file now includes:
 | 2022 | Return-to-Campus Logistics and Basic Needs | CUNYfirst redesign, emergency housing support, refund guidance, and return-to-campus logistics. |
 | 2023 | Digital Breakage and Career Translation | Ransomware anxiety, professor accountability, finance career advice, and post-graduation mobility. |
 | 2024 | Advising Damage and Alumni Care Work | Advisor error, degree-audit self-checking, alumni resume help, and salary transparency. |
-| 2025 | Tools for Registration and Panic Around the Safety Net | Federal aid panic, Schedule Builder add-ons, textbook workarounds, and technical/political scaffolding. |
+| 2025 | Tools for Registration and Panic Around the Safety Net | Federal aid panic, Schedule Builder add-ons, textbook workarounds, and technical and political peer infrastructure. |
 
 ## Site and Workflow Work Completed
 
@@ -60,7 +60,7 @@ The site also has shared styling in `build.py`: dark reading surface, responsive
 
 ## Planned AI-Detection Track
 
-The 2023-current AI-detection / Javabot material should become a parallel thematic track rather than being folded wholesale into the existing 2023-2025 yearly pages. The working motif is **writing process as audit trail**: students preserve drafts, timestamps, version histories, detector results, notes, and oral explanations because AI-detection software and instructor suspicion turn writing into evidence.
+The 2023-current AI-detection / Javabot material should become a parallel thematic track rather than being folded wholesale into the existing 2023-2025 yearly pages. The working throughline is **writing process as audit trail** because students preserve drafts, timestamps, version histories, detector results, notes, and oral explanations when AI-detection software and instructor suspicion turn writing into evidence.
 
 See `AI_DETECTION_INTEGRATION.md` for the proposed source structure, content map, builder changes, and chapter-level use.
 

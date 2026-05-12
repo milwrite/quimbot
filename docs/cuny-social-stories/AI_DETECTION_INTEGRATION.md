@@ -6,7 +6,7 @@ Last updated: 2026-05-12
 
 Build the Javabot / AI-detection vignettes as a **thematic track** inside the social stories project, not as replacement material for the existing 2023-2025 yearly pages.
 
-The current social-stories arc already uses 2023, 2024, and 2025 to show student-made scaffolding around digital breakage, advising damage, alumni care work, registration tools, federal-aid panic, and textbook costs. AI detection belongs inside that same dissertation argument, but it has a distinct rhythm: it starts in 2023, intensifies during finals and policy uncertainty, and turns writing process into an audit trail by 2024-2026. Treating it as a separate track keeps the main arc readable while letting AI detection develop at the density it needs.
+The current social-stories arc already uses 2023, 2024, and 2025 to show student-made infrastructure around digital breakage, advising damage, alumni care work, registration tools, federal-aid panic, and textbook costs. AI detection belongs inside that same dissertation argument, but it has a distinct rhythm as it starts in 2023, intensifies during finals and policy uncertainty, and turns writing process into an audit trail by 2024-2026. Treating it as a separate track keeps the main arc readable while letting AI detection develop at the density it needs.
 
 No local file or text string named `javabot` was found in this workspace. The current integration sources are the AI-detection narrative files under `dissertation/narratives/`.
 
@@ -143,8 +143,8 @@ This track can feed three dissertation locations:
 
 - Chapter 1: literacy-crisis discourse, digital surveillance, and the movement from student deficiency narratives into AI suspicion.
 - Chapter 2 or methods: platform affordances and evidence limits, since students are discussing detection systems through Reddit while also producing defensive records outside Reddit.
-- Later findings chapter: student-made scaffolding under AI detection, where peer advice becomes a defense kit rather than only navigational help.
+- Later findings chapter focused on student-made infrastructure under AI detection, where peer advice becomes a defense kit rather than only navigational help.
 
 The key bridge sentence for chapter prose:
 
-> Beginning in 2023, CUNY Reddit's student-made scaffolding turns toward AI detection: students do not only exchange advice about portals, holds, and registration; they learn to preserve drafts, timestamps, version histories, and explanations of style because writing itself has become an object of institutional audit.
+> Beginning in 2023, CUNY Reddit's student-made infrastructure turns toward AI detection as students do not only exchange advice about portals, holds, and registration; they learn to preserve drafts, timestamps, version histories, and explanations of style because writing itself has become an object of institutional audit.
