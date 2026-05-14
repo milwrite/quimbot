@@ -29,7 +29,7 @@ At the end of the day, detection services narrow authenticity to features algori
 
 For all their alleged sophistication, AI detectors still classify writing through statistical signals that do not hold consistently across LLMs and are easily disrupted by simple obfuscation strategies (Weber-Wulff et al.). Their unreliability, and the anxiety they produce, is therefore hardly surprising. The larger problem is that they invite us to accept a hidden standard of human writing that is at once opaque and flattening, one that treats authentic prose as a fixed object or end product.
 
-Trust is hard work in any classroom, and AI detectors make that work harder by turning a paper into a case before the conversation begins. AI detectors are but a problem dressed in its own solution, an instance of what Evgeny Morozov calls solutionism, which "presumes rather than investigates the problems that it is trying to solve" (6).
+Trust is hard work in any classroom, and AI detection only makes it harder, turning student work into an object of surveillance and jurisprudence, and patching over the fact that as a service it is little more than a problem dressed in its own solution—a case of what Evgeny Morozov calls solutionism, which "presumes rather than investigates the problems that it is trying to solve" (6).
 
 As for the LaGuardia student, their instructor cleared the paper of all charges, but not without taking a moment to warn them about Grammarly, and as it happens, the thesaurus too.
 
