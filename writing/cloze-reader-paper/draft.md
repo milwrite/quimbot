@@ -35,6 +35,10 @@ Once cloze took that form, two debates clarified what the procedure could and co
 
 The scoring debate also shifted attention to selection and clarified that deletion is never neutral. Someone, or something, decides which lexical sites will bear the weight of the test. Selection governs Cloze Reader because the game inherits the old problem in a new form. I delegate selection to a language model through instructions about difficulty, part of speech, and passage position, which locates the game inside the older argument about what counts as a meaningful blank.
 
+Researchers also studied how the deletion pattern itself shapes results. Bachman (1985) compared fixed-ratio deletion, which removes every nth word regardless of what falls on the count, against rational deletion, which targets words chosen for their grammatical or contextual role. He found that the two methods recruit different competencies, since fixed-ratio deletion often lands on function words a reader restores through local syntax, while rational deletion can require the wider textual reasoning that Oller's expectancy grammar describes. The choice of deletion pattern therefore settles in advance much of what a cloze test can measure. Cloze Reader sits closer to rational deletion, because the model selects content words under explicit constraints rather than counting to a fixed interval, and that decision shapes the reading the game asks for.
+
+A second line of research pressed on how far the recovered word reaches. Alderson (1979) found that cloze scores depended heavily on the deletion rate and the particular words removed, and that the test responded mainly to constraints inside the sentence holding the blank. Shanahan, Kamil, and Tobin (1982) sharpened the point through passages whose sentences they reordered, reporting that cloze items drew little on information beyond their own sentence. The finding complicates the larger claim, because a reader can satisfy local syntax without tracking an argument across a paragraph. I keep that limit in view because Cloze Reader inherits it. A single restored word can register as success while the surrounding passage goes unread, and the game works against that outcome by slowing the encounter rather than trusting the blank alone.
+
 The educational history also prepares the move into machine learning. Once cloze became a formal account of expectancy, its core logic could travel, and the machine learning genealogy translated that logic into a new technical vocabulary and scale.
 
 # The Machine Learning Genealogy
@@ -109,6 +113,8 @@ I end with the scene that Project Gutenberg keeps on record because it marks an 
 
 # References
 
+Alderson, J. C. (1979) 'The cloze procedure and proficiency in English as a foreign language,' TESOL Quarterly, 13(2), pp. 219–227.
+
 Bachman, L. F. (1985) 'Performance on cloze tests with fixed-ratio and rational deletions,' TESOL Quarterly, 19(3), pp. 535–556.
 
 Bommasani, R. et al. (2021) 'On the opportunities and risks of foundation models,' arXiv:2108.07258. Available at: https://arxiv.org/abs/2108.07258
@@ -180,6 +186,8 @@ Rayner, K. et al. (2012) Psychology of Reading. 2nd edn. New York: Psychology Pr
 Rebora, S. et al. (2021) 'Digital humanities and digital social reading,' Digital Scholarship in the Humanities, 36(Supplement_2), pp. ii230–ii250. Available at: https://doi.org/10.1093/llc/fqab020
 
 Rego, A. T. L., Snell, J. and Meeter, M. (2024) 'Language models outperform cloze predictability in a cognitive model of reading,' PLOS Computational Biology, 20(9), e1012117. Available at: https://doi.org/10.1371/journal.pcbi.1012117
+
+Shanahan, T., Kamil, M. L. and Tobin, A. W. (1982) 'Cloze as a measure of intersentential comprehension,' Reading Research Quarterly, 17(2), pp. 229–255.
 
 Snell, J. et al. (2018) 'OB1-reader: A model of word recognition and eye movements in text reading,' Psychological Review, 125(6), pp. 969–1013.
 
