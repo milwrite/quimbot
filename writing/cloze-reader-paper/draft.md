@@ -51,6 +51,10 @@ ELMo changed that condition by tying representation to context. Peters et al. (2
 
 By the time Devlin et al. named masked language modeling through an explicit analogy to cloze, Taylor's procedure had become infrastructure. A pedagogical test of expectancy now functioned as a dominant pretraining task, although the continuity still needs a careful account of asymmetry. Taylor examined a reader's comprehension through deletion and recovery, while BERT optimized parameter updates through the same formal structure. Cloze Reader adapts that infrastructural form into a readable event.
 
+The two procedures diverge more specifically than a change of setting suggests. When BERT predicts masked tokens, it treats the masked positions as independent given the visible context, so it factors the joint prediction into separate per-position guesses and never models how one restored word constrains another (Yang et al. 2019). It also learns from an artificial mask symbol that never appears once the model is in use, which opens a gap between the training signal and ordinary text (Yang et al. 2019). The inductive bias the objective installs is statistical before it is anything else, since Zhang and Hashimoto (2021) trace the gains from masked pretraining to the learning of co-occurrence and syntactic dependency structure rather than to a comprehension act, and they find that generic masks, not cloze-like ones, carry most of the benefit. The model improves by absorbing distributional regularity at scale, and not by reading a passage.
+
+A human reader works under different conditions. The reader restores one word at a time inside a single passage, holds the rest of the sentence as evidence rather than as further positions to fill jointly, and updates no internal parameter in the process. A person also cannot fall back on internet-scale frequency, so a blank that a model resolves through corpus statistics becomes an act of situated inference about a specific sentence, genre, and scene. Cloze Reader is built on that gap. The game runs the model's selection step at scale and at speed, then hands the recovered blank to a reader who must supply one word under comprehension pressure and at human pace. The shared cloze form lets the game hold both procedures in a single frame while keeping their difference legible, so that the lone instruction to fill in the blank names two operations carried out by two kinds of system.
+
 # Cloze Reader
 
 Cloze Reader uses a language model to generate cloze tasks and return them to human readers as exercises in contextual prediction. Public source modules document the app's passage retrieval through the Hugging Face Datasets API and its calls to Google's Gemma-3-27B model for word selection, hints, and contextualization (Cloze Reader 2026a). The same source code separates word selection, hint generation, and conversation management into different services (Cloze Reader 2026b), so the app leaves its architecture unusually legible.
@@ -196,3 +200,7 @@ Taylor, W. L. (1953) '"Cloze procedure": A new tool for measuring readability,' 
 Vygotsky, L. S. (1978) Mind in Society: The Development of Higher Psychological Processes. Cambridge, MA: Harvard University Press.
 
 Wood, D., Bruner, J. S. and Ross, G. (1976) 'The role of tutoring in problem solving,' Journal of Child Psychology and Psychiatry, 17(2), pp. 89–100.
+
+Yang, Z. et al. (2019) 'XLNet: Generalized autoregressive pretraining for language understanding,' arXiv:1906.08237. Available at: https://arxiv.org/abs/1906.08237
+
+Zhang, T. and Hashimoto, T. B. (2021) 'On the inductive bias of masked language modeling: From statistical to syntactic dependencies,' arXiv:2104.05694. Available at: https://arxiv.org/abs/2104.05694
