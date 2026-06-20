@@ -1,7 +1,22 @@
 # STATUS.md — Daily / Current Status (Quimbot workspace)
 
-**Date:** 2026-04-02 (Wed)
-**Time:** 21:00 ET (evening review)
+**Date:** 2026-06-20 (Sat)
+**Time:** 15:35 ET
+
+## Current Update
+
+**Current Task:** Cloze Reader live-draft reconciliation
+**Active Work:** Compared the live Pages draft at `https://milwrite.github.io/quimbot/cloze-reader-draft/` with the canonical working markdown at `writing/cloze-reader-paper/draft.md`, then regenerated `docs/cloze-reader-draft/index.html` from the canonical marked manuscript.
+**Completed Today:**
+- Verified the live URL and local Pages source still carried the older `Teacher-Learner Distillation for Pedagogical Modeling` version.
+- Regenerated `docs/cloze-reader-draft/index.html` from `writing/cloze-reader-paper/draft.md` with Pandoc, preserving underline markup from the marked revision.
+- Repointed the screenshot source in the generated page to `cloze-reader-screenshot-current.png`, the local asset beside `index.html`.
+- Confirmed the generated Pages source contains `Smaller Models and Task Boundaries` plus the added Abraham and Chapelle, Xie, Rae, and Squire references.
+- Confirmed the generated Pages source renders the figure caption and figure description as `<em>` text, with no literal `*Figure...*` caption bleedthrough.
+- Ran `git diff --check -- docs/cloze-reader-draft/index.html STATUS.md DEVLOG.md KANBAN.md writing/cloze-reader-paper/draft.md`; no whitespace errors reported.
+**Blockers:** GitHub Pages may need a short deployment/cache window after push before the browser URL reflects the updated source.
+**Next Handoff:** Refresh `https://milwrite.github.io/quimbot/cloze-reader-draft/` after deployment and confirm the literal figure-caption asterisks are gone.
+**Waiting On:** This was a manuscript/site sync only; no training or evaluation run occurred, and this checkout has no `RUNLOG.md` file to update.
 
 ## Since last review (3/30 19:30)
 
