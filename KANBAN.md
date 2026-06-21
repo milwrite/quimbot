@@ -1,12 +1,13 @@
 # KANBAN.md — Quimbot Project Board
 
-_Last synced: 2026-06-20 15:35 ET_
+_Last synced: 2026-06-20 20:48 ET_
 
 ## 🔜 Backlog
 
 - **Midnight cross-machine sync cron** — nightly `git pull` + `git push` on both Quimbot (Legion) and Petrarch (MBP) to keep repos mirrored to remote; repo to be made private first; exclude OpenClaw config files from sync scope
 
 ## ✅ Done
+- **Cloze reader idiomatic-flow revision** - Implemented the approved phrase-level pass in `writing/cloze-reader-paper/draft.md`, folded in the `let(s)` / `name(d)` and scoring-transition follow-up, regenerated `docs/cloze-reader-draft/index.html`, kept `held-out set` as standard evaluation wording, and verified the remaining target-word scan only reports that phrase ✅ 6/20
 - **Cloze reader draft/live reconciliation** - Compared the public Pages draft with canonical `writing/cloze-reader-paper/draft.md`; regenerated `docs/cloze-reader-draft/index.html` from the marked manuscript; verified `Teacher-Learner` is absent from the generated source, `Smaller Models and Task Boundaries` plus the newer references are present, and local figure captions render as emphasis instead of literal asterisks ✅ 6/20
 - **Cloze paper prose-section plain-style pass** - Abstract through `Continuity, Asymmetry, and Slow Reading` tightened in `writing/cloze-reader-paper/draft.md`; underline markup preserved; generic style scan leaves no prose-section hits before `References` apart from URL header advisories; `git diff --check -- writing/cloze-reader-paper/draft.md STATUS.md DEVLOG.md KANBAN.md` clean ✅ 6/12
 - **claude-cli routing bug fix** — v2026.4.2 update auto-detected Claude CLI, routed isolated sessions to nonexistent provider; gateway restart fixed it; Tuesday diss cron cycle lost ✅ 4/2
