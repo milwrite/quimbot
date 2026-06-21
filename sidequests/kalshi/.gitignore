@@ -1,8 +1,0 @@
-venv/
-__pycache__/
-*.pyc
-.env
-*.key
-logs/*.jsonl
-logs/*.log
-data/
